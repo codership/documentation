@@ -25,7 +25,7 @@ In your configuration file, (my.cnf or my.ini, depending on your system), there 
 	
 	# Basic wsrep Provider Settings
 	wsrep_provider=/usr/lib/galera/libgalera_smm.so
-	wsrep_provider_options="gcache.szie=32G;gcache.page_size=1G;"
+	wsrep_provider_options="gcache.size=32G;gcache.page_size=1G;"
 	wsrep_cluster_address=gcomm://192.168.9.1,192.168.0.2,192.168.0.3
 	wsrep_cluster_name='example_cluster'
 	wsrep_node_address='192.168.0.2'
