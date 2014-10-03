@@ -29,6 +29,7 @@ How do you recover failed nodes or a Primary Component?  How to secure communica
    pcrecovery
    quorumreset
    monitoringthecluster
+   managingfc
    schemaupgrades
    ssl
    firewallsettings
