@@ -27,7 +27,7 @@ Understanding the Primary Component State
 
 When a node stores the Primary Component state to disk, it saves it as the ``gvwstate.dat`` file.  The node creates and updates this file when the cluster forms or changes the Primary Component.  This ensures that the node retains the latest Primary Component state that it was in.  If the node loses connectivity, it has the file to reference.  If the node shuts down gracefully, it deletes the file.
 
-.. code-block:: plain
+.. code-block:: text
 
    my_uuid: d3124bc8-1605-11e4-aa3d-ab44303c044a
    #vwbeg
@@ -82,7 +82,7 @@ For example, assume that you have three nodes that you would like to start toget
 
 You would then take these values and use them to modify the ``gwstate.dat`` file on ``node1``:
 
-.. code-block:: plain
+.. code-block:: text
 
    my_uuid: d3124bc8-1605-11e4-aa3d-ab44303c044a
    #vwbeg
@@ -95,7 +95,7 @@ You would then take these values and use them to modify the ``gwstate.dat`` file
 
 Then repeat the process for ``node2``:
 
-.. code-block:: plain
+.. code-block:: text
 
    my_uuid: 47bbe2e2-1606-11e4-8593-2a6d8335bc79
    #vwbeg
@@ -108,7 +108,7 @@ Then repeat the process for ``node2``:
 
 And, the same again for ``node3``:
 
-.. code-block:: plain
+.. code-block:: text
 
    my_uuid: d3124bc8-1605-11e4-aa3d-ab44303c044a
    #vwbeg

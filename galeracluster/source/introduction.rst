@@ -78,7 +78,7 @@ Disadvantages of Synchronous Replication
 
 Traditionally, eager replication protocols coordinate nodes one operation at a time.  They use a two phase commit, or distributed locking.  A system with *x* number of nodes due to process *y* operations with a throughput of *z* transactions per second gives you:
 
-.. code-block:: plain
+.. code-block:: text
 
    messages per section = node count * operation count * transactions per second
 

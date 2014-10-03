@@ -76,13 +76,13 @@ When these conditions are met, the donor node transfers the missing transactions
 
 For example, sat that you have a node in your cluster that falls behind the cluster.  This node carries a node state that reads:
 
-.. code-block:: plain
+.. code-block:: text
 
    5a76ef62-30ec-11e1-0800-dba504cf2aab:197222
 
 Meanwhile, the current node state on the cluster reads:
 
-.. code-block:: plain
+.. code-block:: text
 
    5a76ef62-30ec-11e1-0800-dba504cf2aab:201913
 

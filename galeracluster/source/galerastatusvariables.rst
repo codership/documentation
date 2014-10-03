@@ -192,7 +192,7 @@ For example,
 
 The units are in seconds.  The format of the return value is:
 
-.. code-block:: plain
+.. code-block:: text
 
 	Minimum / Average / Maximum / Standard Deviation / Sample Size
 
