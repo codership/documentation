@@ -1,5 +1,5 @@
 =================
- Getting Started
+ Getting Started 
 =================
 .. _`getting-started`:
 

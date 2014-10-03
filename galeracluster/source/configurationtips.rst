@@ -101,7 +101,7 @@ By reducing the rate of flow control events, these settings may improve replicat
 
 
 ------------------------------------
- Using Galera Cluster with SElinux
+ Using Galera Cluster with SELinux
 ------------------------------------
 .. _`Using Galera Cluster with SElinux`:
 

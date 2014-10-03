@@ -361,7 +361,7 @@ Usually, you just fine-tune:
 
 - ``gcache.size``, that is, the size of the GCache ring buffer, which is used for Incremental State Transfer, among other things. See chapter :ref:`Galera Parameters <Galera Parameters>`.
 
-- Group communication timeouts. See chapter :ref:`WAN Replication <WAN Replication>`.
+- Group communication timeouts. See chapter :ref:`WAN Replication <wan-replication>`.
 
   See also a list of all Galera Cluster parameters in chapter :ref:`Galera Parameters <Galera Parameters>`.
 
@@ -496,7 +496,7 @@ Whether to store writesets locally for debugging. Not used in 0.8.
 .. rubric:: ``wsrep_sync_wait``
 .. _`wsrep_sync_wait`:
 .. index::
-  pair: Parameters; wsrep_sync_wait
+  pair: Parameters; wsrep_sync_waitn
 .. index::
   pair: Parameters; wsrep_causal_reads
 

@@ -60,7 +60,7 @@ To manually start the Galera Arbitrator, run the following command:
 
 .. code-block:: console
 
-    $ /etc/init.d/garb start 
+    $ /etc/init.d/garbd start 
 
 The **garbd** command can receive configuration options for settings you want to enable at start.
 

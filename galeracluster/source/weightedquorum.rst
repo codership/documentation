@@ -1,7 +1,7 @@
 ===================
  Primary Component
 ===================
-.. _`Primary Component`:
+.. _`primary-component`:
 
 In addition to single node failures, the cluster may be split into several components due to network failure. A component is a set of nodes, which are connected to each other, but not to nodes in other components. 
 
@@ -12,7 +12,7 @@ In such a situation, only one of the components can continue to modify the datab
 -------------------
  Weighted Quorum
 -------------------
-.. _`Weighted Quorum`:
+.. _`weighted-quorum`:
 .. index::
    pair: Weighted Quorum; Descriptions
 .. index::
@@ -55,7 +55,7 @@ In these partitioning examples, it is extremely rare that the number of nodes wo
 -------------------
 Quorum Calculation
 -------------------
-
+.. _`quorum-calculation`:
 .. index::
    pair: Parameters; pc.weight
 
@@ -89,7 +89,7 @@ Node weight can be customized by using the ``pc.weight`` Galera parameter. By de
 ---------------------------------
  Weighted Quorum Examples
 ---------------------------------
-.. _`Weighted Quorum Examples`:
+.. _`weighted-quorum-examples`:
 
 See below for some weighted quorum examples and use cases:
 
