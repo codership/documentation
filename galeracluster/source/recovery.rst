@@ -1,12 +1,12 @@
 ==================================
  Node Failure and Recovery
 ==================================
-.. _`Node Failure and Recovery`:
+.. _`node-failure-recovery`:
 
 --------------------
  Single Node Failure
 --------------------
-.. _`Single Node Failure`:
+.. _`single-node-failure`:
 
 A single Galera Cluster cluster node can fail to operate for a variety of reasons, such as:
 
@@ -18,19 +18,15 @@ All of these causes are generalized behind the concept of a node failure.
 
 Single Node Failure Detection
 =============================
-
+.. _`single-node-failure-detection`:
 .. index::
    pair: Parameters; evs.keepalive_period
-
 .. index::
    pair: Parameters; evs.inactive_check_period
-
 .. index::
    pair: Parameters; evs.suspect_timeout
-
 .. index::
    pair: Parameters; evs.inactive_timeout
-
 .. index::
    pair: Parameters; evs.consensus_timeout
 
@@ -52,6 +48,7 @@ The relation between the option values is::
 
 Trade-Off Between Availability and Partition Tolerance
 ======================================================
+.. _`availability-partition-tolerance`:
 
 Within the `CAP theorem`_, Galera Cluster emphasizes data safety and consistency, which leads to a trade-off between cluster availability and partition tolerance. To be more specific, in unstable networks (such as :abbr:`WAN (Wide Area Network)`) low ``evs.suspect_timeout``/``evs.inactive_timeout`` values may result in false node failure detections, whereas higher values will result in longer availability outages in the case of a real node failure.  Essentially, the ``evs.suspect_timeout`` defines the minimum time
 needed to detect a failed node, during which the cluster will be unavailable due to the consistency constraint.
@@ -60,6 +57,7 @@ needed to detect a failed node, during which the cluster will be unavailable due
 
 Recovery from a Single Node Failure
 ===================================
+.. _`recovery-single-node-failure`:
 
 If one of the nodes in the cluster fails, the other nodes will continue to operate as usual. When the failed node comes up again, it automatically synchronizes with the other nodes before it is allowed back into the cluster. No data is lost when a node fails.
 
@@ -70,7 +68,7 @@ for more information on manual node recover.
 ---------------
  Split-brain
 ---------------
-.. _`Split-brain`:
+.. _`split-brain`:
 
 A split-brain situation is a cluster failure where database nodes in the cluster begin to operate autonomously from each other.  Data can get irreparably corrupted as two different database nodes update the data independently.
 
@@ -81,7 +79,7 @@ Galera Cluster is designed to avoid split-brain situations. If a cluster is spli
 ------------------------
  State Transfer Failure
 ------------------------
-.. _`State Transfer Failure`:
+.. _`state-transfer-failure`:
 
 A failure in state transfer renders the receiving node unusable.  If a state transfer failure is detected, the receiving node will abort.
 

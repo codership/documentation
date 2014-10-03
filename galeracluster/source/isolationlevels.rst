@@ -1,28 +1,88 @@
 ====================== 
  Isolation Levels
 ======================
-.. _`Isolation Levels`:
+.. _`isolation-levels`:
 
-Isolation guarantees that transactions are processed in a reliable manner. To be more specific, it ensures that concurrently running transactions do not interfere with each other. In this way, isolation ensures data consistency. If the transactions were not
-isolated, one transaction could modify data that other transactions are reading. This would lead to data inconsistency.
+Galera Cluster handles transactions in isolation.  These isolation levels guarantee that the nodes process transactions in a reliable manner.
 
-The four isolation levels are, from lowest to highest:
+-------------------------------
+Understanding Isolation Levels
+-------------------------------
 
-- ``READ-UNCOMMITTED`` On this isolation level, transactions can see changes to data made by other transactions that are not committed yet. In other words, transactions can read data that may not eventually exist, as the other transactions can always roll-back the changes without commit. This is called a *dirty read*. ``READ-UNCOMMITTED`` has actually no real isolation at all.
+Isolation ensures that concurrently running transactions do not interfere with each other.  Because of this, it also ensures data consistency.  If the transactions were not isolated, one transaction could modify data that other transactions are reading, which would lead to data inconsistency.
 
-- ``READ-COMMITTED`` On this isolation level, dirty reads are impossible, as uncommitted changes are invisible to other transactions until the transaction is committed. However, at this isolation level, ``SELECT`` clauses use their own snapshots of committed data, committed before the ``SELECT`` clause was executed. As a result, the same ``SELECT`` clause, when run multiple times within the same transaction, can return different result sets. This is called a *non-repeatable read*.
+Galera Cluster employs four isolation levels, which are in ascending order:
 
-- ``REPEATABLE-READ`` On this isolation level, non-repeatable reads are impossible, as the snapshot for the ``SELECT`` clause is taken the first time the ``SELECT`` clause is executed during the transaction. This snapshot is used throughout the entire transaction for this ``SELECT`` clause and it always returns the same result set. This level does not take into account changes to data made by other transactions, regardless of whether they have been committed or not. In this way, reads are always repeatable.
+- :ref:`READ-UNCOMMITTED <read-uncommitted>`
+- :ref:`READ-COMMITED <read-committed>`
+- :ref:`REPEATABLE-READ <repeatable-read>`
+- :ref:`SERIALIZABLE <serializable>`
 
-- ``SERIALIZABLE`` This isolation level place locks on all records that are accessed within a transaction. ``SERIALIZABLE`` also locks the resource in a way that records cannot be appended to the table being operated on by the transaction. This level prevents a phenomenon known as a *phantom read*. A phantom read occurs when, within a transaction, two identical queries are executed, and the rows returned by the second query are different from the first.
+^^^^^^^^^^^^^^^^^^^^^^^^
+READ-UNCOMMITTED
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`read-uncommitted`:
 
-Galera Cluster uses transaction isolation on two levels:
+Here transactions can see changes to data made by other transactions that are not yet committed.  
 
-- Locally, that is, on each node, transaction isolation works as with native InnoDB. You can use all levels. The default isolation level for InnoDB is ``REPEATABLE-READ``. 
+In other words, transactions can read data that eventually may not exist, given that other transactions can always rollback the changes without commit.  This is known as a dirty read.  Effectively, ``READ-UNCOMMITTED`` has no real isolation at all.
 
-- At the cluster level, between transactions processing at separate nodes, *Galera Cluster* implements a transaction level called ``SNAPSHOT ISOLATION``. The ``SNAPSHOT ISOLATION`` level is between the ``REPEATABLE READ`` and ``SERIALIZABLE`` levels.
+^^^^^^^^^^^^^^^^^^^^^^^^
+READ-COMMITTED
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`read-committed`:
 
-  The ``SERIALIZABLE`` transaction isolation level is not supported in a multi-master use case, , not in the ``STATEMENT`` nor in the ``ROW`` format. This is due to the fact that Galera replication does not carry a transaction read set. Also, the ``SERIALIZABLE`` transaction isolation level is vulnerable for multi-master conflicts. It holds read locks and any replicated write to a read locked row will cause the transaction to abort. Hence, it is recommended not to use it in Galera Cluster.
+Here dirty reads are not possible.  Uncommitted changes remain invisible to other transactions until the transaction commits.  
+
+However, at this isolation level ``SELECT`` queries use their own snapshots of committed data, that is data committed before the ``SELECT`` query executed.  As a result, ``SELECT`` queries, when run multiple times within the same transaction, can return different result sets.  This is called a non-repeatable read.
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+REPEATABLE-READ
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`repeatable-read`:
+
+Here non-repeatable reads are not possible.  Snapshots taken for the ``SELECT`` query are taken the first time the ``SELECT`` query runs during the transaction.  
+
+The snapshot remains in use throughout the entire transaction for the ``SELECT`` query.  It always returns the same result set.  This level does not take into account changes to data made by other transactions, regardless of whether or not they have been committed.  IN this way, reads remain repeatable.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+SERIALIZABLE
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`serializable`:
+
+Here all records accessed within a transaction are locked.  The resource locks in a way that also prevents you from appending records to the table the transaction operates upon.
+
+``SERIALIZABLE`` prevents a phenomenon known as a phantom read.  Phantom reads occur when, within a transaction, two identical queries execute, and the rows the second query returns differ from the first.
+
+
+------------------------------------
+Where Isolation Levels Occur
+------------------------------------
+
+Galera Cluster uses transaction isolation at both the local and the cluster level.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Local Transaction Isolation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`local-isolation`:
+
+Transaction isolation occurs on each node at the local level of the database server.  It functions the same as with the native InnoDB storage engine.  All four levels are available.
+
+The default setting for local transaction isolation is ``REPEATABLE-READ``.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cluster Transaction Isolation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`cluster-isolation`:
+
+Transaction isolation also occurs at the cluster level.  Between transactions processing on separate nodes, Galera Cluster implements a transaction level called ``SNAPSHOT-ISOLATION``.  The ``SNAPSHOT-ISOLATION`` level occurs between ``REPEATABLE-READ`` and ``SERIALIZABLE``.
+
+The reason for this is that there is no support in the ``SERIALIZABLE`` transaction isolation level for the multi-master use case, neither in the ``STATEMENT`` nor the ``ROW`` formats.  This is due to the fact that the Galera Replication Plugin does not carry a transaction read-set.  Also, because the ``SERIALIZABLE`` transaction isolation level is vulnerable to multi-master conflicts.  It holds read locks and any replicated writes to a read locked row cause the transaction to abort.  
+
+It is recommended that you avoid using ``SERIALIZABLE`` in Galera Cluster.
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

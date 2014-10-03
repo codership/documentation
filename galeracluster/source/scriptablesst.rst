@@ -1,8 +1,8 @@
 
-==========================
+=====================================
 Scriptable State Snapshot Transfers
-==========================
-.. _`Scriptable SST`:
+=====================================
+.. _`scriptable-sst`:
 
 Galera Cluster has an interface to customize state snapshot transfer through an external script. The script assumes that the storage engine initialization on the receiving node takes place only after the state transfer is complete. In short, this transfer copies the contents of the source data directory to the destination data directory (with possible
 variations).
@@ -12,7 +12,7 @@ As of wsrep API patch level 23.7, SST parameters are named. Individual scripts c
 ---------------------------
 Common Parameters
 ---------------------------
-.. _`Common Parameters`:
+.. _`common-parameters`:
 
 These parameters are always passed to any state transfer script:
 
@@ -26,7 +26,7 @@ These parameters are always passed to any state transfer script:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Donor-specific Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`Donor Parameters`:
+.. _`donor-parameters`:
 
 These parameters are passed to the state transfer script by the state transfer process:
 
@@ -36,10 +36,10 @@ These parameters are passed to the state transfer script by the state transfer p
 
 - ``bypass`` This parameter specifies whether the actual data transfer should be skipped and only the GTID should be passed to the receiving server (to go straight to Incremental State Transfer).
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ``mysqldump``-specific Parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mysqldump parameters`:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`mysqldump-parameters`:
 
 These parameters are only passed to the ``wsrep_sst_mysqldump``:
 
@@ -58,13 +58,14 @@ These parameters are only passed to the ``wsrep_sst_mysqldump``:
 ----------------------------
 Calling Conventions
 ----------------------------
-.. _`Calling Conventions`:
+.. _`calling-conventions`:
 
 Scripts for state snapshot transfers should adhere to the following conventions.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Receiver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`receiver`:
 
 On receiving side the script should accept the following positional arguments:
 
@@ -93,6 +94,7 @@ and exit with a ``0`` exit status.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Sender
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`sender`:
 
 On the sending side the script should accept the following positional arguments:
 
@@ -128,6 +130,3 @@ In case of failure the script is expected to return a code that most closely cor
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
    
-
-
-

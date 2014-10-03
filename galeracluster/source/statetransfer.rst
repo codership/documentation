@@ -10,109 +10,130 @@
 .. role:: green
 
 ==========================
- Node Provisioning
+State Transfers
 ==========================
-.. _`Node Provisioning`:
+.. _`state-transfer`:
 
-There are two different node provisioning methods:
+The process of replicating data from the cluster to the individual node, bringing the node into sync with the cluster, is known as provisioning.  There are two methods available in Galera Cluster to provision nodes:
 
-- State Snapshot Transfer (SST), which transfers the entire node state as it is (hence "snapshot").
-
-- Incremental State Transfer (IST), which only transfers the results of transactions missing from the joining node.
-
-For more information on SST and IST, see the sections below.
+- :ref:`State Snapshot Transfers (SST) <sst>` Where a snapshot of the entire node state transfers.
+- :ref:`Incremental State Transfers (IST) <ist>` Where only the missing transactions transfer.
 
 ----------------------------------
  State Snapshot Transfer (SST)
 ----------------------------------
-.. _`State Snapshot Transfer (SST)`:
+.. _`sst`:
 
 .. index::
    pair: Parameters; wsrep_sst_method
 .. index::
    pair: State Snapshot Transfer methods; State Snapshot Transfer
 
-State Snapshot Transfer (SST) refers to a full data copy from one cluster node (donor) to the joining node (joiner). SST is used when a new node joins the cluster. To get synchronized with the cluster, the new node has to transfer data from a node that is already part of the cluster. In Galera replication, you can choose from two conceptually different ways to transfer a state from one MySQL server to another:
+In a State Snapshot Transfer (SST), the cluster provisions nodes by transferring a full data copy from one node to another.  When a new node joins the cluster, the new node initiates a State Snapshot Transfer to synchronize its data with a node that is already part of the cluster.
 
-- ``mysqldump`` requires the receiving server to be fully initialized and ready to accept connections *before* the transfer. 
+You can choose from two conceptually different approaches in Galera Cluster to transfer a state from one database to another:
 
-  ``mysqldump`` is a blocking method as the donor node becomes ``READ-ONLY`` while data is being copied from one node to another (SST applies the ``FLUSH TABLES WITH READ LOCK`` command for the donor).
+- **Logical** This method uses **mysqldump**.  It requires that you fully initialize the receiving server and ready it to accept connections *before* the transfer.
 
-  ``mysqldump`` is also the slowest SST method and, in a loaded cluster, this can be an issue.
-  
-- ``rsync`` / ``rsync_wan`` copies data files directly. This requires that the receiving server is initialized *after* the transfer.  Methods such as ``rsync``, ``rsync_wan``, ``xtrabackup`` and other methods fall into this category.
+  This is a blocking method.  The donor node becomes ``READ-ONLY`` for the duration of the transfer.  The State Snapshot Transfer applies the ``FLUSH TABLES WITH READ LOCK`` command on the donor node.
 
-  These methods are faster than ``mysqldump``, but they have certain limitations. They can only be used on server startup, the receiving server must be configured very similarly to the donor (for example, the ``innodb_file_per_table`` value must be the same, and so on). 
+  **mysqldump** is the slowest method for State Snapshot Transfers.  This can be an issue in a loaded cluster.
 
-Some of these methods, for example ``xtrabackup``, can be made non-blocking on donor. These methods are supported through a scriptable SST interface.
+- **Physical** This method uses **rsync**, **rsync_wan**, **xtrabackup** and other methods and copies the data files directly from server to server.  It requires that you initialize the receiving server *after* the transfer.
 
-.. seealso:: Chapter :ref:`Comparison of State Snapshot Transfer Methods <Comparison of State Snapshot Transfer Methods>`
-  
-You can configure the state snapshot transfer method
-with the ``wsrep_sst_method`` variable. For example:
+  This method is faster than **mysqldump**, but they have certain limitations.  You can only use them on server startup.  The receiving server requires very similar configurations to the donor, (for example, both servers must use the same ``innodb_file_per_table`` value).
+
+  Some of these methods, such as **xtrabackup** can be made non-blocking on the donor.  They are supported through a scriptable SST interface.
+
+
+.. seealso:: For more information on the particular methods available for State Snapshot Transfers, see the :ref:`Comparison <comparison-of-state-transfer-methods>`.
+
+You can set which State Snapshot Transfer method a node uses from the confirmation file.  For example:
 
 .. code-block:: ini
 
-     wsrep_sst_method=rsync_wan
+   wsrep_sst_method=rsync_wan
 
 ----------------------------------
  Incremental State Transfer (IST)
 ----------------------------------
-.. _`Incremental State Transfer (IST)`:
+.. _`ist`:
 
 .. index::
    pair: Parameters; wsrep_sst_method
 .. index::
    pair: State Snapshot Transfer methods; Incremental State Transfer
 
-Galera Cluster supports a functionality known as Incremental State Transfer.  This requires that:
+In an Incremental State Transfer (IST), the cluster provisions a node by identifying the missing transactions on the joiner and sends them only, instead of the entire state.
 
-- The joining node state UUID be the same as that of the group.
-- All of the missed write-sets can be found in the donor's write-set cache, (GCache).
+This provisioning method is only available under certain conditions:
 
-When this is the case, instead of the whole State Snapshot, a node receives only the missing write-sets and catches up with the group by replaying them.
+- Where the joiner node state UUID is the same as that of the group.
+
+- Where all missing write-sets are available in the donor's write-set cache.
+
+When these conditions are met, the donor node transfers the missing transactions alone, replaying them in order until the joiner catches up with the cluster.
+
+For example, sat that you have a node in your cluster that falls behind the cluster.  This node carries a node state that reads:
+
+.. code-block:: plain
+
+   5a76ef62-30ec-11e1-0800-dba504cf2aab:197222
+
+Meanwhile, the current node state on the cluster reads:
+
+.. code-block:: plain
+
+   5a76ef62-30ec-11e1-0800-dba504cf2aab:201913
+
+The donor node on the cluster receives the state transfer request from the joiner node.  It checks its write-set cache for the sequence number ``197223``.  If that seqno is not available in the write-set cache, a State Snapshot Transfer initiates.  If that seqno is available in the write-set cache, the donor node sends the commits from ``197223`` through to ``201913`` to the joiner, instead of the full state.
+
+The advantage of Incremental State Transfers is that they can dramatically speed up the reemerging of a node to the cluster.  Additionally, the process is non-blocking on the donor.
+
+.. note:: The most important parameter for Incremental State Transfers is ``gcache.size`` on the donor node.  This controls how much space you allocate in system memory for caching write-sets.  The more space available the more write-sets you can store.  The more write-sets you can store the wider the seqno gaps you can close through Incremental State Transfers.
+
+   On the other hand, if the write-set cache is much larger than the size of your database state, Incremental State Transfers begun less efficient than sending a state snapshot.
 
 
-For example, say that you have a node in the cluster with a node state of::
 
-    5a76ef62-30ec-11e1-0800-dba504cf2aab:197222
 
-And that the group state of the cluster read::
 
-     5a76ef62-30ec-11e1-0800-dba504cf2aab:201913
 
-If write-set number ``197223`` is still in GCache, the donor sends commits ``197223`` through ``201913`` to the joiner instead of the whole state.
-
-IST can dramatically speed up the remerging of a node to the cluster. It is also non-blocking on the donor.
-
-Perhaps the most important parameter for IST is the GCache size on the donor. The bigger it is, the more write-sets can be stored in it, and the bigger seqno gaps can be closed with IST. On the other hand, if the GCache is much bigger than the state size, serving IST may be less efficient than sending a state snapshot.
-
+^^^^^^^^^^^^^^^^^^^^^^^^^
 Write-set Cache (GCache)
-=======================
-.. _`Writeset Cache (GCache)`:
+^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`gcache`:
 .. index::
    pair: GCache; Descriptions
 .. index::
    pair: Writeset Cache; Descriptions
 
-Galera Cluster stores write sets in a special cache called Write-set Cache (GCache).  GCache is a memory allocator for write-sets and its primary purpose is to minimize the write-set footprint on the :abbr:`RAM (Random-access memory)`.  Galera Cluster also improves the offload write-set storage to disk.
+Galera Cluster stores write-sets in a special cache called the Write-set Cache, or GCache.  GCache cache is a memory allocator for write-sets.  Its primary purpose is to minimize the write-set footprint on the :abbr:`RAM (Random Access Memory)`.  Galera Cluster improves upon this through the offload write-set storage to disk.
 
-GCache has three types of stores:
+The write-set cache employs three types of storage:
 
-- A permanent in-memory store, where write-sets are allocated by the default memory allocator for the operating system. This store can be useful in systems that have spare RAM. The store has a hard size limit. By default, it is disabled.
+- **Permanent In-Memory Store** Here write-sets allocate using the default memory allocator for the operating system.  This is useful in systems that have spare :abbr:`RAM (Random Access Memory)`.  The store has a hard size limit.  
 
-- A permanent ring-buffer file, which is preallocated on disk during cache initialization. This store is intended as the main write-set store. By default, its size is 128Mb.
+  By default it is disabled.
 
-- An on-demand page store, which allocates memory-mapped page files during runtime as necessary. The default page size is 128Mb, but it can also be bigger if it needs to store a larger write-set. 
-  
-  The size of the page store is limited by the free disk space. By default, page files are deleted when not in use, but a limit can be set on the total size of the page files to keep. When all other stores are disabled, at least one page file is always present on disk.
-   
-   .. seealso:: GCache related parameter descriptions in chapter
-                :ref:`Galera Parameters <Galera Parameters>`
+- **Permanent Ring-Buffer File** Here write-sets pre-allocate to disk during cache initialization.  This is intended as the main write-set store.
 
-The allocation algorithm attempts to store write sets in the above order. If the first store does not have enough space to allocate the write-set, the allocation algorithm attempts to store it on the next store. The page store always succeeds, unless the writeset is larger than the available disk space.
+  By default, its size is 128Mb.
 
-By default, GCache allocates files in the working directory of the process, but a dedicated location can be specified (see chapter :ref:`Galera Parameters <Galera Parameters>`.
+- **On-Demand Page Store** Here write-sets allocate to memory-mapped page files during runtime as necessary.  
 
-.. note:: Since all cache files are memory-mapped, the process may
-          appear to use more memory than it actually does.
+  By default, its size is 128Mb, but can be larger if it needs to store a larger write-set.  The size of the page store is limited by the free disk space.  By default, Galera Cluster deletes page files when not in use, but you can set a limit on the total size of the page files to keep.  
+
+  When all other stores are disabled, at least one page file remains present on disk.  
+
+
+.. seealso:: For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :ref:`Galera Parameters <Galera Parameters>`.
+
+Galera Cluster uses an allocation algorithm that attempts to store write-sets in the above order.  That is, first it attempts to use permanent in-memory store.  If there is not enough space for the write-set, it attempts to store to the permanent ring-buffer file.  The page store always succeeds, unless the write-set is larger than the available disk space.
+
+By default, the write-set cache allocates files in the working directory of the process.  You can specify a dedicated location for write-set caching, using the :ref:`gcache.dir <gcache.dir>` parameter.
+
+.. note:: Given that all cache files are memory-mapped, the write-set caching process may appear to use more memory than it actually does.
+
+
+

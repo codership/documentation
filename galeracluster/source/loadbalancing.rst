@@ -1,7 +1,7 @@
 ================
  Load Balancing
 ================
-.. _`Load Balancing`:
+.. _`load-balancing`:
 .. index::
    single: Load balancing
 

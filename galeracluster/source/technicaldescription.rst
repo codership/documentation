@@ -17,7 +17,7 @@ Replication refers to the frequent copying of data from one server to another, d
 
 	introduction
 	certificationbasedreplication
-
+	architecture
 
 -----------------------------
 Understanding Galera Cluster
@@ -31,7 +31,6 @@ How does Galera Cluster actually work?  Galera uses eager replication, where the
 .. toctree::
 	:maxdepth: 2
 
-	architecture
 	isolationlevels
 	statetransfer
 	scriptablesst
