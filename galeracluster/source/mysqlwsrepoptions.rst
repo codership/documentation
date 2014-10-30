@@ -500,7 +500,7 @@ Whether to store writesets locally for debugging. Not used in 0.8.
 .. index::
   pair: Parameters; wsrep_causal_reads
 
-Enforces stric cluster-wide causality checks.  Results in larger read latencies.
+Enforces strict cluster-wide causality checks.  Results in larger read latencies.
 
 The parameter value determines the type of causality checks to run, using a bitmask:
 
