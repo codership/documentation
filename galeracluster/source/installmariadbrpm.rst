@@ -18,7 +18,7 @@ To set up the MariaDB repository, complete the following steps:
 
    .. code-block:: console
 
-	$ vim /etc/yum.repos.d/MariaDB.repos
+	$ vim /etc/yum.repos.d/MariaDB.repo
 
 2. Copy the following information into the file:
 
