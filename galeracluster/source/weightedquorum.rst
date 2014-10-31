@@ -3,11 +3,13 @@
 ===================
 .. _`primary-component`:
 
-In addition to single node failures, the cluster may be split into several components due to network failure. A component is a set of nodes, which are connected to each other, but not to nodes in other components. 
+In addition to single node failures, the cluster may split into several components due to network failure.  A component is a set of nodes that are connected to each other, but not to the nodes that form other components.  In these situations, only one component can continue to modify the database state to avoid history divergence.  This component is called the :term:`Primary Component`.
 
-In such a situation, only one of the components can continue to modify the database state to avoid history divergence. This component is called the Primary Component (PC). In normal operation, the Galera Cluster is a PC. When cluster partitioning happens, Galera Cluster invokes a special quorum algorithm to select a PC that guarantees that there is no more than one primary component in the cluster.
+Under normal operations, your :term:`Primary Component` is the cluster.  When cluster partitioning occurs, Galera Cluster invokes a special quorum algorithm to select one component as the Primary Component.  This guarantees that there is never more than one Primary Component in the cluster.
 
 .. seealso:: Chapter :ref:`Galera Arbitrator <Galera Arbitrator>`
+
+
 
 -------------------
  Weighted Quorum
@@ -20,37 +22,59 @@ In such a situation, only one of the components can continue to modify the datab
 .. index::
    single: Split-brain; Descriptions
 
-The current number of nodes in the cluster defines the current cluster size. There is no configuration setting that would define the list of all possible cluster nodes. As a result, every time a node joins the cluster, the total size of the cluster is increased and when a node leaves the cluster (gracefully) the size is decreased.
+The current number of nodes in the cluster defines the current cluster size.  There is no configuration setting that allows you to define the list of all possible cluster nodes.  Every time a node joins the cluster, the total cluster size increases.  When a node leaves the cluster, gracefully, the cluster size decreases.  Cluster size determines the number of votes required to achieve quorum.
 
-The cluster size determines the required votes to achieve quorum.  A quorum vote is carried out when a node does not respond and is suspected to no longer be part of the cluster. This no response timeout is defined by the ``evs.suspect_timeout`` setting in the ``wsrep_provider_options`` (default 5 sec).
+Galera Cluster takes a quorum vote whenever a node does not respond and is suspected of no longer being a part of the cluster.  You can fine tune this no response timeout using the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter.  The default setting is 5 seconds.
 
-If a node is determined to be disconnected, the remaining nodes cast a quorum vote. If a majority from the total nodes connected from before the disconnect remains, that partition remains up.  In the case of a network partition, there will be nodes active on both sides of the network disconnect. In this case, only the quorum will continue, the partition(s) without quorum will enter the non-Primary state and attempt to connect to the
-Primary Component.
+When the cluster takes a quorum vote, if the majority of the total nodes connected from before the disconnect remain, that partition stays up.  When network partitions occur, there are nodes active on both sides of the disconnect.  The component that has quorum alone continues to operate as the :term:`Primary Component`, while those without quorum enter the non-primary state and begin attempt to connect with the Primary Component.
+
 
 .. figure:: images/pc.png
 
-As quorum requires a majority, you cannot have automatic failover in a two node cluster. The failure of one node will cause the remaining node to go non-Primary. Furthermore, a cluster with an even number of nodes has a risk of a potential split brain condition; if
-network connectivity is lost somwhere between partitions, and the number of nodes is split exactly in half, neither partition would retain quorum, and both would go to non-Primary, as depicted in the figure below.
+Quorum requires a majority, meaning that you cannot have automatic failover in a two node cluster.  This is because the failure of one causes the remaining node automatically go into a non-primary state.
+
+Clusters that have an even number of nodes risk split-brain conditions.  If should you lose network connectivity somewhere between the partitions in a way that causes the number of nodes to split exactly in half, neither partition can retain quorum and both enter a non-primary state.
+
+
 
 .. figure:: images/splitbrain.png
 
-For automatic failover, use at least three nodes. The same applies on other infrastructure levels. For example:
+In order to enable automatic failovers, you need to use at least three nodes.  Bear in mind that this scales out to other levels of infrastructure, for the same reasons.
 
-- A cluster on a single switch should have 3 nodes
+- Single switch clusters should use a minimum of 3 nodes.
 
-- A cluster spanning switches should be spread across at least 3 switches
+- Clusters spanning switches should use a minimum of 3 switches.
 
-- A cluster spanning networks should be spread across at least 3 networks
+- Clusters spanning networks should use a minimum of 3 networks.
 
-- A cluster spanning data centers should spread across at least 3 data centers
+- Clusters spanning data centers should use a minimum of 3 data centers.
 
-To prevent the risk of a split-brain situation within a cluster that has an even number of nodes, partition the cluster in a way that one component always forms the Primary cluster section. For example (P = Primary, NP = Non-Primary):
+^^^^^^^^^^^^^^^^^^^^^^^
+Split-brain Condition
+^^^^^^^^^^^^^^^^^^^^^^^
+  
+.. _`split-brain-condition`:
 
-4 -> 3(P) + 1(NP)
-6 -> 4(P) + 2(NP)
-6 -> 5(P) + 1(NP)
+Cluster failures that result in database nodes operating autonomous of each other are called split-brain conditions.  When this occurs, data can become irreparably corrupted, such as would occur when two database nodes independently update the same row on the same table.  As is the case with any quorum-based system, Galera Cluster is subject to split-brain conditions when the quorum algorithm fails to select a :term:`Primary Component`.
 
-In these partitioning examples, it is extremely rare that the number of nodes would be split exactly in half.
+For example, this can occur if you have a cluster without a backup switch in the event that the main switch fails.  Or, when a single node fails in a two node cluster.
+
+By design, Galera Cluster avoids split-brain condition.  In the event that a failure results in splitting the cluster into two partitions of equal size, (unless you explicitly configure it otherwise), neither partition becomes a Primary Component.
+
+To minimize the risk of this happening in clusters that do have an even number of nodes, partition the cluster in a way that one component always forms the Primary cluster section.
+
+.. code-block:: text
+
+   4 node cluster -> 3 (Primary) + 1 (Non-primary)
+   6 node cluster -> 4 (Primary) + 2 (Non-primary)
+   6 node cluster -> 5 (Primary) + 1 (Non-primary)
+
+In these partitioning examples, it is very difficult for any outage or failure to cause the nodes to split exactly in half.
+
+
+.. seealso:: For more information on configuring and managing the quorum, see :ref:`How to Reset the Quorum <Resetting the Quorum>`.
+
+
 
 -------------------
 Quorum Calculation
@@ -61,29 +85,39 @@ Quorum Calculation
 
 Galera Cluster supports a weighted quorum, where each node can be assigned a weight in the 0 to 255 range, with which it will participate in quorum calculations. 
 
-The quorum calculation formula is::
+The quorum calculation formula is
 
-    (sum(p_i x w_i) - sum(l_i x w_i))/2 < sum(m_i x w_i)
+.. math::
+   \frac{ \sum_{p_i \times w_i} - \sum_{l_i \times w_i}}
+   { 2} < \sum_{m_i \times w_i}
+   
+.. The original equation read (sum(p_i * w_i) - sum(l_i * w_i)) / 2 < sum(m_i * w_i).  Remove this comment after confirming that the LaTeX renders correctly.
     
 Where:
 
-- ``p_i`` Members of the last seen primary component
+- :math:`p_i` Members of the last seen primary component;
 
-- ``l_i`` Members that are known to have left gracefully
+- :math:`l_i` Members that are known to have left gracefully;
 
-- ``m_i`` Current component members
+- :math:`m_i` Current component members; and,
 
-- ``w_i`` Member weights
+- :math:`w_i` Member weights.
 
-In other words, the quorum is preserved if (and only if) the sum weight of the nodes in a new component strictly exceeds half of that of the preceding :term:`Primary Component`, minus the nodes which left gracefully.
+What this means is that the quorum is preserved if (and only if) the sum weight of the nodes in a new component strictly exceeds half that of the preceding :term:`Primary Component`, minus the nodes which left gracefully.
 
-Node weight can be customized by using the ``pc.weight`` Galera parameter. By default, the node weight is 1, which translates into the traditional "node count" behavior.
+You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter.  By default, node weight is ``1``, which translates to the traditional node count behavior.
 
-.. note:: The node weight can be changed in runtime simply by setting the ``pc.weight`` parameter. The new weight is applied when a message carrying a weight is delivered. At the moment, there is no mechanism to notify on application of the new weight, but it will just "eventually" happen, when the message is delivered.
+.. note:: You can change node weight in runtime by setting the :ref:`pc.weight <pc.weight>` parameter.
 
-.. warning:: If a group partitions at the moment when the weight change message is delivered, all partitioned components that deliver weight change messages in the transitional view will become non-primary components. Partitions that deliver messages   in the regular view will go through the quorum computation with the applied weight when the following transitional view is delivered. In other words, there is a corner case where the entire cluster can end up in a non-primary component, if the weight changing message is sent at the moment when the partitioning takes place.
-             
-             Recovery from such a situation should be done by either waiting for a re-merge or by inspecting which partition is most advanced and by bootstrapping it as a new primary component.
+   .. code-block:: mysql
+
+      SET GLOBAL wsrep_provider_options="pc.weight=1";
+
+   Galera Cluster applies the new weight on the delivery of a message that carries a weight.  At the moment, there is no mechanism to notify the application of a new weight, but will eventually happen when the message is delivered.
+
+.. warning:: If a group partitions at the moment when the weight change message is delivered, all partitioned components that deliver weight change messages in the transitional view will become non-primary components.  Partitions that deliver messages in the regular view will go through quorum computation with the applied weight when the following transitional view is delivered.
+
+   In other words, there is a corner case where the entire cluster can become non-primary component, if the weight changing message is sent at the moment when partitioning takes place.  Recovering from such a situation should be done either by waiting for a re-merge or by inspecting which partition is most advanced and by bootstrapping it as a new Primary Component.
 
 
 ---------------------------------
@@ -91,42 +125,77 @@ Node weight can be customized by using the ``pc.weight`` Galera parameter. By de
 ---------------------------------
 .. _`weighted-quorum-examples`:
 
-See below for some weighted quorum examples and use cases:
+Now that you understand how quorum weights work, here are some examples of deployment patterns and how to use them.
 
-- Weighted quorum for three nodes::
 
-    n1: weight 2
-    n2: weight 1
-    n3: weight 0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Weighted Quorum for Three Nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`wq-three-nodes`:
+
+When configuring quorum weights for three nodes, use the following pattern:
+
+.. code-block:: text
+
+   node1: pc.weight = 2
+   node2: pc.weight = 1
+   node3: pc.weight = 0
+
+Under this pattern, killing ``node2`` and ``node3`` simultaneously preserves the Primary Component on ``node1``.  Killing ``node1`` causes ``node2`` and ``node3`` to become non-primary components.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Weighted Quorum for a Simple Master-Slave Scenario
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`wq-simple-master-slave`:
+
+When configuring quorum weights for a simple master-slave scenario, use the following pattern:
+
+.. code-block:: text
+
+   node1: pc.weight = 1
+   node2: pc.weight = 0
+
+Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary component.  However, in the event that ``node2`` dies, ``node1`` continues as the Primary Component.  If the network connection between the nodes fails, ``node1`` continues as the Primary Component while ``node2`` becomes a non-primary component.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Weighted Quorum for a Master and Multiple Slaves Scenario  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`wq-master-multi-slave`:
+
+When configuring quorum weights for a master-slave scenario that features multiple slave nodes, use the following pattern:
+
+.. code-block:: text
+		
+   node1: pc.weight = 1
+   node2: pc.weight = 0
+   node3: pc.weight = 0
+   ...
+   noden: pc.weight = 0
+
+Under this pattern, if ``node1`` dies, all remaining nodes end up as non-primary components.  If any other node dies, the Primary Component is preserved.  In the case of network partitioning, ``node1`` always remains as the Primary Component.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Weighted Quorum for a Primary and Secondary Site Scenario
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`wq-primary-secondary-site`:
+
+When configuring quorum weights for primary and secondary sites, use the following pattern:
+
+.. code-block:: text
+
+   Primary Site:
+     node1: pc.weight = 2
+     node2: pc.weight = 2
+
+   Secondary Site:
+     node3: pc.weight = 1
+     node4: pc.weight = 1
+
+
+Under this pattern, some nodes are located at the primary site while others are at the secondary site.  In the event that the secondary site goes down or if network connectivity is lost between the sites, the nodes at the primary site remain the Primary Component.  Additionally, either ``node1`` or ``node2`` can crash without the rest of the nodes becoming non-primary components.
   
-  Killing nodes ``n2`` and ``n3`` simultaneously preserves primary component on ``n1``.  Killing ``n1`` makes ``n2`` and ``n3`` become non-primary components.
-  
-- Weighted quorum for a simple master-slave scenario::
 
-    n1: weight 1
-    n2: weight 0
-  
-  If master ``n1`` dies, ``n2`` will end up become a non-primary component.  However, if ``n2`` dies, ``n1`` will continue as the primary component. If the network connection between ``n1`` and ``n2`` fails, ``n1`` will continue as the primary component and ``n2`` will become a non-primary component.
-  
-- Weighted quorum for a master and multiple slaves scenario::
 
-    n1: weight 1
-    n2: weight 0
-    n3: weight 0
-    ...
-    nn: weight 0
-
-  If ``n1`` dies, all remaining nodes end up as non-primary components.  If any other node dies, the primary component is preserved. In the case of network partitioning, n1 will always remain as a primary component.
-  
-- Weighted quorum for a primary and secondary site scenario::
-
-    n1: weight 2
-    n2: weight 2
-    n3: weight 1
-    n4: weight 1
-
-  Site 1 has nodes ``n1`` and ``n2``, site 2 has nodes ``n3`` and ``n4``. Setting node weights as above guarantees that nodes at site 1 remain the primary component if site 2 goes down or if the network between the sites fails. Also, either n1 or n2 can crash without the rest of the nodes becoming non-primary components.
-  
   
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

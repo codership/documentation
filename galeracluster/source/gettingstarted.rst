@@ -3,45 +3,32 @@
 =================
 .. _`getting-started`:
 
+Galera Cluster for MySQL is a synchronous replication solutation that can improve availability and performance of MySQL service.  All Galera Cluster nodes are identical and fully representative of the cluster and allow unconstrained transparent ``mysql`` client access, acting as a single-distributed MySQL server.  It provides:
 
-The :term:`Galera Replication Plugin` is a synchronous multi-master replication plugin for MySQL, MariaDB and Percona XtraDB.  It features:
+- Transparent client connections, so it's highly compatible with existing applications;
 
-- Unconstrained parallel application, (also known as parallel replication)
+- Synchronous data safety semantics |---| if a client received confirmation, transactions will be committed on every node; and
 
-- Multicast replication
+- Automatic write conflict detection and resolution, so that nodes are always consistent.
 
-- Automatic node provisioning
+Galera Cluster is well suited for :abbr:`LAN (Local Area Network)`, :abbr:`WAN (Wide Area Network)`, and cloud environments.  This Getting Started chapter will help you to get started with a basic Galera Cluster.  You will need root access to three Linux hosts and their IP Addresses.
 
-The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.
 
-The Galera Replication Plugin differs from the regular MySQL Replication by addressing several issues, including multi-master write conflicts, replication lag and slaves being out of sync with the master.
 
 --------------------------------------
 How Galera Cluster Works
 --------------------------------------
 .. `how-galera-works`:
 
-In a typical instance of a Galera Cluster, applications can write to any node in the cluster and transaction commits, (RBR events), are then applied to all the servers, through certification-based replication.
+The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.
+
+The Galera Replication Plugin differs from the regular MySQL Replication by addressing several issues, including multi-master write conflicts, replication lag and slaves being out of sync with the master.
 
 .. figure:: images/galerausecases1.png
 
+In a typical instance of a Galera Cluster, applications can write to any node in the cluster and transaction commits, (RBR events), are then applied to all the servers, through certification-based replication.
 
 Certification-based replication is an alternative approach to synchronous database replication, using group communication and transaction ordering techniques.
-
-
-----------------------------
-System Requirements
-----------------------------
-.. _`system-requirements`:
-
-Galera Cluster requires:
-
-- Server hardware for a minimum of three nodes
-- 100 Mbps or better network connectivity
-- Linux
-- Database server for MySQL, MariaDB or Percona XtraDB
-- wsrep API
-- Galera Replication Plugin
 
 .. note:: For security and performance reasons, it's recommended that you run Galera Cluster on its own subnet.
 
@@ -51,7 +38,16 @@ Installation
 ------------------------------
 .. _`installation`:
 
-Galera Cluster runs in Linux on MySQL, MariaDB and Percona XtraDB through the Galera Replicator Plugin.  You can install the plugin into any of these database servers through your package manager or by building it from source.
+There are three versions of Galera Cluster for MySQL: the original Codership reference implementation, Percona XtraDB Cluster, and MariaDB Galera Cluster.  Below you will find guides for installing each on Debian- and RPM-based Linux distributions, as well as a guide to building it from source.
+
+The system requirements for Galera Cluster are:
+
+- Server hardware for a minimum of three nodes;
+- 100 Mbps or better network connectivity;
+- Linux or FreeBSD;
+- Database server for MySQL, MariaDB, or Percona XtraDB;
+- wsrep API patch for the database server;
+- Galera Replication Plugin
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Galera Cluster for MySQL
@@ -66,7 +62,7 @@ Galera Cluster for MySQL
    installmysqlsrc
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Galera Cluster for MariaDB
+MariaDB Galera Cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`install-mariadb`:
 
@@ -78,7 +74,7 @@ Galera Cluster for MariaDB
    installmariadbsrc
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Galera Cluster for Percona XtraDB
+Percona XtraDB Cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`install-xtradb`:
 
@@ -88,6 +84,8 @@ Galera Cluster for Percona XtraDB
    installxtradbdeb
    installxtradbrpm
    installxtradbsrc
+
+
 
 ------------------------------
 Configuration
@@ -116,3 +114,6 @@ When you finish installation and configuration on your server, you're ready to l
    startingcluster
    testingcluster
    restartingcluster
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

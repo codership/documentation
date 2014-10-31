@@ -12,7 +12,7 @@ In Galera Cluster, you can monitor the status of write-set replication throughou
 
 	SHOW VARIABLES LIKE 'wsrep_%';
 
-To monitor for changes in cluster membership and node status, you can use the :ref:`notification-cmd`, which communicates such events to the monitoring agent.
+To monitor for changes in cluster membership and node status, you can use the :ref:`Notification Command <notification-cmd>`, which communicates such events to the monitoring agent.
 
 
 
@@ -236,7 +236,7 @@ A high value can indicate a bottleneck on the network link.  If this is the case
 ---------------------------
 Notification Command
 ---------------------------
-.. _`notification-cm`:
+.. _`notification-cmd`:
 
 Through the **mysql** client, you can check the status of your cluster, the individual nodes and the health of replication.  But, it can prove counterproductive to log into each node and run these checks.  Galera Cluster provides a notification script that allows you to automate monitoring the cluster.
 
