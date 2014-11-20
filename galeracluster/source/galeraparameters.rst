@@ -842,7 +842,7 @@ Total size of the page storage pages to keep for caching purposes. If only page 
 .. index::
    pair: Parameters; gcache.mem_size
 
-Max size of the ``malloc()`` store (read: RAM). For setups with spare RAM. 
+Max size of the ``malloc()`` store (read: RAM). For setups with spare RAM. Is buggy, don't use it!
 
 -------------------------------------
  Setting Galera Parameters in MySQL
