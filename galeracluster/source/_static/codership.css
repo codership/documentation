@@ -772,7 +772,7 @@ p.deprecated {
      * misc adjustments to admonitions
      *------------------------------------*/
 
-div.admonition p
+div.admonition p,
 div.admonition pre,
 div.admonition ul,
 div.admonition ol { margin-bottom: 5px; }
@@ -875,7 +875,8 @@ tt
 
 tt.literal
 {
-    background-color: rgba(0,0,0,.075);
+/*  Removed background color on tt.literal.  
+    background-color: rgba(0,0,0,.075);*/
     border: 1px solid rgba(0,0,0,.05);
     padding: 0px 4px;
     margin: 1px;

@@ -16,14 +16,14 @@ Before you begin installing Galera Cluster, you must first remove any existing i
 
 - ``psmisc`` The PSmisc utilities.
 - ``mysql`` The MySQL client package.
-- ``MySQL-shared-compat`` The MySQL shared compatibility libraries.
+- ``mysql-shared-compat`` The MySQL shared compatibility libraries.
 
 
 To remove an existing server, run the following command as root:
 
 .. code-block:: console
 
-	$ apt-get remove mysql-server \
+	# apt-get remove mysql-server \
 		mysql-server-core
 
 To install the package dependencies, run the following command as root::
@@ -32,7 +32,7 @@ To install the package dependencies, run the following command as root::
 
    .. code-block:: console
 
-	$ apt-get install psmisc \
+	# apt-get install psmisc \
 		mysql-client
 
 2. Go to `MySQL <http://dev.mysql.com/downloads/mysql>`_ and download the MySQL Shared Compatibility Libraries.
@@ -41,7 +41,7 @@ To install the package dependencies, run the following command as root::
 
    .. code-block:: console
 
-	$ dpkg -i mysql-shared-compat-*.deb
+	# dpkg -i mysql-shared-compat-*.deb
 
 
 ---------------------------------------------
@@ -62,8 +62,8 @@ To install Galera Cluster for MySQL, complete the following steps:
 2. Install the MySQL server package:
 
    .. code-block:: console
-
-	$ dpkg -i mysql-server-wsrep-*.deb 
+		   
+      # dpkg -i mysql-server-wsrep-*.deb 
 
 3. Go to `Galera Replicator <https://launchpad.net/galera>`_ and download the Galera plugin.
 
@@ -71,13 +71,13 @@ To install Galera Cluster for MySQL, complete the following steps:
 
    .. code-block:: console
 
-	$ dpkg -i galera-*.deb
+      # dpkg -i galera-*.deb
 
-5.  Using a text editor, add to your configuration file, (``my.cnf`` or ``my.ini``, depending on your build), the path to the Galera Replicator plugin.
+5.  Using a text editor, add to your configuration file, (that is, ``my.cnf``), the path to the Galera Replicator plugin.
 
-   .. code-block:: ini
-
-	wsrep_provider = /usr/lib/galera/libgalera_smm.so
+    .. code-block:: ini
+      
+      wsrep_provider = /usr/lib/galera/libgalera_smm.so
 
 Galera Cluster is installed on your system, you can now start MySQL.
 
@@ -91,7 +91,7 @@ If you installed Galera Cluster over an existing installation of MySQL, you must
 
 To upgrade the system tables, after you start the MySQL server run the following from the command-line:
 
-.. code-block: console
+.. code-block:: console
 
 	$ mysql_upgrade
 

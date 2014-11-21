@@ -17,7 +17,7 @@ On Debian, run the following command as root:
 
 .. code-block:: console
 
-	$ apt-get install python-software-properties
+	# apt-get install python-software-properties
 
 On Ubuntu, instead run this command:
 
@@ -31,16 +31,16 @@ After ``apt-get`` finishes running, you can begin installing the Percona reposit
 
    .. code-block:: console
 
-	$ apt-key adv --recv-keys --keyserver \
+	# apt-key adv --recv-keys --keyserver \
 		keyserver.ubuntu.com 0xcbcb082a1bb943db
 
 2. Add the repository to ``/etc/apt/sources.list``:
 
    .. code-block:: console
 
-	$ add-apt-repository \
+	# add-apt-repository \
 		'deb http://repo.percona.com/apt release_nm main'
-	$ add-apt-repository \
+	# add-apt-repository \
 		'deb-src http://repo.percona.com/apt release_nm main'
 
   - For ``release_nm`` use the distribution release name, such as ``wheezy``.  If you don't know the release name for your server, use the following command:
@@ -53,7 +53,7 @@ After ``apt-get`` finishes running, you can begin installing the Percona reposit
 
    .. code-block:: console
 
-	$ apt-get update
+	# apt-get update
 
 Packages in the Percona repository are now available to install on your server.
 
@@ -70,7 +70,7 @@ To install Galera Cluster run the following command as root:
 
 .. code-block:: console
 
-	$ apt-get install percona-xtradb-cluster
+	# apt-get install percona-xtradb-cluster
 
 Galera Cluster for Percona XtraDB is now installed on your server.
 

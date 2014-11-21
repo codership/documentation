@@ -76,11 +76,12 @@ In theory, there are several advantages that synchronous replication has over as
 Disadvantages of Synchronous Replication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Traditionally, eager replication protocols coordinate nodes one operation at a time.  They use a two phase commit, or distributed locking.  A system with *x* number of nodes due to process *y* operations with a throughput of *z* transactions per second gives you:
+Traditionally, eager replication protocols coordinate nodes one operation at a time.  They use a two phase commit, or distributed locking.  A system with :math:`n` number of nodes due to process :math:`o` operations with a throughput of :math:`t` transactions per second gives you :math:`m` messages per second with:
 
-.. code-block:: text
+.. math::
 
-   messages per section = node count * operation count * transactions per second
+   m = n \times o \times t
+
 
 What this means that any increase in the number of nodes leads to an exponential growth in the transaction response times and in the probability of conflicts and deadlock rates.
 

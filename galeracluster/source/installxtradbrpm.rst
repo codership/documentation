@@ -19,7 +19,7 @@ To set up the Percona repository, complete the following steps:
 
    .. code-block:: console
 
-	$ vim /etc/pki/rpm-gpg/RPB-GPG-KEY-percona
+	# vim /etc/pki/rpm-gpg/RPB-GPG-KEY-percona
 
 2. Copy the `Percona GPG key <https://www.percona.com/downloads/RPM-GPG-KEY-percona>`_ into the file.
 
@@ -29,7 +29,7 @@ To set up the Percona repository, complete the following steps:
 
    .. code-block:: console
 
-	$ vim /etc/yum.repos.d/Percona.repos
+	# vim /etc/yum.repos.d/Percona.repo
 
 5. Copy the following information into the file:
 
@@ -63,7 +63,7 @@ To install Galera Cluster run the following command as root:
 
 .. code-block:: console
 
-	$ yum install Percona-XtraDB-Cluster
+	# yum install Percona-XtraDB-Cluster
 
 Galera Cluster for Percona XtraDB is now installed on your server.
 

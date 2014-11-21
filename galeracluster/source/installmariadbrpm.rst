@@ -61,7 +61,7 @@ To install Galera Cluster run the following command as root:
 
 .. code-block:: console
 
-	$ yum install MariaDB-client \
+	# yum install MariaDB-client \
 		MariaDB-Galera-server \
 		galera
 

@@ -17,7 +17,7 @@ On Debian, run the following command as root:
 
 .. code-block:: console
 
-	$ apt-get install python-software-properties
+	# apt-get install python-software-properties
 
 On Ubuntu, instead run this command:
 
@@ -31,14 +31,14 @@ After ``apt-get`` finishes running, you can begin installing the MariaDB reposit
 
    .. code-block:: console
 
-	$ apt-key adv --recv-keys --keyserver \
+	# apt-key adv --recv-keys --keyserver \
 		keyserver.ubuntu.com 0xcbcb082a1bb943db
 
 2. Add the repository to ``/etc/apt/sources.list``:
 
    .. code-block:: console
 
-	$ add-apt-repository \
+	# add-apt-repository \
 		'deb http://mirror.jmu.edu/pub/mariadb/repo/version_nbr/distro_nm release_nm man'
 
 
@@ -56,7 +56,7 @@ After ``apt-get`` finishes running, you can begin installing the MariaDB reposit
 
    .. code-block:: console
 
-	$ apt-get update
+	# apt-get update
 
 Packages in the MariaDB repository are now available to install on your server.
 
@@ -82,7 +82,7 @@ To install Galera Cluster run the following command as root:
 
 .. code-block:: console
 
-	$ apt-get install mariadb-client \
+	# apt-get install mariadb-client \
 		mariadb-galera-server \
 		galera
 

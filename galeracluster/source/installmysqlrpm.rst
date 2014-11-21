@@ -15,17 +15,17 @@ Preparing Your Server
 Before you begin installing Galera Cluster, you must first remove any existing installation of MySQL server and install the packages dependencies.
 
 - ``psmisc`` The PSmisc utilities.
-- ``mysql`` The MySQL client package.
+- ``MySQL`` The MySQL client package.
 - ``MySQL-shared-compat`` The MySQL shared compatibility libraries.
 
 To remove an existing server, run the following command as root:
 
 .. code-block:: console
 
-	$ rpm --nodeps --allmatches -e \
-		mysql-server \
-		mysql-test \
-		mysql-bench
+	# rpm --nodeps --allmatches -e \
+		MySQL-server \
+		MySQL-test \
+		MySQL-bench
 
 To install the package dependencies, complete the following steps:
 
@@ -33,8 +33,8 @@ To install the package dependencies, complete the following steps:
 
    .. code-block:: console
 
-	$ yum install psmisc \
-		mysql
+	# yum install psmisc \
+		MySQL
 
 2. Go to `MySQL <http://dev.mysql.com/downloads/mysql>`_ and download the MySQL Shared Compatibility Libraries.
 
@@ -42,7 +42,7 @@ To install the package dependencies, complete the following steps:
 
    .. code-block:: console
 
-	$ rpm -i MySQL-shared-compat-*.rpm
+	# rpm -i MySQL-shared-compat-*.rpm
 
 
 ---------------------------------------------
@@ -52,7 +52,7 @@ Installing Galera Cluster for MySQL
 
 There are two packages involved in the installation of Galera Cluster for MySQL:
 
-- ``mysql-server-wsrep`` A new installation of the MySQL server, which includes a patch for write-set replication.
+- ``MySQL-server-wsrep`` A new installation of the MySQL server, which includes a patch for write-set replication.
 
 - ``galera`` The Galera Replicator plugin.
 
@@ -64,7 +64,7 @@ To install Galera Cluster for MySQL, complete the following steps:
 
    .. code-block:: console
 
-	$ rpm -i mysql-server-wsrep-*.rpm 
+	# rpm -i MySQL-server-wsrep-*.rpm 
 
 3. Go to `Galera Replicator <https://launchpad.net/g alera>`_ and download the Galera plugin.
 
@@ -72,7 +72,7 @@ To install Galera Cluster for MySQL, complete the following steps:
 
    .. code-block:: console
 
-	$ rpm -i galera-*.rpm
+	# rpm -i galera-*.rpm
 
 5. Using a text editor, add to your configuration file, (``my.cnf`` or ``my.ini``, depending on your build), the path to the Galera Replicator plugin.
 
