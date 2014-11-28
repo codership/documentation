@@ -33,70 +33,14 @@ Certification-based replication is an alternative approach to synchronous databa
 .. note:: For security and performance reasons, it's recommended that you run Galera Cluster on its own subnet.
 
 
-------------------------------
-Installation
-------------------------------
-.. _`installation`:
-
-There are three versions of Galera Cluster for MySQL: the original Codership reference implementation, Percona XtraDB Cluster, and MariaDB Galera Cluster.  Below you will find guides for installing each on Debian- and RPM-based Linux distributions, as well as a guide to building it from source.
-
-The system requirements for Galera Cluster are:
-
-- Server hardware for a minimum of three nodes;
-- 100 Mbps or better network connectivity;
-- Linux or FreeBSD;
-- Database server for MySQL, MariaDB, or Percona XtraDB;
-- wsrep API patch for the database server;
-- Galera Replication Plugin
-
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Galera Cluster for MySQL
-^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`install-mysql`:
-
-.. toctree::
-   :maxdepth: 1
-
-   installmysqldeb
-   installmysqlrpm
-   installmysqlsrc
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-MariaDB Galera Cluster
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`install-mariadb`:
-
-.. toctree::
-   :maxdepth: 1
-
-   installmariadbdeb
-   installmariadbrpm
-   installmariadbsrc
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Percona XtraDB Cluster
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`install-xtradb`:
-
-.. toctree::
-   :maxdepth: 1
-
-   installxtradbdeb
-   installxtradbrpm
-   installxtradbsrc
-
-
-
-------------------------------
-Configuration
-------------------------------
-.. _`galera-configuration`:
-
-Before you can bring Galera Cluster online, each node in the cluster requires some configuration, to grant other nodes access and to enable write-set replication on the database server.
+--------------------
+How To Get Started
+--------------------
 
 .. toctree::
    :maxdepth: 2
-
+	      
+   galerainstallation
    sysconfiguration
    dbconfiguration
 
