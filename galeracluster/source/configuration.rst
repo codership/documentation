@@ -95,15 +95,14 @@ SELinux
    pair: Configuration; SELinux
 
 If you have SELinux enabled, it may block *mysqld* from carrying out the
-required operations. Disable SELinux or configure it to allow *mysqld*
-to run external programs and open listen sockets at unprivileged ports
+required operations. Disable SELinux for mysqld or configure it to allow
+*mysqld* to run external programs and open listen sockets at unprivileged ports
 (that is, things that an unprivileged user can do). See SELinux
 documentation for more information.
 
-To disable SELinux, proceed as follows:
+To disable SELinux for mysqld_t, proceed as follows::
 
-1) run *setenforce 0* as root.
-2) set ``SELINUX=permissive`` in  */etc/selinux/config*
+    $ semanage permissive -a mysqld_t
 
 
 AppArmor

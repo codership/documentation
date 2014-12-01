@@ -22,27 +22,17 @@ Preparing the Server
 Before you begin the installation process, there are a few tasks that you need to undertake to prepare the servers for Galera Clusters.  You must perform the following steps for each node in your cluster.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Disabling SELinux
+Disabling SELinux for mysqld
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`disable-selinux`:
 
-If you have SELinux enabled, it may block ``mysqld`` from carrying out required operations.  You must either disable SELinux or configure it to allow ``mysqld`` to run external programs and open listen sockets on unprivileged ports |---| that is, things that an unprivileged user can do.
+If you have SELinux enabled, it may block ``mysqld`` from carrying out required operations.  You must either disable SELinux for mysqld or configure it to allow ``mysqld`` to run external programs and open listen sockets on unprivileged ports |---| that is, things that an unprivileged user can do.
 
-To disable SELinux run the following command:
+To disable SELinux for mysql run the following command:
 
 .. code-block:: console
 
-   # setenforce 0
-
-To set SELinux to always run in permissive mode, edit its config file:
-
-.. code-block:: ini
-
-   # vim /etc/selinux/config
-
-   SELINUX = permissive
-
-SELinux now runs by default in permissive mode.
+   # semanage permissive -a mysqld_t
 
 .. seealso:: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/selinux_and_mysql>`.  For additional information, see the SELinux.
 
