@@ -41,7 +41,7 @@ To test that Galera Cluster is working as expected, complete the following steps
 	USE galeratest;
 	CREATE TABLE test 
 		(id INT PRIMARY KEY AUTO_INCREMENT,
-		msg TEST);
+		msg TEXT);
 	INSERT INTO test (msg)
 		VALUES ("Hello my dear cluster.");
 	INSERT INTO test (msg)
