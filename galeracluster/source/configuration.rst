@@ -1,304 +1,183 @@
-======================================
-Server Configuration for Galera Cluster
-======================================
-.. _`Configuring Galera Cluster for MySQL`:
+==========================
+Configuration
+==========================
+.. _`configuration`:
 
-.. index::
-   pair: Parameters; wsrep_cluster_address
-.. index::
-   pair: Parameters; wsrep_provider
+When you have finished installing Galera Cluster on your server hardware, you are ready to configure the database itself to serve as a node in your cluster.  To do this, you will need to edit the MySQL configuration file.
 
-This chapter presents the mandatory and recommended settings
-for *Galera Cluster* installation and use. It may
-be possible to start the cluster after
-only setting the ``wsrep_provider`` and ``wsrep_cluster_address``
-variables. However, the best results can be achieved by
-fine-tuning the configuration to best match the use case.
+Using your preferred text editor, edit the ``/etc/my.cnf`` file.
 
-.. seealso:: Chapter :ref:`Galera Parameters <Galera Parameters>`.
+.. code-block:: ini
+		
+   [mysql]
+   datadir=/var/lib/mysql
+   socket=/var/lib/mysql/mysql.sock
+   user=mysql
+   binlog_format=ROW
+   bind-address=0.0.0.0
+   default-storage-engine=innodb
+   innodb_autoinc_lock_mode=2
+   wsrep_provider=/usr/lib/libgalera_smm.so
+   wsrep_cluster_name="example_cluster"
+   wsrep_cluster_address="gcomm://IP.node1,IP.node2,IP.node3"
+   wsrep_sst_method=rsync
 
-----------------------------
- Installation Configuration
-----------------------------
-.. _`Installation Configuration`:
-
-Unless you are upgrading an already installed *mysql-wsrep*
-package, you must configure the installation to prepare the
-server for operation.
-
-
-Configuration Files
-====================
-.. _`Configuration Files`:
-
-.. index::
-   pair: Configuration files; wsrep.cnf
-.. index::
-   pair: Configuration files; my.cnf
-
-Edit the *my.cnf* configuration file as follows:
-
-- Make sure that the system-wide *my.cnf* file does not bind *mysqld*
-  to 127.0.0.1. To be more specific, if you have the following line
-  in the [mysqld] section, comment it out::
-
-      #bind-address = 127.0.0.1
-
-- Make sure that the system-wide *my.cnf* file contains the line below::
-  
-    !includedir /etc/mysql/conf.d/
-
-Edit the */etc/mysql/conf.d/wsrep.cnf* configuration file as follows:
-
-- When a new node joins the cluster, it will have to receive a state
-  snapshot from one of the peers. This requires a privileged MySQL
-  account with access from the rest of the cluster. Set the *mysql*
-  login/password pair for SST in the */etc/mysql/conf.d/wsrep.cnf*
-  configuration file as follows::
-
-      wsrep_sst_auth=wsrep_sst:wspass
-
-Database Privileges
-====================
-
-Restart the MySQL server and connect to it as root to grant privileges
-to the SST account. Furthermore, empty users confuse MySQL authentication
-matching rules. Delete them::
-
-    $ mysql -e "SET wsrep_on=OFF; DELETE FROM mysql.user WHERE user='';"
-    $ mysql -e "SET wsrep_on=OFF; GRANT ALL ON *.* TO wsrep_sst@'%' IDENTIFIED BY 'wspass'";
+   [mysql_safe]
+   log-error=/var/log/mysqld.log
+   pid-file=/var/run/mysqld/mysqld.pid
 
 
-Firewall Settings
-====================
-
-.. index::
-   pair: Configuration; Firewall
-
-The *MySQL-wsrep* server must be accessible from other cluster members through
-its client listening socket and through the wsrep provider socket. See your
-distribution and wsrep provider documentation for details. For example, on
-CentOS you could use these settings::
-
-    # iptables --insert RH-Firewall-1-INPUT 1 --proto tcp --source <my IP>/24 --destination <my IP>/32 --dport 3306 -j ACCEPT
-    # iptables --insert RH-Firewall-1-INPUT 1 --proto tcp --source <my IP>/24 --destination <my IP>/32 --dport 4567 -j ACCEPT
-    # iptables --insert RH-Firewall-1-INPUT 1 --proto tcp --source <my IP>/24 --destination <my IP>/32 --dport 4568 -j ACCEPT
-
-If there is a NAT firewall between the nodes, configure it to allow
-direct connections between the nodes (for example, through port forwarding).
 
 
-SELinux
-====================
+--------------------------------
+Database Configurations
+--------------------------------
+.. _`db-config`:
 
-.. index::
-   pair: Configuration; SELinux
+There are certain basic configurations that you will need to set up in the ``/etc/my.cnf`` file.  Before starting the database server, edit the configuration file for the following:
 
-If you have SELinux enabled, it may block *mysqld* from carrying out the
-required operations. Disable SELinux for mysqld or configure it to allow
-*mysqld* to run external programs and open listen sockets at unprivileged ports
-(that is, things that an unprivileged user can do). See SELinux
-documentation for more information.
+- Ensure that ``mysqld`` is not bound to 127.0.0.1.  This is IP address for localhost.  If the configuration variable appears in the file, comment it out:
 
-To disable SELinux for mysqld_t, proceed as follows::
+  .. code-block:: ini
 
-    $ semanage permissive -a mysqld_t
+     # bind-address = 127.0.0.1
 
+- Ensure that the configuration file includes the ``conf.d/``.
 
-AppArmor
-====================
+  .. code-block:: ini
 
-.. index::
-   pair: Configuration; AppArmor
+     !includedir /etc/mysql/conf.d/
 
-AppArmor is always included in Ubuntu. It may prevent *mysqld* from
-opening additional ports or run scripts. See AppArmor documentation
-for more information on its configuration.
+- Ensure that the binary log format is set to use row-level replication, as opposed to statement-level replication.
 
-To disable AppArmor, proceed as follows::
+  .. code-block:: ini
 
-    $ cd /etc/apparmor.d/disable/
-    $ sudo ln -s /etc/apparmor.d/usr.sbin.mysqld
-    $ sudo service apparmor restart
+     binlog_format=ROW
 
+  Do not change this value, as it affects performance and consistency.  The binary log can only use row-level replication.
 
--------------------------------
- Example Configuration File
--------------------------------
-.. _`Example Configuration File`:
+- Ensure that the default storage engine is InnoDB
 
-See below for an example *my.cnf* file::
+  .. code-block:: ini
+
+     default_storage_engine=InnoDB
+
+  Galera Cluster will not work with MyISAM or similar nontransactional storage eninges.
+
+- Ensure that the InnoDB locking mode for generating auto-increment values is set to interleaved lock mode, which is designated by a ``2`` value.
+
+  .. code-block:: ini
+
+     innodb_autoinc_lock_mode=2
+
+  Do not change this value.  Other modes may cause ``INSERT`` statements on tables with ``AUTO_INCREMENT`` columns to fail.  
+
+  .. warning:: When `innodb_autoinc_lock_mode <http://dev.mysql.com/doc/refman/5.5/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode, indicated by ``0``, or to consecutive lock mode, indicated by ``1``, in Galera Cluster it can cause unresolved deadlocks and make the system unresponsive.
+
+After you save the configuration file, you are ready to configure the database privileges.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuring State Transfer Privileges
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`db-privileges`:
+
+Galera Cluster uses state transfers to send data from one database node into another.  When this occurs through the database server, such as is the case with ``mysqldump``, the node requires a user with privileges on the receiving server.
+
+Using your preferred text editor, open ``wsrep.cnf`` file, (you can find it in ``/etc/mysql/conf.d/``), and edit the authentication information:
 
 .. code-block:: ini
 
-    [mysqld]
-    # 1. Mandatory settings: these settings are REQUIRED for proper cluster operation
-    binlog_format=ROW
-    default_storage_engine=innodb
-    innodb_autoinc_lock_mode=2
-    
-    # 2. Optional mysqld settings: your regular InnoDB tuning and such
-    datadir=/mnt/mysql/data
-    innodb_buffer_pool_size=28G
-    innodb_log_file_size=100M
-    innodb_file_per_table
-    innodb_flush_log_at_trx_commit=0
+   wsrep_sst_auth = wsrep_sst-user:password
 
-    # 3. wsrep provider configuration: basic wsrep options
-    wsrep_provider=/usr/lib64/galera/libgalera_smm.so
-    wsrep_provider_options="gcache.size=32G; gcache.page_size=1G"
-    wsrep_cluster_address=gcomm://192.168.0.1,192.168.0.2,192.168.0.3
-    wsrep_cluster_name='my_galera_cluster'
-    wsrep_node_address='192.168.0.2'
-    wsrep_node_name='node2'
-    wsrep_sst_method=xtrabackup
-    wsrep_sst_auth=root:rootpa$$
-    
-    # 4. additional "frequently used" wsrep settings
-    wsrep_node_incoming_address='192.168.10.2'
-    wsrep_sst_donor='node3'
-    wsrep_slave_threads=16
+This provides the authentication information that the node requires.  Use the same value on all nodes in the cluster, as the parameter is used to authenticate both the sender and the receiver.
 
-In the example above, there are 11 *wsrep* configuration variables.
-This is usually all that is needed for clustering.
+.. seealso:: For more information on authentication for the state transfer user, see :ref:`wsrep_sst_auth <wsrep_sst_auth>`.
 
-   .. note:: Always customize the settings in section 3
-             before taking the cluster into production.
+Once you finish editing the ``wsrep.cnf`` file, start the database server and configure the privileges on the ``mysql`` tables.  If your system uses ``init``, you can start ``mysqld`` with the following command:
 
---------------------
- Mandatory Settings
---------------------
-.. _`Mandatory Settings`:
+.. code-block:: console
 
-You must give values to the settings below:
+   # service mysql start
 
-- ``binlog_format=ROW`` |---| This variable sets the binary logging
-  format to use row-level replication as opposed to statement-level
-  replication. Do not change this value, as it affects performance
-  and consistency. As a side effect to using this value, binlog, if
-  turned on, can be ROW only.
-- ``default_storage_engine=InnoDB`` |---| InnoDB is a high-reliability
-  and high-performance storage engine for MySQL. Starting with MySQL
-  5.5, it is the default MySQL storage engine.
-- ``innodb_autoinc_lock_mode=2`` |---| This variable sets the lock mode
-  to use for generating auto-increment values. Value 2 sets the interleaved
-  lock mode. Without this parameter, ``INSERT``s into tables with an
-  ``AUTO_INCREMENT`` column may fail. Lock modes 0 and 1 can cause
-  unresolved deadlocks and make the system unresponsive.
+For systems that use ``systemd``, instead use this command:
 
---------------------------
- Optional MySQL Settings
---------------------------
-.. _`Optional MySQL Settings`:
+.. code-block:: console
 
-For better performance, you can give values to the settings below:
+   # systemctl mysql start
 
-- ``datadir=/mnt/mysql/data`` |---| The MySQL data directory. 
-- ``innodb_buffer_pool_size=28G`` |---| The size in bytes of the buffer
-  pool, that is, the memory area where InnoDB caches table and index
-  data.
-- ``innodb_log_file_size=100M`` |---| The size in bytes of each log file
-  in a log group. 
-- ``innodb_file_per_table`` |---| When ``innodb_file_per_table`` is enabled,
-  InnoDB stores the data and indexes for each newly created table in
-  a separate *.ibd* file, rather than in the system tablespace. 
-- ``innodb_flush_log_at_trx_commit`` |---| This parameter
-  improves performance. The parameter defines how often the
-  log buffer is written out to the log file and how often
-  the log file is flushed onto disk. When the value is 2,
-  the log buffer is written out to the file at each commit,
-  but the flush to disk operation is not performed
-  on it, but it takes place once per second. 
+Once the server is running, you can use the database client to configure user privileges for the node, to remove empty users and create the write-set replication user for state snapshot transfers.
 
-  Compared with the default value 1, you can achieve better
-  performance by setting the value to 2, but an operating system
-  crash or a power outage can erase the last second of transactions.
-  However, this risk is handled by synchronous replication |---| you
-  can always recover the node from another node.
-  
-  .. warning:: With ``innodb_flush_log_at_trx_commit=2``, some transactions
-               can be lost if the entire cluster goes down, for example, due
-               to a datacenter power outage. 
+In the case of empty users, they create problems for database authentication matching rules.  Remove them with the following query:
 
-  Set::
+.. code-block:: mysql
 
-    ``innodb_flush_log_at_trx_commit=2``
+   SET wsrep_on=OFF;
+   DELETE FROM mysql.user WHERE user='';
+
+Next grant privileges to the write-set replication user.  Use the same username and password you used for the ``wsrep.cnf`` file.
+
+.. code-block:: mysql
+
+   SET wsrep_on=OFF;
+   GRANT ALL ON *.* TO 'wsrep_sst-user'@'%'
+      IDENTIFIED BY 'password';
+
+When the node now attempts state snap transfers, it will use this user and password to authenticate both its own access to the database and to access and manipulate data on the receiving node.  There are a few different methods used in state snapshot transfers.  This authentication only occurs in the event of ``mysqldump``.  ``rsync`` operates independent of the database and thus ignores this parameter.
+
+.. note:: While you can configure which state transfer method you want the node to use, if you choose ``rsync`` you should still configure for ``mysqldump``.  In the event of Incremental State Transfers, the cluster itself chooses whichever method will run the fastest.
+
+Once finished, shut the node down until you are ready to initialize the cluster.  For systems that use ``init``, run the following command:
+
+.. code-block:: console
+
+   # service mysql stop
+
+For systems that use ``systemd``, instead use this command:
+
+.. code-block:: console
+
+   # systemctl mysql stop
+
+.. seealso:: For more information on state snapshot and incremental state transfers, see :doc:`statetransfer`.
+
+--------------------------------
+wsrep Configurations
+--------------------------------
+.. _`wsrep-config`:
+
+For each node, you will need to make some additional configurations to enable write-set replication, such as defining the cluster and node names, addresses, and state transfer methods.
+
+- :ref:`wsrep_cluster_name <wsrep_cluster_name>` This indicates the logical cluster name.  It must be the same for every node in your cluster.  The connection fails on nodes that have different values for this parameter.
+
+  .. code-block:: ini
+
+     wsrep_cluster_name="example_cluster"
+
+- :ref:`wsrep_cluster_address <wsrep_cluster_address>` This defines the IP addresses for each node in the cluster.  For example,
+
+  .. code-block:: ini
+
+     wsrep_cluster_address="gcomm://192.168.0.1, 192.168.0.2, 192.168.0.3"
 
 
----------------------------
- wsrep Provider Settings
----------------------------
-.. _`wsrep Provider Settings`:
+- :ref:`wsrep_node_name <wsrep_node_name>` This defines the logical name for the node |---| for convenience.
 
-The basic wsrep provider settings are:
+  .. code-block:: ini
 
-- ``wsrep_provider=/usr/lib64/galera/libgalera_smm.so`` |---| The
-  path to the Galera Replication Plugin.
-- ``wsrep_cluster_address=gcomm://192.168.0.1,192.168.0.2,192.168.0.3`` |---| The
-  cluster connection URL. See chapter :ref:`Starting a Cluster <Starting a Cluster>`.
-- ``wsrep_provider_options="gcache.size=32G; gcache.page_size=1G"`` |---| A
-  string of provider options passed directly to provider.
-- ``wsrep_cluster_name='my_galera_cluster'`` |---| The logical cluster
-  name. If a node tries to connect to a cluster with a different name,
-  connection fails
-- ``wsrep_node_address='192.168.0.2'`` |---| An option to explicitly
-  specify the network address of the node if autoguessing for some
-  reason does not produce desirable results.
-- ``wsrep_node_name='node2'`` |---| The logical node name for convenience.
-- ``wsrep_sst_method=xtrabackup`` |---| The method used for state snapshot transfers.
-- ``wsrep_sst_auth=root:rootpa$$`` |---| A string with authentication
-  information for state snapshot transfer.
-  
-For better performance, you can also give values to the settings below:
+     wsrep_node_name="node1"
 
-- ``wsrep_node_incoming_address='192.168.10.2'`` |---| The address at
-  which the server expects client connections. This parameter is intended
-  for integration with load balancers. 
-- ``wsrep_sst_donor='node3'`` |---| The name of the server that should
-  be used as a source for state transfer. Give the donor node name as
-  configured with the ``wsrep_node_name`` parameter on the desired donor.
-- ``wsrep_slave_threads=16`` |---| How many threads to use for applying
-  slave writsets.
+- :ref:`wsrep_node_address <wsrep_node_address>` This parameter sets explicitly the IP address for the node.  For use in the event that auto-guessing does not produce desirable results.
 
----------------------------
- Optional Memory Settings
----------------------------
-.. _`Optional Memory Settings`:
+  .. code-block:: ini
 
-.. index::
-   pair: Performance; Memory
-.. index::
-   pair: Performance; Swap size
+     wsrep_node_address="192.168.0.1"
 
-In normal operation, a *Galera Cluster* node does not consume
-much more memory than a regular MySQL server. Additional
-memory is consumed for the certification index and uncommitted
-write sets, but usually this is not noticeable in a typical
-application. However, writeset caching during state transfer
-makes an exception.
 
-When a node is receiving a state transfer, it cannot process
-and apply incoming write sets because it has no state to
-apply them to yet. Depending on the state transfer mechanism
-(for example, *mysqldump*), the node that sends the state
-transfer may not be able to apply write sets. Instead, the
-node must cache the write sets for a catch-up phase. The
-Writeset Cache (GCache) is used to cache write sets on
-memory-mapped files on disk. These files are allocated as
-needed. In other words, the limit for the cache is the
-available disk space. Writing on disk reduces memory
-consumption.
 
-However, if you want to adjust flow control settings, adjust the
-*Galera Cluster* parameters below:
-
-- ``gcs.recv_q_hard_limit`` |---| the maximum allowed size of
-  recv queue. This should normally be half of (RAM + swap).
-  If this limit is exceeded, *Galera Cluster* will abort the server
-- ``gcs.recv_q_soft_limit`` |---| A fraction of ``gcs.recv_q_hard_limit``
-  after which replication rate will be throttled.
-- ``gcs.max_throttle`` |---| How much we can throttle the replication
-  rate during state transfer (to avoid running out of memory).
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
+
+
+
+

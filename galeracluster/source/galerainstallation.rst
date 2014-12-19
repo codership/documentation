@@ -3,23 +3,26 @@ Installation
 ==============
 .. _`galera-install-configure`:
 
-**System Requirements**:
+Galera Cluster requires server hardware for a minimum of three nodes.
 
-- Server hardware for a minimum of three nodes;
+If your cluster runs on a single switch, use three nodes.  If your cluster spans switches, use three switches.  If your cluster spans networks, use three networks.  If your cluster spans data centers, use three data centers.  This ensures that the cluster can maintain a Primary Component in the event of network outages.
+
+Each node in the cluster requires:
+
 - 100 Mbps or better network connectivity;
 - Linux or FreeBSD;
 - Database server for MySQL, MariaDB or Percona XtraDB;
-- wsrep API patch for the database server
-- Galera Replication Plugin
+- wsrep API patch for the database server;
+- Galera Replication Plugin.
 
-
+There are binary installation packages available that bundle the wsrep API with the database server.  Once you have these prerequisites ready, you can begin installing Galera Cluster.
 
 ------------------------------
 Preparing the Server
 ------------------------------
 .. _`system-requirements`:
 
-Before you begin the installation process, there are a few tasks that you need to undertake to prepare the servers for Galera Clusters.  You must perform the following steps for each node in your cluster.
+Before you begin the installation process, there are a few tasks that you need to undertake to prepare the servers for Galera Cluster.  You must perform the following steps for each node in your cluster.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Disabling SELinux for mysqld
@@ -32,7 +35,7 @@ To disable SELinux for mysql run the following command:
 
 .. code-block:: console
 
-   # semanage permissive -a mysqld_t
+   # setmanage permissive -a mysqld_t
 
 .. seealso:: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/selinux_and_mysql>`.  For additional information, see the SELinux.
 
@@ -44,7 +47,7 @@ Firewall Configurations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`firewall-config`:
 
-Next, you will need to change the firewall settings, so that the nodes cna communicate with each other and to ensure that you can interact with them.  For instance, if you use ``iptables``, complete the following steps:
+Next, you will need to change the firewall settings, so that the nodes cna communicate with each other and to ensure that you can interact with them.  For instance, if you use ``iptables`` on CentOS, complete the following steps:
 
 .. code-block:: console
 
@@ -111,6 +114,7 @@ There are three versions of Galera Cluster for MySQL: the original Codership ref
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Galera Cluster for MySQL
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. toctree::
    :maxdepth: 1
 
@@ -139,4 +143,6 @@ MariaDB Galera Cluster
 
 
 
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:
 

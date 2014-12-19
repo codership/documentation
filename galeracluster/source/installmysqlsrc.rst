@@ -3,7 +3,7 @@ Source Installation
 =========================================
 .. _'MySQL Source Installation'
 
-If you run a machine that does not support Debian- or RPM-based binary installations, you can install Galera Cluster for MySQL by compiling from source.
+Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based upon a different package management system, if your server uses a different unix-like operating system, such as Solaris or FreeBSD, you will need to build Galera Cluster for MySQL from source.
 
 
 .. note:: This tutorial omits MySQL authentication options for brevity.
@@ -13,118 +13,66 @@ Build Dependencies
 -----------------------------------------
 .. _`Build Dependencies`:
 
-In order to install Galera Cluster for MySQL from source, you must first install the build dependencies on your server.
+Before you begin building Galera Cluster for MySQL from source, you must first install the build dependencies on your server.  If your system uses a Debian-based distribution of Linux, run the following command:
 
-- System headers
-- Bash
-- GNU toolchain, gcc/g++, version 4.4 or later
-- Boost libraries, version 1.41 or later
-- `Check <http://check.sourceforge.net/>`_
-- `Scons <http://www.scons.org/>`_
+.. code-block:: console
 
-Once you have these installed, you can begin compiling Galera Cluster.
+   # apt-get build-dep mysql-server
+
+For systems that use an RPM-based distribution, instead run this command:
+
+.. code-block:: console
+
+   # yum-builddep MySQL-server
+
+For other distributions and unix-like operating systems, consult the documentation for the appropriate package manager and syntax.
+
 
 --------------------------------------------
 Building Galera Cluster for MySQL
 --------------------------------------------
 .. `Build Galera MySQL`:
 
-There are three components in compiling Galera Cluster for MySQL.  The Galera Replication plugin, the  MySQL server and the write-set replication patch for the MySQL server.
+The source code for Galera Cluster for MySQL is available through `Github <http://github.com>`_.  You can download the source code using ``git``.
 
-To build Galera Cluster, complete the following steps:
+.. code-block:: console
 
-1.  Download the Galera Replicator plugin source package from `Launchpad <https://launchpad.net/galera/+download>`_ or through Github.  For Launchpad, use:
+   $ git clone http://github.com/codership/mysql-wsrep.git
 
-    .. code-block:: console
+Once ``git`` finishes running, you can start building the database server.  You have two options for how to build Galera CLuster for MySQL.  You can use the build script, or you can build it using ``cmake``.  If you choose the build script, the command will vary depending upon your system architecture.  From the ``mysql-wsrep/`` directory, use one of the following commands:
 
-	$ wget https://launchpad.net/galera/2.x/version_nbr/+download/galera-version_nbr-src.tar.gz
+- To run the build script on a 64-bit system, use this command:
 
-    For Github, use:
+  .. code-block:: console
 
-    .. code-block:: console
-  
-	$ git clone https://github.com/codership/galera.git
-	
-    Then, extract the package:
+     # BUILD/compile-pentium64
 
-    .. code-block:: console
-	
-	$ tar zxf galera-version_nbr-src.tar.gz
+- To run the build script on a 32-bit system, instead use this command:
 
-2. In the ``galera/`` directory, run  ``scons`` to build the plugin:
+  .. code-block:: console
 
-   .. code-block:: console
+     # BUILD/compile-penitum
 
-	$ cd galera-version_nbr-src/
-	$ scons
+- To build Galera Cluster for MySQL using ``cmake``, run the following commands:
 
-3. Download and extract the MySQL source code from `MySQL <http://dev.mysql.com/downloads/mysql/>`_:
+  .. code-block:: console
 
-   .. code-block:: console
+     # cmake -DWITH_WSREP=ON -DWITH_INNODB_DISALLOW_WRITES=1
+     # make
+     # make install
 
-	$ wget http://dev.mysql.com/get/downloads/mysql-version_nbr/mysql-version_nbr.tar.gz
-	$ tar zxf mysql-version_nbr.tar.gz
-
-4. Download and uncompress the write-set replication patch for your version of MySQL from `Launchpad <https://launchpad.net/codership-mysql>`_:
-
-   .. code-block:: console
-
-	$ wget https://launchpad.net/codership-mysql/version_nbr/+download/mysql-version_nbr.patch.gz
-	$ gunzip mysql-version_nbr.patch.gz
-
-5. Apply the patch:
-
-   .. code-block:: console
-   
-	$ cd mysql-version_nbr/
-	$ patch -p0 <../mysql-version_nbr.patch
-
-   Press enter twice to skip ``.bzrignore``.  It does not exist in the tarball.  You should get results that look something like this:
-   
-   .. code-block:: console
-	
-	$ patch -p1 < ../mysql-5.6.16_wsrep_25.5.patch
-	  can't find file to patch at input line 4
-	  Perhaps you used the wrong -p or --strip option?
-	  The text leading up to this was:
-	 --------------------------
-	 |=== modified file '.bzrignore'
-	 |--- old/.bzrignore     2013-02-05 21:49:04 +0000
-	 |+++ new/.bzrignore     2013-09-01 09:27:10 +0000
-	 --------------------------
-	 File to patch:
-	 Skip this patch? [y]
-	 Skipping patch.
-	 3 out of 3 hunks ignored
-	 patching file CMakeLists.txt
-	 patching file Docs/README-wsrep
-	 patching file cmake/configure.pl
-	...
-
-6. Build the MySQL server:
-
-   .. code-block:: console
-
-	$ cmake -DWITH_WSREP=1 \
-		-DWITH_INNODB_DISALLOW_WRITES=1
-	$ make
-
-.. note:: If you are building on a server that has an existing installation of MySQL and do not want to overwrite it, run CMake with different values for ``CMAKE_INSTALL_PREFIX``, ``MYSQL_TCP_PORT`` and ``MYSQL_UNIX_ADDR`` than those used by the existing installation.
-
-Galera Cluster for MySQL is now installed on your server.
+Galera Cluster for MySQL  is now installed on your server.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Updating System Tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`Update System Tables`:
 
-If you chose to overwrite an existing installation of MySQL, you must also upgrade the system tables to the new system.
-
-To upgrade the system tables, after you start the MySQL server run the following from the command-line:
+In the event that you built Galera Cluster for MySQL over an existing installation of the MySQL server, you need to also update the system tables from standalone MySQL to Galera Cluster for MySQL.  To do, run the following command:
 
 .. code-block:: console
 
-	$ mysql_upgrade
+   $ mysql_upgrade
 
 If this command generates any errors, check the MySQL Documentation for more information related to the error messages.  The errors it generates are typically not critical and you can usually ignore them, unless they involve specific functionality that your system requires.
 

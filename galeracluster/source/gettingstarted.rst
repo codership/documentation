@@ -34,26 +34,31 @@ Certification-based replication is an alternative approach to synchronous databa
 
 
 --------------------
-How To Get Started
+Node Initialization
 --------------------
+.. _`node-initialization`:
+
+Galera Cluster for MySQL is not the same as a standard standalone MySQL database server.  You will need to install and configure additional software.  
+
+This software runs on any unix-like operating system.  You can choose to build from source or to install using Debian- or RPM-based binary packages.  Once you have the software installed on your individual server, you must also configure the server to function as a node in your cluster. 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 	      
    galerainstallation
-   sysconfiguration
-   dbconfiguration
+   configuration
 
 
 ------------------------------
-Cluster Management
+Cluster Initialization
 ------------------------------
-.. _`cluster-management`:
+.. _`cluster-initialization`:
 
-When you finish installation and configuration on your server, you're ready to launch the first node and bring the cluster online.  Once all the nodes are started, you can test that they're working and restart if necessary.
+Once you have Galera Cluster installed and configured on your servers, you are ready to initialize the cluster for operation.  You do this by starting the cluster on the first node, then adding the remaining nodes to it.
+
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    startingcluster
    testingcluster

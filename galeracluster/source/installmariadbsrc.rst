@@ -3,7 +3,7 @@ Source Installation
 =========================================
 .. _'MariaDB-Source Installation'
 
-If you run a machine that does not support Debian- or RPM-based binary installations, you can install Galera Cluster for MariaDB by compiling from source.
+MariaDB Glaera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based on a different package management system, or if it runs on a different unix-like operating system where binary installation packages are not available, such as Solaris or FreeBSD, you will need to build MariaDB Galera Cluster from source.
 
 .. note:: This tutorial omits MariaDB authentication options for brevity.
 
@@ -12,19 +12,19 @@ Build Dependencies
 -----------------------------------------
 .. _`Build Dependencies`:
 
-In order to install Galera Cluster for MariaDB from source, you must first install the build dependencies on your server.
+Before you begin building MariaDB Galera Cluster from source, you must first install the build dependencies on your server.  If your system uses a Debian-based distribution of Linux, run the following command:
 
-- bzr > 2.0
-- GNU toolchain, gcc/g++, version 4.4 or later
-- libtool, version 1.5.24 or later
-- bison, version 2.0, for MariaDB 5.5
-- libncurses
-- zlib-dev
-- Boost libraries, version 1.41 or later
-- `Check <http://check.sourceforge.net/>`_
-- `Scons <http://www.scons.org/>`_
+.. code-block:: console
 
-Once you have these installed, you can begin compiling Galera Cluster for MariaDB.
+   # apt-get build-dep mysql-server
+
+For system uses an RPM-based distribution, instead run this command:
+
+.. code-block:: console
+
+   # yum-builddep MariaDB-server
+
+For other distributions and unix-like operating systems, consult the documentation for the appropriate package manager and syntax.
 
 
 --------------------------------------------
@@ -32,66 +32,46 @@ Building the Galera Cluster for Maria DB
 --------------------------------------------
 .. _`Build Galera MariaDB`:
 
-There are two components to Galera Cluster for MariaDB.  The Galera Replication plugin, the  MariaDB server with the write-set replication patch.
+The source code for MariaDB Galera Cluster is available through Launchpad.net.  Using Bazaar with the ``branch`` argument, you can download the source code for your specific system:
 
-To build the Galera Cluster, complete the following steps:
+.. code-block:: console
 
-1. Download the Galera Replicator plugin source package from `Launchpad <https://launchpad.net/galera/+download>`_:
+   $ bzr branch lp:maria trunk
 
-   .. code-block:: console
+Once Bazaar finishes running, you can start building the database server.  You have two options for how to build MariaDB Galera Cluster.  You can use a build script or you can build it using ``cmake``.  If you choose to use a build script, the command will vary depending upon your system architecture.
 
-	$ wget https://launchpad.net/galera/2.x/version_nbr/+download/galera-version_nbr-src.tar.gz
+- To run the build script on a 64-bit system, use the following command:
 
-   For Github, use:
-   
-   .. code-block:: console
-  
-	$ git clone https://github.com/codership/galera.git
-	
-   Then, extract the package:
-   
-   .. code-block:: console
-	
-	$ tar zxf galera-version_nbr-src.tar.gz
+  .. code-block:: console
 
+     # BUILD/compile-pentium64-max
 
-2. In the ``galera/`` directory, run  ``scons`` to build the plugin:
+- To run the build script on a 32-bit system, instead use this command:
 
-   .. code-block:: console
+  .. code-block:: console
 
-	$ cd galera-version_nbr-src/
-	$ scons
+     # BUILD/compile-pentium-max
 
-3. Download and extract the MariaDB source code with the write-set replication patch from `MariaDB <http://download.mariadb.org/mariadb-galera/>`_:
+- To build MariaDB Galera Cluster using ``cmake``, run the following commands from the source code directory:
 
-   .. code-block:: console
+  .. code-block:: console
 
-	$ wget http://download.mariadb.org/mariadb-galera/version_nbr/mariadb-galera-version_nbr-linux-arch.tar.gz
-	$ tar zxf mariadb-galera-version_nbr-linux-arch.tar.gz
+     # cmake -DWITH_WSREP=ON -DWITH_INNODB_DISALLOW_WRITES=1
+     # make
+     # make install
 
-4. Build the MariaDB server:
-
-   .. code-block:: console
-
-	$ cmake -DWITH_WSREP=1 \
-		-DWITH_INNODB_DISALLOW_WRITES=1
-	$ make
-
-Galera Cluster for MariaDB is now installed on your server.
+MariaDB Galera Cluster is now installed on your server.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Updating System Tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`Update System Tables`:
 
-If you chose to overwrite an existing installation of MariaDB, you must also upgrade the system tables to the new system.
-
-To upgrade the system tables, after you start the MariaDB server run the following from the command-line:
+In the event that you built MariaDB Galera Cluster over an existing installation of MariaDB, you do still need to update the system tables from the standalone MariaDB to MariaDB Galera Cluster.  To do so, in the terminal run the following command:
 
 .. code-block:: console
 
-	$ mariadb_upgrade
+   $ mysql_upgrade
 
-If this command generates any errors, check the MariaDB Documentation for more information related to the error messages.  The errors it generates are typically not critical and you can usually ignore them, unless they involve specific functionality that your system requires.
-
+If this command generates any errors, check the MySQL Reference Manual for more information related to the error messages.  The errors it generates are typically not critical and you can usually ignore them, unless they relate to specific functionality that your system requires.
 

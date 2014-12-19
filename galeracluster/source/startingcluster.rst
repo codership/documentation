@@ -3,19 +3,24 @@ Starting the Cluster
 =====================================
 .. _`Starting a Cluster`:
 
-When your servers all have databases running and Galera Cluster installed, you are ready to start the cluster.
+When you finish installing and configuring Galera Cluster you have the databases ready for use, but they are not yet connected to each other to form a cluster.  To do this, you will need to start ``mysqld`` on one node, using the ``--wsrep-new-cluster`` option.  This initializes the new Primary Component for the cluster.  Each node you start after this will connect to the component and begin replication.
 
-The databases are not connected to each other as a cluster
+Before you attempt to initialize the cluster, check that you have the following ready:
 
-Before you begin, ensure that you have:
+- Database hosts with Galera Cluster installed, you will need a minimum of three hosts;
 
-- At least three database hosts with Galera Cluster installed.
+- No firewalls between the hosts;
 
-- No firewalls between the hosts.
+- SELinux and AppArmor set to permit access to ``mysqld``; and,
 
-- SELinux and AppArmor disabled or running in permissive mode.
+- Correct path to ``libgalera_smm.so`` given to the :ref:`wsrep_provider <wsrep_provider>` option.  For example,
 
-- Value given on each host for the ``wsrep_provider`` parameter.
+  .. code-block:: ini
+
+     wsrep_provider=/usr/lib64/libgalera_smm.so
+
+With the hosts prepared, you are ready to initialize the cluster.
+
 
 
 -------------------------------------
@@ -41,41 +46,42 @@ Starting the First Cluster Node
 -------------------------------------
 .. _`Starting First Cluster Node`:
 
-In order to create and bootstrap the first cluster node, you must set up the group communication structure for the entire cluster.
+The process for starting the first node in your cluster is different from all the others.  This is because the first requires that you use the ``--wsrep-new-cluster`` option when you launch ``mysqld``.  This starts the Primary Component for the cluster as a single node.  Each node you start afterwards connects to this component.
 
-To create and bootstrap the first cluster node, complete the following steps:
+.. note:: It does not matter which node you choose to use as your first.
 
-1. Start the database server with an empty wsrep cluster address value:
+To start the first node, launch the database server on your first node.  For systems that use ``init``, run the following command:
 
-   .. code-block:: console
+.. code-block:: console
 
-	$ mysqld --wsrep-new-cluster
+   # service mysql start --wsrep-new-cluster
 
-  .. warning:: Only use ``--wsrep-new-cluster`` when you want to create a new cluster.  Never use it when you want to reconnect to an existing one.
+For systems that use ``systemd``, instead use this command:
 
-2. To check that the startup was successful, run the following query in the client:
+.. code-block:: console
 
-   .. code-block:: mysql
+   # systemctl mysql start --wsrep-new-cluster
 
-	SHOW VARIABLES LIKE 'wsrep_cluster_address';
+This starts ``mysqld`` on the node.
 
-	 +-----------------------+----------+
-	 | Variable_name         | Value    |
-	 +-----------------------+----------+
-	 | wsrep_cluster_address | gcomm:// |
-	 +-----------------------+----------+
+.. warning:: Don't use the ``--wsrep-new-cluster`` option to start a database when you want to connect or reconnect to an existing cluster. 
 
-3. If the output is correct, use a text editor to open your configuration file, (either ``my.cnf`` or ``my.ini`` depending on your build), and add the addresses for the other nodes in the cluster:
+Once the node starts the database server, check that startup was successful by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  In the database client, run the following query:
 
-   .. code-block:: ini
+.. code-block:: mysql
 
-	wsrep_cluster_address="node2-address, node3-address"
+   SHOW STATUS LIKE 'wsrep_cluster_size';
+      
+   +--------------------+-------+
+   | Variable_name      | Value |
+   +--------------------+-------+
+   | wsrep_cluster_size | 1     |
+   +--------------------+-------+
 
-   .. note:: You can use either :abbr:`IP (Internet Protocol)` or :abbr:`DNS (Domain Name System)` addresses.
+This status variable tells you the number of nodes that are connected to the cluster.  Since you have just started your first node, the value is ``1``.
 
-The first node in your cluster is now live.
 
-	.. note:: Do not restart ``mysqld`` at this point.
+.. note:: Do not restart ``mysqld`` at this point.
 
 
 -------------------------------------
@@ -83,29 +89,37 @@ Adding Additional Nodes to the Cluster
 -------------------------------------
 .. _`Add Nodes to Cluster`:
 
-Once the first node is live, you can begin adding additional nodes to the cluster.  
+When you start the first node you initialize a new cluster.  Once this is done, the procedure for adding all the other nodes is the same.
 
-To add a new node to an existing cluster, complete the following steps:
+To add a node to an existing cluster, launch ``mysqld`` as you would normally.  If your system uses ``init``, run the following command:
 
-1. Before you start ``mysqld``, use a text editor to modify the configuration file (either ``my.cnf`` or ``my.ini``, depending on your build), to enter the addresses for the other nodes in the cluster:
+.. code-block:: console
 
-   .. code-block:: ini
+   # service mysql start
 
-	wsrep_cluster_address="node1-address, node3-address"
+For systems that use ``systemd``, instead run this command:
 
-  .. note:: You can use either :abbr:`IP (Internet Protocol)` or :abbr:`DNS (Domain Name System)` addresses.
+.. code-block:: console
 
-2. Start ``mysqld``:
+   # systemctl mysql start
 
-   .. code-block:: console
+When the database server initializes as a new node, it connects to the cluster members as defined by the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Using this parameter, it automatically retrieves the cluster map and connects to all other available nodes.
 
-	$ mysql start
+You can test that the node connection was successful using the :ref:`wsrep_cluster_size <wsrep_cluster_size>` status variable.  In the database client, run the following query:
 
-The new node connects to the cluster members as defined by the ``wsrep_cluster_address`` parameter.  It will now automatically retrieve the cluster map and reconnect to the rest of the nodes.
+.. code-block:: mysql
 
-Repeat this process for each node in the cluster.
+   SHOW STATUS LIKE 'wsrep_cluster_size';
 
-When all nodes in the cluster agree on the membership state, the they will initiate exchange.  In state exchange, the new node checks cluster state.  If the node state differs from the cluster state, (which is normally the case), the new node requests a state snapshot from the cluster and installs it.  After this, the new node is ready for use.
+   +--------------------+-------+
+   | Variable_name      | Value |
+   +--------------------+-------+
+   | wsrep_cluster_size | 2     |
+   +--------------------+-------+
+
+This indicates that the second node is now connected to the cluster.  Repeat this procedure to add the remaining nodes to your cluster.
+
+When all nodes in the cluster agree on the membership state, they initiate state exchange.  In state exchange, the new node checks the cluster state.  If the node state differs from the cluster state, (which is normally the case), the new node requests a state snapshot transfer from the cluster and it installs it on the local database.  After this is done, the new node is ready for use.
 
 
 -------------------------------------
@@ -151,3 +165,5 @@ The syntax for cluster addresses is explained below:
 
   .. note:: If the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it is not specified in the cluster address, the default port is ``4567``.
 
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:
