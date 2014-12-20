@@ -157,9 +157,15 @@ Using the string *gcomm://* without any address will cause the node to startup a
 
 .. note:: Never use an empty ``gcomm://`` string in *my.cnf*. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``gcomm://`` string on the command line, such as:
 
-	.. code-block:: console
-	
-		$ service mysql start --wsrep-cluster-address="gcomm://"
+       .. code-block:: console
+
+          # service mysql start --wsrep-new-cluster
+
+       For systems that use ``systemd``, instead use this command:
+
+       .. code-block:: console
+
+          # systemctl mysql start --wsrep-new-cluster
 
 
 .. rubric:: ``wsrep_cluster_name``
