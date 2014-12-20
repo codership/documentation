@@ -93,11 +93,11 @@ For better performance, consider using the following values for these configurat
   
   This sets InnoDB to store data and indexes for each newly created table in a separate ``.ibd`` file, rather than in the system tablespace.
 
-- ``innodb_flush_log_at_trx_commit=2``
+- ``innodb_flush_log_at_trx_commit=0``
   
   This sets the log buffer to be written out to file on each commit, but leaves the flush to disk operation to take place once per second.
 
-    .. warning:: Setting ``innodb_flush_log_at_trx_commit`` to a value of ``2`` enables better performance, but an operating system crash or power outage can erase the last second of transactions.  While normally, you can recover this data from another node, it can still be lost if the entire cluster goes down at the same time, such as in the event of a datacenter power outage.
+    .. warning:: Setting ``innodb_flush_log_at_trx_commit`` to a value of ``0`` (or ``2``) enables better performance, but an operating system crash or power outage can erase the last second of transactions.  While normally, you can recover this data from another node, it can still be lost if the entire cluster goes down at the same time, such as in the event of a datacenter power outage.
 
 ------------------------------------
 Basic wsrep Provider Settings
