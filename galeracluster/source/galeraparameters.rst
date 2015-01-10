@@ -258,6 +258,10 @@ Global variable for internal use. Should not be set manually.
 
 Log details of certification failures.
 
+.. code-block:: ini
+
+   wsrep_provider_options="cert.log_conflicts=NO"
+
 
 .. rubric:: ``debug``
 .. _`debug`:
@@ -266,6 +270,10 @@ Log details of certification failures.
 
 Enable debugging.
 
+.. code-block:: ini
+
+   wsrep_provider_options="debug=NO"
+
 
 .. rubric:: ``protonet.backend``
 .. _`protonet.backend`:
@@ -273,6 +281,10 @@ Enable debugging.
    pair: Parameters; protonet.backend
 
 Which transport backend to use. Currently only ASIO is supported.
+
+.. code-block:: ini
+
+   wsrep_provider_options="protonet.backend=asio"
 
 
 .. rubric:: ``protonet.version``
@@ -308,6 +320,10 @@ A path (absolute or relative to the working directory to a private key for a cer
 
 Whether to enable compression on SSL connections.
 
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_compression=YES"
+
 
 .. rubric:: ``socket.ssl_cipher``
 .. _`socket.ssl_cipher`:
@@ -315,6 +331,10 @@ Whether to enable compression on SSL connections.
    pair: Parameters; socket.ssl_cipher
 
 Symmetric cipher to use. AES128 is used by default it is considerably faster and no less secure than AES256.
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_cipher=AES128-SHA"
 
 
 .. rubric:: ``socket.checksum``
@@ -328,6 +348,10 @@ Checksum to use on socket layer:
 - ``1`` - CRC32
 - ``2`` - CRC-32C (optimized and potentially HW-accelerated on Intel CPUs)
 
+.. code-block:: ini
+
+   wsrep_provider_options="socket.checksum=2"
+
 
 .. rubric:: ``gmcast.listen_addr``
 .. _`gmcast.listen_addr`:
@@ -336,15 +360,21 @@ Checksum to use on socket layer:
 
 Address at which *Galera Cluster* listens to connections from other nodes. By default the port to listen at is taken from the connection address. This setting can be used to overwrite that.
 
+.. code-block:: ini
+
+   wsrep_provider_options="gmcast.listen_addr=tcp://0.0.0.0:4567"
+
 
 .. rubric:: ``gmcast.mcast_addr``
 .. _`gmcast.mcast_addr`:
 .. index::
    pair: Parameters; gmcast.mcast_addr
 
-If set, UDP multicast will be used for replication, for example::
+If set, UDP multicast will be used for replication, for example:
 
-    gmcast.mcast_addr=239.192.0.11
+.. code-block:: ini
+
+    wsrep_provider_options="gmcast.mcast_addr=239.192.0.11"
 
 The value must be the same on all nodes.
 
@@ -358,6 +388,10 @@ If you are planning to build a large cluster, we recommend using UDP.
 
 Time to live value for multicast packets.
 
+.. code-block:: ini
+	
+   wsrep_provider_options="gmcast.mcast_ttl=1"
+
 
 .. rubric:: ``gmcast.peer_timeout``
 .. _`gmcast.peer_timeout`:
@@ -366,15 +400,21 @@ Time to live value for multicast packets.
 
 Connection timeout to initiate message relaying.
 
+.. code-block:: ini
+
+   wsrep_provider_options="gmcast.peer_timeout=PT3S"
+
 
 .. rubric:: ``gmcast.segment``
 .. _`gmcast.segment`:
 .. index::
    pair: Parameters; gmcast.segment
 
-Define which network segment this node is in. Optimisations on communication are performed to minimise the amount of traffic
-between network segments including writeset relaying and IST and SST donor selection.
-The ``gmcast.segment`` value is an integer from 0 to 255. By default all nodes are placed in the same segment (0).
+Define which network segment this node is in. Optimisations on communication are performed to minimise the amount of traffic between network segments including writeset relaying and IST and SST donor selection.  The ``gmcast.segment`` value is an integer from 0 to 255. By default all nodes are placed in the same segment (0).
+
+.. code-block:: ini
+
+   wsrep_provider_options="gmcast.segment=0"
 
 
 .. rubric:: ``gmcast.time_wait``
@@ -383,6 +423,11 @@ The ``gmcast.segment`` value is an integer from 0 to 255. By default all nodes a
    pair: Parameters; gmcast.time_wait
 
 Time to wait until allowing peer declared outside of stable view to reconnect.
+
+.. code-block:: ini
+
+   wsrep_provider_options="gmcast.time_wait=PT5S"
+
 
 .. rubric:: ``gmcast.version``
 .. _`gmcast.version`:
@@ -402,6 +447,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 For developer use only. Defaults to ``evs.keepalive_period``.
 
 
+
 .. rubric:: ``evs.consensus_timeout``
 .. _`evs.consensus_timeout`:
 .. index::
@@ -409,9 +455,13 @@ For developer use only. Defaults to ``evs.keepalive_period``.
 
 Timeout on reaching the consensus about cluster membership.
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.consensus_timeout=PT30S"
+
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
-.. seealso:: This feature has been **deprecated**. Succeeded by :ref:`evs.install_timeout <evs.install_timeout>`.
+.. seealso:: This feature has been **deprecated**. It is succeeded by :ref:`evs.install_timeout <evs.install_timeout>`.
 
 
 .. rubric:: ``evs.debug_log_mask``
@@ -420,6 +470,10 @@ This variable is mostly used for troubleshooting purposes and should not be impl
    pair: Parameters; evs.debug_log_mask
 
 Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.debug_log_mask=0x1"
 
 
 
@@ -430,6 +484,10 @@ Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
 
 How often to check for peer inactivity.
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.inactive_check_period=PT1S"
+
 
 .. rubric:: ``evs.inactive_timeout``
 .. _`evs.inactive_timeout`:
@@ -437,6 +495,10 @@ How often to check for peer inactivity.
    pair: Parameters; evs.inactive_timeout
 
 Hard limit on the inactivity period, after which the node is pronounced dead.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.inactive_timeout=PT15S"
 
 
 .. rubric:: ``evs.info_log_mask``
@@ -451,6 +513,9 @@ Control extra EVS info logging. Bits:
 - ``0x4`` Provides statistics
 - ``0x8`` Provides profiling (only in builds with profiling enabled)
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.info_log_mask=0x4"
 
 .. rubric:: ``evs.install_timeout``
 .. _`evs.install_timeout`:
@@ -458,6 +523,11 @@ Control extra EVS info logging. Bits:
    pair: Parameters; evs.install_timeout
 
 Timeout on waiting for install message acknowledgments. 
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.install_timeout=PT15S"
+
 
 .. seealso:: This parameter is the successor to :ref:`evs.consensus_timeout <evs.consensus_timeout>`.
 
@@ -469,6 +539,10 @@ Timeout on waiting for install message acknowledgments.
 
 How often to retransmit EVS join messages when forming the cluster membership.
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.join_retrans_period=PT1S"
+
 
 .. rubric:: ``evs.keepalive_period``
 .. _`evs.keepalive_period`:
@@ -477,6 +551,9 @@ How often to retransmit EVS join messages when forming the cluster membership.
 
 How often to emit keepalive beacons (in the absence of any other traffic).
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.keepalive_period=PT1S"
 
 .. rubric:: ``evs.max_install_timeouts``
 .. _`evs.max_install_timeouts`:
@@ -485,6 +562,10 @@ How often to emit keepalive beacons (in the absence of any other traffic).
 
 How many membership install rounds to try before giving up (total rounds will be ``evs.max_install_timeouts`` + 2).
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.max_install_timeouts=1"
+
 
 .. rubric:: ``evs.send_window``
 .. _`evs.send_window`:
@@ -492,6 +573,10 @@ How many membership install rounds to try before giving up (total rounds will be
    pair: Parameters; evs.send_window
 
 Maximum packets in replication at a time. For WAN setups may be set considerably higher, e.g. 512.  Must be no less than ``evs.user_send_window``.  If you must use other that the default value, we recommend using double the ``evs.user_send_window`` value.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.send_window=4"
 
 .. seealso:: :ref:`evs.user_send_window <evs.user_send_window>`.
 
@@ -503,6 +588,10 @@ Maximum packets in replication at a time. For WAN setups may be set considerably
 
 Control period of EVS statistics reporting.  The node is pronounced dead.
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.stats_report_period=PT1M"
+
 
 .. rubric:: ``evs.suspect_timeout``
 .. _`evs.suspect_timeout`:
@@ -510,6 +599,10 @@ Control period of EVS statistics reporting.  The node is pronounced dead.
    pair: Parameters; evs.suspect_timeout
 
 Inactivity period after which the node is *suspected* to be dead. If all remaining nodes agree on that, the node is dropped out of cluster before ``evs.inactive_timeout`` is reached.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.suspect_timeout=PT5S"
 
 
 .. rubric:: ``evs.use_aggregate``
@@ -519,6 +612,10 @@ Inactivity period after which the node is *suspected* to be dead. If all remaini
 
 Aggregate small packets into one, when possible.
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.use_aggregate=TRUE"
+
 
 .. rubric:: ``evs.user_send_window``
 .. _`evs.user_send_window`:
@@ -526,6 +623,10 @@ Aggregate small packets into one, when possible.
    pair: Parameters; evs.user_send_window
 
 Maximum data packets in replication at a time. For WAN setups, this value can be set considerably higher, to, for example, 512.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.user_send_window=2"
 
 .. seealso:: :ref:`evs.send_window <evs.send_window>`.
 
@@ -536,6 +637,10 @@ Maximum data packets in replication at a time. For WAN setups, this value can be
    pair: Parameters; evs.view_forget_timeout
 
 Drop past views from the view history after this timeout.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.view_forget_timeout=PT5M"
 
 
 .. rubric:: ``evs.version``
@@ -558,6 +663,10 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file.  The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.  
 
+.. code-block:: ini
+
+   wsrep_provider_options="pc.recovery=TRUE"
+
 This allows for:
 
 - Automatic recovery from full cluster crashes, such as in the case of a data center power outage.
@@ -574,7 +683,12 @@ This allows for:
 .. index::
    pair: Parameters; pc.bootstrap
 
-If you set this value to *true* is a signal to turn a ``NON-PRIMARY`` component into ``PRIMARY``.
+If you set this value to ``TRUE`` is a signal to turn a ``NON-PRIMARY`` component into ``PRIMARY``.
+
+.. code-block:: ini
+
+   wsrep_provider_options="pc.bootstrap=TRUE"
+
 
 
 .. rubric:: ``pc.announce_timeout``
@@ -584,6 +698,10 @@ If you set this value to *true* is a signal to turn a ``NON-PRIMARY`` component 
 
 Cluster joining announcements are sent every 1/2 second for this period of time or less if the other nodes are discovered.
 
+.. code-block:: ini
+
+   wsrep_provider_options="pc.announce_timeout=PT3S"
+
 
 .. rubric:: ``pc.checksum``
 .. _`pc.checksum`:
@@ -591,6 +709,10 @@ Cluster joining announcements are sent every 1/2 second for this period of time 
    pair: Parameters; pc.checksum
 
 Checksum replicated messages.
+
+.. code-block:: ini
+
+   wsrep_provider_options="pc.checksum=TRUE"
 
 
 .. rubric:: ``pc.ignore_sb``
@@ -600,6 +722,11 @@ Checksum replicated messages.
 
 Should we allow nodes to process updates even in the case of split brain? This is a dangerous setting in multi-master setup, but should simplify things in master-slave cluster (especially if only 2 nodes are used).
 
+.. code-block:: ini
+
+   wsrep_provider_options="pc.ignore_sb=FALSE"
+
+
 
 .. rubric:: ``pc.ignore_quorum``
 .. _`pc.ignore_quorum`:
@@ -607,6 +734,10 @@ Should we allow nodes to process updates even in the case of split brain? This i
    pair: Parameters; pc.ignore_quorum
 
 Completely ignore quorum calculations. For example if the master splits from several slaves it still remains operational. Use with extreme caution even in master-slave setups, as slaves will not automatically reconnect to master in this case.
+
+.. code-block:: ini
+
+   wsrep_provider_options="pc.ignore_quorum=FALSE"
 
 
 .. rubric:: ``pc.linger``
@@ -616,6 +747,10 @@ Completely ignore quorum calculations. For example if the master splits from sev
 
 The period for which the PC protocol waits for the EVS termination.
 
+.. code-block:: ini
+
+   wsrep_provider_options="pc.linger=PT2S"
+
 
 .. rubric:: ``pc.npvo``
 .. _`pc.npvo`:
@@ -624,14 +759,21 @@ The period for which the PC protocol waits for the EVS termination.
 
 If set to ``TRUE``, the more recent primary component overrides older ones in the case of conflicting primaries. 
 
+.. code-block:: ini
+
+   wsrep_provider_options="pc.npvo=FALSE"
+
 
 .. rubric:: ``pc.wait_prim``
 .. _`pc.wait_prim`:
 .. index::
    pair: Parameters; pc.wait_prim
 
-If set to ``TRUE``, the node waits for the ``pc.wait_prim_timeout`` time period. Useful to bring up a
-non-primary component and make it primary with ``pc.bootstrap``.
+If set to ``TRUE``, the node waits for the ``pc.wait_prim_timeout`` time period. Useful to bring up a non-primary component and make it primary with ``pc.bootstrap``.
+
+.. code-block:: ini
+
+   wsrep_provider_options="pc.wait_prim=FALSE"
 
 
 .. rubric:: ``pc.wait_prim_timeout``
@@ -641,6 +783,10 @@ non-primary component and make it primary with ``pc.bootstrap``.
 
 The period of time to wait for a primary component.
 
+.. code-block:: ini
+
+   wsrep_provider_options="pc.wait_prim_timeout=PT30S"
+
 
 .. rubric:: ``pc.weight``
 .. _`pc.weight`:
@@ -648,6 +794,10 @@ The period of time to wait for a primary component.
    pair: Parameters; pc.weight
 
 As of version 2.4. Node weight for quorum calculation.
+
+.. code-block:: ini
+
+   wsrep_provider_options="pc.weight=1"
 
 
 .. rubric:: ``pc.version``
@@ -667,6 +817,10 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 Post debug statistics about SST flow every this number of writesets. 
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.fc_debug=0"
+
 
 .. rubric:: ``gcs.fc_factor``
 .. _`gcs.fc_factor`:
@@ -674,6 +828,11 @@ Post debug statistics about SST flow every this number of writesets.
    pair: Parameters; gcs.fc_factor
 
 Resume replication after recv queue drops below this fraction of ``gcs.fc_limit``.
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.fc_factor=0.5"
+
 
 
 
@@ -684,6 +843,11 @@ Resume replication after recv queue drops below this fraction of ``gcs.fc_limit`
 
 Pause replication if recv queue exceeds this number of  writesets. For master-slave setups this number can be increased considerably.
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.fc_limit=16"
+
+
 
 .. rubric:: ``gcs.fc_master_slave``
 .. _`gcs.fc_master_slave`:
@@ -692,6 +856,10 @@ Pause replication if recv queue exceeds this number of  writesets. For master-sl
 
 Should we assume that there is only one master in the group?
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.fc_master_slave=NO"
+
 
 .. rubric:: ``gcs.max_packet_size``
 .. _`gcs.max_packet_size`:
@@ -699,6 +867,11 @@ Should we assume that there is only one master in the group?
    pair: Parameters; gcs.max_packet_size
 
 All writesets exceeding that size will be fragmented.
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.max_packet_size=32616"
+
 
 
 .. rubric:: ``gcs.max_throttle``
@@ -709,6 +882,10 @@ All writesets exceeding that size will be fragmented.
 
 How much to throttle replication rate during state transfer (to avoid running out of memory). Set the value to 0.0 if stopping replication is acceptable for completing state transfer. 
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.max_throttle=0.25"
+
 
 .. rubric:: ``gcs.recv_q_hard_limit``
 .. _`gcs.recv_q_hard_limit`:
@@ -717,6 +894,11 @@ How much to throttle replication rate during state transfer (to avoid running ou
 
 Maximum allowed size of recv queue. This should normally be half of (RAM + swap). If this limit is exceeded, Galera Cluster will abort the server.
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.recv_q_hard_limit=LLONG_MAX"
+
+
 
 .. rubric:: ``gcs.recv_q_soft_limit``
 .. _`gcs.recv_q_soft_limit`:
@@ -724,6 +906,10 @@ Maximum allowed size of recv queue. This should normally be half of (RAM + swap)
    pair: Parameters; gcs.recv_q_soft_limit
 
 The fraction of ``gcs.recv_q_hard_limit`` after which replication rate will be throttled.
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.recv_q_soft_limit=0.25"
 
 The degree of throttling is a linear function of recv queue size and goes from 1.0 (``full rate``)
 at ``gcs.recv_q_soft_limit`` to ``gcs.max_throttle`` at ``gcs.recv_q_hard_limit`` Note that ``full rate``, as estimated between 0 and ``gcs.recv_q_soft_limit`` is a very imprecise estimate of a regular replication rate. 
@@ -736,6 +922,10 @@ at ``gcs.recv_q_soft_limit`` to ``gcs.max_throttle`` at ``gcs.recv_q_hard_limit`
 
 Should the rest of the cluster keep in sync with the donor? ``YES`` means that if the donor is blocked by state transfer, the whole cluster is blocked with it.
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.sync_donor=NO"
+
 If you choose to use value ``YES``, it is theoretically possible that the donor node cannot keep up with the rest of the cluster due to the extra load from the SST. If the node lags behind, it may send flow control messages stalling the whole cluster. However, you can monitor this using the ``wsrep_flow_control_paused`` status variable.
 
 
@@ -746,15 +936,25 @@ If you choose to use value ``YES``, it is theoretically possible that the donor 
 
 As of 2.0. Address to listen for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from ``wsrep_node_address``.
 
+.. code-block:: ini
+
+   wsrep_provider_options="ist.recv_addr=192.168.1.1"
+
 
 .. rubric:: ``repl.commit_order``
 .. _`repl.commit_order`:
 .. index::
    pair: Parameters; repl.commit_order
 
-Whether to allow Out-Of-Order committing (improves parallel applying performance). Possible settings:
+Whether to allow Out-Of-Order committing (improves parallel applying performance). 
 
-- ``0``or ``BYPASS`` All commit order monitoring is switched off (useful for measuring performance penalty).
+.. code-block:: ini
+
+   wsrep_provider_options="repl.commit_order=2"
+
+Possible settings:
+
+- ``0`` or ``BYPASS`` All commit order monitoring is switched off (useful for measuring performance penalty).
 
 - ``1`` or ``OOOC`` Allows out of order committing for all transactions.
 
@@ -771,6 +971,10 @@ Whether to allow Out-Of-Order committing (improves parallel applying performance
 
 Sometimes causal reads need to timeout.
 
+.. code-block:: ini
+
+   wsrep_provider_options="repl.causal_read_timeout=PT30S"
+
 
 .. rubric:: ``repl.key_format``
 .. _`repl.key_format`:
@@ -778,6 +982,10 @@ Sometimes causal reads need to timeout.
    pair: Parameters; repl.key_format
 
 The hash size to use for key formats (in bytes). An ``A`` suffix annotates the version.
+
+.. code-block:: ini
+
+   wsrep_provider_options="repl.key_format=FLAT8"
 
 Possible settings:
 
@@ -794,6 +1002,9 @@ Possible settings:
 
 The maximum size of a writeset in bytes. This is limited to 2G.
 
+.. code-block:: ini
+
+   wsrep_provider_options="repl.max_ws_size=2147483647"
 
 
 .. rubric:: ``repl.proto_max``
@@ -802,6 +1013,11 @@ The maximum size of a writeset in bytes. This is limited to 2G.
    pair: Parameters; repl.proto_max
 
 The maximum protocol version in replication. Changes to this parameter will only take effect after a provider restart.
+
+.. code-block:: ini
+
+   wsrep_provider_options="repl.proto_max=5"
+
 
 
 .. rubric:: ``gcache.dir``
@@ -812,12 +1028,17 @@ The maximum protocol version in replication. Changes to this parameter will only
 Directory where GCache should place its files.  Defaults to the working directory. 
 
 
+
 .. rubric:: ``gcache.name``
 .. _`gcache.name`:
 .. index::
    pair: Parameters; gcache.name
 
 Name of the ring buffer storage file. 
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.name=galera.cache"
 
 
 .. rubric:: ``gcache.size``
@@ -827,7 +1048,11 @@ Name of the ring buffer storage file.
 
 Size of the persistent on-disk ring buffer storage. This will be preallocated on startup. 
 
-The buffer file name is ``galera.cache``.
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.size=128Mb"
+
+The buffer file name is ``galera.cache`` by default.
 
 .. seealso:: Chapter :ref:`Customizing GCache Size <Customizing GCache Size>`.  
 
@@ -839,6 +1064,10 @@ The buffer file name is ``galera.cache``.
 
 Size of the page files in page storage. The limit on overall page storage is the size of the disk.  Pages are prefixed by ``gcache.page``.
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.page_size=128Mb"
+
 
 .. rubric:: ``gcache.keep_pages_size``
 .. _`gcache.keep_pages_size`:
@@ -847,6 +1076,10 @@ Size of the page files in page storage. The limit on overall page storage is the
 
 Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present. 
 
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.keep_pages_size=0"
+
 
 .. rubric:: ``gcache.mem_size``
 .. _`gcache.mem_size`:
@@ -854,6 +1087,11 @@ Total size of the page storage pages to keep for caching purposes. If only page 
    pair: Parameters; gcache.mem_size
 
 Max size of the ``malloc()`` store (read: RAM). For setups with spare RAM. Is buggy, don't use it!
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.mem_size=0"
+
 
 -------------------------------------
  Setting Galera Parameters in MySQL
