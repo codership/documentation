@@ -83,6 +83,8 @@ Table legend:
 | :ref:`gmcast.version                  | n/a                   |                       |                    |          |
 | <gmcast.version>` :sup:`T`            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`evs.auto_evict <evs.auto_evict>`| ``0``                 | 3.8                   | n/a                | No       |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`evs.causal_keepalive_period     |                       | 1.0                   | n/a                | No       |
 | <evs.causal_keepalive_period>`        |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
@@ -91,6 +93,14 @@ Table legend:
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`evs.debug_log_mask              | *0x1*                 | 1.0                   | n/a                | Yes      |
 | <evs.debug_log_mask>`                 |                       |                       |                    |          |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`evs.delayed_keep_period         | ``PT30S``             | 3.8                   | n/a                | No       |
+| <evs.delayed_keep_period>`            |                       |                       |                    |          |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`evs.delayed_margin              | ``PT1S``              | 3.8                   | n/a                | No       |
+| <evs.delayed_margin>`                 |                       |                       |                    |          |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`evs.evict <evs.evict>`          |                       | 3.8                   | n/a                | No       |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`evs.inactive_check_period       | *PT1S*                | 1.0                   | n/a                | No       |
 | <evs.inactive_check_period>`          |                       |                       |                    |          |
@@ -438,6 +448,21 @@ This status variable is used to check which gmcast protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
+.. rubric:: ``evs.auto_evict``
+.. _`evs.auto_evict`:
+.. index::
+   pair: Parameters; evs.auto_evict
+
+Defines the number of entries allowed for a delayed node before this node triggers Auto Eviction.  Setting this to ``0`` disables the Auto Eviction protocol on this node, though the node continues to monitor cluster node response times.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.auto_evict=5"
+
+**Default Value**: ``0``
+   
+.. seealso:: For more information on the Auto Eviction process, see :doc:`autoeviction`.
+
 
 .. rubric:: ``evs.causal_keepalive_period``
 .. _`evs.causal_keepalive_period`:
@@ -475,8 +500,46 @@ Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
 
    wsrep_provider_options="evs.debug_log_mask=0x1"
 
+.. rubric:: ``evs.delayed_keep_period``
+.. _`evs.delayed_keep_period`:
+.. index::
+   pair: Parameters; evs.delayed_keep_period
 
+Defines the time period cluster nodes must remain responsive before this node removes one entry from the delayed list.  The number of entries on the delayed list depends on how long the delayed node was unresponsive.
 
+.. code-block:: ini
+
+   wsrep_provider_options="evs.delayed_keep_period=PT45S"
+
+**Default Value**: ``PT30S``
+
+.. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
+   
+   
+.. rubric:: ``evs.delayed_margin``
+.. _`evs.delayed_margin`:
+.. index::
+   pair: Parameters; evs.delayed_margin
+
+Defines the time period that cluster nodes can delay responses from expectations before this node adds them to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
+
+.. code-block:: ini
+
+   wsrep_provider_options="evs.delayed_margin=PT5S"
+
+**Default Value**: ``PT1S``
+
+.. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
+
+.. rubric:: ``evs.evict``
+.. _`evs.evict`:
+.. index::
+   pair:: Parameters; evs.evict
+
+Defines the point at which the cluster triggers manual eviction to a certain node value.  Setting this parameter as an empty string causes it to clear the eviction list on the node where it is set.
+
+.. seealso:: For more information on the eviction and Auto Eviction process, see :doc:`autoeviction`.
+   
 .. rubric:: ``evs.inactive_check_period``
 .. _`evs.inactive_check_period`:
 .. index::

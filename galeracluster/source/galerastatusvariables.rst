@@ -19,8 +19,17 @@ The location (L) of the variable is presented in the second column from the left
 +---------------------------------------+---+----------------------------+----------------------+-----------------------------------------+
 | Status Variable                       | L | Example Value              | Introduced           | Deprecated                              |
 +=======================================+===+============================+======================+=========================================+
+| :ref:`wsrep_evs_delayed               | G |                            | 3.8                  |                                         |
+| <wsrep_evs_delayed>`                  |   |                            |                      |                                         |
++---------------------------------------+---+----------------------------+----------------------+-----------------------------------------+
+| :ref:`wsrep_evs_evict_list            | G |                            | 3.8                  |                                         |
+| <wsrep_evs_evict_list>`               |   |                            |                      |                                         |
++---------------------------------------+---+----------------------------+----------------------+-----------------------------------------+
 | :ref:`wsrep_evs_repl_latency          | G |                            | 3.0                  |                                         |
 | <wsrep_evs_repl_latency>`             |   |                            |                      |                                         |
++---------------------------------------+---+----------------------------+----------------------+-----------------------------------------+
+| :ref:`wsrep_evs_state                 | G |                            | 3.8                  |                                         |
+| <wsrep_evs_state>`                    |   |                            |                      |                                         |
 +---------------------------------------+---+----------------------------+----------------------+-----------------------------------------+
 | :ref:`wsrep_local_state_uuid          | G | *e2c9a15e-5485-11e0-0800-* |                      |                                         |
 | <wsrep_local_state_uuid>`             |   | *6bbb637e7211*             |                      |                                         |
@@ -170,6 +179,27 @@ The location (L) of the variable is presented in the second column from the left
 | <wsrep_connected>`                    |   |                            |                      |                                         |
 +---------------------------------------+---+----------------------------+----------------------+-----------------------------------------+
 
+.. rubric:: ``wsrep_evs_delayed``	    
+.. _`wsrep_evs_delayed`:
+.. index::
+   pair: Parameters; wsrep_evs_delayed
+
+Provides a comma separated list of all the nodes this node has registered on its delayed list.
+
+The node listing format is
+
+.. code-block:: text
+
+   uuid:address:count
+
+This refers to the UUID and IP address of the delayed node, with a count of the number of entries it has on the delayed list.
+   
+.. rubric:: ``wsrep_evs_evict_list``
+.. _`wsrep_evs_evict_list`:
+.. index::
+   pair: Parameters; wsrep_evs_evict_list
+
+Lists the UUID's of all nodes evicted from the cluster.  Evicted nodes cannot rejoin the cluster until you restart their ``mysqld`` processes.
 
 .. rubric:: ``wsrep_evs_repl_latency``
 .. _`wsrep_evs_repl_latency`:
@@ -198,7 +228,12 @@ The units are in seconds.  The format of the return value is:
 
 This variable periodically resets.  You can control the reset interval using the :ref:`evs.stats_report_period <evs.stats_report_period>` parameter.  The default value is 1 minute.
 
+.. rubric:: ``wsrep_evs_state``
+.. _`wsrep_evs_state`:
+.. index::
+   pair:: Parameters; wsrep_evs_state
 
+Shows the internal state of the EVS Protocol.
 
 
 .. rubric:: ``wsrep_local_state_uuid``

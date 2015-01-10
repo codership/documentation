@@ -30,6 +30,7 @@ How do you recover failed nodes or a Primary Component?  How to secure communica
    quorumreset
    monitoringthecluster
    managingfc
+   autoeviction
    schemaupgrades
    ssl
    firewallsettings
