@@ -29,6 +29,8 @@ Disabling SELinux for mysqld
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`disable-selinux`:
 
+
+
 If you have SELinux enabled, it may block ``mysqld`` from carrying out required operations.  You must either disable SELinux for mysqld or configure it to allow ``mysqld`` to run external programs and open listen sockets on unprivileged ports |---| that is, things that an unprivileged user can do.
 
 To disable SELinux for mysql run the following command:
@@ -71,7 +73,7 @@ If instead, your system uses ``systemd``, run this command instead:
 
 .. code-block:: console
 
-   # systemctl iptables save
+   # systemctl save iptables
 
 You will need to set the above firewall configurations for each node in your cluster.
 
@@ -100,7 +102,7 @@ If instead, your system uses ``systemd``, run the following command instead:
 
 .. code-block:: console
 
-  $ sudo systemctl apparmor restart
+  $ sudo systemctl restart apparmor
 
 
 	  

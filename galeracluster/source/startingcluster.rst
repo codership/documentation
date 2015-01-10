@@ -60,7 +60,7 @@ For systems that use ``systemd``, instead use this command:
 
 .. code-block:: console
 
-   # systemctl mysql start --wsrep-new-cluster
+   # systemctl start mysql --wsrep-new-cluster
 
 This starts ``mysqld`` on the node.
 
@@ -101,7 +101,7 @@ For systems that use ``systemd``, instead run this command:
 
 .. code-block:: console
 
-   # systemctl mysql start
+   # systemctl start mysql
 
 When the database server initializes as a new node, it connects to the cluster members as defined by the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Using this parameter, it automatically retrieves the cluster map and connects to all other available nodes.
 
@@ -121,49 +121,6 @@ This indicates that the second node is now connected to the cluster.  Repeat thi
 
 When all nodes in the cluster agree on the membership state, they initiate state exchange.  In state exchange, the new node checks the cluster state.  If the node state differs from the cluster state, (which is normally the case), the new node requests a state snapshot transfer from the cluster and it installs it on the local database.  After this is done, the new node is ready for use.
 
-
--------------------------------------
-Understanding Cluster Addresses
--------------------------------------
-.. _`Understand Cluster Address`:
-
-For each node in the cluster, you must enter an address in the ``wsrep_cluster_address`` parameter of your configuration file.
-
-The syntax for cluster addresses is explained below:
-
-.. code-block:: ini
-
-	<backend schema>://<cluster address>[?option1=value1[&option2=value2]]
-
-- ``<backend schema>``: Indicates the Galera Cluster schema.
-
-  - ``dummy``: This schema is a pass-through backend for testing and profiling purposes.  It does not connect to anywhere.  The node ignores any values given to it.
-
-  - ``gcomm``: This schema is the group communication backend for use in production.  It takes an address and has several settings that you can enable through the option list or through the configuration file, using the ``wsrep_provider_options`` parameter.
-
-- ``<cluster address>``: The address for each node in the cluster.
-
-  - An address of any current member, if you want to connect to an existing cluster, or
-
-  - A comma-separated list of possible cluster members, assuming that the list members can belong to no more than one :term:`Primary Component`.  Or,
-
-  - An empty string, if you want this node to the first in a new cluster, (that is, there are no pre-existing node that you want it to connect to).
-
-- ``options``: The option list sets backend parameters, such as the listen address and timeout values.
-
-  .. note:: The option list is not durable and must be resubmitted on every connection to the cluster.  To make the options durable, set them in the configuration file using the ``wsrep_provider_options`` parameter.
-
-  The parameters set in the URL take precedence over parameters set elsewhere, (for example, the configuration file).  Parameters that you can set through the options list are:
-
-  - ``evs.*``
-
-  - ``pc.*``
-
-  - ``gmcast.*``
-
-  You can follow the option list with a list of ``key=value`` queries according to the URL standard.
-
-  .. note:: If the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it is not specified in the cluster address, the default port is ``4567``.
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

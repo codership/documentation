@@ -1,5 +1,5 @@
 ==========================
-Configuration
+System Configuration
 ==========================
 .. _`configuration`:
 
@@ -18,6 +18,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
    default-storage-engine=innodb
    innodb_autoinc_lock_mode=2
    wsrep_provider=/usr/lib/libgalera_smm.so
+   wsrep_provider_options="gcache.size=32G; gcache.page_size=1G"
    wsrep_cluster_name="example_cluster"
    wsrep_cluster_address="gcomm://IP.node1,IP.node2,IP.node3"
    wsrep_sst_method=rsync
@@ -76,10 +77,10 @@ There are certain basic configurations that you will need to set up in the ``/et
 
 After you save the configuration file, you are ready to configure the database privileges.
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------
 Configuring State Transfer Privileges
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`db-privileges`:
+--------------------------------------
+.. _`sst-privileges`:
 
 Galera Cluster uses state transfers to send data from one database node into another.  When this occurs through the database server, such as is the case with ``mysqldump``, the node requires a user with privileges on the receiving server.
 
@@ -103,7 +104,7 @@ For systems that use ``systemd``, instead use this command:
 
 .. code-block:: console
 
-   # systemctl mysql start
+   # systemctl start mysql
 
 Once the server is running, you can use the database client to configure user privileges for the node, to remove empty users and create the write-set replication user for state snapshot transfers.
 
@@ -136,44 +137,9 @@ For systems that use ``systemd``, instead use this command:
 
 .. code-block:: console
 
-   # systemctl mysql stop
+   # systemctl stop mysql
 
 .. seealso:: For more information on state snapshot and incremental state transfers, see :doc:`statetransfer`.
-
---------------------------------
-wsrep Configurations
---------------------------------
-.. _`wsrep-config`:
-
-For each node, you will need to make some additional configurations to enable write-set replication, such as defining the cluster and node names, addresses, and state transfer methods.
-
-- :ref:`wsrep_cluster_name <wsrep_cluster_name>` This indicates the logical cluster name.  It must be the same for every node in your cluster.  The connection fails on nodes that have different values for this parameter.
-
-  .. code-block:: ini
-
-     wsrep_cluster_name="example_cluster"
-
-- :ref:`wsrep_cluster_address <wsrep_cluster_address>` This defines the IP addresses for each node in the cluster.  For example,
-
-  .. code-block:: ini
-
-     wsrep_cluster_address="gcomm://192.168.0.1, 192.168.0.2, 192.168.0.3"
-
-
-- :ref:`wsrep_node_name <wsrep_node_name>` This defines the logical name for the node |---| for convenience.
-
-  .. code-block:: ini
-
-     wsrep_node_name="node1"
-
-- :ref:`wsrep_node_address <wsrep_node_address>` This parameter sets explicitly the IP address for the node.  For use in the event that auto-guessing does not produce desirable results.
-
-  .. code-block:: ini
-
-     wsrep_node_address="192.168.0.1"
-
-
-
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

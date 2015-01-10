@@ -56,7 +56,7 @@ To install the Galera Cluster dependencies, complete the following steps:
 
    .. code-block:: console
 
-      # rpm -i MySQL-shared-compat-*.rpm
+      # rpm --install MySQL-shared-compat-*.rpm
 
 Once this process is complete, you are ready to begin installing Galera Cluster.
 
@@ -82,7 +82,7 @@ To install Galera Cluster for MySQL, complete the following steps:
 
    .. code-block:: console
 
-      # rpm -i MySQL-server-wsrep-*.rpm
+      # rpm --install MySQL-server-wsrep-*.rpm
 
 #. In your browser, go to `Galera Replicator <https://launchpad.net/galera>`_ and download the Galera Replication plugin package for your system and architecture.
 

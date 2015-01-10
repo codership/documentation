@@ -47,6 +47,7 @@ This software runs on any unix-like operating system.  You can choose to build f
 	      
    galerainstallation
    configuration
+   dbconfiguration
 
 
 ------------------------------
