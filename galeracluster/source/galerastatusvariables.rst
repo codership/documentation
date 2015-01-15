@@ -188,7 +188,7 @@ The location (L) of the variable is presented in the second column from the left
 .. index::
    pair: Status Variables; wsrep_apply_oooe
 
-How often applier started writeset applying out-of-order (parallelization efficiency).
+How often applier started write-set applying out-of-order (parallelization efficiency).
 
 .. code-block:: mysql
 
@@ -207,7 +207,7 @@ How often applier started writeset applying out-of-order (parallelization effici
 .. index::
    pair: Status Variables; wsrep_apply_oool
 
-How often writeset was so slow to apply that write-set with higher seqno's were applied earlier. Values closer to 0 refer to a greater gap between slow and fast write-sets.
+How often write-set was so slow to apply that write-set with higher seqno's were applied earlier. Values closer to 0 refer to a greater gap between slow and fast write-sets.
 
 .. code-block:: mysql
 
@@ -243,7 +243,7 @@ Average distance between highest and lowest concurrently applied seqno.
 .. index::
    pair: Status Variables; wsrep_cert_deps_distance
 
-Average distance between highest and lowest ``seqno`` value that can be possibly applied in parallel (potential degree of parallelization). 
+Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization). 
 
 .. code-block:: mysql
 
@@ -315,7 +315,7 @@ Current number of members in the cluster.
 .. index::
    pair: Status Variables; wsrep_cluster_state_uuid
 
-See :ref:`wsrep API <wsrep API>`.
+Provides the current State UUID.  This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes.
 
 .. code-block:: mysql
 
@@ -327,13 +327,16 @@ See :ref:`wsrep API <wsrep API>`.
    | wsrep_cluster_state_uuid | e2c9a15e-5485-11e0-0800-6bbb637e7211 |
    +--------------------------+--------------------------------------+
 
+.. seealso:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
+
+
 
 .. rubric:: ``wsrep_cluster_status``
 .. _`wsrep_cluster_status`:
 .. index::
    pair: Status Variables; wsrep_cluster_status
 
-Status of this cluster component: *PRIMARY* or *NON_PRIMARY*.
+Status of this cluster component.  That is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
 
 .. code-block:: mysql
 
@@ -521,7 +524,7 @@ The total time spent in a paused state measured in nanoseconds.
 .. index::
    pair: Status Variables; wsrep_flow_control_recv
 
-Number of ``FC_PAUSE`` events received since the last status query (counts the events sent). 
+Number of ``FC_PAUSE`` events received since the last status query, including those sent by this node. 
 
 .. code-block:: mysql
 
@@ -575,7 +578,7 @@ Comma-separated list of incoming server addresses in the cluster component.
 .. index::
    pair: Status Variables; wsrep_last_committed
 
-Sequence number of the last committed transaction. See :ref:`wsrep API <wsrep API>`.  
+The sequence number, or seqno, of the last committed transaction. See :ref:`wsrep API <wsrep-api>`.  
 
 .. code-block:: mysql
 
@@ -587,6 +590,7 @@ Sequence number of the last committed transaction. See :ref:`wsrep API <wsrep AP
    | wsrep_last_committed | 409745 |
    +----------------------+--------+
 
+.. seealso:: For more information, see :ref:`wsrep API <wsrep-api>`.
 
 
 .. rubric:: ``wsrep_local_bf_aborts``
@@ -613,7 +617,7 @@ Total number of local transactions that were aborted by slave transactions while
 .. index::
    pair: Status Variables; wsrep_local_cached_downto
 
-The lowest sequence number in ``gcache``.
+The lowest sequence number, or seqno, in the write-set cache (GCache).
 
 .. code-block:: mysql
 
@@ -704,7 +708,7 @@ Current (instantaneous) length of the recv queue.
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_avg
 
-Recv queue length averaged over interval since the last status query. Values considerably larger than 0.0 mean that the node cannot apply writesets as fast as they are received and will generate a lot of replication throttling. 
+Recv queue length averaged over interval since the last status query. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling. 
 
 .. code-block:: mysql
 
@@ -856,7 +860,7 @@ The minimum length of the send queue since the last status query.
 .. index::
    pair: Status Variables; wsrep_local_state
 
-Internal Galera Cluster FSM state number. See :ref:`Node State Changes <Node State Changes>`. 
+Internal Galera Cluster FSM state number.
 
 .. code-block:: mysql
 
@@ -867,6 +871,8 @@ Internal Galera Cluster FSM state number. See :ref:`Node State Changes <Node Sta
    +-------------------+-------+
    | wsrep_local_state | 4     |
    +-------------------+-------+
+
+.. seealso:: For more information on the possible node states, see :ref:`Node State Changes <node-state-changes>`.
 
 
 .. rubric:: ``wsrep_local_state_comment``
@@ -893,7 +899,7 @@ Human-readable explanation of the state.
 .. index::
    pair: Status Variables; wsrep_local_state_uuid
 
-The UUID of the state stored on this node. See :ref:`wsrep API <wsrep API>`. 
+The UUID of the state stored on this node.
 
 .. code-block:: mysql
 
@@ -905,6 +911,8 @@ The UUID of the state stored on this node. See :ref:`wsrep API <wsrep API>`.
    | wsrep_local_state_uuid | e2c9a15e-5485-11e0-0800-6bbb637e7211 |
    +------------------------+--------------------------------------+
 
+.. seealso:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`. 
+
 
 
 .. rubric:: ``wsrep_protocol_version``
@@ -912,7 +920,7 @@ The UUID of the state stored on this node. See :ref:`wsrep API <wsrep API>`.
 .. index::
    pair: Status Variables; wsrep_protocol_version
 
-The version of the wsrep protocol used.
+The version of the wsrep Protocol used.
 
 .. code-block:: mysql
 
@@ -931,7 +939,7 @@ The version of the wsrep protocol used.
 .. index::
    pair: Status Variables; wsrep_provider_name
 
-The name of the wsrep provider.
+The name of the wsrep Provider.
 
 .. code-block:: mysql
 
@@ -949,7 +957,7 @@ The name of the wsrep provider.
 .. index::
    pair: Status Variables; wsrep_provider_vendor
 
-The name of the wsrep provider vendor.
+The name of the wsrep Provider vendor.
 
 .. code-block:: mysql
 
@@ -968,7 +976,7 @@ The name of the wsrep provider vendor.
 .. index::
    pair: Status Variables; wsrep_provider_version
 
-The name of the wsrep provider version string.
+The name of the wsrep Provider version string.
 
 .. code-block:: mysql
 
@@ -987,7 +995,9 @@ The name of the wsrep provider version string.
 .. index::
    pair: Status Variables; wsrep_ready
 
-Whether the server is ready to accept queries. If this status is ``OFF``, almost all of the queries fill fail with::
+Whether the server is ready to accept queries. If this status is ``OFF``, almost all of the queries fill fail with:
+
+.. code-block:: text
 
     ERROR 1047 (08S01) Unknown Command
 

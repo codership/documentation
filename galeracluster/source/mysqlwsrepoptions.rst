@@ -116,7 +116,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 
 Automatically adjusts ``auto_increment_increment`` and ``auto_increment_offset`` system variables when the cluster membership changes.
 
-This parameters significantly reduces the certification conflict rate for``INSERT`` clauses.
+This parameters significantly reduces the certification conflict rate for ``INSERT`` clauses.
 
 .. code-block:: ini
 
@@ -175,9 +175,9 @@ Changing this variable in runtime will cause the node to close connection to the
 
     gcomm://node1:port1,node2:port2,...[?option1=value1&...]
 
-Using the string *gcomm://* without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).
+Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).
 
-.. note:: Never use an empty ``gcomm://`` string in *my.cnf*. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``gcomm://`` string on the command line, such as:
+.. note:: Never use an empty ``gcomm://`` string in the configuration file (that is, ``my.cnf``). If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``gcomm://`` string on the command line, such as:
 
 	.. code-block:: console
 	
@@ -200,7 +200,7 @@ The logical cluster name. If a node tries to connect to a cluster with a differe
 .. index::
    pair: Parameters; wsrep_convert_LOCK_to_trx
 
-Convert ``LOCK/UNLOCK TABLES`` statements to ``BEGIN/COMMIT`` statements. In other words, this parameter implicitly converts locking sessions into transactions within *mysqld*. By itself, it does not mean support for locking sessions, but it prevents the database from ending up in a logically inconsistent state.
+Convert ``LOCK/UNLOCK TABLES`` statements to ``BEGIN/COMMIT`` statements. In other words, this parameter implicitly converts locking sessions into transactions within ``mysqld``. By itself, it does not mean support for locking sessions, but it prevents the database from ending up in a logically inconsistent state.
 
 Sometimes this parameter may help to get old applications working in a multi-master setup.
 
@@ -264,9 +264,9 @@ Documented at:
 .. index::
    pair: Parameters; wsrep_forced_binlog_format
 
-Force every transaction to use the given binlog format. When this variable is set to something else than ``NONE``, all transactions will use the given forced format, regardless of the client session specified in ``binlog_format``.
+Force every transaction to use the given binary log format. When this variable is set to something else than ``NONE``, all transactions will use the given forced format, regardless of the client session specified in `binlog_format <https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html>`_.
 
-Valid choices for ``wsrep_forced_binlog_format`` are: ``ROW``, ``STATEMENT``, ``MIXED`` and the special value ``NONE``, meaning that there is no forced binlog format in effect.
+Valid choices for :ref:`wsrep_forced_binlog_format <wsrep_forced_binlog_format>` are: ``ROW``, ``STATEMENT``, ``MIXED`` and the special value ``NONE``, meaning that there is no forced format in effect for binary logs.
 
 .. code-block:: ini
 
@@ -314,7 +314,7 @@ An option to explicitly specify the network address of the node, if autoguessing
    wsrep_node_address = 192.168.1.1:4567
 
 
-By default, the address of the first network interface (``eth0``) and the default port ``4567`` are used. The ``<address>`` and ``:port`` will be passed to the Galera replication Plugin to be used as a base address in its communications. It will also be used to derive the default values for parameters ``wsrep_sst_receive_address`` and ``ist.recv_address``.
+By default, the address of the first network interface (``eth0``) and the default port ``4567`` are used. The ``<address>`` and ``:port`` will be passed to the Galera replication Plugin to be used as a base address in its communications. It will also be used to derive the default values for parameters :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` and :ref:`ist.recv_addr <ist.recv_addr>`.
 
 
 .. rubric:: ``wsrep_node_incoming_address``
@@ -377,7 +377,7 @@ This command is run whenever the cluster membership or state of this node change
 
 --index                      The index of this node in the node list.
 
-For an example script that updates two tables on a local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
+.. seealso:: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
 
 
 
@@ -386,7 +386,7 @@ For an example script that updates two tables on a local node, with changes taki
 .. index::
    pair: Parameters; wsrep_on
 
-Use wsrep replication. When switched ``OFF``, no changes made in this session will be replicated.
+Use write-set replication. When switched ``OFF``, no changes made in this session will be replicated.
 
 .. code-block:: ini
 
@@ -433,15 +433,16 @@ A string of provider options passed directly to the provider.
 
 Usually, you just fine-tune:
 
-- ``gcache.size``, that is, the size of the GCache ring buffer, which is used for Incremental State Transfer, among other things. See chapter :ref:`Galera Parameters <Galera Parameters>`.
+- :ref:`gcache.size <gcache.size>`, that is, the size of the GCache ring buffer, which is used for Incremental State Transfer, among other things. 
 
 - Group communication timeouts. See chapter :ref:`WAN Replication <wan-replication>`.
-
-  See also a list of all Galera Cluster parameters in chapter :ref:`Galera Parameters <Galera Parameters>`.
 
 .. code-block:: ini
 
    wsrep_provider_options = "evs.user_send_window=2,gcache.size=128Mb"
+
+
+.. seealso:: For more information on the available wsrep Provider options, see :doc:`galeraparameters`.
 
 
 .. rubric:: ``wsrep_retry_autocommit``
@@ -467,7 +468,7 @@ How many threads to use for applying slave writesets. There are two things to co
 
 - The number should be at least two times the number of CPU cores.
 
-- Consider how many writing client connections the other nodes would have. Divide this by four and use that as the ``wsrep_slave_threads`` value.
+- Consider how many writing client connections the other nodes would have. Divide this by four and use that as the :ref:`wsrep_slave_threads <wsrep_slave_threads>` value.
 
 .. code-block:: ini
 
@@ -480,14 +481,18 @@ How many threads to use for applying slave writesets. There are two things to co
 .. index::
    pair: Parameters; wsrep_sst_auth
 
-A string with authentication information for state snapshot transfer. The string depends on the state transfer method. For the ``mysqldump`` state transfer, it is ``username>:<password>``.  The user must have root privileges on this server. The ``rsync`` method ignores this option.
+Provides authentication information for state snapshot transfers.  The format for this parameter is ``<username>:<password>``.
+
 
 .. code-block:: ini
 
-   wsrep_sst_auth = wsrep_sst_username:password
+   wsrep_sst_auth = wsrep_sst_username:mypassword
 
 
 Use the same value on all nodes. This parameter is used to authenticate with both the state snapshot receiver and the state snapshot donor.
+
+.. note:: Galera Cluster uses this parameter only for state snapshot transfer methods that use the database server rather than the logical volume.  If you set :ref:`wsrep_sst_method <wsrep_sst_method>` to ``mysqldump``, it uses the authentication information to access the database server.  If instead you set the method to ``rsync``, it ignores this parameter.
+
 
 
 
@@ -496,7 +501,7 @@ Use the same value on all nodes. This parameter is used to authenticate with bot
 .. index::
    pair: Parameters; wsrep_sst_donor
 
-A name (given in the ``wsrep_node_name`` parameter) of the server that should be used as a source for state transfer. If not specified, Galera Cluster will choose the most appropriate one.
+A name (given in the :ref:`wsrep_node_name <wsrep_node_name>` parameter) of the server that should be used as a source for state transfer. If not specified, Galera Cluster will choose the most appropriate one.
 
 .. code-block:: ini
 
@@ -529,9 +534,9 @@ This parameter prevents blocking client sessions on a donor if the donor is perf
 
 In these situations, all queries return error ``ER_UNKNOWN_COM_ERROR, "Unknown command"`` like a joining node does. In this case, the client (or the JDBC driver) can reconnect to another node.
 
-.. note:: As SST is scriptable, there is no way to tell whether the requested SST method is blocking or not. You may also want to avoid querying the donor even with non-blocking SST. Consequently, this variable will reject queries on the donor regardless of the SST (that is, also for *xtrabackup*) even if the initial request concerned a blocking-only SST.
+.. note:: As SST is scriptable, there is no way to tell whether the requested SST method is blocking or not. You may also want to avoid querying the donor even with non-blocking SST. Consequently, this variable will reject queries on the donor regardless of the SST (that is, also for ``xtrabackup``) even if the initial request concerned a blocking-only SST.
 
-.. note:: The ``mysqldump`` SST does not work with this setting, as ``mysqldump`` must run queries on the donor and there is no way to distinguish a *mysqldump* session from a regular client session. 
+.. note:: The ``mysqldump`` SST does not work with this setting, as ``mysqldump`` must run queries on the donor and there is no way to distinguish a ``mysqldump`` session from a regular client session. 
 
 
 .. rubric:: ``wsrep_sst_method``
@@ -539,7 +544,7 @@ In these situations, all queries return error ``ER_UNKNOWN_COM_ERROR, "Unknown c
 .. index::
    pair: Parameters; wsrep_sst_method
 
-The method to use for state snapshot transfers. The ``wsrep_sst_method`` command will be called with the following arguments. For more information, see also :doc:`scriptablesst`.
+The method to use for state snapshot transfers. The :ref:`wsrep_sst_method <wsrep_sst_method>` command will be called with the following arguments. 
 
 .. code-block:: ini
 
@@ -553,7 +558,7 @@ The supported methods are:
 
 - ``rsync_wan`` This option is almost the same as ``rsync``, but uses the *delta-xfer* algorithm to minimize network traffic.
 
-  .. note::  You can only use *rsync* when a node is starting. In other words, you cannot use ``rsync`` under a running InnoDB storage engine.
+  .. note::  You can only use ``rsync`` when a node is starting. In other words, you cannot use ``rsync`` under a running InnoDB storage engine.
   
 - ``xtrabackup`` This option is a fast and practically non-blocking SST method based on Percona's ``xtrabackup`` tool.
 
@@ -562,11 +567,15 @@ The supported methods are:
   .. code-block:: ini
 
       [mysqld]
-      wsrep_sst_auth=root:<root password>
-      datadir=<path to data dir>
+      wsrep_sst_auth=sst_user:<sst_user_ password>
+      wsrep_sst_method=xtrabackup
+      datadir=/path/to/datadir
 
       [client]
-      socket=<path to socket>
+      socket=/path/to/socket
+
+
+.. seealso:: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
 
 
 
@@ -575,7 +584,7 @@ The supported methods are:
 .. index::
    pair: Parameters; wsrep_sst_receive_address
 
-The address at which this node expects to receive state transfers. Depends on the state transfer method. For example, for the ``mysqldump`` state transfer, it is the address and the port on which this server listens. By default this is set to the ``<address>`` part of ``wsrep_node_address``.
+The address at which this node expects to receive state transfers. Depends on the state transfer method. For example, for the ``mysqldump`` state transfer, it is the address and the port on which this server listens. By default this is set to the ``<address>`` part of :ref:`wsrep_node_address <wsrep_node_address>`.
 
 .. code-block:: ini
 
@@ -590,11 +599,13 @@ The address at which this node expects to receive state transfers. Depends on th
 .. index::
    pair: Parameters; wsrep_start_position
 
-This variable exists for the sole purpose of notifying a joining node about state transfer completion. For more information, see :doc:`scriptablesst`.
+This variable exists for the sole purpose of notifying a joining node about state transfer completion.
 
 .. code-block:: ini
 
    wsrep_start_position = 00000000-0000-0000-0000-000000000000:-1
+
+.. seealso:: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
 
 
 .. rubric:: ``wsrep_ws_persistency``
@@ -624,7 +635,7 @@ Enforces strict cluster-wide causality checks.  Results in larger read latencies
 
 The parameter value determines the type of causality checks to run, using a bitmask:
 
-- ``1`` Indicates a check on ``READ`` statements, including ``SELECT``, ``SHOW``, ``BEGIN``/``START TRANSACTION``.
+- ``1`` Indicates a check on ``READ`` statements, including ``SELECT``, ``SHOW``, ``BEGIN``/ ``START TRANSACTION``.
 
 - ``2`` Indicates a check on ``UPDATE`` and ``DELETE`` statements.
 
@@ -632,7 +643,7 @@ The parameter value determines the type of causality checks to run, using a bitm
 
 - ``4`` Indicates a check on ``INSERT`` and ``REPLACE`` statements.
 
-This parameter deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.  Setting ``wsrep_sync_wait`` to ``1`` is the equivalent of setting ``wsrep_causal_reads`` to ``ON``.
+This parameter deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.  Setting :ref:`wsrep_sync_wait <wsrep_sync_wait>` to ``1`` is the equivalent of setting :ref:`wsrep_causal_reads <wsrep_causal_reads>` to ``ON``.
 
 
 

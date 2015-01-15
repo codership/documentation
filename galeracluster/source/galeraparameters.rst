@@ -590,7 +590,7 @@ Size of the persistent on-disk ring buffer storage. This will be preallocated on
 
 The buffer file name is ``galera.cache`` by default.
 
-.. seealso:: Chapter :ref:`Customizing GCache Size <Customizing GCache Size>`.  
+.. seealso:: For more information on customizing the write-set cache, see :ref:`Performance <customizing-gcache-size>`.
 
 
 .. rubric:: ``gcache.page_size``
@@ -726,14 +726,14 @@ Maximum allowed size of recv queue. This should normally be half of (RAM + swap)
 .. index::
    pair: Parameters; gcs.recv_q_soft_limit
 
-The fraction of ``gcs.recv_q_hard_limit`` after which replication rate will be throttled.
+The fraction of :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` after which replication rate will be throttled.
 
 .. code-block:: ini
 
    wsrep_provider_options="gcs.recv_q_soft_limit=0.25"
 
 The degree of throttling is a linear function of recv queue size and goes from 1.0 (``full rate``)
-at ``gcs.recv_q_soft_limit`` to ``gcs.max_throttle`` at ``gcs.recv_q_hard_limit`` Note that ``full rate``, as estimated between 0 and ``gcs.recv_q_soft_limit`` is a very imprecise estimate of a regular replication rate. 
+at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttle <gcs.max_throttle>` at :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Note that ``full rate``, as estimated between 0 and :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` is a very imprecise estimate of a regular replication rate. 
 
 
 .. rubric:: ``gcs.sync_donor``
@@ -747,13 +747,9 @@ Should the rest of the cluster keep in sync with the donor? ``YES`` means that i
 
    wsrep_provider_options="gcs.sync_donor=NO"
 
-If you choose to use value ``YES``, it is theoretically possible that the donor node cannot keep up with the rest of the cluster due to the extra load from the SST. If the node lags behind, it may send flow control messages stalling the whole cluster. However, you can monitor this using the ``wsrep_flow_control_paused`` status variable.
+If you choose to use value ``YES``, it is theoretically possible that the donor node cannot keep up with the rest of the cluster due to the extra load from the SST. If the node lags behind, it may send flow control messages stalling the whole cluster. However, you can monitor this using the :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` status variable.
 
 
-   
-
-.. -------------------------------- gmcast options --------------------------
-   
 
 .. rubric:: ``gmcast.listen_addr``
 .. _`gmcast.listen_addr`:
@@ -812,7 +808,7 @@ Connection timeout to initiate message relaying.
 .. index::
    pair: Parameters; gmcast.segment
 
-Define which network segment this node is in. Optimisations on communication are performed to minimise the amount of traffic between network segments including writeset relaying and IST and SST donor selection.  The ``gmcast.segment`` value is an integer from 0 to 255. By default all nodes are placed in the same segment (0).
+Define which network segment this node is in. Optimisations on communication are performed to minimise the amount of traffic between network segments including writeset relaying and IST and SST donor selection.  The :ref:`gmcast.segment <gmcast.segment>` value is an integer from ``0`` to ``255``. By default all nodes are placed in the same segment (``0``).
 
 .. code-block:: ini
 
@@ -847,7 +843,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: Parameters; ist.recv_addr
 
-As of 2.0. Address to listen for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from ``wsrep_node_address``.
+As of 2.0. Address to listen for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from :ref:`wsrep_node_address <wsrep_node_address>`.
 
 .. code-block:: ini
 
@@ -898,7 +894,7 @@ If you set this value to ``TRUE`` is a signal to turn a ``NON-PRIMARY`` componen
 .. index::
    pair: Parameters; pc.announce_timeout
 
-Cluster joining announcements are sent every 1/2 second for this period of time or less if the other nodes are discovered.
+Cluster joining announcements are sent every :math:`\frac{1}{2}` second for this period of time or less if the other nodes are discovered.
 
 .. code-block:: ini
 
@@ -971,7 +967,7 @@ If set to ``TRUE``, the more recent primary component overrides older ones in th
 .. index::
    pair: Parameters; pc.wait_prim
 
-If set to ``TRUE``, the node waits for the ``pc.wait_prim_timeout`` time period. Useful to bring up a non-primary component and make it primary with ``pc.bootstrap``.
+If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>` time period. Useful to bring up a non-primary component and make it primary with :ref:`pc.bootstrap <pc.bootstrap>`.
 
 .. code-block:: ini
 
@@ -1011,8 +1007,6 @@ This status variable is used to check which pc protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
-
-.. ----------------------- Protonet Options----------------------------   
 
 .. rubric:: ``protonet.backend``
 .. _`protonet.backend`:
@@ -1097,7 +1091,7 @@ Possible settings:
 .. index::
    pair: Parameters; repl.max_ws_size
 
-The maximum size of a writeset in bytes. This is limited to 2G.
+The maximum size of a write-set in bytes. This is limited to 2G.
 
 .. code-block:: ini
 
@@ -1188,7 +1182,9 @@ Checksum to use on socket layer:
    
 You can set *Galera Cluster* parameters in the ``my.cnf`` configuration file as follows:
 
-``wsrep_provider_options="gcs.fc_limit=256;gcs.fc_factor=0.9"``
+.. code-block:: ini
+
+   wsrep_provider_options="gcs.fc_limit=256;gcs.fc_factor=0.9"
 
 This is useful in master-slave setups.
 
@@ -1198,7 +1194,7 @@ You can set Galera Cluster parameters through a MySQL client with the following 
 
 	SET GLOBAL wsrep_provider_options="evs.send_window=16";
 
-This query  only changes the ``evs.send_window`` value.
+This query  only changes the :ref:`evs.send_window <evs.send_window>` value.
 
 To check which parameters are used in Galera Cluster, enter the following query:
 
