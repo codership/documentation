@@ -41,6 +41,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_debug                     | *OFF*                              | 1                    | n/a                |          |
 | <wsrep_debug>`                        |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
+| :ref:`wsrep_desync                    | ``OFF``                            |                      | n/a                |          |
+| <wsrep_desync>`                       |                                    |                      |                    |          |
++---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_drupal_282555_workaround  | *ON*                               | 1                    | n/a                |          |
 | <wsrep_drupal_282555_workaround>`     |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
@@ -240,6 +243,21 @@ Enable debug log output.
 .. code-block:: ini
 
    wsrep_debug = OFF
+
+
+.. rubric:: ``wsrep_desync``
+.. _`wsrep_desync`:
+.. index::
+   pair: Parameters; wsrep_desync
+
+When set to ``ON`` the node desyncs from the cluster.
+
+.. code-block:: ini
+
+   wsrep_desync = OFF
+
+
+The default value is ``OFF``.
 
 
 .. rubric:: ``wsrep_drupal_282555_workaround``
