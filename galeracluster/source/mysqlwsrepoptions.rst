@@ -636,7 +636,7 @@ This variable exists for the sole purpose of notifying a joining node about stat
 .. rubric:: ``wsrep_sync_wait``
 .. _`wsrep_sync_wait`:
 .. index::
-  pair: Parameters; wsrep_sync_waitn
+  pair: Parameters; wsrep_sync_wait
 .. index::
   pair: Parameters; wsrep_causal_reads
 
