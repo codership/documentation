@@ -622,14 +622,16 @@ Total size of the page storage pages to keep for caching purposes. If only page 
 .. index::
    pair: Parameters; gcache.mem_size
 
-Max size of the ``malloc()`` store (read: RAM). For setups with spare RAM. Is buggy, don't use it!
-
+Defines the maximum size for the ``malloc()`` store.  That is, how much :abbr:`RAM (Random Access Memory)` your system has available.
+   
 .. code-block:: ini
 
    wsrep_provider_options="gcache.mem_size=0"
 
+.. warning:: This parameter is for use on systems with spare memory.  You should not use it otherwise, as it may lead to unexpected results.
 
 
+   
 
 .. rubric:: ``gcs.fc_debug``
 .. _`gcs.fc_debug`:
@@ -675,8 +677,8 @@ Pause replication if recv queue exceeds this number of  writesets. For master-sl
 .. index::
    pair: Parameters; gcs.fc_master_slave
 
-Should we assume that there is only one master in the group?
-
+Defines whether there is only one master node in the group.
+   
 .. code-block:: ini
 
    wsrep_provider_options="gcs.fc_master_slave=NO"
