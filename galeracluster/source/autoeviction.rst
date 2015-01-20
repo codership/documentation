@@ -138,10 +138,18 @@ Repeat the above procedure to update the remaining nodes in the cluster.  Once t
 
       # systemctl restart mysql
 
+#. Using the database clinet, check that the EVS Protocol is using version 1 by running the new :ref:`wsrep_evs_state <wsrep_evs_state>` status variable.
 
-#. Using the database client, check the node state.
+   .. code-block:: mysql
 
-   .. code-block:: console
+      SHOW STATUS LIKE 'wsrep_evs_state';
+
+   If the ``STATUS`` query returns an empty set, something went wrong and your database server is still on EVS Protocol version 0.  If it returns a set, the EVS Protocol is on the right version and you can proceed.
+      
+
+#. Check the node state.
+
+   .. code-block:: mysql
 
       SHOW STATUS LIKE 'wsrep_local_state_comment';
 
@@ -150,7 +158,7 @@ Repeat the above procedure to update the remaining nodes in the cluster.  Once t
       +----------------------------+--------+
       | wsrep_local_state_comment  | Joined |
       +----------------------------+--------+
-
+      
    When the node state reads as ``Synced``, the node is back in sync with the cluster.
 
 This updates the EVS Protocol version for one node in your cluster.  Repeat the process on the remaining nodes, so that they all use EVS Protocol version 1.
