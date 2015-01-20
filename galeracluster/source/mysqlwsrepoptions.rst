@@ -14,76 +14,76 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | Option                                | Default                            | Introduced           | Deprecated         | Dynamic  |
 +=======================================+====================================+======================+====================+==========+
-| :ref:`wsrep_auto_increment_control    | *ON*                               | 1                    | n/a                |          |
+| :ref:`wsrep_auto_increment_control    | ``ON``                             | 1                    | n/a                |          |
 | <wsrep_auto_increment_control>`       |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_causal_reads              | *OFF*                              | 1                    | 3.6                |          |
+| :ref:`wsrep_causal_reads              | ``OFF``                            | 1                    | 3.6                |          |
 | <wsrep_causal_reads>` :sup:`L`        |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_certify_nonPK             | *ON*                               | 1                    | n/a                |          |
+| :ref:`wsrep_certify_nonPK             | ``ON``                             | 1                    | n/a                |          |
 | <wsrep_certify_nonPK>`                |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_cluster_address           |                                    | 1                    | n/a                |          |
 | <wsrep_cluster_address>`              |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_cluster_name              | *my_test_cluster*                  | 1                    | n/a                |          |
+| :ref:`wsrep_cluster_name              | ``example_cluster``                | 1                    | n/a                |          |
 | <wsrep_cluster_name>`                 |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_convert_LOCK_to_trx       | *OFF*                              | 1                    | n/a                |          |
+| :ref:`wsrep_convert_LOCK_to_trx       | ``OFF``                            | 1                    | n/a                |          |
 | <wsrep_convert_LOCK_to_trx>`          |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_data_home_dir             | *<mysql_real_data_home>*           | 1                    | n/a                |          |
+| :ref:`wsrep_data_home_dir             | ``/path/to/mysql/real/data/home``  | 1                    | n/a                |          |
 | <wsrep_data_home_dir>`                |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_dbug_option               |                                    | 1                    | n/a                |          |
 | <wsrep_dbug_option>`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_debug                     | *OFF*                              | 1                    | n/a                |          |
+| :ref:`wsrep_debug                     | ``OFF``                            | 1                    | n/a                |          |
 | <wsrep_debug>`                        |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_desync                    | ``OFF``                            |                      | n/a                |          |
 | <wsrep_desync>`                       |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_drupal_282555_workaround  | *ON*                               | 1                    | n/a                |          |
+| :ref:`wsrep_drupal_282555_workaround  | ``ON``                             | 1                    | n/a                |          |
 | <wsrep_drupal_282555_workaround>`     |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_forced_binlog_format      | *NONE*                             | 1                    | n/a                |          |
+| :ref:`wsrep_forced_binlog_format      | ``NONE``                           | 1                    | n/a                |          |
 | <wsrep_forced_binlog_format>`         |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_max_ws_rows               | *128K*                             | 1                    | n/a                |          |
+| :ref:`wsrep_max_ws_rows               | ``128K``                           | 1                    | n/a                |          |
 | <wsrep_max_ws_rows>`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_max_ws_size               | *1G*                               | 1                    | n/a                |          |
+| :ref:`wsrep_max_ws_size               | ``1G``                             | 1                    | n/a                |          |
 | <wsrep_max_ws_size>`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_node_address              | *<address>[:port]*                 | 1                    | n/a                |          |
+| :ref:`wsrep_node_address              | ``<address>[:port]``               | 1                    | n/a                |          |
 | <wsrep_node_address>`                 |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_node_incoming_address     | *<address>[:mysqld_port]*          | 1                    | n/a                |          |
+| :ref:`wsrep_node_incoming_address     | ``<address>[:mysqld_port]``        | 1                    | n/a                |          |
 | <wsrep_node_incoming_address>`        |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_node_name                 | *<hostname>*                       | 1                    | n/a                |          |
+| :ref:`wsrep_node_name                 | ``<hostname>``                     | 1                    | n/a                |          |
 | <wsrep_node_name>`                    |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_notify_cmd                |                                    | 1                    | n/a                |          |
 | <wsrep_notify_cmd>`                   |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_on                        | *ON*                               | 1                    | n/a                |          |
+| :ref:`wsrep_on                        | ``ON``                             | 1                    | n/a                |          |
 | <wsrep_on>` :sup:`L`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_OSU_method                | *TOI*                              | Patch version 3      | n/a                |          |
+| :ref:`wsrep_OSU_method                | ``TOI``                            | Patch version 3      | n/a                |          |
 | <wsrep_OSU_method>`                   |                                    | (5.5.17-22.3)        |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_provider                  | *none*                             | 1                    | n/a                |          |
+| :ref:`wsrep_provider                  | ``NONE``                           | 1                    | n/a                |          |
 | <wsrep_provider>`                     |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_provider_options          |                                    | 1                    | n/a                |          |
 | <wsrep_provider_options>`             |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_retry_autocommit          | *1*                                | 1                    | n/a                |          |
+| :ref:`wsrep_retry_autocommit          | ``1``                              | 1                    | n/a                |          |
 | <wsrep_retry_autocommit>`             |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_slave_threads             | *1*                                | 1                    | n/a                |          |
+| :ref:`wsrep_slave_threads             | ``1``                              | 1                    | n/a                |          |
 | <wsrep_slave_threads>`                |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_sst_auth                  |                                    | 1                    | n/a                |          |
@@ -92,23 +92,23 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_sst_donor                 |                                    | 1                    | n/a                |          |
 | <wsrep_sst_donor>`                    |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_sst_donor_rejects_queries | *OFF*                              | 1                    | n/a                |          |
+| :ref:`wsrep_sst_donor_rejects_queries | ``OFF``                            | 1                    | n/a                |          |
 | <wsrep_sst_donor_rejects_queries>`    |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_sst_method                | *mysqldump*                        | 1                    | n/a                |          |
+| :ref:`wsrep_sst_method                | ``mysqldump``                      | 1                    | n/a                |          |
 | <wsrep_sst_method>`                   |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_sst_receive_address       | *<wsrep_node_address>*             | 1                    | n/a                |          |
+| :ref:`wsrep_sst_receive_address       | *node IP address*                  | 1                    | n/a                |          |
 | <wsrep_sst_receive_address>`          |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_start_position            | *00000000-0000-0000-*              | 1                    | n/a                |          |
-| <wsrep_start_position>`               | *0000-000000000000:-1*             |                      |                    |          |
-+---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_ws_persistency            |                                    |                      |                    |          |
-| <wsrep_ws_persistency>`               |                                    |                      |                    |          |
+| :ref:`wsrep_start_position            | ``00000000-0000-0000-              | 1                    | n/a                |          |
+| <wsrep_start_position>`               | 0000-000000000000:-1``             |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_sync_wait                 |                                    | 3.6                  | n/a                |          |
 | <wsrep_sync_wait>`                    |                                    |                      |                    |          |
++---------------------------------------+------------------------------------+----------------------+--------------------+----------+
+| :ref:`wsrep_ws_persistency            |                                    |                      |                    |          |
+| <wsrep_ws_persistency>`               |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 
 
@@ -250,14 +250,16 @@ Enable debug log output.
 .. index::
    pair: Parameters; wsrep_desync
 
-When set to ``ON`` the node desyncs from the cluster.
+Controls whether the node participates in Flow Control.  When you set this parameter to ``ON`` the node desyncs from the cluster.  The cluster does not wait for desynced nodes to catch up, even if it reaches the ``fc_limit`` value.
 
 .. code-block:: ini
 
    wsrep_desync = OFF
 
-
 The default value is ``OFF``.
+
+.. seealso:: For more information on what Flow Control is and how to configure it for your cluster, see :doc:`nodestates` and :doc:`managingfc`.
+
 
 
 .. rubric:: ``wsrep_drupal_282555_workaround``
@@ -626,17 +628,6 @@ This variable exists for the sole purpose of notifying a joining node about stat
 .. seealso:: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
 
 
-.. rubric:: ``wsrep_ws_persistency``
-.. _`wsrep_ws_persistency`:
-.. index::
-   pair: Parameters; wsrep_ws_persistency
-
-Whether to store write-sets locally for debugging. Not used in 0.8.
-
-.. code-block:: ini
-
-   wsrep_ws_persistency = ON
-
 
 .. rubric:: ``wsrep_sync_wait``
 .. _`wsrep_sync_wait`:
@@ -662,6 +653,20 @@ The parameter value determines the type of causality checks to run, using a bitm
 - ``4`` Indicates a check on ``INSERT`` and ``REPLACE`` statements.
 
 This parameter deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.  Setting :ref:`wsrep_sync_wait <wsrep_sync_wait>` to ``1`` is the equivalent of setting :ref:`wsrep_causal_reads <wsrep_causal_reads>` to ``ON``.
+
+
+
+.. rubric:: ``wsrep_ws_persistency``
+.. _`wsrep_ws_persistency`:
+.. index::
+   pair: Parameters; wsrep_ws_persistency
+
+Whether to store write-sets locally for debugging. Not used in 0.8.
+
+.. code-block:: ini
+
+   wsrep_ws_persistency = ON
+
 
 
 
