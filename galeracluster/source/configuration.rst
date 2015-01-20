@@ -18,7 +18,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
    default-storage-engine=innodb
    innodb_autoinc_lock_mode=2
    wsrep_provider=/usr/lib/libgalera_smm.so
-   wsrep_provider_options="gcache.size=32G; gcache.page_size=1G"
+   wsrep_provider_options="gcache.size=300M; gcache.page_size=1G"
    wsrep_cluster_name="example_cluster"
    wsrep_cluster_address="gcomm://IP.node1,IP.node2,IP.node3"
    wsrep_sst_method=rsync
@@ -31,7 +31,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
 
 
 --------------------------------
-Database Configurations
+Database Configuration
 --------------------------------
 .. _`db-config`:
 

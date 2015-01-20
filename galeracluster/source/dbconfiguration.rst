@@ -3,7 +3,7 @@ Replication Configurations
 =============================
 .. _`wsrep-config`:
 
-In addition to the configurations for the database server, there are some specific options that you need to set to enable write-set replication.  You must apply these changes to the configuration file, that is ``my.cnf``, for each node in your cluster.
+In addition to the configuration for the database server, there are some specific options that you need to set to enable write-set replication.  You must apply these changes to the configuration file, that is ``my.cnf``, for each node in your cluster.
 
 - :ref:`wsrep_cluster_name <wsrep_cluster_name>` Use this parameter to set the logical name for your cluster.  You must use the same name for every node in your cluster.  The connection fails on nodes that have different values for this parameter.
 
