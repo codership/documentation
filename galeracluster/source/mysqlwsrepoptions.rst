@@ -640,23 +640,26 @@ This variable exists for the sole purpose of notifying a joining node about stat
 .. index::
   pair: Parameters; wsrep_causal_reads
 
-Enforces strict cluster-wide causality checks.  Results in larger read latencies.
+Enforces strict cluster-wide causality checks, resulting in larger read latencies.
+
+The node triggers causality checks in response to certain types of queries.  During the check, the node blocks new queries while the database server catches up with all updates made in the cluster to the point where the check was begun.  Once it reaches this point, the node executes the original query.  
+
 
 .. code-block:: ini
 
    wsrep_sync_wait = 1
 
-The parameter value determines the type of causality checks to run, using a bitmask:
+The parameter uses a bitmask to determine the type of causality check you want the node to run.  These are the available types:
 
-- ``1`` Indicates a check on ``READ`` statements, including ``SELECT``, ``SHOW``, ``BEGIN``/ ``START TRANSACTION``.
+- ``1`` Checks made on ``READ`` statements, including ``SELECT``, ``SHOW``, ``BEGIN`` / ``START TRANSACTION``.
 
-- ``2`` Indicates a check on ``UPDATE`` and ``DELETE`` statements.
+- ``2`` Checks made on ``UPDATE`` and ``DELETE`` statements.
 
-- ``3`` Indicates ``1`` or ``2``, a check on ``READ`` statements, as well as ``UPDATE`` and ``DELETE`` statements.
+- ``3`` Checks made on ``READ``, ``UPDATE`` and ``DELETE`` statements.
 
-- ``4`` Indicates a check on ``INSERT`` and ``REPLACE`` statements.
+- ``4`` Checks made on ``INSERT`` and ``REPLACE`` statements.
 
-This parameter deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.  Setting :ref:`wsrep_sync_wait <wsrep_sync_wait>` to ``1`` is the equivalent of setting :ref:`wsrep_causal_reads <wsrep_causal_reads>` to ``ON``.
+.. note:: Setting :ref:`wsrep_sync_wait <wsrep_sync_wait>` to ``1`` is the same as :ref:`wsrep_causal_reads <wsrep_causal_reads>` to ``ON``.  This deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.
 
 
 
