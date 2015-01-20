@@ -15,35 +15,39 @@ Write-set Caching during State Transfers
 .. index::
    pair: Performance; gcache
 
+Under normal operations, nodes do not consume much more memory than the regular standalone MySQL database server.  The certification index and uncommitted write-sets do cause some additional usage, but in typical applications this is not usually noticeable.
 
-A node under normal operations does not consume much more memory than a regular MySQL server.  The certification index and uncommitted write-sets cause some additional usage, but this is not usually noticeable in typical applications.  Write-set caching during state transfers is the exception.
+Write-set caching during state transfers is the exception.
 
-When a node receives a state transfer, it cannot process or apply incoming write-sets, because it does not at this point have a state to apply them to.  Depending on the state transfer method, (**mysqldump**, for instance), the sending node may also be unable to process or apply write-sets.
+When a node receives a state transfer, it cannot process or apply incoming write-sets as it does not yet have a state to apply them to.  Depending on the state transfer method, (``mysqldump``, for instance), the sending node may also be unable to apply write-sets.
 
-The Write-set Cache, (or GCache), caches write-sets on Memory-mapped files to disk.  Galera Cluster allocates these files as needed.  Meaning that the limit for the cache is the available disk space.
+The Write-set Cache, (or GCache), caches write-sets on memory-mapped files to disk and Galera Cluster allocates these files as needed.  In other words, the only limit for the cache is the available disk space.  Writing to disk in turn reduces memory consumption.
 
-Writing to disk reduces memory consumption.
+.. seealso:: For more information on configuring write-set caching to improve performance, see :ref:`Configuring Flow Control <configuring-fc>`.
 
-.. seealso:: For more information on configuring the Write-set Cache to improve performance, see :ref:`Optional Memory Settings <Optional Memory Settings>`.
-
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Customizing the Write-set Cache Size
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`customizing-gcache-size`:
 .. index::
    pair: Performance; gcache.size
 .. index::
    pair: Performance; wsrep_received_bytes
 
-You can define the size of the write-set cache using the ``gcache.size`` parameter.  The write-set cache should be smaller than the size of the database.
+You can define the size of the write-set cache using the :ref:`gcache.size <gcache.size>` parameter.  The set the size to one less than that of the data directory.
 
-In this context, the database size relates to the method used in state snapshot transfers.  For instance, **rsync** and **xtrabackup** copy the InnoDB log files, while **mysqldump** does not.  As a rule, use the data directory size, including any possible links, less the size of the ring buffer storage file, (called ``galera.cache`` by default).
 
-Another variable to consider in these calculations is the copy speed.  The Incremental State Transfer (IST) method for node provisioning can copy the database five times faster than through **mysqldump** and about 50% faster than **xtrabackup**.  Meaning that your cluster can handle a relatively large write-set cache size.
+If you have storage issues, there are some guidelines to consider in adjusting this issue.  For example, your preferred state snapshot method.  ``rsync`` and ``xtrabackup`` copy the InnoDB log files, while ``mysqldump`` does not.  So, if you use ``mysqldump`` for state snapshot transfers, you can subtract the size of the log files from your calculation of the data directory size.
 
-The database write rate indicates the tail length that the cluster stores in the write-set cache.  You can calculate the write rate using the ``wsrep_received_bytes`` status variable.
+.. note:: Incremental State Transfers (IST) copies the database five times faster over ``mysqldump`` and about 50% faster than ``xtrabackup``.  Meaning that your cluster can handle relatively large write-set caches.  However, bear in mind that you cannot provision a server with Incremental State Transfers.
 
-1. Determine the size of the write-sets received from other nodes:
+As a general rule, start with the data directory size, including any possible links, then subtract the size of the ring buffer storage file, which is called ``galera.cache`` by default.
+
+In the event that storage remains an issue, you can further refine these calculations with the database write rate.  The write rate indicates the tail length that the cluster stores in the write-set cache.
+
+You can calculate this using the :ref:`wsrep_received_bytes <wsrep_received_bytes>` status variable.
+
+#. Determine the size of the write-sets the node has received from the cluster:
 
    .. code-block:: mysql
 
@@ -55,17 +59,16 @@ The database write rate indicates the tail length that the cluster stores in the
       | wsrep_received_bytes   | 6637093   |
       +------------------------+-----------+
 
-   Note the value and the time, respectively, as ``x1`` and ``t1``.
+   Note the value and time, respective as :math:`recv_1` and :math:`time_1`.
 
-2. Run the same query again, noting the value and time, respectively, as ``x2`` and ``t2``.
+#. Run the same query again, noting the value and time, respectively, as :math:`recv_2` and :math:`time_2`.
 
-3. Apply these values to the following equation:
+#. Apply these values to the following equation:
 
-   .. code-block:: text
+   .. math::
 
-      w = ( x2 - x1 ) / ( t2 - t1 )
+      writerate = \frac{ recv_2 - recv_1 }{ time_2 - time_1}
 
-The value of ``w`` provides you with the write rate.
 
 .. note:: Consider these configuration tips as guidelines only. For example, in cases where you must avoid state snapshot transfers as much as possible, you may end up using a much larger write-set cache than suggested above.
 
@@ -97,7 +100,7 @@ Parallel applying requires the following settings:
    innodb_autoinc_lockmode=2
    innodb_locks_unsafe_For_binlog=1
 
-You can use the ``wsrep_cert_deps_distance`` status variable to determine the maximum number of slave threads possible.  For example:
+You can use the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable to determine the maximum number of slave threads possible.  For example:
 
 .. code-block:: mysql
 
@@ -111,7 +114,7 @@ You can use the ``wsrep_cert_deps_distance`` status variable to determine the ma
 
 This value essentially determines the number of write-sets that the node can apply in parallel on average.  
 
-.. warning:: Do not use a value for ``wsrep_slave_threads`` that is higher than the average given by the ``wsrep_cert_deps_distance`` status variable.
+.. warning:: Do not use a value for :ref:`wsrep_slave_threads <wsrep_slave_threads>` that is higher than the average given by the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable.
 
 
 ------------------------------------
@@ -119,9 +122,9 @@ This value essentially determines the number of write-sets that the node can app
 ------------------------------------
 .. _`large-transactions`:
 
-Large transactions, for instance the transaction caused by a ``DELETE`` query that removes millions of rows from a table at once, can lead to diminished performance.  If you find that you must perform frequently transactions of this scale, consider using **pt-archiver** from the Percona Toolkit.
+Large transactions, for instance the transaction caused by a ``DELETE`` query that removes millions of rows from a table at once, can lead to diminished performance.  If you find that you must perform frequently transactions of this scale, consider using ``pt-archiver`` from the Percona Toolkit.
 
-For example, if you want to delete expired tokens from their table on the ``keystone`` database at ``dbhost``, you might run something like this:
+For example, if you want to delete expired tokens from their table on a database called ``keystone`` at ``dbhost``, you might run something like this:
 
 .. code-block:: console
 
