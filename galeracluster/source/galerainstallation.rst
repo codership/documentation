@@ -11,12 +11,12 @@ Each node in the cluster requires:
 
 - 100 Mbps or better network connectivity;
 - Linux or FreeBSD;
-- Database server for MySQL, MariaDB or Percona XtraDB;
-- wsrep API patch for the database server;
+- MySQL, MariaDB or Percona XtraDB server with wsrep API patch;
 - Galera Replication Plugin.
 
-There are binary installation packages available that bundle the wsrep API with the database server.  Once you have these prerequisites ready, you can begin installing Galera Cluster.
+.. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building form source, you must apply this patch yourself.
 
+	  
 ------------------------------
 Preparing the Server
 ------------------------------
@@ -45,7 +45,7 @@ To disable SELinux for mysql run the following command:
 
 	     
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Firewall Configurations
+Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`firewall-config`:
 
