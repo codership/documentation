@@ -5,7 +5,8 @@ Managing Flow Control
 
 The cluster replicates changes synchronously through global ordering, but applies these changes asynchronously from the originating node out.  To prevent any one node from falling too far behind the cluster, Galera Cluster implements a feedback mechanism called Flow Control.
 
-Nodes queue the write-sets they receive in the global order and begin to apply and commit them on the database.  In the event that the received queue grows too large, the node initiates Flow Control.  The node pauses replication while it works the received queue.  Once the queue is reduces to a more manageable size, the node resumes replication.
+Nodes queue the write-sets they receive in the global order and begin to apply and commit them on the database.  In the event that the received queue grows too large, the node initiates Flow Control.  The node pauses replication while it works the received queue.  Once it reduces the received queue to a more manageable size, the node resumes replication.
+
 
 ---------------------------
 Monitoring Flow Control
