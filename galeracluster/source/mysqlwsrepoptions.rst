@@ -238,12 +238,16 @@ A debug option to be passed to the provider.
 .. index::
    pair: Parameters; wsrep_debug
 
-Enable debug log output.
+Enables additional debugging output in the server error log.
 
 .. code-block:: ini
 
    wsrep_debug = OFF
 
+You can view these errors in the log file, such as ``/var/log/mysqld.log`` or a custom path defined with the  
+`log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ variable.
+
+   
 
 .. rubric:: ``wsrep_desync``
 .. _`wsrep_desync`:
