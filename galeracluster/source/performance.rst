@@ -69,7 +69,26 @@ You can calculate this using the :ref:`wsrep_received_bytes <wsrep_received_byte
 
       writerate = \frac{ recv_2 - recv_1 }{ time_2 - time_1}
 
+From the write rate you can determine the amount of time the cache remains valid.  When the cluster shows a node as absent for a period of time less than this interval, the node can rejoin the cluster through an incremental state transfer. Node that remains absent for longer than this interval will likely require a full state snapshot transfer to rejoin the cluster.
 
+You can determine the period of time the cache remains valid using this equation:
+
+.. math::
+
+   period = \frac{ cachesize } { writerate }
+
+
+Conversely, if you already know the period in which you want the write-set cache to remain valid, you can use instead this equation:
+
+.. math::
+
+   cachesize = writerate \times time
+
+   
+This equation can show how the size of the write-set cache can improve performance.  For instance, say you find that cluster nodes frequently request state snapshot transfers.  Increasing the :ref:`gcache.size <gcache.size>` parameter extends the period in which the write-set remains valid, allowing the nodes to update instead through incremental state transfers.
+
+   
+      
 .. note:: Consider these configuration tips as guidelines only. For example, in cases where you must avoid state snapshot transfers as much as possible, you may end up using a much larger write-set cache than suggested above.
 
 -----------------------------------
