@@ -26,7 +26,7 @@ To remove an existing server, run the following command as root:
 	# apt-get remove mysql-server \
 		mysql-server-core
 
-To install the package dependencies, run the following command as root::
+To install the package dependencies, run the following command as root:
 
 1. Install ``psmisc`` and the MySQL client:
 
