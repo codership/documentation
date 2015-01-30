@@ -64,7 +64,7 @@ To check cluster integrity, for each node complete the following steps:
 
 4. Check the primary status of the cluster component:
 
-   .. code-block::
+   .. code-block:: mysql
 
 	SHOW VARIABLES LIKE 'wsrep_cluster_status';
 
@@ -77,9 +77,9 @@ Should these status variables check out and return the desired results on each n
 
 
 
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 When There is No Primary Component
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _no-primary-component:
 
 If no node in the cluster is connected to the :term:`Primary Component` (that is, all nodes belong to the same component, which is a non-primary component), attempt to reset the quorum as explained in chapter :ref:`Resetting the Quorum <Resetting the Quorum>`.
@@ -262,9 +262,9 @@ When you set ``wsrep_notify_cmd`` on a node, the server invokes the Notification
 - ``--index [n]`` This option indicates the index of the node in the member list, (base 0).
 
 
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 Node Status Strings
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 .. _`node-status`:
 
 The notification command with the ``--status`` option uses the following strings to indicate node status.

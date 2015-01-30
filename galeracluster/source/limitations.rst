@@ -117,7 +117,7 @@ You cannot direct query logs to a table.  If you would like to enable query logg
 
    log_output = FILE
 
-Use ``general_log`` and ``general_log_file to choose query logging and to set the filename for your log file.
+Use ``general_log`` and ``general_log_file`` to choose query logging and to set the filename for your log file.
 
 ^^^^^^^^^^^^^^^^^^^^
 Query Cache

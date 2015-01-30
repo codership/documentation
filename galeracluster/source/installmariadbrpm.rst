@@ -1,7 +1,7 @@
 =============================================
 RPM Installation
 =============================================
-.. _`MariaDB RPM Installation`
+.. _`MariaDB RPM Installation`:
 
 If you run Red Hat Enterprise Linux or another RPM-based distribution, such as Fedora or CentOS, you can install Galera Cluster for MariaDB on your server through the package manager.
 

@@ -23,9 +23,9 @@ With the hosts prepared, you are ready to initialize the cluster.
 
 
 
--------------------------------------
+---------------------------------------------
 Creating Client Connections between the Nodes
--------------------------------------
+---------------------------------------------
 .. _`Creating Client Connections between Nodes`:
 
 Connecting the database servers to each other as a cluster requires that you create client connections between the nodes.  This allows the nodes to carry out state snapshot transfers with each other.
@@ -84,9 +84,9 @@ This status variable tells you the number of nodes that are connected to the clu
 .. note:: Do not restart ``mysqld`` at this point.
 
 
--------------------------------------
+--------------------------------------
 Adding Additional Nodes to the Cluster
--------------------------------------
+--------------------------------------
 .. _`Add Nodes to Cluster`:
 
 When you start the first node you initialize a new cluster.  Once this is done, the procedure for adding all the other nodes is the same.

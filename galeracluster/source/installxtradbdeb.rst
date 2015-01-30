@@ -1,7 +1,7 @@
 =====================================
 Debian Installation
 =====================================
-.. _`XtraDB Debian Installation`
+.. _`XtraDB Debian Installation`:
 
 
 If you run Debian or a Debian-based distribution, such as Ubuntu, you can install Galera Cluster for Percona XtraDB on your server through the package manager.

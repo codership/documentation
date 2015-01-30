@@ -42,9 +42,9 @@ If you use ``mysqldump`` for state transfers and it fails, an ``SQL SYNTAX`` err
 Read the pseudo-statement within the ``SQL SYNTAX`` resynchronizes with the primary component.
 
 
---------------------------------------
+---------------------------------------
 Connection gives Unknown Command Errors
---------------------------------------
+---------------------------------------
 .. _`Connection gives Unknown Command Errors`:
 
 After a temporary split, if the Primary Component was still reachable and its state was modified, resynchronization occurs.  In resynchronization, nodes on the other part of the cluster drop all client connections.  The connections get the ``Unknown command`` error.
@@ -106,9 +106,9 @@ Currently, replication only works with the InnoDB storage engine.  Any writes to
 
 As a rule, non-transactional engines cannot be supported in multi-master replication.
 
---------------------------------------------
+-------------------------------------------------
 Cluster Stalls when ALTER runs on an Unused Table
---------------------------------------------
+-------------------------------------------------
 .. _`Cluster Stalls ALTER on Unused Table`:
 
 Cluster stalls when running the ``ALTER`` query on an unused table.

@@ -17,16 +17,16 @@ This chapter describes the Galera Cluster release numbering schemes and software
 Galera Cluster software packages have their own release numbering schemes as follows:
 
 - **Galera wsrep Provider** The Galera wsrep provider release numbering scheme is as follows::
-  
-  wsrep API main version.Galera wsrep provider version
-  
-  For example, release number 23.2.4 indicates that the Galera wsrep Provider is meant to be used with wsrep API version 23.x.x and the Galera wsrep provider version is 2.4.
-  
+    
+    wsrep API main version.Galera wsrep provider version
+    
+    For example, release number 23.2.4 indicates that the Galera wsrep Provider is meant to be used with wsrep API version 23.x.x and the Galera wsrep provider version is 2.4.
+    
 - **MySQL Server with wsrep API patch** The patched MySQL server release numbering scheme is as follows::
-  
-  MySQL version-wsrep API version
-  
-  For example, release number 5.5.29-23.7.3 indicates that the patched MySQL server release contains MySQL version 5.5.29 and wsrep API version 23.7.3.
+    
+    MySQL version-wsrep API version
+    
+    For example, release number 5.5.29-23.7.3 indicates that the patched MySQL server release contains MySQL version 5.5.29 and wsrep API version 23.7.3.
 
 ---------------------------
  Software Packages

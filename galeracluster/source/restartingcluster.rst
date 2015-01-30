@@ -14,9 +14,9 @@ To restart an entire Galera Cluster, complete the following steps:
 3. Start the rest of the node as usual.
 
 
----------------------------------
+----------------------------------
 Identifying the Most Advanced Node
----------------------------------
+----------------------------------
 .. _`Identify Most Advanced Node`:
 
 Identifying the most advacned node state ID is managed by comparing the :term:`Global Transaction ID` values on different nodes in your cluster.  You can find this in the ``grastate.dat`` file, located in the datadir for your database.

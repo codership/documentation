@@ -1,7 +1,7 @@
 ==========================================
 Configuring the Server
 ==========================================
-.. _`Server Configuration`
+.. _`Server Configuration`:
 
 After you install Galera Cluster, the next step is to configure your server to function as a node in the cluster.
 
@@ -37,9 +37,9 @@ After you save the configuration file, open the ``wsrep.cnf`` file in the ``conf
 
 After you save these changes, you can start your database server. 
 
-------------------------------
+-------------------------------
 Configuring Database Privileges
-------------------------------
+-------------------------------
 .. _`Database Privileges`:
 
 Once your database server is running, you can log into the client and configure the user privileges for the node, to remove empty users and to create the write-set replication user for state snapshot transfers.

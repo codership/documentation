@@ -89,9 +89,9 @@ There are, however, certain disadvantages to consider in data tier clustering:
 - **Scalability** The scheme does not scale well over several datacenters.  Attempts to do so may remove any benefits you gain from resource consolidation, given that each datacenter must include at least two :abbr:`DBMS (Database Management System)` servers.
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Data Tier Clustering with Distributed Load Balancing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`data-tier-load-balancers`:
 
 One solution to the limitations of data tier clustering is to deploy them with distributed load balancing.  This scheme roughly follows the standard data tier cluster, but includes a dedicated load balancer installed on each application server.

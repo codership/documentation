@@ -1,6 +1,6 @@
-==========
+============
 Legal Notice
-==========
+============
 
 Copyright (C) 2013 Codership Oy <info@codership.com>
 

@@ -1,7 +1,7 @@
 =============================================
 Debian Installation
 =============================================
-.. _`MariaDB Debian Installation`
+.. _`MariaDB Debian Installation`:
 
 If you run Debian or a Debian-based distribution, such as Ubuntu, you can install Galera Cluster for MariaDB on your server through the package manager.
 
