@@ -66,7 +66,7 @@ You can check these status variables using the ``SHOW STATUS`` query from the da
 ----------------------------------
 Upgrading from Previous Versions
 ----------------------------------
-.. _`upgrade-evs`;
+.. _`upgrade-evs`:
 
 Releases of Galera Cluster prior to version 3.8 use EVS Protocol version 0, which is not directly compatible with version 1.  As such, when you upgrade Galera Cluster for your node, the node continues to use EVS Protocol version 0.
 
