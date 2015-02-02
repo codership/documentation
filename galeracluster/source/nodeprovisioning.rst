@@ -31,7 +31,7 @@ In the event that the node crashes while in :term:`Total Order Isolation` mode, 
 
 	00000000-0000-0000-0000-000000000000:-1
 
-.. note:: In normal transaction processing, only the :term:`seqno` part of the GTID remains undefined, (that is, with a value of ``-1``.  The UUID, (that is, the remainder of the node state), remains valid.  In such cases, you can recover the node through an :term:`Incremental State Transfer`. 
+.. note:: In normal transaction processing, only the seqno part of the GTID remains undefined, (that is, with a value of ``-1``.  The UUID, (that is, the remainder of the node state), remains valid.  In such cases, you can recover the node through an :term:`Incremental State Transfer (IST)`. 
 
 ---------------------------
 How Nodes Join the Cluster

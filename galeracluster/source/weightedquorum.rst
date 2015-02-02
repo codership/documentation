@@ -7,7 +7,7 @@ In addition to single node failures, the cluster may split into several componen
 
 Under normal operations, your :term:`Primary Component` is the cluster.  When cluster partitioning occurs, Galera Cluster invokes a special quorum algorithm to select one component as the Primary Component.  This guarantees that there is never more than one Primary Component in the cluster.
 
-.. seealso:: Chapter :ref:`Galera Arbitrator <Galera Arbitrator>`
+.. seealso:: Chapter :doc:`arbitrator`
 
 
 

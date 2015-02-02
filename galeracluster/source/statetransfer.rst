@@ -46,7 +46,7 @@ You can choose from two conceptually different approaches in Galera Cluster to t
   Some of these methods, such as **xtrabackup** can be made non-blocking on the donor.  They are supported through a scriptable SST interface.
 
 
-.. seealso:: For more information on the particular methods available for State Snapshot Transfers, see the :ref:`Comparison <comparison-of-state-transfer-methods>`.
+.. seealso:: For more information on the particular methods available for State Snapshot Transfers, see the :ref:`Comparison of State Transfer Methods <state-transfer-methods>`.
 
 You can set which State Snapshot Transfer method a node uses from the confirmation file.  For example:
 

@@ -7,7 +7,7 @@ This chapter describes how Galera Cluster deals with conflicts in multi-master d
   
 Galera Cluster can cope with a situation such as this by using Certification Based Replication.
 
-.. seealso:: Chapter :ref:`Certification Based Replication <Certification Based Replication>`.
+.. seealso:: Chapter :doc:`certificationbasedreplication`.
 
 -----------------------------------
  Diagnosing Multi-Master Conflicts

@@ -15,7 +15,7 @@
 
 Galera Cluster is a synchronous multi-master database cluster, based on synchronous replication and Oracle's MySQL/InnoDB.  When Galera Cluster is in use, you can direct reads and writes to any node, and you can lose any individual node without interruption in operations and without the need to handle complex failover procedures.
 
-At a high level, Galera Cluster consists of a database server |---| that is, MySQL, MariaDB or Percona XtraDB |---| that then uses the :term:`Galera Replicator` to manage replication.  To be more specific, the MySQL replication plugin API has been extended to provide all the information and hooks required for true multi-master, synchronous replication.  This extended API is called the Write-Set Replication API, or wsrep API.
+At a high level, Galera Cluster consists of a database server |---| that is, MySQL, MariaDB or Percona XtraDB |---| that then uses the :term:`Galera Replication Plugin` to manage replication.  To be more specific, the MySQL replication plugin API has been extended to provide all the information and hooks required for true multi-master, synchronous replication.  This extended API is called the Write-Set Replication API, or wsrep API.
 
 Through the wsrep API, Galera Cluster provides certification-based replication.  A transaction for replication, the write-set, not only contains the database rows to replicate, but also includes information on all the locks that were held by the database during the transaction.  Each node then certifies the replicated write-set against other write-sets in the applier queue.  The write-set is then applied, if there are no conflicting locks.  At this point, the transaction is considered committed, after which each node continues to apply it to the tablespace. 
 
