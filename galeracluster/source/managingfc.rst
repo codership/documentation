@@ -110,7 +110,7 @@ The write-set cache grows semi-logarithmically with time after the :ref:`gcs.rec
 ^^^^^^^^^^^^^^^^^^^^^^
 Managing Flow Control
 ^^^^^^^^^^^^^^^^^^^^^^
-.. _`managing-fc`:
+.. _`managing-flow-control`:
 
 These parameters control the point at which the node triggers Flow Control and the factor used in determining when it should disengage Flow Control and resume replication.
 
