@@ -101,7 +101,7 @@ Enabling the ``zypper`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`mysql-zypper-repo`:
 
-For distributions that use ``zypper`` for package management, such as openSUSE and SLES, you can enable the Codership repository by importing the GPG key and then creating a ``.repo`` file in the local directory.
+For distributions that use ``zypper`` for package management, such as openSUSE and SUSE Linux Enterprise Server, you can enable the Codership repository by importing the GPG key and then creating a ``.repo`` file in the local directory.
 
 #. Import the GPG key.
 
@@ -167,7 +167,7 @@ For Red Hat, Fedora and CentOS distributions, instead run this command:
 		mysql-wsrep-5.6 \
 		mysql-client-5.6
 
-For openSUSE and SLES distributions, run this command:
+For openSUSE and SUSE Linux Enterprise Server, run this command:
 
 .. code-block:: console
 
