@@ -40,11 +40,12 @@ Once you have the Software Properties installed, you can enable the Codership re
       # apt-key adv --keyserver.ubuntu.com
             --recv BC19DDBA
 
-#. Add the Codership repository to your sources list.
+#. Add the Codership repository to your sources list.  Using your preferred text editor, create ``/etc/apt/sources.list.d/galera.list``
 
-   .. code-block:: console
+   .. code-block:: linux-config
 
-      # add-apt-repository 'deb http://releases.galeracluster.com/DIST RELEASE main'
+      # Codership Repository (Galera Cluster for MySQL)
+      deb http://releases.galeracluster.com/DIST RELEASE main
 
    For the repository address, make the following changes:
 
@@ -62,7 +63,7 @@ Once you have the Software Properties installed, you can enable the Codership re
 
    .. code-block:: console
 
-      # apt-get update
+      # apt-get update --ignore-missing
 
 Packages in the Codership repository are now available for installation through ``apt-get``.
 
