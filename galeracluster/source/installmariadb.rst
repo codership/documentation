@@ -3,7 +3,7 @@ Binary Installation
 ===========================
 .. _`galera-mariadb-binarys-install`:
 
-MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are availalbe for Debian- and RPM-based distributions of Linux through the MariaDB repository.
+MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux through the MariaDB repository.
 
 ---------------------------------
 Enabling the MariaDB Repository
@@ -17,7 +17,7 @@ Enabling the ``apt`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`mariadb-deb`:
 
-For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the Software Properites.  The package names vary depending on your distribution.  For Debian, in the terminal run the following command:
+For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the Software Properties.  The package names vary depending on your distribution.  For Debian, in the terminal run the following command:
 
 .. code-block:: console
 
@@ -78,7 +78,9 @@ Enabling the ``yum`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`mariadb-rpm`:
 
-For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the MariaDB repository by adding a ``.repo`` file to the ``/etc/yum/repos.d/`` directory. Using your preferred text editor, create the ``.repo`` file.
+For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the MariaDB repository by adding a ``.repo`` file to the ``/etc/yum/repos.d/`` directory.
+
+Using your preferred text editor, create the ``.repo`` file.
 
 .. code-block:: ini
 
