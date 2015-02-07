@@ -83,8 +83,8 @@ Using your preferred text editor, create the ``.repo`` file.
 
    [galera]
    name = Galera
-   baseurl = http://release.galeracluster.com/DIST/RELEASE/ARCH
-   gpgkey = http://release.galeracluster.com/GPG-KEY-galeracluster.com
+   baseurl = http://releases.galeracluster.com/DIST/RELEASE/ARCH
+   gpgkey = http://releases.galeracluster.com/GPG-KEY-galeracluster.com
    gpgcheck = 1
 
 In the ``baseurl`` field, make the following changes to web address:
@@ -108,7 +108,7 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 
    .. code-block:: console
 
-      $ sudo rpm --import "http://release.galeracluster.com/GPG-KEY-galeracluster.com"
+      $ sudo rpm --import "http://releases.galeracluster.com/GPG-KEY-galeracluster.com"
 
 #. Create a ``galera.repo`` file in the local directory.
 
@@ -116,7 +116,7 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 
       [galera]
       name = Galera
-      baseurl = http://release.galeracluster.com/DIST/RELEASE
+      baseurl = http://releases.galeracluster.com/DIST/RELEASE
 
    For the ``baseurl`` repository address, make the following changes:
 
