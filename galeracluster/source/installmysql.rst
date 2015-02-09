@@ -157,24 +157,21 @@ For Debian-based distributions, run the following command:
 
    # apt-get install galera-3 \
 		galera-arbitrator-3 \
-		mysql-wsrep-5.6 \
-		mysql-client-5.6
+		mysql-wsrep-5.6
 
 For Red Hat, Fedora and CentOS distributions, instead run this command:
 
 .. code-block:: console
 	 
    # yum install galera-3 \
-		mysql-wsrep-5.6 \
-		mysql-client-5.6
+		mysql-wsrep-5.6
 
 For openSUSE and SUSE Linux Enterprise Server, run this command:
 
 .. code-block:: console
 
    # zypper install galera-3 \
-		mysql-wsrep-5.6 \
-		mysql-client-5.6
+		mysql-wsrep-5.6
 		
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
 
