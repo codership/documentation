@@ -39,7 +39,7 @@ To disable SELinux for mysql run the following command:
 
    # semanage permissive -a mysqld_t
 
-.. seealso:: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/selinux_and_mysql>`_.  For additional information, see the SELinux.
+.. seealso:: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.  For additional information, see the SELinux.
 
 .. Revision Note: Add a label for port 4567 as mysqld_port_t, check if other ports on the firewall need something similar.  Check if AppArmor requires a similar label as well.
 
