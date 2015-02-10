@@ -63,7 +63,7 @@ Once you have the Software Properties installed, you can enable the Codership re
 
    .. code-block:: console
 
-      # apt-get update --ignore-missing
+      # apt-get update
 
 Packages in the Codership repository are now available for installation through ``apt-get``.
 
