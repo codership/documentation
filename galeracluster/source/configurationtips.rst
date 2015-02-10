@@ -62,7 +62,7 @@ Parameters that relate to periods and timeouts, such as ``evs.join_retrans_perio
 
 .. code-block:: ini
 
-   wsrep_provider_options="evs.join_retrans_period=14"
+   wsrep_provider_options="evs.join_retrans_period=PT0.5S"
 
 This allows the cluster to compensate for the latency issues of the :abbr:`WAN (Wide Area Network)` links between your cluster nodes.
   
