@@ -22,18 +22,17 @@ The following parameters can tolerate 30 second connectivity outages.
 .. code-block:: ini
 
   wsrep_provider_options = "evs.keepalive_period = PT3S; 
-  	evs.inactive_check_period = PT10S; 
   	evs.suspect_timeout = PT30S; 
   	evs.inactive_timeout = PT1M; 
   	evs.install_timeout = PT1M"
 
 In configuring these parameters, consider the following:
 
-- You want ``evs.suspect_timeout`` parameter set as high as possible to help avoid partitions.  Given that partitions cause state transfers, which can effect performance.
+- You want :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter set as high as possible to help avoid partitions.  Given that partitions cause state transfers, which can effect performance.
 
-- You must set the ``evs.inactive_timeout`` parameter to a value higher than ``evs.suspect_timeout``.
+- You must set the :ref:`evs.inactive_timeout <evs.inactive_timeout>` parameter to a value higher than :ref:`evs.suspect_timeout <evs.suspect_timeout>`.
 
-- You must set the ``evs.install_timeout`` parameter to a value higher than the ``evs.inactive_timeout``.
+- You must set the :ref:`evs.install_timeout <evs.install_timeout>` parameter to a value higher than the :ref:`evs.inactive_timeout <evs.inactive_timeout>`.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Dealing with WAN Latency
@@ -58,7 +57,7 @@ To take RTT measurements, use **ping** on each cluster node to ping the others. 
 
 Take RTT measurements on each node in your cluster and note the highest value among them.  
 
-Parameters that relate to periods and timeouts, such as ``evs.join_retrans_period``.  They must all use values that exceed the highest RTT measurement in your cluster.
+Parameters that relate to periods and timeouts, such as :ref:`evs.join_retrans_period <evs.join_retrans_period>`.  They must all use values that exceed the highest RTT measurement in your cluster.
 
 .. code-block:: ini
 
