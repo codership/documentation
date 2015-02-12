@@ -178,13 +178,22 @@ Changing this variable in runtime will cause the node to close connection to the
 
     gcomm://node1:port1,node2:port2,...[?option1=value1&...]
 
-Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).
+  
+Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. note:: Never use an empty ``gcomm://`` string in the configuration file (that is, ``my.cnf``). If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``gcomm://`` string on the command line, such as:
+.. note:: Never use an empty ``gcomm://`` string in the configuration file (that is, ``my.cnf``). If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line.
 
-	.. code-block:: console
-	
-		$ service mysql start --wsrep-cluster-address="gcomm://"
+	  For example, on systems that use ``init``, run this command: 
+
+       .. code-block:: console
+
+          # service mysql start --wsrep-new-cluster
+
+       For systems that use ``systemd``, instead use this command:
+
+       .. code-block:: console
+
+          # systemctl start mysql --wsrep-new-cluster
 
 
 .. rubric:: ``wsrep_cluster_name``
