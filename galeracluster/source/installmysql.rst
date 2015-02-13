@@ -146,10 +146,9 @@ Installing Galera Cluster
 .. _`mysql-install`:
 
 
-There are a three packages involved in the installation of Galera Cluster for MySQL: the MySQL database client, a command-line tool for accessing the database; the MySQL database server, built to include the wsrep API; and the Galera Replicator plugin.
+There are two packages involved in the installation of Galera Cluster for MySQL: the MySQL database server, built to include the wsrep API; and the Galera Replicator plugin.
 
-.. note:: For Debian-based distributions, you also need to include a fourth package, Galera Arbitrator.  This is only necessary with ``apt-get``.  The ``yum`` and ``zypper`` repositories package Galera Arbitrator with the Galera Replicator plugin.
-
+.. note:: For Debian-based distributions, you also need to include a third package, Galera Arbitrator.  This is only necessary with ``apt-get``.  The ``yum`` and ``zypper`` repositories package Galera Arbitrator with the Galera Replicator plugin.
 
 For Debian-based distributions, run the following command:
 
