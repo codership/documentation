@@ -44,11 +44,11 @@ If the certification test fails, the node drops the write-set and the cluster ro
 Certification-based Replication in Galera Cluster
 --------------------------------------------------
 
-The implementation of certification-based replication in Galera Cluster depends on the global ordering of transaction.
+The implementation of certification-based replication in Galera Cluster depends on the global ordering of transactions.
 
 Galera Cluster assigns each transaction a global ordinal sequence number, or seqno, during replication.  When a transaction reaches the commit point, the node checks the sequence number against that of the last successful transaction.  The interval between the two is the area of concern, given that transactions that occur within this interval have not seen the effects of each other.  All transactions in this interval are checked for primary key conflicts with the transaction in question.  The certification test fails if it detects a conflict.
 
-The procedure is deterministic and all replica receive transactions n the same order.  Thus, all nodes reach the same decision about the outcome of the transaction.  The node that started the transaction can then notify the client application if the transaction whether or not it has committed the transaction.
+The procedure is deterministic and all replica receive transactions in the same order.  Thus, all nodes reach the same decision about the outcome of the transaction.  The node that started the transaction can then notify the client application whether or not it has committed the transaction.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
