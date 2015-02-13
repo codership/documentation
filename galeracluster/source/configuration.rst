@@ -17,6 +17,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
    bind-address=0.0.0.0
    default-storage-engine=innodb
    innodb_autoinc_lock_mode=2
+   innodb_flush_log_at_trx_commit=0
    wsrep_provider=/usr/lib/libgalera_smm.so
    wsrep_provider_options="gcache.size=300M; gcache.page_size=1G"
    wsrep_cluster_name="example_cluster"
@@ -74,6 +75,15 @@ There are certain basic configurations that you will need to set up in the ``/et
   Do not change this value.  Other modes may cause ``INSERT`` statements on tables with ``AUTO_INCREMENT`` columns to fail.  
 
   .. warning:: When `innodb_autoinc_lock_mode <http://dev.mysql.com/doc/refman/5.5/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode, indicated by ``0``, or to consecutive lock mode, indicated by ``1``, in Galera Cluster it can cause unresolved deadlocks and make the system unresponsive.
+
+- Ensure that the InnoDB log buffer is written to file once per second, rather than on each commit, to improve performance.
+
+  .. code-block:: ini
+
+     innodb_flush_logs_at_trx_commit=0
+
+  .. warning:: While setting `innodb_flush_logs_at_trx_commit <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit>`_ to a value of ``0`` or ``2`` improves performance, it also introduces certain dangers.  Operating system crashes or power outages can erase the last second of transaction.  Although normally you can recover this data from another node, it can still be lost entirely in the event that the cluster goes down at the same time, (for instance, in the event of a data center power outage).
+
 
 After you save the configuration file, you are ready to configure the database privileges.
 
