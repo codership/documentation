@@ -7,14 +7,24 @@ Galera Cluster requires server hardware for a minimum of three nodes.
 
 If your cluster runs on a single switch, use three nodes.  If your cluster spans switches, use three switches.  If your cluster spans networks, use three networks.  If your cluster spans data centers, use three data centers.  This ensures that the cluster can maintain a Primary Component in the event of network outages.
 
-Each node in the cluster requires:
+For server hardware, each node requires at a minimum:
 
-- 100 Mbps or better network connectivity;
+- 1GHz single core CPU
+- 512MB RAM
+- 100 Mbps network connectivity
+
+.. seealso:: Galera Cluster may occasionally crash when run on limited hardware due to insufficient memory.  To prevent this, ensure that you have sufficient swap space available.  For more information on how to create swap space, see :ref:`Configuring Swap Space <swap-config>`.
+
+For software, each node in the cluster requires:
+
 - Linux or FreeBSD;
 - MySQL, MariaDB or Percona XtraDB server with wsrep API patch;
 - Galera Replication Plugin.
 
 .. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building form source, you must apply this patch yourself.
+
+
+
 
 	  
 ------------------------------

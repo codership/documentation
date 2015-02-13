@@ -18,6 +18,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
    default-storage-engine=innodb
    innodb_autoinc_lock_mode=2
    innodb_flush_log_at_trx_commit=0
+   innodb_buffer_pool_size=122M
    wsrep_provider=/usr/lib/libgalera_smm.so
    wsrep_provider_options="gcache.size=300M; gcache.page_size=1G"
    wsrep_cluster_name="example_cluster"
@@ -32,7 +33,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
 
 
 --------------------------------
-Database Configuration
+Configuring Database Server
 --------------------------------
 .. _`db-config`:
 
@@ -86,6 +87,20 @@ There are certain basic configurations that you will need to set up in the ``/et
 
 
 After you save the configuration file, you are ready to configure the database privileges.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuring the InnoDB Buffer Pool
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`innodb_buffer_pool_size`:
+
+The InnoDB storage engine uses a memory buffer to cache data and indexes of its tables, which you can configure through the 
+`innodb_buffer_pool_size <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ parameter.  The default value is 128MB.  To compensate for the increased memory usage of Galera Cluster over the standalone MySQL database server, you should scale your usual value back by 5%.
+
+.. code-block:: ini
+
+   innodb_buffer_pool_size=122M
+
+
 
 --------------------------------------
 Configuring State Transfer Privileges
@@ -150,6 +165,78 @@ For systems that use ``systemd``, instead use this command:
    # systemctl stop mysql
 
 .. seealso:: For more information on state snapshot and incremental state transfers, see :doc:`statetransfer`.
+
+-----------------------------------------
+Configuring Swap Space
+-----------------------------------------
+.. _`swap-config`:
+
+Memory requirements for Galera Cluster are difficult to predict with any precision.  The particular amount of memory it uses can vary significantly, depending upon the load the given node receives.  In the event that Galera Cluster attempts to use more memory than the node has available, the ``mysqld`` instance crashes.
+
+
+The way to protect your node from such crashing is to ensure that you have sufficient swap space available on the server, either in the form of a swap partition or swap files.  To check the available swap space, run the following command:
+
+.. code-block:: console
+
+   $ swapon --summary
+   Filename        Type        Size     Used    Priority
+   /dev/sda2       partition   3369980  0       -1
+   /swap/swap1     file        524284   0       -2
+   /swap/swap2     file        524284   0       -3
+
+If your system does not have swap space available or if the allotted space is insufficient for your needs, you can fix this by creating swap files.
+
+#. Create an empty file on your disk, set the file size to whatever size you require.
+
+   .. code-block:: console
+
+      # fallocate -l 512M /swapfile
+
+   Alternatively, you can manage the same using ``dd``.
+
+   .. code-block:: console
+
+      # dd if=/dev/zero of=/swapfile bs=1M count=512
+
+#. Secure the swap file.
+
+   .. code-block:: console
+
+      # chmod 600 /swapfile
+
+   This sets the file permissions so that only the root user can read and write to the file.  No other user or group member can access it.  You can view the results with ``ls``:
+
+   .. code-block:: console
+
+      $ ls -a / | grep swapfile
+      -rw------- 1 root root 536870912 Feb 12 23:55 swapfile
+
+#. Format the swap file.
+
+   .. code-block:: console
+
+      # mkswap /swapfile
+
+#. Activate the swap file.
+
+   .. code-block:: console
+
+      # swapon /swapfile
+
+#. Using your preferred text editor, update the ``/etc/fstab`` file to include the swap file by adding the following line to the bottom:
+
+   .. code-block:: ini
+
+      /swapfile none swap defaults 0 0
+ 
+After you save the ``/etc/fstab`` file, you can see the results with ``swapon``.
+
+.. code-block:: console
+  
+   $ swapon --summary
+   Filename        Type        Size     Used    Priority
+   /swapfile       file        524284   0       -1
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

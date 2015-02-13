@@ -181,9 +181,7 @@ Changing this variable in runtime will cause the node to close connection to the
   
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. note:: Never use an empty ``gcomm://`` string in the configuration file (that is, ``my.cnf``). If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line.
-
-	  For example, on systems that use ``init``, run this command: 
+.. note:: Never use an empty ``gcomm://`` string in the configuration file (that is, ``my.cnf``). If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line. For example, on systems that use ``init``, run this command: 
 
        .. code-block:: console
 
