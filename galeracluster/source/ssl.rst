@@ -14,7 +14,7 @@
    
 For the encryption of replication traffic, Galera Cluster supports :abbr:`SSL (Secure Sockets Layer)`.  It does not support authentication.  SSL is a cluster-wide option.  You must enable it for all nodes in the cluster or none at all.
 
-.. warning:: Galera Cluster SLL support only covers Galera Cluster communications.  State Snapshot Transfers happen outside of Galera Cluster, so you must protect them separately.  For example, consider using the internal SSL support of the MySQL client or the **stunnel** program to protect **rsync** traffic.
+.. warning:: Galera Cluster SSL support only covers Galera Cluster communications.  State Snapshot Transfers happen outside of Galera Cluster, so you must protect them separately.  For example, consider using the internal SSL support of the MySQL client or the **stunnel** program to protect **rsync** traffic.
 
 To implement SSL on your cluster, complete the following steps:
 
