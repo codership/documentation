@@ -13,7 +13,7 @@
 By default, Galera Cluster may require all or some of the following ports to be open between the nodes: 
 
 - ``3306`` For MySQL client connections and State Snapshot Transfers through ``mysqldump``.
-- ``4567`` For Galera Cluster replication traffic.
+- ``4567`` For Galera Cluster replication traffic. Multicast uses UDP.
 - ``4568`` For Incremental State Transfers.
 - ``4444`` For all State Snapshot Transfers besides ``mysqldump``.
 
@@ -29,6 +29,13 @@ For example, in a :abbr:`LAN (Local Area Network)` environment the ``iptables`` 
     	--source 192.168.0.1/24 --dport 4568 -j ACCEPT
     $ iptables -A INPUT -i eth0 -p tcp -m tcp \
     	--source 192.168.0.1/24 --dport 4444 -j ACCEPT 
+
+When using multicast UDP is used. The following is also needed to allow multicast udp traffic:
+
+.. code-block:: console
+
+    $ iptables -A INPUT -i eth0 -p udp -m udp \
+    	--source 192.168.0.1/24 --dport 4567 -j ACCEPT
 
 In a :abbr:`WAN (Wide Area Network)` environment, this setup may be tedious to manage. Alternatively, with not much loss of security, you can simply open a full range of ports between trusted hosts:
 
