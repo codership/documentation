@@ -68,7 +68,7 @@ In theory, there are several advantages that synchronous replication has over as
   - Data replicas remain consistent.
   - No complex, time-consuming failovers.
 
-- **Improved Performance** Synchronous replications allows you to execute transactions on all nodes in the cluster in parallel to each other, increaing performance.
+- **Improved Performance** Synchronous replications allows you to execute transactions on all nodes in the cluster in parallel to each other, increasing performance.
  
 - **Causality across the Cluster** Synchronous replication guarantees causality across the whole cluster.  For example, a ``SELECT`` query issued after a transaction always sees the effects of the transaction, even if it were executed on another node.
 
