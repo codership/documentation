@@ -3,7 +3,7 @@
 =================
 .. _`getting-started`:
 
-Galera Cluster for MySQL is a synchronous replication solutation that can improve availability and performance of MySQL service.  All Galera Cluster nodes are identical and fully representative of the cluster and allow unconstrained transparent ``mysql`` client access, acting as a single-distributed MySQL server.  It provides:
+Galera Cluster for MySQL is a synchronous replication solution that can improve availability and performance of MySQL service.  All Galera Cluster nodes are identical and fully representative of the cluster and allow unconstrained transparent ``mysql`` client access, acting as a single-distributed MySQL server.  It provides:
 
 - Transparent client connections, so it's highly compatible with existing applications;
 
