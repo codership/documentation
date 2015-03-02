@@ -19,7 +19,7 @@ Identifying the Most Advanced Node
 ----------------------------------
 .. _`Identify Most Advanced Node`:
 
-Identifying the most advacned node state ID is managed by comparing the :term:`Global Transaction ID` values on different nodes in your cluster.  You can find this in the ``grastate.dat`` file, located in the datadir for your database.
+Identifying the most advanced node state ID is managed by comparing the :term:`Global Transaction ID` values on different nodes in your cluster.  You can find this in the ``grastate.dat`` file, located in the datadir for your database.
 
 If the ``grastate.dat`` file looks like the example below, you have found the most advanced node state ID:
 
@@ -37,14 +37,14 @@ To find the sequence number of the last committed transaction, run ``mysqld`` wi
 
 	130514 18:39:13 [Note] WSREP: Recovered position: 5ee99582-bb8d-11e2-b8e3-23de375c1d30:8204503945771
 
-This value is the node state ID.  You can use it to manually update the ``grastate.dat`` file, by entering it for the ``seqno`` field, or let ``mysql_safe`` recover automatically and pass the value to your database server the next time you start it.
+This value is the node state ID.  You can use it to manually update the ``grastate.dat`` file, by entering it for the ``seqno`` field, or let ``mysqld_safe`` recover automatically and pass the value to your database server the next time you start it.
 
 --------------------------------------
 Identifying Crashed Nodes
 --------------------------------------
 .. _`Identify Crashed Node`:
 
-If the ``grastate.dat`` file looks like the example below, the node has either crashed during execution of a non-transactional operation, (such as ``ALTER TABLE``), or borted due to a database inconsistency:
+If the ``grastate.dat`` file looks like the example below, the node has either crashed during execution of a non-transactional operation, (such as ``ALTER TABLE``), or aborted due to a database inconsistency:
 
 .. code-block:: text
 
@@ -57,8 +57,4 @@ If the ``grastate.dat`` file looks like the example below, the node has either c
 It is possible for you to recover the Global Transaction ID of the last committed transaction from InnoDB, as described above, but the recovery is rather meaningless.  After the crash, the node state is probably corrupted and may not even prove functional.  
 
 In the event that there are no other nodes in the cluster with a well-defined state, then there is no need to preserve the node state ID.  You must perform a thorough database recovery procedure, similar to that used on standalone database servers.  Once you recover one node, use it as the first node in a new cluster.
-
-If there are no other nodes with a well-defined state, you must perform a thorough database recovery procedure, (similar to that used on standalone database servers), on one node, then use it as the first node in a new cluster.
-
-You can still recover the node state ID of the last committed transaction from InnoDB as described above; however, the recover is rather meaningless.  The node state is probably corrupted and may not even be functional.
 
