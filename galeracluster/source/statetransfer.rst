@@ -74,7 +74,7 @@ This provisioning method is only available under certain conditions:
 
 When these conditions are met, the donor node transfers the missing transactions alone, replaying them in order until the joiner catches up with the cluster.
 
-For example, sat that you have a node in your cluster that falls behind the cluster.  This node carries a node state that reads:
+For example, say that you have a node in your cluster that falls behind the cluster.  This node carries a node state that reads:
 
 .. code-block:: text
 
