@@ -21,7 +21,7 @@ For software, each node in the cluster requires:
 - MySQL, MariaDB or Percona XtraDB server with wsrep API patch;
 - Galera Replication Plugin.
 
-.. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building form source, you must apply this patch yourself.
+.. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, you must apply this patch yourself.
 
 
 
@@ -59,7 +59,7 @@ Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`firewall-config`:
 
-Next, you will need to change the firewall settings, so that the nodes cna communicate with each other and to ensure that you can interact with them.  For instance, if you use ``iptables`` on CentOS, complete the following steps:
+Next, you will need to change the firewall settings, so that the nodes can communicate with each other and to ensure that you can interact with them.  For instance, if you use ``iptables`` on CentOS, complete the following steps:
 
 .. code-block:: console
 
