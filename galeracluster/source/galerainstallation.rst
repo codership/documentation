@@ -164,6 +164,8 @@ MariaDB Galera Cluster
    installmariadbsrc
   
 
+.. seealso:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
