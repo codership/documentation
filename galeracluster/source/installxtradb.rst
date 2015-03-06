@@ -110,19 +110,7 @@ For RPM-based distributions, instead run this command:
 
 Percona XtraDB Cluster is now installed on your server.
 
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-Update System Tables
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`xtradb-system-tables`:
-
-In the event that you installed Percona XtraDB Cluster over an existing installation of Percona XtraDB, your package manager would have taken care of uninstalling the existing database server packages.  However, you do still need to update the system tables from the standalone Percona XtraDB to Percona XtraDB Cluster.  To do so, in the terminal run the following command:
-
-.. code-block:: console
-
-   $ mysql_upgrade
-
-If this command generates any errors, check the MySQL Reference Manual for more information related to the error messages.  The errors it generates are typically not critical and you can usually ignore them, unless they relate to specific functionality that your system requires.
+.. seealso:: In the event that you installed Percona XtraDB Cluster over an existing standalone instance of Percona XtraDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
 
