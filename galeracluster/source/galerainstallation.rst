@@ -57,15 +57,11 @@ Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`firewall-config`:
 
-<<<<<<< HEAD
-Next, you will need to change the firewall settings, so that the nodes can communicate with each other and to ensure that you can interact with them.  For instance, if you use ``iptables`` on CentOS, complete the following steps:
-=======
 Next, you need to update the firewall settings on each node so that they can communicate with the cluster.  How you do this varies depending upon your distribution and the particular firewall software that you use.
 
 .. note:: If there is a NAT firewall between the nodes, you must configure it to allow for direct connections between the nodes, such as through port forwarding.
 
 As an example, to open ports between trusted hosts using ``iptables`` the commands you run on each  would look something like this:
->>>>>>> draft
 
 .. code-block:: console
 		
