@@ -21,7 +21,7 @@ For software, each node in the cluster requires:
 - MySQL, MariaDB or Percona XtraDB server with wsrep API patch;
 - Galera Replication Plugin.
 
-.. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building form source, you must apply this patch yourself.
+.. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, you must apply this patch yourself.
 
 
 

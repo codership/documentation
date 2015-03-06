@@ -71,7 +71,7 @@ The Global Transaction ID consists of the following components:
 
 - **Ordinal Sequence Number** The seqno, a 64-bit signed integer used to denote the position of the change in the sequence.
 
-The Global Transaction ID allows you to compare the application state and establish the order of state changes.  You can use it to determne whether or not a change was applied and whether the change is applicable at all to a given state.
+The Global Transaction ID allows you to compare the application state and establish the order of state changes.  You can use it to determine whether or not a change was applied and whether the change is applicable at all to a given state.
 
 
 

@@ -3,7 +3,7 @@ Source Installation
 =========================================
 .. _'MariaDB-Source Installation':
 
-MariaDB Glaera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based on a different package management system, or if it runs on a different unix-like operating system where binary installation packages are not available, such as Solaris or FreeBSD, you will need to build MariaDB Galera Cluster from source.
+MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based on a different package management system, or if it runs on a different unix-like operating system where binary installation packages are not available, such as Solaris or FreeBSD, you will need to build MariaDB Galera Cluster from source.
 
 .. note:: This tutorial omits MariaDB authentication options for brevity.
 
@@ -28,7 +28,7 @@ For other distributions and unix-like operating systems, consult the documentati
 
 
 --------------------------------------------
-Building the Galera Cluster for Maria DB
+Building the Galera Cluster for MariaDB
 --------------------------------------------
 .. _`Build Galera MariaDB`:
 
