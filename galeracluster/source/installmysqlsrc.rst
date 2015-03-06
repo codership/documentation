@@ -63,16 +63,8 @@ Once ``git`` finishes running, you can start building the database server.  You 
 
 Galera Cluster for MySQL  is now installed on your server.
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Updating System Tables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`Update System Tables`:
+.. seealso:: In the event that you built Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
-In the event that you built Galera Cluster for MySQL over an existing installation of the MySQL server, you need to also update the system tables from standalone MySQL to Galera Cluster for MySQL.  To do, run the following command:
 
-.. code-block:: console
 
-   $ mysql_upgrade
-
-If this command generates any errors, check the MySQL Documentation for more information related to the error messages.  The errors it generates are typically not critical and you can usually ignore them, unless they involve specific functionality that your system requires.
 

@@ -11,6 +11,7 @@ Bear in mind that there are certain key differences between how a standalone ins
    :maxdepth: 2
 
    limitations
+   migration
    myisamtoinnodb
 
 .. seealso:: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.

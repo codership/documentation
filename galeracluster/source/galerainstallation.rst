@@ -39,8 +39,6 @@ Disabling SELinux for mysqld
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`disable-selinux`:
 
-
-
 If you have SELinux enabled, it may block ``mysqld`` from carrying out required operations.  You must either disable SELinux for mysqld or configure it to allow ``mysqld`` to run external programs and open listen sockets on unprivileged ports |---| that is, things that an unprivileged user can do.
 
 To disable SELinux for mysql run the following command:
@@ -59,36 +57,53 @@ Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`firewall-config`:
 
+<<<<<<< HEAD
 Next, you will need to change the firewall settings, so that the nodes can communicate with each other and to ensure that you can interact with them.  For instance, if you use ``iptables`` on CentOS, complete the following steps:
-
-.. code-block:: console
-
-   # iptables --insert RH-Firewall-1-INPUT 1 --proto tcp \
-      --source my_IP/24 --destination my_IP/32 \
-      --dport 3306 -j ACCEPT
-   # iptables --insert RH-Firewall-1-INPUT 1 --proto tcp \
-      --source my_IP/24 --destination my_IP/32 \
-      --dport 4567 -j ACCEPT
-   # iptables --insert RH-Firewall-1-INPUT 1 --proto tcp \
-      --source my_IP/24 --destination my_IP/32 \
-      --dport 4568 -j ACCEPT
-
-Once this is done, you need to save ``iptables``.  If your system uses init scripts, run the following command:
-
-.. code-block:: console
-
-   # service iptables save
-
-If instead, your system uses ``systemd``, run this command instead:
-
-.. code-block:: console
-
-   # systemctl save iptables
-
-You will need to set the above firewall configurations for each node in your cluster.
+=======
+Next, you need to update the firewall settings on each node so that they can communicate with the cluster.  How you do this varies depending upon your distribution and the particular firewall software that you use.
 
 .. note:: If there is a NAT firewall between the nodes, you must configure it to allow for direct connections between the nodes, such as through port forwarding.
-      
+
+As an example, to open ports between trusted hosts using ``iptables`` the commands you run on each  would look something like this:
+>>>>>>> draft
+
+.. code-block:: console
+		
+   # iptables --append INPUT --protocol tcp \
+         --source 64.57.102.34 --jump ACCEPT
+   # iptables --apend INPUT --protocol tcp \
+         --source 193.166.33.20 --jump ACCEPT
+   # iptables --append INPUT --protocol tcp \
+         --source 193.125.4.10 --jump ACCEPT
+
+This causes packet filtering on the kernel to accept :abbr:`TCP (Transmission Control Protocol)` connections between the given IP addresses.
+
+.. warning:: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in the ``iptables`` configuration for your cluster.
+
+The updated packet filtering rules take effect immediately, but are not persistent.  When the server reboots, it reverts to default packet filtering rules, which do not include your updates.  To use these rules after rebooting, you need to save them as defaults.
+
+For systems that use ``init``, run the following command:
+
+.. code-block:: console
+
+   # service save iptables
+
+For systems that use ``systemd``, you need to save the current packet filtering rules to the path that the ``iptables`` unit reads when it starts.  This path can vary by distribution, but you can normally find it in the ``/etc`` directory.
+
+- ``/etc/sysconfig/iptables``
+- ``/etc/iptables/iptables.rules``
+
+When you find the relevant file, you can save the rules using the ``iptables-save`` command, then redirecting the output to overwrite this file.
+
+.. code-block:: console
+
+   # iptables-save > /etc/sysconfig/iptables
+
+When ``iptables`` starts it now reads the new defaults, with your updates to the firewall.
+
+.. seealso:: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`firewallsettings`.
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Disabling AppArmor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,6 +167,8 @@ MariaDB Galera Cluster
    installmariadb
    installmariadbsrc
   
+
+.. seealso:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
 
