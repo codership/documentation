@@ -10,7 +10,7 @@ In Galera Cluster, you can monitor the status of write-set replication throughou
 
 .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_%';
+	SHOW GLOBAL STATUS LIKE 'wsrep_%';
 
 To monitor for changes in cluster membership and node status, you can use the :ref:`Notification Command <notification-cmd>`, which communicates such events to the monitoring agent.
 
@@ -40,7 +40,7 @@ To check cluster integrity, for each node complete the following steps:
 
    .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_cluster_state_uuid';
+	SHOW GLOBAL STATUS LIKE 'wsrep_cluster_state_uuid';
 
    Each node in the cluster should provide the same value.  If you find a node that carries a different cluster state UUID, that node is not connected to the cluster.
 
@@ -48,7 +48,7 @@ To check cluster integrity, for each node complete the following steps:
 
    .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_cluster_conf_id';
+	SHOW GLOBAL STATUS LIKE 'wsrep_cluster_conf_id';
 
    Each node in the cluster should provide the same value.  If you find a node that carries a different value, this indicates the cluster is partitioned.  Once network connectivity is restored, the value will align itself with the others.
 
@@ -56,7 +56,7 @@ To check cluster integrity, for each node complete the following steps:
 
    .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_cluster_size';
+	SHOW GLOBAL STATUS LIKE 'wsrep_cluster_size';
 	  
    If the value equals the expected number of nodes in the cluster, all nodes are connected to the cluster.
    
@@ -66,7 +66,7 @@ To check cluster integrity, for each node complete the following steps:
 
    .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_cluster_status';
+	SHOW GLOBAL STATUS LIKE 'wsrep_cluster_status';
 
    The node should return a value of ``Primary``.  Other values indicate that the node is part of a nonoperational component.  This can occur in cases of multiple membership changes and a loss of quorum or in the case of a split-brain condition.
 
@@ -119,7 +119,7 @@ To check node status, complete the following steps:
 
    .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_ready';
+	SHOW GLOBAL STATUS LIKE 'wsrep_ready';
 
    If the value is ``TRUE``, the node can accept SQL load.
 
@@ -127,7 +127,7 @@ To check node status, complete the following steps:
 
    .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_connected';
+	SHOW GLOBAL STATUS LIKE 'wsrep_connected';
 
    If the value is ``OFF``, the node has not connected to any of the cluster components.  This may relate to misconfiguration.  For instance, if the node uses invalid values for ``wsrep_cluster_address`` or ``wsrep_cluster_name``.
    
@@ -137,7 +137,7 @@ To check node status, complete the following steps:
 
    .. code-block:: mysql
 
-	SHOW VARIABLES LIKE 'wsrep_local_state_comment';
+	SHOW GLOBAL STATUS LIKE 'wsrep_local_state_comment';
    
    If the the state comment is ``Joining``, ``Waiting for SST``, or ``Joined``, the node is syncing with the cluster.  
    
