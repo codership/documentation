@@ -5,7 +5,7 @@
 .. index::
    pair: iptables; Firewall settings
 .. index::
-   sinll gle: iptables; Ports
+   single: iptables; Ports
 .. index::
    single: Firewall settings; Ports
 
