@@ -174,19 +174,6 @@ For openSUSE and SUSE Linux Enterprise Server, run this command:
 		
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
 
-
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Upgrading System Tables
-^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mysql-system-tables`:
-
-If you installed Galera Cluster over an existing installation of MySQL, you will need to also upgrade the system tables from standalone MySQL to Galera Cluster.  To do so, in the terminal run the following command:
-
-.. code-block:: console
-
-   $ mysql_upgrade
-
-If this command generates any errors, check the MySQL Reference Manual for more information related to the error messages.  The errors it generates are typically not critical and you can usually ignore them, unless they relate to specific functionality that your system requires.
-
+.. seealso:: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
