@@ -1,5 +1,5 @@
 =============================
-Replication Configurations
+Replication Configuration
 =============================
 .. _`wsrep-config`:
 
