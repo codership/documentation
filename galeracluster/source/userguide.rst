@@ -27,6 +27,7 @@ How do you recover failed nodes or a Primary Component?  How to secure communica
    :maxdepth: 2
 
    nodeprovisioning
+   sst
    pcrecovery
    quorumreset
    monitoringthecluster
@@ -53,3 +54,5 @@ Now that you're comfortable with how to use Galera Cluster, you can begin to con
    deploymentvariants
    performance
    configurationtips
+   scriptablesst
+   loadbalancing

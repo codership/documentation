@@ -1,5 +1,5 @@
 ===================
- Primary Component
+Weighted Quorum
 ===================
 .. _`primary-component`:
 
