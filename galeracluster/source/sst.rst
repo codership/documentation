@@ -152,7 +152,13 @@ Given that ``xtrabackup`` copies a large amount of data in the shortest possible
 
 
 .. code-block:: ini
-
+		
+   [mysqld]
+   wsrep_sst_auth = <wsrep_sst_user>:<password>
    wsrep_sst_method = xtrabackup
+   datadir = /path/to/datadir
 
-For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <http://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.
+   [client]
+   socket = /path/to/socket
+
+For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <http://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.  

@@ -98,13 +98,13 @@ Table legend:
 | :ref:`evs.view_forget_timeout         | ``PT5M``              | 1.0                   | n/a                | No       |
 | <evs.view_forget_timeout>`            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.version                     | ``0``                 |                       |                    |          |
+| :ref:`evs.version                     | ``0``                 | 1.0                   |                    | No       |
 | <evs.version>` :sup:`T`               |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`gcache.dir                      | working directory     | 1.0                   | n/a                | No       |
 | <gcache.dir>`                         |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcache.name                     | ``"galera.cache"``    | 1.0                   | n/a                | No       |
+| :ref:`gcache.name                     | ``galera.cache``      | 1.0                   | n/a                | No       |
 | <gcache.name>`                        |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`gcache.size                     | ``128Mb``             | 1.0                   | n/a                | No       |
@@ -250,7 +250,17 @@ Table legend:
 .. index::
    pair: Parameters; base_host
 
-Global variable for internal use. Should not be set manually.
+Global variable for internal use. 
+
+.. warning:: Do not manually set this variable.
+
++-----------------------+---------+-----------+-------------+
+| Default Values        | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| detected network      |         |            |            |
+| address               |         |            |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``base_port``
@@ -258,7 +268,15 @@ Global variable for internal use. Should not be set manually.
 .. index::
    pair: Parameters; base_port
 
-Global variable for internal use. Should not be set manually.
+Global variable for internal use. 
+
+.. warning:: Do not manually set this variable.
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``4567``              |         |            |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``cert.log_conflicts``
@@ -272,6 +290,14 @@ Log details of certification failures.
 
    wsrep_provider_options="cert.log_conflicts=NO"
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``NO``                | Yes     | 2.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 
 .. rubric:: ``debug``
 .. _`debug`:
@@ -283,6 +309,13 @@ Enable debugging.
 .. code-block:: ini
 
    wsrep_provider_options="debug=NO"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``NO``                | Yes     | 2.0        |            |
++-----------------------+---------+------------+------------+
 
 
 
@@ -301,6 +334,13 @@ Defines the number of entries allowed for a delayed node before this node trigge
    
 .. seealso:: For more information on the Auto Eviction process, see :doc:`autoeviction`.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 |  No     | 3.8        |            |
++-----------------------+---------+------------+------------+
+
+
 
 .. rubric:: ``evs.causal_keepalive_period``
 .. _`evs.causal_keepalive_period`:
@@ -309,6 +349,11 @@ Defines the number of entries allowed for a delayed node before this node trigge
 
 For developer use only. Defaults to ``evs.keepalive_period``.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``evs.consensus_timeout``
@@ -326,6 +371,13 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 .. seealso:: This feature has been **deprecated**. It is succeeded by :ref:`evs.install_timeout <evs.install_timeout>`.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT30S``             | No      | 1.0        | 2.0        |
++-----------------------+---------+------------+------------+
+
+
 
 .. rubric:: ``evs.debug_log_mask``
 .. _`evs.debug_log_mask`:
@@ -338,6 +390,14 @@ Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
 
    wsrep_provider_options="evs.debug_log_mask=0x1"
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0x1``               | Yes     |  1.0       |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``evs.delayed_keep_period``
 .. _`evs.delayed_keep_period`:
 .. index::
@@ -349,10 +409,16 @@ Defines the time period cluster nodes must remain responsive before this node re
 
    wsrep_provider_options="evs.delayed_keep_period=PT45S"
 
-**Default Value**: ``PT30S``
-
 .. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
    
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT30S``             | No      | 3.8        |            |
++-----------------------+---------+------------+------------+
+
+
+
    
 .. rubric:: ``evs.delayed_margin``
 .. _`evs.delayed_margin`:
@@ -369,6 +435,13 @@ Defines the time period that cluster nodes can delay responses from expectations
 
 .. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT1S``              | No      | 3.8        |            |
++-----------------------+---------+------------+------------+
+
+
 .. rubric:: ``evs.evict``
 .. _`evs.evict`:
 .. index::
@@ -378,6 +451,14 @@ Defines the point at which the cluster triggers manual eviction to a certain nod
 
 .. seealso:: For more information on the eviction and Auto Eviction process, see :doc:`autoeviction`.
    
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 3.8        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``evs.inactive_check_period``
 .. _`evs.inactive_check_period`:
 .. index::
@@ -388,6 +469,14 @@ How often to check for peer inactivity.
 .. code-block:: ini
 
    wsrep_provider_options="evs.inactive_check_period=PT1S"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT1S``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 
 .. rubric:: ``evs.inactive_timeout``
@@ -400,6 +489,14 @@ Hard limit on the inactivity period, after which the node is pronounced dead.
 .. code-block:: ini
 
    wsrep_provider_options="evs.inactive_timeout=PT15S"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT15S``             | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``evs.info_log_mask``
@@ -418,6 +515,16 @@ Control extra EVS info logging. Bits:
 
    wsrep_provider_options="evs.info_log_mask=0x4"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
+
 .. rubric:: ``evs.install_timeout``
 .. _`evs.install_timeout`:
 .. index::
@@ -432,6 +539,13 @@ Timeout on waiting for install message acknowledgments.
 
 .. seealso:: This parameter is the successor to :ref:`evs.consensus_timeout <evs.consensus_timeout>`.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT15S``             | Yes     | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 .. rubric:: ``evs.join_retrans_period``
 .. _`evs.join_retrans_period`:
@@ -443,6 +557,13 @@ How often to retransmit EVS join messages when forming the cluster membership.
 .. code-block:: ini
 
    wsrep_provider_options="evs.join_retrans_period=PT1S"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT1S``              |  Yes    | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``evs.keepalive_period``
@@ -456,6 +577,14 @@ How often to emit keepalive beacons (in the absence of any other traffic).
 
    wsrep_provider_options="evs.keepalive_period=PT1S"
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT1S``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``evs.max_install_timeouts``
 .. _`evs.max_install_timeouts`:
 .. index::
@@ -466,6 +595,13 @@ How many membership install rounds to try before giving up (total rounds will be
 .. code-block:: ini
 
    wsrep_provider_options="evs.max_install_timeouts=1"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``1``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``evs.send_window``
@@ -481,6 +617,12 @@ Maximum packets in replication at a time. For WAN setups may be set considerably
 
 .. seealso:: :ref:`evs.user_send_window <evs.user_send_window>`.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``4``                 | Yes     | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 .. rubric:: ``evs.stats_report_period``
 .. _`evs.stats_report_period`:
@@ -492,6 +634,13 @@ Control period of EVS statistics reporting.  The node is pronounced dead.
 .. code-block:: ini
 
    wsrep_provider_options="evs.stats_report_period=PT1M"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT1M``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``evs.suspect_timeout``
@@ -505,6 +654,13 @@ Inactivity period after which the node is *suspected* to be dead. If all remaini
 
    wsrep_provider_options="evs.suspect_timeout=PT5S"
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT5S``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 .. rubric:: ``evs.use_aggregate``
 .. _`evs.use_aggregate`:
@@ -516,6 +672,13 @@ Aggregate small packets into one, when possible.
 .. code-block:: ini
 
    wsrep_provider_options="evs.use_aggregate=TRUE"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``TRUE``              | No      | 1.         |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``evs.user_send_window``
@@ -531,6 +694,14 @@ Maximum data packets in replication at a time. For WAN setups, this value can be
 
 .. seealso:: :ref:`evs.send_window <evs.send_window>`.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``2``                 | Yes     | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 
 .. rubric:: ``evs.view_forget_timeout``
 .. _`evs.view_forget_timeout`:
@@ -543,6 +714,13 @@ Drop past views from the view history after this timeout.
 
    wsrep_provider_options="evs.view_forget_timeout=PT5M"
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT5M``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 .. rubric:: ``evs.version``
 .. _`evs.version`:
@@ -553,6 +731,11 @@ This status variable is used to check which ``evs`` protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 
@@ -562,6 +745,13 @@ This variable is mostly used for troubleshooting purposes and should not be impl
    pair: Parameters; gcache.dir
 
 Directory where GCache should place its files.  Defaults to the working directory. 
+
+
++--------------------------+---------+------------+------------+
+| Default Value            | Dynamic | Introduced | Deprecated |
++==========================+=========+============+============+
+| ``/path/to/working_dir`` | No      | 1.0        |            |
++--------------------------+---------+------------+------------+
 
 
 
@@ -577,12 +767,19 @@ Name of the ring buffer storage file.
    wsrep_provider_options="gcache.name=galera.cache"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``galera.cache``      | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 .. rubric:: ``gcache.size``
 .. _`gcache.size`:
 .. index::
    pair: Parameters; gcache.size
 
-Size of the persistent on-disk ring buffer storage. This will be preallocated on startup. 
+Size of the persistent on-disk ring buffer storage. This will be preallocated on start up. 
 
 .. code-block:: ini
 
@@ -591,6 +788,14 @@ Size of the persistent on-disk ring buffer storage. This will be preallocated on
 The buffer file name is ``galera.cache`` by default.
 
 .. seealso:: For more information on customizing the write-set cache, see :ref:`Performance <customizing-gcache-size>`.
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``128M``              |  No     | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 
 .. rubric:: ``gcache.page_size``
@@ -604,6 +809,13 @@ Size of the page files in page storage. The limit on overall page storage is the
 
    wsrep_provider_options="gcache.page_size=128Mb"
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``128M``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 .. rubric:: ``gcache.keep_pages_size``
 .. _`gcache.keep_pages_size`:
@@ -615,6 +827,13 @@ Total size of the page storage pages to keep for caching purposes. If only page 
 .. code-block:: ini
 
    wsrep_provider_options="gcache.keep_pages_size=0"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``gcache.mem_size``
@@ -630,6 +849,11 @@ Defines the maximum size for the ``malloc()`` store.  That is, how much :abbr:`R
 
 .. warning:: This parameter is for use on systems with spare memory.  You should not use it otherwise, as it may lead to unexpected results.
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
    
 
@@ -645,6 +869,14 @@ Post debug statistics about SST flow every this number of writesets.
    wsrep_provider_options="gcs.fc_debug=0"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``gcs.fc_factor``
 .. _`gcs.fc_factor`:
 .. index::
@@ -656,6 +888,12 @@ Resume replication after recv queue drops below this fraction of ``gcs.fc_limit`
 
    wsrep_provider_options="gcs.fc_factor=0.5"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0.5``               | Yes     | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 
@@ -671,6 +909,12 @@ Pause replication if recv queue exceeds this number of  writesets. For master-sl
    wsrep_provider_options="gcs.fc_limit=16"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``16``                | Yes     | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 .. rubric:: ``gcs.fc_master_slave``
 .. _`gcs.fc_master_slave`:
@@ -684,6 +928,14 @@ Defines whether there is only one master node in the group.
    wsrep_provider_options="gcs.fc_master_slave=NO"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``NO``                | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``gcs.max_packet_size``
 .. _`gcs.max_packet_size`:
 .. index::
@@ -695,6 +947,12 @@ All writesets exceeding that size will be fragmented.
 
    wsrep_provider_options="gcs.max_packet_size=32616"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``32616``             | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``gcs.max_throttle``
@@ -710,6 +968,14 @@ How much to throttle replication rate during state transfer (to avoid running ou
    wsrep_provider_options="gcs.max_throttle=0.25"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0.25``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``gcs.recv_q_hard_limit``
 .. _`gcs.recv_q_hard_limit`:
 .. index::
@@ -721,6 +987,12 @@ Maximum allowed size of recv queue. This should normally be half of (RAM + swap)
 
    wsrep_provider_options="gcs.recv_q_hard_limit=LLONG_MAX"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``LLONG_MAX``         | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``gcs.recv_q_soft_limit``
@@ -738,6 +1010,15 @@ The degree of throttling is a linear function of recv queue size and goes from 1
 at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttle <gcs.max_throttle>` at :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Note that ``full rate``, as estimated between 0 and :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` is a very imprecise estimate of a regular replication rate. 
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0.25``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
+
 .. rubric:: ``gcs.sync_donor``
 .. _`gcs.sync_donor`:
 .. index::
@@ -752,6 +1033,12 @@ Should the rest of the cluster keep in sync with the donor? ``YES`` means that i
 If you choose to use value ``YES``, it is theoretically possible that the donor node cannot keep up with the rest of the cluster due to the extra load from the SST. If the node lags behind, it may send flow control messages stalling the whole cluster. However, you can monitor this using the :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` status variable.
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``NO``                | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 .. rubric:: ``gmcast.listen_addr``
 .. _`gmcast.listen_addr`:
@@ -763,6 +1050,15 @@ Address at which *Galera Cluster* listens to connections from other nodes. By de
 .. code-block:: ini
 
    wsrep_provider_options="gmcast.listen_addr=tcp://0.0.0.0:4567"
+
+
+
++------------------------+---------+------------+------------+
+| Default Value          | Dynamic | Introduced | Deprecated |
++========================+=========+============+============+
+| ``tcp://0.0.0.0"4567`` | No      | 1.0        |            |
++------------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``gmcast.mcast_addr``
@@ -781,6 +1077,13 @@ The value must be the same on all nodes.
 If you are planning to build a large cluster, we recommend using UDP.
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 .. rubric:: ``gmcast.mcast_ttl``
 .. _`gmcast.mcast_ttl`:
 .. index::
@@ -791,6 +1094,13 @@ Time to live value for multicast packets.
 .. code-block:: ini
 	
    wsrep_provider_options="gmcast.mcast_ttl=1"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``1``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``gmcast.peer_timeout``
@@ -805,6 +1115,12 @@ Connection timeout to initiate message relaying.
    wsrep_provider_options="gmcast.peer_timeout=PT3S"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT3S``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 .. rubric:: ``gmcast.segment``
 .. _`gmcast.segment`:
 .. index::
@@ -815,6 +1131,14 @@ Define which network segment this node is in. Optimisations on communication are
 .. code-block:: ini
 
    wsrep_provider_options="gmcast.segment=0"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 | No      | 3.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``gmcast.time_wait``
@@ -829,6 +1153,14 @@ Time to wait until allowing peer declared outside of stable view to reconnect.
    wsrep_provider_options="gmcast.time_wait=PT5S"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT5S``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``gmcast.version``
 .. _`gmcast.version`:
 .. index::
@@ -837,6 +1169,13 @@ Time to wait until allowing peer declared outside of stable view to reconnect.
 This status variable is used to check which gmcast protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 
@@ -851,6 +1190,12 @@ As of 2.0. Address to listen for Incremental State Transfer. By default this is 
 
    wsrep_provider_options="ist.recv_addr=192.168.1.1"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``pc.recovery``
@@ -877,6 +1222,12 @@ This allows for:
 .. note:: In the event that the wsrep position differs between nodes, recovery also requires a full State Snapshot Transfer.
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``TRUE``              | No      | 3.0        |            |
++-----------------------+---------+------------+------------+
+
 
 .. rubric:: ``pc.bootstrap``
 .. _`pc.bootstrap`:
@@ -889,6 +1240,12 @@ If you set this value to ``TRUE`` is a signal to turn a ``NON-PRIMARY`` componen
 
    wsrep_provider_options="pc.bootstrap=TRUE"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | Yes     | 2.0        |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``pc.announce_timeout``
@@ -903,6 +1260,14 @@ Cluster joining announcements are sent every :math:`\frac{1}{2}` second for this
    wsrep_provider_options="pc.announce_timeout=PT3S"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT3S``              | No      | 2.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``pc.checksum``
 .. _`pc.checksum`:
 .. index::
@@ -915,6 +1280,14 @@ Checksum replicated messages.
    wsrep_provider_options="pc.checksum=TRUE"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``TRUE``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``pc.ignore_sb``
 .. _`pc.ignore_sb`:
 .. index::
@@ -925,6 +1298,13 @@ Should we allow nodes to process updates even in the case of split brain? This i
 .. code-block:: ini
 
    wsrep_provider_options="pc.ignore_sb=FALSE"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``FALSE``             | Yes     | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 
@@ -940,6 +1320,13 @@ Completely ignore quorum calculations. For example if the master splits from sev
    wsrep_provider_options="pc.ignore_quorum=FALSE"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``FALSE``             | Yes     | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 .. rubric:: ``pc.linger``
 .. _`pc.linger`:
 .. index::
@@ -950,6 +1337,14 @@ The period for which the PC protocol waits for the EVS termination.
 .. code-block:: ini
 
    wsrep_provider_options="pc.linger=PT2S"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT2S``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``pc.npvo``
@@ -964,6 +1359,12 @@ If set to ``TRUE``, the more recent primary component overrides older ones in th
    wsrep_provider_options="pc.npvo=FALSE"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``FALSE``             | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 .. rubric:: ``pc.wait_prim``
 .. _`pc.wait_prim`:
 .. index::
@@ -974,6 +1375,14 @@ If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_p
 .. code-block:: ini
 
    wsrep_provider_options="pc.wait_prim=FALSE"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``FALSE``             | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``pc.wait_prim_timeout``
@@ -988,6 +1397,13 @@ The period of time to wait for a primary component.
    wsrep_provider_options="pc.wait_prim_timeout=PT30S"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT30S``             | No      | 2.0        |            |
++-----------------------+---------+------------+------------+
+
+
 .. rubric:: ``pc.weight``
 .. _`pc.weight`:
 .. index::
@@ -1000,6 +1416,13 @@ As of version 2.4. Node weight for quorum calculation.
    wsrep_provider_options="pc.weight=1"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``1``                 | Yes     | 2.4        |            |
++-----------------------+---------+------------+------------+
+
+
 .. rubric:: ``pc.version``
 .. _`pc.version`:
 .. index::
@@ -1008,6 +1431,14 @@ As of version 2.4. Node weight for quorum calculation.
 This status variable is used to check which pc protocol version is used. 
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``protonet.backend``
@@ -1022,6 +1453,12 @@ Which transport backend to use. Currently only ASIO is supported.
    wsrep_provider_options="protonet.backend=asio"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``asio``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 .. rubric:: ``protonet.version``
 .. _`protonet.version`:
 .. index::
@@ -1031,6 +1468,12 @@ This status variable is used to check which transport backend protocol version i
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 
@@ -1056,6 +1499,12 @@ Possible settings:
 - ``3`` or ``NO_OOOC`` No out of order committing is allowed (strict total order committing)
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``3``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 .. rubric:: ``repl.causal_read_timeout``
 .. _`repl.causal_read_timeout`:
@@ -1068,6 +1517,12 @@ Sometimes causal reads need to timeout.
 
    wsrep_provider_options="repl.causal_read_timeout=PT30S"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``PT30S``             | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 .. rubric:: ``repl.key_format``
 .. _`repl.key_format`:
@@ -1088,6 +1543,14 @@ Possible settings:
 - ``FLAT16A``
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``FLAT8``             | No      | 3.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``repl.max_ws_size``
 .. _`repl.max_ws_size`:
 .. index::
@@ -1098,6 +1561,15 @@ The maximum size of a write-set in bytes. This is limited to 2G.
 .. code-block:: ini
 
    wsrep_provider_options="repl.max_ws_size=2147483647"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``2147483647``        | No      | 3.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 
 .. rubric:: ``repl.proto_max``
@@ -1111,6 +1583,11 @@ The maximum protocol version in replication. Changes to this parameter will only
 
    wsrep_provider_options="repl.proto_max=5"
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``5``                 | No      | 2.0        |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``socket.ssl_cert``
@@ -1121,12 +1598,30 @@ The maximum protocol version in replication. Changes to this parameter will only
 A path (absolute or relative to the working directory )to an SSL certificate (in PEM format). 
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
+
 .. rubric:: ``socket.ssl_key``
 .. _`socket.ssl_key`:
 .. index::
    pair: Parameters; socket.ssl_key
 
 A path (absolute or relative to the working directory to a private key for a certificate (in PEM format).
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
 
 
 .. rubric:: ``socket.ssl_compression``
@@ -1141,6 +1636,14 @@ Whether to enable compression on SSL connections.
    wsrep_provider_options="socket.ssl_compression=YES"
 
 
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``YES``               | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``socket.ssl_cipher``
 .. _`socket.ssl_cipher`:
 .. index::
@@ -1151,6 +1654,14 @@ Symmetric cipher to use. AES128 is used by default it is considerably faster and
 .. code-block:: ini
 
    wsrep_provider_options="socket.ssl_cipher=AES128-SHA"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``AES128-SHA``        | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``socket.checksum``
@@ -1168,6 +1679,14 @@ Checksum to use on socket layer:
 
    wsrep_provider_options="socket.checksum=2"
 
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| version 1 : ``1``     | No      | 2.0        |            |
++-----------------------+---------+------------+------------+
+| version 3+: ``2``     |         |            |            |
++-----------------------+---------+------------+------------+
 
 
 

@@ -34,6 +34,9 @@ The location (L) of the variable is presented in the second column from the left
 | :ref:`wsrep_cert_index_size           | G | ``30936``                  |            |            |
 | <wsrep_cert_index_size>`              |   |                            |            |            |
 +---------------------------------------+---+----------------------------+------------+------------+
+| :ref:`wsrep_cert_interval             | G |                            |            |            |
+| <wsrep_cert_interval>`                |   |                            |            |            |
++---------------------------------------+---+----------------------------+------------+------------+
 | :ref:`wsrep_cluster_conf_id           | M | ``34``                     |            |            |
 | <wsrep_cluster_conf_id>`              |   |                            |            |            |
 +---------------------------------------+---+----------------------------+------------+------------+
@@ -64,8 +67,8 @@ The location (L) of the variable is presented in the second column from the left
 | :ref:`wsrep_evs_evict_list            | G |                            | 3.8        |            |
 | <wsrep_evs_evict_list>`               |   |                            |            |            |
 +---------------------------------------+---+----------------------------+------------+------------+
-| :ref:`wsrep_evs_repl_latency          | G |                            | 3.0        |            |
-| <wsrep_evs_repl_latency>`             |   |                            |            |            |
+| :ref:`wsrep_evs_repl_latency          | G | ``0.00243433/0.144033/     | 3.0        |            |
+| <wsrep_evs_repl_latency>`             |   | 0.581963/0.215724/13``     |            |            |
 +---------------------------------------+---+----------------------------+------------+------------+
 | :ref:`wsrep_evs_state                 | G |                            | 3.8        |            |
 | <wsrep_evs_state>`                    |   |                            |            |            |
@@ -201,6 +204,11 @@ How often applier started write-set applying out-of-order (parallelization effic
    +------------------+----------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0.671120``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 .. rubric:: ``wsrep_apply_oool``
 .. _`wsrep_apply_oool`:
@@ -218,6 +226,14 @@ How often write-set was so slow to apply that write-set with higher seqno's were
    +------------------+----------+
    | wsrep_apply_oool | 0.195248 |
    +------------------+----------+
+
+
+
++-------------------+-----------+------------+------------+
+| Example Value     | Location  | Introduced | Deprecated |
++===================+===========+============+============+
+| ``0.195248``      | Galera    |            |            |
++-------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_apply_window``
@@ -238,6 +254,12 @@ Average distance between highest and lowest concurrently applied seqno.
    +--------------------+----------+
 
 
++-------------------+-----------+------------+------------+
+| Example Value     | Location  | Introduced | Deprecated |
++===================+===========+============+============+
+| ``5.163966``      | Galera    |            |            |
++-------------------+-----------+------------+------------+
+
 .. rubric:: ``wsrep_cert_deps_distance``
 .. _`wsrep_cert_deps_distance`:
 .. index::
@@ -256,6 +278,12 @@ Average distance between highest and lowest seqno value that can be possibly app
    +--------------------------+----------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``23.888889``      | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 .. rubric:: ``wsrep_cert_index_size``
 .. _`wsrep_cert_index_size`:
 .. index::
@@ -273,7 +301,43 @@ The number of entries in the certification index.
    | wsrep_certs_index_size | 30936 |
    +------------------------+-------+
 
-   
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``30936``          | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
+.. rubric:: ``wsrep_cert_interval``
+.. _`wsrep_cert_interval`:
+.. index::
+   pair: Status Variables; wsrep_cert_interval
+
+Average number of transactions received while a transaction replicates.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_cert_interval';
+
+   +---------------------+-------+
+   | Variable_name       | Value |
+   +---------------------+-------+
+   | wsrep_cert_interval | 1.0   |
+   +---------------------+-------+
+
+When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it.  By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
+
+To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts.  Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.  
+
+This shows you the number of write-sets concurrently replicating to the cluster. In a fully synchronous cluster, with one write-set replicating at a time, :ref:`wsrep_cert_interval <wsrep_cert_interval>` returns a value of ``1.0``.
+
++---------------+-----------+------------+------------+
+| Example Value | Location  | Introduced | Deprecated |
++===============+===========+============+============+
+| ``1.0``       | Galera    |            |            |
++---------------+-----------+------------+------------+  
+ 
 .. rubric:: ``wsrep_cluster_conf_id``
 .. _`wsrep_cluster_conf_id`:
 .. index::
@@ -292,6 +356,14 @@ Total number of cluster membership changes happened.
    +-----------------------+-------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``34``             | MySQL     |            |            |
++--------------------+-----------+------------+------------+
+
+
+
 .. rubric:: ``wsrep_cluster_size``
 .. _`wsrep_cluster_size`:
 .. index::
@@ -308,6 +380,14 @@ Current number of members in the cluster.
    +--------------------+-------+
    | wsrep_cluster_size | 15    |
    +--------------------+-------+
+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``3``              | MySQL     |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_cluster_state_uuid``
@@ -330,6 +410,13 @@ Provides the current State UUID.  This is a unique identifier for the current st
 .. seealso:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 
 
++------------------------+-----------+------------+------------+
+| Example Value          | Location  | Introduced | Deprecated |
++========================+===========+============+============+
+| ``e2c9a15e-5485-11e0   | MySQL     |            |            |
+| 0900-6bbb637e7211``    |           |            |            |
++------------------------+-----------+------------+------------+
+
 
 .. rubric:: ``wsrep_cluster_status``
 .. _`wsrep_cluster_status`:
@@ -347,6 +434,14 @@ Status of this cluster component.  That is, whether the node is part of a ``PRIM
    +----------------------+---------+
    | wsrep_cluster_status | Primary |
    +----------------------+---------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``Primary``        | MySQL     |            |            |
++--------------------+-----------+------------+------------+
+
 
 
 .. rubric:: ``wsrep_commit_oooe``
@@ -367,6 +462,14 @@ How often a transaction was committed out of order.
    +-------------------+----------+
 
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0.000000``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_commit_oool``
 .. _`wsrep_commit_oool`:
 .. index::
@@ -383,6 +486,13 @@ No meaning.
    +-------------------+----------+
    | wsrep_commit_oool | 0.000000 |
    +-------------------+----------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0.000000``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_commit_window``
@@ -403,6 +513,13 @@ Average distance between highest and lowest concurrently committed seqno.
    +---------------------+----------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0.000000``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_connected``
 .. _`wsrep_connected`:
 .. index::
@@ -421,6 +538,13 @@ If the value is ``OFF``, the node has not yet connected to any of the cluster co
    +-----------------+-------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``ON``             | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_evs_delayed``	    
 .. _`wsrep_evs_delayed`:
 .. index::
@@ -437,12 +561,27 @@ The node listing format is
 This refers to the UUID and IP address of the delayed node, with a count of the number of entries it has on the delayed list.
    
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+|                    | Galera    | 3.8        |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_evs_evict_list``
 .. _`wsrep_evs_evict_list`:
 .. index::
    pair: Status Variables; wsrep_evs_evict_list
 
 Lists the UUID's of all nodes evicted from the cluster.  Evicted nodes cannot rejoin the cluster until you restart their ``mysqld`` processes.
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+|                    | Galera    | 3.8        |            |
++--------------------+-----------+------------+------------+
+
 
 
 .. rubric:: ``wsrep_evs_repl_latency``
@@ -473,12 +612,27 @@ The units are in seconds.  The format of the return value is:
 This variable periodically resets.  You can control the reset interval using the :ref:`evs.stats_report_period <evs.stats_report_period>` parameter.  The default value is 1 minute.
 
 
++-------------------------+-----------+------------+------------+
+| Example Value           | Location  | Introduced | Deprecated |
++=========================+===========+============+============+
+| ``0.00243433/0.144033/  | Galera    | 3.0        |            |
+| 0.581963/0.215724/13``  |           |            |            |
++-------------------------+-----------+------------+------------+
+
+
+
 .. rubric:: ``wsrep_evs_state``
 .. _`wsrep_evs_state`:
 .. index::
    pair:: Status Variables; wsrep_evs_state
 
 Shows the internal state of the EVS Protocol.
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+|                    | Galera    | 3.8        |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_flow_control_paused``
@@ -501,6 +655,13 @@ In other words, how much the slave lag is slowing down the cluster.
    +---------------------------+----------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0.174353``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_flow_control_paused_ns``
 .. _`wsrep_flow_control_paused_ns`:
 .. index::
@@ -517,6 +678,14 @@ The total time spent in a paused state measured in nanoseconds.
    +------------------------------+-------------+
    | wsrep_flow_control_paused_ns | 20222491180 |
    +------------------------------+-------------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``20222491180``    | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 
    
 .. rubric:: ``wsrep_flow_control_recv``
@@ -535,6 +704,14 @@ Number of ``FC_PAUSE`` events received since the last status query, including th
    +-------------------------+-------+
    | wsrep_flow_control_recv | 11    |
    +-------------------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``11``             | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 
  
 .. rubric:: ``wsrep_flow_control_sent``
@@ -555,6 +732,12 @@ Number of ``FC_PAUSE`` events sent since the last status query.
    +-------------------------+-------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``7``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 .. rubric:: ``wsrep_incoming_addresses``
 .. _`wsrep_incoming_addresses`:
 .. index::
@@ -571,6 +754,17 @@ Comma-separated list of incoming server addresses in the cluster component.
    +--------------------------+--------------------------------------+
    | wsrep_incoming_addresses | 10.0.0.1:3306,10.0.02:3306,undefined |
    +--------------------------+--------------------------------------+
+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``10.0.0.1:3306,   | Galera    |            |            |
+| 10.0.0.2:3306,     |           |            |            |
+| undefined``        |           |            |            |
++--------------------+-----------+------------+------------+
+
 
 
 .. rubric:: ``wsrep_last_committed``
@@ -593,6 +787,14 @@ The sequence number, or seqno, of the last committed transaction. See :ref:`wsre
 .. seealso:: For more information, see :ref:`wsrep API <wsrep-api>`.
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``409745``         | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
+
 .. rubric:: ``wsrep_local_bf_aborts``
 .. _`wsrep_local_bf_aborts`:
 .. index::
@@ -610,6 +812,12 @@ Total number of local transactions that were aborted by slave transactions while
    | wsrep_local_bf_aborts | 960   |
    +-----------------------+-------+
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``960``            | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
    
 .. rubric:: ``wsrep_local_cached_downto``
@@ -630,6 +838,14 @@ The lowest sequence number, or seqno, in the write-set cache (GCache).
    +---------------------------+----------------------+
 
 
++--------------------------+-----------+------------+------------+
+| Example Value            | Location  | Introduced | Deprecated |
++==========================+===========+============+============+
+| ``18446744073709551615`` | Galera    |            |            |
++--------------------------+-----------+------------+------------+
+
+
+
 .. rubric:: ``wsrep_local_cert_failures``
 .. _`wsrep_local_cert_failures`:
 .. index::
@@ -646,6 +862,14 @@ Total number of local transactions that failed certification test.
    +---------------------------+-------+
    | wsrep_local_cert_failures | 333   |
    +---------------------------+-------+
+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``333``            | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_local_commits``
@@ -666,6 +890,14 @@ Total number of local transactions committed.
    +---------------------+-------+
 
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``14981``          | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_local_index``
 .. _`wsrep_local_index`:
 .. index::
@@ -683,6 +915,12 @@ This node index in the cluster (base 0).
    | wsrep_local_index | 1     |
    +-------------------+-------+
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``1``              | MySQL     |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_local_recv_queue``
@@ -703,6 +941,14 @@ Current (instantaneous) length of the recv queue.
    +------------------------+-------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
+
 .. rubric:: ``wsrep_local_recv_queue_avg``
 .. _`wsrep_local_recv_queue_avg`:
 .. index::
@@ -721,6 +967,12 @@ Recv queue length averaged over interval since the last status query. Values con
    +----------------------------+----------+
    
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``3.348452``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
    
 .. rubric:: ``wsrep_local_recv_queue_max``
 .. _`wsrep_local_recv_queue_max`:
@@ -738,6 +990,14 @@ The maximum length of the recv queue since the last status query.
    +----------------------------+-------+
    | wsrep_local_recv_queue_max | 10    |
    +----------------------------+-------+
+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``10``             | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_local_recv_queue_min``
@@ -761,6 +1021,13 @@ The minimum length of the recv queue since the last status query.
 
    
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_local_replays``
 .. _`wsrep_local_replays`:
 .. index::
@@ -777,6 +1044,13 @@ Total number of transaction replays due to *asymmetric lock granularity*.
    +---------------------+-------+
    | wsrep_lcoal_replays | 0     |
    +---------------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 
@@ -798,6 +1072,12 @@ Current (instantaneous) length of the send queue.
    +------------------------+-------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``1``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 .. rubric:: ``wsrep_local_send_queue_avg``
 .. _`wsrep_local_send_queue_avg`:
 .. index::
@@ -816,6 +1096,14 @@ Send queue length averaged over interval since the last status query. Values con
    +----------------------------+----------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0.145000``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
+
 .. rubric:: ``wsrep_local_send_queue_max``
 .. _`wsrep_local_send_queue_max`:
 .. index::
@@ -832,6 +1120,15 @@ The maximum length of the send queue since the last status query.
    +----------------------------+-------+
    | wsrep_local_send_queue_max | 10    |
    +----------------------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``10``             | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 
 
 .. rubric:: ``wsrep_local_send_queue_min``
@@ -854,6 +1151,12 @@ The minimum length of the send queue since the last status query.
    +----------------------------+-------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 
 .. rubric:: ``wsrep_local_state``
 .. _`wsrep_local_state`:
@@ -875,6 +1178,14 @@ Internal Galera Cluster FSM state number.
 .. seealso:: For more information on the possible node states, see :ref:`Node State Changes <node-state-changes>`.
 
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``4``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_local_state_comment``
 .. _`wsrep_local_state_comment`:
 .. index::
@@ -891,6 +1202,13 @@ Human-readable explanation of the state.
    +---------------------------+--------+
    | wsrep_local_state_comment | Synced |
    +---------------------------+--------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``Synced``         | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
    
 
@@ -914,6 +1232,13 @@ The UUID of the state stored on this node.
 .. seealso:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`. 
 
 
++-----------------------+-----------+------------+------------+
+| Example Value         | Location  | Introduced | Deprecated |
++=======================+===========+============+============+
+| ``e2c9a15e-5385-11e0- | Galera    |            |            |
+| 0800-6bbb637e7211``   |           |            |            |
++-----------------------+-----------+------------+------------+
+
 
 .. rubric:: ``wsrep_protocol_version``
 .. _`wsrep_protocol_version`:
@@ -932,6 +1257,12 @@ The version of the wsrep Protocol used.
    | wsrep_protocol_version | 4     |
    +------------------------+-------+
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``4``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_provider_name``
@@ -952,6 +1283,13 @@ The name of the wsrep Provider.
    +---------------------+--------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``Galera``         | MySQL     |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_provider_vendor``
 .. _`wsrep_provider_vendor`:
 .. index::
@@ -969,6 +1307,13 @@ The name of the wsrep Provider vendor.
    | wsrep_provider_vendor | Codership Oy <info@codership.com> |
    +-----------------------+-----------------------------------+
 
+
++------------------------+-----------+------------+------------+
+| Example Value          | Location  | Introduced | Deprecated |
++========================+===========+============+============+
+| ``Codership Oy         | MySQL     |            |            |
+| <info@codership.com>`` |           |            |            |
++------------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_provider_version``
@@ -989,13 +1334,19 @@ The name of the wsrep Provider version string.
    +------------------------+----------------------+
 
 
++--------------------------+-----------+------------+------------+
+| Example Value            | Location  | Introduced | Deprecated |
++==========================+===========+============+============+
+| ``25.3.5-wheezy(rXXXX)`` | MySQL     |            |            |
++--------------------------+-----------+------------+------------+
+
 
 .. rubric:: ``wsrep_ready``
 .. _`wsrep_ready`:
 .. index::
    pair: Status Variables; wsrep_ready
 
-Whether the server is ready to accept queries. If this status is ``OFF``, almost all of the queries fill fail with:
+Whether the server is ready to accept queries. If this status is ``OFF``, almost all of the queries will fail with:
 
 .. code-block:: text
 
@@ -1012,6 +1363,13 @@ unless the ``wsrep_on`` session variable is set to ``0``.
    +---------------+-------+
    | wsrep_ready   | ON    |
    +---------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``ON``             | MySQL     |            |            |
++--------------------+-----------+------------+------------+
 
    
 
@@ -1033,6 +1391,14 @@ Total number of write-sets received from other nodes.
    +----------------+-------+
 
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``17831``          | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_received_bytes``
 .. _`wsrep_received_bytes`:
 .. index::
@@ -1050,6 +1416,13 @@ Total size of write-sets received from other nodes.
    | wsrep_received_bytes | 6637093 |
    +----------------------+---------+
 
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``6637093``        | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_repl_data_bytes``
@@ -1070,6 +1443,13 @@ Total size of data replicated.
    +-----------------------+---------+
 
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``6526788``        | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
    
 .. rubric:: ``wsrep_repl_keys``
 .. _`wsrep_repl_keys`:
@@ -1087,6 +1467,13 @@ Total number of keys replicated.
    +-----------------+--------+
    | wsrep_repl_keys | 797399 |
    +-----------------+--------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``797399``         | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_repl_keys_bytes``
@@ -1108,6 +1495,12 @@ Total size of keys replicated.
 
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``11203721``       | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 
 .. rubric:: ``wsrep_repl_other_bytes``
 .. _`wsrep_repl_other_bytes`:
@@ -1126,6 +1519,12 @@ Total size of other bits replicated.
    | wsrep_repl_other_bytes | 0     |
    +------------------------+-------+
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0``              | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_replicated``
@@ -1146,6 +1545,12 @@ Total number of write-sets replicated (sent to other nodes).
    +------------------+-------+
 
 
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``16109``          | Galera    |            |            |
++--------------------+-----------+------------+------------+
+
 
 .. rubric:: ``wsrep_replicated_bytes``
 .. _`wsrep_replicated_bytes`:
@@ -1164,6 +1569,12 @@ Total size of write-sets replicated.
    | wsrep_replicated_bytes | 6526788 |
    +------------------------+---------+
 
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``6526788``        | Galera    |            |            |
++--------------------+-----------+------------+------------+
 
 
 
