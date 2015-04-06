@@ -75,7 +75,7 @@ Enabling the ``yum`` Repository
 .. _`mysql-yum-repo`:
 
 
-For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``.repo`` file to the ``/etc/yum/repos.d/`` directory.
+For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``.repo`` file to the ``/etc/yum.repos.d/`` directory.
 
 Using your preferred text editor, create the ``.repo`` file.
 
@@ -91,7 +91,7 @@ In the ``baseurl`` field, make the following changes to web address:
 
 - ``DIST`` Indicates the distribution name.  For example, ``centos`` or ``fedora``.
 
-- ``RELEASE`` indicates the distribution release number.  For example, ``6.7`` for CentOS, ``20`` or ``21`` for Fedora.
+- ``RELEASE`` indicates the distribution release number.  For example, ``6`` for CentOS, ``20`` or ``21`` for Fedora.
 
 - ``ARCH`` indicates the architecture of your hardware.  For example, ``x86_64`` for 64-bit systems.
 
