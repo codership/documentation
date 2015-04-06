@@ -1,7 +1,7 @@
 ==================
-Enabling SSL
+SSL Configuration
 ==================
-.. _`enabling-ssl`:
+.. _`ssl-configuration`:
 .. index::
    pair: Parameters; socket.ssl_compression
 .. index::
@@ -84,9 +84,9 @@ To create an SSL certificate, for each node complete the following steps:
 You now have three files added to your node:  The SSL key ``key.pem``, the certificate signing request ``cert.pem``, and the signed certificate ``cacert.pem``.
 
 ---------------------------
-Starting the Node with SSL
+Enabling SSL
 ---------------------------
-.. _`starting-with-ssl`:
+.. _`enabling-ssl`:
 
 Once you have the relevant certificate files ready, you can enable SSL for the node.  You need to add the paths to each file to the :ref:`wsrep_provider_options<wsrep_provider_options>` parameter.  To do so, use the following parameters:
 
@@ -120,6 +120,44 @@ For servers using ``systemd``, instead run this command:
 
    # systemctl restart mysql
 
-   
+
+-------------------------
+Configuring SSL
+-------------------------
+.. _`configuring-ssl`:
+
+Galera Cluster provides additional parameters that allow you to configure the socket layer checksum, the SSL cipher and whether or not you want the node to use SSL compression.
+
+.. code-block:: ini
+
+   # Define wsrep Provider Options
+   wsrep_provider_options="socket.checksup=2,socket.ssl_cipher=AES128-SHA,socket.ssl_compression=YES"
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuring the Socket Checksum
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`configuring-socket-checksum`:
+
+Using the :ref:`socket.checksum<socket.checksum>` parameter, you can define whether or which cyclic redundancy check the node uses in detecting errors.  There are there available settings for this parameter, which are defined by an integer:
+
+- ``0`` Disables the checksum.
+
+- ``1`` Enables the CRC-32 checksum.
+
+- ``2`` Enables the CRC-32C checksum.
+
+The default configuration for this parameter is ``1`` or ``2`` depending upon your version.  CRC-32C is optimized for and potentially hardware accelerated on Intel CPU's.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+Configuring the Cipher
+^^^^^^^^^^^^^^^^^^^^^^^
+.. _`configuring-cipher-compression`:
+
+Using the :ref:`socket.ssl_cipher<socket.ssl_cipher>` parameter you can define which symmetric cipher the node uses for encrypting replication traffic.
+
+The SSL configuration for Galera Cluster defaults to AES128, as this setting is considerably faster and no less secure than AES256.
+
+
 
 
