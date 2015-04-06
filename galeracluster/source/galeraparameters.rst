@@ -34,214 +34,217 @@ Table legend:
 | :ref:`base_port                       | ``4567``              |                       |                    |          |
 | <base_port>`                          |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`cert.log_conflicts              | ``NO``                | 2.0                   | n/a                | Yes      |
+| :ref:`cert.log_conflicts              | ``NO``                | 2.0                   |                    | Yes      |
 | <cert.log_conflicts>`                 |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`debug                           | ``NO``                | 2.0                   | n/a                | Yes      |
+| :ref:`debug                           | ``NO``                | 2.0                   |                    | Yes      |
 | <debug>`                              |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.auto_evict <evs.auto_evict>`| ``0``                 | 3.8                   | n/a                | No       |
+| :ref:`evs.auto_evict <evs.auto_evict>`| ``0``                 | 3.8                   |                    | No       |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.causal_keepalive_period     |                       | 1.0                   | n/a                | No       |
+| :ref:`evs.causal_keepalive_period     |                       | 1.0                   |                    | No       |
 | <evs.causal_keepalive_period>`        |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.consensus_timeout           | ``PT30S``             | 1.0                   | Yes, as of 2.0     | No       |
+| :ref:`evs.consensus_timeout           | ``PT30S``             | 1.0                   | 2.0                | No       |
 | <evs.consensus_timeout>` :sup:`T`     |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.debug_log_mask              | ``0x1``               | 1.0                   | n/a                | Yes      |
+| :ref:`evs.debug_log_mask              | ``0x1``               | 1.0                   |                    | Yes      |
 | <evs.debug_log_mask>`                 |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.delayed_keep_period         | ``PT30S``             | 3.8                   | n/a                | No       |
+| :ref:`evs.delayed_keep_period         | ``PT30S``             | 3.8                   |                    | No       |
 | <evs.delayed_keep_period>`            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.delayed_margin              | ``PT1S``              | 3.8                   | n/a                | No       |
+| :ref:`evs.delayed_margin              | ``PT1S``              | 3.8                   |                    | No       |
 | <evs.delayed_margin>`                 |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.evict <evs.evict>`          |                       | 3.8                   | n/a                | No       |
+| :ref:`evs.evict <evs.evict>`          |                       | 3.8                   |                    | No       |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.inactive_check_period       | ``PT1S``              | 1.0                   | n/a                | No       |
+| :ref:`evs.inactive_check_period       | ``PT1S``              | 1.0                   |                    | No       |
 | <evs.inactive_check_period>`          |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.inactive_timeout            | ``PT15S``             | 1.0                   | n/a                | No       |
+| :ref:`evs.inactive_timeout            | ``PT15S``             | 1.0                   |                    | No       |
 | <evs.inactive_timeout>`               |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.info_log_mask               | ``0``                 | 1.0                   | n/a                | No       |
+| :ref:`evs.info_log_mask               | ``0``                 | 1.0                   |                    | No       |
 | <evs.info_log_mask>`                  |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.install_timeout             | ``PT15S``             | 1.0                   | n/a                | Yes      |
+| :ref:`evs.install_timeout             | ``PT15S``             | 1.0                   |                    | Yes      |
 | <evs.install_timeout>`                |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.join_retrans_period         | ``PT1S``              | 1.0                   | n/a                | Yes      |
+| :ref:`evs.join_retrans_period         | ``PT1S``              | 1.0                   |                    | Yes      |
 | <evs.join_retrans_period>`            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.keepalive_period            | ``PT1S``              | 1.0                   | n/a                | No       |
+| :ref:`evs.keepalive_period            | ``PT1S``              | 1.0                   |                    | No       |
 | <evs.keepalive_period>`               |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.max_install_timeouts        | ``1``                 | 1.0                   | n/a                | No       |
+| :ref:`evs.max_install_timeouts        | ``1``                 | 1.0                   |                    | No       |
 | <evs.max_install_timeouts>`           |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.send_window                 | ``4``                 | 1.0                   | n/a                | Yes      |
+| :ref:`evs.send_window                 | ``4``                 | 1.0                   |                    | Yes      |
 | <evs.send_window>`                    |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.stats_report_period         | ``PT1M``              | 1.0                   | n/a                | No       |
+| :ref:`evs.stats_report_period         | ``PT1M``              | 1.0                   |                    | No       |
 | <evs.stats_report_period>`            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.suspect_timeout             | ``PT5S``              | 1.0                   | n/a                | No       |
+| :ref:`evs.suspect_timeout             | ``PT5S``              | 1.0                   |                    | No       |
 | <evs.suspect_timeout>`                |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.use_aggregate               | ``TRUE``              | 1.0                   | n/a                | No       |
+| :ref:`evs.use_aggregate               | ``TRUE``              | 1.0                   |                    | No       |
 | <evs.use_aggregate>`                  |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.user_send_window            | ``2``                 | 1.0                   | n/a                | Yes      |
+| :ref:`evs.user_send_window            | ``2``                 | 1.0                   |                    | Yes      |
 | <evs.user_send_window>`               |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`evs.view_forget_timeout         | ``PT5M``              | 1.0                   | n/a                | No       |
+| :ref:`evs.view_forget_timeout         | ``PT5M``              | 1.0                   |                    | No       |
 | <evs.view_forget_timeout>`            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`evs.version                     | ``0``                 | 1.0                   |                    | No       |
 | <evs.version>` :sup:`T`               |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcache.dir                      | working directory     | 1.0                   | n/a                | No       |
+| :ref:`gcache.dir                      | working directory     | 1.0                   |                    | No       |
 | <gcache.dir>`                         |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcache.name                     | ``galera.cache``      | 1.0                   | n/a                | No       |
+| :ref:`gcache.name                     | ``galera.cache``      | 1.0                   |                    | No       |
 | <gcache.name>`                        |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcache.size                     | ``128Mb``             | 1.0                   | n/a                | No       |
+| :ref:`gcache.size                     | ``128Mb``             | 1.0                   |                    | No       |
 | <gcache.size>`                        |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcache.page_size                | ``128Mb``             | 1.0                   | n/a                | No       |
+| :ref:`gcache.page_size                | ``128Mb``             | 1.0                   |                    | No       |
 | <gcache.page_size>`                   |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcache.keep_pages_size          | ``0``                 | 1.0                   | n/a                | No       |
+| :ref:`gcache.keep_pages_size          | ``0``                 | 1.0                   |                    | No       |
 | <gcache.keep_pages_size>`             |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcache.mem_size                 | ``0``                 | 1.0                   | n/a                | No       |
+| :ref:`gcache.mem_size                 | ``0``                 | 1.0                   |                    | No       |
 | <gcache.mem_size>`                    |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.fc_debug                    | ``0``                 | 1.0                   | n/a                | No       |
+| :ref:`gcs.fc_debug                    | ``0``                 | 1.0                   |                    | No       |
 | <gcs.fc_debug>`                       |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.fc_factor                   | ``0.5``               | 1.0                   | n/a                | Yes      |
+| :ref:`gcs.fc_factor                   | ``0.5``               | 1.0                   |                    | Yes      |
 | <gcs.fc_factor>`                      |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.fc_limit                    | ``16``                | 1.0                   | n/a                | Yes      |
+| :ref:`gcs.fc_limit                    | ``16``                | 1.0                   |                    | Yes      |
 | <gcs.fc_limit>`                       |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.fc_master_slave             | ``NO``                | 1.0                   | n/a                | No       |
+| :ref:`gcs.fc_master_slave             | ``NO``                | 1.0                   |                    | No       |
 | <gcs.fc_master_slave>`                |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.max_packet_size             | ``32616``             | 1.0                   | n/a                | No       |
+| :ref:`gcs.max_packet_size             | ``32616``             | 1.0                   |                    | No       |
 | <gcs.max_packet_size>`                |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.max_throttle                | ``0.25``              | 1.0                   | n/a                | No       |
+| :ref:`gcs.max_throttle                | ``0.25``              | 1.0                   |                    | No       |
 | <gcs.max_throttle>`                   |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.recv_q_hard_limit           | ``LLONG_MAX``         | 1.0                   | n/a                | No       |
+| :ref:`gcs.recv_q_hard_limit           | ``LLONG_MAX``         | 1.0                   |                    | No       |
 | <gcs.recv_q_hard_limit>`              |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.recv_q_soft_limit           | ``0.25``              | 1.0                   | n/a                | No       |
+| :ref:`gcs.recv_q_soft_limit           | ``0.25``              | 1.0                   |                    | No       |
 | <gcs.recv_q_soft_limit>`              |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gcs.sync_donor                  | ``NO``                | 1.0                   | n/a                | No       |
+| :ref:`gcs.sync_donor                  | ``NO``                | 1.0                   |                    | No       |
 | <gcs.sync_donor>`                     |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gmcast.listen_addr              | ``tcp://0.0.0.0:4567``| 1.0                   | n/a                | No       |
+| :ref:`gmcast.listen_addr              | ``tcp://0.0.0.0:4567``| 1.0                   |                    | No       |
 | <gmcast.listen_addr>`                 |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gmcast.mcast_addr               |                       | 1.0                   | n/a                | No       |
+| :ref:`gmcast.mcast_addr               |                       | 1.0                   |                    | No       |
 | <gmcast.mcast_addr>`                  |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gmcast.mcast_ttl                | ``1``                 | 1.0                   | n/a                | No       |
+| :ref:`gmcast.mcast_ttl                | ``1``                 | 1.0                   |                    | No       |
 | <gmcast.mcast_ttl>`                   |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gmcast.peer_timeout             | ``PT3S``              | 1.0                   | n/a                | No       |
+| :ref:`gmcast.peer_timeout             | ``PT3S``              | 1.0                   |                    | No       |
 | <gmcast.peer_timeout>`                |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gmcast.segment                  | ``0``                 | 3.0                   | n/a                | No       |
+| :ref:`gmcast.segment                  | ``0``                 | 3.0                   |                    | No       |
 | <gmcast.segment>`                     |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`gmcast.time_wait                | ``PT5S``              | 1.0                   | n/a                | No       |
+| :ref:`gmcast.time_wait                | ``PT5S``              | 1.0                   |                    | No       |
 | <gmcast.time_wait>`                   |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`gmcast.version                  | n/a                   |                       |                    |          |
 | <gmcast.version>` :sup:`T`            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`ist.recv_addr                   |                       | 1.0                   | n/a                | No       |
+| :ref:`ist.recv_addr                   |                       | 1.0                   |                    | No       |
 | <ist.recv_addr>`                      |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.recovery                     | ``TRUE``              | 3.0                   | n/a                | No       |
+| :ref:`pc.recovery                     | ``TRUE``              | 3.0                   |                    | No       |
 | <pc.recovery>`                        |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.bootstrap                    | n/a                   | 2.0                   | n/a                | Yes      |
+| :ref:`pc.bootstrap                    | n/a                   | 2.0                   |                    | Yes      |
 | <pc.bootstrap>`                       |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.announce_timeout             | ``PT3S``              | 2.0                   | n/a                | No       |
+| :ref:`pc.announce_timeout             | ``PT3S``              | 2.0                   |                    | No       |
 | <pc.announce_timeout>`                |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.checksum                     | ``TRUE``              | 1.0                   | n/a                | No       |
+| :ref:`pc.checksum                     | ``TRUE``              | 1.0                   |                    | No       |
 | <pc.checksum>`                        |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.ignore_sb                    | ``FALSE``             | 1.0                   | n/a                | Yes      | 
+| :ref:`pc.ignore_sb                    | ``FALSE``             | 1.0                   |                    | Yes      | 
 | <pc.ignore_sb>`                       |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.ignore_quorum                | ``FALSE``             | 1.0                   | n/a                | Yes      |
+| :ref:`pc.ignore_quorum                | ``FALSE``             | 1.0                   |                    | Yes      |
 | <pc.ignore_quorum>`                   |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.linger                       | ``PT2S``              | 1.0                   | n/a                | No       |
+| :ref:`pc.linger                       | ``PT2S``              | 1.0                   |                    | No       |
 | <pc.linger>`                          |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.npvo                         | ``FALSE``             | 1.0                   | n/a                | No       |
+| :ref:`pc.npvo                         | ``FALSE``             | 1.0                   |                    | No       |
 | <pc.npvo>`                            |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.wait_prim                    | ``FALSE``             | 1.0                   | n/a                | No       |
+| :ref:`pc.wait_prim                    | ``FALSE``             | 1.0                   |                    | No       |
 | <pc.wait_prim>`                       |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.wait_prim_timeout            | ``P30S``              | 2.0                   | n/a                | No       |
+| :ref:`pc.wait_prim_timeout            | ``P30S``              | 2.0                   |                    | No       |
 | <pc.wait_prim_timeout>`               |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`pc.weight                       | ``1``                 | 2.4                   | n/a                | Yes      |
+| :ref:`pc.weight                       | ``1``                 | 2.4                   |                    | Yes      |
 | <pc.weight>`                          |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`pc.version                      | n/a                   |                       |                    |          |
 | <pc.version>` :sup:`T`                |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`protonet.backend                | ``asio``              | 1.0                   | n/a                | No       |
+| :ref:`protonet.backend                | ``asio``              | 1.0                   |                    | No       |
 | <protonet.backend>`                   |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 | :ref:`protonet.version                | n/a                   |                       |                    |          |
 | <protonet.version>` :sup:`T`          |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`repl.commit_order               | ``3``                 | 1.0                   | n/a                | No       |
+| :ref:`repl.commit_order               | ``3``                 | 1.0                   |                    | No       |
 | <repl.commit_order>`                  |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`repl.causal_read_timeout        | ``PT30S``             | 1.0                   | n/a                | No       |
+| :ref:`repl.causal_read_timeout        | ``PT30S``             | 1.0                   |                    | No       |
 | <repl.causal_read_timeout>`           |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`repl.key_format                 | ``FLAT8``             | 3.0                   | n/a                | No       |
+| :ref:`repl.key_format                 | ``FLAT8``             | 3.0                   |                    | No       |
 | <repl.key_format>`                    |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`repl.max_ws_size                | ``2147483647``        | 3.0                   | n/a                | No       |
+| :ref:`repl.max_ws_size                | ``2147483647``        | 3.0                   |                    | No       |
 | <repl.max_ws_size>`                   |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`repl.proto_max                  | ``5``                 | 2.0                   | n/a                | No       |
+| :ref:`repl.proto_max                  | ``5``                 | 2.0                   |                    | No       |
 | <repl.proto_max>`                     |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`socket.ssl_cert                 |                       | 1.0                   | n/a                | No       |
+| :ref:`socket.ssl_ca                   |                       | 1.0                   |                    | No       |
+| <socket.ssl_ca>`                      |                       |                       |                    |          |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`socket.ssl_cert                 |                       | 1.0                   |                    | No       |
 | <socket.ssl_cert>`                    |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`socket.ssl_key                  |                       | 1.0                   | n/a                | No       |
-| <socket.ssl_key>`                     |                       |                       |                    |          |
-+---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`socket.ssl_compression          | ``YES``               | 1.0                   | n/a                | No       |
-| <socket.ssl_compression>`             |                       |                       |                    |          |
-+---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`socket.ssl_cipher               | ``AES128-SHA``        | 1.0                   | n/a                | No       |
-| <socket.ssl_cipher>`                  |                       |                       |                    |          |
-+---------------------------------------+-----------------------+-----------------------+--------------------+----------+
-| :ref:`socket.checksum                 | ``1`` (for version 2) | 2.0                   | n/a                | No       |
+| :ref:`socket.checksum                 | ``1`` (for version 2) | 2.0                   |                    | No       |
 | <socket.checksum>`                    |                       |                       |                    |          |
 |                                       | ``2`` (for version 3+)|                       |                    |          |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`socket.ssl_cipher               | ``AES128-SHA``        | 1.0                   |                    | No       |
+| <socket.ssl_cipher>`                  |                       |                       |                    |          |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`socket.ssl_compression          | ``YES``               | 1.0                   |                    | No       |
+| <socket.ssl_compression>`             |                       |                       |                    |          |
++---------------------------------------+-----------------------+-----------------------+--------------------+----------+
+| :ref:`socket.ssl_key                  |                       | 1.0                   |                    | No       |
+| <socket.ssl_key>`                     |                       |                       |                    |          |
 +---------------------------------------+-----------------------+-----------------------+--------------------+----------+
 
 
@@ -324,13 +327,18 @@ Enable debugging.
 .. index::
    pair: Parameters; evs.auto_evict
 
-Defines the number of entries allowed for a delayed node before this node triggers Auto Eviction.  Setting this to ``0`` disables the Auto Eviction protocol on this node, though the node continues to monitor cluster node response times.
+Defines how many entries the node allows for given a delayed node before it triggers the Auto Eviction protocol.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.auto_evict=5"
 
-**Default Value**: ``0``
+Each cluster node monitors the group communication response times from all other nodes.  When the cluster registers delayed response from a given node, it adds an entry for that node to its delayed list.  If the majority of the cluster nodes show the node as delayed, the node is permanently evicted from the cluster.
+
+This parameter determines how many entries a given node can receive before it triggers Auto Eviction.  
+
+When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node.  Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster. 
+
    
 .. seealso:: For more information on the Auto Eviction process, see :doc:`autoeviction`.
 
@@ -403,11 +411,16 @@ Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
 .. index::
    pair: Parameters; evs.delayed_keep_period
 
-Defines the time period cluster nodes must remain responsive before this node removes one entry from the delayed list.  The number of entries on the delayed list depends on how long the delayed node was unresponsive.
+Defines how long this node requires a delayed node to remain responsive before it removes an entry from the delayed list.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.delayed_keep_period=PT45S"
+
+Each cluster node monitors the group communication response times from all other nodes.  When the cluster registered delayed responses from a given node, it adds an entry for that node to its delayed list.  Nodes that remain on the delayed list can trigger Auto Eviction, which removes them permanently from the cluster.
+
+This parameter determines how long a node on the delayed list must remain responsive before it removes one entry. The number of entries on the delayed list and how long it takes before the node removes all entries depends on how long the delayed node was unresponsive.
+
 
 .. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
    
@@ -425,13 +438,16 @@ Defines the time period cluster nodes must remain responsive before this node re
 .. index::
    pair: Parameters; evs.delayed_margin
 
-Defines the time period that cluster nodes can delay responses from expectations before this node adds them to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
+Defines how long the node allows response times to deviate before adding an entry to the delayed list.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.delayed_margin=PT5S"
 
-**Default Value**: ``PT1S``
+Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list.  Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.  
+
+This parameter determines how long a delay can run before the node adds an entry to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.  
+
 
 .. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
 
@@ -464,11 +480,15 @@ Defines the point at which the cluster triggers manual eviction to a certain nod
 .. index::
    pair: Parameters; evs.inactive_check_period
 
-How often to check for peer inactivity.
+Defines how often you want the node to check for peer inactivity.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.inactive_check_period=PT1S"
+
+Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list, which can lead to the delayed node's eviction from the cluster.
+
+This parameter determines how often you want the node to check for delays in the group communication responses from other cluster nodes.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -484,12 +504,17 @@ How often to check for peer inactivity.
 .. index::
    pair: Parameters; evs.inactive_timeout
 
+Defines a hard limit on node inactivity.
+
 Hard limit on the inactivity period, after which the node is pronounced dead.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.inactive_timeout=PT15S"
 
+Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it add an entry for that node to its delayed list, which can lead tot he delayed node's eviction from the cluster.
+
+This parameter sets a hard limit for node inactivity.  If a delayed node remains unresponsive for longer than this period, the node pronounces the delayed node as dead.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -504,17 +529,18 @@ Hard limit on the inactivity period, after which the node is pronounced dead.
 .. index::
    pair: Parameters; evs.info_log_mask
 
-Control extra EVS info logging. Bits:
- 
-- ``0x1`` Provides extra view change info.
-- ``0x2`` Provides extra state change info
-- ``0x4`` Provides statistics
-- ``0x8`` Provides profiling (only in builds with profiling enabled)
+Defines additional logging options for the EVS Protocol.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.info_log_mask=0x4"
 
+The EVS Protocol monitors group communication response times and controls the node eviction and auto eviction processes.  This parameter allows you to enable additional logging options, through a bitmask value.
+ 
+- ``0x1`` Provides extra view change info.
+- ``0x2`` Provides extra state change info
+- ``0x4`` Provides statistics
+- ``0x8`` Provides profiling (only in builds with profiling enabled)
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -530,14 +556,15 @@ Control extra EVS info logging. Bits:
 .. index::
    pair: Parameters; evs.install_timeout
 
-Timeout on waiting for install message acknowledgments. 
+Defines the timeout for install message acknowledgments.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.install_timeout=PT15S"
 
+Each cluster node monitors group communication response times from all other nodes, checking whether they are responsive or delayed.  This parameter determines how long you want the node to wait on install message acknowledgments.
 
-.. seealso:: This parameter is the successor to :ref:`evs.consensus_timeout <evs.consensus_timeout>`.
+.. seealso:: This parameter replaces :ref:`evs.consensus_timeout <evs.consensus_timeout>`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -552,7 +579,7 @@ Timeout on waiting for install message acknowledgments.
 .. index::
    pair: Parameters; evs.join_retrans_period
 
-How often to retransmit EVS join messages when forming the cluster membership.
+Defines how often the node retransmits EVS join messages when forming cluster membership.
 
 .. code-block:: ini
 
@@ -571,11 +598,14 @@ How often to retransmit EVS join messages when forming the cluster membership.
 .. index::
    pair: Parameters; evs.keepalive_period
 
-How often to emit keepalive beacons (in the absence of any other traffic).
+Defines how often the node emits keepalive signals.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.keepalive_period=PT1S"
+
+Each cluster node monitors group communication response times from all other nodes.  When there is no traffic going out for the cluster to monitor, nodes emit keepalive signals so that other nodes have something to measure.  This parameter determines how often the node emits a keepalive signal, absent any other traffic.
+
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -590,11 +620,13 @@ How often to emit keepalive beacons (in the absence of any other traffic).
 .. index::
    pair: Parameters; evs.max_install_timeouts
 
-How many membership install rounds to try before giving up (total rounds will be ``evs.max_install_timeouts`` + 2).
+Defines the number of membership install rounds to try before giving up.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.max_install_timeouts=1"
+
+This parameter determines the maximum number of times that the node tries for a membership install acknowledgment, before it stops trying.  The total number of rounds it tries is this value plus 2.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -609,13 +641,15 @@ How many membership install rounds to try before giving up (total rounds will be
 .. index::
    pair: Parameters; evs.send_window
 
-Maximum packets in replication at a time. For WAN setups may be set considerably higher, e.g. 512.  Must be no less than ``evs.user_send_window``.  If you must use other that the default value, we recommend using double the ``evs.user_send_window`` value.
+Defines the maximum number of packets at a time in replication.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.send_window=4"
 
-.. seealso:: :ref:`evs.user_send_window <evs.user_send_window>`.
+This parameter determines the maximum number of packets the node uses at a time in replication.  For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this value considerably higher, (for example, 512), than for clusters implemented over :abbr:`LAN (Local Area Network)`.
+
+You must use a value that is greater than :ref:`evs.user_send_window <evs.user_send_window>`.  The recommended value is double :ref:`evs.user_send_window <evs.user_send_window>`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -648,11 +682,14 @@ Control period of EVS statistics reporting.  The node is pronounced dead.
 .. index::
    pair: Parameters; evs.suspect_timeout
 
-Inactivity period after which the node is *suspected* to be dead. If all remaining nodes agree on that, the node is dropped out of cluster before ``evs.inactive_timeout`` is reached.
+Defines the inactivity period after which a node is *suspected* as dead.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.suspect_timeout=PT5S"
+
+Each node in the cluster monitors group communications from all other nodes in the cluster.  This parameter determines the period of inactivity before the node suspects another of being dead.  If all nodes agree on that, the cluster drops the inactive node after it reaches the :ref:`evs.inactive_timeout<evs.inactive_timeout>`.
+
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -667,7 +704,7 @@ Inactivity period after which the node is *suspected* to be dead. If all remaini
 .. index::
    pair: Parameters; evs.use_aggregate
 
-Aggregate small packets into one, when possible.
+Defines whether the node aggregates small packets into one when possible.
 
 .. code-block:: ini
 
@@ -686,11 +723,15 @@ Aggregate small packets into one, when possible.
 .. index::
    pair: Parameters; evs.user_send_window
 
-Maximum data packets in replication at a time. For WAN setups, this value can be set considerably higher, to, for example, 512.
+Defines the maximum number of data packets at a time in replication.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.user_send_window=2"
+
+This parameter determines the maximum number of data packets the node uses at a time in replication.  For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this to a value considerably higher than cluster implementations over :abbr:`LAN (Local Area Network)`, (for example, 512).
+
+You must use a value that is smaller than :ref:`evs.send_window<evs.send_window>`.  The recommended value is half :ref:`evs.send_window<evs.send_window>`.
 
 .. seealso:: :ref:`evs.send_window <evs.send_window>`.
 
@@ -708,11 +749,13 @@ Maximum data packets in replication at a time. For WAN setups, this value can be
 .. index::
    pair: Parameters; evs.view_forget_timeout
 
-Drop past views from the view history after this timeout.
+Defines how long the node saves past views from the view history.
 
 .. code-block:: ini
 
    wsrep_provider_options="evs.view_forget_timeout=PT5M"
+
+Each node maintains a history of past views.  This parameter determines how long you want the node to save past views before dropping them from the table.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -727,9 +770,16 @@ Drop past views from the view history after this timeout.
 .. index::
    pair: Parameters; evs.version
 
-This status variable is used to check which ``evs`` protocol version is used. 
+Defines the EVS Protocol version.
 
-This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
+.. code-block:: ini
+
+   wsrep_provider_options="evs.version=1"
+
+This parameter determines which version of the EVS Protocol the node uses.  In order to ensure backwards compatibility, the parameter defaults to ``0``.  Certain EVS Protocol features, such as Auto Eviction, require you to upgrade to more recent versions.
+
+.. seealso:: For more information on the procedure to upgrade from one version to another, see :ref:`Upgrading the EVS Protocol <upgrade-evs>`.
+
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -744,8 +794,15 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: Parameters; gcache.dir
 
-Directory where GCache should place its files.  Defaults to the working directory. 
+Defines the directory where the write-set cache places its files.
 
+.. code-block:: ini
+
+   wsrep_provider_options="gachce.dir=/usr/share/galera"
+
+When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory mapped files to disk.
+
+This parameter determines where you want the node to save these files for write-set caching.  By default, GCache uses the working directory for the database server.
 
 +--------------------------+---------+------------+------------+
 | Default Value            | Dynamic | Introduced | Deprecated |
@@ -760,11 +817,15 @@ Directory where GCache should place its files.  Defaults to the working director
 .. index::
    pair: Parameters; gcache.name
 
-Name of the ring buffer storage file. 
+Defines the filename for the write-set cache.
 
 .. code-block:: ini
 
    wsrep_provider_options="gcache.name=galera.cache"
+
+When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
+
+This parameter determines the name you want the node to use for this ring buffer storage file.  
 
 
 +-----------------------+---------+------------+------------+
@@ -779,13 +840,15 @@ Name of the ring buffer storage file.
 .. index::
    pair: Parameters; gcache.size
 
-Size of the persistent on-disk ring buffer storage. This will be preallocated on start up. 
+Defines the disk space you want to node to use in caching write-sets.
 
 .. code-block:: ini
 
    wsrep_provider_options="gcache.size=128Mb"
 
-The buffer file name is ``galera.cache`` by default.
+When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
+
+This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.  
 
 .. seealso:: For more information on customizing the write-set cache, see :ref:`Performance <customizing-gcache-size>`.
 
@@ -1590,6 +1653,28 @@ The maximum protocol version in replication. Changes to this parameter will only
 +-----------------------+---------+------------+------------+
 
 
+.. rubric:: ``socket.ssl_ca``
+.. _`socket.ssl_ca`:
+.. index::
+   pair:: Parameters; socket.ssl_ca
+
+Defines the path to the SSL certificate authority path.
+
+.. code-block:: ini
+
+   wsrep_provider_options='socket.ssl_ca=/path/to/cacert.pem'
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
+
+
 .. rubric:: ``socket.ssl_cert``
 .. _`socket.ssl_cert`:
 .. index::
@@ -1603,65 +1688,6 @@ A path (absolute or relative to the working directory )to an SSL certificate (in
 +=======================+=========+============+============+
 |                       | No      | 1.0        |            |
 +-----------------------+---------+------------+------------+
-
-
-
-
-.. rubric:: ``socket.ssl_key``
-.. _`socket.ssl_key`:
-.. index::
-   pair: Parameters; socket.ssl_key
-
-A path (absolute or relative to the working directory to a private key for a certificate (in PEM format).
-
-
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-|                       | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
-
-
-
-
-.. rubric:: ``socket.ssl_compression``
-.. _`socket.ssl_compression`:
-.. index::
-   pair: Parameters; socket.ssl_compression
-
-Whether to enable compression on SSL connections.
-
-.. code-block:: ini
-
-   wsrep_provider_options="socket.ssl_compression=YES"
-
-
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-| ``YES``               | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
-
-
-
-.. rubric:: ``socket.ssl_cipher``
-.. _`socket.ssl_cipher`:
-.. index::
-   pair: Parameters; socket.ssl_cipher
-
-Symmetric cipher to use. AES128 is used by default it is considerably faster and no less secure than AES256.
-
-.. code-block:: ini
-
-   wsrep_provider_options="socket.ssl_cipher=AES128-SHA"
-
-
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-| ``AES128-SHA``        | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
-
 
 
 .. rubric:: ``socket.checksum``
@@ -1688,6 +1714,59 @@ Checksum to use on socket layer:
 | version 3+: ``2``     |         |            |            |
 +-----------------------+---------+------------+------------+
 
+
+.. rubric:: ``socket.ssl_cipher``
+.. _`socket.ssl_cipher`:
+.. index::
+   pair: Parameters; socket.ssl_cipher
+
+Symmetric cipher to use. AES128 is used by default it is considerably faster and no less secure than AES256.
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_cipher=AES128-SHA"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``AES128-SHA``        | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
+.. rubric:: ``socket.ssl_compression``
+.. _`socket.ssl_compression`:
+.. index::
+   pair: Parameters; socket.ssl_compression
+
+Whether to enable compression on SSL connections.
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_compression=YES"
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``YES``               | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
+
+.. rubric:: ``socket.ssl_key``
+.. _`socket.ssl_key`:
+.. index::
+   pair: Parameters; socket.ssl_key
+
+A path (absolute or relative to the working directory to a private key for a certificate (in PEM format).
+
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 
