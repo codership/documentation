@@ -9,7 +9,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
 
 .. code-block:: ini
 		
-   [mysql]
+   [mysqld]
    datadir=/var/lib/mysql
    socket=/var/lib/mysql/mysql.sock
    user=mysql
