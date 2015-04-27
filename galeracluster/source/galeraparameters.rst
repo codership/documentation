@@ -1658,12 +1658,16 @@ The maximum protocol version in replication. Changes to this parameter will only
 .. index::
    pair:: Parameters; socket.ssl_ca
 
-Defines the path to the SSL certificate authority path.
+Defines the path to the SSL Certificate Authority (CA) file.
+
+The node uses the CA file to verify the signature on the certificate.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
 .. code-block:: ini
 
-   wsrep_provider_options='socket.ssl_ca=/path/to/cacert.pem'
+   wsrep_provider_options='socket.ssl_ca=/path/to/ca-cert.pem'
 
+
+.. seelalso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1673,15 +1677,21 @@ Defines the path to the SSL certificate authority path.
 
 
 
-
-
 .. rubric:: ``socket.ssl_cert``
 .. _`socket.ssl_cert`:
 .. index::
    pair: Parameters; socket.ssl_cert
 
-A path (absolute or relative to the working directory )to an SSL certificate (in PEM format). 
+Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate.
 
+The node uses the certificate as a self-signed public key in encrypting replication traffic over :aabr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_cert=/path/to/server-cert.pem"
+
+
+.. seelalso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1704,7 +1714,6 @@ Checksum to use on socket layer:
 .. code-block:: ini
 
    wsrep_provider_options="socket.checksum=2"
-
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1746,7 +1755,6 @@ Whether to enable compression on SSL connections.
 
    wsrep_provider_options="socket.ssl_compression=YES"
 
-
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
@@ -1759,8 +1767,15 @@ Whether to enable compression on SSL connections.
 .. index::
    pair: Parameters; socket.ssl_key
 
-A path (absolute or relative to the working directory to a private key for a certificate (in PEM format).
+Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate key.
 
+The node uses the certificate key a self-signed private key in encrypting replication traffic over  :aabr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_key=/path/to/server-key.pem"
+
+.. seelalso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
