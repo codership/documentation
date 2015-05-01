@@ -129,9 +129,9 @@ To signal that the node is ready to receive the state transfer, print the follow
 
    ready 192.168.1.1:4444
 
-Next send a state transfer request to the donor node.  This is formed from the address and port of the joiner, the values given to ``--auth``, and the name of your script.  The donor node receives the request and uses these values as input parameters in running your script on that node.
+The node responds by sending a state transfer request to the donor node.  The node forms the request with the address and port number of the joiner node, the values given to :ref:`wsrep_sst_auth <wsrep_sst_auth>`, and the name of your script.  The donor receives the request and uses these values as input parameters in running your script on that node to send back the state transfer.
 
-When the node receives the state transfer and finishes applying it, print to standard output the :term:`Global Transaction ID` of the received state.  For example:
+When the joiner node receives the state transfer and finishes applying it, print to standard output the :term:`Global Transaction ID` of the received state.  For example:
 
 .. code-block:: console
 		

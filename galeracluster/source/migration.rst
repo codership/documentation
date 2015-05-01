@@ -84,12 +84,12 @@ You now have Galera Cluster and a single MySQL server running together.  The MyS
 
    The ``--skip-create-options`` ensures that the newly created tables default to InnoDB.
 
-#. Transfer the ``sst.sql`` file to one of the Galera Cluster nodes, then load the data.
+#. Transfer the ``sst.sql`` file to one of the Galera Cluster nodes, then load the data through the database client.
 
-   .. code-block:: mysql
+   .. code-block:: console
 
-      LOAD DATA LOCAL INFILE '/path/to/sst.sql';
-
+      $ mysql -u root -p < sst.sql 
+		   
 #. When the node finishes loading the data, resume the load on Galera Cluster.  Leave the MyISAM master offline.
 
 When the load resumes, it runs on Galera Cluster alone, excluding the MyISAM master.  The other nodes in your cluster replicate the data out from the first on their own.

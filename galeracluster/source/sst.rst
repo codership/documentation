@@ -120,7 +120,7 @@ Physical State Snapshots have the following disadvantages:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`rsync`:
 
-The fastest back-end method for State Snapshot Transfers is ``rsync``.  It carries all the advantages and disadvantages of the Physical Snapshot Transfer with the added bonus of blocking the donor node for the duration of the transfer.  Additionally, ``rsync`` does not require database configuration or root access, which makes it easier to configure.
+The fastest back-end method for State Snapshot Transfers is ``rsync``.  It carries all the advantages and disadvantages of of the Physical Snapshot Transfer.  While it does block the donor node during transfer, ``rsync`` does not require database configuration or root access, which makes it easier to configure.
 
 When using terabyte-scale databases, ``rsync`` is considerably faster, (1.5 to 2 times faster), than ``xtrabackup``.  This translates to a reduction in transfer times by several hours.
 
