@@ -33,17 +33,17 @@ In a State Snapshot Transfer (SST), the cluster provisions nodes by transferring
 
 You can choose from two conceptually different approaches in Galera Cluster to transfer a state from one database to another:
 
-- **Logical** This method uses **mysqldump**.  It requires that you fully initialize the receiving server and ready it to accept connections *before* the transfer.
+- **Logical** This method uses ``mysqldump``.  It requires that you fully initialize the receiving server and ready it to accept connections *before* the transfer.
 
   This is a blocking method.  The donor node becomes ``READ-ONLY`` for the duration of the transfer.  The State Snapshot Transfer applies the ``FLUSH TABLES WITH READ LOCK`` command on the donor node.
 
-  **mysqldump** is the slowest method for State Snapshot Transfers.  This can be an issue in a loaded cluster.
+  ``mysqldump`` is the slowest method for State Snapshot Transfers.  This can be an issue in a loaded cluster.
 
-- **Physical** This method uses **rsync**, **rsync_wan**, **xtrabackup** and other methods and copies the data files directly from server to server.  It requires that you initialize the receiving server *after* the transfer.
+- **Physical** This method uses ``rsync``, ``rsync_wan``, ``xtrabackup`` and other methods and copies the data files directly from server to server.  It requires that you initialize the receiving server *after* the transfer.
 
-  This method is faster than **mysqldump**, but they have certain limitations.  You can only use them on server startup.  The receiving server requires very similar configurations to the donor, (for example, both servers must use the same ``innodb_file_per_table`` value).
+  This method is faster than ``mysqldump``, but they have certain limitations.  You can only use them on server startup.  The receiving server requires very similar configurations to the donor, (for example, both servers must use the same ``innodb_file_per_table`` value).
 
-  Some of these methods, such as **xtrabackup** can be made non-blocking on the donor.  They are supported through a scriptable SST interface.
+  Some of these methods, such as ``xtrabackup`` can be made non-blocking on the donor.  They are supported through a scriptable SST interface.
 
 
 .. seealso:: For more information on the particular methods available for State Snapshot Transfers, see the :ref:`Comparison of State Transfer Methods <state-transfer-methods>`.

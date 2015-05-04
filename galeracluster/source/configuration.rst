@@ -9,7 +9,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
 
 .. code-block:: ini
 		
-   [mysql]
+   [mysqld]
    datadir=/var/lib/mysql
    socket=/var/lib/mysql/mysql.sock
    user=mysql
@@ -91,7 +91,7 @@ After you save the configuration file, you are ready to configure the database p
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Configuring the InnoDB Buffer Pool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`innodb_buffer_pool_size`:
+.. _`config_innodb_buffer_pool_size`:
 
 The InnoDB storage engine uses a memory buffer to cache data and indexes of its tables, which you can configure through the 
 `innodb_buffer_pool_size <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ parameter.  The default value is 128MB.  To compensate for the increased memory usage of Galera Cluster over the standalone MySQL database server, you should scale your usual value back by 5%.
@@ -100,71 +100,6 @@ The InnoDB storage engine uses a memory buffer to cache data and indexes of its 
 
    innodb_buffer_pool_size=122M
 
-
-
---------------------------------------
-Configuring State Transfer Privileges
---------------------------------------
-.. _`sst-privileges`:
-
-Galera Cluster uses state transfers to send data from one database node into another.  When this occurs through the database server, such as is the case with ``mysqldump``, the node requires a user with privileges on the receiving server.
-
-Using your preferred text editor, open ``wsrep.cnf`` file, (you can find it in ``/etc/mysql/conf.d/``), and edit the authentication information:
-
-.. code-block:: ini
-
-   wsrep_sst_auth = wsrep_sst-user:password
-
-This provides the authentication information that the node requires.  Use the same value on all nodes in the cluster, as the parameter is used to authenticate both the sender and the receiver.
-
-.. seealso:: For more information on authentication for the state transfer user, see :ref:`wsrep_sst_auth <wsrep_sst_auth>`.
-
-Once you finish editing the ``wsrep.cnf`` file, start the database server and configure the privileges on the ``mysql`` tables.  If your system uses ``init``, you can start ``mysqld`` with the following command:
-
-.. code-block:: console
-
-   # service mysql start
-
-For systems that use ``systemd``, instead use this command:
-
-.. code-block:: console
-
-   # systemctl start mysql
-
-Once the server is running, you can use the database client to configure user privileges for the node, to remove empty users and create the write-set replication user for state snapshot transfers.
-
-In the case of empty users, they create problems for database authentication matching rules.  Remove them with the following query:
-
-.. code-block:: mysql
-
-   SET wsrep_on=OFF;
-   DELETE FROM mysql.user WHERE user='';
-
-Next grant privileges to the write-set replication user.  Use the same username and password you used for the ``wsrep.cnf`` file.
-
-.. code-block:: mysql
-
-   SET wsrep_on=OFF;
-   GRANT ALL ON *.* TO 'wsrep_sst-user'@'%'
-      IDENTIFIED BY 'password';
-
-When the node now attempts state snap transfers, it will use this user and password to authenticate both its own access to the database and to access and manipulate data on the receiving node.  There are a few different methods used in state snapshot transfers.  This authentication only occurs in the event of ``mysqldump``.  ``rsync`` operates independent of the database and thus ignores this parameter.
-
-.. note:: While you can configure which state transfer method you want the node to use, if you choose ``rsync`` you should still configure for ``mysqldump``.  In the event of Incremental State Transfers, the cluster itself chooses whichever method will run the fastest.
-
-Once finished, shut the node down until you are ready to initialize the cluster.  For systems that use ``init``, run the following command:
-
-.. code-block:: console
-
-   # service mysql stop
-
-For systems that use ``systemd``, instead use this command:
-
-.. code-block:: console
-
-   # systemctl stop mysql
-
-.. seealso:: For more information on state snapshot and incremental state transfers, see :doc:`statetransfer`.
 
 -----------------------------------------
 Configuring Swap Space

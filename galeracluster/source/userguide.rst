@@ -27,22 +27,31 @@ How do you recover failed nodes or a Primary Component?  How to secure communica
    :maxdepth: 2
 
    nodeprovisioning
+   sst
    pcrecovery
    quorumreset
    monitoringthecluster
    managingfc
    autoeviction
    schemaupgrades
-   ssl
-   firewallsettings
    upgrading
    arbitrator
    backingupthecluster
 
+------------------------
+Security
+------------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   firewallsettings
+   ssl
+   
 --------------------------------------
-Improving Cluster Performance
+Performance
 --------------------------------------
-.. _`improve-performance`:
+.. _`performance`:
 
 Now that you're comfortable with how to use Galera Cluster, you can begin to consider how to use it more efficiently and effectively.  This can include variant deployment schemes and techniques to improve performance, or simply tips in configuring the cluster to better suit your needs.
 
@@ -53,3 +62,5 @@ Now that you're comfortable with how to use Galera Cluster, you can begin to con
    deploymentvariants
    performance
    configurationtips
+   scriptablesst
+   loadbalancing

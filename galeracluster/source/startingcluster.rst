@@ -21,24 +21,7 @@ Before you attempt to initialize the cluster, check that you have the following 
 
 With the hosts prepared, you are ready to initialize the cluster.
 
-
-
----------------------------------------------
-Creating Client Connections between the Nodes
----------------------------------------------
-.. _`Creating Client Connections between Nodes`:
-
-Connecting the database servers to each other as a cluster requires that you create client connections between the nodes.  This allows the nodes to carry out state snapshot transfers with each other.
-
-To connect the clients, on each node run the following queries:
-
-.. code-block:: mysql
-
-	GRANT ALL ON *.* TO 'root'@'node1-address';
-	GRANT ALL ON *.* TO 'root'@'node2-address';
-	GRANT ALL ON *.* TO 'root'@'node3-address';
-
-This grants the root user of each node root privileges on the other nodes in the cluster.
+.. seealso:: When migrating from an existing, standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there are some additional steps that you must take.  For more information on what you need to do, see :doc:`migration`.
 
 
 -------------------------------------

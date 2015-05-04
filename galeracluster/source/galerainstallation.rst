@@ -125,8 +125,32 @@ If instead, your system uses ``systemd``, run the following command instead:
 
   $ sudo systemctl restart apparmor
 
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Removing Postfix
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`removing-postfix`:
 	  
+For RPM-based distributions, such as Red Hat Enterprise Linux and Fedora, if you have an existing MySQL or related database server and Postfix installed on your system, you need to remove Postfix before you can install Galera Cluster.
+
+When you install Galera Cluster over an existing MySQL installation, ``yum`` removes the existing database server package and replaces it with a new one that was built using the wsrep API patch.  However, Postfix registers the database server package as a dependency.  Meaning that, if you try to install the ``mysql-wsrep-server`` package from Codership without removing Postfix, ``yum`` fails since Postfix's dependency on ``MySQL-server`` blocks the installation.
+
+To remove Postfix, run the following command:
+
+.. code-block:: console
+
+   # yum remove postfix
+
+This removes Postfix from your system.  If you still want to use Postfix, you can reinstall it after you finish installing Galera Cluster.  
+
+.. code-block:: console
+
+   # yum install postfix
+
+Postfix now uses Galera Cluster as its database server backend.
+
+.. note:: Remember that this is a problem specific to RPM-based distributions, like Red Hat Enterprise Linux and Fedora.  For Debian- and SUSE-based distributions this is not an issue.  ``apt-get`` and ``zypper`` can update the database server without interfering with Postfix.
+
+
 ---------------------------
 Installing Galera Cluster
 ---------------------------
