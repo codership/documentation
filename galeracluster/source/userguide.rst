@@ -5,17 +5,6 @@
 
 Once you become familiar with the basics of how Galera Cluster works, consider how it can work for you.
 
-Bear in mind that there are certain key differences between how a standalone instance of the MySQL server works and the Galera Cluster wsrep database server.  This is especially important if you plan to install Galera Cluster over an existing MySQL server, preserving its data for replication.
-
-.. toctree::
-   :maxdepth: 2
-
-   limitations
-   migration
-   myisamtoinnodb
-
-.. seealso:: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.
-
 ----------------------------------------
 Working with the Cluster
 ----------------------------------------
@@ -30,7 +19,6 @@ How do you recover failed nodes or a Primary Component?  How to secure communica
    sst
    pcrecovery
    quorumreset
-   monitoringthecluster
    managingfc
    autoeviction
    schemaupgrades
@@ -38,15 +26,49 @@ How do you recover failed nodes or a Primary Component?  How to secure communica
    arbitrator
    backingupthecluster
 
+------------------------------
+Cluster Monitor
+------------------------------
+.. _`cluster-monitor`:
+
+There are three approaches to monitoring cluster activity and replication health: directly off the database client, using the notification script for Galera Cluster, through a third-party monitoring application, such as Nagios.
+
+.. toctree::
+   :maxdepth: 2
+
+   monitoringthecluster
+   notificationcmd
+
+.. note:: You can also use Nagios for monitoring Galera Cluster.  For more information, see `Galera Cluster Nagios Plugin <http://www.fromdual.com/galera-cluster-nagios-plugin-en>`_.
+
 ------------------------
 Security
 ------------------------
+.. _`security`:
+
 
 .. toctree::
    :maxdepth: 2
 
    firewallsettings
    ssl
+
+
+---------------------------
+Migration
+---------------------------
+
+
+Bear in mind that there are certain key differences between how a standalone instance of the MySQL server works and the Galera Cluster wsrep database server.  This is especially important if you plan to install Galera Cluster over an existing MySQL server, preserving its data for replication.
+
+.. toctree::
+   :maxdepth: 2
+
+   limitations
+   migration
+
+.. seealso:: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.
+
    
 --------------------------------------
 Performance
