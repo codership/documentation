@@ -98,80 +98,11 @@ You can check cluster integrity using the following status variables:
 
   The node should only return a value of ``Primary``.  Any other value indicates that the node is part of a nonoperational component.  This occurs in cases of multiple membership changes that results in a loss of quorum or in cases of split-brain situations.
 
-  .. seealso:: In the event that you check all nodes in your cluster and find none that return a value of ``Primary``, see :ref:`When There is No Primary Component<no-primary-component>`.
+  .. seealso:: In the event that you check all nodes in your cluster and find none that return a value of ``Primary``, see :doc:`quorumreset`.
 
 When these status variable check out and return the desired results on each node, the cluster is up and has integrity.  What this means is that replication is able to occur normally on every node.  The next step then is :ref:`checking node status <check-node-status>` to ensure that they are all in working order and able to receive write-sets.
 	       
   
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-When There is No Primary Component
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _no-primary-component:
-
-When you run the status variable :ref:`wsrep_cluster_status <wsrep_cluster_status>` on a node, the return value shows the status of the component that the node is has joined.  Ideally, every node should show as part of the :term:`Primary Component`.  Nodes that return a value other than ``Primary`` are part of a nonoperational component.
-
-When none of the nodes show as part of the :term:`Primary Component`, that is you find that they all belong to a component that is in a non-primary state, you need to reset the quorum to restore the cluster.  For more information on how to do this, see :doc:`quorumreset`.
-
-In the event that for any reason you find that you cannot reset the quorum, you must manually re-bootstrap the cluster.
-
-.. note:: The downside of a manual re-bootstrap is that the contents of the write-set cache, or GCache are lost.  This means that an Incremental State Transfer (IST) is not possible.  Each node in your cluster will need to update using the slower process of a State Snapshot Transfer (SST).
-
-To manually re-bootstrap the cluster, complete the following steps:
-
-#. From the database client, use the :ref:`wsrep_last_committed <wsrep_last_committed>` status variable to determine the most advanced node available.
-
-   .. code-block:: mysql
-
-      SHOW STATUS LIKE 'wsrep_last_committed`;
-
-      +----------------------+--------+
-      | Variable_name        | Value  |
-      +----------------------+--------+
-      | wsrep_last_committed | 409745 |
-      +----------------------+--------+
-
-   This returns the sequence number, or seqno, of the last committed transaction.  The node with the highest value is the most advanced in your cluster.
-
-#. Shut down all nodes in your cluster.  For servers that use ``init``, run the following command:
-
-   .. code-block:: console
-
-      # service mysql stop
-
-   For servers that use ``systemd``, instead run this command:
-
-   .. code-block:: console
-
-      # systemctl stop mysql
-
-#. Go back and start the most advanced node available, using the ``--wsrep-new-cluster`` option.  For servers that use ``init``, run the following command:
-
-   .. code-block:: console
-
-      # service mysql start --wsrep-new-cluster
-
-   For servers that use ``systemd``, instead run this command:
-
-   .. code-block:: console
-
-      # systemctl start mysql --wsrep-new-cluster
-
-#. Once the most advanced node starts, start the rest of the cluster as usual.  For servers that use ``init``, run the following command:
-
-   .. code-block:: console
-
-      # service mysql start
-
-   For servers that use ``systemd``, instead run this command:
-
-   .. code-block:: console
-
-      # systemctl start mysql 
-
-Bear in mind that situations where none of the nodes show as part of the :term:`Primary Component` are very rare.
-
-In the event that you do find one or more nodes that do form a :term:`Primary Component` it indicates that there is a loss of network connectivity between the nodes.  Troubleshoot the issue.  Once you restore network connectivity, the nodes from the nonoperational component automatically reconnect and resynchronize with those of the :term:`Primary Component`.
       
 
 ---------------------------------
