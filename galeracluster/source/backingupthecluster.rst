@@ -14,38 +14,37 @@
 .. index::
    single: Galera Arbitrator
 
-You can perform backups with Galera Cluster at the same regularity as with the standard MySQL server, using a backup script.  Given that replication ensures that all nodes carry the same data, running the script on one node backs up the data on all nodes in the cluster.
+You can perform backups with Galera Cluster at the same regularity as with the standard database server, using a backup script.  Given that replication ensures that all nodes carry the same data, running the script on one node backs up the data on all nodes in the cluster.
 
 The problem with such backups is that they lack a :term:`Global Transaction ID`.  You can use backups of this kind to recover data, but they are insufficient for use in recovering nodes to a well-defined state.  Furthermore, some backup procedures can block cluster operations for the duration of the backup.
 
 Getting backups with the associated :term:`Global Transaction ID` requires a different approach.
 
----------------------------------
+----------------------------------
 State Snapshot Transfer as Backup
----------------------------------
-
+----------------------------------
 .. _`sst-backup`:
 
-It is easy to see that taking a full data backup is not very different from provisioning a new node via :term:`State Snapshot Transfer (SST)`: in both cases we make a full copy of database contents. So one can use the same mechanism to associate a :term:`Global Transaction ID` (GTID) with your data backups that we use for SST.
+Taking a full data backup is very similar to node provisioning through a :term:`State Snapshot Transfer (SST)`.  In both cases, the node creates a full copy of the database contents, using the same mechanism to associate a :term:`Global Transaction ID` with the database state.
 
-For that one needs an SST script that implements the backup procedure of choice and the Galera Arbitrator daemon, to trigger it in a manner similar to SST.
-
-For example,
+In order to enable this feature for backups, you need a script that implements both your preferred backup procedure and the Galera Arbitrator daemon, triggering it in a manner similar to a state snapshot transfer.
 
 .. code-block:: console
-
+		
    $ garbd --address gcomm://192.168.1.2?gmcast.listen_addr=tcp://0.0.0.0:4444 \
      --group example_cluster --donor example_donor --sst backup
 
-When this command runs, it triggers the "donor" node to invoke **wsrep_sst_backup** script (must be in the PATH of ``mysqld`` process) at a well defined point (no changes are happening to the database) and pass the GTID corresponding to the current database state to it. A good starting point to create a backup script would be to modify one of the existing SST scripts.
+This command triggers the donor node to invoke a script with the name ``wsrep_sst_backup.sh``, which it looks for in the ``PATH`` for the ``mysqld`` process.  When the donor reaches a well-defined point, a point where no changes are happening to the database, it runs the backup script passing the :term:`Global Transaction ID` corresponding to the current database state.
 
-Invoking backups through SST mechanism has the following benefits:
- #. Backup is initiated at a well defined point and can have a GTID associated with it.
- #. The node knows that it is performing a backup, so it desyncs itself from the cluster and does not throttle cluster performance even if backup is of a blocking nature.
- #. The cluster knows that the node is performing a backup, so it won't be chosen as a donor for another node.
+.. note:: In the command, '``?gmcast.listen_addr=tcp://0.0.0.0:4444``' is an arbitrary listen socket address that Galera Arbitrator opens to communicate with the cluster.  You only need to specify this in the even that the default socket address, (that is, ``0.0.0.0:4567`` is busy.
 
-In the command, ``?gmcast.listen_addr=tcp://0.0.0.0:4444`` is an arbitrary listen socket address that the Galera Arbitrator opens to communicate with the cluster.  You only need to specify this in the event that the default socket address, (that is, ``0.0.0.0:4567``), is busy.
+Invoking backups through the state snapshot transfer mechanism has the following benefits:
 
-.. note:: When you run the **garbd** script, it may exit immediately with confusing diagnostics, even after it manages a successful state snapshot transfer request.  This is not a failure.  The donor **mysqld** still runs the backup script.  You can monitor it's progress through the error and script logs on the donor machine.
+- The node initiates the backup at a well-defined point.
+- The node associates a :term:`Global Transaction ID` with the backup.
+- The node desyncs from the cluster to avoid throttling performance while taking the backup, even if the backup process is blocks the node.
+- The cluster knows that the node is performing a backup and won't choose the node as a donor for another node.
 
 
+
+.. seealso:: You may find it useful to create your backup script using a modified version of the standard state snapshot transfer scripts.  For information on scripts of this kind, see :doc:`scriptablesst`.
