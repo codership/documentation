@@ -34,7 +34,7 @@ In the event that Galera Arbitrator fails, it does not affect cluster operation.
 
 .. seealso:: For more information on using Galera Arbitrator in making backups, see :doc:`backingupthecluster`.
 
-	     
+
 -----------------------------
 Starting Galera Arbitrator
 -----------------------------
@@ -56,8 +56,8 @@ When starting Galera Arbitrator from the shell, you have two options in how you 
 .. code-block:: console
 
    $ garbd --group=example_cluster \
-        --address="192.168.1.1 192.168.1.2 192.168.1.3" \
-	--option="socket.ssl_cert=/etc/galera/cert/cert.pem"
+        --address="gcomm://192.168.1.1,192.168.1.2,192.168.1.3" \
+        --option="socket.ssl_cert=/etc/galera/cert/cert.pem"
 
 If you do not want to type out the options every time you start Galera Arbitrator from the shell, you can set the options you want to use in a configuration file:
 
@@ -65,7 +65,7 @@ If you do not want to type out the options every time you start Galera Arbitrato
 
    # arbtirator.config
    group = example_cluster
-   address = "192.168.1.1 192.168.1.2 192.168.1.3"
+   address = gcomm://192.168.1.1,192.168.1.2,192.168.1.3
 
 Then, when you start Galera Arbitrator, use the ``--cfg`` option.
 
@@ -74,11 +74,11 @@ Then, when you start Galera Arbitrator, use the ``--cfg`` option.
    $ garbd --cfg /path/to/arbitrator.config
 
 For more information on the options available to Galera Arbitrator through the shell, run it with the ``--help`` argument.
-   
+
 .. code-block:: console
 
    $ garbd --help
-   
+
    Usage: garbd [options] [group address]
 
    Configuration:
