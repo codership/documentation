@@ -5,7 +5,6 @@ Notification Command
 
 While you can use the database client to check the status of your cluster, the individual nodes and the health of replication, you may find it counterproductive to log into the client on each node to run these checks.  Galera Cluster provides a notification script and interface for customization, allowing you to automate the monitoring process for your cluster.
 
-You can enable the  notification command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter.  The node then calls the script, by default ``wsrep_notify.sh``, to each change in cluster membership and node status.  You can use these status changes in configuring load balancers, raising alerts or scripting for any other situation where you need the underlying server to respond to changes to the database.
 
 
 -------------------------------------
@@ -100,7 +99,21 @@ The notification command passes with the ``--member`` parameter a list containin
 |                  | <wsrep_node_incoming_address>` parameter,         |
 |                  | in the configuration file.                        |
 +------------------+---------------------------------------------------+
-   
+ 
 
+----------------------------------
+Enabling the Notification Command
+----------------------------------
+.. _`enable-notification-command`:
+
+You can enable the  notification command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter in the configuration file. 
+
+.. code-block:: ini
+
+   wsrep_notify_cmd=/path/to/wsrep_notify.sh
+
+The node then calls the script, to each change in cluster membership and node status.  You can use these status changes in configuring load balancers, raising alerts or scripting for any other situation where you need the underlying server to respond to changes to the database.
+
+Galera Cluster provides a default script, ``wsrep_notify.sh``, for you to use in handling notifications or as a starting point in writing your own custom notification script.
 
 
