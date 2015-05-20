@@ -72,7 +72,7 @@ You can check cluster integrity using the following status variables:
 
 - :ref:`wsrep_cluster_size <wsrep_cluster_size>` shows the number of nodes in the cluster, which you can use to determine if any are missing.
 
-  .. code-block:: msyql
+  .. code-block:: mysql
 
      SHOW GLOBAL STATUS LIKE 'wsrep_cluster_size';
 
