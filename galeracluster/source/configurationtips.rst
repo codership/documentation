@@ -41,7 +41,7 @@ Dealing with WAN Latency
 
 When using Galera Cluster over a :abbr:`WAN (Wide Area Network)`, bear in mind that WAN links can have exceptionally high latency.  You can correct for this by taking Round-Trip Time (RTT) measurements between cluster nodes and adjust all temporal parameters.
 
-To take RTT measurements, use **ping** on each cluster node to ping the others.  For example, if you were to log in to the node at ``192.168.1.1``:
+To take RTT measurements, use ``ping`` on each cluster node to ping the others.  For example, if you were to log in to the node at ``192.168.1.1``:
 
 .. code-block:: console
 
@@ -117,4 +117,4 @@ Once SELinux no longer registers warnings from Galera Cluster, you can switch it
 
 
 
-:trim:
+   

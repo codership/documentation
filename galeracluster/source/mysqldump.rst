@@ -3,7 +3,7 @@ Enabling ``mysqldump``
 =============================
 .. _`enabling-mysqldump`:
 
-The Logical State Snapshot transfer method ``mysqldump`` works by interfacing through the database server rather than the physical data.  As such, they require some additional configurations beyond setting the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.
+The :term:`Logical State Transfer Method` ``mysqldump`` works by interfacing through the database server rather than the physical data.  As such, they require some additional configurations beyond setting the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.
 
 
 --------------------------------------

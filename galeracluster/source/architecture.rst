@@ -37,7 +37,7 @@ The internal architecture of Galera Cluster revolves around four components:
 .. index::
    pair: wsrep API; Descriptions
 
-The write-set replication API is a generic replication plugin interface for databases.  It defines a set of application callbacks and replication plugin calls.
+The :term:`wsrep API` is a generic replication plugin interface for databases.  It defines a set of application callbacks and replication plugin calls.
 
 The wsrep API uses a replication model that considers the database server to have a state.  The state refers to the contents of the database.  When a database is in use, clients modify the database content, thus changing its state.  The wsrep API represents the changes in the database state as a series of atomic changes, or transactions.
 
@@ -59,7 +59,7 @@ For each node in the cluster, the application process occurs by high-priority tr
 Global Transaction ID
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to keep the state identical across the cluster, the wsrep API uses a Global Transaction ID, or GTID.  This allows it to identify state changes and to identify the current state in relation to the last state change.
+In order to keep the state identical across the cluster, the wsrep API uses a :term:`Global Transaction ID`, or GTID.  This allows it to identify state changes and to identify the current state in relation to the last state change.
 
 .. code-block:: text
 
@@ -80,7 +80,7 @@ The Global Transaction ID allows you to compare the application state and establ
 ---------------------------
 .. _`galera-replication-plugin`:
 
-The Galera Replication Plugin implements the wsrep API.  It operates as the wsrep provider.
+The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It operates as the wsrep Provider.
 
 From a more technical perspective, the Galera Replication Plugin consists of the following components:
 
@@ -105,7 +105,7 @@ Galera Cluster is built on top of a proprietary group communication system layer
 
 While virtual synchrony guarantees consistency, it does not guarantee temporal synchrony, which is necessary for smooth multi-master operations.  To get around this, Galera Cluster implements its own runtime-configurable temporal flow control.  Flow control keeps nodes synchronized to the faction of a second.
 
-In addition to this, the Group Communication Framework also provides a total ordering of messages from multiple sources.  It uses this to generate Global Transaction ID's in a multi-master cluster.
+In addition to this, the Group Communication Framework also provides a total ordering of messages from multiple sources.  It uses this to generate :term:`Global Transaction ID`'s in a multi-master cluster.
 
 At the transport level, Galera Cluster is a symmetric undirected graph.  All database nodes connect to each other over a :abbr:`TCP (Transmission Control Protocl)` connection.  By default  :abbr:`TCP (Transmission Control Protocl)` is used for both message replication and the cluster membership services, but you can also use :abbr:`UDP (User Datagram Protocol)` multicast for replication in a :abbr:`LAN (Local Area Network)`.
 

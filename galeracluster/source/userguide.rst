@@ -10,7 +10,7 @@ Working with the Cluster
 ----------------------------------------
 .. _`working-cluster`:
 
-How do you recover failed nodes or a Primary Component?  How to secure communications between the cluster nodes?  How do you back up cluster data?  With your cluster up and running, you can begin to manage its particular operations, monitor for and recover from issues, and maintain security.
+How do you recover failed nodes or a :term:`Primary Component`?  How to secure communications between the cluster nodes?  How do you back up cluster data?  With your cluster up and running, you can begin to manage its particular operations, monitor for and recover from issues, and maintain security.
 
 .. toctree::
    :maxdepth: 2

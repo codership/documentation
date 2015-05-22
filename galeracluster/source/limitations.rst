@@ -40,11 +40,11 @@ Unsupported Character Sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`unicode-support`:
 
-Do not use the ``character_set_server`` with ``utf16``, ``utf32`` or ``ucs2``.
+Do not use the ``character_set_server`` with UTF-16, UTF-32 or UCS-2.
 
-When you use **rsync** for state snapshot transfers, use of these unsupported character sets can cause the server to crash.  
+When you use ``rsync`` for :term:`State Snapshot Transfer`, the use of these unsupported character sets can cause the server to crash.  
 
-.. note:: This is also a problem when you use automatic donor selection in your cluster, as the cluster may choose to use **rsync** on its own.
+.. note:: This is also a problem when you use automatic donor selection in your cluster, as the cluster may choose to use ``rsync`` on its own.
 
 
 -------------------------------------
@@ -139,7 +139,7 @@ Distributed Transaction Processing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`xa-transactions`:
 
-While the standard MySQL server does provide support for distributed transaction processing, using the Open Group :abbr:`XA (eXtended Architecture)` standard, it is not available for Galera Cluster, given that it can lead to possible rollbacks on commit.
+The standard MySQL server provides support for distributed transaction processing using the Open Group :abbr:`XA (eXtended Architecture)` standard.  This feature is *not* available for Galera Cluster, given that it can lead to possible rollbacks on commit.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Transaction Size
@@ -148,11 +148,10 @@ Transaction Size
 
 Although Galera Cluster does not explicitly limit the transaction size, the hardware you run it on does impose a size limitation on your transactions.  Nodes process write-sets in a single memory-resident buffer.  As such, extremely large transactions, such as ``LOAD DATA`` can adversely effect node performance.
 
-You can avoid situations of this kind using the ``wsrep_max_ws_rows`` and the ``wsrep_max_ws_size`` parameters.  Limit the transaction rows to 128 KB and the transaction size to 1 GB. 
+You can avoid situations of this kind using the :ref:`wsrep_max_ws_rows <wsrep_max_ws_rows>` and the :ref:`wsrep_max_ws_size <wsrep_max_ws_size>` parameters.  Limit the transaction rows to 128 KB and the transaction size to 1 GB. 
 
 If necessary, you can increase these limits.
 
-.. seealso:: For more information on these parameters, see their Reference entries, at :ref:`wsrep_max_ws_rows <wsrep_max_ws_rows>` and :ref:`wsrep_max_ws_size <wsrep_max_ws_size>`.
 
 
 

@@ -42,7 +42,7 @@ The cluster has integrity when all nodes in it receive and replicate write-sets 
 
 You can check cluster integrity using the following status variables:
 
-- :ref:`wsrep_cluster_state_uuid <wsrep_cluster_state_uuid>` shows the cluster state UUID, which you can use to determine whether the node is part of the cluster.
+- :ref:`wsrep_cluster_state_uuid <wsrep_cluster_state_uuid>` shows the cluster :term:`state UUID`, which you can use to determine whether the node is part of the cluster.
 
   .. code-block:: mysql
 
@@ -56,7 +56,7 @@ You can check cluster integrity using the following status variables:
 
   Each node in the cluster should provide the same value.  When a node carries a different value, this indicates that it is no longer connected to rest of the cluster.
 
-- :ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>` shows the total number of cluster changes happening, which you can use to determine whether or not the node is a part of the Primary Component.
+- :ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>` shows the total number of cluster changes happening, which you can use to determine whether or not the node is a part of the :term:`Primary Component`.
 
   .. code-block:: mysql
 

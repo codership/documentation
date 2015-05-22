@@ -115,7 +115,7 @@ The node state machine handles different state changes on different layers of Ga
 
 2. When the node succeeds with a state transfer request, it begins to cache write-sets.
 
-3. The node receives a State Snapshot Transfer.  It now has all cluster data and begins to apply the cached write-sets.  
+3. The node receives a :term:`State Snapshot Transfer`.  It now has all cluster data and begins to apply the cached write-sets.  
 
    Here the node enables Flow Control to ensure an eventual decrease in the slave queue.
 
@@ -129,7 +129,7 @@ The node state machine handles different state changes on different layers of Ga
 
 For the sake of legibility, certain transitions were omitted from the above description.  Bear in mind the following points:
 
-- **Connectivity** Cluster configuration change events can send a node in any state to ``PRIMARY`` or ``OPEN``.  For instance, a node that is ``SYNCED`` reverts to ``OPEN`` when it loses its connection to the :term:`Primary Component` due to network partition.
+- **Connectivity** Cluster configuration change events can send a node in any state to ``PRIMARY`` or ``OPEN``.  For instance, a node that is ``SYNCED`` reverts to ``OPEN`` when it loses its connection to the Primary Component due to network partition.
 
 - **Missing Transitions** In the event that the joining node does not require a state transfer, the node state changes from the ``PRIMARY`` state directly to the ``JOINED`` state.
 

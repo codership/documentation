@@ -105,7 +105,7 @@ Installing Galera Cluster
 --------------------------------
 .. _`mariadb-install`:
 
-There are three packages involved in the installation of MariaDB Galera Cluster: the MariaDB database client, a command line tool for accessing the database; the MariaDB database server, built to include the wsrep API patch; and the Galera Replicator plugin.
+There are three packages involved in the installation of MariaDB Galera Cluster: the MariaDB database client, a command line tool for accessing the database; the MariaDB database server, built to include the :term:`wsrep API` patch; and the :term:`Galera Replication Plugin`.
 
 For Debian-based distributions, in the terminal run the following command:
 

@@ -20,9 +20,10 @@ When the node registers a change in the cluster or itself that triggers the noti
 | ``--status``  | node status    | Indicates the                    |
 |               |                | :ref:`node status <node-status>`.|
 +---------------+----------------+----------------------------------+
-| ``--uuid``    | state UUID     | Indicates the cluster state UUID.|
+| ``--uuid``    | state UUID     | Indicates the cluster            |
+|               |                |  :term:`state UUID`.             |
 +---------------+----------------+----------------------------------+
-| ``--primary`` | ``yes`` |      | Indicates whether the node is    |
+| ``--primary`` | ``yes`` or     | Indicates whether the node is    |
 |               |  ``no``        | part of the                      |
 |               |                | :term:`Primary Component`.       |
 +---------------+----------------+----------------------------------+
@@ -50,18 +51,18 @@ The notification command passes six values with the ``--status`` parameter to in
 | Value         | Description                                           |
 +===============+=======================================================+
 | ``Undefined`` | Indicates a starting node that is not part            |
-|               | of the :term:`Primary Component`.                     |  
+|               | of the Primary Component.                             |  
 +---------------+-------------------------------------------------------+
 | ``Joiner``    | Indicates a node that is part of the                  |
-|               | :term:`Primary Component` that is receiving a state   |
+|               | Primary Component that is receiving a state           |
 |               | snapshot transfer.                                    |
 +---------------+-------------------------------------------------------+
 | ``Donor``     | Indicates a node that is part of the                  |
-|               | :term:`Primary Component` that is sending a state     |
+|               | Primary Component that is sending a state             |
 |               | snapshot transfer.                                    |
 +---------------+-------------------------------------------------------+
 | ``Joined``    | Indicates a node that is part of the                  |
-|               | :term:`Primary Component` that is in a complete state |
+|               | Primary Component  that is in a complete state        |
 |               | and is catching up with the cluster.                  |
 +---------------+-------------------------------------------------------+
 | ``Synced``    | Indicates a node that is syncrhonized with the        |
