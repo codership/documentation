@@ -86,7 +86,7 @@ Installing Galera Cluster
 ----------------------------
 .. _`xtradb-galera-install`:
 
-There are three packages involved in the installation of Percona XtraDB Cluster: the Percona XtraDB client, a command line tool for accessing the database; the percona XtraDB database server, built to include the wsrep API patch and the Galera Replication plugin.
+There are three packages involved in the installation of Percona XtraDB Cluster: the Percona XtraDB client, a command line tool for accessing the database; the percona XtraDB database server, built to include the :term:`wsrep API` patch and the :term:`Galera Replication Plugin`.
 
 For most Debian-based distributions, you can install all of these through a single package.  In the terminal run the following command:
 

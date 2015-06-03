@@ -153,5 +153,5 @@ For example, if you want to delete expired tokens from their table on a database
 
 This allows you to delete rows efficiently from the cluster.
 
-.. seealso:: For more information on **pt-archiver**, its syntax and what else it can do, see the `manpage <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_.
+.. seealso:: For more information on ``pt-archiver``, its syntax and what else it can do, see the `manpage <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_.
 

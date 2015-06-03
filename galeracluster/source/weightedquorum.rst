@@ -5,9 +5,9 @@ Weighted Quorum
 
 In addition to single node failures, the cluster may split into several components due to network failure.  A component is a set of nodes that are connected to each other, but not to the nodes that form other components.  In these situations, only one component can continue to modify the database state to avoid history divergence.  This component is called the :term:`Primary Component`.
 
-Under normal operations, your :term:`Primary Component` is the cluster.  When cluster partitioning occurs, Galera Cluster invokes a special quorum algorithm to select one component as the Primary Component.  This guarantees that there is never more than one Primary Component in the cluster.
+Under normal operations, your Primary Component is the cluster.  When cluster partitioning occurs, Galera Cluster invokes a special quorum algorithm to select one component as the Primary Component.  This guarantees that there is never more than one Primary Component in the cluster.
 
-.. seealso:: Chapter :doc:`arbitrator`
+.. seealso:: In addition to the individual node, quorum calculations also take into account a separate process called ``garbd``.  For more information on its configuration and use, see :doc:`arbitrator`.
 
 
 
@@ -72,7 +72,7 @@ To minimize the risk of this happening in clusters that do have an even number o
 In these partitioning examples, it is very difficult for any outage or failure to cause the nodes to split exactly in half.
 
 
-.. seealso:: For more information on configuring and managing the quorum, see :ref:`How to Reset the Quorum <Resetting the Quorum>`.
+.. seealso:: For more information on configuring and managing the quorum, see :doc:`quorumreset`.
 
 
 
@@ -111,7 +111,7 @@ You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter. 
 
    .. code-block:: mysql
 
-      SET GLOBAL wsrep_provider_options="pc.weight=1";
+      SET GLOBAL wsrep_provider_options="pc.weight=3";
 
    Galera Cluster applies the new weight on the delivery of a message that carries a weight.  At the moment, there is no mechanism to notify the application of a new weight, but will eventually happen when the message is delivered.
 
@@ -141,7 +141,7 @@ When configuring quorum weights for three nodes, use the following pattern:
    node2: pc.weight = 1
    node3: pc.weight = 0
 
-Under this pattern, killing ``node2`` and ``node3`` simultaneously preserves the Primary Component on ``node1``.  Killing ``node1`` causes ``node2`` and ``node3`` to become non-primary components.
+Under this pattern, killing ``node2`` and ``node3`` simultaneously preserves the :term:`Primary Component` on ``node1``.  Killing ``node1`` causes ``node2`` and ``node3`` to become non-primary components.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Weighted Quorum for a Simple Master-Slave Scenario
@@ -155,7 +155,7 @@ When configuring quorum weights for a simple master-slave scenario, use the foll
    node1: pc.weight = 1
    node2: pc.weight = 0
 
-Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary component.  However, in the event that ``node2`` dies, ``node1`` continues as the Primary Component.  If the network connection between the nodes fails, ``node1`` continues as the Primary Component while ``node2`` becomes a non-primary component.
+Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary component.  However, in the event that ``node2`` dies, ``node1`` continues as the :term:`Primary Component`.  If the network connection between the nodes fails, ``node1`` continues as the Primary Component while ``node2`` becomes a non-primary component.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Weighted Quorum for a Master and Multiple Slaves Scenario  
@@ -172,7 +172,7 @@ When configuring quorum weights for a master-slave scenario that features multip
    ...
    noden: pc.weight = 0
 
-Under this pattern, if ``node1`` dies, all remaining nodes end up as non-primary components.  If any other node dies, the Primary Component is preserved.  In the case of network partitioning, ``node1`` always remains as the Primary Component.
+Under this pattern, if ``node1`` dies, all remaining nodes end up as non-primary components.  If any other node dies, the :term:`Primary Component` is preserved.  In the case of network partitioning, ``node1`` always remains as the Primary Component.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Weighted Quorum for a Primary and Secondary Site Scenario
@@ -192,7 +192,7 @@ When configuring quorum weights for primary and secondary sites, use the followi
      node4: pc.weight = 1
 
 
-Under this pattern, some nodes are located at the primary site while others are at the secondary site.  In the event that the secondary site goes down or if network connectivity is lost between the sites, the nodes at the primary site remain the Primary Component.  Additionally, either ``node1`` or ``node2`` can crash without the rest of the nodes becoming non-primary components.
+Under this pattern, some nodes are located at the primary site while others are at the secondary site.  In the event that the secondary site goes down or if network connectivity is lost between the sites, the nodes at the primary site remain the :term:`Primary Component`.  Additionally, either ``node1`` or ``node2`` can crash without the rest of the nodes becoming non-primary components.
   
 
 

@@ -7,9 +7,9 @@ Any :abbr:`DDL (Data Definition Language)` statement that runs for the database,
 
 Galera Cluster processes schema upgrades in two different methods:
 
-- :ref:`Total Order Isolation (TOI) <toi>` Where the schema upgrades run on all cluster nodes in the same total order sequence, locking affected tables for the duration of the operation.
+- :ref:`Total Order Isolation <toi>` (TOI) Where the schema upgrades run on all cluster nodes in the same total order sequence, locking affected tables for the duration of the operation.
 
-- :ref:`Rolling Schema Upgrade (RSU) <rsu>` Where the schema upgrades run locally, blocking only the node on which they are run.  The changes do *not* replicate to the rest of the cluster.
+- :ref:`Rolling Schema Upgrade <rsu>` (RSU) Where the schema upgrades run locally, blocking only the node on which they are run.  The changes do *not* replicate to the rest of the cluster.
 
 You can set the method for online schema upgrades by using the ``wsrep_OSU_method`` parameter in the configuration file, (**my.ini** or **my.cnf**, depending on your build) or through the MySQL client.  Galera Cluster defaults to the Total Order Isolation method.
 
@@ -25,7 +25,7 @@ You can set the method for online schema upgrades by using the ``wsrep_OSU_metho
 .. index::
    pair: Descriptions; Total Order Isolation
 
-When you want your online schema upgrades to replicate through the cluster and don't mind the loss of high availability while the cluster processes the :abbr:`DDL (Data Definition Language)` statements, use the Total Order Isolation method.
+When you want your online schema upgrades to replicate through the cluster and don't mind the loss of high availability while the cluster processes the :abbr:`DDL (Data Definition Language)` statements, use the :term:`Total Order Isolation` method.
 
 .. code-block:: mysql
 
@@ -63,7 +63,7 @@ The main disadvantage of Total Order Isolation is that while the nodes process t
 .. index::
    pair: Parameters; wsrep_OSU_method
 
-When you want to maintain high-availability during schema upgrades and can avoid conflicts between new and old schema definitions, use the Rolling Schema Upgrade method.
+When you want to maintain high-availability during schema upgrades and can avoid conflicts between new and old schema definitions, use the :term:`Rolling Schema Upgrade` method.
 
 .. code-block:: mysql
 

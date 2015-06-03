@@ -54,7 +54,6 @@ If the ``grastate.dat`` file looks like the example below, the node has either c
 	seqno:   -1
 	cert_index:
 
-It is possible for you to recover the Global Transaction ID of the last committed transaction from InnoDB, as described above, but the recovery is rather meaningless.  After the crash, the node state is probably corrupted and may not even prove functional.  
+It is possible for you to recover the :term:`Global Transaction ID` of the last committed transaction from InnoDB, as described above, but the recovery is rather meaningless.  After the crash, the node state is probably corrupted and may not even prove functional.  
 
 In the event that there are no other nodes in the cluster with a well-defined state, then there is no need to preserve the node state ID.  You must perform a thorough database recovery procedure, similar to that used on standalone database servers.  Once you recover one node, use it as the first node in a new cluster.
-

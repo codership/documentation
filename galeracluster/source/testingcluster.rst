@@ -27,32 +27,32 @@ To test that Galera Cluster is working as expected, complete the following steps
 	 | wsrep_ready               | ON         |
 	 +---------------------------+------------+
 
-  - ``wsrep_local_state_comment``: The value ``Synced`` indicates that the node is connected to the cluster and operational.
+  - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`: The value ``Synced`` indicates that the node is connected to the cluster and operational.
 
-  - ``wsrep_cluster_size``: The value indicates the nodes in the cluster.
+  - :ref:`wsrep_cluster_size <wsrep_cluster_size>`: The value indicates the nodes in the cluster.
 
-  - ``wsrep_ready``: The value ``ON`` indicates that this node is connected to the cluster and able to handle transactions.
+  - :ref:`wsrep_ready <wsrep_ready>`: The value ``ON`` indicates that this node is connected to the cluster and able to handle transactions.
 
-2. On the database client of node1, create a table and insert data:
+2. On the database client of ``node1``, create a table and insert data:
 
    .. code-block:: mysql
 
 	CREATE DATABASE galeratest;
 	USE galeratest;
-	CREATE TABLE test 
-		(id INT PRIMARY KEY AUTO_INCREMENT,
-		msg TEXT);
-	INSERT INTO test (msg)
+	CREATE TABLE test_table (
+	        id INT PRIMARY KEY AUTO_INCREMENT,
+		msg TEXT ) ENGINE=InnDB;
+	INSERT INTO test_table (msg)
 		VALUES ("Hello my dear cluster.");
-	INSERT INTO test (msg)
+	INSERT INTO test_table (msg)
 		VALUES ("Hello, again, cluster dear.");
 
-3. On the database client of node2, check that the data was replicated correctly:
+3. On the database client of ``node2``, check that the data was replicated correctly:
 
    .. code-block:: mysql
 
 	USE galeratest;
-	SELECT * FROM test;
+	SELECT * FROM test_table;
 
 	 +----+-----------------------------+
 	 | id | msg                         |
@@ -93,7 +93,7 @@ The quorum is reset and the cluster recovered.
 --------------------
 .. _`Failure Simulation`:
 
-You can also test *Galera Cluster* by simulating various failure situations on three nodes as follows:
+You can also test Galera Cluster by simulating various failure situations on three nodes as follows:
 
 - To simulate a crash of a single ``mysqld`` process, run the command below on one of the nodes:
 

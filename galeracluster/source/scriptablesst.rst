@@ -4,14 +4,14 @@ Scriptable State Snapshot Transfers
 =====================================
 .. _`scriptable-sst`:
 
-When nodes send and receive state snapshot transfers, they manage them through processes that run external to the database server.  In the event that you need more from these processes that the default behavior provides, Galera Cluster provides an interface for custom shell scripts to manage state snapshot transfers on the node.
+When a node sends and receives a :term:`State Snapshot Transfer`, it manage it through processes that run external to the database server.  In the event that you need more from these processes that the default behavior provides, Galera Cluster provides an interface for custom shell scripts to manage state snapshot transfers on the node.
 
 ------------------------------
 Using the Common SST Script
 ------------------------------
 .. _`writing-custom-sst`:
 
-Galera Cluster includes a common script for state snapshot transfers, which you can use as a starting point in building your own custom script.  The filename is ``wsrep_sst_common.sh``.  For Linux users the package manager typically installs it for you in ``/usr/bin``.
+Galera Cluster includes a common script for managing a :term:`State Snapshot Transfer`, which you can use as a starting point in building your own custom script.  The filename is ``wsrep_sst_common.sh``.  For Linux users, the package manager typically installs it for you in ``/usr/bin``.
 
 The common SST script provides ready functions for parsing argument lists, logging errors, and so on.  There are no constraints on the order or number of parameters it takes.  You can add to it new parameters and ignore any of the existing as suits your needs.
 
@@ -74,9 +74,10 @@ These parameters are passed only to state transfer scripts initiated by a node s
 |                     | required.                                          |
 +---------------------+----------------------------------------------------+
 | ``--bypass``        | Specifies whether the script skips the actual data |
-|                     | transfer and only passes the :term:`Global         |
-|                     | Transaction ID` to the receiving node.  That is,   |
-|                     | whether it initiates an Incremental State Transfer.|
+|                     | transfer and only passes the Global                |
+|                     | Transaction ID  to the receiving node.  That is,   |
+|                     | whether it initiates an                            |
+|                     | :term:`Incremental State Transfer`.                |
 +---------------------+----------------------------------------------------+
 
 
@@ -119,7 +120,7 @@ Receiver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`call-receiver`:
 
-When the node calls for a state snapshot transfer as a joiner, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`Common Parameters <common-parameters>` above.  For your own script you can choose to use or ignore these arguments as suits your needs.
+When the node calls for a state snapshot transfer as a joiner, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`General Parameters <general-sst-script-parameters>` above.  For your own script you can choose to use or ignore these arguments as suits your needs.
 
 After the script receives these arguments, prepare the node to accept a state snapshot transfer.  For example, in the case of ``wsrep_sst_rsync.sh``, the script starts ``rsync`` in server mode.
 
@@ -144,7 +145,7 @@ Sender
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`call-sender`:
 
-When the node calls for a state snapshot transfer as a donor, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`Common Parameters <common-parameters>` above.  For your own script, you can choose to use or ignore these arguments as suits your needs.
+When the node calls for a state snapshot transfer as a donor, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`General Parameters <general-sst-script-parameters>` above.  For your own script, you can choose to use or ignore these arguments as suits your needs.
 
 While your script runs, Galera Cluster accepts the following signals.  You can trigger them by printing to standard output:
 

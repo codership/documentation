@@ -3,7 +3,7 @@ Starting the Cluster
 =====================================
 .. _`Starting a Cluster`:
 
-When you finish installing and configuring Galera Cluster you have the databases ready for use, but they are not yet connected to each other to form a cluster.  To do this, you will need to start ``mysqld`` on one node, using the ``--wsrep-new-cluster`` option.  This initializes the new Primary Component for the cluster.  Each node you start after this will connect to the component and begin replication.
+When you finish installing and configuring Galera Cluster you have the databases ready for use, but they are not yet connected to each other to form a cluster.  To do this, you will need to start ``mysqld`` on one node, using the ``--wsrep-new-cluster`` option.  This initializes the new :term:`Primary Component` for the cluster.  Each node you start after this will connect to the component and begin replication.
 
 Before you attempt to initialize the cluster, check that you have the following ready:
 
@@ -29,7 +29,7 @@ Starting the First Cluster Node
 -------------------------------------
 .. _`Starting First Cluster Node`:
 
-The process for starting the first node in your cluster is different from all the others.  This is because the first requires that you use the ``--wsrep-new-cluster`` option when you launch ``mysqld``.  This starts the Primary Component for the cluster as a single node.  Each node you start afterwards connects to this component.
+The process for starting the first node in your cluster is different from all the others.  This is because the first requires that you use the ``--wsrep-new-cluster`` option when you launch ``mysqld``.  This starts the :term:`Primary Component` for the cluster as a single node.  Each node you start afterwards connects to this component.
 
 .. note:: It does not matter which node you choose to use as your first.
 

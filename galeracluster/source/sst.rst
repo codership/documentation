@@ -16,7 +16,7 @@ State Snapshot Transfers
 ===============================
 .. _`State Snapshot Transfers`:
 
-When a node requires a state transfer from the cluster, by default it attempts the Incremental State Transfer (IST) method.  In the event that there are no nodes available for this or if it finds a manual donor defined through the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter, uses a State Snapshot Transfer (SST) method.
+When a node requires a state transfer from the cluster, by default it attempts the :term:`Incremental State Transfer` (IST) method.  In the event that there are no nodes available for this or if it finds a manual donor defined through the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter, uses a :term:`State Snapshot Transfer` (SST) method.
 
 Galera Cluster supports several back-end methods for use in state snapshot transfers.  There are two types of methods available: Logical State Snapshots, which interface through the database server and client; and Physical State Snapshots, which copy the data files directly from node to node.
  
@@ -48,9 +48,9 @@ Logical State Snapshot
 -------------------------------
 .. _`sst-logical`:
 
-There is one back-end method available for Logical State Snapshots: ``mysqldump``.
+There is one back-end method available for a Logical State Snapshots: ``mysqldump``.
 
-Logical State Snapshots have the following advantages:
+The :term:`Logical State Transfer Method` has the following advantages:
 
 - These transfers are available on live servers.  In fact, only a fully initialized server can receive a Logical State Snapshot.
 
@@ -58,7 +58,7 @@ Logical State Snapshots have the following advantages:
 
   For example, when using this transfer method you can migrate from the Antelope to the Barracuda file format, use compression resize, or move iblog* files from one partition into another.
 
-Logical State Snapshots have the following disadvantages:
+The Logical State Transfer Method has the following disadvantages:
 
 - These transfers are as slow as ``mysqldump``.
 
@@ -98,7 +98,7 @@ Physical State Snapshot
 
 There are two back-end methods available for Physical State Snapshots: ``rsync`` and ``xtrabackup``.
 
-Physical State Snapshots have the following advantages:
+The :term:`Physical State Transfer Method` has the following advantages:
 
 - These transfers physically copy the data from one node to the disk of the other, and as such do not need to interact with the database server at either end.
   
@@ -106,7 +106,7 @@ Physical State Snapshots have the following advantages:
 
 - These transfers are faster.
 
-Physical State Snapshots have the following disadvantages:
+The Physical State Transfer Method has the following disadvantages:
 
 - These transfers require the joining node to have the same data directory layout and the same storage engine configuration as the donor node.  For example, you must use the same file-per-table, compression, log file size and similar settings for InnoDB.
 

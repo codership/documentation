@@ -11,7 +11,7 @@ Before you can enable encryption for your cluster, you first need to generate th
 -------------------------
 Generating Certificates
 -------------------------
-.._`gen-certs`:
+.. _`gen-certs`:
 
 There are three certificates that you need to create in order to secure Galera Cluster: the Certificate Authority (CA) key and cert; the server certificate, to secure ``mysqld`` activity and replication traffic; and the client certificate to secure the database client and ``stunnel`` for state snapshot transfers.
 

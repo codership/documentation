@@ -22,7 +22,7 @@ How Galera Cluster Works
 
 The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.
 
-The Galera Replication Plugin differs from the regular MySQL Replication by addressing several issues, including multi-master write conflicts, replication lag and slaves being out of sync with the master.
+The :term:`Galera Replication Plugin` differs from the standard MySQL Replication by addressing several issues, including multi-master write conflicts, replication lag and slaves being out of sync with the master.
 
 .. figure:: images/galerausecases1.png
 

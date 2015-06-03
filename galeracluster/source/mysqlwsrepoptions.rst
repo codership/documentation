@@ -107,7 +107,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_start_position            | ``00000000-0000-0000-              | 1                    |                    |          |
 | <wsrep_start_position>`               | 0000-000000000000:-1``             |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
-| :ref:`wsrep_sync_wait                 |                                    | 3.6                  |                    |          |
+| :ref:`wsrep_sync_wait                 | ``0``                              | 3.6                  |                    | Yes      |
 | <wsrep_sync_wait>`                    |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_ws_persistency            |                                    |                      |                    |          |
@@ -888,13 +888,32 @@ The node triggers causality checks in response to certain types of queries.  Dur
 
 The parameter uses a bitmask to determine the type of causality check you want the node to run.  These are the available types:
 
-- ``1`` Checks made on ``READ`` statements, including ``SELECT``, ``SHOW``, ``BEGIN`` / ``START TRANSACTION``.
++---------+------------------------------------------------------+
+| Bitmask | Checks                                               |
++=========+======================================================+
+| ``0``   | Disabled.                                            |
++---------+------------------------------------------------------+
+| ``1``   | Checks on ``READ`` statements, including ``SELECT``, |
+|         | ``SHOW``, and ``BEGIN`` / ``START TRANSACTION``.     |
++---------+------------------------------------------------------+
+| ``2``   | Checks made on ``UPDATE`` and ``DELETE`` statements. |
++---------+------------------------------------------------------+
+| ``3``   | Checks made on ``READ``, ``UPDATE`` and ``DELETE``   |
+|         | statements.                                          |
++---------+------------------------------------------------------+
+| ``4``   | Checks made on ``INSERT`` and ``REPLACE`` statements.|
++---------+------------------------------------------------------+
 
-- ``2`` Checks made on ``UPDATE`` and ``DELETE`` statements.
+For example, say that you have a web application that at one point performs a critical read.  That is, it accesses the database to run a ``SELECT`` query and must provide the most up to date information possible.
 
-- ``3`` Checks made on ``READ``, ``UPDATE`` and ``DELETE`` statements.
+.. code-block:: mysql
 
-- ``4`` Checks made on ``INSERT`` and ``REPLACE`` statements.
+   SET SESSION wsrep_sync_wait = 1;
+   SELECT * FROM example WHERE field = "value";
+   SET SESSION wsrep_sync_wait = 0;
+
+The application runs the first ``SET`` command to enable :ref:`wsrep_sync_wait <wsrep_sync_wait>`.  In the next command, the application sends the ``SELECT`` query.  The node initiates a causality check, blocking incoming queries while it catches up with the cluster.  When the node finishes applying the new transactions, it executes the ``SELECT`` query, returning the results to the application.  The application, having finished the critical read, disables :ref:`wsrep_sync_wait <wsrep_sync_wait>`, returning the node to normal operation.
+
 
 .. note:: Setting :ref:`wsrep_sync_wait <wsrep_sync_wait>` to ``1`` is the same as :ref:`wsrep_causal_reads <wsrep_causal_reads>` to ``ON``.  This deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.
 
@@ -902,7 +921,7 @@ The parameter uses a bitmask to determine the type of causality check you want t
 +------------------------+---------+---------+------------+------------+
 | Default                | Scope   | Dynamic | Introduced | Deprecated |
 +========================+=========+=========+============+============+
-|                        | Global  |         | 3.6        |            |
+| ``0``                  | Global  | Yes     | 3.6        |            |
 +------------------------+---------+---------+------------+------------+
 
 

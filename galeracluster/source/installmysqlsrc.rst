@@ -33,13 +33,13 @@ Building Galera Cluster for MySQL
 --------------------------------------------
 .. `Build Galera MySQL`:
 
-The source code for Galera Cluster for MySQL is available through `Github <http://github.com>`_.  You can download the source code using ``git``.
+The source code for Galera Cluster for MySQL is available through `Github <https://github.com/codership/mysql-wsrep>`_.  You can download the source code using ``git``.
 
 .. code-block:: console
 
-   $ git clone http://github.com/codership/mysql-wsrep.git
+   $ git clone https://github.com/codership/mysql-wsrep.git
 
-Once ``git`` finishes running, you can start building the database server.  You have two options for how to build Galera CLuster for MySQL.  You can use the build script, or you can build it using ``cmake``.  If you choose the build script, the command will vary depending upon your system architecture.  From the ``mysql-wsrep/`` directory, use one of the following commands:
+Once ``git`` finishes running, you can start building the database server.  You have two options for how to build Galera Cluster for MySQL.  You can use the build script, or you can build it using ``cmake``.  If you choose the build script, the command will vary depending upon your system architecture.  From the ``mysql-wsrep/`` directory, use one of the following commands:
 
 - To run the build script on a 64-bit system, use this command:
 
