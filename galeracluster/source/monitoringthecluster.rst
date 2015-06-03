@@ -54,7 +54,7 @@ You can check cluster integrity using the following status variables:
      | wsrep_cluster_state_uuid | d6a51a3a-b378-11e4-924b-23b6ec126a13 |
      +--------------------------+--------------------------------------+
 
-  Each node in the cluster should provide the same value.  When a node carries a different value, this indicates that it is no longer connected to rest of the cluster.  Once the nose reestablishes connectivity, it realigns itself with the other nodes.
+  Each node in the cluster should provide the same value.  When a node carries a different value, this indicates that it is no longer connected to rest of the cluster.  Once the node reestablishes connectivity, it realigns itself with the other nodes.
 
 - :ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>` shows the total number of cluster changes that have happened, which you can use to determine whether or not the node is a part of the :term:`Primary Component`.
 
