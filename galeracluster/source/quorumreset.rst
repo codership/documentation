@@ -131,5 +131,5 @@ To manually bootstrap your cluster, complete the following steps:
 
       # systemctl start mysql
 
-When the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start they connect to this node and request state snapshot transfers, to bring their own databases up to date.  
+When the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.  
       
