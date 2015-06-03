@@ -8,11 +8,11 @@
 
 
    Galera Arbitrator
-      External process that functions as an additional node in quorum calculations, provides consistent application state snapshots, but does not replicate data.
+      External process that functions as an additional node in certain cluster operations, such as quorum calculations and generating consistent application state snapshots.
 
-      For Galera Cluster the recommended deployment is in an increment of three at each level.  That is, a cluster on one switch should have at least three nodes, a cluster on more than one switch should use three switches, a cluster in more than one data center should use three data centers.  The odd number helps avoid split-brain situations, given that the loss of network connectivity at any level always leaves one component larger than the other.
+      Consider a situation where you cluster becomes partitioned due to a loss of network connectivity that results in two components of equal size.  Each component initiates quorum calculations to determine which should remain the :term:`Primary Component` and which should become a nonoperational component.  If the components are of equal size, it risks a split-brain condition.  Galera Arbitrator provides an addition vote in the quorum calculation, so that one component registers as larger than the other.  The larger component then remains the Primary Component.  
 
-      In the event that you find these additional resources too costly, you can use Galera Arbitrator.  In cluster with an even number of nodes, Galera Arbitrator functions as the odd node in quorum calculations.  It participates in voting and receives data, but does not take part in the replication of that data.
+      Unlike the main ``mysqld`` process, ``garbd`` does not generate replication events of its own and does not store replication data, but it does acknowledge all replication events.  Furthermore, you can route replication through Galera Arbitrator, such as when generating a consistent application state snapshot for backups.
 
       .. seealso:: For more information, see :doc:`arbitrator` and :doc:`backingupthecluster`.
 
@@ -57,7 +57,7 @@
    Primary Component
       In addition to single node failures, the cluster may be split into several components due to network failure. In such a situation, only one of the components can continue to modify the database state to avoid history divergence. This component is called the Primary Component (PC). 
       
-      .. seelaso:: For more information on the Primary Component, see :doc:`weightedquorum` for more details.
+      .. seealso:: For more information on the Primary Component, see :doc:`weightedquorum` for more details.
 
    Rolling Schema Upgrade
       The rolling schema upgrade is a :abbr:`DDL (Data Definition Language)` processing method, where the :abbr:`DDL (Data Definition Language)` will only be processed locally at the node. The node is desynchronized from the cluster for the duration of the :abbr:`DDL (Data Definition Language)` processing in a way that it does not block the rest of the nodes.  When the :abbr:`DDL (Data Definition Language)` processing is complete, the node applies the delayed replication events and synchronizes back with the cluster.

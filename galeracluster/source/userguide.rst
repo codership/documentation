@@ -31,7 +31,7 @@ Cluster Monitor
 ------------------------------
 .. _`cluster-monitor`:
 
-There are three approaches to monitoring cluster activity and replication health: directly off the database client, using the notification script for Galera Cluster, through a third-party monitoring application, such as Nagios.
+There are three approaches to monitoring cluster activity and replication health: directly off the database client, using the notification script for Galera Cluster, or through a third-party monitoring application, such as Nagios.
 
 .. toctree::
    :maxdepth: 2

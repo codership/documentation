@@ -1667,7 +1667,7 @@ The node uses the CA file to verify the signature on the certificate.  You can u
    wsrep_provider_options='socket.ssl_ca=/path/to/ca-cert.pem'
 
 
-.. seelalso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
+.. seealso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1684,14 +1684,14 @@ The node uses the CA file to verify the signature on the certificate.  You can u
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate.
 
-The node uses the certificate as a self-signed public key in encrypting replication traffic over :aabr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
 
 .. code-block:: ini
 
    wsrep_provider_options="socket.ssl_cert=/path/to/server-cert.pem"
 
 
-.. seelalso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
+.. seealso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1769,13 +1769,13 @@ Whether to enable compression on SSL connections.
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate key.
 
-The node uses the certificate key a self-signed private key in encrypting replication traffic over  :aabr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
 
 .. code-block:: ini
 
    wsrep_provider_options="socket.ssl_key=/path/to/server-key.pem"
 
-.. seelalso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
+.. seealso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |

@@ -28,7 +28,7 @@ Some of the disadvantages to consider in rolling upgrades are:
 
 - **Time Consumption** Performing a rolling upgrade can take some time, longer depending on the size of the databases and the number of nodes in the cluster, during which the cluster operates at a diminished capacity.
 
-  Unless you use :term:`Incremental State Transfers`, as you bring each node back online after an upgrade, it initiates a full :term:`State Snapshot Transfer`, which can take a long time to process on larger databases and slower state transfer methods.
+  Unless you use :term:`Incremental State Transfer`, as you bring each node back online after an upgrade, it initiates a full :term:`State Snapshot Transfer`, which can take a long time to process on larger databases and slower state transfer methods.
 
   During the State Snapshot Transfer, the node continues to accumulate catch-up in the replication event queue, which it will then have to replay to synchronize with the cluster.  At the same time, the cluster is operational and continues to add further replication events to the queue. 
   

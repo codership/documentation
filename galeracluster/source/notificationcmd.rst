@@ -45,7 +45,7 @@ Node Status Strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`node-status`:
 
-The notification command passes six values with the ``--status`` parameter to indicate the current status of the node:
+The notification command passes one of six values with the ``--status`` parameter to indicate the current status of the node:
 
 +---------------+-------------------------------------------------------+
 | Value         | Description                                           |
@@ -113,7 +113,7 @@ You can enable the  notification command through the :ref:`wsrep_notify_cmd <wsr
 
    wsrep_notify_cmd=/path/to/wsrep_notify.sh
 
-The node then calls the script, to each change in cluster membership and node status.  You can use these status changes in configuring load balancers, raising alerts or scripting for any other situation where you need the underlying server to respond to changes to the database.
+The node then calls the script for each change in cluster membership and node status.  You can use these status changes in configuring load balancers, raising alerts or scripting for any other situation where you need your infrastructure to respond to changes to the cluster.
 
 Galera Cluster provides a default script, ``wsrep_notify.sh``, for you to use in handling notifications or as a starting point in writing your own custom notification script.
 

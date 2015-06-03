@@ -38,7 +38,7 @@ From the database client, you can check the status of write-set replication thro
 .. index::
    pair: Parameters; wsrep_cluster_status
 
-The cluster has integrity when all nodes in it receive and replicate write-sets from all other nodes.  The cluster begins to lose integrity when this breaks down, such as the cluster is down, become partitioned, or experiences a split-brain situation.
+The cluster has integrity when all nodes in it receive and replicate write-sets from all other nodes.  The cluster begins to lose integrity when this breaks down, such as when the cluster goes down, becomes partitioned, or experiences a split-brain situation.
 
 You can check cluster integrity using the following status variables:
 
@@ -54,9 +54,9 @@ You can check cluster integrity using the following status variables:
      | wsrep_cluster_state_uuid | d6a51a3a-b378-11e4-924b-23b6ec126a13 |
      +--------------------------+--------------------------------------+
 
-  Each node in the cluster should provide the same value.  When a node carries a different value, this indicates that it is no longer connected to rest of the cluster.
+  Each node in the cluster should provide the same value.  When a node carries a different value, this indicates that it is no longer connected to rest of the cluster.  Once the nose reestablishes connectivity, it realigns itself with the other nodes.
 
-- :ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>` shows the total number of cluster changes happening, which you can use to determine whether or not the node is a part of the :term:`Primary Component`.
+- :ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>` shows the total number of cluster changes that have happened, which you can use to determine whether or not the node is a part of the :term:`Primary Component`.
 
   .. code-block:: mysql
 
@@ -96,11 +96,11 @@ You can check cluster integrity using the following status variables:
      | wsrep_cluster_status | Primary |
      +----------------------+---------+
 
-  The node should only return a value of ``Primary``.  Any other value indicates that the node is part of a nonoperational component.  This occurs in cases of multiple membership changes that results in a loss of quorum or in cases of split-brain situations.
+  The node should only return a value of ``Primary``.  Any other value indicates that the node is part of a nonoperational component.  This occurs in cases of multiple membership changes that result in a loss of quorum or in cases of split-brain situations.
 
   .. seealso:: In the event that you check all nodes in your cluster and find none that return a value of ``Primary``, see :doc:`quorumreset`.
 
-When these status variable check out and return the desired results on each node, the cluster is up and has integrity.  What this means is that replication is able to occur normally on every node.  The next step then is :ref:`checking node status <check-node-status>` to ensure that they are all in working order and able to receive write-sets.
+When these status variables check out and return the desired results on each node, the cluster is up and has integrity.  What this means is that replication is able to occur normally on every node.  The next step then is :ref:`checking node status <check-node-status>` to ensure that they are all in working order and able to receive write-sets.
 	       
   
       
@@ -122,7 +122,7 @@ When these status variable check out and return the desired results on each node
 .. index::
    pair: Parameters; wsrep_local_state_comment
 
-In addition to checking cluster integrity, you can also monitor the status of individual nodes.  This shows whether nodes receive and process the SQL load from the cluster write-sets and can indicate problems that may prevent replication.
+In addition to checking cluster integrity, you can also monitor the status of individual nodes.  This shows whether nodes receive and process updates from the cluster write-sets and can indicate problems that may prevent replication.
 
 - :ref:`wsrep_ready <wsrep_ready>` shows whether the node can accept queries.
 
@@ -136,7 +136,7 @@ In addition to checking cluster integrity, you can also monitor the status of in
      | wsrep_ready   | TRUE  |
      +---------------+-------+
 
-  When the node returns a value of ``TRUE`` it can accept the SQL load of write-sets from the cluster.  When it returns the value ``FALSE``, almost all queries fail with the error:
+  When the node returns a value of ``TRUE`` it can accept write-sets from the cluster.  When it returns the value ``FALSE``, almost all queries fail with the error:
 
   .. code-block:: text
 
@@ -176,7 +176,7 @@ In addition to checking cluster integrity, you can also monitor the status of in
 
   .. note:: If the node returns any value other than the one listed here, the state comment is momentary and transient.  Check the status variable again for an update.
 
-In the event that each status variable returns the desired values, the node is in working order.  This means that it is receiving write-sets from the cluster and replicating them to tables on the local database.
+In the event that each status variable returns the desired values, the node is in working order.  This means that it is receiving write-sets from the cluster and replicating them to tables in the local database.
 	    
 
 
@@ -196,7 +196,7 @@ In the event that each status variable returns the desired values, the node is i
    pair: Parameters; wsrep_local_recv_queue_min
 
    
-By monitoring cluster integrity and node status can show you issues that may prevent or otherwise block replication.  These status variables will help in identifying performance issues and identifying problem areas so that you can get the most from your cluster.
+Monitoring cluster integrity and node status can show you issues that may prevent or otherwise block replication.  These status variables will help in identifying performance issues and identifying problem areas so that you can get the most from your cluster.
 
 
 .. note:: Unlike other the status variables, these are differential and reset on every ``SHOW STATUS`` command.  Execute the query a second time, about a minute after the first to get the current value.
@@ -221,7 +221,7 @@ You can monitor the local received queue and Flow Control using the following st
 
   .. note::  In addition to this status variable, you can also use :ref:`wsrep_local_recv_queue_max <wsrep_local_recv_queue_max>` and :ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>` to see the maximum and minimum sizes the node recorded for the local received queue.
 	  
-- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` shows a fraction of the time since the status variable was last called that the node paused due to Flow Control.
+- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` shows the fraction of the time, since the status variable was last called, that the node paused due to Flow Control.
 
   .. code-block:: mysql
 
@@ -235,7 +235,7 @@ You can monitor the local received queue and Flow Control using the following st
 
   When the node returns a value of ``0.0``, it indicates that the node did not pause due to Flow Control during this period.  When the node returns a value of ``1.0``, it indicates that the node spent the entire period paused.  When the period between calls is one minute and the node returns ``0.25``, it indicates that the node was paused for 15 seconds.
 
-  Ideally, the return value should stay as close to ``0.0`` as possible, since this means the node is not falling behind the cluster.  In the event that you find that the node is pausing frequently, you can adjust the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter or you can exclude the slow nodes from the cluster.
+  Ideally, the return value should stay as close to ``0.0`` as possible, since this means the node is not falling behind the cluster.  In the event that you find that the node is pausing frequently, you can adjust the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter or you can exclude the node from the cluster.
 
 - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` shows the average distance between the lowest and highest sequence number, or seqno, values that the node can possibly apply in parallel.
 
@@ -263,7 +263,7 @@ You can monitor the local received queue and Flow Control using the following st
 .. index::
    pair: Parameters; wsrep_local_send_queue_min
 
-While checking the status of Flow Control and the received queue can tell you how the database server manages with incoming write-sets, you can check the send queue to monitor for outgoing connectivity issues.
+While checking the status of Flow Control and the received queue can tell you how the database server copes with incoming write-sets, you can check the send queue to monitor for outgoing connectivity issues.
 
 .. note:: Unlike other the status variables, these are differential and reset on every ``SHOW STATUS`` command.  Execute the query a second time, about a minute after the first to get the current value.
 
@@ -280,7 +280,7 @@ While checking the status of Flow Control and the received queue can tell you ho
    | wsrep_local_send_queue_avg | 0.145000 |
    +----------------------------+----------+
 
-Values much greater than ``0.0`` indicate replication throttling or network throughput issues, such as a bottleneck on the network link.  The cause can occur at any layer from the physical components of your server to the configuration of the operating system.
+Values much greater than ``0.0`` indicate replication throttling or network throughput issues, such as a bottleneck on the network link.  The problem can occur at any layer from the physical components of your server to the configuration of the operating system.
 
 
 .. note::  In addition to this status variable, you can also use :ref:`wsrep_local_send_queue_max <wsrep_local_send_queue_max>` and :ref:`wsrep_local_send_queue_min <wsrep_local_send_queue_min>` to see the maximum and minimum sizes the node recorded for the local send queue.
