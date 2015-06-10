@@ -69,7 +69,7 @@ The node uses the server certificate to secure both the database server activity
 
       # openssl x509 -req -in server-req.pem -days 365000 \
             -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
-	    -out server-cert.pem
+            -out server-cert.pem
 
 This creates a key and certificate file for the server.  They are in the current working directory as ``server-key.pem`` and ``server-cert.pem``.  Each node requires both to secure database server activity and replication traffic.
 
@@ -100,7 +100,7 @@ The node uses the client certificate to secure client-side activity.  In the eve
 
       # openssl x509 -req -in client-req.pem -days 365000 \
             -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
-	    -out client-cert.pem
+            -out client-cert.pem
 
 This creates a key and certificate file for the database client.  They are in the current working directory as ``client-key.pem`` and ``client-cert.pem``.  Each node requires both to secure client activity and state snapshot transfers.
 
@@ -113,9 +113,9 @@ When you finish creating the key and certificate files, use ``openssl`` to verif
 
 .. code-block:: console
 
-   # openssl verify -CAfile ca.pem \
+   # openssl verify -CAfile ca-cert.pem \
          server-cert.pem client-cert.pem
-   
+
    server-cert.pem: OK
    client-cert.pem: OK
 
