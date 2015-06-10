@@ -56,13 +56,13 @@ In order to enable SSL on the internal node processes, you need to define the pa
 You can configure these options through the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter in the configuration file, (that is, ``my.cnf``).
   
 .. code-block:: ini
-		
-   wsrep_provider_options="socket.ssl_ca=/path/to/server-key.pem,
+
+   wsrep_provider_options="socket.ssl_key=/path/to/server-key.pem,
                            socket.ssl_cert=/path/to/server-cert.pem,
-                           socket.ssl_ca=/path/to/cacert.pem"
-			   
+                           socket.ssl_ca=/path/to/ca-cert.pem"
+
 This tells Galera Cluster which files to use in encrypting and decrypting replication traffic through SSL.  The node will begin to use them once it restarts.
-			  
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Securing Physical State Snapshot Transfers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
