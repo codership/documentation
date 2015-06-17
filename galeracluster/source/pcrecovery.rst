@@ -8,12 +8,6 @@ Recovering the Primary Component
 
 Cluster nodes can store the :term:`Primary Component` state to disk.  The node records the state of the Primary Component and the UUID's of the nodes connected to it.  In the event of an outage, once all nodes that were part of the last saved state achieve connectivity, the cluster recovers the Primary Component.
 
-This feature allows for:
-
-- Automatic recovery from full cluster crashes, such as a data center power outage.
-
-- Graceful full cluster restarts, without the need for explicitly bootstrapping a new Primary Component.
-
 In the event that the write-set position differs between the nodes, the recovery process also requires a full state snapshot transfer.
 
 .. seealso:: For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
