@@ -1,18 +1,25 @@
 =================
- Troubleshooting
+Support
 =================
+.. _`support`:
 
 ---------------------------
-Frequently Asked Questions
+Troubleshooting
 ---------------------------
-.. _`troubleshooting-faq`:
+.. _`troubleshooting`:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    faq
-   symptomsolution
-
+   error
+   unknowncommand
+   userchanges
+   clusterstallonalter
+   detectingaslownode
+   dealingwithmultimasterconflicts
+   twonode
+   
 ------------------
 Tutorials
 ------------------
@@ -21,6 +28,6 @@ Tutorials
 .. toctree::
    :maxdepth: 2
 
-   detectingaslownode
-   dealingwithmultimasterconflicts
+   performance
+   configurationtips
 
