@@ -15,6 +15,7 @@ How do you recover failed nodes or a :term:`Primary Component`?  How to secure c
 .. toctree::
    :maxdepth: 2
 
+   deploymentvariants
    nodeprovisioning
    sst
    pcrecovery
@@ -23,6 +24,8 @@ How do you recover failed nodes or a :term:`Primary Component`?  How to secure c
    autoeviction
    schemaupgrades
    upgrading
+   scriptablesst
+   loadbalancing
    arbitrator
    backingupthecluster
 
@@ -70,19 +73,3 @@ Bear in mind that there are certain key differences between how a standalone ins
 .. seealso:: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.
 
    
---------------------------------------
-Performance
---------------------------------------
-.. _`performance`:
-
-Now that you're comfortable with how to use Galera Cluster, you can begin to consider how to use it more efficiently and effectively.  This can include variant deployment schemes and techniques to improve performance, or simply tips in configuring the cluster to better suit your needs.
-
-
-.. toctree::
-   :maxdepth: 2
-
-   deploymentvariants
-   performance
-   configurationtips
-   scriptablesst
-   loadbalancing

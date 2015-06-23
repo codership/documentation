@@ -12,10 +12,14 @@ Troubleshooting
    :maxdepth: 1
 
    faq
+   error
    unknowncommand
    userchanges
    clusterstallonalter
-
+   detectingaslownode
+   dealingwithmultimasterconflicts
+   twonode
+   
 ------------------
 Tutorials
 ------------------
@@ -24,6 +28,6 @@ Tutorials
 .. toctree::
    :maxdepth: 2
 
-   detectingaslownode
-   dealingwithmultimasterconflicts
+   performance
+   configurationtips
 
