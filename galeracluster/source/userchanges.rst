@@ -1,7 +1,7 @@
 ======================================
 User Changes not Replicating
 ======================================
-.. _`user-changes-not-replicating`
+.. _`user-changes-not-replicating`:
 
 User changes do not replicate to the cluster.
 
