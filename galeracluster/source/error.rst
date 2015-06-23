@@ -14,7 +14,7 @@ In the event that you do not explicitly set the donor node through :ref:`wsrep_s
 
 Group Communication monitors node states for the purposes of flow control, state transfers and quorum calculations.  That is, to ensure that a node that shows as ``JOINING`` does not count towards flow control and quorum.
 
-The node is considered fit to serve as a donor if it returns a ``SYNCED`` state.  The specific donor is chosen as first among the available synced nodes in the index.  When the node is chosen its state changes immediately to ``DONOR``, meaning that it is no longer available for requests.
+The node can serve as a donor when it is in the ``SYNCED`` state.  The joiner node selects a donor from the available synced nodes.  It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option or it selects the first in the index.  When the donor node is chosen its state changes immediately to ``DONOR``, meaning that it is no longer available for requests.
 
 If the node can find no free nodes that show as ``SYNCED``, the joining node reports:
 

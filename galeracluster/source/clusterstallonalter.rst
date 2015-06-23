@@ -23,7 +23,7 @@ Galera Cluster has a 65K window of tolerance for transactions applied in paralle
 
 Given that this is a consequence of something intrinsic to how replication works in Galera Cluster, there is no direct solution to the problem.  However, you can implement a workaround.
 
-In the event that you can guarantee that no other session will try to modify the table `and` that there are no other :abbr:`DDL (Data Definition Language)` statements running, you can shift the schema upgrade method from :term:`Total Order Isolation` to :term:`Rolling Schema Upgrade` for the duration of the ``ALTER`` statement.  This applies the changes to each node individually, without effecting cluster performance.
+In the event that you can guarantee that no other session will try to modify the table `and` that there are no other :abbr:`DDL (Data Definition Language)` statements running, you can shift the schema upgrade method from :term:`Total Order Isolation` to :term:`Rolling Schema Upgrade` for the duration of the ``ALTER`` statement.  This applies the changes to each node individually, without affecting cluster performance.
 
 To run an ``ALTER`` statement in this manner, on each node run the following queries:
 

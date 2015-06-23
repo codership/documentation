@@ -89,7 +89,7 @@ There are a few techniques available to you in logging and monitoring for proble
 .. index::
    pair: Parameters; wsrep_retry_autocommit
 
-Transactions that come into conflict are rolled back by the cluster.  The client application registers this rollback as a deadlock error.  Ideally, the client application *should* re-commit the deadlocked transaction, but not all client applications have this logic built in.
+When two transactions come into conflict, the later of the two is rolled back by the cluster.  The client application registers this rollback as a deadlock error.  Ideally, the client application *should* retry the deadlocked transaction, but not all client applications have this logic built in.
    
 In the event that you encounter this problem, you can set the node to attempt to auto-commit the deadlocked transactions on behalf of the client application, using the :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>` parameter.
 
@@ -110,10 +110,10 @@ When a transaction fails the certification test due to a cluster-wide conflict, 
 
 While Galera Cluster resolves multi-master conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.
 
-- Analyze the hub-spot and see if you can change the application logic to catch deadlock exceptions and use retrying logic.
+- Analyze the hot-spot and see if you can change the application logic to catch deadlock exceptions.
 
 - Enable retrying logic at the node level using, :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`.
 
 - Limit the number of master nodes or switch to a master-slave model.
   
-.. note:: If you can filter out the access to the hot spot table, it is enough to treat writes only to the hot spot table as master-slave.
+.. note:: If you can filter out the access to the hot-spot table, it is enough to treat writes only to the hot-spot table as master-slave.

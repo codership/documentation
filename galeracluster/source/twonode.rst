@@ -9,7 +9,7 @@ In a two-node cluster, a single-node failure causes the other to stop working.
 
 You have a cluster composed of only two nodes.  One of the nodes leaves the cluster *ungracefully*.  That is, instead of being shut down through ``init`` or ``systemd``, it crashes or suffers a loss of network connectivity.  The node that remains becomes nonoperational.  It remains so until some additional information is provided by a third party, such as a human operator or another node.
 
-If the node remained operational after the other left the cluster ungracefully, there would be the risk of the two nodes operating together each thinking itself the :term:`Primary Component`.  To prevent this, the node becomes nonoperational.
+If the node remained operational after the other left the cluster ungracefully, there would be the risk that each of the two nodes will think itself as being the :term:`Primary Component`.  To prevent this, the node becomes nonoperational.
 
 
 
