@@ -133,10 +133,10 @@ In addition to checking cluster integrity, you can also monitor the status of in
      +---------------+-------+
      | Variable_name | Value |
      +---------------+-------+
-     | wsrep_ready   | TRUE  |
+     | wsrep_ready   | ON    |
      +---------------+-------+
 
-  When the node returns a value of ``TRUE`` it can accept write-sets from the cluster.  When it returns the value ``FALSE``, almost all queries fail with the error:
+  When the node returns a value of ``ON`` it can accept write-sets from the cluster.  When it returns the value ``OFF``, almost all queries fail with the error:
 
   .. code-block:: text
 
