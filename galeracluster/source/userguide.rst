@@ -15,7 +15,6 @@ How do you recover failed nodes or a :term:`Primary Component`?  How to secure c
 .. toctree::
    :maxdepth: 2
 
-   deploymentvariants
    nodeprovisioning
    sst
    pcrecovery
@@ -28,11 +27,20 @@ How do you recover failed nodes or a :term:`Primary Component`?  How to secure c
    loadbalancing
    arbitrator
    backingupthecluster
+---------------
+Deployment
+---------------
 
+.. toctree::
+   :maxdepth: 2
+   
+   deploymentvariants
+   docker
+      
 ------------------------------
-Cluster Monitor
+Monitor
 ------------------------------
-.. _`cluster-monitor`:
+.. _`monitor`:
 
 There are three approaches to monitoring cluster activity and replication health: directly off the database client, using the notification script for Galera Cluster, or through a third-party monitoring application, such as Nagios.
 
