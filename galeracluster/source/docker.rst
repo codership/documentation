@@ -43,7 +43,8 @@ Galera Cluster sources the ``my.cnf`` configuration file when the database serve
    # SST
    wsrep_sst_method=rsync
 
-
+Bear in mind that in container deployments, you need to explicitly set the :ref:`wsrep_node_address <wsrep_node_address>` parameter, as Galera Cluster cannot auto-guess the network interface on the host operating system from within the container.
+   
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 ``Dockerfile``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
