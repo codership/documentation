@@ -460,14 +460,31 @@ The maximum allowed write-set size is ``2G``.
 .. index::
    pair: Parameters; wsrep_node_address
 
-An option to explicitly specify the network address of the node, if autoguessing for some reason does not produce desirable results (multiple network interfaces, NAT, etc.)
+Defines the IP address and port of the node.
 
 .. code-block:: ini
 
    wsrep_node_address = 192.168.1.1:4567
 
+The node needs to pass an IP address and port number to the :term:`Galera Replication Plugin`, where it gets used as the base address in cluster communications.  By default, the node pulls the address of the first network interface and the default port, which typically is the address of ``eth0`` with port ``4567``.
 
-By default, the address of the first network interface (``eth0``) and the default port ``4567`` are used. The ``<address>`` and ``:port`` will be passed to the Galera replication Plugin to be used as a base address in its communications. It will also be used to derive the default values for parameters :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` and :ref:`ist.recv_addr <ist.recv_addr>`.
+While this default behavior is often sufficient, there on situations where the auto-guessing produces unreliable results.  For instance,
+
+- Servers with multiple network interfaces.
+
+- Servers that run multiple nodes.
+  
+- Network Address Translation (NAT).
+
+- Clusters with nodes in more than one region.
+  
+- Container deployments, such as with Docker and jails.
+
+- Cloud deployments, such as with Amazon EC2 and OpenStack.
+
+In cases such as these, you need to provide an explicit value for this parameter.  For example, in order to run Galera Cluster on Amazon EC2, you need to use the global DNS name instead of the local IP address.
+
+.. seealso:: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
 
 
 +----------------------------+---------+---------+------------+------------+
