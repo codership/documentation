@@ -63,7 +63,7 @@ When Docker builds a new image, it sources the ``Dockerfile`` to determine the s
    RUN apt-get update \
    apt-get install -y  software-properties-common \
    apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 BC19DDBA \
-   add-apt-repository 'deb http://releases.galeracluster.com/ubuntu trusty main'
+   add-apt-repository 'deb http://releases.galeracluster.com/debian wheezy main'
 
    RUN apt-get update \
    apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync
