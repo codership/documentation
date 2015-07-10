@@ -35,7 +35,7 @@ In order to do this, you need to start the database server.  If you have not use
 
 .. code-block:: console
 
-   # service mysql start wsrep_on=OFF
+   # service mysql start --wsrep-on=off
 
 For servers that use ``systemd``, instead run this command:
 
