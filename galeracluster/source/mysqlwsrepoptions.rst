@@ -53,6 +53,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_load_data_splitting       | ``ON``                             |                      |                    |          |
 | <wsrep_load_data_splitting>`          |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
+| :ref:`wsrep_log_conflicts             | ``OFF``                            |                      |                    |          |
+| <wsrep_log_conflicts>`                |                                    |                      |                    |          |
++---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_max_ws_rows               | ``128K``                           | 1                    |                    |          |
 | <wsrep_max_ws_rows>`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
@@ -411,6 +414,28 @@ Splitting ``LOAD DATA`` commands into more manageable units avoids problems with
 +====================+=========+=========+============+============+
 | ``ON``             | Global  |         | 1          |            |
 +--------------------+---------+---------+------------+------------+
+
+
+.. rubric:: ``wsrep_log_conflicts``
+.. _`wsrep_log_conflicts`:
+.. index::
+   pair: Parameters; wsrep_log_conflicts
+
+Enables the logging of additional information about conflicts.
+
+.. code-block:: ini
+
+   wsrep_log_conflicts=ON
+
+In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB or Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems. The additional information includes the table and schema where the conflict occurred, as well as the actual values for the keys that produced the conflict.
+
+.. seealso:: In addition to the :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` parameter, you can also use the wsrep Provider option :ref:`cert.log_conflicts <cert.log_Conflicts>`.
+	     
++---------+--------+---------+------------+------------+
+| Default | Scope  | Dynamic | Introduced | Deprecated |
++=========+========+=========+============+============+
+| ``OFF`` | Global | No      |            |            |
++---------+--------+---------+------------+------------+	     
 
 
 
