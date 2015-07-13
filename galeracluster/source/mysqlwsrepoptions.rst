@@ -8,7 +8,7 @@
    pair: Logs; Debug log
 
 
-These are MySQL system variables introduced by wsrep API patch v0.8. All variables are global except where marked by **L**.
+These are MySQL system variables introduced by wsrep API patch v0.8. All variables are global except where marked by an **S**, for session variables.
 
 
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
@@ -18,7 +18,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | <wsrep_auto_increment_control>`       |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_causal_reads              | ``OFF``                            | 1                    | 3.6                |          |
-| <wsrep_causal_reads>` :sup:`L`        |                                    |                      |                    |          |
+| <wsrep_causal_reads>` :sup:`S`        |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_certify_nonPK             | ``ON``                             | 1                    |                    |          |
 | <wsrep_certify_nonPK>`                |                                    |                      |                    |          |
@@ -75,7 +75,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | <wsrep_notify_cmd>`                   |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_on                        | ``ON``                             | 1                    |                    |          |
-| <wsrep_on>` :sup:`L`                  |                                    |                      |                    |          |
+| <wsrep_on>` :sup:`S`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_OSU_method                | ``TOI``                            | Patch version 3      |                    |          |
 | <wsrep_OSU_method>`                   |                                    | (5.5.17-22.3)        |                    |          |
@@ -155,7 +155,7 @@ Enforce strict cluster-wide ``READ COMMITTED`` semantics on non-transactional re
 +--------------------+---------+---------+------------+------------+
 | Default            | Scope   | Dynamic | Introduced | Deprecated |
 +====================+=========+=========+============+============+
-| ``OFF``            | Local   |         | 1          | 3.6        |
+| ``OFF``            | Session |         | 1          | 3.6        |
 +--------------------+---------+---------+------------+------------+
 
 
@@ -196,7 +196,7 @@ For example:
 
 .. code-block:: ini
 
-		wsrep_cluster_address="gcomm://192.168.0.1:4567?gmcast.listen_addr=0.0.0.0:5678"
+   wsrep_cluster_address="gcomm://192.168.0.1:4567?gmcast.listen_addr=0.0.0.0:5678"
 
 Changing this variable in runtime will cause the node to close connection to the current cluster (if any), and reconnect to the new address. (However, doing this at runtime may not be possible for all SST methods.) As of Galera Cluster 23.2.2, it is possible to provide a comma separated list of other nodes in the cluster as follows:
 
@@ -617,7 +617,7 @@ Use write-set replication. When switched ``OFF``, no changes made in this sessio
 +------------------------+---------+---------+------------+------------+
 | Default                | Scope   | Dynamic | Introduced | Deprecated |
 +========================+=========+=========+============+============+
-| ``ON``                 | Local   |         | 1          |            |
+| ``ON``                 | Session |         | 1          |            |
 +------------------------+---------+---------+------------+------------+
 
 
