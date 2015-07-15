@@ -35,13 +35,13 @@ In order to do this, you need to start the database server.  If you have not use
 
 .. code-block:: console
 
-   # service mysql start wsrep_on=OFF
+   # service mysql start --wsrep-on=off
 
 For servers that use ``systemd``, instead run this command:
 
 .. code-block:: console
 
-   # systemctl start mysql wsrep_on=OFF
+   # systemctl start mysql --wsrep-on=OFF
 
 When the database server is running, log into the database client and run the ``GRANT ALL`` command for the IP address of each node in your cluster.
 
