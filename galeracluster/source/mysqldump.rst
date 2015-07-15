@@ -41,7 +41,7 @@ For servers that use ``systemd``, instead run this command:
 
 .. code-block:: console
 
-   # systemctl start mysql wsrep_on=OFF
+   # systemctl start mysql --wsrep-on=OFF
 
 When the database server is running, log into the database client and run the ``GRANT ALL`` command for the IP address of each node in your cluster.
 
