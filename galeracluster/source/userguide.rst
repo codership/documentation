@@ -36,6 +36,7 @@ Deployment
    
    deploymentvariants
    docker
+   jails
       
 ------------------------------
 Monitor
