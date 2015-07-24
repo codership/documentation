@@ -3,7 +3,7 @@ Using Docker on Linux
 ==========================
 .. _`docker`:
 
-Docker provides an open source platform for automatically deploying applications within software containers on Linux.  You may find it useful in portable deployment across numerous machines, development testing or automatic builds.
+Docker provides an open source platform for automatically deploying applications within software containers on Linux.  You may find it useful in portable deployment across numerous machines, testing applications that depend on Galera Cluster, or scripting the installation and configuration process.
 
 Galera Cluster can run from within a Docker container.
 
@@ -12,47 +12,11 @@ Configuring the Container
 ---------------------------
 .. _`configure-container`:
 
-There are two configuration files that you need to create to run Galera Cluster on Docker: ``my.cnf`` and ``Dockerfile``.  Place both of these in the build directory for your container.
+Images are the containers that Docker has available to run.  There are a number of base images available through `Docker Hub <https://registry.hub.docker.com>`_.  You can pull these down to your system through the ``docker`` command-line tool.
 
+When Docker builds a new mage, it sources the ``Dockerfile`` to determine the steps that it needs to take in order to generate the image that you want to use.
 
-^^^^^^^^^^^^
-``my.cnf``
-^^^^^^^^^^^^
-.. _`my-cnf`:
-
-Galera Cluster sources the ``my.cnf`` configuration file when the database server starts, regardless of whether or not the server is running from within a container.  When you write the configuration file for a container, you follow the same conventions as you would use in the standard deployment for a host operating system.  For example:
-
-.. code-block:: ini
-
-   [mysqld]
-   user=mysql
-   bind-address=0.0.0.0
-
-   # Cluster Options
-   wsrep_provider=/usr/lib/galera/libgalera_smm.so
-   wsrep_cluster_address="gcomm://192.168.1.1, 192.168.1.2, 192.16.1.3"
-   wsrep_node_address="192.168.1.1"
-   wsrep_node_name="node1"
-   wsrep_cluster_name="example_cluster"
-
-   # InnoDB Options
-   default_storage_engine=innodb
-   innodb_autoinc_lock_mode=2
-   innodb_flush_log_at_trx_commit=0
-
-   # SST
-   wsrep_sst_method=rsync
-
-Bear in mind that in container deployments, you need to explicitly set the :ref:`wsrep_node_address <wsrep_node_address>` parameter, as Galera Cluster cannot auto-guess the network interface on the host operating system from within the container.
-   
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-``Dockerfile``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`dockerfile`:
-
-Docker images are the containers it has available for launch.  There are a number of base images available through `Docker Hub <https://registry.hub.docker.com>`_.  You can pull these down to your system through the ``docker`` command-line tool.
-
-When Docker builds a new image, it sources the ``Dockerfile`` to determine the steps that it needs to take in order to generate the image that you want to use.  To complete automate deployment, this means everything that your system needs to start ready for use from the base operating system, to loading configuration files, to running updates and installations through the package manager.
+This means that you can script the installation and configuration process: loading the needed configuration files, running updates and installing packages when the image is built through a single command.
 
 .. code-block:: docker
 		
@@ -61,24 +25,35 @@ When Docker builds a new image, it sources the ``Dockerfile`` to determine the s
 
    ENV DEBIAN_FRONTEND noninteractive
    
-   RUN apt-get update \
-   apt-get install -y  software-properties-common \
-   apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 BC19DDBA \
-   add-apt-repository 'deb http://releases.galeracluster.com/debian wheezy main'
+   RUN apt-get update 
+   RUN apt-get install -y  software-properties-common
+   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA 
+   RUN add-apt-repository 'deb http://releases.galeracluster.com/ubuntu trusty main'
 
-   RUN apt-get update \
-   apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync
+   RUN apt-get update 
+   RUN apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync
 
    COPY my.cnf /etc/mysql/my.cnf
    ENTRYPOINT ["mysqld"]
 
 The example follows the installation process for running Galera Cluster from within a Docker container based on Ubuntu.  When you run the build command, ``docker`` pulls down the Ubuntu 14.04 image from Docker HUb, if it's needed, then runs each command in the ``Dockerfile`` to initialize the image for your use.
 
-.. note:: As an alternative to the ``Dockerfile`` above, you can also pull down a pre-built image from Docker Hub.  To do so, run the following command:
+^^^^^^^^^^^^^^^^^^^^
+Configuration File
+^^^^^^^^^^^^^^^^^^^^
+.. _`docker-my-cnf`:
 
-	  .. code-block:: console
+Before you build the container, you will need to write the configuration file for the node.  The ``COPY`` command in the ``Dockerfile`` above copies ``my.cnf`` from the build directory into the container.  It must be ready at the time of the build. 
 
-	     # docker pull erkules/galera:basic
+For the most part, the configuration file for a node running within a Docker container is the same as when the node is running on a standard Linux server.  However, you need to manually set any parameter that draws its default from the base system.
+
+- :ref:`wsrep_node_address <wsrep_node_address>` Galera Cluster determines the default address from the IP address on the first network interface.  This interface is inaccessible from within the container, so you need to set it explicitly to ensure that the cluster can find node containers.
+
+Changing the ``my.cnf`` file does not propagate into the container.  Whenever you need to make changes to the configuration file, run the build again to propagate the update into the container.
+
+.. note:: Docker caches each step of the build and on rebuild only runs those steps that have changed since the last run.  For example, using the above ``Dockerfile``, if you rebuild an image after changing ``my.cnf``, Docker only runs the last two steps.  If you need Docker to rerun the entire build, use the ``--force-rm=true`` option.
+
+  
 
 -------------------------
 Building the Container
@@ -87,13 +62,11 @@ Building the Container
 
 The purpose of building a Docker container is to reduce the installation, configuration and deployment process for container nodes to a single command.  To manage this, you need to first create an image of the container in which you have Galera Cluster installed, configured and ready for use.
 
-.. note:: For Debian- and Ubuntu-based distributions, there is another package that uses the name ``docker``.  Substitute ``docker.io`` for the package name and command-line tool on these distributions.
-
 You can build a container node using the Docker command-line tool.
 
 .. code-block:: console
 
-   # docker build -t centos:galera ./ 
+   # docker build -t ubuntu:galera-node1 ./ 
 
 When this command runs, Docker looks in the working direction, (here ``./``), for the ``Dockerfile``.  It then follows each command in the ``Dockerfile`` to build the image you want.  When the build is complete, you can view the addition among the available images:
    
@@ -101,32 +74,57 @@ When this command runs, Docker looks in the working direction, (here ``./``), fo
 
    # docker images
    
-   REPOSITORY  TAG      IMAGE ID      CREATED        SIZE
-   centos      galera   53b97c3d7740  2 minutes ago  362.7 MB
-   centos      centos7  ded7cd95e059  5 weeks ago    185.5 MB
+   REPOSITORY  TAG           IMAGE ID      CREATED        SIZE
+   ubuntu      galera-node-1 53b97c3d7740  2 minutes ago  362.7 MB
+   ubuntu      14.04         ded7cd95e059  5 weeks ago    185.5 MB
 
-You now have a working node image available for use as a container.  You can launch it using the ``docker run`` command.
-   
-      
+You now have a working node image available for use as a container.  You can launch it using the ``docker run`` command.  Repeat the build process on each server to create a node container image for Galera Cluster.
 
 -------------------------
 Deploying the Container
 -------------------------
 .. _`deploy-container`:
 
-When you finish building images, (or pulling them down from Docker Hub), you're ready to launch containers for your Galera nodes.  You can start a container using the Docker command-line tool with the ``run`` parameter.
+When you finish building the image, you're ready to launch the container for your Galera node.  You can start a container using the Docker command-line tool with the ``run`` argument.
 
 .. code-block:: console
 
    # docker run -i -d --name Node1 --host node1 \
          -p 3306:3306 -p 4567:4567 -p 4568:4568 -p 4444:4444 \
-	 erkules/galera:basic
+	 -v /var/container_data/mysql:/var/lib/mysql \
+	 ubuntu:galera-node1
 
-This Docker image uses the database server as an ``ENTRYPOINT`` parameter.  This means that it runs ``/bin/mysqld`` on start.  Meaning that the command launches a container then starts Galera Cluster.
+In the example, Docker launches a pre-built Ubuntu container tagged as ``galera-node1``, which was built using the above ``Dockerfile``.  The ``ENTRYPOINT`` parameter is set to ``/bin/mysqld``, so the container launches the database server on start.
 
-.. note:: The above command starts a container node meant to attach to an existing cluster.  If you are starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.
+.. note:: The above command starts a container node meant to be attached to an existing cluster.  If you are starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.
+	  
+^^^^^^^^^^^^^^^^^^^
+Firewall Settings
+^^^^^^^^^^^^^^^^^^^
+.. _`docker-firewall`:
 
-Once you have the container node running, you can execute additional commands on the container using the ``docker exec`` command with the container name given above for the ``--name`` parameter.  For example, if you want access to the database client, run the following command:
+When you launch the Docker container, (``docker run`` above), the series of ``-p`` options connect the ports on the host system to those in the container.  When the container is launched this way, nodes in the container have the same level of access to the network as the node would when running on the host system.
+
+Use these settings when you only run one container to the server.  If you are running multiple containers to the server, you will need a load balancer to dole the incoming connections out to the individual nodes.
+
+For more information on configuring the firewall for Galera Cluster, see :doc:`firewallsettings`.
+
+^^^^^^^^^^^^^^^^^^
+Persistent Data
+^^^^^^^^^^^^^^^^^^
+.. _`docker-data`:
+
+Docker containers are not meant to carry persistent data.  When you close the container, the data it carries is lost.  When you first launch the container with the ``docker run`` command, you can link volumes in the container with directories on the host file system, using the ``-v`` option.
+
+In the above example, the ``-v`` argument connections the ``/var/container_data/mysql`` directory to ``/var/lib/mysql`` in the container.  This replaces the local datadir within the container with a symbolic link to the host system, ensuring that you don't lose data when the container restarts.
+
+^^^^^^^^^^^^^^^^^^^^
+Database Client
+^^^^^^^^^^^^^^^^^^^^
+
+Once you have the container node running, you can execute additional commands on the container using the ``docker exec`` command with the container name given above for the ``--name`` parameter.
+
+For example, if you want access to the database client, run the following command:
 
 .. code-block:: console
 
