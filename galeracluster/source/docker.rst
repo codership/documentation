@@ -49,6 +49,8 @@ For the most part, the configuration file for a node running within a Docker con
 
 - :ref:`wsrep_node_address <wsrep_node_address>` Galera Cluster determines the default address from the IP address on the first network interface.  This interface is inaccessible from within the container, so you need to set it explicitly to ensure that the cluster can find node containers.
 
+- :ref:`wsrep_node_name <wsrep_node_name>` Galera Cluster determines the default node name from the system hostname.  Docker containers have their own hostnames, distinct from that of the host system.
+
 Changing the ``my.cnf`` file does not propagate into the container.  Whenever you need to make changes to the configuration file, run the build again to propagate the update into the container.
 
 .. note:: Docker caches each step of the build and on rebuild only runs those steps that have changed since the last run.  For example, using the above ``Dockerfile``, if you rebuild an image after changing ``my.cnf``, Docker only runs the last two steps.  If you need Docker to rerun the entire build, use the ``--force-rm=true`` option.
@@ -78,7 +80,7 @@ When this command runs, Docker looks in the working direction, (here ``./``), fo
    ubuntu      galera-node-1 53b97c3d7740  2 minutes ago  362.7 MB
    ubuntu      14.04         ded7cd95e059  5 weeks ago    185.5 MB
 
-You now have a working node image available for use as a container.  You can launch it using the ``docker run`` command.  Repeat the build process on each server to create a node container image for Galera Cluster.
+You now have a working node image available for use as a container.  You can launch it using the ``docker run`` command.  Repeat the build process on each server to create a node container image for Galera Cluster.  Update the container tag to help differentiate between them.
 
 -------------------------
 Deploying the Container
