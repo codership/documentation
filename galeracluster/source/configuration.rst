@@ -15,7 +15,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
    user=mysql
    binlog_format=ROW
    bind-address=0.0.0.0
-   default-storage-engine=innodb
+   default_storage_engine=innodb
    innodb_autoinc_lock_mode=2
    innodb_flush_log_at_trx_commit=0
    innodb_buffer_pool_size=122M
@@ -81,9 +81,9 @@ There are certain basic configurations that you will need to set up in the ``/et
 
   .. code-block:: ini
 
-     innodb_flush_logs_at_trx_commit=0
+     innodb_flush_log_at_trx_commit=0
 
-  .. warning:: While setting `innodb_flush_logs_at_trx_commit <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit>`_ to a value of ``0`` or ``2`` improves performance, it also introduces certain dangers.  Operating system crashes or power outages can erase the last second of transaction.  Although normally you can recover this data from another node, it can still be lost entirely in the event that the cluster goes down at the same time, (for instance, in the event of a data center power outage).
+  .. warning:: While setting `innodb_flush_log_at_trx_commit <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit>`_ to a value of ``0`` or ``2`` improves performance, it also introduces certain dangers.  Operating system crashes or power outages can erase the last second of transaction.  Although normally you can recover this data from another node, it can still be lost entirely in the event that the cluster goes down at the same time, (for instance, in the event of a data center power outage).
 
 
 After you save the configuration file, you are ready to configure the database privileges.

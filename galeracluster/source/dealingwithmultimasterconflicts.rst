@@ -64,14 +64,16 @@ There are a few techniques available to you in logging and monitoring for proble
      
   :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` gives the total number of local transactions aborted by slave transactions while in execution.  :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` gives the total number of transactions that have failed certification tests.
 
-- Lastly, you can enable the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>` in the configuration file.
+- Lastly, you can enable conflict logging features through :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` and :ref:`cert.log_conflicts <cert.log_conflicts>`.
 
   .. code-block:: ini
 
+     # Enable Conflict Logging
+     wsrep_log_conflicts=ON
      wsrep_provider_options="cert.log_conflicts=YES"
 
-  This tells the node to log information specifically on certification failures.  For example, it might log a message like this:
-
+  These parameters enable different forms of conflict logging on the database server.  When turned on, the node logs additional information about the conflicts it encounters, such as the name of the table and schema where the conflict occurred and the actual values for the keys that produced the conflict.
+  
   .. code-block:: text
 		  
      7:51:13 [Note] WSREP: trx conflict for key (1,FLAT8)056eac38 0989cb96:

@@ -8,7 +8,7 @@
    pair: Logs; Debug log
 
 
-These are MySQL system variables introduced by wsrep API patch v0.8. All variables are global except where marked by **L**.
+These are MySQL system variables introduced by wsrep API patch v0.8. All variables are global except where marked by an **S**, for session variables.
 
 
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
@@ -18,7 +18,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | <wsrep_auto_increment_control>`       |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_causal_reads              | ``OFF``                            | 1                    | 3.6                |          |
-| <wsrep_causal_reads>` :sup:`L`        |                                    |                      |                    |          |
+| <wsrep_causal_reads>` :sup:`S`        |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_certify_nonPK             | ``ON``                             | 1                    |                    |          |
 | <wsrep_certify_nonPK>`                |                                    |                      |                    |          |
@@ -53,6 +53,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_load_data_splitting       | ``ON``                             |                      |                    |          |
 | <wsrep_load_data_splitting>`          |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
+| :ref:`wsrep_log_conflicts             | ``OFF``                            |                      |                    |          |
+| <wsrep_log_conflicts>`                |                                    |                      |                    |          |
++---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_max_ws_rows               | ``128K``                           | 1                    |                    |          |
 | <wsrep_max_ws_rows>`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
@@ -72,7 +75,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | <wsrep_notify_cmd>`                   |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_on                        | ``ON``                             | 1                    |                    |          |
-| <wsrep_on>` :sup:`L`                  |                                    |                      |                    |          |
+| <wsrep_on>` :sup:`S`                  |                                    |                      |                    |          |
 +---------------------------------------+------------------------------------+----------------------+--------------------+----------+
 | :ref:`wsrep_OSU_method                | ``TOI``                            | Patch version 3      |                    |          |
 | <wsrep_OSU_method>`                   |                                    | (5.5.17-22.3)        |                    |          |
@@ -152,7 +155,7 @@ Enforce strict cluster-wide ``READ COMMITTED`` semantics on non-transactional re
 +--------------------+---------+---------+------------+------------+
 | Default            | Scope   | Dynamic | Introduced | Deprecated |
 +====================+=========+=========+============+============+
-| ``OFF``            | Local   |         | 1          | 3.6        |
+| ``OFF``            | Session |         | 1          | 3.6        |
 +--------------------+---------+---------+------------+------------+
 
 
@@ -193,7 +196,7 @@ For example:
 
 .. code-block:: ini
 
-		wsrep_cluster_address="gcomm://192.168.0.1:4567?gmcast.listen_addr=0.0.0.0:5678"
+   wsrep_cluster_address="gcomm://192.168.0.1:4567?gmcast.listen_addr=0.0.0.0:5678"
 
 Changing this variable in runtime will cause the node to close connection to the current cluster (if any), and reconnect to the new address. (However, doing this at runtime may not be possible for all SST methods.) As of Galera Cluster 23.2.2, it is possible to provide a comma separated list of other nodes in the cluster as follows:
 
@@ -413,6 +416,28 @@ Splitting ``LOAD DATA`` commands into more manageable units avoids problems with
 +--------------------+---------+---------+------------+------------+
 
 
+.. rubric:: ``wsrep_log_conflicts``
+.. _`wsrep_log_conflicts`:
+.. index::
+   pair: Parameters; wsrep_log_conflicts
+
+Enables the logging of additional information about conflicts.
+
+.. code-block:: ini
+
+   wsrep_log_conflicts=ON
+
+In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB or Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems. The additional information includes the table and schema where the conflict occurred, as well as the actual values for the keys that produced the conflict.
+
+.. seealso:: In addition to the :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` parameter, you can also use the wsrep Provider option :ref:`cert.log_conflicts <cert.log_Conflicts>`.
+	     
++---------+--------+---------+------------+------------+
+| Default | Scope  | Dynamic | Introduced | Deprecated |
++=========+========+=========+============+============+
+| ``OFF`` | Global | No      |            |            |
++---------+--------+---------+------------+------------+	     
+
+
 
 .. rubric:: ``wsrep_max_ws_rows``
 .. _`wsrep_max_ws_rows`:
@@ -460,14 +485,31 @@ The maximum allowed write-set size is ``2G``.
 .. index::
    pair: Parameters; wsrep_node_address
 
-An option to explicitly specify the network address of the node, if autoguessing for some reason does not produce desirable results (multiple network interfaces, NAT, etc.)
+Defines the IP address and port of the node.
 
 .. code-block:: ini
 
    wsrep_node_address = 192.168.1.1:4567
 
+The node needs to pass an IP address and port number to the :term:`Galera Replication Plugin`, where it gets used as the base address in cluster communications.  By default, the node pulls the address of the first network interface and the default port, which typically is the address of ``eth0`` with port ``4567``.
 
-By default, the address of the first network interface (``eth0``) and the default port ``4567`` are used. The ``<address>`` and ``:port`` will be passed to the Galera replication Plugin to be used as a base address in its communications. It will also be used to derive the default values for parameters :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` and :ref:`ist.recv_addr <ist.recv_addr>`.
+While this default behavior is often sufficient, there on situations where the auto-guessing produces unreliable results.  For instance,
+
+- Servers with multiple network interfaces.
+
+- Servers that run multiple nodes.
+  
+- Network Address Translation (NAT).
+
+- Clusters with nodes in more than one region.
+  
+- Container deployments, such as with Docker and jails.
+
+- Cloud deployments, such as with Amazon EC2 and OpenStack.
+
+In cases such as these, you need to provide an explicit value for this parameter.  For example, in order to run Galera Cluster on Amazon EC2, you need to use the global DNS name instead of the local IP address.
+
+.. seealso:: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
 
 
 +----------------------------+---------+---------+------------+------------+
@@ -575,7 +617,7 @@ Use write-set replication. When switched ``OFF``, no changes made in this sessio
 +------------------------+---------+---------+------------+------------+
 | Default                | Scope   | Dynamic | Introduced | Deprecated |
 +========================+=========+=========+============+============+
-| ``ON``                 | Local   |         | 1          |            |
+| ``ON``                 | Session |         | 1          |            |
 +------------------------+---------+---------+------------+------------+
 
 
@@ -600,7 +642,7 @@ alternative methods:
 +------------------------+---------+---------+---------------+------------+
 | Default                | Scope   | Dynamic | Introduced    | Deprecated |
 +========================+=========+=========+===============+============+
-| ``TOI``                | Local   |         | Patch v.3     |            |
+| ``TOI``                | Session |         | Patch v.3     |            |
 |                        |         |         | (5.5.17-22.3) |            |
 +------------------------+---------+---------+---------------+------------+
 
