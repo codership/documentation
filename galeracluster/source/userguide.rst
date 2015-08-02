@@ -24,7 +24,6 @@ How do you recover failed nodes or a :term:`Primary Component`?  How to secure c
    schemaupgrades
    upgrading
    scriptablesst
-   loadbalancing
    arbitrator
    backingupthecluster
 ---------------
@@ -35,6 +34,7 @@ Deployment
    :maxdepth: 2
    
    deploymentvariants
+   loadbalancing
    docker
       
 ------------------------------
