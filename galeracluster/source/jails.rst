@@ -33,6 +33,7 @@ Since jails managed through ``ezjail`` rely on a base system to which they are t
 -------------------------
 Creating a Jail
 -------------------------
+.. _`jail-create`:
 
 ezjail-admin create
 
@@ -45,8 +46,9 @@ ezjail-admin console
 ----------------------
 Configuring Firewall
 ----------------------
+.. _`jails-config-firewall`:
 
-
+Stuff
 
 
 
