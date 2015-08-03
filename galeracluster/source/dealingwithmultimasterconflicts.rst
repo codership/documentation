@@ -51,7 +51,7 @@ There are a few techniques available to you in logging and monitoring for proble
      +-----------------------+-------+
      | Variable_name         | Value |
      +-----------------------+-------+
-     | wserp_local_bf_aborts | 333   |
+     | wsrep_local_bf_aborts | 333   |
      +-----------------------+-------+
           
      SHOW STATUS LIKE 'wsrep_local_cert_failures';
@@ -59,7 +59,7 @@ There are a few techniques available to you in logging and monitoring for proble
      +---------------------------+-------+
      | Variable_name             | Value |
      +---------------------------+-------+
-     | wserp_local_cert_failures | 333   |
+     | wsrep_local_cert_failures | 333   |
      +---------------------------+-------+
      
   :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` gives the total number of local transactions aborted by slave transactions while in execution.  :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` gives the total number of transactions that have failed certification tests.
