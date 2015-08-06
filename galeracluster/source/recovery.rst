@@ -36,19 +36,19 @@ If no messages were received from the node for a period greater than the :ref:`e
 
 The relationship between these option values is:
 
-+---------------------------------+------+---------------------------------+
-| :ref:`evs.keepalive_period      | |<=| | :ref:`evs.inactive_check_period |
-| <evs.keepalive_period>`         |      | <evs.inactive_check_period>`    |
-+---------------------------------+------+---------------------------------+
-| :ref:`evs.inactive_check_period | |<=| | :ref:`evs.suspect_timeout       |
-| <evs.inactive_check_period>`    |      | <evs.suspect_timeout>`          |
-+---------------------------------+------+---------------------------------+
-| :ref:`evs.suspect_timeout       | |<=| | :ref:`evs.inactive_timeout      |
-| <evs.suspect_timeout>`          |      | <evs.inactive_timeout>`         |
-+---------------------------------+------+---------------------------------+
-| :ref:`evs.inactive_timeout      | |<=| | :ref:`evs.consensus_timeout     |
-| <evs.inactive_timeout>`         |      | <evs.consensus_timeout>`        |
-+---------------------------------+------+---------------------------------+
++---------------------------------+-------------+---------------------------------+
+| :ref:`evs.keepalive_period      | :math:`\leq`| :ref:`evs.inactive_check_period |
+| <evs.keepalive_period>`         |             | <evs.inactive_check_period>`    |
++---------------------------------+-------------+---------------------------------+
+| :ref:`evs.inactive_check_period | :math:`\leq`| :ref:`evs.suspect_timeout       |
+| <evs.inactive_check_period>`    |             | <evs.suspect_timeout>`          |
++---------------------------------+-------------+---------------------------------+
+| :ref:`evs.suspect_timeout       | :math:`\leq`| :ref:`evs.inactive_timeout      |
+| <evs.suspect_timeout>`          |             | <evs.inactive_timeout>`         |
++---------------------------------+-------------+---------------------------------+
+| :ref:`evs.inactive_timeout      | :math:`\leq`| :ref:`evs.consensus_timeout     |
+| <evs.inactive_timeout>`         |             | <evs.consensus_timeout>`        |
++---------------------------------+-------------+---------------------------------+
    
 
 .. note:: Unresponsive nodes that fail to send messages or heartbeat beacons on time |---| for instance, in the event of heavy swapping |---| may also be pronounced failed.  This prevents them from locking up the operations of the rest of the cluster.  If you find this behavior undesirable, increase the timeout parameters.
@@ -91,5 +91,3 @@ When the node fails while using ``mysqldump``, restarting may require you to man
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
 
-.. |<=|    unicode:: U+2264 .. Less Than or Equal To
-   :trim:
