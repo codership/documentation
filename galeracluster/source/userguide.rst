@@ -37,8 +37,7 @@ Deployment
    
    deploymentvariants
    loadbalancing
-   docker
-   jails
+   containers
       
 ------------------------------
 Monitor

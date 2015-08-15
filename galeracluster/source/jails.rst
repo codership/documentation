@@ -192,7 +192,7 @@ The specific build process that you need to follow depends on the database serve
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-Node Configuration
+Configuration File
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. _`jails-node-config`:
 
