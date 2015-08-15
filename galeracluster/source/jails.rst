@@ -1,5 +1,5 @@
 =========================
-Using Jails on FreeBSD
+Using Jails
 =========================
 .. _`galera-jails`:
 
@@ -138,11 +138,9 @@ It is available for installation through ``pkg``.  Alternative, you can build it
 
    .. code-block:: console
    
-      # ezjail-admin create galera-node 'lo1|jail_IP_address'
+      # ezjail-admin create galera-node 'lo1|192.168.68.1'
 
-   This creates the particular jail for your node and links it to the ``lo1`` loopback interface and IP address.
-
-   Replace ``jail_IP_address`` with a local IP address for internal use.  Use the same address as you assigned in the firewall redirects for ``/etc/pf.conf`` above.
+   This creates the particular jail for your node and links it to the ``lo1`` loopback interface and IP address.  Replace the IP address with the local IP for internal use on your server.  It is the same address as you assigned in the firewall redirects above for ``/etc/pf.conf``.
 
    .. note:: Bear in mind that in the above command ``galera-node`` provides the hostname for the jail file system.  As Galera Cluster draws on the hostname for the default node name, you need to either use a unique jail name for each node, or manually set :ref:`wsrep_node_name <wsrep_node_name>` in the configuration file to avoid confusion.
 
@@ -188,10 +186,43 @@ Regardless of whether you are on the host system or working from within a jail, 
 
 The specific build process that you need to follow depends on the database server that you want to use:
 
-- Galera Cluster for MySQL :doc:`installmysqlsrc`.
-- Percona XtraDB Cluster :doc:`installxtradbsrc`.
-- MariaDB Galera Cluster :doc:`installmariadbsrc`.
+- :doc:`Galera Cluster for MySQL <installmysqlsrc>`
+- :doc:`Percona XtraDB Cluster <installxtradbsrc>`
+- :doc:`MariaDB Galera Cluster <installmariadbsrc>`
 
+
+^^^^^^^^^^^^^^^^^^^^^^^
+Node Configuration
+^^^^^^^^^^^^^^^^^^^^^^^
+.. _`jails-node-config`:
+
+In writing the configuration file, bear in mind that some parameters must be set differently than on the standard Galera Cluster node.  These are typically variables that draw their defaults from system configurations, which vary in the jail from the host system.
+
+- :ref:`wsrep_node_address <wsrep_node_address>`
+- :ref:`wsrep_node_name <wsrep_node_name>`
+
+.. code-block:: ini
+		
+   [mysqld]
+   user=mysql
+   #bind-address=0.0.0.0
+
+   # Cluster Options
+   wsrep_provider=/usr/lib/libgalera_smm.so
+   wsrep_cluster_address="gcomm://192.168.1.1, 192.168.1.2, 192.16.1.3"
+   wsrep_node_address="192.168.1.1"
+   wsrep_node_name="node1"
+   wsrep_cluster_name="example_cluster"
+   
+   # InnoDB Options
+   default_storage_engine=innodb
+   innodb_autoinc_lock_mode=2
+   innodb_flush_log_at_trx_commit=0
+
+   # SST
+   wsrep_sst_method=rsync
+
+Place the configuration in the jail file system at ``/etc/my.cnf``.
 
 
 
@@ -200,27 +231,20 @@ Starting the Cluster
 ---------------------------
 .. _`jails-galera-start`:
 
+When running the cluster from within jails, you create and manage the cluster in the same manner as you would in the standard deployment of Galera Cluster on FreeBSD.  The exception being that you must obtain console access to the node jail first.
 
-
-===========
-Old Jails
-===========
-
-While FreeBSD does provide a manual interface for creating and managing jails on your servers, ``jail(8)``, it can prove cumbersome in managing multiple instances per server.  The application ``ezjail`` manages this process, automating common tasks and using templates and symbolic links to reduce the need for disk space.  It is available in ports at ``sysutils/ezjail``.
-
-When you have ``ezjail`` installed on your system, you need to initialize the environment.  To do so, run the following command:
+To start the initial cluster node, run the following commands:
 
 .. code-block:: console
 
-   # ezjail-admin install -sp
+   # ezjail-admin console galera-node
+   # service mysql start --wsrep-new-cluster
 
-This creates the base file system for jails to use.  You can view it on the host system at ``/usr/jails``.  This creates a ``basejail``, which is the base operating system all jails use, as well as flavors, which contain additional configuration settings that you may want to use in particular instances.
-
-Since jails managed through ``ezjail`` rely on a base system to which they are tied through symbolic links, you can update all jails together using the following command:
+To start each additional node, run the following commands:
 
 .. code-block:: console
 
-   # ezjail-admin update
-
+   # ezjail-admin console galera-node
+   # service mysql start
 
 
