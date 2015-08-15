@@ -196,10 +196,11 @@ Node Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. _`jails-node-config`:
 
-In writing the configuration file, bear in mind that some parameters must be set differently than on the standard Galera Cluster node.  These are typically variables that draw their defaults from system configurations, which vary in the jail from the host system.
+For the most part, the configuration file for a node running in a jail is the same as when the node runs on a standard FreeBSD server.  But, there are some parameters that draw their defaults from the base system.  These you need to set manually, as the jail is unable to access the host file system.
 
-- :ref:`wsrep_node_address <wsrep_node_address>`
-- :ref:`wsrep_node_name <wsrep_node_name>`
+- :ref:`wsrep_node_address <wsrep_node_address>` The node determines the default address from the IP address on the first network interface.  Jails cannot see the network interfaces on the host system.  You need to set this parameter to ensure that the cluster is given the correct IP address for the node.
+
+- :ref:`wsrep_node_name <wsrep_node_name>` The node determines the default name from the system hostname.  Jails have their own hostnames, distinct from that of the host system.  
 
 .. code-block:: ini
 		
@@ -222,8 +223,7 @@ In writing the configuration file, bear in mind that some parameters must be set
    # SST
    wsrep_sst_method=rsync
 
-Place the configuration in the jail file system at ``/etc/my.cnf``.
-
+If you are logged into the jail console, place the configuration file at ``/etc/my.cnf``.  If you are on the host system console, place it at ``/usr/jails/galera-node/etc/my.cnf``.  Replace ``galera-node`` in the latter with the name of the node jail.
 
 
 ---------------------------
@@ -247,4 +247,6 @@ To start each additional node, run the following commands:
    # ezjail-admin console galera-node
    # service mysql start
 
+Each node you start after the initial will attempt to establish network connectivity with the :term:`Primary Component` and begin syncing their database states into one another.
 
+   
