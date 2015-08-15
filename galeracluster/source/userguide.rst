@@ -26,9 +26,11 @@ How do you recover failed nodes or a :term:`Primary Component`?  How to secure c
    scriptablesst
    arbitrator
    backingupthecluster
+
 ---------------
 Deployment
 ---------------
+.. _`deployment`:
 
 .. toctree::
    :maxdepth: 2
@@ -36,6 +38,7 @@ Deployment
    deploymentvariants
    loadbalancing
    docker
+   jails
       
 ------------------------------
 Monitor
