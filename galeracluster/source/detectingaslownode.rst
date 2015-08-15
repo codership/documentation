@@ -31,7 +31,7 @@ There are two status variables used in finding slow nodes:
 
   .. code-block:: mysql
 
-     SHOW STATUS LIKE 'wresp_local_recv_queue_avg';
+     SHOW STATUS LIKE 'wsrep_local_recv_queue_avg';
 
      +----------------------------+---------+
      | Variable_name              | Value   |
