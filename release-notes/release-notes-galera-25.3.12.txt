@@ -20,5 +20,5 @@ by Codership (3.10):
 - Better error logging in case of SSL errors or misconfiguration (codership/galera#290)
 - The configuration in /etc/sysconfig/garb is now properly honored by the garbd systemd service (codership/galera#267)
 - Arbitrator service no longer starts automatically on package installation, giving the user the opportunity to configure it first (codership/galera#266)
-- Miscelanous fixes in the garb startup script (codership/galera#186)
+- Miscellaneous fixes in the garb startup script (codership/galera#186)
 
