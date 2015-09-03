@@ -12,7 +12,7 @@ Preparing the Server
 --------------------------
 .. _`jails-prep-serve`:
 
-Jails exist as isolated file systems within, but unaware of the host server.  In order to grant the node running within the jail network connectivity with the cluster, you need to configure the network interfaces and firewall to redirect from the host into the jail.
+Jails exist as isolated file systems within, but unaware of, the host server.  In order to grant the node running within the jail network connectivity with the cluster, you need to configure the network interfaces and firewall to redirect from the host into the jail.
 
 ^^^^^^^^^^^^^^^^^^^^^
 Network Configuration
@@ -25,7 +25,7 @@ To begin, create a second loopback interface for the jail.  this allows you to i
 
 To create a loopback interface, complete the following steps:
 
-#. Add the loopback interface to ``/etc/rc.conf``:
+#. Using your preferred text editor, add the loopback interface to ``/etc/rc.conf``:
 
    .. code-block:: ini
    
@@ -51,7 +51,9 @@ Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. _`jails-pf`:
 
-FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.  For jails, you can route traffic from external ports on the host system to internal ports within the jail's file system.  This allows the node running within the jail to function as though it were running on the host system.
+FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.  For jails, you can route traffic from external ports on the host system to internal ports within the jail's file system.  This allows the node running within the jail to have network access as though it were running on the host system.
+
+To enable PF and create rules for the node, complete the following steps:
 
 #. Using your preferred text editor, make the following additions to ``/etc/rc.conf``:
 
@@ -106,7 +108,9 @@ FreeBSD provides packet filtering support at the kernel level.  Using PF you can
 
       # service pf start
       # service pflog start
-		
+
+The server now uses PF to manage its firewall.  Network traffic directed at the four ports Galera Cluster uses is routed to the comparable ports within the jail.
+            
 .. seealso:: For more information on firewall configurations for FreeBSD, see :doc:`pf`.
    
 ----------------------
@@ -114,9 +118,11 @@ Creating the Node Jail
 ----------------------
 .. _`jail-creation`:
 
-While FreeBSD does provide a manual interface in ``jail(8)`` for creating and managing jails on your servers, it can prove cumbersome in managing multiple instances per server.  The application ``ezjail`` handles this process, automating common tasks and using templates and symbolic links to reduce the need for disk space.
+While FreeBSD does provide a manual interface for creating and managing jails on your server, (``jail(8)``), it can prove cumbersome in the event that you have multiple jails running on a server.
 
-It is available for installation through ``pkg``.  Alternative, you can build it through ports at ``sysutils/ezjail``.
+The application ``ezjail`` facilitates this process by automating common tasks and using templates and symbolic links to reduce the disk space usage per jail.  It is available for installation through ``pkg``.  Alternative, you can build it through ports at ``sysutils/ezjail``.
+
+To create a node jail with ``ezjail``, complete the following steps:
 
 #. Using your preferred text editor, add the following line to ``/etc/rc.conf``:
 
@@ -124,7 +130,7 @@ It is available for installation through ``pkg``.  Alternative, you can build it
 		   
       ezjail_enable="YES"
 
-   This enables ``ezjail`` on startup and allows you to start and stop jails through the ``service`` command.
+   This allows you to start and stop jails through the ``service`` command.
 
 #. Initialize the ``ezjail`` environment:
 
@@ -132,7 +138,9 @@ It is available for installation through ``pkg``.  Alternative, you can build it
 
       # ezjail-admin install -sp
 
-   This install the base jail system at ``/usr/jails/``.  It also installs a local build of the ports tree for your jails to use.
+   This install the base jail system at ``/usr/jails/``.  It also installs a local build of the ports tree within the jail.
+
+   .. note:: While the database server is not available for FreeBSD in ports or as a package binary, a port of the :term:`Galera Replication Plugin` is available at ``databases/galera``.
 
 #. Create the node jail.
 
@@ -167,11 +175,11 @@ The node jail is now running on your server.  You can view running jails using t
    --- ---- ------------- ------------ ----------------------
    DR  2    192.168.68.1  galera-node  /usr/jails/galera-node
 
-While on the host system, you can access and manipulate files and directories in the jail file system from ``/usr/jails/galera-node/``.  Additionally, you can enter the jail directly and manipulate processes running within.
+While on the host system, you can access and manipulate files and directories in the jail file system from ``/usr/jails/galera-node/``.  Additionally, you can enter the jail directly and manipulate processes running within using the following command:
  
 .. code-block:: console
 
-   root@FreeBSDHost:/usr/jails # ezjail-admin console galera-node1
+   root@FreeBSDHost:/usr/jails # ezjail-admin console galera-node
    root@galera-node:~ #
 
 When you enter the jail file system, note that the hostname changes to indicate the transition.
@@ -182,7 +190,7 @@ Installing Galera Cluster
 --------------------------
 .. _`jails-galera-install`:
 
-Regardless of whether you are on the host system or working from within a jail, currently there is no binary package or port available for installing Galera Cluster on FreeBSD.
+Regardless of whether you are on the host system or working from within a jail, currently, there is no binary package or port available to fully install Galera Cluster on FreeBSD.  You must build the database server from source code.  
 
 The specific build process that you need to follow depends on the database server that you want to use:
 
@@ -190,7 +198,15 @@ The specific build process that you need to follow depends on the database serve
 - :doc:`Percona XtraDB Cluster <installxtradbsrc>`
 - :doc:`MariaDB Galera Cluster <installmariadbsrc>`
 
+Due to certain Linux dependencies, the :term:`Galera Replication Plugin` cannot be built from source on FreeBSD.  Instead you can use the port at ``/usr/ports/databases/galera`` or install it from a binary package within the jail:
 
+.. code-block:: console
+
+   # pkg install galera
+
+This install the wsrep Provider file in ``/usr/local/lib``.  Use this path in the configuration file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
+
+  
 ^^^^^^^^^^^^^^^^^^^^^^^
 Configuration File
 ^^^^^^^^^^^^^^^^^^^^^^^
