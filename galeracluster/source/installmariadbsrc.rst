@@ -9,17 +9,16 @@ MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL
 .. seealso:: In the event that you built MariaDB Galera Cluster over an existing standalone instance of MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
-.. note:: This tutorial omits MariaDB authentication options for brevity.
 
 
 ---------------------------------
 Preparing the Server
 ---------------------------------
-.. _`installmariadb-prep-serve`:
+.. _`installmariadb-prep-server`:
 
 When building from source code, ``make`` cannot manage or install dependencies for either Galera Cluster or the build process itself.  You need to install these packages first.
 
-- For Debian-based distributions of Linux, you can run the following command:
+- For Debian-based distributions of Linux, if MariaDB is available in your repositories, you can run the following command:
 
   .. code-block:: console
 
@@ -31,14 +30,14 @@ When building from source code, ``make`` cannot manage or install dependencies f
 
      # yum-builddep MariaDB-server
 
-In the event htat neither command works for your system or that you use a different Linux distribution or FreeBSD, the following packages are required:
+In the event that neither command works for your system or that you use a different Linux distribution or FreeBSD, the following packages are required:
 
 - **MariaDB Database Server with wsrep API**: Git, CMake, GCC and GCC-C++, Automake, Autoconf, and Bison, as well as development releases of libaio and ncurses.
 
 - **Galera Replication Plugin**: SCons, as well as development releases of Boost, Check and OpenSSL.
 
+Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.  
 
-.. note:: Different systems may use different names for these packages or require additional packages.  Check with the package repositories and the documentation for your system.
      
 -----------------------------------------
 Building MariaDB Galera Cluster
@@ -60,26 +59,34 @@ The source code for MariaDB Galera Cluster is available through `GitHub <https:/
       # cd mariadb
       # git init
 
-#. For your local Git repository, add the web address for the MariaDB server on GitHub and fetch the source files.
+#. For your local Git repository, add the web address for the MariaDB server on GitHub.
 
    .. code-block:: console
 
       # git remote add origin https://github.com/mariadb/server
 
+#. Fetch the source files from the origin server, (that is, from GitHub).
+
+   .. code-block:: console
+
+      # git fetch origin
+      
 #. Switch the repository to the branch that you want to build.
+
+
+   MariaDB version 10.1 is packaged with Galera Cluster, prior to 10.1, branches that include Galera Cluster have the ``-galera`` suffix.  The main branches are:
+
+   .. warning:: MariaDB version 10.1 is in beta.
+   
+   - 10.1
+   - 10.0-galera
+   - 5.5-galera
 
    .. code-block:: console
 
       # git checkout -b 10.0-galera origin/10.0-galera
 
-   MariaDB version 10.1 is packaged with Galera Cluster, prior to 10.1, branches that include Galera Cluster have the ``-galera`` suffix.  The main branches are:
-
-   - 10.1
-   - 10.0-galera
-   - 5.5-galera
-
-   .. warning:: MariaDB version 10.1 is still in *beta*.
-		
+     
 You now have the source files for the MariaDB database server with the wsrep API needed to function as a Galera Cluster node.
 
 In addition to the database server, you also need the wsrep Provider, also known as the Galera Replicator Plugin.  In a separate directory run the following command:
@@ -95,6 +102,8 @@ Once Git finishes downloading the source files, you can start building the datab
 Building the Database Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`build-mariadb`:
+
+The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MariaDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from `GitHub <https://github.com>`_.  You can enable the patch through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
 To build the database server, run the following commands from the ``mariadb/`` directory:
 
@@ -118,13 +127,15 @@ Building the wsrep Provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`build-mariadb-galera`:
 
-To build the Galera Replication Plugin, run the following command from the ``galera/`` directory.
+The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.  
+
+To build the Galera Replication Plugin, run SCons from the ``galera/`` directory.
 
 .. code-block:: console
 
    # scons
 
-This process creates the wsrep Provider, (that is, the ``libgalera_smm.so`` file).  In your configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
+This process creates the Galera Replication Pluigin, (that is, the ``libgalera_smm.so`` file).  In your configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
 
 .. note:: For FreeBSD users, building the Galera Replication Plugin from source raises certain issues due to Linux dependencies.  You can mitgate these by using the ports build available at ``/usr/ports/databases/galera`` or by installing the binary package:
 
@@ -155,9 +166,9 @@ After the build completes, there are some additional steps that you must take in
       # cd /usr/local/mysql
       # ./scripts/mysql_install_db --user=mysql
 
-   This installs the database in the working directory, (that is, at ``/usr/local/mysql/data``).  If you would like to install it elsewhere or run it from a different directory, specify the desired path with the ``--basedir`` and ``--datadir`` options.
+   This installs the database in the working directory, (that is, at ``/usr/local/mysql/data``).  If you would like to install it elsewhere or run the script from a different directory, specify the desired paths with the ``--basedir`` and ``--datadir`` options.
 
-#. Change the user and group for the base directory.
+#. Change the user and group permissions for the base directory.
 
    .. code-block:: console
 
@@ -177,3 +188,6 @@ After the build completes, there are some additional steps that you must take in
 
 
 In addition to this procedure, bear in mind that any further customization variables you enabled during the build process, such as a nonstandard base or data directory, may require you to define additional parameters in the configuration file, (that is, ``my.cnf``).
+
+
+.. note:: This tutorial omits MariaDB authentication options for brevity.

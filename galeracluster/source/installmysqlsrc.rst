@@ -33,7 +33,7 @@ In the event that neither command works on your system or that you use a differe
 
 - **Galera Replication Plugin**: SCons, as well as development releases of Boost, Check and OpenSSL.
 
-.. note:: Different systems may use different names for these packages or additional build dependencies.  Check with the package repositories for your system.
+Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.  
 
 
 	  
@@ -42,14 +42,65 @@ Building Galera Cluster for MySQL
 --------------------------------------------
 .. `build-galera-mysql`:
 
-The source code for Galera Cluster for MySQL is available through `GitHub <https://github.com/codership/>`_.  You can download the source code using Git.  You need the MySQL database server with the wsrep API patch and the Galera Replicator Plugin.
+The source code for Galera Cluster for MySQL is available through `GitHub <https://github.com/codership/>`_.  You can download the source code from the website or directly using ``git``.  In order to build Galera Cluster, you need to download both the database server with the wsrep API patch and the :term:`Galera Replication Plugin`.
+
+To download the database server, complete the following steps:
+
+#. Create a directory for the MySQL database server source code.
+
+   .. code-block:: console
+
+      # mkdir mysql-wsrep
+
+#. From within that directory, initialize a Git repository.
+
+   .. code-block:: console
+
+      # cd mysql-wsrep/
+      # git init
+
+#. For your local Git repository, add the web address for the MySQL database server for Galera Cluster on GitHub.
+
+   .. code-block:: console
+
+      # git remote add origin https://github.com/codership/mysql-wsrep
+
+#. Fetch the source files from the origin server, (that is, GitHub).
+
+   .. code-block:: console
+
+      # git fetch origin
+
+#. Switch the repository to the branch that you want to build.
+
+   The main branches of Galera Cluster for MySQL are:
+
+   - 5.7
+   - 5.6
+   - 5.5
+
+   .. code-block:: console
+
+      # git checkout -b 5.6 origin/5.6
+
+  
+You now have the source files for the MySQL database server, including the wsrep API patch needed for it to function as a Galera Cluster node.
+
+In addition to the database server, you need the wsrep Provider, also known as the Galera Replication Plugin.  In a separator directory, run the following command:
 
 .. code-block:: console
 
-   $ git clone https://github.com/codership/mysql-wsrep.git
-   $ git clone https://github.com/codership/galera.git
+   # cd ..
+   # git clone https://github.com/codership/galera.git
 
-Once Git finishes downloading the source files, you can start building the database server and Galera Replicator plugin.  The ``git`` commands create directories for each at ``mysql-wsrep/`` and ``galera/``.
+Once Git finishes downloading the source files, you can start building the database server and the Galera Replication Plugin.  The above procedures created two directories: ``mysql-wsrep/`` for the database server source and for the Galera source ``galera/``
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Building the Database Server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`build-mysql`:
+
+The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MySQL, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from `GitHub <https://github.com/codership/mysql-wsrep>`_.  You can enable the patch through  the wsrep API, requires that you enable it through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
 To build the database server, run the following commands from the ``mysql-wsrep/`` directory:
 
@@ -67,15 +118,22 @@ To build the database server, run the following commands from the ``mysql-wsrep/
 
 	  This has the same effect as running the above commands with various build options pre-configured.  There are several build scripts available in the directory, select the one that best suits your needs.
 
-To build the Galera Replicator plugin, run the following command from the ``galera/`` directory:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Building the wsrep Provider
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`build-mysql-galera`:
+
+The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.  
+
+To build the Galera Replicator plugin, run SCons from the ``galera/`` directory:
 
 .. code-block:: console
 
    # scons
 
-This process creates the wsrep Provider, (that is, the ``libgalera_smm.so`` file).  In your configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
+This process creates the Galera Replication Plugin, (that is, the ``libgalera_smm.so`` file).  In your configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
 
-.. note:: For FreeBSD users, building the Galera Replicator Plugin from source raises certain issues due to Linux dependencies.  You can mitigate these by using the ports build at ``/usr/ports/databases/galera``.
+.. note:: For FreeBSD users, building the Galera Replicator Plugin from source raises certain Linux compatibility issues.  You can mitigate these by using the ports build at ``/usr/ports/databases/galera``.
 
 
 
