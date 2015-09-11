@@ -20,7 +20,7 @@
    Galera Replication Plugin
       Galera Replication Plugin is a general purpose replication plugin for any transactional system. It can be used to create a synchronous multi-master replication solution to achieve high availability and scale-out.
       
-      .. see also:: For more information, see :ref:`Galera Replication Plugin <galera-replication-plugin>` for more details.
+      .. seealso:: For more information, see :ref:`Galera Replication Plugin <galera-replication-plugin>` for more details.
 
    Global Transaction ID
       To keep the state identical on all nodes, the :term:`wsrep API` uses global transaction IDs (GTID), which are used to both:
@@ -105,7 +105,7 @@
       See :term:`Write-set Cache`.
       
    wsrep API
-      The *wsrep API* is a generic replication plugin interface for databases.  The API defines a set of application callbacks and replication plugin calls.
+      The wsrep API is a generic replication plugin interface for databases.  The API defines a set of application callbacks and replication plugin calls.
       
       .. seealso:: For more information, see :ref:`wsrep API <wsrep-api>`.
 
