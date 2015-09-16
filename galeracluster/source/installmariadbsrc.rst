@@ -44,47 +44,30 @@ Building MariaDB Galera Cluster
 -----------------------------------------
 .. _`build-galera-mariadb`:
 
-The source code for MariaDB Galera Cluster is available through `GitHub <https://github.com>`_. Using Git you can download the source code to build MariaDB and the Galera Replicator Plugin locally on your system.
+The source code for MariaDB Galera Cluster is available through GitHub_. Using Git you can download the source code to build MariaDB and the Galera Replicator Plugin locally on your system.
 
-#. Create a directory for the MariaDB database server source files.
-
-   .. code-block:: console
-
-      # mkdir mariadb
-
-#. From within that directory, initialize a Git repository.
+#. Clone the MariaDB database server repository.
 
    .. code-block:: console
 
-      # cd mariadb
-      # git init
+      # git clone https://github.com/mariadb/server
 
-#. For your local Git repository, add the web address for the MariaDB server on GitHub.
 
-   .. code-block:: console
-
-      # git remote add origin https://github.com/mariadb/server
-
-#. Fetch the source files from the origin server, (that is, from GitHub).
+#. Checkout the branch for the version that you want to use.
 
    .. code-block:: console
 
-      # git fetch origin
-      
-#. Switch the repository to the branch that you want to build.
+      # git checkout 10.0-galera
 
+   The main branches available for MariaDB Galera Cluster are:
 
-   MariaDB version 10.1 is packaged with Galera Cluster, prior to 10.1, branches that include Galera Cluster have the ``-galera`` suffix.  The main branches are:
+   - ``10.1``
+   - ``10.0-galera``
+   - ``5.5-galera``
 
-   .. warning:: MariaDB version 10.1 is in beta.
-   
-   - 10.1
-   - 10.0-galera
-   - 5.5-galera
+   Starting with version 10.1, MariaDB includes the wsrep API for Galera Cluster by default.
 
-   .. code-block:: console
-
-      # git checkout -b 10.0-galera origin/10.0-galera
+   .. warning:: MariaDB version 10.1 is still in beta.
 
      
 You now have the source files for the MariaDB database server with the wsrep API needed to function as a Galera Cluster node.
@@ -96,16 +79,16 @@ In addition to the database server, you also need the wsrep Provider, also known
    # cd ..
    # git clone https://github.com/codership/galera.git
 
-Once Git finishes downloading the source files, you can start building the database server and the Galera Replicator Plugin.  You now have the source files for the database server in a ``mariadb/`` directory and the Galera source files in ``galera/``.
+Once Git finishes downloading the source files, you can start building the database server and the Galera Replicator Plugin.  You now have the source files for the database server in a ``server/`` directory and the Galera source files in ``galera/``.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the Database Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`build-mariadb`:
 
-The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MariaDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from `GitHub <https://github.com>`_.  You can enable the patch through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
+The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MariaDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
-To build the database server, run the following commands from the ``mariadb/`` directory:
+To build the database server, ``cd`` into the ``server/`` directory and run the following commands:
 
 .. code-block:: console
 
@@ -118,7 +101,7 @@ To build the database server, run the following commands from the ``mariadb/`` d
 
 	  .. code-block:: console
 
-	     # ./BUILD/compile-pentium64-max
+	     # ./BUILD/compile-pentium64-wsrep
 
 	  This has the same effect as running the above commands with various build options pre-configured.  There are several build scripts available in the directory, select the one that best suits your needs.
 
@@ -129,13 +112,13 @@ Building the wsrep Provider
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.  
 
-To build the Galera Replication Plugin, run SCons from the ``galera/`` directory.
+To build the Galera Replication Plugin, ``cd`` into the ``galera/`` directory and run SCons.
 
 .. code-block:: console
 
    # scons
 
-This process creates the Galera Replication Pluigin, (that is, the ``libgalera_smm.so`` file).  In your configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
+This process creates the Galera Replication Pluigin, (that is, the ``libgalera_smm.so`` file).  In your ``my.cnf`` configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
 
 .. note:: For FreeBSD users, building the Galera Replication Plugin from source raises certain issues due to Linux dependencies.  You can mitgate these by using the ports build available at ``/usr/ports/databases/galera`` or by installing the binary package:
 
@@ -191,3 +174,5 @@ In addition to this procedure, bear in mind that any further customization varia
 
 
 .. note:: This tutorial omits MariaDB authentication options for brevity.
+
+.. _GitHub: https://github.com

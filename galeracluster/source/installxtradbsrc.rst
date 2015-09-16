@@ -42,44 +42,24 @@ Building Percona XtraDB Cluster
 ---------------------------------
 .. _`build-percona-xtradb`:
 
-The source code for Percona XtraDB Cluster is available through `GitHub <https://github.com>`_.  Using Git you can download the source to build both Percona XtraDB Cluster and the Galera Replication Plugin locally on your system.
+The source code for Percona XtraDB Cluster is available through GitHub_.  Using Git you can download the source to build both Percona XtraDB Cluster and the Galera Replication Plugin locally on your system.
 
-#. Create a directory for the Percona XtraDB database server source files.
-
-   .. code-block:: console
-
-      # mkdir percona
-
-#. From with that directory, initialize a Git repository.
+#. Clone the Percona XtraDB Cluster database server.
 
    .. code-block:: console
 
-      # cd percona
-      # git init
+      # git clone https://github.com/percona/percona-xtradb-cluster
 
-#. For your local Git repository, add the web address for the Percona XtraDB Cluster on GitHub.
-
-   .. code-block:: console
-
-      # git remote add origin https://github.com/percona/percona-xtradb-cluster
-
-#. Fetch the source files from the origin server, (that is, from GitHub).
+#. Checkout the branch for the version that you want to use.
 
    .. code-block:: console
+		   
+      # git checkout 5.6
 
-      # git fetch origin
-      
-#. Switch the repository to the branch that you want to build.
+   The main branches available for Percona XtraDB Cluster are:
 
-   The main branches available include:
-
-   - 5.6
-   - 5.5
-
-   .. code-block:: console
-
-      # git checkout -b 5.6 origin/5.6
-
+   - ``5.6``
+   - ``5.5``
 
 You now have the source files for the Percona XtraDB Cluster database server, set to the branch of development that you want to build.
 
@@ -90,16 +70,16 @@ In addition to the database server, you also need the wsrep Provider, also known
    # cd ..
    # git clone https://github.com/codership/galera.git
 
-Once Git finishes downloading the source file,s you can start building the database server and the Galera Replication Plugin.  You now have the source file for the database server in a ``percona/`` and the Galera source files in ``galera/``.
+Once Git finishes downloading the source file,s you can start building the database server and the Galera Replication Plugin.  You now have the source file for the database server in a ``percona-xtradb-cluster/`` and the Galera source files in ``galera/``.
      
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the Database Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`build-percona`:
 
-The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of Percona XtraDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from `GitHub <https://github.com/percona/percona-xtradb-cluster>`_.  You can enable the patch through  the wsrep API, requires that you enable it through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
+The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of Percona XtraDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through  the wsrep API, requires that you enable it through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
-To build the database server, run the following commands from the ``percona/`` directory:
+To build the database server, ``cd`` into the ``percona-xtradb-cluster`` directory and run the following commands:
 
 .. code-block:: console
 
@@ -111,7 +91,7 @@ To build the database server, run the following commands from the ``percona/`` d
 
 	  .. code-block:: console
 
-	     # ./BUILD/compile-pentium64-wsrep
+	     # ./BUILD/compile-pentium64
 
 	  This has the same effect as running the above commands with various build options pre-configured.  There are several build scripts available in the ``BUILD/`` directory.  Select the one that best suits your nees.
 
@@ -123,13 +103,13 @@ Building the wsrep Provider
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.  
 
-To build the Galera Replication Plugin, run SCons from the ``galera//`` directory.
+To build the Galera Replication Plugin, ``cd`` into the ``galera/`` directory and run SCons.
 
 .. code-block:: console
 
    # scons
 
-This process creates the Galera Replication Plugin, (that is, the ``libgalera_smm.so`` file).  In your configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
+This process creates the Galera Replication Plugin, (that is, the ``libgalera_smm.so`` file).  In your ``my.cnf`` configuration file, you need to define the path to this file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
 
 .. note:: For FreeBSD users, building the Galera Replication Plugin from sources raises certain Linux compatibility issues.  You can mitigate these by using the ports build available at ``/usr/ports/databases/galera`` or by install the binary package:
 
@@ -187,3 +167,4 @@ In addition to this procedure, bear in mind that any further customization varia
 
 .. note:: This tutorial omits MariaDB authentication options for brevity.
    
+.. _GitHub: https://github.com
