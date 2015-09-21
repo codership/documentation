@@ -18,6 +18,9 @@ Galera Cluster employs four isolation levels, which are in ascending order:
 - :ref:`REPEATABLE-READ <repeatable-read>`
 - :ref:`SERIALIZABLE <serializable>`
 
+.. warning:: When using Galera Cluster in master-slave mode, all four levels are available to you, to the extend that MySQL supports it.  In multi-master mode, however, you can only use the ``REPEATABLE-READ`` level.
+  
+  
 ^^^^^^^^^^^^^^^^^^^^^^^^
 READ-UNCOMMITTED
 ^^^^^^^^^^^^^^^^^^^^^^^^
