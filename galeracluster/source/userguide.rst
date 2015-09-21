@@ -24,18 +24,20 @@ How do you recover failed nodes or a :term:`Primary Component`?  How to secure c
    schemaupgrades
    upgrading
    scriptablesst
-   loadbalancing
    arbitrator
    backingupthecluster
+
 ---------------
 Deployment
 ---------------
+.. _`deployment`:
 
 .. toctree::
    :maxdepth: 2
    
    deploymentvariants
-   docker
+   loadbalancing
+   containers
       
 ------------------------------
 Monitor
