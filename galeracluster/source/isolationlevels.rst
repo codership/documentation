@@ -3,7 +3,15 @@
 ======================
 .. _`isolation-levels`:
 
-Galera Cluster handles transactions in isolation.  These isolation levels guarantee that the nodes process transactions in a reliable manner.
+Galera Cluster handles transactions in "isolation". This isolation guarantees that the cluster processes transactions in a reliable manner.
+
+Before going into details about possible isolation levels which can be set for a client session in Galera Cluster it is important to make a distinction between single node and global cluster transaction isolation. Individual cluster nodes can provide any isolation level *to the extent* it is supported by MySQL/InnoDB. However isolation level *between* the nodes in the cluster is determined by certification protocol and is always ``SNAPSHOT`` isolation level, which is *not supported* by MySQL/InnoDB. That means that transactions issued on different nodes may not be isolated *identically* to transactions issued on the same node.
+
+The isolation level that yields identical outcomes regardless of transaction origin on cluster is ``READ COMMITTED``.
+
+The highest MySQL-supported isolation level that may be provided cluster-wide is ``REPEATABLE READ``, which is also the default isolation level in MySQL/InnoDB. However for transactions issued on different nodes it is also strengthened by the "first committer wins" rule, whereas for transactions issued on the same node this rule does not hold (as per original MySQL/InnoDB behavior). This makes for different outcomes depending on transaction origin, but in either case it is no weaker than the ``REPEATABLE READ`` on a standalone MySQL/InnoDB.
+
+Data consistency between the nodes is always guaranteed regardless of the isolation level chosen by client.
 
 -------------------------------
 Understanding Isolation Levels
@@ -14,7 +22,7 @@ Isolation ensures that concurrently running transactions do not interfere with e
 Galera Cluster employs four isolation levels, which are in ascending order:
 
 - :ref:`READ-UNCOMMITTED <read-uncommitted>`
-- :ref:`READ-COMMITED <read-committed>`
+- :ref:`READ-COMMITTED <read-committed>`
 - :ref:`REPEATABLE-READ <repeatable-read>`
 - :ref:`SERIALIZABLE <serializable>`
 
