@@ -3,7 +3,7 @@
 ======================
 .. _`isolation-levels`:
 
-Galera Cluster handles transactions in "isolation". This isolation guarantees that the cluster processes transactions in a reliable manner. If the transactions were not isolated, one transaction could modify data that other transactions are reading, which would lead to data inconsistency.
+In database system concurrent transactions are processed in "isolation" from each other. The level of isolation determines how transactions can affect each other. 
 
 -----------------------------------------------------
 Intra-Node vs. Inter-Node Isolation in Galera Cluster
