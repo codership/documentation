@@ -3,7 +3,7 @@
 ======================
 .. _`isolation-levels`:
 
-In database system concurrent transactions are processed in "isolation" from each other. The level of isolation determines how transactions can affect each other. 
+In a database system, concurrent transactions are processed in "isolation" from each other. The level of isolation determines how transactions can affect each other. 
 
 -----------------------------------------------------
 Intra-Node vs. Inter-Node Isolation in Galera Cluster
@@ -17,12 +17,12 @@ Overall isolation levels that are supported cluster-wide are
 - :ref:`READ-COMMITTED <read-committed>`
 - :ref:`REPEATABLE-READ <repeatable-read>`
 
-However for transactions issued on different nodes isolation is also strengthened by the "first committer wins" rule, which eliminates the "lost update anomaly" inherent to these levels, whereas for transactions issued on the same node this rule does not hold (as per original MySQL/InnoDB behavior). This makes for different outcomes depending on transaction origin (transaction issued on the same node may succeed, whereas the same transaction issued on another node would fail), but in either case it is no weaker than that isolation level on a standalone MySQL/InnoDB.
+For transactions issued on different nodes, isolation is also strengthened by the "first committer wins" rule, which eliminates the "lost update anomaly" inherent to these levels, whereas for transactions issued on the same node this rule does not hold (as per original MySQL/InnoDB behavior). This makes for different outcomes depending on transaction origin (transaction issued on the same node may succeed, whereas the same transaction issued on another node would fail), but in either case it is no weaker than that isolation level on a standalone MySQL/InnoDB.
 
 :ref:`SERIALIZABLE <serializable>`
 isolation level is honored only between transactions issued on the same node and thus should be avoided.
 
-Data consistency between the nodes is always guaranteed regardless of the isolation level chosen by the client. However the client logic may break if it relies on the isolation level which is not not supported in the given configuration.
+Data consistency between the nodes is always guaranteed regardless of the isolation level chosen by the client. However the client logic may break if it relies on an isolation level which is not not supported in the given configuration.
 
 
 -------------------------------
