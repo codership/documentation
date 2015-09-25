@@ -37,16 +37,16 @@ If no messages were received from the node for a period greater than the :ref:`e
 The relationship between these option values is:
 
 +---------------------------------+------+---------------------------------+
-| :ref:`evs.keepalive_period      | |<=| | :ref:`evs.inactive_check_period |
+| :ref:`evs.keepalive_period      |  <=  | :ref:`evs.inactive_check_period |
 | <evs.keepalive_period>`         |      | <evs.inactive_check_period>`    |
 +---------------------------------+------+---------------------------------+
-| :ref:`evs.inactive_check_period | |<=| | :ref:`evs.suspect_timeout       |
+| :ref:`evs.inactive_check_period |  <=  | :ref:`evs.suspect_timeout       |
 | <evs.inactive_check_period>`    |      | <evs.suspect_timeout>`          |
 +---------------------------------+------+---------------------------------+
-| :ref:`evs.suspect_timeout       | |<=| | :ref:`evs.inactive_timeout      |
+| :ref:`evs.suspect_timeout       |  <=  | :ref:`evs.inactive_timeout      |
 | <evs.suspect_timeout>`          |      | <evs.inactive_timeout>`         |
 +---------------------------------+------+---------------------------------+
-| :ref:`evs.inactive_timeout      | |<=| | :ref:`evs.consensus_timeout     |
+| :ref:`evs.inactive_timeout      |  <=  | :ref:`evs.consensus_timeout     |
 | <evs.inactive_timeout>`         |      | <evs.consensus_timeout>`        |
 +---------------------------------+------+---------------------------------+
    
