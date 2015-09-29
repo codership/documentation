@@ -50,6 +50,7 @@ There are three approaches to monitoring cluster activity and replication health
    :maxdepth: 2
 
    monitoringthecluster
+   log
    notificationcmd
 
 .. note:: You can also use Nagios for monitoring Galera Cluster.  For more information, see `Galera Cluster Nagios Plugin <http://www.fromdual.com/galera-cluster-nagios-plugin-en>`_.
