@@ -91,13 +91,6 @@ To build the database server, ``cd`` into the ``mysql-wsrep/`` directory and run
    # make
    # make install
 
-.. note:: In addition to compiling through ``cmake`` and ``make``, there are also a number of build scripts in the ``BUILD/`` directory, which you may find more convenient to use.  For example, 
-
-	  .. code-block:: console
-
-	     # ./BUILD/compile-pentium64
-
-	  This has the same effect as running the above commands with various build options pre-configured.  There are several build scripts available in the directory, select the one that best suits your needs.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the wsrep Provider
