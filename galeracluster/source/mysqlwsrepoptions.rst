@@ -113,7 +113,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_sync_wait                 | ``0``                              | 3.6          |            | Yes    |
 | <wsrep_sync_wait>`                    |                                    |              |            |        |
 +---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_ws_persistency            |                                    |              |            |        |
+| :ref:`wsrep_ws_persistency            |                                    |              | 0.8        |        |
 | <wsrep_ws_persistency>`               |                                    |              |            |        |
 +---------------------------------------+------------------------------------+--------------+------------+--------+
 
@@ -1608,10 +1608,12 @@ Defines whether the node stores write-sets locally for debugging.
 |                         +---------------------+-----------------------------------+
 |                         | *Default Value:*    |                                   |
 +-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
+| **Support**             | *Introduced:*       |                                   |
+|                         +---------------------+-----------------------------------+
+|                         | *Deprecated:*       | 0.8                               |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether the node stores write-sets locally for debugging purposes.  It is not used in 0.8.
+This parameter defines whether the node stores write-sets locally for debugging purposes.  
 
 .. code-block:: mysql
 
