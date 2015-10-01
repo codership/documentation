@@ -35,14 +35,7 @@ Additional Log Files
 --------------------------
 .. _`gra.log`:
 
-Whenever the node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.  You can view these logs using the ``mysqlbinlog`` utility.
-
-For example,
-
-.. code-block:: console
-
-   # mysqlbinlog GRA_1_9356.log
-   
+Whenever the node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``. 
 
 
 
