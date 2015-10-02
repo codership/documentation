@@ -27,7 +27,7 @@ For Ubuntu, instead run this command:
 
 .. code-block:: console
 
-   $ sudo apt-get install software-properties
+   $ sudo apt-get install software-properties-common
 
 In the event that you use a different Debian-based distribution and neither of these commands work, consult your distribution's package listings for the appropriate package name.
    
