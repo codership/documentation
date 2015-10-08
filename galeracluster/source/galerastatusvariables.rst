@@ -693,7 +693,8 @@ The total time spent in a paused state measured in nanoseconds.
 .. index::
    pair: Status Variables; wsrep_flow_control_recv
 
-Number of ``FC_PAUSE`` events received since the last status query, including those sent by this node. 
+Returns the number of ``FC_PAUSE`` events the node has received, including those the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
+
 
 .. code-block:: mysql
 
@@ -719,7 +720,7 @@ Number of ``FC_PAUSE`` events received since the last status query, including th
 .. index::
    pair: Status Variables; wsrep_flow_control_sent
 
-Number of ``FC_PAUSE`` events sent since the last status query. 
+Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
 
 .. code-block:: mysql
 
