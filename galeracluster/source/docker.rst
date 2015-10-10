@@ -19,7 +19,7 @@ Images are the containers that Docker has available to run.  There are a number 
 
 When Docker builds a new image, it sources a ``Dockerfile`` to determine the steps that it needs to take in order to generate the image that you want to use. What this means that you can script the installation and configuration process: loading the needed configuration files, running updates and installing packages when the image is built through a single command.  
 
-.. code-block:: docker
+.. code-block:: Dockerfile
 
    # Galera Cluster Dockerfile
    FROM ubuntu:14.04

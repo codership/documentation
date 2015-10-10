@@ -192,20 +192,23 @@ htmlhelp_basename = 'galeradoc'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    #'papersize': 'letterpaper',
+    "papersize": "letterpaper",
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    'pointsize': '10pt',
+
+    # Transitions
+    #'transistion': '\n\n\\bigskip\n\n'
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'galera.tex', 'galera Documentation',
-   'Codership Oy', 'manual'),
+  ('index', 'galera.tex', 'Galera Documentation',
+   'Codership Oy', 'sphinxmanual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -214,10 +217,10 @@ latex_documents = [
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-#latex_use_parts = False
+latex_use_parts = True
 
 # If true, show page references after internal links.
-#latex_show_pagerefs = False
+latex_show_pagerefs = True
 
 # If true, show URL addresses after external links.
 #latex_show_urls = False
@@ -234,7 +237,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'galera', 'galera Documentation',
+    ('index', 'galera', 'Galera Documentation',
      ['Codership Oy'], 1)
 ]
 
@@ -248,7 +251,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'galera', 'galera Documentation',
+  ('index', 'galera', 'Galera Documentation',
    'Codership Oy', 'galera', 'One line description of project.',
    'Miscellaneous'),
 ]
