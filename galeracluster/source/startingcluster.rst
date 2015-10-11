@@ -53,7 +53,7 @@ For systems that use ``systemd``, instead use this command:
 
 This starts ``mysqld`` on the node.
 
-.. warning:: Only use the ``--wsrep-new-cluster`` argument when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
+.. note:: **Warning**: Only use the ``--wsrep-new-cluster`` argument when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
 
 
 Once the node starts the database server, check that startup was successful by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  In the database client, run the following query:

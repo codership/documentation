@@ -34,7 +34,7 @@ There are two solutions available to you:
   The node resumes processing updates and it will continue to do so, even in the event that it suspects a split-brain situation.
 
 
-  .. warning:: Enabling :ref:`pc.ignore_sb <pc.ignore_sb>` is dangerous in a multi-master setup, due to the aforementioned risk for split-brain situations.  However, it does simplify things in master-slave clusters, (especially in cases where you only use two nodes).
+  .. note:: **Warning**: Enabling :ref:`pc.ignore_sb <pc.ignore_sb>` is dangerous in a multi-master setup, due to the aforementioned risk for split-brain situations.  However, it does simplify things in master-slave clusters, (especially in cases where you only use two nodes).
 
 In addition to the solutions provided above, you can avoid the situation entirely using Galera Arbitrator.  Galera Arbitrator functions as an odd node in quorum calculations.  Meaning that, if you enable Galera Arbitrator on one node in a two-node cluster, that node remains the Primary Component, even if the other node fails or loses network connectivity.
 

@@ -22,7 +22,7 @@ Using your preferred text editor, open ``wsrep.cnf`` file.  You can find it in `
 
 This provides authentication information that the node requires to establish connections. Use the same values for every node in your cluster.
 
-.. warning:: Use your own authentication parameters in place of ``wsrep_sst_user`` and ``password``.
+.. note:: **Warning**: Use your own authentication parameters in place of ``wsrep_sst_user`` and ``password``.
 
 --------------------------
 Granting SST Privileges

@@ -255,7 +255,7 @@ Table legend:
 
 Global variable for internal use. 
 
-.. warning:: Do not manually set this variable.
+.. note:: **Warning**: Do not manually set this variable.
 
 +-----------------------+---------+-----------+-------------+
 | Default Values        | Dynamic | Introduced | Deprecated |
@@ -273,7 +273,7 @@ Global variable for internal use.
 
 Global variable for internal use. 
 
-.. warning:: Do not manually set this variable.
+.. note:: **Warning**: Do not manually set this variable.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -910,7 +910,7 @@ Defines the maximum size for the ``malloc()`` store.  That is, how much :abbr:`R
 
    wsrep_provider_options="gcache.mem_size=0"
 
-.. warning:: This parameter is for use on systems with spare memory.  You should not use it otherwise, as it may lead to unexpected results.
+.. note:: **Warning**: This parameter is for use on systems with spare memory.  You should not use it otherwise, as it may lead to unexpected results.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |

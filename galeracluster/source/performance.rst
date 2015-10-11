@@ -133,7 +133,7 @@ You can use the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` statu
 
 This value essentially determines the number of write-sets that the node can apply in parallel on average.  
 
-.. warning:: Do not use a value for :ref:`wsrep_slave_threads <wsrep_slave_threads>` that is higher than the average given by the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable.
+.. note:: **Warning**: Do not use a value for :ref:`wsrep_slave_threads <wsrep_slave_threads>` that is higher than the average given by the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable.
 
 
 ------------------------------------

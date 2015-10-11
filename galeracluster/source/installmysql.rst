@@ -40,7 +40,7 @@ Once you have the Software Properties installed, you can enable the Codership re
       # apt-key adv --keyserver keyserver.ubuntu.com \
             --recv BC19DDBA
 
-#. Add the Codership repository to your sources list.  Using your preferred text editor, create ``/etc/apt/sources.list.d/galera.list``
+#. Add the Codership repository to your sources list.  Using your preferred text editor, create a `galera.list` file in the ``/etc/apt/sources.list.d/`` directory.
 
    .. code-block:: linux-config
 

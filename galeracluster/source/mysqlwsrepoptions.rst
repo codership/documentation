@@ -202,7 +202,7 @@ Enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on n
 		
 
 
-.. warning:: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
+.. note:: **Warning**: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
 
 
 
@@ -297,7 +297,7 @@ Changing this variable in runtime will cause the node to close connection to the
     
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. warning:: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line. For more information, see :doc:`startingcluster`. 
+.. note:: **Warning**: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line. For more information, see :doc:`startingcluster`. 
 
 
 .. code-block:: mysql
@@ -1463,7 +1463,7 @@ This parameter determines whether the node rejects blocking client sessions whil
 
 Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to tell whether the requested method is blocking or not.  You may also want to avoid querying the donor even with non-blocking state transfers.  As a result, when this parameter is enabled the donor node rejects queries regardless the state transfer and even if the initial request concerned a blocking-only transfer, (meaning, it also rejects during ``xtrabackup``).
 
-.. warning:: The ``mysqldump`` state transfer method does not work with this setting, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
+.. note:: **Warning**: The ``mysqldump`` state transfer method does not work with this setting, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
 
 .. code-block:: mysql
 
