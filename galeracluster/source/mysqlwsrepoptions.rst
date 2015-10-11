@@ -524,7 +524,7 @@ Defines whether or not the node participates in Flow Control.
 
 When a node receives more write-sets than it can apply, the transactions are placed in a received queue.  In the event that the node falls too far behind, it engages Flow Control.  The node takes itself out of sync with the cluster and works through the received queue until it reaches a more manageable size.
 
-.. seealso:: For more information on what Flow Control is and how to configure and manage it in your cluster, see :doc:`nodestates` and :doc:`managingfc`.
+.. note:: **See Also**: For more information on what Flow Control is and how to configure and manage it in your cluster, see :doc:`nodestates` and :doc:`managingfc`.
 
 When set to ``ON``, this parameter disables Flow Control for the node.  The node continues to receive write-sets and fall further behind the cluster.  The cluster does not wait for desynced nodes to catch up, even if it reaches the ``fc_limit`` value.
 
@@ -688,7 +688,7 @@ Defines whether the node logs additional information about conflicts.
 
 In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB or Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems.  
 
-.. seealso:: You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
+.. note:: **See Also**: You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
 
 The additional information includes the table and schema where the conflict occurred, as well as the actual values for the keys that produced the conflict.
 
@@ -824,7 +824,7 @@ While the default behavior is often sufficient, there are situations where this 
 In these cases, you need to provide an explicit value for this parameter, given that the auto-guess of the IP address does not produce the correct result.  
 
 
-.. seealso:: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
+.. note:: **See Also**: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
 
 In some cases, you may need to provide a different value.  For example, Galera Cluster running on Amazon EC2 requires that you use the global DNS name instead of the local IP address.
 
@@ -941,7 +941,7 @@ Defines the command the node runs whenever cluster membership or the state of th
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
-.. seealso:: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
+.. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
 
 When the node calls the command, it passes one or more arguments that you can use in configuring your custom notification script and how it responds to the change.  The options are:
 
@@ -1057,7 +1057,7 @@ DDL statements are non-transactional and as such do not replicate through write-
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
-.. seealso:: For more information on DDL statements and OSU methods, see :doc:`schemaupgrades`.
+.. note:: **See Also**: For more information on DDL statements and OSU methods, see :doc:`schemaupgrades`.
 
 .. code-block:: mysql
 
@@ -1136,7 +1136,7 @@ When the node loads the wsrep Provider, there are several configuration options 
 
 For example, you can use :ref:`gcache.size <gcache.size>` to define how large a write-set cache the node keeps or manage group communications timeouts.
 
-.. seealso:: For more information on the wsrep Provider options, see :doc:`galeraparameters`.
+.. note:: **See Also**: For more information on the wsrep Provider options, see :doc:`galeraparameters`.
 
 
 .. code-block:: mysql
@@ -1530,7 +1530,7 @@ In addition to the default scripts provided and supported by Galera Cluster, you
 
 Bear in mind, the cluster uses the same script to send and receive state transfers.  If you want to use a custom state transfer script, you need to place it on every node in the cluster.
 
-.. seealso:: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
+.. note:: **See Also**: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
 
 .. code-block:: mysql
 
@@ -1611,7 +1611,7 @@ Defines the node start position.
 
 This parameter defines the node start position.  It exists for the sole purpose of notifying the joining node of the completion of a state transfer.
 
-.. seealso:: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
+.. note:: **See Also**: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
 
 .. code-block:: mysql
 

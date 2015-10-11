@@ -19,7 +19,7 @@ The word *galera* is the Italian word for *galley*.  The galley is a class of na
 
 In order to manage the vessel effectively, rowers had to act synchronously, lest the oars become intertwined and get blocked.  Captains could scale the crew up to hundreds of rowers, making the galleys faster and more maneuverable in combat.
 
-.. seealso:: For more information on galleys, see `Wikipedia <http://en.wikipedia.org/wiki/Galley>`_.
+.. note:: **See Also**: For more information on galleys, see `Wikipedia <http://en.wikipedia.org/wiki/Galley>`_.
 
 
 
@@ -32,7 +32,7 @@ The primary focus of Galera Cluster is data consistency across the nodes.  This 
 
 The results of this is that you can safely use your favorite approach to distribute or migrate connections between the nodes without the risk of causing inconsistency.
 
-.. seealso:: For more information on connection distribution, see :doc:`deploymentvariants`.
+.. note:: **See Also**: For more information on connection distribution, see :doc:`deploymentvariants`.
 
 
 
@@ -47,7 +47,7 @@ Periodically, updates will become available for Galera Cluster, (for the databas
 
 In addition to this, you also need to transfer client connections from node you want to upgrade to another node for the duration of the migration.
 
-.. seealso:: For more information on upgrade process, see :doc:`upgrading`.
+.. note:: **See Also**: For more information on upgrade process, see :doc:`upgrading`.
 
 .. rubric:: What InnoDB Isolation Levels does Galera Cluster Support?
 .. _`faq-isolation-levels`:
@@ -58,7 +58,7 @@ That said, globally, with transactions processing in separate nodes, Galera Clus
 
 The ``SERIALIZABLE`` level cannot be guaranteed in the multi-master use case, because Galera Cluster replication does not carry a transaction read set.  Also, ``SERIALIZABLE`` transaction is vulnerable to multi-master conflicts.  It holds read locks and any replicated write to read locked row will cause the transaction to abort.  Hence, it is recommended not to use it in Galera Cluster.
 
-.. seealso:: For more information, see :doc:`isolationlevels`.
+.. note:: **See Also**: For more information, see :doc:`isolationlevels`.
 
 	     
 .. rubric:: How are DDL's Handled by Galera Cluster?
@@ -70,7 +70,7 @@ For :abbr:`DDL (Data Definition Language)` statements and similar queries, Galer
 
 - :term:`Rolling Schema Upgrade` Where the schema upgrades run locally, blocking only the node on which they are run.  The changes do not replicate to the rest of the cluster.
 
-.. seealso:: For more information, see :doc:`schemaupgrades`.
+.. note:: **See Also**: For more information, see :doc:`schemaupgrades`.
   
 	     
 

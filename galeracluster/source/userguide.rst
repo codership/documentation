@@ -81,6 +81,6 @@ Bear in mind that there are certain key differences between how a standalone ins
    limitations
    migration
 
-.. seealso:: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.
+.. note:: **See Also**: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.
 
    

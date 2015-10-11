@@ -89,7 +89,7 @@ Because ``mysqldump`` interfaces through the database client, configuring it req
 
    mysqldump
 
-.. seealso:: For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.
+.. note:: **See Also**: For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.
 
 ----------------------------------------
 Physical State Snapshot

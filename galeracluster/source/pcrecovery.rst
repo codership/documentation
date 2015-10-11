@@ -10,7 +10,7 @@ Cluster nodes can store the :term:`Primary Component` state to disk.  The node r
 
 In the event that the write-set position differs between the nodes, the recovery process also requires a full state snapshot transfer.
 
-.. seealso:: For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
+.. note:: **See Also**: For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
 
 
 

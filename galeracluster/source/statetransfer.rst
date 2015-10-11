@@ -46,7 +46,7 @@ You can choose from two conceptually different approaches in Galera Cluster to t
   Some of these methods, such as ``xtrabackup`` can be made non-blocking on the donor.  They are supported through a scriptable SST interface.
 
 
-.. seealso:: For more information on the particular methods available for State Snapshot Transfers, see the :doc:`sst`.
+.. note:: **See Also**: For more information on the particular methods available for State Snapshot Transfers, see the :doc:`sst`.
 
 You can set which State Snapshot Transfer method a node uses from the confirmation file.  For example:
 
@@ -127,7 +127,7 @@ GCache employs three types of storage:
   When all other stores are disabled, at least one page file remains present on disk.  
 
 
-.. seealso:: For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :ref:`Galera Parameters <Galera Parameters>`.
+.. note:: **See Also**: For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :ref:`Galera Parameters <Galera Parameters>`.
 
 Galera Cluster uses an allocation algorithm that attempts to store write-sets in the above order.  That is, first it attempts to use permanent in-memory store.  If there is not enough space for the write-set, it attempts to store to the permanent ring-buffer file.  The page store always succeeds, unless the write-set is larger than the available disk space.
 

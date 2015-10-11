@@ -9,7 +9,7 @@ In addition to the configuration for the database server, there are some specifi
 
 - :ref:`wsrep_cluster_address <wsrep_cluster_address>` Use this parameter to define the IP addresses for the cluster in a comma separated list.
 
-  .. seealso:: There are additional schemas and options available through this parameter.  For more information on the syntax, see :ref:`Understanding Cluster Addresses <understanding-cluster-addresses>` below.
+  .. note:: **See Also**: There are additional schemas and options available through this parameter.  For more information on the syntax, see :ref:`Understanding Cluster Addresses <understanding-cluster-addresses>` below.
 
 - :ref:`wsrep_node_name <wsrep_node_name>` Use this parameter to define the logical name for the individual node |---| for convenience.
 
@@ -70,11 +70,11 @@ Options
 
 You can also use the options list to set backend parameters, such as the listen address and timeout values.  
 
-.. seealso:: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on every connection to the cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter. 
+.. note:: **See Also**: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on every connection to the cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter. 
 
 The options list set in the URL take precedent over parameters set elsewhere.  Parameters that you can set through the options list are prefixed by ``evs``, ``pc`` and ``gmcast``.
 
-.. seealso:: For more information on the available parameters, see :doc:`Galera Parameters <galeraparameters>`.
+.. note:: **See Also**: For more information on the available parameters, see :doc:`Galera Parameters <galeraparameters>`.
 
 You can set the options with a list of ``key=value`` pairs according to the URL standard.  For example,
 

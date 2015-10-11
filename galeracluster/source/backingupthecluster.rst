@@ -47,4 +47,4 @@ Invoking backups through the state snapshot transfer mechanism has the following
 
 
 
-.. seealso:: You may find it useful to create your backup script using a modified version of the standard state snapshot transfer scripts.  For information on scripts of this kind, see :doc:`scriptablesst`.
+.. note:: **See Also**: You may find it useful to create your backup script using a modified version of the standard state snapshot transfer scripts.  For information on scripts of this kind, see :doc:`scriptablesst`.

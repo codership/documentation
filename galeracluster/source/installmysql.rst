@@ -174,6 +174,6 @@ For openSUSE and SUSE Linux Enterprise Server, run this command:
 		
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
 
-.. seealso:: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+.. note:: **See Also**: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 

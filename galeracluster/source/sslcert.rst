@@ -6,7 +6,7 @@ SSL Certificates
 
 Before you can enable encryption for your cluster, you first need to generate the relevant certificates for the nodes to use.  This procedure assumes that you are using OpenSSL.
 
-.. seealso:: This chapter only covers certificate generation.  For information on its use in Galera Cluster, see :doc:`sslconfig`.
+.. note:: **See Also**: This chapter only covers certificate generation.  For information on its use in Galera Cluster, see :doc:`sslconfig`.
 
 -------------------------
 Generating Certificates

@@ -402,7 +402,7 @@ Provides the current State UUID.  This is a unique identifier for the current st
    | wsrep_cluster_state_uuid | e2c9a15e-5485-11e0-0800-6bbb637e7211 |
    +--------------------------+--------------------------------------+
 
-.. seealso:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
+.. note:: **See Also**: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 
 
 +------------------------+-----------+------------+------------+
@@ -780,7 +780,7 @@ The sequence number, or seqno, of the last committed transaction. See :ref:`wsre
    | wsrep_last_committed | 409745 |
    +----------------------+--------+
 
-.. seealso:: For more information, see :ref:`wsrep API <wsrep-api>`.
+.. note:: **See Also**: For more information, see :ref:`wsrep API <wsrep-api>`.
 
 
 +--------------------+-----------+------------+------------+
@@ -1171,7 +1171,7 @@ Internal Galera Cluster FSM state number.
    | wsrep_local_state | 4     |
    +-------------------+-------+
 
-.. seealso:: For more information on the possible node states, see :ref:`Node State Changes <node-state-changes>`.
+.. note:: **See Also**: For more information on the possible node states, see :ref:`Node State Changes <node-state-changes>`.
 
 
 
@@ -1225,7 +1225,7 @@ The UUID of the state stored on this node.
    | wsrep_local_state_uuid | e2c9a15e-5485-11e0-0800-6bbb637e7211 |
    +------------------------+--------------------------------------+
 
-.. seealso:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`. 
+.. note:: **See Also**: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`. 
 
 
 +-----------------------+-----------+------------+------------+

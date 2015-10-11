@@ -23,7 +23,7 @@ When a node receives a state transfer, it cannot process or apply incoming write
 
 The Write-set Cache, (or GCache), caches write-sets on memory-mapped files to disk and Galera Cluster allocates these files as needed.  In other words, the only limit for the cache is the available disk space.  Writing to disk in turn reduces memory consumption.
 
-.. seealso:: For more information on configuring write-set caching to improve performance, see :ref:`Configuring Flow Control <configuring-fc>`.
+.. note:: **See Also**: For more information on configuring write-set caching to improve performance, see :ref:`Configuring Flow Control <configuring-fc>`.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Customizing the Write-set Cache Size
@@ -153,5 +153,5 @@ For example, if you want to delete expired tokens from their table on a database
 
 This allows you to delete rows efficiently from the cluster.
 
-.. seealso:: For more information on ``pt-archiver``, its syntax and what else it can do, see the `manpage <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_.
+.. note:: **See Also**: For more information on ``pt-archiver``, its syntax and what else it can do, see the `manpage <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_.
 

@@ -41,7 +41,7 @@ For instance, using `myq_gadgets <https://github.com/jayjanssen/myq_gadgets/>`_:
 
 You can find the slave queue under the ``Queue Dn`` column and ``FC pau`` refers to Flow Control pauses.  When the slave queue rises to a certain point, Flow Control changes the pause value to ``1.0``.  The node will hold to this value until the slave queue is worked down to a more manageable size.
 
-.. seealso:: For more information on status variables that relate to flow control, see :doc:`galerastatusvariables`.
+.. note:: **See Also**: For more information on status variables that relate to flow control, see :doc:`galerastatusvariables`.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Monitoring for Flow Control Pauses

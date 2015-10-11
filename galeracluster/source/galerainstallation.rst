@@ -21,7 +21,7 @@ When you find the relevant file, you can save the rules using the ``iptables-sav
 
 When ``iptables`` starts it now reads the new defaults, with your updates to the firewall.
 
-.. seealso:: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`firewallsettings`.
+.. note:: **See Also**: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`firewallsettings`.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -112,7 +112,7 @@ MariaDB Galera Cluster
    installmariadbsrc
   
 
-.. seealso:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+.. note:: **See Also**: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
 

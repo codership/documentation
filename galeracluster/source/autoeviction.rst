@@ -164,5 +164,5 @@ Repeat the above procedure to update the remaining nodes in the cluster.  Once t
 This updates the EVS Protocol version for one node in your cluster.  Repeat the process on the remaining nodes, so that they all use EVS Protocol version 1.
 
 
-.. seealso:: For more information on upgrading in general, see :doc:`upgrading`.
+.. note:: **See Also**: For more information on upgrading in general, see :doc:`upgrading`.
 

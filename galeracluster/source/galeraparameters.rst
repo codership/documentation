@@ -340,7 +340,7 @@ This parameter determines how many entries a given node can receive before it tr
 When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node.  Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster. 
 
    
-.. seealso:: For more information on the Auto Eviction process, see :doc:`autoeviction`.
+.. note:: **See Also**: For more information on the Auto Eviction process, see :doc:`autoeviction`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -377,7 +377,7 @@ Timeout on reaching the consensus about cluster membership.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
-.. seealso:: This feature has been **deprecated**. It is succeeded by :ref:`evs.install_timeout <evs.install_timeout>`.
+.. note:: **See Also**: This feature has been **deprecated**. It is succeeded by :ref:`evs.install_timeout <evs.install_timeout>`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -422,7 +422,7 @@ Each cluster node monitors the group communication response times from all other
 This parameter determines how long a node on the delayed list must remain responsive before it removes one entry. The number of entries on the delayed list and how long it takes before the node removes all entries depends on how long the delayed node was unresponsive.
 
 
-.. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
+.. note:: **See Also**: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
    
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -449,7 +449,7 @@ Each cluster node monitors group communication response times from all other nod
 This parameter determines how long a delay can run before the node adds an entry to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.  
 
 
-.. seealso:: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
+.. note:: **See Also**: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -465,7 +465,7 @@ This parameter determines how long a delay can run before the node adds an entry
 
 Defines the point at which the cluster triggers manual eviction to a certain node value.  Setting this parameter as an empty string causes it to clear the eviction list on the node where it is set.
 
-.. seealso:: For more information on the eviction and Auto Eviction process, see :doc:`autoeviction`.
+.. note:: **See Also**: For more information on the eviction and Auto Eviction process, see :doc:`autoeviction`.
    
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -564,7 +564,7 @@ Defines the timeout for install message acknowledgments.
 
 Each cluster node monitors group communication response times from all other nodes, checking whether they are responsive or delayed.  This parameter determines how long you want the node to wait on install message acknowledgments.
 
-.. seealso:: This parameter replaces :ref:`evs.consensus_timeout <evs.consensus_timeout>`.
+.. note:: **See Also**: This parameter replaces :ref:`evs.consensus_timeout <evs.consensus_timeout>`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -733,7 +733,7 @@ This parameter determines the maximum number of data packets the node uses at a 
 
 You must use a value that is smaller than :ref:`evs.send_window<evs.send_window>`.  The recommended value is half :ref:`evs.send_window<evs.send_window>`.
 
-.. seealso:: :ref:`evs.send_window <evs.send_window>`.
+.. note:: **See Also**: :ref:`evs.send_window <evs.send_window>`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -778,7 +778,7 @@ Defines the EVS Protocol version.
 
 This parameter determines which version of the EVS Protocol the node uses.  In order to ensure backwards compatibility, the parameter defaults to ``0``.  Certain EVS Protocol features, such as Auto Eviction, require you to upgrade to more recent versions.
 
-.. seealso:: For more information on the procedure to upgrade from one version to another, see :ref:`Upgrading the EVS Protocol <upgrade-evs>`.
+.. note:: **See Also**: For more information on the procedure to upgrade from one version to another, see :ref:`Upgrading the EVS Protocol <upgrade-evs>`.
 
 
 +-----------------------+---------+------------+------------+
@@ -850,7 +850,7 @@ When nodes receive state transfers they cannot process incoming write-sets until
 
 This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.  
 
-.. seealso:: For more information on customizing the write-set cache, see :ref:`Performance <customizing-gcache-size>`.
+.. note:: **See Also**: For more information on customizing the write-set cache, see :ref:`Performance <customizing-gcache-size>`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1667,7 +1667,7 @@ The node uses the CA file to verify the signature on the certificate.  You can u
    wsrep_provider_options='socket.ssl_ca=/path/to/ca-cert.pem'
 
 
-.. seealso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
+.. note:: **See Also**: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1691,7 +1691,7 @@ The node uses the certificate as a self-signed public key in encrypting replicat
    wsrep_provider_options="socket.ssl_cert=/path/to/server-cert.pem"
 
 
-.. seealso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
+.. note:: **See Also**: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1775,7 +1775,7 @@ The node uses the certificate key a self-signed private key in encrypting replic
 
    wsrep_provider_options="socket.ssl_key=/path/to/server-key.pem"
 
-.. seealso:: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
+.. note:: **See Also**: For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate files for your cluster, see :doc:`sslcert`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |

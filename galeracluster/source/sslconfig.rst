@@ -98,7 +98,7 @@ Configuring SSL
 
 In the event that you want or need to further configure how the node uses :abbr:`SSL (Secure Sockets Layer)`, Galera Cluster provides some additional parameters, including defining the cyclic redundancy check and setting the cryptographic cipher algorithm you want to use.
 
-.. seealso:: For a complete list of available configurations available for :abbr:`SSL (Secure Sockets Layer)`, see the options with the ``socket.`` prefix at :doc:`galeraparameters`.
+.. note:: **See Also**: For a complete list of available configurations available for :abbr:`SSL (Secure Sockets Layer)`, see the options with the ``socket.`` prefix at :doc:`galeraparameters`.
 
 
 
