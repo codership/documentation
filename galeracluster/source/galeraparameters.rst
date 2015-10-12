@@ -1788,7 +1788,7 @@ The node uses the certificate key a self-signed private key in encrypting replic
 .. rubric:: ``socket.ssl_password_file``
 .. _`socket.ssl_password_file`:
 .. index::
-   pair: Parameters, socket.ssl_password_file
+   pair: Parameters; socket.ssl_password_file
 
 Defines a password file for use in :abbr:`SSL (Secure Socket Layer)` connections.
 
