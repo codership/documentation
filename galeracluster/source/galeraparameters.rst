@@ -246,7 +246,9 @@ Table legend:
 | :ref:`socket.ssl_key                  |                       | 1+         | No       |
 | <socket.ssl_key>`                     |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-
+| :ref:`socket.ssl_password_file        |                       | 1+         | No       |
+| <socket.ssl_password_file>`           |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 
 .. rubric:: ``base_host``
 .. _`base_host`:
@@ -1782,6 +1784,26 @@ The node uses the certificate key a self-signed private key in encrypting replic
 +=======================+=========+============+============+
 |                       | No      | 1.0        |            |
 +-----------------------+---------+------------+------------+
+
+.. rubric:: ``socket.ssl_password_file``
+.. _`socket.ssl_password_file`:
+.. index::
+   pair: Parameters, socket.ssl_password_file
+
+Defines a password file for use in :abbr:`SSL (Secure Socket Layer)` connections.
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_password_file=/path/to/password-file"
+
+In the event that you have your SSL key file encrypted, the node uses the SSL password file to decrypt the key file.
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 
