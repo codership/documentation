@@ -22,9 +22,7 @@ Through the wsrep API, Galera Cluster provides certification-based replication. 
 This approach is also called virtually synchronous replication, given that while it is logically synchronous, the actual writing and committing to the tablespace happens independently, and thus asynchronously on each node.
 
 
-----------------------------------------
-Benefits of Galera Cluster
-----------------------------------------
+.. rubric:: Benefits of Galera Cluster
 .. _`Galera Cluster Benefits`:
 
 Galera Cluster provides a significant improvement in high-availability for the MySQL ecosystem.  The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in tradeoffs.
@@ -55,18 +53,13 @@ The following features are available through Galera Cluster:
 
 The result is a high-availability solution that is both robust in terms of data integrity and high-performance with instant failovers.
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Cloud Implementations with Galera Cluster
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Cloud Implementations with Galera Cluster
 .. _`Galera Cluster Cloud Implementations`:
 
 An additional benefit of Galera Cluster is good cloud support.  Automatic node provisioning makes elastic scale-out and scale-in operations painless.  Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.
 
 
 
-------------------
-Documentation
-------------------
 
 .. toctree::
    :includehidden:

@@ -7,7 +7,7 @@ For systems that already have instances of the standalone versions of MySQL, Mar
 
 When upgrading from a standalone database server, you must take some additional steps in order to subsequently preserve and use your data with Galera Cluster.
 
-.. seealso:: For more information on installing Galera Cluster, see :doc:`galerainstallation`.
+.. note:: **See Also**: For more information on installing Galera Cluster, see :doc:`galerainstallation`.
 
 -----------------------------------
 Upgrading System Tables
@@ -50,7 +50,7 @@ For servers that use ``systemd``, instead use this command:
 
 Running this command stops database server.  When you are ready to initialize your cluster, choose this server as your starting node.  
 
-.. seealso:: For more information on initializing and adding nodes to a cluster, see :doc:`startingcluster`.
+.. note:: **See Also**: For more information on initializing and adding nodes to a cluster, see :doc:`startingcluster`.
 
 ---------------------------------------
 Migrating from MySQL to Galera Cluster

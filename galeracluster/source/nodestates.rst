@@ -135,7 +135,7 @@ For the sake of legibility, certain transitions were omitted from the above desc
 
 
 
-.. seealso:: For more information on Flow Control see `Galera Flow Control in Percona XtraDB Cluster <http://www.mysqlperformanceblog.com/2013/05/02/galera-flow-control-in-percona-xtradb-cluster-for-mysql/>`_.
+.. note:: **See Also**: For more information on Flow Control see `Galera Flow Control in Percona XtraDB Cluster <http://www.mysqlperformanceblog.com/2013/05/02/galera-flow-control-in-percona-xtradb-cluster-for-mysql/>`_.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

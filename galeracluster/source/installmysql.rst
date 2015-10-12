@@ -1,6 +1,6 @@
-============================
+=====================
 Binary Installation
-============================
+=====================
 .. _`galera-mysql-binary-install`:
 
 Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Linux distributions using ``apt-get``, ``yum`` and ``zypper`` package managers through the Codership repository.
@@ -40,7 +40,7 @@ Once you have the Software Properties installed, you can enable the Codership re
       # apt-key adv --keyserver keyserver.ubuntu.com \
             --recv BC19DDBA
 
-#. Add the Codership repository to your sources list.  Using your preferred text editor, create ``/etc/apt/sources.list.d/galera.list``
+#. Add the Codership repository to your sources list.  Using your preferred text editor, create a `galera.list` file in the ``/etc/apt/sources.list.d/`` directory.
 
    .. code-block:: linux-config
 
@@ -174,6 +174,6 @@ For openSUSE and SUSE Linux Enterprise Server, run this command:
 		
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
 
-.. seealso:: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+.. note:: **See Also**: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 

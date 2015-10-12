@@ -10,7 +10,7 @@ Cluster nodes can store the :term:`Primary Component` state to disk.  The node r
 
 In the event that the write-set position differs between the nodes, the recovery process also requires a full state snapshot transfer.
 
-.. seealso:: For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
+.. note:: **See Also**: For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
 
 
 
@@ -56,7 +56,7 @@ Modifying the Saved Primary Component State
 
 In the event that you find yourself in the unusual situation where you need to force certain nodes to join each other specifically, you can do so by manually changing the saved :term:`Primary Component` state.
 
-.. warning:: Under normal circumstances, for safety reasons, you should entirely avoid editing or otherwise modifying the ``gvwstate.dat`` file.  Doing so may lead to unexpected results.
+.. note:: **Warning**: Under normal circumstances, for safety reasons, you should entirely avoid editing or otherwise modifying the ``gvwstate.dat`` file.  Doing so may lead to unexpected results.
 
 When a node starts for the first time or after a graceful shutdown, it randomly generates and assigns to itself a UUID, which serves as its identifier to the rest of the cluster.  If the node finds a ``gvwstate.dat`` file in the data directory, it reads the ``my_uuid`` field to find the value it should use.
 

@@ -14,27 +14,11 @@ Notification Command Parameters
 
 When the node registers a change in the cluster or itself that triggers the notification command, it passes a number of parameters in calling the script.
 
-+---------------+----------------+----------------------------------+
-| Parameter     | Value          | Description                      |
-+===============+================+==================================+
-| ``--status``  | node status    | Indicates the                    |
-|               |                | :ref:`node status <node-status>`.|
-+---------------+----------------+----------------------------------+
-| ``--uuid``    | state UUID     | Indicates the cluster            |
-|               |                |  :term:`state UUID`.             |
-+---------------+----------------+----------------------------------+
-| ``--primary`` | ``yes`` or     | Indicates whether the node is    |
-|               |  ``no``        | part of the                      |
-|               |                | :term:`Primary Component`.       |
-+---------------+----------------+----------------------------------+
-| ``--members`` | members list   | Provides a list of current       |
-|               |                | cluster members in the           |
-|               |                | :ref:`members list format        |
-|               |                | <member-list-format>`.           |
-+---------------+----------------+----------------------------------+
-| ``--index``   | index value    | Indicates the index values of the|
-|               |                | node in the membership list.     |
-+---------------+----------------+----------------------------------+
+- ``--status`` The node passes a string indicating it's current state.  For a list of the strings it uses, see :ref:`Node Status Strings <node-status>` below.
+- ``--uuid`` The node passes a string of either `yes` or `no`, indicating whether it considers itself part of the :term:`Primary Component`.
+- ``--members`` The node passes a list of the current cluster members.  For more information on the format of these listings, see :ref:`Member List Format <member-list-format>` below.
+- ``--index`` The node passes a string that indicates its index value in the membership list.
+
 
 
 .. note:: Only those nodes that in the ``Synced`` state accept connections from the cluster.  For more information on node states, see :ref:`Node State Changes <node-state-changes>`.
@@ -47,31 +31,12 @@ Node Status Strings
 
 The notification command passes one of six values with the ``--status`` parameter to indicate the current status of the node:
 
-+---------------+-------------------------------------------------------+
-| Value         | Description                                           |
-+===============+=======================================================+
-| ``Undefined`` | Indicates a starting node that is not part            |
-|               | of the Primary Component.                             |  
-+---------------+-------------------------------------------------------+
-| ``Joiner``    | Indicates a node that is part of the                  |
-|               | Primary Component that is receiving a state           |
-|               | snapshot transfer.                                    |
-+---------------+-------------------------------------------------------+
-| ``Donor``     | Indicates a node that is part of the                  |
-|               | Primary Component that is sending a state             |
-|               | snapshot transfer.                                    |
-+---------------+-------------------------------------------------------+
-| ``Joined``    | Indicates a node that is part of the                  |
-|               | Primary Component  that is in a complete state        |
-|               | and is catching up with the cluster.                  |
-+---------------+-------------------------------------------------------+
-| ``Synced``    | Indicates a node that is syncrhonized with the        |
-|               | cluster.                                              |
-+---------------+-------------------------------------------------------+
-| ``Error``     | Indicates that an error has occurred.  This status    |
-|               | string may provide an error code with more            |
-|               | information on what occurred.                         |
-+---------------+-------------------------------------------------------+
+- ``Undefined`` Indicates a starting node that is not part of the Primary Component.
+- ``Joiner`` Indicates a node that is part of the Primary Component that is receiving a state  snapshot transfer.
+- ``Donor`` Indicates a node that is part of the Primary Component that is sending a state snapshot transfer.
+- ``Joined`` Indicates a node that is part of the Primary Component  that is in a complete state and is catching up with the cluster.
+- ``Synced`` Indicates a node that is syncrhonized with the cluster.
+- ``Error`` Indicates that an error has occurred.  This status string may provide an error code with more information on what occurred.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Members List Format
@@ -84,23 +49,9 @@ The notification command passes with the ``--member`` parameter a list containin
 
    <node UUID> / <node name> / <incoming address>
    
-+------------------+---------------------------------------------------+
-| Format           | Description                                       |
-+==================+===================================================+
-| Node UUID        | Refers to the unique identifier the node receives |
-|                  | from the wsrep Provider.                          |
-+------------------+---------------------------------------------------+
-| Node Name        | Refers to the node name, as you define it for the |
-|                  | :ref:`wsrep_node_name <wsrep_node_name>`          |
-|                  | parameter, in the configuration file.             |
-+------------------+---------------------------------------------------+
-| Incoming Address | Refers to the IP address for client connections,  |
-|                  | as set for the                                    |
-|                  | :ref:`wsrep_node_incoming_address                 |
-|                  | <wsrep_node_incoming_address>` parameter,         |
-|                  | in the configuration file.                        |
-+------------------+---------------------------------------------------+
- 
+- **Node UUID**  Refers to the unique identifier the node receives from the wsrep Provider.
+- **Node Name** Refers to the node name, as you define it for the :ref:`wsrep_node_name <wsrep_node_name>` parameter, in the configuration file.
+- **Incoming Address** Refers to the IP address for client connections, as set for the :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>` parameter, in the configuration file.
 
 ----------------------------------
 Enabling the Notification Command

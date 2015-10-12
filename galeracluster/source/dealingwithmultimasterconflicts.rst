@@ -7,7 +7,7 @@ The type of conflicts that you need to address in multi-master database environm
 
 Consider a situation in a multi-master replication system.  Users can submit updates to any database node.  In turn two nodes can attempt to change the same database row with different data.  Galera Cluster copes with situations such as this by using certification-based replication.
 
-.. seealso:: For more information, see :doc:`certificationbasedreplication`.
+.. note:: **See Also**: For more information, see :doc:`certificationbasedreplication`.
 
 -----------------------------------
  Diagnosing Multi-Master Conflicts

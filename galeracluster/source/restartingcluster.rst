@@ -35,7 +35,8 @@ To find the sequence number of the last committed transaction, run ``mysqld`` wi
 
 .. code-block:: console
 
-	130514 18:39:13 [Note] WSREP: Recovered position: 5ee99582-bb8d-11e2-b8e3-23de375c1d30:8204503945771
+	130514 18:39:13 [Note] WSREP: Recovered position: 5ee99582-bb8d-11e2-b8e3-
+	23de375c1d30:8204503945771
 
 This value is the node state ID.  You can use it to manually update the ``grastate.dat`` file, by entering it for the ``seqno`` field, or let ``mysqld_safe`` recover automatically and pass the value to your database server the next time you start it.
 

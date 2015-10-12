@@ -21,7 +21,7 @@ From the database client, you can check the status of write-set replication thro
    | wsrep_thread_count     | 2     |
    +------------------------+-------+
 
-.. seealso:: In addition to checking status variables through the database client, you can also monitor for changes in cluster membership and node status through ``wsrep_notify_cmd.sh``.  For more information on its use, see :doc:`notificationcmd`.
+.. note:: **See Also**: In addition to checking status variables through the database client, you can also monitor for changes in cluster membership and node status through ``wsrep_notify_cmd.sh``.  For more information on its use, see :doc:`notificationcmd`.
 
 
 ---------------------------------
@@ -98,7 +98,7 @@ You can check cluster integrity using the following status variables:
 
   The node should only return a value of ``Primary``.  Any other value indicates that the node is part of a nonoperational component.  This occurs in cases of multiple membership changes that result in a loss of quorum or in cases of split-brain situations.
 
-  .. seealso:: In the event that you check all nodes in your cluster and find none that return a value of ``Primary``, see :doc:`quorumreset`.
+  .. note:: **See Also**: In the event that you check all nodes in your cluster and find none that return a value of ``Primary``, see :doc:`quorumreset`.
 
 When these status variables check out and return the desired results on each node, the cluster is up and has integrity.  What this means is that replication is able to occur normally on every node.  The next step then is :ref:`checking node status <check-node-status>` to ensure that they are all in working order and able to receive write-sets.
 	       

@@ -111,7 +111,7 @@ To enable PF and create rules for the node, complete the following steps:
 
 The server now uses PF to manage its firewall.  Network traffic directed at the four ports Galera Cluster uses is routed to the comparable ports within the jail.
             
-.. seealso:: For more information on firewall configurations for FreeBSD, see :doc:`pf`.
+.. note:: **See Also**: For more information on firewall configurations for FreeBSD, see :doc:`pf`.
    
 ----------------------
 Creating the Node Jail

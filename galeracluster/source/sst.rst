@@ -77,7 +77,7 @@ The main advantage of ``mysqldump`` is that you can transfer a state snapshot to
 
 This transfer method is several times slower than the others on sizable databases, but it may prove faster in cases of very small databases.  For instance, on a database that is smaller than the log files.
 
-.. warning:: This transfer method is sensitive to the version of ``mysqldump`` each node uses.  It is not uncommon for a given cluster to have installed several versions.  A State Snapshot Transfer can fail if the version one node uses is older and incompatible with the newer server.
+.. note:: **Warning**: This transfer method is sensitive to the version of ``mysqldump`` each node uses.  It is not uncommon for a given cluster to have installed several versions.  A State Snapshot Transfer can fail if the version one node uses is older and incompatible with the newer server.
 
 On occasion, ``mysqldump`` is the only option available.  For instance, if you upgrade from a cluster using MySQL 5.1 with the built-in InnoDB support to MySQL 5.5, which uses the InnoDB plugin.
 
@@ -89,7 +89,7 @@ Because ``mysqldump`` interfaces through the database client, configuring it req
 
    mysqldump
 
-.. seealso:: For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.
+.. note:: **See Also**: For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.
 
 ----------------------------------------
 Physical State Snapshot

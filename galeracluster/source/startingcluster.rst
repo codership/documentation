@@ -21,7 +21,7 @@ Before you attempt to initialize the cluster, check that you have the following 
 
 With the hosts prepared, you are ready to initialize the cluster.
 
-.. seealso:: When migrating from an existing, standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there are some additional steps that you must take.  For more information on what you need to do, see :doc:`migration`.
+.. note:: **See Also**: When migrating from an existing, standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there are some additional steps that you must take.  For more information on what you need to do, see :doc:`migration`.
 
 
 -------------------------------------
@@ -35,7 +35,7 @@ When nodes start, they attempt to establish network connectivity with the other 
 
 There is no Primary Component when the cluster starts.  In order to initialize it, you need to explicitly tell one node to do so with the ``--wsrep-new-cluster`` argument.  By convention, the node you use to initialize the Primary Component is called the first node, given that it is the first that becomes operational.
 
-.. seealso:: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`migration` and :doc:`quorumreset`. 
+.. note:: **See Also**: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`migration` and :doc:`quorumreset`. 
 
 Bear in mind, the first node is only "first" in that it initializes the Primary Component. This node can fall behind and leave the cluster without necessarily affecting the Primary Component.
 
@@ -53,7 +53,7 @@ For systems that use ``systemd``, instead use this command:
 
 This starts ``mysqld`` on the node.
 
-.. warning:: Only use the ``--wsrep-new-cluster`` argument when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
+.. note:: **Warning**: Only use the ``--wsrep-new-cluster`` argument when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
 
 
 Once the node starts the database server, check that startup was successful by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  In the database client, run the following query:

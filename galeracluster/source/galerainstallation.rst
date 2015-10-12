@@ -1,3 +1,4 @@
+
 ==============
 Installation
 ==============
@@ -13,7 +14,7 @@ For server hardware, each node requires at a minimum:
 - 512MB RAM
 - 100 Mbps network connectivity
 
-.. seealso:: Galera Cluster may occasionally crash when run on limited hardware due to insufficient memory.  To prevent this, ensure that you have sufficient swap space available.  For more information on how to create swap space, see :ref:`Configuring Swap Space <swap-config>`.
+.. note:: **See Also**: Galera Cluster may occasionally crash when run on limited hardware due to insufficient memory.  To prevent this, ensure that you have sufficient swap space available.  For more information on how to create swap space, see :ref:`Configuring Swap Space <swap-config>`.
 
 For software, each node in the cluster requires:
 
@@ -23,13 +24,10 @@ For software, each node in the cluster requires:
 
 .. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, you must apply this patch yourself.
 
-
-
-
 	  
-------------------------------
+-------------------------------
 Preparing the Server
-------------------------------
+-------------------------------
 .. _`system-requirements`:
 
 Before you begin the installation process, there are a few tasks that you need to undertake to prepare the servers for Galera Cluster.  You must perform the following steps for each node in your cluster.
@@ -47,10 +45,9 @@ To disable SELinux for mysql run the following command:
 
    # semanage permissive -a mysqld_t
 
-.. seealso:: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.  For additional information, see the SELinux.
+.. note:: **See Also**: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.  For additional information, see the SELinux.
 
 .. Revision Note: Add a label for port 4567 as mysqld_port_t, check if other ports on the firewall need something similar.  Check if AppArmor requires a similar label as well.
-
 	     
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Firewall Configuration
@@ -74,7 +71,7 @@ As an example, to open ports between trusted hosts using ``iptables`` the comman
 
 This causes packet filtering on the kernel to accept :abbr:`TCP (Transmission Control Protocol)` connections between the given IP addresses.
 
-.. warning:: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in the ``iptables`` configuration for your cluster.
+.. note:: **Warning**: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in the ``iptables`` configuration for your cluster.
 
 The updated packet filtering rules take effect immediately, but are not persistent.  When the server reboots, it reverts to default packet filtering rules, which do not include your updates.  To use these rules after rebooting, you need to save them as defaults.
 
@@ -97,7 +94,7 @@ When you find the relevant file, you can save the rules using the ``iptables-sav
 
 When ``iptables`` starts it now reads the new defaults, with your updates to the firewall.
 
-.. seealso:: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`firewallsettings`.
+.. note:: **See Also**: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`firewallsettings`.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -188,7 +185,7 @@ MariaDB Galera Cluster
    installmariadbsrc
   
 
-.. seealso:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+.. note:: **See Also**: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
 

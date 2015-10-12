@@ -6,7 +6,7 @@ Source Installation
 MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based on a different package management system, or if it runs on a different unix-like operating system where binary installation packages are not available, such as Solaris or FreeBSD, you will need to build MariaDB Galera Cluster from source.
 
 
-.. seealso:: In the event that you built MariaDB Galera Cluster over an existing standalone instance of MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+.. note:: **See Also**: In the event that you built MariaDB Galera Cluster over an existing standalone instance of MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
 
@@ -67,7 +67,7 @@ The source code for MariaDB Galera Cluster is available through GitHub_. Using G
 
    Starting with version 10.1, MariaDB includes the wsrep API for Galera Cluster by default.
 
-   .. warning:: MariaDB version 10.1 is still in beta.
+   .. note:: **Warning**: MariaDB version 10.1 is still in beta.
 
      
 You now have the source files for the MariaDB database server with the wsrep API needed to function as a Galera Cluster node.

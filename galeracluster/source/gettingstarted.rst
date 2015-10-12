@@ -14,10 +14,7 @@ Galera Cluster for MySQL is a synchronous replication solution that can improve 
 Galera Cluster is well suited for :abbr:`LAN (Local Area Network)`, :abbr:`WAN (Wide Area Network)`, and cloud environments.  This Getting Started chapter will help you to get started with a basic Galera Cluster.  You will need root access to three Linux hosts and their IP Addresses.
 
 
-
---------------------------------------
-How Galera Cluster Works
---------------------------------------
+.. rubric:: How Galera Cluster Works
 .. `how-galera-works`:
 
 The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.

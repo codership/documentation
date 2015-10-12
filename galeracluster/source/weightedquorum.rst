@@ -7,7 +7,7 @@ In addition to single node failures, the cluster may split into several componen
 
 Under normal operations, your Primary Component is the cluster.  When cluster partitioning occurs, Galera Cluster invokes a special quorum algorithm to select one component as the Primary Component.  This guarantees that there is never more than one Primary Component in the cluster.
 
-.. seealso:: In addition to the individual node, quorum calculations also take into account a separate process called ``garbd``.  For more information on its configuration and use, see :doc:`arbitrator`.
+.. note:: **See Also**: In addition to the individual node, quorum calculations also take into account a separate process called ``garbd``.  For more information on its configuration and use, see :doc:`arbitrator`.
 
 
 
@@ -72,7 +72,7 @@ To minimize the risk of this happening in clusters that do have an even number o
 In these partitioning examples, it is very difficult for any outage or failure to cause the nodes to split exactly in half.
 
 
-.. seealso:: For more information on configuring and managing the quorum, see :doc:`quorumreset`.
+.. note:: **See Also**: For more information on configuring and managing the quorum, see :doc:`quorumreset`.
 
 
 
@@ -115,7 +115,7 @@ You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter. 
 
    Galera Cluster applies the new weight on the delivery of a message that carries a weight.  At the moment, there is no mechanism to notify the application of a new weight, but will eventually happen when the message is delivered.
 
-.. warning:: If a group partitions at the moment when the weight change message is delivered, all partitioned components that deliver weight change messages in the transitional view will become non-primary components.  Partitions that deliver messages in the regular view will go through quorum computation with the applied weight when the following transitional view is delivered.
+.. note:: **Warning**: If a group partitions at the moment when the weight change message is delivered, all partitioned components that deliver weight change messages in the transitional view will become non-primary components.  Partitions that deliver messages in the regular view will go through quorum computation with the applied weight when the following transitional view is delivered.
 
    In other words, there is a corner case where the entire cluster can become non-primary component, if the weight changing message is sent at the moment when partitioning takes place.  Recovering from such a situation should be done either by waiting for a re-merge or by inspecting which partition is most advanced and by bootstrapping it as a new Primary Component.
 

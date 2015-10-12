@@ -11,111 +11,120 @@
 These are MySQL system variables introduced by wsrep API patch v0.8. All variables are global except where marked by an **S**, for session variables.
 
 
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| Option                                | Default                            | Introduced   | Deprecated | Dynamic|
-+=======================================+====================================+==============+============+========+
-| :ref:`wsrep_auto_increment_control    | ``ON``                             | 1            |            |        |
-| <wsrep_auto_increment_control>`       |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_causal_reads              | ``OFF``                            | 1            | 3.6        |        |
-| <wsrep_causal_reads>` :sup:`S`        |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_certify_nonPK             | ``ON``                             | 1            |            |        |
-| <wsrep_certify_nonPK>`                |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_cluster_address           |                                    | 1            |            |        |
-| <wsrep_cluster_address>`              |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_cluster_name              | ``example_cluster``                | 1            |            |        |
-| <wsrep_cluster_name>`                 |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_convert_LOCK_to_trx       | ``OFF``                            | 1            |            |        |
-| <wsrep_convert_LOCK_to_trx>`          |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_data_home_dir             | ``/path/to/mysql/real/data/home``  | 1            |            |        |
-| <wsrep_data_home_dir>`                |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_dbug_option               |                                    | 1            |            |        |
-| <wsrep_dbug_option>`                  |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_debug                     | ``OFF``                            | 1            |            |        |
-| <wsrep_debug>`                        |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_desync                    | ``OFF``                            |              |            |        |
-| <wsrep_desync>`                       |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_drupal_282555_workaround  | ``ON``                             | 1            |            |        |
-| <wsrep_drupal_282555_workaround>`     |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_forced_binlog_format      | ``NONE``                           | 1            |            |        |
-| <wsrep_forced_binlog_format>`         |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_load_data_splitting       | ``ON``                             |              |            |        |
-| <wsrep_load_data_splitting>`          |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_log_conflicts             | ``OFF``                            |              |            |        |
-| <wsrep_log_conflicts>`                |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_max_ws_rows               | ``128K``                           | 1            |            |        |
-| <wsrep_max_ws_rows>`                  |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_max_ws_size               | ``1G``                             | 1            |            |        |
-| <wsrep_max_ws_size>`                  |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_node_address              | ``<address>[:port]``               | 1            |            |        |
-| <wsrep_node_address>`                 |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_node_incoming_address     | ``<address>[:mysqld_port]``        | 1            |            |        |
-| <wsrep_node_incoming_address>`        |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_node_name                 | ``<hostname>``                     | 1            |            |        |
-| <wsrep_node_name>`                    |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_notify_cmd                |                                    | 1            |            |        |
-| <wsrep_notify_cmd>`                   |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_on                        | ``ON``                             | 1            |            |        |
-| <wsrep_on>` :sup:`S`                  |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_OSU_method                | ``TOI``                            | Patch v. 3   |            |        |
-| <wsrep_OSU_method>`                   |                                    | (5.5.17-22.3)|            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_provider                  | ``NONE``                           | 1            |            |        |
-| <wsrep_provider>`                     |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_provider_options          |                                    | 1            |            |        |
-| <wsrep_provider_options>`             |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_retry_autocommit          | ``1``                              | 1            |            |        |
-| <wsrep_retry_autocommit>`             |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_slave_threads             | ``1``                              | 1            |            |        |
-| <wsrep_slave_threads>`                |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_sst_auth                  |                                    | 1            |            |        |
-| <wsrep_sst_auth>`                     |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_sst_donor                 |                                    | 1            |            |        |
-| <wsrep_sst_donor>`                    |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_sst_donor_rejects_queries | ``OFF``                            | 1            |            |        |
-| <wsrep_sst_donor_rejects_queries>`    |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_sst_method                | ``mysqldump``                      | 1            |            |        |
-| <wsrep_sst_method>`                   |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_sst_receive_address       | *node IP address*                  | 1            |            |        |
-| <wsrep_sst_receive_address>`          |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_start_position            | ``00000000-0000-0000-              | 1            |            |        |
-| <wsrep_start_position>`               | 0000-000000000000:-1``             |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_sync_wait                 | ``0``                              | 3.6          |            | Yes    |
-| <wsrep_sync_wait>`                    |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
-| :ref:`wsrep_ws_persistency            |                                    |              | 0.8        |        |
-| <wsrep_ws_persistency>`               |                                    |              |            |        |
-+---------------------------------------+------------------------------------+--------------+------------+--------+
++---------------------------------------+------------------------------------+---------+---------+
+| Option                                | Default                            | Support | Dynamic |
++=======================================+====================================+=========+=========+
+| :ref:`wsrep_auto_increment_control    | ``ON``                             | 1+      |         |
+| <wsrep_auto_increment_control>`       |                                    |         |         |     
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_causal_reads              | ``OFF``                            | 1 - 3.6 |         |
+| <wsrep_causal_reads>` :sup:`S`        |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_certify_nonPK             | ``ON``                             | 1+      |         |
+| <wsrep_certify_nonPK>`                |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_cluster_address           |                                    | 1+      |         |
+| <wsrep_cluster_address>`              |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_cluster_name              | ``example_cluster``                | 1+      |         |
+| <wsrep_cluster_name>`                 |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_convert_LOCK_to_trx       | ``OFF``                            | 1+      |         |
+| <wsrep_convert_LOCK_to_trx>`          |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_data_home_dir             | ``/path/to/data_home``             | 1+      |         |
+| <wsrep_data_home_dir>`                |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_dbug_option               |                                    | 1+      |         |
+| <wsrep_dbug_option>`                  |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_debug                     | ``OFF``                            | 1+      |         |
+| <wsrep_debug>`                        |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_desync                    | ``OFF``                            | 1+      |         |
+| <wsrep_desync>`                       |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_drupal_282555_workaround  | ``ON``                             | 1+      |         |
+| <wsrep_drupal_282555_workaround>`     |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_forced_binlog_format      | ``NONE``                           | 1+      |         |
+| <wsrep_forced_binlog_format>`         |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_load_data_splitting       | ``ON``                             | 1+      |         |
+| <wsrep_load_data_splitting>`          |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_log_conflicts             | ``OFF``                            | 1+      |         |
+| <wsrep_log_conflicts>`                |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_max_ws_rows               | ``128K``                           | 1+      |         |
+| <wsrep_max_ws_rows>`                  |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_max_ws_size               | ``1G``                             | 1+      |         |
+| <wsrep_max_ws_size>`                  |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_node_address              | *host address:default port*        | 1+      |         |
+| <wsrep_node_address>`                 |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_node_incoming_address     | *host address:mysqld port*         | 1+      |         |
+| <wsrep_node_incoming_address>`        |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_node_name                 | ``<hostname>``                     | 1+      |         |
+| <wsrep_node_name>`                    |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_notify_cmd                |                                    | 1+      |         |
+| <wsrep_notify_cmd>`                   |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_on                        | ``ON``                             | 1+      |         |
+| <wsrep_on>` :sup:`S`                  |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_OSU_method                | ``TOI``                            | 3+      |         |
+| <wsrep_OSU_method>`                   |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_provider                  | ``NONE``                           | 1+      |         |
+| <wsrep_provider>`                     |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_provider_options          |                                    | 1+      |         |
+| <wsrep_provider_options>`             |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_restart_slave             | ``OFF``                            | 1+      | Yes     |
+| <wsrep_restart_slave>`                |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_retry_autocommit          | ``1``                              | 1+      |         |
+| <wsrep_retry_autocommit>`             |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_slave_FK_checks           | ``ON``                             | 1+      | Yes     |
+| <wsrep_slave_FK_checks>`              |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_slave_threads             | ``1``                              | 1+      |         |
+| <wsrep_slave_threads>`                |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_slave_UK_checks           | ``OFF``                            | 1+      | Yes     |
+| <wsrep_slave_UK_checks>`              |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_sst_auth                  |                                    | 1+      |         |
+| <wsrep_sst_auth>`                     |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_sst_donor                 |                                    | 1+      |         |
+| <wsrep_sst_donor>`                    |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_sst_donor_rejects_queries | ``OFF``                            | 1+      |         |
+| <wsrep_sst_donor_rejects_queries>`    |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_sst_method                | ``mysqldump``                      | 1+      |         |
+| <wsrep_sst_method>`                   |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_sst_receive_address       | *node IP address*                  | 1+      |         |
+| <wsrep_sst_receive_address>`          |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_start_position            | *see reference entry*              | 1+      |         |
+| <wsrep_start_position>`               |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_sync_wait                 | ``0``                              | 3.6+    | Yes     |
+| <wsrep_sync_wait>`                    |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_ws_persistency            |                                    | 1       |         |
+| <wsrep_ws_persistency>`               |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
 
 
 .. rubric:: ``wsrep_auto_increment_control``
@@ -193,7 +202,7 @@ Enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on n
 		
 
 
-.. warning:: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
+.. note:: **Warning**: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
 
 
 
@@ -288,7 +297,7 @@ Changing this variable in runtime will cause the node to close connection to the
     
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. warning:: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line. For more information, see :doc:`startingcluster`. 
+.. note:: **Warning**: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line. For more information, see :doc:`startingcluster`. 
 
 
 .. code-block:: mysql
@@ -391,8 +400,6 @@ Sometimes this parameter may help to get old applications working in a multi-mas
 
 Defines the directory the wsrep Provider uses for its files.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-data-home-dir``                              |
 +-------------------------+---------------------+----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_data_home_dir``          |
 |                         +---------------------+----------------------------------+
@@ -501,8 +508,6 @@ Under normal operation, error events are logged to an error log file for the dat
 
 Defines whether or not the node participates in Flow Control.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-desync``                                     |
 +-------------------------+---------------------+----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_desync``                 |
 |                         +---------------------+----------------------------------+
@@ -519,7 +524,7 @@ Defines whether or not the node participates in Flow Control.
 
 When a node receives more write-sets than it can apply, the transactions are placed in a received queue.  In the event that the node falls too far behind, it engages Flow Control.  The node takes itself out of sync with the cluster and works through the received queue until it reaches a more manageable size.
 
-.. seealso:: For more information on what Flow Control is and how to configure and manage it in your cluster, see :doc:`nodestates` and :doc:`managingfc`.
+.. note:: **See Also**: For more information on what Flow Control is and how to configure and manage it in your cluster, see :doc:`nodestates` and :doc:`managingfc`.
 
 When set to ``ON``, this parameter disables Flow Control for the node.  The node continues to receive write-sets and fall further behind the cluster.  The cluster does not wait for desynced nodes to catch up, even if it reaches the ``fc_limit`` value.
 
@@ -683,7 +688,7 @@ Defines whether the node logs additional information about conflicts.
 
 In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB or Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems.  
 
-.. seealso:: You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
+.. note:: **See Also**: You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
 
 The additional information includes the table and schema where the conflict occurred, as well as the actual values for the keys that produced the conflict.
 
@@ -819,7 +824,7 @@ While the default behavior is often sufficient, there are situations where this 
 In these cases, you need to provide an explicit value for this parameter, given that the auto-guess of the IP address does not produce the correct result.  
 
 
-.. seealso:: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
+.. note:: **See Also**: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
 
 In some cases, you may need to provide a different value.  For example, Galera Cluster running on Amazon EC2 requires that you use the global DNS name instead of the local IP address.
 
@@ -936,7 +941,7 @@ Defines the command the node runs whenever cluster membership or the state of th
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
-.. seealso:: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
+.. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
 
 When the node calls the command, it passes one or more arguments that you can use in configuring your custom notification script and how it responds to the change.  The options are:
 
@@ -991,8 +996,6 @@ When the node calls the command, it passes one or more arguments that you can us
 
 Defines whether the node participates in replication.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-on``                                          |
 +-------------------------+---------------------+-----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_on``                      |
 |                         +---------------------+-----------------------------------+
@@ -1054,7 +1057,7 @@ DDL statements are non-transactional and as such do not replicate through write-
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
-.. seealso:: For more information on DDL statements and OSU methods, see :doc:`schemaupgrades`.
+.. note:: **See Also**: For more information on DDL statements and OSU methods, see :doc:`schemaupgrades`.
 
 .. code-block:: mysql
 
@@ -1133,7 +1136,7 @@ When the node loads the wsrep Provider, there are several configuration options 
 
 For example, you can use :ref:`gcache.size <gcache.size>` to define how large a write-set cache the node keeps or manage group communications timeouts.
 
-.. seealso:: For more information on the wsrep Provider options, see :doc:`galeraparameters`.
+.. note:: **See Also**: For more information on the wsrep Provider options, see :doc:`galeraparameters`.
 
 
 .. code-block:: mysql
@@ -1148,7 +1151,42 @@ For example, you can use :ref:`gcache.size <gcache.size>` to define how large a 
    +------------------------+-----------------------------------------------+
 
 
-     
+.. rubric:: ``wsrep_restart_slave``
+.. _`wsrep_restart_slave`:
+.. index::
+   pair: Parameters; wsrep_restart_slave
+
+Defines whether the replication slave restarts when the node joins the cluster.
+
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-restart-slave``                               |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_restart_slave``           |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | boolean                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``OFF``                           |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       |                                   |
++-------------------------+---------------------+-----------------------------------+
+
+Enabling this parameter tells the node to restart the replication slave when it joins the cluster.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_restart_slave';
+
+   +---------------------+-------+
+   | Variable_name       | Value |
+   +---------------------+-------+
+   | wsrep_restart_slave | OFF   |
+   +---------------------+-------+
+
+   
 
 
 .. rubric:: ``wsrep_retry_autocommit``
@@ -1187,6 +1225,42 @@ When an autocommit query fails the certification test due to a cluster-wide conf
    +------------------------+-------+
 
 
+.. rubric:: ``wsrep_slave_FK_checks``
+.. _`wsrep_slave_FK_checks`:
+.. index::
+   pair: Parameters; wsrep_slave_FK_checks
+
+Defines whether the node performs foreign key checking for applier threads.
+
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-slave-FK-checks``                             |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_slave_FK_checks``         |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | boolean                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``ON``                            |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       |                                   |
++-------------------------+---------------------+-----------------------------------+
+
+This parameter enables foreign key checking on applier threads.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_slave_FK_checks';
+
+   +-----------------------+-------+
+   | Variable_name         | Value |
+   +-----------------------+-------+
+   | wsrep_slave_FK_checks | ON    |
+   +-----------------------+-------+
+
+
 
 
 .. rubric:: ``wsrep_slave_threads``
@@ -1223,6 +1297,42 @@ This parameter determines the number of threads the node uses when it applies sl
    +---------------------+-------+
    | wsrep_slave_threads | 1     |
    +---------------------+-------+
+
+.. rubric:: ``wsrep_slave_UK_checks``
+.. _`wsrep_slave_UK_checks`:
+.. index::
+   pairs: Parameters; wsrep_slave_UK_checks
+
+Defines whether the node performs unique key checking on applier threads.
+   
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-slave-UK-checks``                             |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_slave_UK_checks``         |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | boolean                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``OFF``                           |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       |                                   |
++-------------------------+---------------------+-----------------------------------+
+
+This parameter enables unique key checking on applier threads.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_slave_UK_checks';
+
+   +-----------------------+-------+
+   | Variable_name         | Value |
+   +-----------------------+-------+
+   | wsrep_slave_UK_checks | OFF   |
+   +-----------------------+-------+   
+
 
 
 
@@ -1353,7 +1463,7 @@ This parameter determines whether the node rejects blocking client sessions whil
 
 Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to tell whether the requested method is blocking or not.  You may also want to avoid querying the donor even with non-blocking state transfers.  As a result, when this parameter is enabled the donor node rejects queries regardless the state transfer and even if the initial request concerned a blocking-only transfer, (meaning, it also rejects during ``xtrabackup``).
 
-.. warning:: The ``mysqldump`` state transfer method does not work with this setting, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
+.. note:: **Warning**: The ``mysqldump`` state transfer method does not work with this setting, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
 
 .. code-block:: mysql
 
@@ -1420,7 +1530,7 @@ In addition to the default scripts provided and supported by Galera Cluster, you
 
 Bear in mind, the cluster uses the same script to send and receive state transfers.  If you want to use a custom state transfer script, you need to place it on every node in the cluster.
 
-.. seealso:: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
+.. note:: **See Also**: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
 
 .. code-block:: mysql
 
@@ -1501,7 +1611,7 @@ Defines the node start position.
 
 This parameter defines the node start position.  It exists for the sole purpose of notifying the joining node of the completion of a state transfer.
 
-.. seealso:: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
+.. note:: **See Also**: For more information on scripting state snapshot transfers, see :doc:`scriptablesst`.
 
 .. code-block:: mysql
 

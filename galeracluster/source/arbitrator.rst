@@ -14,7 +14,7 @@ The recommended deployment of Galera Cluster is that you use a minimum of three 
 
 In the event that the expense of adding resources, such as a third datacenter, is too costly, you can use :term:`Galera Arbitrator`.  Galera Arbitrator is a member of the cluster that participates in voting, but not in the actual replication.
 
-.. warning:: While Galera Arbitrator does not participate in replication, it does receive the same data as all other nodes.  You must secure its network connection.
+.. note:: **Warning** While Galera Arbitrator does not participate in replication, it does receive the same data as all other nodes.  You must secure its network connection.
 
 Galera Arbitrator serves two purposes:
 
@@ -32,7 +32,7 @@ If one datacenter fails or loses :abbr:`WAN (Wide Area Network)` connection, the
 
 In the event that Galera Arbitrator fails, it does not affect cluster operation.  You can attach a new instance to the cluster at any time and there can be several instances running in the cluster.
 
-.. seealso:: For more information on using Galera Arbitrator in making backups, see :doc:`backingupthecluster`.
+.. note:: **See Also**: For more information on using Galera Arbitrator in making backups, see :doc:`backingupthecluster`.
 
 
 -----------------------------
@@ -101,7 +101,7 @@ For more information on the options available to Galera Arbitrator through the s
 
 In addition to the standard configurations, any parameter available to Galera Cluster also works with Galera Arbitrator, excepting those prefixed by ``repl``.  When you start it from the shell, you can set these using the ``--option`` argument.
 
-.. seealso:: For more information on the options available to Galera Arbitrator, see :doc:`galeraparameters`.
+.. note:: **See Also**: For more information on the options available to Galera Arbitrator, see :doc:`galeraparameters`.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Starting Galera Arbitrator as a Service
@@ -158,7 +158,7 @@ This starts Galera Arbitrator as a service.  It uses the parameters set in the c
 
 In addition to the standard configurations, any parameter available to Galera Cluster also works with Galera Arbitrator, excepting those prefixed by ``repl``.  When you start it as a service, you can set these using the ``GALERA_OPTIONS`` parameter.
 
-.. seealso:: For more information on the options available to Galera Arbitrator, see :doc:`galeraparameters`.
+.. note:: **See Also**: For more information on the options available to Galera Arbitrator, see :doc:`galeraparameters`.
 
 
 

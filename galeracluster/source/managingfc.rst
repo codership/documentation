@@ -41,7 +41,7 @@ For instance, using `myq_gadgets <https://github.com/jayjanssen/myq_gadgets/>`_:
 
 You can find the slave queue under the ``Queue Dn`` column and ``FC pau`` refers to Flow Control pauses.  When the slave queue rises to a certain point, Flow Control changes the pause value to ``1.0``.  The node will hold to this value until the slave queue is worked down to a more manageable size.
 
-.. seealso:: For more information on status variables that relate to flow control, see :doc:`galerastatusvariables`.
+.. note:: **See Also**: For more information on status variables that relate to flow control, see :doc:`galerastatusvariables`.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Monitoring for Flow Control Pauses
@@ -127,7 +127,7 @@ These parameters control the point at which the node triggers Flow Control and t
 
 Bear in mind that, while it is critical for multi-master operations that you use as small a slave queue as possible, the slave queue length is not so critical in master-slave setups.  Depending on your application and hardware, the node can apply even 1K of write-sets in a fraction of a second.  The slave queue length has no effect on master-slave failover.
 
-.. warning:: Cluster nodes process transactions asynchronously with regards to each other.  Nodes cannot anticipate in any way the amount of replication data.  Because of this, Flow Control is always reactive.  That is, it only comes into affect after the node exceeds certain limits.  It cannot prevent exceeding these limits or, when they are exceeded, it cannot make any guarantee as to the degree they are exceeded.
+.. note:: **Warning**: Cluster nodes process transactions asynchronously with regards to each other.  Nodes cannot anticipate in any way the amount of replication data.  Because of this, Flow Control is always reactive.  That is, it only comes into affect after the node exceeds certain limits.  It cannot prevent exceeding these limits or, when they are exceeded, it cannot make any guarantee as to the degree they are exceeded.
 
   Meaning, if you were to configure a node with:
 

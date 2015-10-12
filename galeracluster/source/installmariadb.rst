@@ -125,4 +125,4 @@ For RPM-based distributions, instead run this command:
 
 MariaDB Galera Cluster is now installed on your server.  You will need to repeat this process for each node in your cluster.
 
-.. seealso:: In the event that you installed MariaDB Galera Cluster over an existing standalone instance of MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+.. note:: **See Also**: In the event that you installed MariaDB Galera Cluster over an existing standalone instance of MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
