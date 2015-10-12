@@ -44,7 +44,7 @@ Backend Schema
 
 There are two backend schemas available for Galera Cluster.
 
-- ``dummy`` Which provides a pass-through back-end for testing and profiling purposes.  It does not connect to any other nodes.  It ignores nay values given to it.
+- ``dummy`` Which provides a pass-through back-end for testing and profiling purposes.  It does not connect to any other nodes.  It ignores any values given to it.
 
 - ``gcomm`` Which provides the group communications back-end for use in production.  It takes an address and has several settings that you can enable through the option list, or by using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter.
 
