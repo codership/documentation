@@ -1668,7 +1668,6 @@ This parameter defines the node start position.  It exists for the sole purpose 
 .. index::
   pair: Parameters; wsrep_causal_reads
 
-
 Defines whether the node enforces strict cluster-wide causality checks.
 
 +-------------------------+---------------------------------------------------------+
@@ -1676,7 +1675,7 @@ Defines whether the node enforces strict cluster-wide causality checks.
 +-------------------------+---------------------+-----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_sync_wait``               |
 |                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
+|                         | *Variable Scope:*   | Session                           |
 |                         +---------------------+-----------------------------------+
 |                         | *Dynamic Variable:* |  Yes                              |
 +-------------------------+---------------------+-----------------------------------+
