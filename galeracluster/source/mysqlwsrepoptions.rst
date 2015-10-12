@@ -80,6 +80,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_OSU_method                | ``TOI``                            | 3+      |         |
 | <wsrep_OSU_method>`                   |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_preordered                | ``OFF``                            | 1+      |         |
+| <wsrep_preordered>`                   |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_provider                  | ``NONE``                           | 1+      |         |
 | <wsrep_provider>`                     |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
@@ -1070,6 +1073,40 @@ DDL statements are non-transactional and as such do not replicate through write-
    +------------------+-------+
 
    
+.. rubric:: ``wsrep_preordered``
+.. _`wsrep_preordered`:
+.. index::
+   pair: Parameters; wsrep_preordered
+
+Defines whether the node uses transparent handling of preordered replication events.
+
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-preordered``                                  |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_preordered``              |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | Boolean                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``OFF``                           |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       | 1                                 |
++-------------------------+---------------------+-----------------------------------+
+
+This parameter enables transparent handling or preordered replication events, such as replication from a traditional master node. 
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_preordered';
+
+   +------------------+-------+
+   | Variable_name    | Value |
+   +------------------+-------+
+   | wsrep_preordered | OFF   |
+   +------------------+-------+
 
 
 .. rubric:: ``wsrep_provider``

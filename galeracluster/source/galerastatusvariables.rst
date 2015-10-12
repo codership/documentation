@@ -80,6 +80,9 @@ This distinction is of importance for developers only.  For convenience, all sta
 | :ref:`wsrep_flow_control_sent         | ``7``                                    | 1+         |
 | <wsrep_flow_control_sent>`            |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_gcomm_uuid                |                                          | 1+         |
+| <wsrep_gcomm_uuid>`                   |                                          |            |
++---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_incoming_addresses        |                                          | 1+         |
 | <wsrep_incoming_addresses>`           |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
@@ -733,6 +736,30 @@ Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status
 +====================+===========+============+============+
 | ``7``              | Galera    |            |            |
 +--------------------+-----------+------------+------------+
+
+
+.. rubric:: ``wsrep_gcomm_uuid``
+.. _`wsrep_gcomm_uuid`:
+.. index::
+   pair: Status Variables; wsrep_gcomm_uuid
+
+Displays the group communications UUID.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_gcomm_uuid';
+
+   +------------------+--------------------------------------+
+   | Variable_name    | Value                                |
+   +------------------+--------------------------------------+
+   | wsrep_gcomm_uuid | 7e729708-605f-11e5-8ddd-8319a704b8c4 |
+   +------------------+--------------------------------------+
+
++--------------------------------------------+-----------+------------+------------+
+| Example Value                              | Location  | Introduced | Deprecated |
++============================================+===========+============+============+
+| ``7e729708-605f-11e5-8ddd-8319a704b8c4``   | Galera    | 1          |            |
++--------------------------------------------+-----------+------------+------------+
 
 .. rubric:: ``wsrep_incoming_addresses``
 .. _`wsrep_incoming_addresses`:
