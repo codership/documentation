@@ -3,68 +3,64 @@
 ================================
 .. _`Versioning Information`:
 
-Galera Cluster consists of two software packages:
 
-- Galera wsrep Provider
-- MySQL server patched with the wsrep :abbr:`API (Application Programming Interface)`
 
-This chapter describes the Galera Cluster release numbering schemes and software packages.
+Galera Cluster for MySQL is available in binary software packages for several different Linux distributions, as well as in source code for other distributions and other Unix-like operating systems, such as FreeBSD and Solaris. 
+
+For Linux distributions, binary packages in 32-bit and 64-bit for both the MySQL database server with the wsrep API patch and the :term:`Galera Replication Plugin` are available from the `Codership Repository <releases.galeracluster.com>`_.  These include support for:
+
+- Red Hat Enterprise Linux
+- Fedora
+- CentOS
+- SUSE Linux Enterprise Server
+- openSUSE
+- Debian
+- Ubuntu
+
+By installing and configuring the Codership Repository on any of these systems, you can install and update Galera Cluster for MySQL through your package manager.  In the event that you use a distribution of Linux that is not supported, or if you use another Unix-like operating system, source files are available on GitHub, at:
+
+- `MySQL Server <https://github.com/codership/mysql-wsrep>`_ with the wsrep API patch.
+- `Galera Replication Plugin <https://github.com/codership/galera>`_.
+- `wsrep API <https://github.com/codership/wsrep-API>`_, alone, for patching MySQL Server yourself.
+- `glb <https://github.com/codership/glb>`_, the Galera Load Balancer.
+
+For users of FreeBSD and similar operating systems, the Galera Replication Plugin is also available in ports, at ``/usr/ports/databases/galera``, which corrects for certain compatibility issues with Linux dependencies.
+
+.. note:: For more information on the installation process, see :doc:`galerainstallation`.
+
 
 ---------------------------
  Release Numbering Schemes
 ---------------------------
+.. _`galera-release-number`:
 
-Galera Cluster software packages have their own release numbering schemes as follows:
+Software packages for Galera Cluster have their own release numbering schemas.  There are two schemas to consider in version numbering:
 
-- **Galera wsrep Provider** The Galera wsrep provider release numbering scheme is as follows::
-    
-    wsrep API main version.Galera wsrep provider version
-    
-    For example, release number 23.2.4 indicates that the Galera wsrep Provider is meant to be used with wsrep API version 23.x.x and the Galera wsrep provider version is 2.4.
-    
-- **MySQL Server with wsrep API patch** The patched MySQL server release numbering scheme is as follows::
-    
-    MySQL version-wsrep API version
-    
-    For example, release number 5.5.29-23.7.3 indicates that the patched MySQL server release contains MySQL version 5.5.29 and wsrep API version 23.7.3.
+- **Galera wsrep Provider**  Also, referred to as the :term:`Galera Replication Plugin`.  The wsrep Provider uses the following versioning schema: ``<wsrep API main version>.<Galera version>``.  For example, release 24.2.4 indicates wsrep API version 24.x.x with Galera wsrep Provider version 2.4.
 
----------------------------
- Software Packages
----------------------------
 
-.. index::
-   single: Software packages
+- **MySQL Server with wsrep API patch**  The second versioning schema relates to the database server.  Here, the MySQL server uses the following versioning schema ``<MySQL server version>-<wsrep API version>``.  For example, release 5.5.29-23.7.3 indicates a MySQL database server in 5.5.29 with wsrep API version 23.7.3.
    
-.. index::
-   single: Linux distributions
+For instances of Galera Cluster that use the MariaDB or Percona XtraDB database servers, consult their respective documentation for version and release information.
 
-Galera Cluster software packages for different Linux distributions are available as follows:
 
-- Galera wsrep Provider:
+-----------------------------------------------------
+Third-party Implementations of Galera Cluster
+-----------------------------------------------------
+.. _`third-party-galera`:
 
-    - A 32-bit binary for Debian based distributions
-    - A 64-bit binary for Debian based distributions
-    - A 32-bit binary for RHEL/CentOS 5
-    - A 64-bit binary for RHEL/CentOS 5
-    - A 32-bit binary for RHEL/CentOS 6
-    - A 64-bit binary for RHEL/CentOS 6
-    - A source code package
-  
-  You can download these packages from: https://launchpad.net/galera/+download.
+In addition to the Galera Cluster for MySQL, the reference implementation from Codership Oy, there are two third party implementations of Galera Cluster.  These are,
 
-- MySQL server patched with the wsrep API:
+- `Percona XtraDB Cluster <http://www.percona.com/software/percona-xtradb-cluster>`_ is a high-availability and high-scalability solution for MySQL users.  Percona XtraDB CLuster integrates Percona XtraDB Server with the Galera library of high-availability solutions in a single product package.
 
-    - A 32-bit binary for Debian based distributions
-    - A 64-bit binary for Debian based distributions
-    - A 32-bit binary for RHEL/CentOS 5
-    - A 64-bit binary for RHEL/CentOS 5
-    - A 32-bit binary for RHEL/CentOS 6
-    - A 64-bit binary for RHEL/CentOS 6
-    - A 32-bit generic tarball for system-wide installations
-    - A 64-bit generic tarball for system-wide installations
-    - The separate wsrep API patches without the MySQL server
+- `MariaDB Galera Cluster <https://mariadb.com>`_ uses the Galera library for the replication implementation.  To interface with the Galera Replication Plugin, MariaDB is enhanced to support the replication API definition in the wsrep API project.  Additionally, releases of MariaDB Server from version 10.1 on are packaged with Galera Cluster.
 
-  You can download these packages from: https://launchpad.net/codership-mysql/+download.
+  For more information, see `What is MariaDB Galera Cluster <https://mariadb.com/kb/en/mariadb/what-is-mariadb-galera-cluster/>`_.
+
+
+
+
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
