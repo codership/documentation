@@ -45,8 +45,11 @@ To disable SELinux for mysql run the following command:
 
    # semanage permissive -a mysqld_t
 
-.. note:: **See Also**: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.  For additional information, see the SELinux.
+This command switches SELinux into permissive mode when it registers activity from the database server.  While this is fine during the installation and configuration process, it is not in general a good policy to disable applications that improve security.  
 
+In order to use SELinux with Galera Cluster, you need to create an access policy, so that SELinux can understand and allow normal operations from the database server.  For information on how to create an access policy, see :doc:`selinux`.
+
+.. note:: **See Also**: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.
 .. Revision Note: Add a label for port 4567 as mysqld_port_t, check if other ports on the firewall need something similar.  Check if AppArmor requires a similar label as well.
 	     
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
