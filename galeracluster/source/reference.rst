@@ -25,5 +25,4 @@ Miscellaneous Reference
 
    glossary
    versioninginformation
-   thirdpartygaleraimplementations
    legalnotice
