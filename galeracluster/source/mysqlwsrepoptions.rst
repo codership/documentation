@@ -944,7 +944,7 @@ Defines the command the node runs whenever cluster membership or the state of th
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
-.. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
+.. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the :doc:`notificationcmd`.
 
 When the node calls the command, it passes one or more arguments that you can use in configuring your custom notification script and how it responds to the change.  The options are:
 
