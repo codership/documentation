@@ -119,14 +119,6 @@ You cannot direct query logs to a table.  If you would like to enable query logg
 
 Use ``general_log`` and ``general_log_file`` to choose query logging and to set the filename for your log file.
 
-^^^^^^^^^^^^^^^^^^^^
-Query Cache
-^^^^^^^^^^^^^^^^^^^^
-.. _`query-cache`:
-
-Do not use query cache.
-
-
 ----------------------------
 Differences in Transactions
 ----------------------------
