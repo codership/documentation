@@ -41,6 +41,9 @@ There are a few techniques available to you in logging and monitoring for proble
      110906 17:45:01 [Note] WSREP: Aborting query: commit
      110906 17:45:01 [Note] WSREP: kill trx QUERY_COMMITTING for 35525064
      110906 17:45:01 [Note] WSREP: commit failed for reason: 3, seqno: -1
+
+
+  .. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
      
 - In the event that you are developing your own notification system, you can use status variables to watch for conflicts:
 

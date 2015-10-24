@@ -490,7 +490,11 @@ Enables additional debugging output for the database server error log.
 | **Support**             | *Introduced:*       | 1                                |
 +-------------------------+---------------------+----------------------------------+
 
+
 Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help you in identifying and correcting problems. 
+
+
+.. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
 
 .. code-block:: mysql
 
