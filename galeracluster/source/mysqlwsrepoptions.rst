@@ -1017,7 +1017,11 @@ Defines whether the node participates in replication.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether or not the node participates in replication.  When set to ``OFF``, the node functions as a standard standalone MySQL database server.  No transactions made during this session replicate to the cluster.
+This parameter defines whether or not the node participates in replication.  When set to ``OFF``, the node remains in the cluster but ceases replication, functioning as a standard standalone MySQL database server.  No transactions made during this session replicate to the cluster.
+
+Bear in mind that this parameter does not cause the node to leave the cluster.  The node continues to communicate with the cluster, it only ceases to replicate transactions from the cluster.  Additionally, this parameter is a session variable.  If you set it to global, the setting remains in effect for future sessions.
+
+
 
 .. code-block:: mysql
 
