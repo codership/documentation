@@ -1,0 +1,150 @@
+==================================
+SSL for State Snapshot Transfers
+==================================
+.. _`sslsst`:
+
+When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use.  Where :doc:`sslconfig` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
+
+The particular method you use to secure State Snapshot Transfer scripts depends upon the particular method you choose to use on your cluster.
+
+.. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you are enabling this feature with a running cluster you need to restart the entire cluster.
+
+
+----------------------------------
+Enabling SSL for ``mysqldump``
+----------------------------------
+.. _`ssl-mysqldump`:
+
+The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client and the standard method of enabling :term:`State Snapshot Transfer` script on your node.  Given that it connects through the database client, you can use the same SSL certificates you created for replication traffic.  In order to enable this for the entire cluster, you need to repeat this process on every node in the cluster.  
+
+#. From the database client you need to create a user for the State Snapshot Transfer script.
+
+   .. code-block:: mysql
+
+      CREATE USER 'sst_user'$'%' IDENTIFIED BY PASSWORD 'sst_password';
+
+   Bear in mind that, due to the manner in which the SST script is called, the user name and password must be the same on all nodes.
+
+#. Grant privileges to this user and require SSL.
+
+   .. code-block:: mysql
+
+      GRANT ALL ON *.* TO 'sst_user'@'%' REQUIRE SSL;
+
+#. Stop the node.  For servers that use ``init``, run the following command:
+
+   .. code-block:: console
+
+      # service mysql stop
+
+   For servers that use ``systemd``, instead run this command:
+
+   .. code-block:: console
+
+      # systemctl stop mysql
+
+#. Using your preferred text editor, ensure that the ``my.cnf`` configuration file includes parameters to secure the database server and client, (``mysqldump`` accesses the server through the client). 
+
+   .. code-block:: ini
+
+      # MySQL Server
+      [mysqld]
+      ssl-ca = /path/to/ca-cert.pem
+      ssl-key = /path/to/server-key.pem
+      ssl-cert = /path/to/server-cert.pem
+
+      # MySQL Client Configuration
+      [client]
+      ssl-ca = /path/to/ca-cert.pem
+      ssl-key = /path/to/client-key.pem
+      ssl-cert = /path/to/client-cert.pem
+
+#. Additionally, configure :ref:`wsrep_sst_auth <wsrep_sst_auth>` with the SST user authentication information.
+
+   .. code-block:: ini
+
+      [mysqld]
+      # mysqldump SST auth
+      wsrep_sst_auth = sst_user:sst_password
+
+This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  You must repeat this process on all other nodes in order for them to communicate securely with one another.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`startingcluster`.
+
+
+----------------------------------
+Enabling SSL for ``rsync``
+----------------------------------
+.. _`ssl-rsync`:
+
+The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  In the case of ``rsync``, this method bypasses the database server and client, meaning that you must use an external method to secure its communications through SSL, namely: STunnel.
+
+In order to secure ``rsync`` communications, you need to create a separate SSL certificate for STunnel.  For information on how to generate an SSL certificate, see :doc:`sslcert`.
+
+- ``rsync-ca.pem`` The Certificate Authority (CA) file.
+- ``rsync-cert.pem`` The certificate file.
+- ``rsync-key.pm`` The key file.
+
+Using your preferred text editor, update the Stunnel configuration file at ``/etc/stunnel/stunnel.conf`` with the SSL certificate files for the node.
+
+.. code-block:: ini
+
+   ;; STunnel Configuration
+   CAfile = /path/to/rsync-ca.pem
+   cert = /path/to/rsync-cert.pem
+   key = /path/to/rysnc-key.pem
+
+   ;; ssync Server Configuration
+   [ssync]
+   accept = 4444
+   connect = 4444
+   
+   ;; rsync Client Configuration
+   [rsync]
+   accept = 4444
+   connect = 4444
+
+With STunnel configured to work with Galera Cluster, you can start or restart the service.  For servers that use ``init``, run the following command:
+
+.. code-block:: console
+
+   # service stunnel start
+
+For servers that use ``systemd``, instead run this command:
+
+.. code-block:: console
+
+   # systemctl start stunnel
+
+When you have Galera Cluster and STunnel running, with the value for :ref:`wsrep_sst_method <wsrep_sst_method>` set to ``rsync``.  The node now sends and receives state snapshot transfers through SSL.
+
+
+-----------------------------------
+Enabling SSL for ``xtrabackup``
+-----------------------------------
+.. _`ssl-xtrabackup`:
+
+The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  Unlike ``rsync``, ``xtrabackup`` includes support for SSL encryption built in.
+
+In order to secure ``xtrabackup`` communications, you need to create a separate SSL certificate for it to use.  For information on how to generate a self-signed SSL certificate, see :doc:`sslcert`.  Using these methods, create the following files:
+
+- ``xtrabackup-ca.pem`` The Certificate Authority (CA) file.
+- ``xtrabackup-cert.pem`` The certificate file.
+- ``xtrabackup-key.epm`` The key file.
+
+Configurations for ``xtrabackup`` are handled through the ``my.cnf`` configuration file, in the same as the database server and client.  Use the ``[sst]`` unit in configuring the script.
+
+.. code-block:: ini
+
+   # xtrabackup Configuration
+   [sst]
+   encrypt = 3
+   tca = /path/to/xtrabackup-ca.pem
+   tkey = /path/to/xtrabackup-key.pem
+   tcert = /path/to/xtrabackup-cert.pem
+
+When you finish editing the configuration file, restart the node to apply the changes.  With the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter set to use ``xtrabackup`` and these parameters defined, ``xtrabackup`` now sends and receives state snapshot transfers through SSL.
+
+.. note:: In order to use SSL with ``xtrabackup``, you need to set :ref:`wsrep_sst_method <wsrep_sst_method>` to ``xtrabackup-v2``.
+   
+
+
+
