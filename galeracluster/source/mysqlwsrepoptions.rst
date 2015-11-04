@@ -1017,8 +1017,7 @@ Defines whether the node participates in replication.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether or not updates made in the current session replicate to the cluster and whether the node applies transactions it receives from the cluster.  Bear in mind that this is a session variable.  Defining it through the ``SET GLOBAL`` syntax, causes it to affect future sessions.
-
+This parameter defines whether or not updates made in the current session replicate to the cluster and whether the node applies transactions it receives from the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
 
 
 .. code-block:: mysql
