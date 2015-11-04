@@ -3,9 +3,9 @@ SELinux Configuration
 =======================
 .. _`selinux`:
 
-Security-Enhanced Linux, or SELinux, is a kernel module for improving security on Linux operating system.  It integrates support for access control security policies, including mandatory access control (MAC), that limit user applications and system daemons access to files and network resources.  Some Linux distributions, such as Fedora, ship with SELinux enabled by default.
+Security-Enhanced Linux, or SELinux, is a kernel module for improving security of Linux operating systems.  It integrates support for access control security policies, including mandatory access control (MAC), that limit user applications and system daemons access to files and network resources.  Some Linux distributions, such as Fedora, ship with SELinux enabled by default.
 
-In the context of Galera Cluster, systems with SELinux may block the database server, keeping it from starting or preventing the node from establishing connectivity with the cluster.  To avoid this, you need to configure SELinux policies to allow the node to operate.
+In the context of Galera Cluster, systems with SELinux may block the database server, keeping it from starting or preventing the node from establishing connections with other nodes in the cluster.  To prevent this, you need to configure SELinux policies to allow the node to operate.
 
 
 -----------------------------
@@ -13,16 +13,16 @@ Generating an SELinux Policy
 -----------------------------
 .. _`gen-selinux-policy`:
 
-In order to create an SELinux policy for Galera Cluster, you need to first open ports and set SELinux into permissive mode.  Then, generate after generating various replication event, state transfers and notifications, create a policy from this activity, then restore SELinux.
+In order to create an SELinux policy for Galera Cluster, you need to first open ports and set SELinux to permissive mode.  Then, after generating various replication events, state transfers and notifications, create a policy from the logs of this activity and reset SELinux from to enforcing mode.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Disabling SELinux for Galera Cluster
+Setting SELinux to Permissive Mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`disable-selinux`:
+.. _`permissive-selinux`:
 
-Building a policy for SELinux requires that you first disable it.  More specifically, set SELinux to open the necessary ports and to permit activities originating from the database server.  While in permissive mode, SELinux continues to create log entries for system events, but takes no action to restrict this activity. 
+When SELinux registers a system event, there are three modes that define its response: enforcing, permissive and disabled.  While you can set it to permit all activity on the system, this is not a good security practice.  Instead, set SELinux to permit activity on the relevant ports and to ignore the database server.
 
-To disable SELinux, complete the following steps:
+To set SELinux to permissive mode, complete the following steps:
 
 #. Using ``semanage``, open the relevant ports:
 
@@ -71,9 +71,7 @@ You can now begin to create events for SELinux to log.  There are many ways to g
 
 - Stop the node, then make changes on another node before starting it again.  Not being that far behind, the node updates itself using an :term:`Incremental State Transfer`.
 
-- Using :ref:`wsrep_desync <wsrep_desync>`, you can change the node state, triggering the notification command defined by :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`. 
-
-- Using :term:`Galera Arbitrator` to run a backup.
+- Restart the node, to trigger the notification command as defined by :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`.
 
 When you feel you have generated sufficient events for the log, you can begin work creating the policy and turning SELinux back on.
 
