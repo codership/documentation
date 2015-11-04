@@ -58,7 +58,7 @@ Example Notification Script
 ----------------------------------------
 .. _`example-notification-script`:
 
-The particular notification script is the command the node calls in response to replication events.  You can choose the particular command it calls using the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`.  While you are free to develop your own notification script that meets the particular needs of your application infrastructure, you may find it helpful to consider this example as a starting point.
+Nodes can call a notification script when changes happen in the membership of the cluster, that is when nodes join or leave the cluster.  You can specify the name of the script the node calls using the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`.  While you can use whatever script meets the particular needs of your deployment, you may find it helpful to consider the example below as a starting point.
 
 .. code-block:: sh
 
@@ -164,13 +164,13 @@ The particular notification script is the command the node calls in response to 
 
    exit 0
   
-When you finish editing the script to fit your needs, you need to move it into a directory in the ``$PATH`` environmental variable or the binaries directory for your system.  On Linux, the binaries directory is typically at ``/usr/bin``, while on FreeBSD it is at ``/usr/local/bin``.
+When you finish editing the script to fit your needs, you need to move it into a directory in the ``$PATH`` environment variable or the binaries directory for your system.  On Linux, the binaries directory is typically at ``/usr/bin``, while on FreeBSD it is at ``/usr/local/bin``.
 
 .. code-block:: console
 
    # mv my-wsrep-notify.sh /usr/bin
 
-In addition to this, given that the notification command contains your root password, change the ownership to the ``mysql`` user and make the script executable only to all other users.
+In addition to this, given that the notification command contains your root password, change the ownership to the ``mysql`` user and make the script executable only to that user.
 
 .. code-block:: console
    
