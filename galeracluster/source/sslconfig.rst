@@ -11,10 +11,11 @@ When you finish generating the SSL certificates for your cluster, you need to en
 -----------------------
 Enabling SSL
 -----------------------
+.. _`enable-ssl`:
 
-There are three vectors that you can secure with :abbr:`SSL (Secure Socket Layer)`: the database server and client as well as replication traffic from Galera Cluster.
+There are three vectors that you can secure through :abbr:`SSL (Secure Socket Layer)`: traffic between the database server and client, replication traffic within Galera Cluster, and the :term:`State Snapshot Transfer`.  
 
-.. note:: While the configurations shown here do enable SSL for replication traffic and the database server and client, they do not enable it on any form of :term:`State Snapshot Transfer`.  In order to use SSL for state transfers, you must take several additional steps, depending on the method you prefer to use.  For more information, see :doc:`sslsst`.
+.. note:: The configurations shown here cover the first two.  The procedure for securing state snapshot transfers through SSL varies depending on the SST method you use.  For more information, see :doc:`sslsst`. 
 
 
 ^^^^^^^^^^^^^^^^^^^^^^
