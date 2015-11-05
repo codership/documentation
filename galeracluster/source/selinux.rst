@@ -67,13 +67,15 @@ For servers that use ``systemd``, instead run this command:
 
 You can now begin to create events for SELinux to log.  There are many ways to go about this, including:
 
-- Deleting the write-set cache forces the node to restore itself using a :term:`State Snapshot Transfer`.  The write-set cache is typically in the datadir and is named ``galera.cache`.
-
 - Stop the node, then make changes on another node before starting it again.  Not being that far behind, the node updates itself using an :term:`Incremental State Transfer`.
+
+- Stop the node, delete the ``grastate.dat`` file in the data directory, then restart the node.  This forces a :term:`State Snapshot Transfer`.
 
 - Restart the node, to trigger the notification command as defined by :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`.
 
 When you feel you have generated sufficient events for the log, you can begin work creating the policy and turning SELinux back on.
+
+.. note:: In order to for your policy to work you must generate both State Snapshot and Incremental State transfers.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
