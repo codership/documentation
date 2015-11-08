@@ -5,9 +5,9 @@ SSL for State Snapshot Transfers
 
 When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use.  Where :doc:`sslconfig` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
 
-The particular method you use to secure State Snapshot Transfer scripts depends upon the particular method you choose to use on your cluster.
+The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump``, ``rsync`` and ``xtrabackup``.
 
-.. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you are enabling this feature with a running cluster you need to restart the entire cluster.
+.. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you want to enable this feature with an existing cluster you need to restart the entire cluster.
 
 
 ----------------------------------
@@ -15,9 +15,25 @@ Enabling SSL for ``mysqldump``
 ----------------------------------
 .. _`ssl-mysqldump`:
 
-The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client and the standard method of enabling :term:`State Snapshot Transfer` script on your node.  Given that it connects through the database client, you can use the same SSL certificates you created for replication traffic.  In order to enable this for the entire cluster, you need to repeat this process on every node in the cluster.  
+The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client through SSL.  Given that ``mysqldump`` connects through the database client, you can use the same SSL certificates you created for replication traffic.  
 
-#. From the database client you need to create a user for the State Snapshot Transfer script.
+Before you shut down the cluster, you need to create a user for ``mysqldump`` on the database server and grant it privileges through the cluster.  This ensures that when the cluster comes back up, the nodes have the correct privileges to execute the incoming state snapshot transfers.  In the event that you use the :term:`Total Order Isolation` online schema upgrade method, you only need to execute the following commands on a single node.
+
+#. From the database client, check that you use Total Order Isolation for online schema upgrades.
+
+   .. code-block:: mysql
+
+      SHOW VARIABLES LIKE 'wsrep_OSU_method';
+
+      +------------------+-------+
+      | Variable_name    | Value |
+      +------------------+-------+
+      | wsrep_OSU_method | TOI   |
+      +------------------+-------+
+
+   If :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to :term:`Rolling Schema Upgrade`, or ``ROI``, then you need to execute the following commands on each node individually.
+
+#. Create a user for ``mysqldump``.
 
    .. code-block:: mysql
 
@@ -31,6 +47,25 @@ The procedure for securing ``mysqldump`` is fairly similar to that of securing t
 
       GRANT ALL ON *.* TO 'sst_user'@'%' REQUIRE SSL;
 
+
+#. From the database client on a different node, check to ensure that the user has replicated to the cluster.
+
+   .. code-block:: mysql
+
+      SELECT User, Host, ssl_type FROM mysql.user WHERE User='sst_user';
+
+      +----------+------+----------+
+      | User     | Host | ssl_type |
+      +----------+------+----------+
+      | sst_user | %    | Any      |
+      +----------+------+----------+
+
+This configures and enables the ``mysqldump`` user for the cluster. 
+
+.. note:: In the event that you find, :ref:`wsrep_OSU_method <wsrep_OSU_method>` set to ``ROI``, you need to manually create the user on each node in the cluster.  For more information on rolling schema upgrades, see :doc:`schemaupgrades`.
+
+ With the user now on every node, you can shut the cluster down to enable SSL for ``mysqldump`` State Snapshot Transfers.
+
 #. Stop the node.  For servers that use ``init``, run the following command:
 
    .. code-block:: console
@@ -43,8 +78,8 @@ The procedure for securing ``mysqldump`` is fairly similar to that of securing t
 
       # systemctl stop mysql
 
-#. Using your preferred text editor, ensure that the ``my.cnf`` configuration file includes parameters to secure the database server and client, (``mysqldump`` accesses the server through the client). 
-
+#. Using your preferred text editor, update the ``my.cnf`` configuration file to define the parameters the node requires to secure state snapshot transfers.
+ 
    .. code-block:: ini
 
       # MySQL Server
@@ -67,7 +102,9 @@ The procedure for securing ``mysqldump`` is fairly similar to that of securing t
       # mysqldump SST auth
       wsrep_sst_auth = sst_user:sst_password
 
-This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  You must repeat this process on all other nodes in order for them to communicate securely with one another.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`startingcluster`.
+This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  You must repeat this process on all other nodes in order for them to communicate securely with one another.  
+
+When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`startingcluster`.
 
 
 ----------------------------------
