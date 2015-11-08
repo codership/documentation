@@ -21,7 +21,6 @@ By installing and configuring the Codership Repository on any of these systems, 
 
 - `MySQL Server <https://github.com/codership/mysql-wsrep>`_ with the wsrep API patch.
 - `Galera Replication Plugin <https://github.com/codership/galera>`_.
-- `wsrep API <https://github.com/codership/wsrep-API>`_, alone, for patching MySQL Server yourself.
 - `glb <https://github.com/codership/glb>`_, the Galera Load Balancer.
 
 For users of FreeBSD and similar operating systems, the Galera Replication Plugin is also available in ports, at ``/usr/ports/databases/galera``, which corrects for certain compatibility issues with Linux dependencies.
