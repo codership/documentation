@@ -831,7 +831,7 @@ While the default behavior is often sufficient, there are situations where this 
 In these cases, you need to provide an explicit value for this parameter, given that the auto-guess of the IP address does not produce the correct result.  
 
 
-.. note:: **See Also**: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
+.. note:: **See Also**: In addition to defining the node address and port, this parameter also provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
 
 In some cases, you may need to provide a different value.  For example, Galera Cluster running on Amazon EC2 requires that you use the global DNS name instead of the local IP address.
 
