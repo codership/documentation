@@ -107,17 +107,14 @@ Table legend:
 | :ref:`gcache.name                     | ``galera.cache``      | 1+         | No       |
 | <gcache.name>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.size                     | ``128Mb``             | 1+         | No       |
-| <gcache.size>`                        |                       |            |          |
+| :ref:`gcache.keep_pages_size          | ``0``                 | 1+         | No       |
+| <gcache.keep_pages_size>`             |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`gcache.page_size                | ``128Mb``             | 1+         | No       |
 | <gcache.page_size>`                   |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.keep_pages_size          | ``0``                 | 1+         | No       |
-| <gcache.keep_pages_size>`             |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.mem_size                 | ``0``                 | 1+         | No       |
-| <gcache.mem_size>`                    |                       |            |          |
+| :ref:`gcache.size                     | ``128Mb``             | 1+         | No       |
+| <gcache.size>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`gcs.fc_debug                    | ``0``                 | 1+         | No       |
 | <gcs.fc_debug>`                       |                       |            |          |
@@ -246,7 +243,9 @@ Table legend:
 | :ref:`socket.ssl_key                  |                       | 1+         | No       |
 | <socket.ssl_key>`                     |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-
+| :ref:`socket.ssl_password_file        |                       | 1+         | No       |
+| <socket.ssl_password_file>`           |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 
 .. rubric:: ``base_host``
 .. _`base_host`:
@@ -798,7 +797,7 @@ Defines the directory where the write-set cache places its files.
 
 .. code-block:: ini
 
-   wsrep_provider_options="gachce.dir=/usr/share/galera"
+   wsrep_provider_options="gcache.dir=/usr/share/galera"
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory mapped files to disk.
 
@@ -810,6 +809,23 @@ This parameter determines where you want the node to save these files for write-
 | ``/path/to/working_dir`` | No      | 1.0        |            |
 +--------------------------+---------+------------+------------+
 
+
+.. rubric:: ``gcache.keep_pages_size``
+.. _`gcache.keep_pages_size`:
+.. index::
+   pair: Parameters; gcache.keep_pages_size
+
+Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present. 
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.keep_pages_size=0"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``0``                 | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``gcache.name``
@@ -833,6 +849,25 @@ This parameter determines the name you want the node to use for this ring buffer
 +=======================+=========+============+============+
 | ``galera.cache``      | No      | 1.0        |            |
 +-----------------------+---------+------------+------------+
+
+
+.. rubric:: ``gcache.page_size``
+.. _`gcache.page_size`:
+.. index::
+   pair: Parameters; gcache.page_size
+
+Size of the page files in page storage. The limit on overall page storage is the size of the disk.  Pages are prefixed by ``gcache.page``.
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.page_size=128Mb"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``128M``              | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``gcache.size``
@@ -860,63 +895,6 @@ This parameter defines the amount of disk space you want to allocate for the pre
 
 
 
-
-.. rubric:: ``gcache.page_size``
-.. _`gcache.page_size`:
-.. index::
-   pair: Parameters; gcache.page_size
-
-Size of the page files in page storage. The limit on overall page storage is the size of the disk.  Pages are prefixed by ``gcache.page``.
-
-.. code-block:: ini
-
-   wsrep_provider_options="gcache.page_size=128Mb"
-
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-| ``128M``              | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
-
-
-
-.. rubric:: ``gcache.keep_pages_size``
-.. _`gcache.keep_pages_size`:
-.. index::
-   pair: Parameters; gcache.keep_pages_size
-
-Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present. 
-
-.. code-block:: ini
-
-   wsrep_provider_options="gcache.keep_pages_size=0"
-
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-| ``0``                 | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
-
-
-
-.. rubric:: ``gcache.mem_size``
-.. _`gcache.mem_size`:
-.. index::
-   pair: Parameters; gcache.mem_size
-
-Defines the maximum size for the ``malloc()`` store.  That is, how much :abbr:`RAM (Random Access Memory)` your system has available.
-   
-.. code-block:: ini
-
-   wsrep_provider_options="gcache.mem_size=0"
-
-.. note:: **Warning**: This parameter is for use on systems with spare memory.  You should not use it otherwise, as it may lead to unexpected results.
-
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-| ``0``                 | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
 
    
 
@@ -1782,6 +1760,26 @@ The node uses the certificate key a self-signed private key in encrypting replic
 +=======================+=========+============+============+
 |                       | No      | 1.0        |            |
 +-----------------------+---------+------------+------------+
+
+.. rubric:: ``socket.ssl_password_file``
+.. _`socket.ssl_password_file`:
+.. index::
+   pair: Parameters; socket.ssl_password_file
+
+Defines a password file for use in :abbr:`SSL (Secure Socket Layer)` connections.
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.ssl_password_file=/path/to/password-file"
+
+In the event that you have your SSL key file encrypted, the node uses the SSL password file to decrypt the key file.
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 1.0        |            |
++-----------------------+---------+------------+------------+
+
 
 
 

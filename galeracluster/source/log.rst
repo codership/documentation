@@ -19,6 +19,9 @@ Galera Cluster provides parameters and wsrep Options that allow you to enable er
 
 - :ref:`wsrep_debug <wsrep_debug>` This parameter enables debugging information for the database server logs.
 
+  
+  .. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
+
 You can enable these through the ``my.cnf`` configuration file.
 
 .. code-block:: ini

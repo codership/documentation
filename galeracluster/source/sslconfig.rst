@@ -11,8 +11,11 @@ When you finish generating the SSL certificates for your cluster, you need to en
 -----------------------
 Enabling SSL
 -----------------------
+.. _`enable-ssl`:
 
-There are three vectors that you can secure with :abbr:`SSL (Secure Socket Layer)`: the database server and client, replication traffic from Galera Cluster, and state snapshot transfers through ``stunnel``.
+There are three vectors that you can secure through :abbr:`SSL (Secure Socket Layer)`: traffic between the database server and client, replication traffic within Galera Cluster, and the :term:`State Snapshot Transfer`.  
+
+.. note:: The configurations shown here cover the first two.  The procedure for securing state snapshot transfers through SSL varies depending on the SST method you use.  For more information, see :doc:`sslsst`. 
 
 
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -60,33 +63,6 @@ You can configure these options through the :ref:`wsrep_provider_options <wsrep_
    wsrep_provider_options="socket.ssl_key=/path/to/server-key.pem;socket.ssl_cert=/path/to/server-cert.pem;socket.ssl_ca=/path/to/cacert.pem"
 
 This tells Galera Cluster which files to use in encrypting and decrypting replication traffic through SSL.  The node will begin to use them once it restarts.
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Securing Physical State Snapshot Transfers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`securing-state-transfers`:
-
-In the event that you use a physical transfer method for your state snapshot transfers, such as ``rsync``, you need to configure the node to use ``stunnel`` to secure these transfers.
-
-Using your preferred text editor, edit ``/etc/stunnel/stunnel.conf`` to add the following lines:
-
-.. code-block:: ini
-
-   ;; stunnel Configuration
-   CAfile = /path/to/ca-cert.pem
-   cert = /path/to/client-cert.pem
-   key = /path/to/client-key.pem
-
-   ;; ssync Server Configuration
-   [ssync]
-   accept = 4444
-   connect = 4444
-
-   ;; rsync Client Configuration
-   [rsync]
-   accept = 4444
-   connect = 4444
-
 
 
 

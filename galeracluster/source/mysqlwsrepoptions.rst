@@ -80,6 +80,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_OSU_method                | ``TOI``                            | 3+      |         |
 | <wsrep_OSU_method>`                   |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_preordered                | ``OFF``                            | 1+      |         |
+| <wsrep_preordered>`                   |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_provider                  | ``NONE``                           | 1+      |         |
 | <wsrep_provider>`                     |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
@@ -487,7 +490,11 @@ Enables additional debugging output for the database server error log.
 | **Support**             | *Introduced:*       | 1                                |
 +-------------------------+---------------------+----------------------------------+
 
+
 Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help you in identifying and correcting problems. 
+
+
+.. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
 
 .. code-block:: mysql
 
@@ -824,7 +831,7 @@ While the default behavior is often sufficient, there are situations where this 
 In these cases, you need to provide an explicit value for this parameter, given that the auto-guess of the IP address does not produce the correct result.  
 
 
-.. note:: **See Also**: In addition to defining the node address and port, this parameter alos provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
+.. note:: **See Also**: In addition to defining the node address and port, this parameter also provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
 
 In some cases, you may need to provide a different value.  For example, Galera Cluster running on Amazon EC2 requires that you use the global DNS name instead of the local IP address.
 
@@ -941,7 +948,7 @@ Defines the command the node runs whenever cluster membership or the state of th
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
-.. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the follow `script <http://bazaar.launchpad.net/~codership/codership-mysql/wsrep-5.5/view/head:/support-files/wsrep_notify.sh>`_.
+.. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the :doc:`notificationcmd`.
 
 When the node calls the command, it passes one or more arguments that you can use in configuring your custom notification script and how it responds to the change.  The options are:
 
@@ -1010,7 +1017,8 @@ Defines whether the node participates in replication.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether or not the node participates in replication.  When set to ``OFF``, the node functions as a standard standalone MySQL database server.  No transactions made during this session replicate to the cluster.
+This parameter defines whether or not updates made in the current session replicate to the cluster and whether the node applies transactions it receives from the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
+
 
 .. code-block:: mysql
 
@@ -1070,6 +1078,40 @@ DDL statements are non-transactional and as such do not replicate through write-
    +------------------+-------+
 
    
+.. rubric:: ``wsrep_preordered``
+.. _`wsrep_preordered`:
+.. index::
+   pair: Parameters; wsrep_preordered
+
+Defines whether the node uses transparent handling of preordered replication events.
+
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-preordered``                                  |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_preordered``              |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | Boolean                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``OFF``                           |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       | 1                                 |
++-------------------------+---------------------+-----------------------------------+
+
+This parameter enables transparent handling or preordered replication events, such as replication from a traditional master node. 
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_preordered';
+
+   +------------------+-------+
+   | Variable_name    | Value |
+   +------------------+-------+
+   | wsrep_preordered | OFF   |
+   +------------------+-------+
 
 
 .. rubric:: ``wsrep_provider``
@@ -1631,7 +1673,6 @@ This parameter defines the node start position.  It exists for the sole purpose 
 .. index::
   pair: Parameters; wsrep_causal_reads
 
-
 Defines whether the node enforces strict cluster-wide causality checks.
 
 +-------------------------+---------------------------------------------------------+
@@ -1639,7 +1680,7 @@ Defines whether the node enforces strict cluster-wide causality checks.
 +-------------------------+---------------------+-----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_sync_wait``               |
 |                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
+|                         | *Variable Scope:*   | Session                           |
 |                         +---------------------+-----------------------------------+
 |                         | *Dynamic Variable:* |  Yes                              |
 +-------------------------+---------------------+-----------------------------------+

@@ -66,6 +66,7 @@ Security
 
    firewallsettings
    ssl
+   selinux
 
 
 ---------------------------
