@@ -12,3 +12,9 @@ Galera Cluster guarantees node consistency regardless of where and when the quer
 - **Pen** another open source TCP/HTTP load balancer. Pen performs better than HAProxy on SQL traffic.
   
 - **Galera Load Balancer** inspired by Pen, but is limited to balancing generic TCP connections only.
+
+.. note:: For more information or ideas on where to use load balancers in your infrastructure, see :doc:`deploymentvariants`.
+
+.. toctree::
+
+   glb
