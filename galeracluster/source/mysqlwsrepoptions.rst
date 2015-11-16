@@ -1103,6 +1103,15 @@ Defines whether the node uses transparent handling of preordered replication eve
 
 This parameter enables transparent handling or preordered replication events, such as replication from a traditional master node. 
 
+Preordered events are not meant to interfere with events that originate on the local node.  That is, they should not update or insert on the same table, because they are applied after replication.  The node eliminates replication latency wait between events rather than first applying and tehn replicating, which limits the slave processing rate to:
+
+.. math::
+
+   slave.processing = \frac{1}{replication.latency}
+
+When using Galera Cluster as a slave node in traditional MySQL asynchronous replication, use this parameter to speed up applies on incoming async replication events.  But, do not use this parameter when you are updating the same table that those async replication events update.
+
+
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_preordered';
