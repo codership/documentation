@@ -165,6 +165,9 @@ For Red Hat, Fedora and CentOS distributions, instead run this command:
    # yum install galera-3 \
 		mysql-wsrep-5.6
 
+
+.. note:: On CentOS 6 and 7, this command may generate a transaction check error. For more information on this error and how to fix it, see :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
+		
 For openSUSE and SUSE Linux Enterprise Server, run this command:
 
 .. code-block:: console
@@ -175,5 +178,48 @@ For openSUSE and SUSE Linux Enterprise Server, run this command:
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
 
 .. note:: **See Also**: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+MySQL Shared Compatibility Libraries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`centos-mysql-shared-compt`:
+
+When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check error that blocks the installation.  
+
+.. code-block:: text
+
+   Transaction Check Error:
+   file /usr/share/mysql/czech/errmsg.sys from install
+   mysql-wsrep-server-5.6-5.6.23-25.10.e16.x86_64 conflicts
+   with file from package mysql-libs-5.1.73-.3.e16_5.x86_64
+
+This relates to a dependency issue between the version of the MySQL shared compatibility libraries that CentOS uses and the one that Galera Cluster requires.  Upgrades are available through the Codership repository and you can install them with ``yum``.
+
+There are two versions available for this package.  The version that you need depends on which version of the MySQL wsrep database server that you want to install.  Additionally, the package names themselves vary depending on the version of CentOS.
+
+For CentOS 6, run the following command:
+
+.. code-block:: console
+
+   # yum upgrade -y mysql-wsrep-libs-compat-VERSION
+
+Replace ``VERSION`` with ``5.5`` or ``5.6``, depending upon the version of MySQL you want to use.  For CentOS 7, to install MySQL version 5.6, run the following command:
+
+.. code-block:: console
+
+   # yum upgrade mysql-wsrep-shared-5.6
+
+For CentOS 7, to install MySQL version 5.5, you also need to disable the 5.6 upgrade:
+
+.. code-block:: console
+
+   # yum upgrade -y mysql-wsrep-shared-5.5 \
+         -x mysql-wsrep-shared-5.6
+
+When ``yum`` finishes the upgrade, install the MySQL wsrep database server and the Galera Replication Plugin as described above.
+
+
+
 
 

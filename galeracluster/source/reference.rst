@@ -14,7 +14,7 @@
    galeraparameters
    mysqlwsrepoptions
    galerastatusvariables
-
+   glbparameters
 
 -------------------------
 Miscellaneous Reference

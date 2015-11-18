@@ -1101,7 +1101,9 @@ Defines whether the node uses transparent handling of preordered replication eve
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter enables transparent handling or preordered replication events, such as replication from a traditional master node. 
+This parameter enables transparent handling of preordered replication events, such as replication events arriving from traditional asynchronous replication. When this option is ``ON``, such events will be applied locally first before being replicated to the other nodes of the cluster. This could increase the rate at which they can be processed which would be otherwise limited by the latency between the nodes in the cluster.
+
+Preordered events should not interfere with events that originate on the local node. Therefore, you should not run local update queries on a table that is also being updated through asynchronous replication.
 
 .. code-block:: mysql
 
