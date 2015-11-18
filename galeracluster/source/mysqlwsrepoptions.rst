@@ -1101,15 +1101,11 @@ Defines whether the node uses transparent handling of preordered replication eve
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter enables transparent handling or preordered replication events, such as replication from a traditional master node. 
+This parameter enables transparent handling or preordered replication events, such as replication from a traditional master node. The node eliminates the replication latency wait between events rather than first applying the transactions and then replicating, which limits the slave processing rate.
 
-Preordered events are not meant to interfere with events that originate on the local node.  That is, they should not update or insert on the same table, because they are applied after replication.  The node eliminates replication latency wait between events rather than first applying and tehn replicating, which limits the slave processing rate to:
+Preordered events are not meant to interfere with events that originate on the local node.  That is, you should not run an ``UPDATE`` or ``INSERT`` statements on a table that is also being updated through asynchronous replication.  This is because the node applies these statements to the table after the replication events.
 
-.. math::
-
-   slave.processing = \frac{1}{replication.latency}
-
-When using Galera Cluster as a slave node in traditional MySQL asynchronous replication, use this parameter to speed up applies on incoming async replication events.  But, do not use this parameter when you are updating the same table that those async replication events update.
+Preordered events should only be used when they do not interfere with updating queries executed on the cluster itself.  For example, when you deploy Galera Cluster as a slave node in the standard MySQL asynchronous replication, as it can speed up applies on incoming async replication events.
 
 
 .. code-block:: mysql

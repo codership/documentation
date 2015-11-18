@@ -3,11 +3,11 @@ Galera Load Balancer
 =================================
 .. _`glb-doc`:
 
-Galera Load Balancer provides simple TCP connection balancing developed with scalability and performance in mind, by Codership, Oy.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.  Galera Load Balancer provides:
+Galera Load Balancer provides simple TCP connection balancing developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.
 
 - Support for configuring back-end servers at runtime.
 - Support for draning servers. 
-- Support for the epol API for routing performance.
+- Support for the epoll API for routing performance.
 - Support for multithreaded operations.
 - Optional watchdog module to monitor destinations and adjust the routing table.
 
@@ -72,13 +72,13 @@ In the source directory you cloned from GitHub, navigate into the ``files/`` dir
 
      # cp glbd.sh /etc/init.d/glb
 
-- Place ``glbd.cnf`` into either configuration directory.  For Red Hat and its derivatives, this is ``/etc/sysconfig/glbd/``.  For Debian and its derivatives, use ``/etc/default/glbd/``.
+- Place ``glbd.cfg`` into either configuration directory.  For Red Hat and its derivatives, this is ``/etc/sysconfig/glbd.cfg``.  For Debian and its derivatives, use ``/etc/default/glbd.cfg``.
 
   .. code-block:: console
 
-     # cp glbd.cnf /etc/sysconfig/glbd/
+     # cp glbd.cfg /etc/sysconfig/glbd.cfg
 
-  .. note:: The ``glbd.cnf`` configuration file used below refer to the one you have copied into ``/etc``.
+  .. note:: The ``glbd.cfg`` configuration file used below refer to the one you have copied into ``/etc``.
 
 When you finish this, you can manage Galera Load Balancer through the ``service`` command.  For more information on available commands, see :ref:`Using Galera Load Balancer <glb-use>`.
 	    
@@ -87,7 +87,7 @@ Configuration
 ---------------------
 .. _`glb-config`:
 
-When you run Galera Load Balancer, you can configure its use through the command-line options, which you can reference through the ``--help`` command.  For users that run Galera Load Balancer as a service, you can manage it through the ``glbd.cnf`` configuration file. 
+When you run Galera Load Balancer, you can configure its use through the command-line options, which you can reference through the ``--help`` command.  For users that run Galera Load Balancer as a service, you can manage it through the ``glbd.cfg`` configuration file. 
 
 - :ref:`LISTEN_ADDR <glb-listen_addr>` Defines the address that Galera Load Balancer monitors for incoming client connections.
 
@@ -109,9 +109,9 @@ Destination Selection Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`glb-dest-select`:
 
-Galera Load Balancer, both the system daemon and the shared library, support five destination selection policies.  When you run it from the command-line, you can define these using the command-line arguments, otherwise add the arguments to the :ref:`OTHER_OPTIONS <glb-other_options>` parameter in the ``glbd.cnf`` configuration file.
+Galera Load Balancer, both the system daemon and the shared library, support five destination selection policies.  When you run it from the command-line, you can define these using the command-line arguments, otherwise add the arguments to the :ref:`OTHER_OPTIONS <glb-other_options>` parameter in the ``glbd.cfg`` configuration file.
 
-- **Least Connected** Directs new connections to the server with the least connections, which is modified by the server weight.  This is the default policy.
+- **Least Connected** Directs new connections to the server using the smallest number of connections possible, which is adjusted for the server weight.  This is the default policy.
 
 - **Round Robin** Directs new connections to the next destination in the circular order list.  You can enable it through the :ref:`--round <glb-round>` option.
 
