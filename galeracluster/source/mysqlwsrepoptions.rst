@@ -1101,12 +1101,9 @@ Defines whether the node uses transparent handling of preordered replication eve
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter enables transparent handling or preordered replication events, such as replication from a traditional master node. The node eliminates the replication latency wait between events rather than first applying the transactions and then replicating, which limits the slave processing rate.
+This parameter enables transparent handling of preordered replication events, such as replication events arriving from traditional asynchronous replication. When this option is ``ON``, such events will be applied locally first before being replicated to the other nodes of the cluster. This could increase the rate at which they can be processed which would be otherwise limited by the latency between the nodes in the cluster.
 
-Preordered events are not meant to interfere with events that originate on the local node.  That is, you should not run an ``UPDATE`` or ``INSERT`` statements on a table that is also being updated through asynchronous replication.  This is because the node applies these statements to the table after the replication events.
-
-Preordered events should only be used when they do not interfere with updating queries executed on the cluster itself.  For example, when you deploy Galera Cluster as a slave node in the standard MySQL asynchronous replication, as it can speed up applies on incoming async replication events.
-
+Preordered events should not interfere with events that originate on the local node. Therefore, you should not run local update queries on a table that is also being updated through asynchronous replication.
 
 .. code-block:: mysql
 
