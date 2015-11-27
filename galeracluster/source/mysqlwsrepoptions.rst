@@ -78,7 +78,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | <wsrep_on>` :sup:`S`                  |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_OSU_method                | ``TOI``                            | 3+      |         |
-| <wsrep_OSU_method>`                   |                                    |         |         |
+| <wsrep_OSU_method>` :sup:`S`          |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_preordered                | ``OFF``                            | 1+      |         |
 | <wsrep_preordered>`                   |                                    |         |         |
@@ -1044,9 +1044,9 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
 +-------------------------+---------------------+-----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_OSU_method``              |
 |                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
+|                         | *Variable Scope:*   | Global, Session                   |
 |                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
+|                         | *Dynamic Variable:* | Yes                               |
 +-------------------------+---------------------+-----------------------------------+
 | **Permitted Values**    | *Type:*             | enumeration                       |
 |                         +---------------------+-----------------------------------+
