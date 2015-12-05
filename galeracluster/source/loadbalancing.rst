@@ -19,4 +19,7 @@ Galera Cluster guarantees node consistency regardless of where and when the quer
    :maxdepth: 2
 
    haproxy
+   pen
    glb
+
+
