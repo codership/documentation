@@ -687,7 +687,7 @@ Defines the inactivity period after which a node is *suspected* as dead.
 
    wsrep_provider_options="evs.suspect_timeout=PT5S"
 
-Each node in the cluster monitors group communications from all other nodes in the cluster.  This parameter determines the period of inactivity before the node suspects another of being dead.  If all nodes agree on that, the cluster drops the inactive node after it reaches the :ref:`evs.inactive_timeout<evs.inactive_timeout>`.
+Each node in the cluster monitors group communications from all other nodes in the cluster.  This parameter determines the period of inactivity before the node suspects another of being dead.  If all nodes agree on that, the cluster drops the inactive node.
 
 
 +-----------------------+---------+------------+------------+
