@@ -20,7 +20,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
    innodb_flush_log_at_trx_commit=0
    innodb_buffer_pool_size=122M
    wsrep_provider=/usr/lib/libgalera_smm.so
-   wsrep_provider_options="gcache.size=300M; gcache.page_size=1G"
+   wsrep_provider_options="gcache.size=300M; gcache.page_size=300M"
    wsrep_cluster_name="example_cluster"
    wsrep_cluster_address="gcomm://IP.node1,IP.node2,IP.node3"
    wsrep_sst_method=rsync
@@ -65,7 +65,7 @@ There are certain basic configurations that you will need to set up in the ``/et
 
      default_storage_engine=InnoDB
 
-  Galera Cluster will not work with MyISAM or similar nontransactional storage eninges.
+  Galera Cluster will not work with MyISAM or similar nontransactional storage engines.
 
 - Ensure that the InnoDB locking mode for generating auto-increment values is set to interleaved lock mode, which is designated by a ``2`` value.
 
