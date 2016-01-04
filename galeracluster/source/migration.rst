@@ -162,6 +162,14 @@ With your application server now using the new cluster nodes, you now need to mi
 
       ALTER TABLE table_name ENGINE = InnoDB;
 
+#. Update the system tables:
+
+   .. code-block:: console
+
+      # mysql_upgrade
+
+   .. note:: For more information, see :ref:`Upgrading System Tables <upgrade-system-tables>`.
+
 #. From one of the running Galera Cluster nodes, copy the ``grastate.dat`` file into the data directory of the former MySQL master server.
 
    .. code-block:: console
@@ -184,7 +192,7 @@ With your application server now using the new cluster nodes, you now need to mi
 
 #. Resume load on these servers.
 
-When the MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.  
+When the former MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.  
 
 
 
