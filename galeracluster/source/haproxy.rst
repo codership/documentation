@@ -3,7 +3,7 @@ HAProxy
 =====================
 .. _`haproxy`:
 
-High Availability Proxy, or HAProxy is a single-threaded event-driven non-blocking engine that combines a fast I/O layer with a priority-based scheduler.  You can use it to balance TCP/HTTP connections between application servers and Galera Cluster.
+High Availability Proxy, or HAProxy is a single-threaded event-driven non-blocking engine that combines a fast I/O layer with a priority-based scheduler.  You can use it to balance the TCP connections between application servers and Galera Cluster.
 
 ---------------------
 Installation
@@ -63,7 +63,7 @@ Create the proxy for Galera Cluster using the ``listen`` parameter.  This gives 
 
 - ``balance`` Defines the destination selection policy you want HAProxy to use in choosing which server it routes the incoming connections to.
 
-- ``mode tcp`` Defines the type of connections it should route.  Generally, Galera Cluster uses TCP connections, though it certain deployments it can also use UDP.
+- ``mode tcp`` Defines the type of connections it should route. Galera Cluster uses TCP connections.
 
 - ``option tcpka`` Enables the keepalive function to maintain TCP connections.
 
@@ -76,13 +76,13 @@ Destination Selection Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`haproxy-destination-selection`:
 
-When HAProxy receives a new connection from the network interface, there are a number of options available to define which algorithm it uses to chooses where to route that connection.  This algorithm is its destination selection policy.  It is defined by the ``balance`` parameter.
+When HAProxy receives a new connection, there are a number of options available to define which algorithm it uses to choose where to route that connection.  This algorithm is its destination selection policy.  It is defined by the ``balance`` parameter.
 
-- **Round Robin** Directs new connections to the next destination in a circular order list, modified by the server's weight.  Enable it with ``balance roudrobin``.
+- **Round Robin** Directs new connections to the next destination in a circular order list, modified by the server's weight.  Enable it with ``balance roundrobin``.
 - **Static Round Robin** Directs new connections to the next destination in a circular order list, modified by the server's weight.  Unlike the standard implementation of round robin, in static round robin you cannot modify the server weight on the fly.  Changing the server weight requires you to restart HAProxy. Enable it with ``balance static-rr``.
 - **Least Connected** Directs new connections to the server with the smallest number of connections available, which is adjuted for the server's weight.  Enable it with ``balance leastconn``
 - **First** Directs new connections to the first server with a connection slot available.  They are chosen from the lowest numeric identifier to the highest.  Once the server reaches its maximum connections value, HAProxy moves to the next in the list.  Enable it with ``balance first``.
-- **Source Tracking** Divides the source IP address by the total weight of running servers.  Ensures that client connections always reach the same server.  Enable it with ``balance source``
+- **Source Tracking** Divides the source IP address by the total weight of running servers.  Ensures that client connections from the same source IP always reach the same server.  Enable it with ``balance source``
 
 In the above configuration example, HAProxy is configured to use the source selection policy.  For your own implementations, choose the policy that works best with your infrastructure and load.
 
@@ -92,9 +92,9 @@ Enabling Database Server Checks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`haproxy-mysql-check`:
 
-In addition to routing TCP connections to Galera Cluster, HAProxy can also perform basic health checks on the database server.  When enabled, HAProxy sends client authentication and quick packets to the node, then parses its response or the errors it generates to determine if the node is operational.
+In addition to routing TCP connections to Galera Cluster, HAProxy can also perform basic health checks on the database server.  When enabled, HAProxy attempts to establish a connection with the node and parses its response or any errors to determine if the node is operational.
 
-For HAProxy you can enable this through the ``mysql-check`` option.  However, it requires that you also create a user in the cluster to receive and respond to HAProxy.
+For HAProxy you can enable this through the ``mysql-check`` option.  However, it requires that you also create a user in the cluster for HAProxy to use when connecting.
 
 .. code-block:: mysql
 
