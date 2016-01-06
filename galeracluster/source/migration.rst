@@ -58,7 +58,7 @@ Migrating from MySQL to Galera Cluster
 ---------------------------------------
 .. _`migrating-mysql-galera`:
 
-In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL master-slave cluster, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
+In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL master-slave replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
 
 There are three types of database servers referred to in this guide:
 
@@ -129,11 +129,11 @@ In order to migrate data from a MySQL master-slave cluster to Galera Cluster, yo
 
       mysql -u root -p < migration.sql
 
-#. Restart the load from the application servers, this time direct it towards your cluster nodes instead of the master server.
+#. Restart the load from the application servers, this time directing it towards your cluster nodes instead of the master server.
 
 Your application now uses Galera Cluster, instead of your previous MySQL master-slave cluster.  
 
-.. note:: Bear in mind that your application goes down at this stage of the process.  The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the master server, then transfer and upload it onto a cluster node.
+.. note:: Bear in mind that your application will experience downtime at this stage of the process.  The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the master server, then transfer and upload it onto a cluster node.
 
 
 ^^^^^^^^^^^^^^^^^^^^
