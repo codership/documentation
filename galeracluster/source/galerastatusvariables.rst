@@ -638,7 +638,7 @@ Shows the internal state of the EVS Protocol.
 .. index::
    pair: Status Variables; wsrep_flow_control_paused
 
-The fraction of time since the last status query that replication was paused due to flow control.
+The fraction of time since the last ``FLUSH STATUS`` command that replication was paused due to flow control.
 
 In other words, how much the slave lag is slowing down the cluster. 
 
@@ -977,7 +977,7 @@ Current (instantaneous) length of the recv queue.
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_avg
 
-Recv queue length averaged over interval since the last status query. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling. 
+Recv queue length averaged over interval since the last ``FLUSH STATUS`` command. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling. 
 
 .. code-block:: mysql
 
@@ -1002,7 +1002,7 @@ Recv queue length averaged over interval since the last status query. Values con
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_max
 
-The maximum length of the recv queue since the last status query. 
+The maximum length of the recv queue since the last FLUSH STATUS command. 
 
 .. code-block:: mysql
 
@@ -1030,7 +1030,7 @@ The maximum length of the recv queue since the last status query.
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_min
 
-The minimum length of the recv queue since the last status query. 
+The minimum length of the recv queue since the last FLUSH STATUS command. 
 
 .. code-block:: mysql
 
@@ -1106,7 +1106,7 @@ Current (instantaneous) length of the send queue.
 .. index::
    pair: Status Variables; wsrep_local_send_queue_avg
 
-Send queue length averaged over interval since the last status query. Values considerably larger than 0.0 indicate replication throttling or network throughput issue. 
+Send queue length averaged over time since the last ``FLUSH STATUS`` command. Values considerably larger than 0.0 indicate replication throttling or network throughput issue. 
 
 .. code-block:: mysql
 
@@ -1132,7 +1132,7 @@ Send queue length averaged over interval since the last status query. Values con
 .. index::
    pair: Status Variables; wsrep_local_send_queue_max
 
-The maximum length of the send queue since the last status query. 
+The maximum length of the send queue since the last ``FLUSH STATUS`` command. 
 
 .. code-block:: mysql
 
@@ -1161,7 +1161,7 @@ The maximum length of the send queue since the last status query.
 .. index::
    pair: Status Variables; wsrep_local_send_queue_min
 
-The minimum length of the send queue since the last status query. 
+The minimum length of the send queue since the last ``FLUSH STATUS`` command. 
 
 .. code-block:: mysql
 
