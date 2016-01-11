@@ -16,5 +16,10 @@ Galera Cluster guarantees node consistency regardless of where and when the quer
 .. note:: For more information or ideas on where to use load balancers in your infrastructure, see :doc:`deploymentvariants`.
 
 .. toctree::
+   :maxdepth: 2
 
+   haproxy
+   pen
    glb
+
+

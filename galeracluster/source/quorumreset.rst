@@ -80,7 +80,7 @@ To perform an automatic bootstrap, on the database client of the most advanced n
 
 .. code-block:: mysql
 
-   SET GLOBAL wsrep_provider_options='pc.boostrap=YES';
+   SET GLOBAL wsrep_provider_options='pc.bootstrap=YES';
 
 The node now operates as the starting node in a new Primary Component.  Nodes in nonoperational components that have network connectivity attempt to initiate incremental state transfers if possible, state snapshot transfers if not, with this node, bringing their own databases up-to-date.
 

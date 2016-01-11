@@ -151,4 +151,5 @@ The ``service`` script supports the following operations:
 - ``getstats`` Command provides performance statistics.
 - ``drain <IP Address>`` Sets the designated server to drain.  That is, Galera Load Balancer does not allocate new connections to the server, but also does not kill existing connections.  Instead, it waits for the connections to this server to end gracefully.
 
-In adding IP addresses at runtime, bear in mind that the address convention is ``IP Address|Hostname:port:weight``.
+When adding an IP address to Galera Load Balancer at runtime, bear in mind that it must follow the convention: ``IP Address:port:weight``.  When adding through a hostname, the convention is ``Hostname:port:weight``.
+
