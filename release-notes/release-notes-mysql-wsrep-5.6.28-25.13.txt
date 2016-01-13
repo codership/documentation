@@ -13,7 +13,7 @@ This and future releases will be available from http://www.galeracluster.com.
 The source repositories and bug tracking are now on http://www.github.com/codership .
 
 New features and notable changes in MySQL-wsrep since last binary release by
-Codership (5.6.26):
+Codership (5.6.27):
 
 - If a query such as CREATE USER needs to be printed to the error log, any plaintext
   passwords will be obfuscated (codership/mysql-wsrep#216)
