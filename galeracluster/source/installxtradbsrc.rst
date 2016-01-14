@@ -12,7 +12,7 @@ Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL
 ---------------------------
 Preparing the Server
 ---------------------------
-.. _`installxtradb-prep-server`
+.. _`installxtradb-prep-server`:
 
 When building from source code, ``make`` cannot manage or install dependencies necessary for either Galera Cluster itself or the build process.  You need to install these packages first.
 

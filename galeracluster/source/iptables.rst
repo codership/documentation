@@ -10,7 +10,7 @@ There are several tables that the kernel uses for packet filtering and within th
 ----------------------------------
 Opening Ports for Galera Cluster
 ----------------------------------
-.. _`iptables-ports`
+.. _`iptables-ports`:
 
 Galera Cluster requires four ports for replication.  There are two approaches to configuring the firewall to open these ``iptables``.  The method you use depends on whether you deploy the cluster in a :abbr:`LAN (Local Area Network)` environment, such as an office network, or if you deploy the cluster in a :abbr:`WAN (Wide Area Network)` environment, such as on several cloud servers over the internet.
 

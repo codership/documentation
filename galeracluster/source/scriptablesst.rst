@@ -41,7 +41,7 @@ These parameters are passed to all state transfer scripts, regardless of method 
    
    When the script is run by the joiner, the node uses the value given to the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.  When the script is run by the donor, it uses the value given by the state transfer request.
 
-- ``--datadir`` The script is given the path to the data directory.  The value is drawn from the ``mysql_real_data_home` parameter.
+- ``--datadir`` The script is given the path to the data directory.  The value is drawn from the ``mysql_real_data_home`` parameter.
 
 - ``--defaults-file`` The script is given the path to the ``my.cnf`` configuration file.
 
