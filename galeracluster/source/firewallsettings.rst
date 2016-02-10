@@ -25,4 +25,5 @@ How to open these ports for Galera Cluster can vary depending upon your distribu
    :maxdepth: 2
    
    iptables
+   firewalld
    pf

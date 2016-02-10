@@ -8,7 +8,6 @@ When using ``xtrabackup`` or ``xtrabackup-v2`` as your :term:`State Snapshot Tra
 .. code-block:: ini
 
    [mysqld]
-   ...
    wsrep_sst_method=xtrabackup-v2
 
    [sst]
@@ -21,7 +20,9 @@ When using ``xtrabackup`` or ``xtrabackup-v2`` as your :term:`State Snapshot Tra
    tcert="/path/to/cert.pem"
    tca="/path/to/ca.pem"
    
+Bear in mind, some XtraBackup parameters require that you match the configuration on donor and joiner nodes, (as designated in the table below).
 
+   
 
 +-----------------------------+--------------+--------+
 | Option                      | Default      | Match  |  
