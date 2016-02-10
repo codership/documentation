@@ -3,7 +3,7 @@ XtraBackup Parameters
 ======================
 .. _`xtrabackup-parameters`:
 
-When using ``xtrabackup`` or ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you can fine tune how the script operates using the ``[sst]`` unit in the ``my.cnf`` configuration file.
+When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you can fine tune how the script operates using the ``[sst]`` unit in the ``my.cnf`` configuration file.
 
 .. code-block:: ini
 
@@ -75,18 +75,12 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
 | :ref:`transferfmt           | ``socat``    | Yes    |
 | <xtra-transferfmt>`         |              |        |
 +-----------------------------+--------------+--------+
-| :ref:`use_extra             | ``0``        |        |
-| <xtra-use_extra>`           |              |        |
-+-----------------------------+--------------+--------+
-
 
 .. rubric:: ``compressor``
 .. _`xtra-compressor`:
 
 Defines the compression utility the donor node uses to compress the state transfer.
 
-+-------------------------+-----------------------------------+
-| **Command-line Format** | ``--compressor``                  |
 +-------------------------+------------------+----------------+
 | **System Variable**     | *Name:*          | ``compressor`` |
 |                         +------------------+----------------+
@@ -109,8 +103,6 @@ This parameter defines whether the donor node performs compression on the state 
 
 Defines whether the joiner node performs compaction when rebuilding indexes after applying a :term:`State Snapshot Transfer`.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--compact``                       |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``compact``      |
 |                         +------------------+------------------+
@@ -134,8 +126,6 @@ This parameter operates on the joiner node with the :ref:`rebuild <xtra-rebuild>
 
 Defines what files to clean up from the datadir during state transfers.
 
-+-------------------------+-----------------------------------+
-| **Command-line Format** | ``--cpat``                        |
 +-------------------------+------------------+----------------+
 | **System Variable**     | *Name:*          | ``cpat``       |
 |                         +------------------+----------------+
@@ -161,8 +151,6 @@ When the donor node begins a :term:`State Snapshot Transfer`, it cleans up vario
 
 Defines the decompression utility the joiner node uses to decompress the state transfer.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--decompressor``                  |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``decompressor`` |
 |                         +------------------+------------------+
@@ -188,8 +176,6 @@ This parameter defines whether the joiner node performs decompression on the sta
 
 Defines whether the node uses SSL encryption for XtraBackup and what kind of encryption it uses.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--encrypt``                       |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``encrypt``      |
 |                         +------------------+------------------+
@@ -229,8 +215,6 @@ This parameter determines the type of SSL encryption the node uses when sending 
 
 Defines the SSL encryption type the node uses for XtraBackup state transfers.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--encrypt-algo``                  |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``encrypt-algo`` |
 |                         +------------------+------------------+
@@ -259,8 +243,6 @@ In the event that you need to clarify the meaning, this parameter allows you to 
 
 Defines whether where the node reports :term:`State Snapshot Transfer` progress.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--progress``                      |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``progress``     |
 |                         +------------------+------------------+
@@ -291,8 +273,6 @@ When you set this parameter, the node reports progress on XtraBackup progress in
 
 Defines whether the joiner node rebuilds indexes during a :term:`State Snapshot Transfer`.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--rebuild``                       |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``rebuild``      |
 |                         +------------------+------------------+
@@ -317,8 +297,6 @@ This parameter operates on the joiner node.  When enabled, the node rebuilds ind
 
 Defines the rate limit for the donor node.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--rlimit``                        |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``rlimit``       |
 |                         +------------------+------------------+
@@ -341,8 +319,6 @@ This parameter allows you to definite the rate-limit the donor node.  This allow
 
 Defines the initial timeout to receive the first state transfer packet.
 
-+-------------------------+--------------------------------------------+
-| **Command-line Format** | ``--sst-initial-timeout``                  |
 +-------------------------+------------------+-------------------------+
 | **System Variable**     | *Name:*          | ``sst_initial_timeout`` |
 |                         +------------------+-------------------------+
@@ -365,8 +341,6 @@ This parameter determines the initial timeout in seconds for the joiner to recei
 
 Defines whether the node uses special InnoDB home and log directories.
 
-+-------------------------+-----------------------------------------+
-| **Command-line Format** | ``--sst-special-dirs``                  |
 +-------------------------+------------------+----------------------+
 | **System Variable**     | *Name:*          | ``sst_special_dirs`` |
 |                         +------------------+----------------------+
@@ -395,8 +369,6 @@ This parameter enables support for ``innodb_data_home_dir`` and ``innodb_log_hom
 
 Defines socket options.
 
-+-------------------------+-----------------------------------------+
-| **Command-line Format** | ``--sockopt``                           |
 +-------------------------+------------------+----------------------+
 | **System Variable**     | *Name:*          | ``sockopt``          |
 |                         +------------------+----------------------+
@@ -415,8 +387,6 @@ This parameter allows you to define one or more socket options for XtraBackup us
 
 Defines the stream formatting utility.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--streamfmt``                     |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``streamfmt``    |
 |                         +------------------+------------------+
@@ -431,7 +401,7 @@ Defines the stream formatting utility.
 |                         |                  | ``xbstream``     |
 +-------------------------+------------------+------------------+
 
-This parameter defines the utility the node uses to archive the node state before it sends the transfer and how to unarchive the state transfers that it receives.  There are two methods available: ``tar`` and ``xbstream``.  Given that the receiving node needs to know how to read the stream, it is necessary that both nodes use the same values for this parameter.
+This parameter defines the utility the node uses to archive the node state before the transfer is sent and how to unarchive the state transfers that is receives.  There are two methods available: ``tar`` and ``xbstream``.  Given that the receiving node needs to know how to read the stream, it is necessary that both nodes use the same values for this parameter.
 
 The default and recommended utility is ``xbstream`` given that it supports encryption, compression, parallel streaming, incremental backups and compaction.  ``tar`` does not support these features.
  
@@ -446,8 +416,6 @@ The default and recommended utility is ``xbstream`` given that it supports encry
 
 Defines the Certificate Authority (CA) to use in SSL encryption.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--tca``                           |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``tca``          |
 |                         +------------------+------------------+
@@ -474,8 +442,6 @@ This parameter defines the Certificate Authority (CA) file that the node uses wi
 
 Defines the certificate to use in SSL encryption.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--tcert``                         |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``tcert``        |
 |                         +------------------+------------------+
@@ -499,10 +465,8 @@ This parameter defines the SSL certificate file that the node uses with SSL encr
 .. rubric:: ``time``
 .. _`xtra-time`:
 
-Defines whether XtraBackup implements key stages in the backup and restore process for state transfers.
+Defines whether XtraBackup instruments key stages in the backup and restore process for state transfers.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--time``                          |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``time``         |
 |                         +------------------+------------------+
@@ -513,7 +477,7 @@ Defines whether XtraBackup implements key stages in the backup and restore proce
 |                         | *Default Value:* | ``OFF``          |
 +-------------------------+------------------+------------------+
 
-This parameter enables key stages of the backup and restore process for state transfers.
+This parameter instruments key stages of the backup and restore process for state transfers.
 
 .. code-block:: ini
 
@@ -524,8 +488,6 @@ This parameter enables key stages of the backup and restore process for state tr
 
 Defines the transfer stream utility.
 
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--transferfmt``                   |
 +-------------------------+------------------+------------------+
 | **System Variable**     | *Name:*          | ``transferfmt``  |
 |                         +------------------+------------------+
@@ -547,27 +509,3 @@ The default and recommended utility is Socat, given that it allows for socket op
 .. code-block:: ini
 
    transferfmt="socat"
-
-
-.. rubric:: ``use_extra``
-.. _`xtra-use_extra`:
-
-Defines whether the node uses the thread pool's extra port for a :term:`State Snapshot Transfer`.
-
-+-------------------------+-------------------------------------+
-| **Command-line Format** | ``--use-extra``                     |
-+-------------------------+------------------+------------------+
-| **System Variable**     | *Name:*          | ``use_extra``    |
-|                         +------------------+------------------+
-|                         | *Match:*         | No               |
-+-------------------------+------------------+------------------+
-| **Permitted Values**    | *Type:*          | Boolean          |
-|                         +------------------+------------------+
-|                         | *Default Value:* | ``OFF``          |
-+-------------------------+------------------+------------------+
-
-When the node is configured to use thread pools and the ``extra_port`` option is set, this parameter tells the node to use the extra port for state transfers.
-
-.. code-block:: ini
-
-   use_extra=ON
