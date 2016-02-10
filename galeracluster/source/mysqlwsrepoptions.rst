@@ -1330,7 +1330,15 @@ Defines the number of threads to use in applying slave write-sets.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter determines the number of threads the node uses when it applies slave write-sets.  In defining this value, use a figure that is more than twice the number of CPU cores available and at most one quarter the number of writing client connections the other nodes have.
+This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs. 
+
+Instead of concrete recommendations, there are some general guidelines that you can use as a starting point in finding the value that works best for your system:
+
+- It is rarely beneficial to use a value that is less than twice the number of CPU cores on your system.
+
+- Similarly, it is rarely beneficial to use a value that is more than one quarter the total number of client connections to the node.  While it is difficult to predict the number of client connections, being off by as much as 50% over or under is unlikely to make a difference.
+
+- From the perspective of resource utilization, it's recommended that you keep to the lower end of slave threads.
 
 .. code-block:: mysql
 
@@ -1342,6 +1350,8 @@ This parameter determines the number of threads the node uses when it applies sl
    | wsrep_slave_threads | 1     |
    +---------------------+-------+
 
+
+   
 .. rubric:: ``wsrep_slave_UK_checks``
 .. _`wsrep_slave_UK_checks`:
 .. index::

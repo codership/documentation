@@ -11,9 +11,10 @@
 .. toctree::
    :maxdepth: 2
 
-   galeraparameters
    mysqlwsrepoptions
+   galeraparameters
    galerastatusvariables
+   xtrabackupoptions
    glbparameters
 
 -------------------------
