@@ -46,10 +46,9 @@ This software runs on any unix-like operating system.  You can choose to build f
    configuration
    dbconfiguration
 
-
-------------------------------
+------------------------
 Cluster Initialization
-------------------------------
+------------------------
 .. _`cluster-initialization`:
 
 Once you have Galera Cluster installed and configured on your servers, you are ready to initialize the cluster for operation.  You do this by starting the cluster on the first node, then adding the remaining nodes to it.
