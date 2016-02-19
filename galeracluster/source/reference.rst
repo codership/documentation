@@ -16,14 +16,6 @@
    galerastatusvariables
    xtrabackupoptions
    glbparameters
-
--------------------------
-Miscellaneous Reference
--------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   glossary
    versioninginformation
    legalnotice
+   glossary

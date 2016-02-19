@@ -68,6 +68,7 @@ An additional benefit of Galera Cluster is good cloud support.  Automatic node p
    gettingstarted
    technicaldescription
    userguide
+   deployment
    monitor
    security
    migrate
