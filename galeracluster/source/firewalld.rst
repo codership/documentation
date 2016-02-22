@@ -14,7 +14,7 @@ Opening Ports for Galera Cluster
 --------------------------------------
 .. _`firewalld-ports`:
 
-Galera Cluster requires four ports open for replication over TCP, and one for UDP transport, in the event that you want to use multicast replication.  In order for this to work over FirewallD, you also need to add the database service to your firewall rules.
+Galera Cluster requires four ports open for replication over TCP, and, in the event that you want to use multicast replication, one for UDP transport.  In order for this to work over FirewallD, you also need to add the database service to your firewall rules.
 
 #. Enable the database service for FirewallD:
 
@@ -37,7 +37,7 @@ Galera Cluster requires four ports open for replication over TCP, and one for UD
 
       # firewall-cmd --zone=public --add-port=4567/udp
 
-These commands dynamically configures FirewallD.  Your firewall now permits the cluster to connect to the node hosted on this server.  Repeat the above commands on each server.  Bear in mind, these changes are not persistent.  When the server reboots, FirewallD returns to its default state.
+These commands dynamically configure FirewallD.  Your firewall now permits the rest of the cluster to connect to the node hosted on this server.  Repeat the above commands on each server.  Bear in mind, these changes are not persistent.  When the server reboots, FirewallD returns to its default state.
 
 
 
@@ -46,7 +46,7 @@ Making Firewall Changes Persistent
 --------------------------------------
 .. _`firewalld-persistent`:
 
-The commands given in the above section allow you to configure FirewallD on a running server, updating the firewall without restarting.  However, these changes are not persistent.  When the server restarts, FirewallD reverts to its default configuration.  To update the default configuration yourself, it requires a somewhat different approach:
+The commands given in the above section allow you to configure FirewallD on a running server and update the firewall rules without restarting.  However, these changes are not persistent.  When the server restarts, FirewallD reverts to its default configuration.  To update the default configuration yourself, a somewhat different approach is required:
 
 
 #. Enable the database service for FirewallD:
@@ -82,4 +82,4 @@ The commands given in the above section allow you to configure FirewallD on a ru
 
       # firewall-cmd --reload
 
-These commands configure the default FirewallD settings and load them into the runtime.  FirewallD is now configured to allow the cluster to access this node.  The configuration remains in effect after reboots.
+These commands modify the default FirewallD settings and then cause the new settings take effect immediately.  FirewallD is now configured to allow the rest of the cluster to access this node.  The configuration remains in effect across reboots.
