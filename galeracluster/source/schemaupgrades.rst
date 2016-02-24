@@ -80,3 +80,44 @@ The main disadvantage of the Rolling Schema Upgrade is that it is potentially un
 .. note:: **Warning**: To avoid conflicts between new and old schema definitions, execute operations such as ``CREATE TABLE`` and ``DROP TABLE`` using the :ref:`Total Order Isolation <toi>` method.
 
 
+----------------------------
+NBO
+----------------------------
+
+Brief intro of the value of NBO.
+
+.. code-block:: mysql
+
+   SET SESSION wsrep_OSU_method='OSU';
+
+Explanation of the problems with TOI and RSU and how NBO solves this problem.  Locking the table to ``SHARED`` or ``EXCLUSIVE``.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Supported DDL Statements
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`nbo-supported-ddl`:
+
+Brief intro that NBO only supports some DDL statements
+
+- ``ALTER TABLE table_name LOCK`` shared or exclusive, alter specifications
+- ``ANALYZE TABLE``
+- ``OPTIMIZE TABLE``
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unsupported DDL Statements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`nbo-unsupported-ddl`:
+
+Note on supported DDL statements.
+
+- ALTER TABLE LOCK = {default|none}
+- create, rename, drop, repair
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Limitations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _`nbo-limitations`:
+
+Notes on the limitations of NBO
