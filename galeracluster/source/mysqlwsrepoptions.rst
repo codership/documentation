@@ -586,6 +586,7 @@ When a node loses its connection to the :term:`Primary Component`, it enters a n
    | wsrep_dirty_reads | ON    |
    +-------------------+-------+
 
+.. note:: This is a MySQL wsrep parameter.  It was introduced in version 5.6.29.
 
 
 
@@ -1289,6 +1290,8 @@ You may find this parameter useful in certain maintenance situations.  In enabli
    +----------------------+-------+
    | wsrep_reject_queries | NONE  |
    +----------------------+-------+
+
+.. note:: This is a MySQL wsrep parameter.  It was introduced in version 5.6.29.
 
 
 .. rubric:: ``wsrep_restart_slave``
