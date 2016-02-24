@@ -559,7 +559,7 @@ When set to ``ON``, this parameter disables Flow Control for the node.  The node
 Defines whether the node accepts read queries when in a non-operational state.
 
 +-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-dirt-reads``                                  |
+| **Command-line Format** | ``--wsrep-dirty-reads``                                 |
 +-------------------------+---------------------+-----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_dirty_reads``             |
 |                         +---------------------+-----------------------------------+
@@ -1238,8 +1238,57 @@ For example, you can use :ref:`gcache.size <gcache.size>` to define how large a 
    +------------------------+-----------------------------------------------+
 
 
+.. rubric:: ``wsrep_reject_queries``:
+.. _`wsrep_reject_queries`:
+
+Defines whether the node rejects client queries while participating in the cluster.
+
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_reject_queries``          |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | array                             |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``NONE``                          |
+|                         +---------------------+-----------------------------------+
+|                         | *Valid Values:*     | ``NONE``                          |
+|                         |                     +-----------------------------------+
+|                         |                     | ``ALL``                           |
+|                         |                     +-----------------------------------+
+|                         |                     | ``ALL_KILL``                      |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       |                                   |
++-------------------------+---------------------+-----------------------------------+
+
+When in use, this parameter causes the node to reject queries from client connections.  The node continues to participate in the cluster and apply write-sets, but client queries generate ``Unknown command`` errors.  For instance,
+
+.. code-block:: mysql
+
+   SELECT * FROM my_table;
+
+   Error 1047: Unknown command
+
+You may find this parameter useful in certain maintenance situations.  In enabling it, you can also decide whether or not the node maintains or kills any current client connections.
+
+- ``NONE`` The node disables this feature.
+
+- ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections. 
+
+- ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including those set as Global.
 
 
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_reject_queries';
+
+   +----------------------+-------+
+   | Variable_name        | Value |
+   +----------------------+-------+
+   | wsrep_reject_queries | NONE  |
+   +----------------------+-------+
 
 
 .. rubric:: ``wsrep_restart_slave``
