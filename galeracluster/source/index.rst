@@ -53,12 +53,38 @@ The following features are available through Galera Cluster:
 
 The result is a high-availability solution that is both robust in terms of data integrity and high-performance with instant failovers.
 
+
+.. rubric:: What's New in Galera Cluster 4.x?
+.. _`whats-new`:
+
+What's new in Galera Cluster?
+
+- **Features**
+
+  - Inconsistency Voting
+
+  - Streaming Replication
+
+  - Non-blocking DDL
+
+- **FUNCTIONS**
+
+  - WSREP_LAST_WRITTEN_GTID()
+
+  - WSREP_LAST_SEEN_GTID()
+
+  - WSREP_SYNC_WAIT_UPTO_GTID( gitid [, timeout])
+
+- **Parameters**
+
+  - :ref:`wsrep_OSU_method <wsrep_OSU_method>` now supports NBO.
+
+
+
 .. rubric:: Cloud Implementations with Galera Cluster
 .. _`Galera Cluster Cloud Implementations`:
 
 An additional benefit of Galera Cluster is good cloud support.  Automatic node provisioning makes elastic scale-out and scale-in operations painless.  Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.
-
-
 
 
 .. toctree::
