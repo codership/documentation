@@ -1099,15 +1099,19 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
 |                         | *Valid Values:*     | ``TOI``                           |
 |                         |                     +-----------------------------------+
 |                         |                     | ``ROI``                           |
+|                         |                     +-----------------------------------+
+|                         |                     | ``NBO``                           |
 +-------------------------+---------------------+-----------------------------------+
 | **Support**             | *Introduced:*       | Patch v. 3 (5.5.17-22.3)          |
 +-------------------------+---------------------+-----------------------------------+
 
-DDL statements are non-transactional and as such do not replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
+DDL statements are non-transactional and as such do not replicate through write-sets.  There are three methods available that determine how the node handles replicating these statements:
 
 - ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, locking the affected table for the duration of the operation.  This may result in the whole cluster being blocked for the duration of the operation.
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
+
+
 
 .. note:: **See Also**: For more information on DDL statements and OSU methods, see :doc:`schemaupgrades`.
 
