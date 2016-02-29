@@ -574,7 +574,14 @@ Defines whether the node accepts read queries when in a non-operational state.
 | **Support**             | *Introduced:*       |                                   |
 +-------------------------+---------------------+-----------------------------------+
 
-When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it cannot keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.  Bear in mind, when enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.
+When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it cannot keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.  
+
+.. note:: Remember that by its nature, data reads from nodes in a non-operational state are stale.  Current data in the Primary Component remains inaccessible to these nodes until they rejoin the cluster.
+
+When enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.  When in this state, the node allows ``SELECT``, ``LOCK TABLE`` and ``UNLOCK TABLE``.  It does not allow DDL statements.  It also rejects DML statements, such as ``INSERT``, ``DELETE`` and ``UPDAET``.
+
+You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.  
+
 
 .. code-block:: mysql
 
