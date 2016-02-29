@@ -578,7 +578,7 @@ When a node loses its connection to the :term:`Primary Component`, it enters a n
 
 .. note:: Remember that by its nature, data reads from nodes in a non-operational state are stale.  Current data in the Primary Component remains inaccessible to these nodes until they rejoin the cluster.
 
-When enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.  When in this state, the node allows ``SELECT``, ``LOCK TABLE`` and ``UNLOCK TABLE``.  It does not allow DDL statements.  It also rejects DML statements, such as ``INSERT``, ``DELETE`` and ``UPDAET``.
+When enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.  When in this state, the node allows ``USE``, ``SELECT``, ``LOCK TABLE`` and ``UNLOCK TABLES``.  It does not allow DDL statements.  It also rejects DML statements, such as ``INSERT``, ``DELETE`` and ``UPDATE``.
 
 You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.  
 
@@ -1285,7 +1285,7 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 
 - ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections. 
 
-- ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including those set as Global.
+- ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including the current connection.
 
 
 .. code-block:: mysql
