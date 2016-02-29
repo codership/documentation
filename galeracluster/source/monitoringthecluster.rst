@@ -241,7 +241,7 @@ You can monitor the local received queue and Flow Control using the following st
 
   .. code-block:: mysql
 
-     SHOW STATUS LIKE 'wsrep_cert_deps_distance`;
+     SHOW STATUS LIKE 'wsrep_cert_deps_distance';
 
      +--------------------------+---------+
      | Variable_name            | Value   |
