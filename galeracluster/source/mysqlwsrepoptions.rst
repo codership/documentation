@@ -44,6 +44,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_desync                    | ``OFF``                            | 1+      |         |
 | <wsrep_desync>`                       |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_dirty_reads               | ``OFF``                            |         | Yes     |
+| <wsrep_dirty_reads>`                  |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_drupal_282555_workaround  | ``ON``                             | 1+      |         |
 | <wsrep_drupal_282555_workaround>`     |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
@@ -88,6 +91,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 +---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_provider_options          |                                    | 1+      |         |
 | <wsrep_provider_options>`             |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_reject_queries            | ``NONE``                           |         |  Yes    |
+| <wsrep_reject_queries>`               |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_restart_slave             | ``OFF``                            | 1+      | Yes     |
 | <wsrep_restart_slave>`                |                                    |         |         |
@@ -544,6 +550,51 @@ When set to ``ON``, this parameter disables Flow Control for the node.  The node
    +---------------+-------+
    | wsrep_desync  | OFF   |
    +---------------+-------+
+
+.. rubric:: ``wsrep_dirty_reads``
+.. _`wsrep_dirty_reads`:
+.. index::
+   pair: Parameters; wsrep_dirty_reads
+
+Defines whether the node accepts read queries when in a non-operational state.
+
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-dirty-reads``                                 |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_dirty_reads``             |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global, Session                   |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | Boolean                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``OFF``                           |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       |                                   |
++-------------------------+---------------------+-----------------------------------+
+
+When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it cannot keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.  
+
+.. note:: Remember that by its nature, data reads from nodes in a non-operational state are stale.  Current data in the Primary Component remains inaccessible to these nodes until they rejoin the cluster.
+
+When enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.  When in this state, the node allows ``USE``, ``SELECT``, ``LOCK TABLE`` and ``UNLOCK TABLES``.  It does not allow DDL statements.  It also rejects DML statements, such as ``INSERT``, ``DELETE`` and ``UPDATE``.
+
+You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.  
+
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_dirty_reads';
+
+   +-------------------+-------+
+   | Variable_name     | Value |
+   +-------------------+-------+
+   | wsrep_dirty_reads | ON    |
+   +-------------------+-------+
+
+.. note:: This is a MySQL wsrep parameter.  It was introduced in version 5.6.29.
+
 
 
 .. rubric:: ``wsrep_drupal_282555_workaround``
@@ -1193,6 +1244,61 @@ For example, you can use :ref:`gcache.size <gcache.size>` to define how large a 
    | wsrep_provider_options | ... evs.user_send_window=2,gcache.size=128Mb  |
    |                        | evs.auto_evict=0,debug=OFF, evs.version=0 ... |
    +------------------------+-----------------------------------------------+
+
+
+.. rubric:: ``wsrep_reject_queries``:
+.. _`wsrep_reject_queries`:
+
+Defines whether the node rejects client queries while participating in the cluster.
+
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_reject_queries``          |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Global                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | array                             |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``NONE``                          |
+|                         +---------------------+-----------------------------------+
+|                         | *Valid Values:*     | ``NONE``                          |
+|                         |                     +-----------------------------------+
+|                         |                     | ``ALL``                           |
+|                         |                     +-----------------------------------+
+|                         |                     | ``ALL_KILL``                      |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       |                                   |
++-------------------------+---------------------+-----------------------------------+
+
+When in use, this parameter causes the node to reject queries from client connections.  The node continues to participate in the cluster and apply write-sets, but client queries generate ``Unknown command`` errors.  For instance,
+
+.. code-block:: mysql
+
+   SELECT * FROM my_table;
+
+   Error 1047: Unknown command
+
+You may find this parameter useful in certain maintenance situations.  In enabling it, you can also decide whether or not the node maintains or kills any current client connections.
+
+- ``NONE`` The node disables this feature.
+
+- ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections. 
+
+- ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including the current connection.
+
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_reject_queries';
+
+   +----------------------+-------+
+   | Variable_name        | Value |
+   +----------------------+-------+
+   | wsrep_reject_queries | NONE  |
+   +----------------------+-------+
+
+.. note:: This is a MySQL wsrep parameter.  It was introduced in version 5.6.29.
 
 
 .. rubric:: ``wsrep_restart_slave``
