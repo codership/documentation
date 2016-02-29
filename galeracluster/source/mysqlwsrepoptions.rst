@@ -1111,6 +1111,7 @@ DDL statements are non-transactional and as such do not replicate through write-
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
+- ``NBO`` In the :term:`Non-Blocking Operation` method, the node applies a special metadata lock on the table before executing an ``ALTER`` statement.  It executes the DDL statement on all nodes, using a separate applier thread, they then simultaneously release the locks.
 
 
 .. note:: **See Also**: For more information on DDL statements and OSU methods, see :doc:`schemaupgrades`.
