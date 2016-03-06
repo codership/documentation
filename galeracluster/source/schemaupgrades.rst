@@ -87,14 +87,16 @@ Non-Blocking Operation
 ----------------------------
 .. _`nbo`:
 
-Brief intro of the value of NBO.
+When you want to maintain high-availability while altering, analyzing or optimizing tables and don't mind the particular limitations, use the :term:`Non Blocking Operation` method.
+
+Under the :term:`Total Order Isolation` method, when DDL statements replicate, the nodes block almost all updates made to them.  With some statements this can go on for a particularly long time.  In the Non-Blocking Operation method, the node applies special table locks called metadata locks on all nodes, in order to ensure consistency.  The nodes all execute the DDL statements, using a separate applier thread.  Then, once the statement is applied, all nodes simultaneously release the locks.
 
 .. code-block:: mysql
 
    SET SESSION wsrep_OSU_method='NBO';
 
-When DDL statements replicate under the :term:`Total Order Isolation` method, the nodes block almost all updates made to them.  With some statements this can go on for a particularly long time.  In the Non-Blocking Operation method, the node applies special table locks called metadata locks on all nodes, in order to ensure consistency.  The nodes all execute the DDL statements, using a separate applier thread.  Then, once the statement is applied, all nodes simultaneously release the locks.
-
+Given its :ref:`limitations <nbo-limitations>`, the recommended method in updating the schema with a Non-Blocking Operation is to enable it at a session level, run the command with the appropriate locks, then reset the Online Schema Upgrade method back to ``TOI`` or ``RSU``.
+   
 DDL statements that support Non-Blocking Operation:
 
 - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE}, alter_specification``
@@ -103,7 +105,6 @@ DDL statements that support Non-Blocking Operation:
 - ``OPTIMIZE TABLE`` 
 
 .. note:: For partition management, the comma that occurs after ``LOCK = {SHARED|EXCLUSIVE}`` does not get used.
-
 
 DDL statements that do not support Non-Blocking Operation:
 
