@@ -138,13 +138,13 @@ In addition to unsupported DDL statements, there are a number of limitations in 
 
   When you set the lock to ``EXCLUSIVE``, the node also blocks reads.  When you set the lock to ``SHARED``, the node allows read operations on the table.
 
-- The table locks acquired at the beginning of the operation remains a blocking operation.  Long transactions running against the table already may lead the cluster to block the locks.  To avoid this, ensure that no clients have open transactions that include the table prior to running the ``ALTER`` statement.
+- The table lock acquired at the beginning of the operation remains a blocking operation.  Long transactions running against the table already may lead the cluster to block the locks.  To avoid this, ensure that no clients have open transactions that include the table prior to running the ``ALTER`` statement.
 
 - During DDL operations, nodes cannot serve as donors for a :term:`State Snapshot Transfer`.  
 
   What this means is that nodes are unable to join the cluster while DDL statements are in progress under this method.  Nodes that attempt to rejoin the cluster, must have sufficient data in their write-set caches to perform a :term:`Incremental State Transfer`.  Those that do not are unable to rejoin.  
 
-  .. note:: If you expect a DDL statement to take an hour to run, adjust the :ref:`gcache.size <gcache.size>` wsrep option according so that the nodes cache enough data to continue performing incremental state transfers during the process.
+  .. note:: If you expect a DDL statement to take an hour to run, adjust the :ref:`gcache.size <gcache.size>` wsrep option accordingly so that the nodes cache enough data to perform incremental state transfers, in the event that they need to during the process.
 
 - Under this method, nodes that leave the cluster during DDL operations have inconsistent data with the cluster, meaning that they can only rejoin the cluster through a State Snapshot Transfer, rather than the much faster Incremental State Transfer.
 
