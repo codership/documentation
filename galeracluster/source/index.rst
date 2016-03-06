@@ -57,27 +57,11 @@ The result is a high-availability solution that is both robust in terms of data 
 .. rubric:: What's New in Galera Cluster 4.x?
 .. _`whats-new`:
 
-What's new in Galera Cluster?
+With the latest release of Galera Cluster in the 4.x branch, a number of new features are now available to you, including,
 
-- **Features**
+- **Non-Blocking Operations** When performing DDL statements that update, analyze or optimize tables, you can now use the Non-Blocking Operation online schema upgrade method.  Unlike other methods, this allows you to update the cluster schema without blocking reads on the nodes.
 
-  - Inconsistency Voting
-
-  - Streaming Replication
-
-  - Non-blocking DDL
-
-- **FUNCTIONS**
-
-  - WSREP_LAST_WRITTEN_GTID()
-
-  - WSREP_LAST_SEEN_GTID()
-
-  - WSREP_SYNC_WAIT_UPTO_GTID( gitid [, timeout])
-
-- **Parameters**
-
-  - :ref:`wsrep_OSU_method <wsrep_OSU_method>` now supports NBO.
+  For more information, see :ref:`Non-Blocking Operations <nbo>`.
 
 
 
