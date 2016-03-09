@@ -250,7 +250,7 @@ Table legend:
 .. rubric:: ``base_host``
 .. _`base_host`:
 .. index::
-   pair: Parameters; base_host
+   pair: wsrep Provider Options; base_host
 
 Global variable for internal use. 
 
@@ -268,7 +268,7 @@ Global variable for internal use.
 .. rubric:: ``base_port``
 .. _`base_port`:
 .. index::
-   pair: Parameters; base_port
+   pair: wsrep Provider Options; base_port
 
 Global variable for internal use. 
 
@@ -284,7 +284,7 @@ Global variable for internal use.
 .. rubric:: ``cert.log_conflicts``
 .. _`cert.log_conflicts`:
 .. index::
-   pair: Parameters; cert.log_conflicts
+   pair: wsrep Provider Options; cert.log_conflicts
 
 Log details of certification failures.
 
@@ -304,7 +304,7 @@ Log details of certification failures.
 .. rubric:: ``debug``
 .. _`debug`:
 .. index::
-   pair: Parameters; debug
+   pair: wsrep Provider Options; debug
 
 Enable debugging.
 
@@ -324,7 +324,7 @@ Enable debugging.
 .. rubric:: ``evs.auto_evict``
 .. _`evs.auto_evict`:
 .. index::
-   pair: Parameters; evs.auto_evict
+   pair: wsrep Provider Options; evs.auto_evict
 
 Defines how many entries the node allows for given a delayed node before it triggers the Auto Eviction protocol.
 
@@ -352,7 +352,7 @@ When this parameter is set to ``0``, it disables the Auto Eviction protocol for 
 .. rubric:: ``evs.causal_keepalive_period``
 .. _`evs.causal_keepalive_period`:
 .. index::
-   pair: Parameters; evs.causal_keepalive_period
+   pair: wsrep Provider Options; evs.causal_keepalive_period
 
 For developer use only. Defaults to ``evs.keepalive_period``.
 
@@ -366,7 +366,7 @@ For developer use only. Defaults to ``evs.keepalive_period``.
 .. rubric:: ``evs.consensus_timeout``
 .. _`evs.consensus_timeout`:
 .. index::
-   pair: Parameters; evs.consensus_timeout
+   pair: wsrep Provider Options; evs.consensus_timeout
 
 Timeout on reaching the consensus about cluster membership.
 
@@ -389,7 +389,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. rubric:: ``evs.debug_log_mask``
 .. _`evs.debug_log_mask`:
 .. index::
-   pair: Parameters; evs.debug_log_mask
+   pair: wsrep Provider Options; evs.debug_log_mask
 
 Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
 
@@ -408,7 +408,7 @@ Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
 .. rubric:: ``evs.delayed_keep_period``
 .. _`evs.delayed_keep_period`:
 .. index::
-   pair: Parameters; evs.delayed_keep_period
+   pair: wsrep Provider Options; evs.delayed_keep_period
 
 Defines how long this node requires a delayed node to remain responsive before it removes an entry from the delayed list.
 
@@ -435,7 +435,7 @@ This parameter determines how long a node on the delayed list must remain respon
 .. rubric:: ``evs.delayed_margin``
 .. _`evs.delayed_margin`:
 .. index::
-   pair: Parameters; evs.delayed_margin
+   pair: wsrep Provider Options; evs.delayed_margin
 
 Defines how long the node allows response times to deviate before adding an entry to the delayed list.
 
@@ -460,7 +460,7 @@ This parameter determines how long a delay can run before the node adds an entry
 .. rubric:: ``evs.evict``
 .. _`evs.evict`:
 .. index::
-   pair:: Parameters; evs.evict
+   pair: wsrep Provider Options; evs.evict
 
 Defines the point at which the cluster triggers manual eviction to a certain node value.  Setting this parameter as an empty string causes it to clear the eviction list on the node where it is set.
 
@@ -477,7 +477,7 @@ Defines the point at which the cluster triggers manual eviction to a certain nod
 .. rubric:: ``evs.inactive_check_period``
 .. _`evs.inactive_check_period`:
 .. index::
-   pair: Parameters; evs.inactive_check_period
+   pair: wsrep Provider Options; evs.inactive_check_period
 
 Defines how often you want the node to check for peer inactivity.
 
@@ -501,7 +501,7 @@ This parameter determines how often you want the node to check for delays in the
 .. rubric:: ``evs.inactive_timeout``
 .. _`evs.inactive_timeout`:
 .. index::
-   pair: Parameters; evs.inactive_timeout
+   pair: wsrep Provider Options; evs.inactive_timeout
 
 Defines a hard limit on node inactivity.
 
@@ -526,7 +526,7 @@ This parameter sets a hard limit for node inactivity.  If a delayed node remains
 .. rubric:: ``evs.info_log_mask``
 .. _`evs.info_log_mask`:
 .. index::
-   pair: Parameters; evs.info_log_mask
+   pair: wsrep Provider Options; evs.info_log_mask
 
 Defines additional logging options for the EVS Protocol.
 
@@ -553,7 +553,7 @@ The EVS Protocol monitors group communication response times and controls the no
 .. rubric:: ``evs.install_timeout``
 .. _`evs.install_timeout`:
 .. index::
-   pair: Parameters; evs.install_timeout
+   pair: wsrep Provider Options; evs.install_timeout
 
 Defines the timeout for install message acknowledgments.
 
@@ -576,7 +576,7 @@ Each cluster node monitors group communication response times from all other nod
 .. rubric:: ``evs.join_retrans_period``
 .. _`evs.join_retrans_period`:
 .. index::
-   pair: Parameters; evs.join_retrans_period
+   pair: wsrep Provider Options; evs.join_retrans_period
 
 Defines how often the node retransmits EVS join messages when forming cluster membership.
 
@@ -595,7 +595,7 @@ Defines how often the node retransmits EVS join messages when forming cluster me
 .. rubric:: ``evs.keepalive_period``
 .. _`evs.keepalive_period`:
 .. index::
-   pair: Parameters; evs.keepalive_period
+   pair: wsrep Provider Options; evs.keepalive_period
 
 Defines how often the node emits keepalive signals.
 
@@ -617,7 +617,7 @@ Each cluster node monitors group communication response times from all other nod
 .. rubric:: ``evs.max_install_timeouts``
 .. _`evs.max_install_timeouts`:
 .. index::
-   pair: Parameters; evs.max_install_timeouts
+   pair: wsrep Provider Options; evs.max_install_timeouts
 
 Defines the number of membership install rounds to try before giving up.
 
@@ -638,7 +638,7 @@ This parameter determines the maximum number of times that the node tries for a 
 .. rubric:: ``evs.send_window``
 .. _`evs.send_window`:
 .. index::
-   pair: Parameters; evs.send_window
+   pair: wsrep Provider Options; evs.send_window
 
 Defines the maximum number of packets at a time in replication.
 
@@ -660,7 +660,7 @@ You must use a value that is greater than :ref:`evs.user_send_window <evs.user_s
 .. rubric:: ``evs.stats_report_period``
 .. _`evs.stats_report_period`:
 .. index::
-   pair: Parameters; evs.stats_report_period
+   pair: wsrep Provider Options; evs.stats_report_period
 
 Control period of EVS statistics reporting.  The node is pronounced dead.
 
@@ -679,7 +679,7 @@ Control period of EVS statistics reporting.  The node is pronounced dead.
 .. rubric:: ``evs.suspect_timeout``
 .. _`evs.suspect_timeout`:
 .. index::
-   pair: Parameters; evs.suspect_timeout
+   pair: wsrep Provider Options; evs.suspect_timeout
 
 Defines the inactivity period after which a node is *suspected* as dead.
 
@@ -701,7 +701,7 @@ Each node in the cluster monitors group communications from all other nodes in t
 .. rubric:: ``evs.use_aggregate``
 .. _`evs.use_aggregate`:
 .. index::
-   pair: Parameters; evs.use_aggregate
+   pair: wsrep Provider Options; evs.use_aggregate
 
 Defines whether the node aggregates small packets into one when possible.
 
@@ -746,7 +746,7 @@ You must use a value that is smaller than :ref:`evs.send_window<evs.send_window>
 .. rubric:: ``evs.view_forget_timeout``
 .. _`evs.view_forget_timeout`:
 .. index::
-   pair: Parameters; evs.view_forget_timeout
+   pair: wsrep Provider Options; evs.view_forget_timeout
 
 Defines how long the node saves past views from the view history.
 
@@ -767,7 +767,7 @@ Each node maintains a history of past views.  This parameter determines how long
 .. rubric:: ``evs.version``
 .. _`evs.version`:
 .. index::
-   pair: Parameters; evs.version
+   pair: wsrep Provider Options; evs.version
 
 Defines the EVS Protocol version.
 
@@ -791,7 +791,7 @@ This parameter determines which version of the EVS Protocol the node uses.  In o
 .. rubric:: ``gcache.dir``
 .. _`gcache.dir`:
 .. index::
-   pair: Parameters; gcache.dir
+   pair: wsrep Provider Options; gcache.dir
 
 Defines the directory where the write-set cache places its files.
 
@@ -813,7 +813,7 @@ This parameter determines where you want the node to save these files for write-
 .. rubric:: ``gcache.keep_pages_size``
 .. _`gcache.keep_pages_size`:
 .. index::
-   pair: Parameters; gcache.keep_pages_size
+   pair: wsrep Provider Options; gcache.keep_pages_size
 
 Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present. 
 
@@ -831,7 +831,7 @@ Total size of the page storage pages to keep for caching purposes. If only page 
 .. rubric:: ``gcache.name``
 .. _`gcache.name`:
 .. index::
-   pair: Parameters; gcache.name
+   pair: wsrep Provider Options; gcache.name
 
 Defines the filename for the write-set cache.
 
@@ -854,7 +854,8 @@ This parameter determines the name you want the node to use for this ring buffer
 .. rubric:: ``gcache.page_size``
 .. _`gcache.page_size`:
 .. index::
-   pair: Parameters; gcache.page_size
+   pair: wsrep Provider Options; gcache.page_size
+
 
 Size of the page files in page storage. The limit on overall page storage is the size of the disk.  Pages are prefixed by ``gcache.page``.
 
@@ -873,7 +874,7 @@ Size of the page files in page storage. The limit on overall page storage is the
 .. rubric:: ``gcache.size``
 .. _`gcache.size`:
 .. index::
-   pair: Parameters; gcache.size
+   pair: wsrep Provider Options; gcache.size
 
 Defines the disk space you want to node to use in caching write-sets.
 
@@ -901,7 +902,7 @@ This parameter defines the amount of disk space you want to allocate for the pre
 .. rubric:: ``gcs.fc_debug``
 .. _`gcs.fc_debug`:
 .. index::
-   pair: Parameters; gcs.fc_debug
+   pair: wsrep Provider Options; gcs.fc_debug
 
 Post debug statistics about SST flow every this number of writesets. 
 
@@ -921,7 +922,7 @@ Post debug statistics about SST flow every this number of writesets.
 .. rubric:: ``gcs.fc_factor``
 .. _`gcs.fc_factor`:
 .. index::
-   pair: Parameters; gcs.fc_factor
+   pair: wsrep Provider Options; gcs.fc_factor
 
 Resume replication after recv queue drops below this fraction of ``gcs.fc_limit``.
 
@@ -941,7 +942,7 @@ Resume replication after recv queue drops below this fraction of ``gcs.fc_limit`
 .. rubric:: ``gcs.fc_limit``
 .. _`gcs.fc_limit`:
 .. index::
-   pair: Parameters; gcs.fc_limit
+   pair: wsrep Provider Options; gcs.fc_limit
 
 Pause replication if recv queue exceeds this number of  writesets. For master-slave setups this number can be increased considerably.
 
@@ -960,7 +961,7 @@ Pause replication if recv queue exceeds this number of  writesets. For master-sl
 .. rubric:: ``gcs.fc_master_slave``
 .. _`gcs.fc_master_slave`:
 .. index::
-   pair: Parameters; gcs.fc_master_slave
+   pair: wsrep Provider Options; gcs.fc_master_slave
 
 Defines whether there is only one master node in the group.
    
@@ -980,7 +981,7 @@ Defines whether there is only one master node in the group.
 .. rubric:: ``gcs.max_packet_size``
 .. _`gcs.max_packet_size`:
 .. index::
-   pair: Parameters; gcs.max_packet_size
+   pair: wsrep Provider Options; gcs.max_packet_size
 
 All writesets exceeding that size will be fragmented.
 
@@ -1000,7 +1001,7 @@ All writesets exceeding that size will be fragmented.
 .. _`gcs.max_throttle`:
 
 .. index::
-   pair: Parameters; gcs.max_throttle
+   pair: wsrep Provider Options; gcs.max_throttle
 
 How much to throttle replication rate during state transfer (to avoid running out of memory). Set the value to 0.0 if stopping replication is acceptable for completing state transfer. 
 
@@ -1020,7 +1021,7 @@ How much to throttle replication rate during state transfer (to avoid running ou
 .. rubric:: ``gcs.recv_q_hard_limit``
 .. _`gcs.recv_q_hard_limit`:
 .. index::
-   pair: Parameters; gcs.recv_q_hard_limit
+   pair: wsrep Provider Options; gcs.recv_q_hard_limit
 
 Maximum allowed size of recv queue. This should normally be half of (RAM + swap). If this limit is exceeded, Galera Cluster will abort the server.
 
@@ -1039,7 +1040,7 @@ Maximum allowed size of recv queue. This should normally be half of (RAM + swap)
 .. rubric:: ``gcs.recv_q_soft_limit``
 .. _`gcs.recv_q_soft_limit`:
 .. index::
-   pair: Parameters; gcs.recv_q_soft_limit
+   pair: wsrep Provider Options; gcs.recv_q_soft_limit
 
 The fraction of :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` after which replication rate will be throttled.
 
@@ -1063,7 +1064,7 @@ at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttl
 .. rubric:: ``gcs.sync_donor``
 .. _`gcs.sync_donor`:
 .. index::
-   pair: Parameters; gcs.sync_donor
+   pair: wsrep Provider Options; gcs.sync_donor
 
 Should the rest of the cluster keep in sync with the donor? ``YES`` means that if the donor is blocked by state transfer, the whole cluster is blocked with it.
 
@@ -1084,7 +1085,7 @@ If you choose to use value ``YES``, it is theoretically possible that the donor 
 .. rubric:: ``gmcast.listen_addr``
 .. _`gmcast.listen_addr`:
 .. index::
-   pair: Parameters; gmcast.listen_addr
+   pair: wsrep Provider Options; gmcast.listen_addr
 
 Address at which *Galera Cluster* listens to connections from other nodes. By default the port to listen at is taken from the connection address. This setting can be used to overwrite that.
 
@@ -1105,7 +1106,7 @@ Address at which *Galera Cluster* listens to connections from other nodes. By de
 .. rubric:: ``gmcast.mcast_addr``
 .. _`gmcast.mcast_addr`:
 .. index::
-   pair: Parameters; gmcast.mcast_addr
+   pair: wsrep Provider Options; gmcast.mcast_addr
 
 If set, UDP multicast will be used for replication, for example:
 
@@ -1128,7 +1129,7 @@ If you are planning to build a large cluster, we recommend using UDP.
 .. rubric:: ``gmcast.mcast_ttl``
 .. _`gmcast.mcast_ttl`:
 .. index::
-   pair: Parameters; gmcast.mcast_ttl
+   pair: wsrep Provider Options; gmcast.mcast_ttl
 
 Time to live value for multicast packets.
 
@@ -1147,7 +1148,7 @@ Time to live value for multicast packets.
 .. rubric:: ``gmcast.peer_timeout``
 .. _`gmcast.peer_timeout`:
 .. index::
-   pair: Parameters; gmcast.peer_timeout
+   pair: wsrep Provider Options; gmcast.peer_timeout
 
 Connection timeout to initiate message relaying.
 
@@ -1165,7 +1166,7 @@ Connection timeout to initiate message relaying.
 .. rubric:: ``gmcast.segment``
 .. _`gmcast.segment`:
 .. index::
-   pair: Parameters; gmcast.segment
+   pair: wsrep Provider Options; gmcast.segment
 
 Define which network segment this node is in. Optimisations on communication are performed to minimise the amount of traffic between network segments including writeset relaying and IST and SST donor selection.  The :ref:`gmcast.segment <gmcast.segment>` value is an integer from ``0`` to ``255``. By default all nodes are placed in the same segment (``0``).
 
@@ -1185,7 +1186,7 @@ Define which network segment this node is in. Optimisations on communication are
 .. rubric:: ``gmcast.time_wait``
 .. _`gmcast.time_wait`:
 .. index::
-   pair: Parameters; gmcast.time_wait
+   pair: wsrep Provider Options; gmcast.time_wait
 
 Time to wait until allowing peer declared outside of stable view to reconnect.
 
@@ -1205,7 +1206,7 @@ Time to wait until allowing peer declared outside of stable view to reconnect.
 .. rubric:: ``gmcast.version``
 .. _`gmcast.version`:
 .. index::
-   pair: Parameters; gmcast.version
+   pair: wsrep Provider Options; gmcast.version
 
 This status variable is used to check which gmcast protocol version is used.
 
@@ -1223,7 +1224,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. rubric:: ``ist.recv_addr``
 .. _`ist.recv_addr`:
 .. index::
-   pair: Parameters; ist.recv_addr
+   pair: wsrep Provider Options; ist.recv_addr
 
 As of 2.0. Address to listen for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from :ref:`wsrep_node_address <wsrep_node_address>`.
 
@@ -1242,9 +1243,9 @@ As of 2.0. Address to listen for Incremental State Transfer. By default this is 
 .. rubric:: ``pc.recovery``
 .. _`pc.recovery`:
 .. index::
-   pair: Parameters; pc.recovery
+   pair: wsrep Provider Options; pc.recovery
 .. index::
-   pair: Parameters; gvwstate.dat
+   single: gvwstate.dat
 
 
 When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file.  The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.  
@@ -1273,7 +1274,7 @@ This allows for:
 .. rubric:: ``pc.bootstrap``
 .. _`pc.bootstrap`:
 .. index::
-   pair: Parameters; pc.bootstrap
+   pair: wsrep Provider Options; pc.bootstrap
 
 If you set this value to ``TRUE`` is a signal to turn a ``NON-PRIMARY`` component into ``PRIMARY``.
 
@@ -1292,7 +1293,7 @@ If you set this value to ``TRUE`` is a signal to turn a ``NON-PRIMARY`` componen
 .. rubric:: ``pc.announce_timeout``
 .. _`pc.announce_timeout`:
 .. index::
-   pair: Parameters; pc.announce_timeout
+   pair: wsrep Provider Options; pc.announce_timeout
 
 Cluster joining announcements are sent every :math:`\frac{1}{2}` second for this period of time or less if the other nodes are discovered.
 
@@ -1312,7 +1313,7 @@ Cluster joining announcements are sent every :math:`\frac{1}{2}` second for this
 .. rubric:: ``pc.checksum``
 .. _`pc.checksum`:
 .. index::
-   pair: Parameters; pc.checksum
+   pair: wsrep Provider Options; pc.checksum
 
 Checksum replicated messages.
 
@@ -1332,7 +1333,7 @@ Checksum replicated messages.
 .. rubric:: ``pc.ignore_sb``
 .. _`pc.ignore_sb`:
 .. index::
-   pair: Parameters; pc.ignore_sb
+   pair: wsrep Provider Options; pc.ignore_sb
 
 Should we allow nodes to process updates even in the case of split brain? This is a dangerous setting in multi-master setup, but should simplify things in master-slave cluster (especially if only 2 nodes are used).
 
@@ -1352,7 +1353,7 @@ Should we allow nodes to process updates even in the case of split brain? This i
 .. rubric:: ``pc.ignore_quorum``
 .. _`pc.ignore_quorum`:
 .. index::
-   pair: Parameters; pc.ignore_quorum
+   pair: wsrep Provider Options; pc.ignore_quorum
 
 Completely ignore quorum calculations. For example if the master splits from several slaves it still remains operational. Use with extreme caution even in master-slave setups, as slaves will not automatically reconnect to master in this case.
 
@@ -1371,7 +1372,7 @@ Completely ignore quorum calculations. For example if the master splits from sev
 .. rubric:: ``pc.linger``
 .. _`pc.linger`:
 .. index::
-   pair: Parameters; pc.linger
+   pair: wsrep Provider Options; pc.linger
 
 The period for which the PC protocol waits for the EVS termination.
 
@@ -1409,7 +1410,7 @@ If set to ``TRUE``, the more recent primary component overrides older ones in th
 .. rubric:: ``pc.wait_prim``
 .. _`pc.wait_prim`:
 .. index::
-   pair: Parameters; pc.wait_prim
+   pair: wsrep Provider Options; pc.wait_prim
 
 If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>` time period. Useful to bring up a non-primary component and make it primary with :ref:`pc.bootstrap <pc.bootstrap>`.
 
@@ -1429,7 +1430,7 @@ If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_p
 .. rubric:: ``pc.wait_prim_timeout``
 .. _`pc.wait_prim_timeout`:
 .. index::
-   pair: Parameters; pc.wait_prim_timeout
+   pair: wsrep Provider Options; pc.wait_prim_timeout
 
 The period of time to wait for a primary component.
 
@@ -1448,7 +1449,7 @@ The period of time to wait for a primary component.
 .. rubric:: ``pc.weight``
 .. _`pc.weight`:
 .. index::
-   pair: Parameters; pc.weight
+   pair: wsrep Provider Options; pc.weight
 
 As of version 2.4. Node weight for quorum calculation.
 
@@ -1467,7 +1468,7 @@ As of version 2.4. Node weight for quorum calculation.
 .. rubric:: ``pc.version``
 .. _`pc.version`:
 .. index::
-   pair: Parameters; pc.version
+   pair: wsrep Provider Options; pc.version
 
 This status variable is used to check which pc protocol version is used. 
 
@@ -1485,7 +1486,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. rubric:: ``protonet.backend``
 .. _`protonet.backend`:
 .. index::
-   pair: Parameters; protonet.backend
+   pair: wsrep Provider Options; protonet.backend
 
 Which transport backend to use. Currently only ASIO is supported.
 
@@ -1503,7 +1504,7 @@ Which transport backend to use. Currently only ASIO is supported.
 .. rubric:: ``protonet.version``
 .. _`protonet.version`:
 .. index::
-   pair: Parameters; protonet.version
+   pair: wsrep Provider Options; protonet.version
 
 This status variable is used to check which transport backend protocol version is used. 
 
@@ -1521,7 +1522,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. rubric:: ``repl.commit_order``
 .. _`repl.commit_order`:
 .. index::
-   pair: Parameters; repl.commit_order
+   pair: wsrep Provider Options; repl.commit_order
 
 Whether to allow Out-Of-Order committing (improves parallel applying performance). 
 
@@ -1550,7 +1551,7 @@ Possible settings:
 .. rubric:: ``repl.causal_read_timeout``
 .. _`repl.causal_read_timeout`:
 .. index::
-   pair: Parameters; repl.causal_read_timeout
+   pair: wsrep Provider Options; repl.causal_read_timeout
 
 Sometimes causal reads need to timeout.
 
@@ -1568,7 +1569,7 @@ Sometimes causal reads need to timeout.
 .. rubric:: ``repl.key_format``
 .. _`repl.key_format`:
 .. index::
-   pair: Parameters; repl.key_format
+   pair: wsrep Provider Options; repl.key_format
 
 The hash size to use for key formats (in bytes). An ``A`` suffix annotates the version.
 
@@ -1595,7 +1596,7 @@ Possible settings:
 .. rubric:: ``repl.max_ws_size``
 .. _`repl.max_ws_size`:
 .. index::
-   pair: Parameters; repl.max_ws_size
+   pair: wsrep Provider Options; repl.max_ws_size
 
 The maximum size of a write-set in bytes. This is limited to 2G.
 
@@ -1616,7 +1617,7 @@ The maximum size of a write-set in bytes. This is limited to 2G.
 .. rubric:: ``repl.proto_max``
 .. _`repl.proto_max`:
 .. index::
-   pair: Parameters; repl.proto_max
+   pair: wsrep Provider Options; repl.proto_max
 
 The maximum protocol version in replication. Changes to this parameter will only take effect after a provider restart.
 
@@ -1634,7 +1635,7 @@ The maximum protocol version in replication. Changes to this parameter will only
 .. rubric:: ``socket.ssl_ca``
 .. _`socket.ssl_ca`:
 .. index::
-   pair:: Parameters; socket.ssl_ca
+   pair: wsrep Provider Options; socket.ssl_ca
 
 Defines the path to the SSL Certificate Authority (CA) file.
 
@@ -1658,7 +1659,7 @@ The node uses the CA file to verify the signature on the certificate.  You can u
 .. rubric:: ``socket.ssl_cert``
 .. _`socket.ssl_cert`:
 .. index::
-   pair: Parameters; socket.ssl_cert
+   pair: wsrep Provider Options; socket.ssl_cert
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate.
 
@@ -1681,7 +1682,7 @@ The node uses the certificate as a self-signed public key in encrypting replicat
 .. rubric:: ``socket.checksum``
 .. _`socket.checksum`:
 .. index::
-   pair: Parameters; socket.checksum
+   pair: wsrep Provider Options; socket.checksum
 
 Checksum to use on socket layer:
 
@@ -1705,7 +1706,7 @@ Checksum to use on socket layer:
 .. rubric:: ``socket.ssl_cipher``
 .. _`socket.ssl_cipher`:
 .. index::
-   pair: Parameters; socket.ssl_cipher
+   pair: wsrep Provider Options; socket.ssl_cipher
 
 Symmetric cipher to use. AES128 is used by default it is considerably faster and no less secure than AES256.
 
@@ -1725,7 +1726,7 @@ Symmetric cipher to use. AES128 is used by default it is considerably faster and
 .. rubric:: ``socket.ssl_compression``
 .. _`socket.ssl_compression`:
 .. index::
-   pair: Parameters; socket.ssl_compression
+   pair: wsrep Provider Options; socket.ssl_compression
 
 Whether to enable compression on SSL connections.
 
@@ -1743,7 +1744,7 @@ Whether to enable compression on SSL connections.
 .. rubric:: ``socket.ssl_key``
 .. _`socket.ssl_key`:
 .. index::
-   pair: Parameters; socket.ssl_key
+   pair: wsrep Provider Options; socket.ssl_key
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate key.
 
@@ -1764,7 +1765,7 @@ The node uses the certificate key a self-signed private key in encrypting replic
 .. rubric:: ``socket.ssl_password_file``
 .. _`socket.ssl_password_file`:
 .. index::
-   pair: Parameters; socket.ssl_password_file
+   pair: wsrep Provider Options; socket.ssl_password_file
 
 Defines a password file for use in :abbr:`SSL (Secure Socket Layer)` connections.
 
@@ -1789,9 +1790,9 @@ In the event that you have your SSL key file encrypted, the node uses the SSL pa
 .. _`Setting Galera Parameters in MySQL`:
 
 .. index::
-   pair: Parameters; Setting
+   pair: wsrep Provider Options; Setting
 .. index::
-   pair: Parameters; Checking
+   pair: wsrep Provider Options; Checking
    
 You can set *Galera Cluster* parameters in the ``my.cnf`` configuration file as follows:
 
