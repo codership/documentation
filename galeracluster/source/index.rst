@@ -6,8 +6,6 @@
 =============================
  Galera Cluster Documentation
 =============================
-
-
 .. index::
    pair: Certification based replication; Descriptions
 .. index::
@@ -52,18 +50,6 @@ The following features are available through Galera Cluster:
 
 
 The result is a high-availability solution that is both robust in terms of data integrity and high-performance with instant failovers.
-
-
-.. rubric:: What's New in Galera Cluster 4.x?
-.. _`whats-new`:
-
-With the latest release of Galera Cluster in the 4.x branch, a number of new features are now available to you, including,
-
-- **Non-Blocking Operations** When performing DDL statements that update, analyze or optimize tables, you can now use the Non-Blocking Operation online schema upgrade method.  Unlike other methods, this allows you to update the cluster schema without blocking reads on the nodes.
-
-  For more information, see :ref:`Non-Blocking Operations <nbo>`.
-
-
 
 .. rubric:: Cloud Implementations with Galera Cluster
 .. _`Galera Cluster Cloud Implementations`:
