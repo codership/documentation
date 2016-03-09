@@ -11,7 +11,7 @@ MySQL wsrep Functions
 | <WSREP_LAST_SEEN_GTID>`             |                         |         | 
 +-------------------------------------+-------------------------+---------+
 | :ref:`WSREP_LAST_WRITTEN_GTID()     |                         | 4+      |
-| <WSREP_LAST_WRITTEN_GITID>`         |                         |         |
+| <WSREP_LAST_WRITTEN_GTID>`          |                         |         |
 +-------------------------------------+-------------------------+---------+
 | :ref:`WSREP_SYNC_WAIT_UPTO_GTID()   | ``gtid`` ``[timeout]``  | 4+      |
 | <WSREP_SYNC_WAIT_UPTO_GTID>`        |                         |         |
@@ -40,10 +40,10 @@ This function returns the Global Transaction ID of the last write transaction ob
 
    $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
 
-.. rubric:: ``WSREP_LAST_WRITTEN_GITID()``
-.. _`WSREP_LAST_WRITTEN_GITID`:
+.. rubric:: ``WSREP_LAST_WRITTEN_GTID()``
+.. _`WSREP_LAST_WRITTEN_GTID`:
 .. index::
-   pair: Functions; WSREP_LAST_WRITTEN_GITID()
+   pair: Functions; WSREP_LAST_WRITTEN_GTID()
 
 Returns the :term:`Global Transaction ID` of the last write transaction made by the client.
 
