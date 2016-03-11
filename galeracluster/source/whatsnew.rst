@@ -1,6 +1,6 @@
-############################
-What's New in Galera Cluster
-############################
+################################
+What's New in Galera Cluster 4.x
+################################
 .. _`whats-new`:
 
 With the latest release of Galera Cluster in the 4.x branch, a number of new features are now available to you, including,
