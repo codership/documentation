@@ -121,11 +121,11 @@ Once SELinux no longer registers warnings from Galera Cluster, you can switch it
 ---------------------------------
 .. _`using-sync-functions`:
 
-Occasionally, your application may need to perform a critical read.  Critical reads are queries that require the local database reach the most up to date possible state, before the query executes.
+Occasionally, your application may need to perform a critical read.  Critical reads are queries that require that the local database reaches the most up to date state possible before the query is executed.
 
-In older versions of Galera Cluster, you could manage critical reads using the :ref:`wsrep_sync_wait <wsrep_sync_wait>` session variable.  This would cause the node to enable causality checks, holding new queries until the database server catches up with that point in the cluster before executing them.  While this method does ensure that the node reaches the most up-to-date state before executing the query, it also means that the node waits on updates that may have nothing to do with the query.
+In versions of Galera Cluster prior to 4.x, you could manage critical reads using the :ref:`wsrep_sync_wait <wsrep_sync_wait>` session variable.  This would cause the node to enable causality checks, holding new queries until the database server catches up with all updates that were made prior to the start of the current transaction.  While this method does ensure that the node reaches the most up-to-date state before executing the query, it also means that the node may waits to receive updates that may have nothing to do with the query at hand.
 
-Beginning with Galera Cluster 4.0, you can use synchronization functions.  This allows you to tie the synchronization process to specific transactions.  Meaning, the node waits until a specific transaction gets applied before it executes the query.  For example,
+Beginning with Galera Cluster 4.0, you can use synchronization functions.  This allows you to tie the synchronization process to specific transactions so that the node waits only until a specific transaction is applied before executing the query.  For example,
 
 #. On ``node1``, begin a transaction.
 
@@ -145,7 +145,7 @@ Beginning with Galera Cluster 4.0, you can use synchronization functions.  This 
 
       $transaction_1_gtid = SELECT WSREP_LAST_WRITTEN_GTID();
 
-#. Log into ``node2``, set it to wait until it replicates and applies the transaction from ``node1`` before it starts the new transaction:
+#. On ``node2``, set it to wait until it replicates and applies the transaction from ``node1`` before starting a new transaction:
 
    .. code-block:: mysql
 
@@ -155,7 +155,7 @@ Beginning with Galera Cluster 4.0, you can use synchronization functions.  This 
 #. Execute your critical reads.
 
 
-Using the :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>` function, the node waits until it replicates and applies the given Global Transaction ID before starting the new transaction.
+Using the :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>` function, the node waits until it has replicated and applied the given Global Transaction ID before starting a new transaction.
 
    
 
