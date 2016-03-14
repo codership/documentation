@@ -38,7 +38,7 @@ This function returns the Global Transaction ID of the last write transaction ob
 
 .. code-block:: mysql
 
-   $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
+   SELECT WSREP_LAST_SEEN_GTID();
 
 .. rubric:: ``WSREP_LAST_WRITTEN_GTID()``
 .. _`WSREP_LAST_WRITTEN_GTID`:
@@ -63,7 +63,7 @@ This function returns the Global Transaction ID of the last write transaction ma
    BEGIN;
    UPDATE table_name SET id = 0 WHERE field = 'example';
    COMMIT;
-   $transaction_gtid = SELECT WSREP_LAST_WRITTEN_GTID();
+   SELECT WSREP_LAST_WRITTEN_GTID();
 
 
 .. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
@@ -96,5 +96,6 @@ The function uses the following return values:
 .. code-block:: mysql
 
    $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
-   WSREP_SYNC_WAIT_UPTO_GTID($transaction_gtid);
+   ...
+   SELECT WSREP_SYNC_WAIT_UPTO_GTID($transaction_gtid);
 
