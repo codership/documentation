@@ -51,9 +51,9 @@
 
    Non-Blocking Operation
 
-      The non-blocking operation schema upgrade is a :abbr:`DDL (Data Definition Language)` processing method, where the clusters replicates a limited subset of DDL statements without blocking reads on the nodes during the process.
+      The non-blocking operation schema upgrade is a :abbr:`DDL (Data Definition Language)` processing method, where the cluster replicates a limited subset of DDL statements without blocking reads or writes on the nodes during the process.
 
-      When the DDL statement starts, the relevant table is altered to apply metadata locks.  It replicates the DDL statement to all nodes in the cluster.  The node apply the changes, then simultaneously release the locks.
+      When the DDL statement starts, the relevant table is locked using metadata locks.  The DDL statement is then replicated to all nodes in the cluster.  The node apply the changes, then simultaneously release the locks.
 
       DDL statements that support Non-Blocking Operation:
 
@@ -62,13 +62,13 @@
       - ``ANALYZE TABLE``
       - ``OPTIMIZE TABLE`` 
 
-      .. note:: For partition management, the comma that occurs after ``LOCK = {SHARED|EXCLUSIVE}`` does not get used.
+      .. note:: For partition management, no comma is used after ``LOCK = {SHARED|EXCLUSIVE}``
 
 
       DDL statements that do not support Non-Blocking Operation:
 
-      - ``ALTER TABLE LOCK = {DEFAULT|NONE}``, including ``ALTER`` statements without the ``LOCK`` clause, as these locks default to the ``DEFAULT`` lock.
-      - ``CREATE``, ``RENAME``, ``DROP``, and ``REPAIR``.
+      - ``ALTER TABLE LOCK = {DEFAULT|NONE}``, including ``ALTER`` statements without the ``LOCK`` clause, as these default to the ``DEFAULT`` lock.
+      - ``CREATE``, ``RENAME``, ``DROP`` and ``REPAIR``.
 
       Issuing unsupported operations while using the Non-Blocking Operation method results in an error code.
 
