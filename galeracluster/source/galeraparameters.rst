@@ -167,6 +167,9 @@ Table legend:
 | :ref:`ist.recv_addr                   |                       | 1+         | No       |
 | <ist.recv_addr>`                      |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
+| :ref:`ist.recv_bind                   |                       | 3+         | No       |
+| <ist.recv_bind>`                      |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 | :ref:`pc.recovery                     | ``TRUE``              | 3+         | No       |
 | <pc.recovery>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
@@ -1226,7 +1229,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: wsrep Provider Options; ist.recv_addr
 
-As of 2.0. Address to listen for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from :ref:`wsrep_node_address <wsrep_node_address>`.
+Address to listen for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from :ref:`wsrep_node_address <wsrep_node_address>`.
 
 .. code-block:: ini
 
@@ -1236,10 +1239,32 @@ As of 2.0. Address to listen for Incremental State Transfer. By default this is 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
-|                       | No      | 1.0        |            |
+|                       | No      | 2.0        |            |
 +-----------------------+---------+------------+------------+
 
 
+.. rubric:: ``ist.recv_bind``
+.. _`ist.recv_bind`:
+.. index::
+   pair: wsrep Provider Options; ist.recv_bind
+
+Defines the address that the node binds for receiving an :term:`Incremental State Transfer`.
+
+.. code-block:: ini
+
+   wsrep_provider_options="ist.recv_bind=192.168.1.1"
+
+This option defines the address to which incremental state transfers are bound.  When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`.  You may find it useful when the node runs behind a NAT or in similar cases where the public and internal addresses differ.
+   
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       | No      | 3.0        |            |
++-----------------------+---------+------------+------------+
+
+
+
+   
 .. rubric:: ``pc.recovery``
 .. _`pc.recovery`:
 .. index::
