@@ -1229,7 +1229,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: wsrep Provider Options; ist.recv_addr
 
-Address to listen for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from :ref:`wsrep_node_address <wsrep_node_address>`.
+Address to listen on for Incremental State Transfer. By default this is the ``<address>:<port+1>`` from :ref:`wsrep_node_address <wsrep_node_address>`.
 
 .. code-block:: ini
 
@@ -1248,18 +1248,18 @@ Address to listen for Incremental State Transfer. By default this is the ``<addr
 .. index::
    pair: wsrep Provider Options; ist.recv_bind
 
-Defines the address that the node binds for receiving an :term:`Incremental State Transfer`.
+Defines the address that the node binds on for receiving an :term:`Incremental State Transfer`.
 
 .. code-block:: ini
 
    wsrep_provider_options="ist.recv_bind=192.168.1.1"
 
-This option defines the address to which incremental state transfers are bound.  When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`.  You may find it useful when the node runs behind a NAT or in similar cases where the public and internal addresses differ.
+This option defines the address to which the node will bind in order to receive Incremental State Transfers.  When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`.  You may find it useful when the node runs behind a NAT or in similar cases where the public and private addresses differ.
    
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
-|                       | No      | 3.0        |            |
+|                       | No      | 3.16       |            |
 +-----------------------+---------+------------+------------+
 
 
