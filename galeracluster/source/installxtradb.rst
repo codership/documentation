@@ -1,6 +1,6 @@
-=========================
-Binary Installation
-=========================
+============================================
+Percona XtraDB Cluster - Binary Installation
+============================================
 .. _`galera-xtradb-binary-install`:
 
 Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions through the Percona repository.
@@ -81,9 +81,9 @@ For more information on the repository, package names or available mirrors, see 
 
 Packages in the Percona repository are now available for installation on your server through ``yum``.
 
-----------------------------
-Installing Galera Cluster
-----------------------------
+---------------------------------
+Installing Percona XtraDB Cluster
+---------------------------------
 .. _`xtradb-galera-install`:
 
 There are three packages involved in the installation of Percona XtraDB Cluster: the Percona XtraDB client, a command line tool for accessing the database; the percona XtraDB database server, built to include the :term:`wsrep API` patch and the :term:`Galera Replication Plugin`.

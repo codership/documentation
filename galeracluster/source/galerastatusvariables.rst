@@ -622,7 +622,7 @@ This variable periodically resets.  You can control the reset interval using the
 .. rubric:: ``wsrep_evs_state``
 .. _`wsrep_evs_state`:
 .. index::
-   pair:: Status Variables; wsrep_evs_state
+   pair: Status Variables; wsrep_evs_state
 
 Shows the internal state of the EVS Protocol.
 
