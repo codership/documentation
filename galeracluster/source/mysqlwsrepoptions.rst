@@ -574,7 +574,14 @@ Defines whether the node accepts read queries when in a non-operational state.
 | **Support**             | *Introduced:*       |                                   |
 +-------------------------+---------------------+-----------------------------------+
 
-When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it cannot keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.  Bear in mind, when enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.
+When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it cannot keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.  
+
+.. note:: Remember that by its nature, data reads from nodes in a non-operational state are stale.  Current data in the Primary Component remains inaccessible to these nodes until they rejoin the cluster.
+
+When enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.  When in this state, the node allows ``USE``, ``SELECT``, ``LOCK TABLE`` and ``UNLOCK TABLES``.  It does not allow DDL statements.  It also rejects DML statements, such as ``INSERT``, ``DELETE`` and ``UPDATE``.
+
+You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.  
+
 
 .. code-block:: mysql
 
@@ -1045,7 +1052,7 @@ When the node calls the command, it passes one or more arguments that you can us
    pair: Parameters; wsrep_on
 
 
-Defines whether the node participates in replication.
+Defines whether replication takes place for updates from the current session.
 
 +-------------------------+---------------------+-----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_on``                      |
@@ -1061,7 +1068,7 @@ Defines whether the node participates in replication.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether or not updates made in the current session replicate to the cluster and whether the node applies transactions it receives from the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
+This parameter defines whether or not updates made in the current session replicate to the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
 
 
 .. code-block:: mysql
@@ -1107,7 +1114,7 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
 
 DDL statements are non-transactional and as such do not replicate through write-sets.  There are three methods available that determine how the node handles replicating these statements:
 
-- ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, locking the affected table for the duration of the operation.  This may result in the whole cluster being blocked for the duration of the operation.
+- ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress.
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
@@ -1283,7 +1290,7 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 
 - ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections. 
 
-- ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including those set as Global.
+- ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including the current connection.
 
 
 .. code-block:: mysql

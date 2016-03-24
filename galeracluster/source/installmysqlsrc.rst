@@ -1,6 +1,6 @@
-=========================================
-Source Installation
-=========================================
+==============================================
+Galera Cluster for MySQL - Source Installation
+==============================================
 .. _`MySQL Source Installation`:
 
 Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based upon a different package management system, if your server uses a different unix-like operating system, such as Solaris or FreeBSD, you will need to build Galera Cluster for MySQL from source.
@@ -38,9 +38,9 @@ Check with the repositories for your distribution or system for the appropriate 
 
 
 	  
---------------------------------------------
+---------------------------------
 Building Galera Cluster for MySQL
---------------------------------------------
+---------------------------------
 .. `build-galera-mysql`:
 
 The source code for Galera Cluster for MySQL is available through GitHub_.  You can download the source code from the website or directly using ``git``.  In order to build Galera Cluster, you need to download both the database server with the wsrep API patch and the :term:`Galera Replication Plugin`.
