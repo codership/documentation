@@ -29,6 +29,11 @@ Certification-based replication is an alternative approach to synchronous databa
 
 .. note:: For security and performance reasons, it's recommended that you run Galera Cluster on its own subnet.
 
+.. toctree::
+   :maxdepth: 2
+
+   whatsnew
+	  
 
 --------------------
 Node Initialization

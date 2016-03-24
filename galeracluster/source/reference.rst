@@ -12,6 +12,7 @@
    :maxdepth: 2
 
    mysqlwsrepoptions
+   mysqlwsrepfunctions
    galeraparameters
    galerastatusvariables
    xtrabackupoptions

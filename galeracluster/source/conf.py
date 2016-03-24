@@ -41,15 +41,15 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Galera'
-copyright = '2013, Codership Oy'
+project = 'Galera Cluster'
+copyright = '2013 - 2016, Codership Oy'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '3.x'
+version = '3.x and 4.x'
 # The full version, including alpha/beta/rc tags.
 #release = '3.x'
 
@@ -197,14 +197,13 @@ latex_elements = {
 
     # The font size ('10pt', '11pt' or '12pt').
     'pointsize': '10pt',
-
-    'releasename': 'Release 3.x',
+    'releasename': 'Releases 3.x and 4.x',
     'date': ''
 }
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'galera.tex', 'Galera Documentation',
+  ('index', 'galera.tex', 'Galera Cluster Documentation',
    'Codership Oy', 'sphinxmanual'),
 ]
 
