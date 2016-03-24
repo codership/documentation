@@ -5,7 +5,7 @@ SSL for State Snapshot Transfers
 
 When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use.  Where :doc:`sslconfig` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
 
-The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump``, ``rsync`` and ``xtrabackup``.
+The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump`` or ``xtrabackup``.
 
 .. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you want to enable this feature with an existing cluster you need to restart the entire cluster.
 
@@ -91,36 +91,6 @@ With the user now on every node, you can shut the cluster down to enable SSL for
       wsrep_sst_auth = sst_user:sst_password
 
 This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`startingcluster`.
-
-
-----------------------------------
-Enabling SSL for ``rsync``
-----------------------------------
-.. _`ssl-rsync`:
-
-The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  In the case of ``rsync``, this method bypasses the database server and client, meaning that you must use an external method to secure its communications through SSL, namely: STunnel.
-
-Using your preferred text editor, update the Stunnel configuration file at ``/etc/stunnel/stunnel.conf`` with the SSL certificate files for the node.  You can use the same certificate files that the node uses on the database server, client and replication traffic.
-
-.. code-block:: ini
-
-   ;; STunnel Configuration
-   CAfile = /path/to/ca.pem
-   cert = /path/to/cert.pem
-   key = /path/to/key.pem
-
-   ;; ssync Server Configuration
-   [ssync]
-   accept = 4444
-   connect = 4444
-   
-   ;; rsync Client Configuration
-   [rsync]
-   accept = 4444
-   connect = 4444
-
-With STunnel configured it is now available to Galera Cluster.  The internal process for the ``rsync`` SST script now automatically starts STunnel and transmits and receives through SSL.
-
 
 -----------------------------------
 Enabling SSL for ``xtrabackup``

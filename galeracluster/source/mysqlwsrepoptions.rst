@@ -1052,7 +1052,7 @@ When the node calls the command, it passes one or more arguments that you can us
    pair: Parameters; wsrep_on
 
 
-Defines whether the node participates in replication.
+Defines whether replication takes place for updates from the current session.
 
 +-------------------------+---------------------+-----------------------------------+
 | **System Variable**     | *Name:*             | ``wsrep_on``                      |
@@ -1068,7 +1068,7 @@ Defines whether the node participates in replication.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether or not updates made in the current session replicate to the cluster and whether the node applies transactions it receives from the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
+This parameter defines whether or not updates made in the current session replicate to the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
 
 
 .. code-block:: mysql
@@ -1112,7 +1112,7 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
 
 DDL statements are non-transactional and as such do not replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
 
-- ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, locking the affected table for the duration of the operation.  This may result in the whole cluster being blocked for the duration of the operation.
+- ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress.
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
