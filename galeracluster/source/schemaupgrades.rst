@@ -78,13 +78,13 @@ Non-Blocking Operation
 
 When you want to maintain high-availability while altering, analyzing or optimizing tables and don't mind the particular limitations, use the :term:`Non Blocking Operation` method.
 
-Under the :term:`Total Order Isolation` method, when DDL statements replicate, the nodes block almost all updates made to them.  With some statements this can go on for a particularly long time.  In the Non-Blocking Operation method, the node applies special table locks called metadata locks on all nodes, in order to ensure consistency.  The nodes all execute the DDL statements, using a separate applier thread.  Then, once the statement is applied, all nodes simultaneously release the locks.
+Under the :term:`Total Order Isolation` method, when DDL statements replicate, the nodes block almost all updates and with some statements this can go on for a particularly long time.  In the Non-Blocking Operation method, the node applies special table locks called metadata locks on all nodes, in order to ensure consistency.  The nodes all execute the DDL statements, using a separate applier thread.  Then, once the statement is applied, all nodes simultaneously release the locks.
 
 .. code-block:: mysql
 
    SET SESSION wsrep_OSU_method='NBO';
 
-Given its :ref:`limitations <nbo-limitations>`, the recommended method in updating the schema with a Non-Blocking Operation is to enable it at a session level, run the command with the appropriate locks, then reset the Online Schema Upgrade method back to ``TOI`` or ``RSU``.
+Given its :ref:`limitations <nbo-limitations>`, the recommended method in updating the schema with a Non-Blocking Operation is to enable it at a session level, run the command, and then reset the Online Schema Upgrade method back to ``TOI`` or ``RSU``.
    
 DDL statements that support Non-Blocking Operation:
 
@@ -93,11 +93,11 @@ DDL statements that support Non-Blocking Operation:
 - ``ANALYZE TABLE``
 - ``OPTIMIZE TABLE`` 
 
-.. note:: For partition management, the comma that occurs after ``LOCK = {SHARED|EXCLUSIVE}`` does not get used.
+.. note:: For partition-management operations, no comma is used after ``LOCK = {SHARED|EXCLUSIVE}``.
 
 DDL statements that do not support Non-Blocking Operation:
 
-- ``ALTER TABLE LOCK = {DEFAULT|NONE}``, including ``ALTER`` statements without the ``LOCK`` clause, as these locks default to the ``DEFAULT`` lock.
+- ``ALTER TABLE LOCK = {DEFAULT|NONE}``, including ``ALTER`` statements without the ``LOCK`` clause, as such statements default to the ``DEFAULT`` lock.
 - ``CREATE``, ``RENAME``, ``DROP``, and ``REPAIR``.
 
 Issuing unsupported operations while using the Non-Blocking Operation method results in an error code.  For example,
@@ -125,20 +125,20 @@ In addition to unsupported DDL statements, there are a number of limitations in 
 
 - While the node processes a DDL statement under the Non-Blocking Operation method, it is not possible to write to the table being altered.  The node blocks write attempts until it finishes applying the ``ALTER``.
 
-  When you set the lock to ``EXCLUSIVE``, the node also blocks reads.  When you set the lock to ``SHARED``, the node allows read operations on the table.
+  When you set the lock to ``EXCLUSIVE``, the node also blocks reads to the table.  When you set the lock to ``SHARED``, the node allows read operations on the table.
 
-- The table lock acquired at the beginning of the operation remains a blocking operation.  Long transactions running against the table already may lead the cluster to block the locks.  To avoid this, ensure that no clients have open transactions that include the table prior to running the ``ALTER`` statement.
+- The acquisition of the table metadata lock at the beginning of the operation remains a blocking operation.  Long transactions already running against the table may lead the cluster to block while the lock is granted.  To avoid this, ensure that no clients have open transactions that include the table prior to running the ``ALTER`` statement.
 
-- During DDL operations, nodes cannot serve as donors for a :term:`State Snapshot Transfer`.  
+- During NBO DDL operations, nodes cannot serve as donors for a :term:`State Snapshot Transfer`.  
 
   What this means is that nodes are unable to join the cluster while DDL statements are in progress under this method.  Nodes that attempt to rejoin the cluster, must have sufficient data in their write-set caches to perform a :term:`Incremental State Transfer`.  Those that do not are unable to rejoin.  
 
   .. note:: If you expect a DDL statement to take an hour to run, adjust the :ref:`gcache.size <gcache.size>` wsrep option accordingly so that the nodes cache enough data to perform incremental state transfers, in the event that they need to during the process.
 
-- Under this method, nodes that leave the cluster during DDL operations have inconsistent data with the cluster, meaning that they can only rejoin the cluster through a State Snapshot Transfer, rather than the much faster Incremental State Transfer.
+- Under this method, nodes that leave the cluster during DDL operations will have an inconsistent snapshot of the data, meaning that they can only rejoin the cluster through a State Snapshot Transfer, rather than the much faster Incremental State Transfer.
 
 - Do not use DDL statements with this method that operate on more than one table at a time.
 
-- Do not execute other DDL statements, such as part of the :term:`Rolling Schema Upgrade` method while upgrades using the Non-Blocking Operation method are in progress.
+- Do not execute other DDL statements, such as ones using the :term:`Rolling Schema Upgrade` method while upgrades using the Non-Blocking Operation method are in progress.
 
 
