@@ -39,6 +39,8 @@ In addition, when using Total Order Isolation, you should take the following par
 
 - From the perspective of certification, schema upgrades in Total Order Isolation never conflict with preceding transactions, given that they only execute after the cluster commits all preceding transactions.  What this means is that the certification interval for schema upgrades using this method has a zero length. Therefore, schema upgrades will never fail certification and their execution is guaranteed.
 
+- Transactions that were in progress while the DDL was running and that involved the same database resource will get a deadlock error at commit time and will be rolled back.
+
 - The cluster replicates the schema upgrade query as a statement before its execution.  There is no way to know whether or not individual nodes succeed in processing the query.  This prevents error checking on schema upgrades in Total Order Isolation.
 
 ---------------------------------
