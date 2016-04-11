@@ -1,5 +1,5 @@
 =====================
-Configuration
+Administration
 =====================
 .. _`admin-guide`:
 
@@ -13,6 +13,7 @@ Configuration
    managingfc
    autoeviction
    schemaupgrades
+   streamingreplication
    upgrading
    scriptablesst
    arbitrator
