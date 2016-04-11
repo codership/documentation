@@ -13,7 +13,7 @@ Administration
    managingfc
    autoeviction
    schemaupgrades
-   streamingreplication
+   usingsr
    upgrading
    scriptablesst
    arbitrator
