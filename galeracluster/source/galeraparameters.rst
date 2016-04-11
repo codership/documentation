@@ -911,7 +911,7 @@ This parameter defines the amount of disk space you want to allocate for the pre
 
 Defines the policy and priority for the gcomm thread.
    
-.. code-block: ini
+.. code-block:: ini
 
    wsrep_provider_options="gcomm.thread_prio=rr:2"
 
