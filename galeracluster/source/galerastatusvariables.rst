@@ -56,6 +56,9 @@ This distinction is of importance for developers only.  For convenience, all sta
 | :ref:`wsrep_connected                 | ``ON``                                   | 1+         |
 | <wsrep_connected>`                    |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_desync_count              | ``0``                                    | 3+         |
+| <wsrep_desync_count>`                 |                                          |            |
++---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_evs_delayed               |                                          | 3.8+       |
 | <wsrep_evs_delayed>`                  |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
@@ -67,9 +70,6 @@ This distinction is of importance for developers only.  For convenience, all sta
 +---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_evs_state                 |                                          | 3.8+       |
 | <wsrep_evs_state>`                    |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_desync_count              | ``0``                                    | 3+         |
-| <wsrep_desync_count>`                 |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_flow_control_paused       | ``0.184353``                             | 1+         |
 | <wsrep_flow_control_paused>`          |                                          |            |
@@ -546,6 +546,34 @@ If the value is ``OFF``, the node has not yet connected to any of the cluster co
 +--------------------+-----------+------------+------------+
 
 
+
+.. rubric:: ``wsrep_desync_count``
+.. _`wsrep_desync_count`:
+.. index::
+   pair: Status Variables; wsrep_desync_count
+
+Returns the number of operations in progress that require the node to temporarily desync from the cluster.
+   
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_desync_count';
+
+   +--------------------+-------+
+   | Variable_name      | Value |
+   +--------------------+-------+
+   | wsrep_desync_count | 1     |
+   +--------------------+-------+
+   
+Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`,  causing the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
+
+   
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``0``              | Galera    | 3.8        |            |
++--------------------+-----------+------------+------------+
+
+
 .. rubric:: ``wsrep_evs_delayed``	    
 .. _`wsrep_evs_delayed`:
 .. index::
@@ -634,37 +662,7 @@ Shows the internal state of the EVS Protocol.
 +====================+===========+============+============+
 |                    | Galera    | 3.8        |            |
 +--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_desync_count``
-.. _`wsrep_desync_count`:
-.. index::
-   pair: Status Variables; wsrep_desync_count
-
-Returns the number of operations in progress that require the node to temporarily desync from the cluster.
-   
-.. code-block:: mysql
-
-   SHOW STATUS LIKE 'wsrep_desync_count';
-
-   +--------------------+-------+
-   | Variable_name      | Value |
-   +--------------------+-------+
-   | wsrep_desync_count | 1     |
-   +--------------------+-------+
-   
-Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`  cause the node to desync from the cluster.  The counter on this status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
-
-   
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0``              | Galera    | 3.8        |            |
-+--------------------+-----------+------------+------------+
-
-
-
-   
+  
 
 
 .. rubric:: ``wsrep_flow_control_paused``
