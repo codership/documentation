@@ -564,7 +564,7 @@ Returns the number of operations in progress that require the node to temporaril
    | wsrep_desync_count | 1     |
    +--------------------+-------+
    
-Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`,  causing the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
+Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
 
    
 +--------------------+-----------+------------+------------+
