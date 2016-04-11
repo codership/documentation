@@ -116,6 +116,9 @@ Table legend:
 | :ref:`gcache.size                     | ``128Mb``             | 1+         | No       |
 | <gcache.size>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
+| :ref:`gcomm.thread_prio               |                       | 3+         | No       |
+| <gcomm.thread_prio>`                  |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 | :ref:`gcs.fc_debug                    | ``0``                 | 1+         | No       |
 | <gcs.fc_debug>`                       |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
@@ -899,6 +902,36 @@ This parameter defines the amount of disk space you want to allocate for the pre
 
 
 
+
+.. rubric:: ``gcomm.thread_prio``
+.. _`gcomm.thread_prio`:
+.. index::
+   pair wsrep Provider Options; gcomm.thread_prio
+
+
+Defines the policy and priority for the gcomm thread.
+   
+.. code-block:: ini
+
+   wsrep_provider_options="gcomm.thread_prio=rr:2"
+
+Using this option, you can raise the priority of the gcomm thread to a higher level than it normally uses.  You may find this useful in situations where Galera Cluster threads do not receive sufficient CPU time, due to competition with other MySQL threads.  In these cases, when the thread scheduler for the operating system does not run the Galera threads frequently enough, timeouts may occur, causing the node to drop from the cluster.
+   
+The format for this option is: ``<policy>:<priority>``.  The priority value is an integer.  The policy value supports the following options:
+
+- ``other`` Designates the default time-sharing scheduling in Linux.  They can run until they are blocked by an I/O request or preempted by higher priorities or superior scheduling designations.
+
+- ``fifo`` Designates first-in out scheduling.  These threads always immediately preempt any currently running other, batch or idle threads.  They can run until they are either blocked by an I/O request or preempted by a FIFO thread of a higher priority.
+
+- ``rr`` Designates round-robin scheduling.  These threads always preempt any currently running other, batch or idle threads.  The scheduler allows these threads to run for a fixed period of a time.  If the thread is still running when this time period is exceeded, they are stopped and moved to the end of the list, allowing another round-robin thread of the same priority to run in their place.  They can otherwise continue to run until they are blocked by an I/O request or are preempted by threads of a higher priority.
+
+   
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+|                       |  No     | 3.0        |            |
++-----------------------+---------+------------+------------+
 
    
 
