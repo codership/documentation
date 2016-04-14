@@ -114,7 +114,15 @@
    SST
       See :term:`State Snapshot Transfer`.
 
-      
+
+   Streaming Replication
+      Provides an alternative replication method for handling large or long-running write transactions.  This is a new feature in version 4.0 of Galera Cluster.  In older versions the feature is unsupported.
+
+      Under normal operation, the node performs all replication and certification operations when the transaction commits, which with large transactions can result in conflicts if smaller transactions are committed first.  With Streaming Replication, the node breaks the transaction into fragments, then certifies and replicates them to all nodes while the transaction is still in progress.  Once certified, a fragment can no longer be aborted by a conflicting transaction.
+
+      .. note:: For more information see :doc:`streamingreplication` and :doc:`usingsr`.
+
+   
    Total Order Isolation
       By default, :abbr:`DDL (Data Definition Language)` statements are processed by using the Total Order Isolation (TOI) method. In TOI, the query is replicated to the nodes in a statement form before executing on master. The query waits for all preceding transactions to commit and then gets executed in isolation on all nodes simultaneously.
       

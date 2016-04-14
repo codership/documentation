@@ -131,6 +131,12 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_sync_wait                 | ``0``                              | 3.6+    | Yes     |
 | <wsrep_sync_wait>`                    |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_trx_fragment_size         | ``0``                              | 4+      | Yes     |
+| <wsrep_trx_fragment_size>`            |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_trx_fragment_unit         | ``bytes``                          | 4+      | Yes     |
+| <wsrep_trx_fragment_unit>`            |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_ws_persistency            |                                    | 1       |         |
 | <wsrep_ws_persistency>`               |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
@@ -1861,6 +1867,104 @@ In the example, the application first runs a ``SET`` command to enable :ref:`wsr
    +-----------------+-------+
 
 
+
+.. rubric:: ``wsrep_trx_fragment_size``
+.. _`wsrep_trx_fragment_size`:
+.. index::
+   pair: Parameters; wsrep_trx_transaction_size
+   
+
+Defines the number of replication units needed to generate a new fragment in Streaming Replication.
+
+
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-trx-fragment-size``                           |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_trx_fragment_size``       |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Session                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | integer                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``0``                             |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       | 4.0                               |
++-------------------------+---------------------+-----------------------------------+
+
+In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the number of replication units to include in a fragment.  To define what these units represent, use :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`. A value of ``0`` indicates that streaming replication will not be used.
+
+.. code-block:: mysql
+
+   SHOW VARIABLE LIKE 'wsrep_trx_fragment_size';
+
+   +-------------------------+-------+
+   | Variable_name           | Value |
+   +-------------------------+-------+
+   | wsrep_trx_fragment_size | 5     |
+   +-------------------------+-------+
+
+
+.. rubric:: ``wsrep_trx_fragment_unit``
+.. _`wsrep_trx_fragment_unit`:
+.. index::
+   pair: Parameters; wsrep_trx_fragment_unit
+
+
+Defines the replication unit type to use in Streaming Replication.
+
+
++-------------------------+---------------------------------------------------------+
+| **Command-line Format** | ``--wsrep-trx-fragment-unit``                           |
++-------------------------+---------------------+-----------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_trx_fragment_unit``       |
+|                         +---------------------+-----------------------------------+
+|                         | *Variable Scope:*   | Session                           |
+|                         +---------------------+-----------------------------------+
+|                         | *Dynamic Variable:* | Yes                               |
++-------------------------+---------------------+-----------------------------------+
+| **Permitted Values**    | *Type:*             | string                            |
+|                         +---------------------+-----------------------------------+
+|                         | *Default Value:*    | ``bytes``                         |
+|                         +---------------------+-----------------------------------+
+|                         | *Valid Values:*     | ``bytes``                         |
+|                         |                     +-----------------------------------+
+|                         |                     | ``events``                        |
+|                         |                     +-----------------------------------+
+|                         |                     | ``rows``                          |
+|                         |                     +-----------------------------------+
+|                         |                     | ``statements``                    |
++-------------------------+---------------------+-----------------------------------+
+| **Support**             | *Introduced:*       | 4.0                               |
++-------------------------+---------------------+-----------------------------------+
+
+In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the unit to use in determining the size of the fragment.  To define the number of replication units to use in the fragment, use :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
+
+Supported replication units are:
+
+- **bytes**: Refers to the fragment size in bytes.
+
+- **events**: Refers to the number of binary log events in the fragment.
+
+- **rows**: Refers to the number of rows updated in the fragment.
+
+- **statements**: Refers to the number of SQL statements in the fragment. 
+
+
+.. code-block:: mysql
+
+   SHOW VARIABLE LIKE 'wsrep_trx_fragment_unit';
+
+   +-------------------------+--------+
+   | Variable_name           | Value  |
+   +-------------------------+--------+
+   | wsrep_trx_fragment_unit | bytes  |
+   +-------------------------+--------+
+
+
+
+   
 
 .. rubric:: ``wsrep_ws_persistency``
 .. _`wsrep_ws_persistency`:

@@ -15,4 +15,5 @@
    nodestates
    recovery
    weightedquorum
+   streamingreplication
 
