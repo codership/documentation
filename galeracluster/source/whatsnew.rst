@@ -9,7 +9,7 @@ With the latest release of Galera Cluster in the 4.x branch, a number of new fea
 
   For more information, see :ref:`Non-Blocking Operations <nbo>`.
 
-- **Streaming Replication** Under normal operation, the node initiates all replication and certification events when the transaction commits.  In large transactions, this can result in conflicts, as smaller transactions in get in first and cause them to abort.  With Streaming Replication, the node breaks the transaction down into fragments, then certifies and applies them on all slaves nodes while the initial transaction is still in progress.  Once certified, conflicting transactions can no longer abort the fragment.
+- **Streaming Replication** Under normal operation, the node initiates all replication and certification operations when the transaction commits.  In large transactions, this can result in conflicts, as smaller transactions can get in first and cause the large transactions to abort.  With Streaming Replication, the node breaks the transaction down into fragments, then certifies and replicates them on all slaves nodes while the transaction is still in progress.  Once certified, conflicting transactions can no longer abort the fragment.
 
   This provides an alternative replication method for handling large or long-running write transactions, or when working with hot records.
 
