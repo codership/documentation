@@ -118,7 +118,7 @@
    Streaming Replication
       Provides an alternative replication method for handling large or long-running write transactions.  This is a new feature in version 4.0 of Galera Cluster.  In older versions the feature is unsupported.
 
-      Under normal operation, the node performs all replication and certification events when the transaction commits, which with large transactions can result in conflicts as smaller transactions get in first.  With Streaming Replication, the node breaks the transaction into fragments, then certifies and applies them on all the slave nodes while the initial transaction is still in progress.  Once certified, conflicting transactions can no longer abort the fragment.
+      Under normal operation, the node performs all replication and certification operations when the transaction commits, which with large transactions can result in conflicts if smaller transactions are committed first.  With Streaming Replication, the node breaks the transaction into fragments, then certifies and replicates them to all nodes while the transaction is still in progress.  Once certified, a fragment can no longer be aborted by a conflicting transaction.
 
       .. note:: For more information see :doc:`streamingreplication` and :doc:`usingsr`.
 
