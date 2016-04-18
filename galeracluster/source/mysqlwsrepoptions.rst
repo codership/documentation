@@ -1093,7 +1093,9 @@ This parameter defines whether or not updates made in the current session replic
 .. _`wsrep_OSU_method`:
 .. index::
    pair: Parameters; wsrep_OSU_method
-
+.. index::
+   pair: Galera Cluster 4.x; Non-Blocking Operation
+   
 Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (Data Definition Language)` statements.
 
 +-------------------------+---------------------------------------------------------+
@@ -1872,8 +1874,11 @@ In the example, the application first runs a ``SET`` command to enable :ref:`wsr
 .. _`wsrep_trx_fragment_size`:
 .. index::
    pair: Parameters; wsrep_trx_transaction_size
+.. index::
+   pair: Galera Cluster 4.x; Streaming Replication
+.. index::
+   pair: wsrep_trx_fragment_size; Streaming Replication
    
-
 Defines the number of replication units needed to generate a new fragment in Streaming Replication.
 
 
@@ -1910,7 +1915,10 @@ In :term:`Streaming Replication`, the node breaks transactions down into fragmen
 .. _`wsrep_trx_fragment_unit`:
 .. index::
    pair: Parameters; wsrep_trx_fragment_unit
-
+.. index::
+   pair: Galera Cluster 4.x; Streaming Replication
+.. index::
+   pair: wsrep_trx_fragment_unit; Streaming Replication
 
 Defines the replication unit type to use in Streaming Replication.
 
