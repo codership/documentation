@@ -22,7 +22,9 @@ MySQL wsrep Functions
 .. _`WSREP_LAST_SEEN_GTID`:
 .. index::
    pair: Functions; WSREP_LAST_SEE_GTID()
-
+.. index::
+   pair: Galera Cluster 4.x; Synchronization Functions
+   
 Returns the :term:`Global Transaction ID` of the last write transaction observed by the client.
 
 +---------------+----------------------------+
@@ -40,11 +42,15 @@ This function returns the Global Transaction ID of the last write transaction ob
 
    SELECT WSREP_LAST_SEEN_GTID();
 
+
+   
 .. rubric:: ``WSREP_LAST_WRITTEN_GTID()``
 .. _`WSREP_LAST_WRITTEN_GTID`:
 .. index::
    pair: Functions; WSREP_LAST_WRITTEN_GTID()
-
+.. index::
+   pair: Galera Cluster 4.x; Synchronization Functions
+   
 Returns the :term:`Global Transaction ID` of the last write transaction made by the client.
 
 
@@ -66,11 +72,15 @@ This function returns the Global Transaction ID of the last write transaction ma
    SELECT WSREP_LAST_WRITTEN_GTID();
 
 
+
+   
 .. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
 .. _`WSREP_SYNC_WAIT_UPTO_GTID`:
 .. index::
    pair: Functions; WSREP_SYNC_WAIT_UPTO_GTID()
-
+.. index::
+   pair: Galera Cluster 4.x; Synchronization Functions
+   
 Blocks the client until the node applies and commits the given transaction.
 
 +---------------+----------------------------------------------+

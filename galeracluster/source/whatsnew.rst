@@ -2,6 +2,12 @@
 What's New in Galera Cluster 4.x
 ################################
 .. _`whats-new`:
+.. index::
+   pair: Galera Cluster 4.x; Streaming Replication
+.. index::
+   pair: Galera Cluster 4.x; Non-Blocking Operation
+.. index::
+   pair: Galera Cluster 4.x; Synchronization Functions
 
 With the latest release of Galera Cluster in the 4.x branch, a number of new features are now available to you, including,
 

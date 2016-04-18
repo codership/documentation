@@ -75,8 +75,12 @@ The main disadvantage of the Rolling Schema Upgrade is that it is potentially un
 Non-Blocking Operation
 ----------------------------
 .. _`nbo`:
+.. index::
+   pair: Galera Cluster 4.x; Non-Blocking Operation
+.. index::
+   pair: Online Schema Upgrades; Non-Blocking Operation
 
-When you want to maintain high-availability while altering, analyzing or optimizing tables and don't mind the particular limitations, use the :term:`Non Blocking Operation` method.
+When you want to maintain high-availability while altering, analyzing or optimizing tables and don't mind the particular limitations, use the :term:`Non-Blocking Operation` method.
 
 Under the :term:`Total Order Isolation` method, when DDL statements replicate, the nodes block almost all updates and with some statements this can go on for a particularly long time.  In the Non-Blocking Operation method, the node applies special table locks called metadata locks on all nodes, in order to ensure consistency.  The nodes all execute the DDL statements, using a separate applier thread.  Then, once the statement is applied, all nodes simultaneously release the locks.
 

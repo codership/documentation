@@ -2,6 +2,8 @@
 Streaming Replication
 #####################
 .. _`sr`:
+.. index::
+   pair: Galera Cluster 4.x; Streaming Replication
 
 Under normal operation, the node performs all replication and certification events when the transaction commits.  When working with small transactions this is fine, but it poses an issue with long-running writes and changes to large data-sets.
 
