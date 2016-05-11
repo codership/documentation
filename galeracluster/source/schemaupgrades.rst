@@ -94,6 +94,8 @@ DDL statements that support Non-Blocking Operation:
 
 - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE}, alter_specification``
 - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} PARTITION``
+- ``CREATE INDEX ... LOCK = {SHARED|EXCLUSIVE}``
+- ``DROP INDEX``
 - ``ANALYZE TABLE``
 - ``OPTIMIZE TABLE`` 
 
@@ -102,7 +104,7 @@ DDL statements that support Non-Blocking Operation:
 DDL statements that do not support Non-Blocking Operation:
 
 - ``ALTER TABLE LOCK = {DEFAULT|NONE}``, including ``ALTER`` statements without the ``LOCK`` clause, as such statements default to the ``DEFAULT`` lock.
-- ``CREATE``, ``RENAME``, ``DROP``, and ``REPAIR``.
+- ``CREATE TABLE``, ``RENAME``, ``DROP``, and ``REPAIR``.
 
 Issuing unsupported operations while using the Non-Blocking Operation method results in an error code.  For example,
 
