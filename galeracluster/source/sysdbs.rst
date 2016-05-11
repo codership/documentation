@@ -12,6 +12,12 @@ wsrep Schema Database
 =====================
 .. _`wsrep_schema_db`:
 
+Similar to the ``performance_schema`` and ``information_schema`` databases, the node uses ``wsrep_schema`` to store information about the state of the cluster, including the nodes that current part of the :term:`Primary Component` as well as a history of nodes that were previously in the cluster. 
+
+You may find this information useful in diagnosing issues or in checking the state of the cluster through a monitoring solution.
+
+.. note:: For more information on monitoring, see :doc:`monitor`.
+
 The database contains the following tables:
 
 - ``cluster``  Table contains the current state of the cluster.  It contains a single row:
