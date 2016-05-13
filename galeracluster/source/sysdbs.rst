@@ -2,6 +2,9 @@
 System Databases
 ################
 .. _`sysdb`:
+.. index::
+   pair: Administration; System Databases
+
 
 When you install Galera Cluster, it creates a set of system databases that it uses to store configuration information.  For instance, the underlying database server uses the ``mysql`` database for system tables, which record such things as user names, passwords and what databases and tables those users can access.
 
@@ -11,6 +14,8 @@ When you install Galera Cluster, it creates a set of system databases that it us
 wsrep Schema Database
 =====================
 .. _`wsrep_schema_db`:
+.. index::
+   pair: Administration; wsrep_schema
 
 Similar to the ``performance_schema`` and ``information_schema`` databases, the node uses ``wsrep_schema`` to store information about the state of the cluster, including the nodes that current part of the :term:`Primary Component` as well as a history of nodes that were previously in the cluster. 
 
