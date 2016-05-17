@@ -14,6 +14,7 @@ Administration
    autoeviction
    schemaupgrades
    usingsr
+   sysdbs
    upgrading
    scriptablesst
    arbitrator
