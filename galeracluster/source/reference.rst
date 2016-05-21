@@ -9,7 +9,7 @@ In the event that you need more information about particular variables or parame
 .. rubric:: Variable Reference
 .. _`ref-vars`:
 
-Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file.  These chapters provide reference gudies to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
+Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file.  These chapters provide reference guides to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
 
 - :doc:`mysqlwsrepoptions`
 
@@ -21,7 +21,7 @@ Defining persistent configurations in Galera Cluster is done through the underly
   
 - :doc:`galerastatusvariables`
 
-  In addition to the standard status variables available through the database server, Galera cLuster also implements several that you can use in determining the status and health of the node and the cluster.  This chapter provides a reference guide to these new status variables in Galera Cluster.
+  In addition to the standard status variables available through the database server, Galera Cluster also implements several that you can use in determining the status and health of the node and the cluster.  This chapter provides a reference guide to these new status variables in Galera Cluster.
 
 
 
@@ -39,7 +39,7 @@ In some cases your configuration or implementation may require that you work wit
   
 - :doc:`glbparameters`
 
-  In high availability situations or similar cases where nodes are subject to high traffic situtations, you may find it beneficial to set up a load balancer between your application servers and the cluster.  This chapter provides a reference guide to the Codership implementation: the Galera Load Balancer.
+  In high availability situations or similar cases where nodes are subject to high traffic situations, you may find it beneficial to set up a load balancer between your application servers and the cluster.  This chapter provides a reference guide to the Codership implementation: the Galera Load Balancer.
 
 
 .. rubric:: Miscellaneous References
