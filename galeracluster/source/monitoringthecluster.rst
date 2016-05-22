@@ -1,5 +1,5 @@
 ===============================
- Monitoring Cluster Status
+Using Status Variables
 ===============================
 .. _`monitoring-cluster`:
 

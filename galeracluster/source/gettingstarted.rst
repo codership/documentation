@@ -3,7 +3,7 @@
 =================
 .. _`getting-started`:
 
-Galera Cluster for MySQL is a synchronous replication solution that can improve availability and performance of MySQL service.  All Galera Cluster nodes are identical and fully representative of the cluster and allow unconstrained transparent ``mysql`` client access, acting as a single-distributed MySQL server.  It provides:
+Galera Cluster is a synchronous replication solution to improve availability and performance of the MySQL database service.  All nodes in Galera Cluster are identical and fully representative of the cluster.  They allow for unconstrained transparent client access, operating as a single, distributed MySQL server.  It provides,
 
 - Transparent client connections, so it's highly compatible with existing applications;
 
@@ -11,11 +11,56 @@ Galera Cluster for MySQL is a synchronous replication solution that can improve 
 
 - Automatic write conflict detection and resolution, so that nodes are always consistent.
 
-Galera Cluster is well suited for :abbr:`LAN (Local Area Network)`, :abbr:`WAN (Wide Area Network)`, and cloud environments.  This Getting Started chapter will help you to get started with a basic Galera Cluster.  You will need root access to three Linux hosts and their IP Addresses.
+Galera Cluster is well suited for LAN, WAN, container and cloud environments.  The following chapters provide you with the basics to setting up and deploying Galera Cluster.  Bear in mind before you get started that you need root access to at least three Linux or FreeBSD hosts and their IP addresses.
+
+.. note:: With the latest release Glaerea Cluster begins the 4.x branch, introducing a number of new releases.  For more information on these features, see :doc:`whatsnew`.
+
+
+.. rubric:: Node Initialization
+.. _`node-init`:
+
+Individual nodes in Galera Cluster are MySQL, MariaDB or Percona XtraDB.  But, deploying a node is not exactly the same as the standard standalone instance of the database server.  You need to take a few additional steps in order to properly install and configure the software.  The software runs on any unix-like operating system.  These chapters provides guides to installing and configuring nodes for Galera Cluster.
+
+- :doc:`galerainstallation`
+
+  Once you have your server hardware ready, including at least three hosts running either Linux or FreeBSD and their respective IP addresses.  This chapter provides guides to preparing the server and installing Galera Cluster.  When you install Galera Cluster, you must choose between three implementations available.  For each implementations, you can install the software using Debian- and RPM-based binary packages or by building the node from source.
+
+  - **Galera Cluster for MySQL**: The reference implementation from Codership, Oy. You can use either the :ref:`Binary Installation <galera-mysql-binary-install>` or the :ref:`Source Build <galera-mysql-src-install>` methods.
+    
+  - **Percona XtraDB Cluster**: The Percona alternative implementation of Galera Cluster, which uses XtraDB in place of MySQL.  You can use either the :ref:`Binary Installation <galera-xtradb-binary-install>` or the :ref:`Source Build <galera-xtradb-src-install>` methods.
+	 
+  - **MariaDB Galera Cluster**: The MariaDB Ab alternative implementation of Galera Cluster, which uses MariaDB in place of MySQL.  You can use either the :ref:`Binary Installation <galera-mariadb-binary-install>` or the :ref:`Source Build <galera-mariadb-src-install>`.
+    
+- :doc:`configuration`
+
+  Before you can start the cluster, you need to configure the individual nodes.  This chapter covers general parameters that you must set in the ``my.cnf`` configuration file in order to use Galera Cluster.  It also provides a guide to configuring swap space in order to protect the node from crashing due to large write-sets requiring more memory than the server has available.
+  
+- :doc:`dbconfiguration`
+
+  With the system-level configurations complete, this chapter provides a guide to configuring the database server to connect and communicate with the cluster and explains the syntax format used in cluster addresses.
+
+
+  
+.. rubric:: Cluster Initialization
+.. _`cluster-init`:
+
+With the software installed on the relevant servers in your your infrastructure, you can now initialize Galera Cluster, by bootstrapping the Primary Component then starting all the other nodes as you would any other database server instance.  These chapters provide guides to starting the cluster, ways of testing that it's operational and, when you need to, how to restart the entire cluster.
+
+- :doc:`startingcluster`
+
+  In order to start Galera Cluster, you need to bootstrap the Primary Component.  Afterwards, you can start nodes using the same command as you would the standard standalone MySQL, MariaDB or Percona XtraDB database server.  This chapter provides a guide to initializing the cluster.
+
+- :doc:`testingcluster`
+
+  With your cluster online, you may want to test out some of the features in order to ensure it's working properly and to better see how it works in planning out your own deployment.  This chapter provides a rough guide to testing replication and similar cluster operations.
+
+- :doc:`restartingcluster`
+
+  On occasion, you may need to restart the entire cluster, such as in the case of a power failure where every node is shut down and there is no database server process left running.  This chapter provides guides to finding your most advanced node and restarting the Primary Component on that node.
 
 
 .. rubric:: How Galera Cluster Works
-.. `how-galera-works`:
+.. _`how-galera-works`:
 
 The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.
 
@@ -29,42 +74,24 @@ Certification-based replication is an alternative approach to synchronous databa
 
 .. note:: For security and performance reasons, it's recommended that you run Galera Cluster on its own subnet.
 
-.. toctree::
-   :maxdepth: 2
 
-   whatsnew
 	  
-
---------------------
-Node Initialization
---------------------
-.. _`node-initialization`:
-
-Galera Cluster for MySQL is not the same as a standard standalone MySQL database server.  You will need to install and configure additional software.  
-
-This software runs on any unix-like operating system.  You can choose to build from source or to install using Debian- or RPM-based binary packages.  Once you have the software installed on your individual server, you must also configure the server to function as a node in your cluster. 
 
 .. toctree::
    :maxdepth: 3
-	      
+   :hidden:
+   
+   whatsnew
    galerainstallation
    configuration
    dbconfiguration
-
-------------------------
-Cluster Initialization
-------------------------
-.. _`cluster-initialization`:
-
-Once you have Galera Cluster installed and configured on your servers, you are ready to initialize the cluster for operation.  You do this by starting the cluster on the first node, then adding the remaining nodes to it.
-
-
-.. toctree::
-   :maxdepth: 3
-
    startingcluster
    testingcluster
    restartingcluster
 
+
+   
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
+
+      

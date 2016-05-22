@@ -59,7 +59,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_log_conflicts             | ``OFF``                            | 1+      |         |
 | <wsrep_log_conflicts>`                |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
-| :ref:`wsrep_max_ws_rows               | ``128K``                           | 1+      |         |
+| :ref:`wsrep_max_ws_rows               | ``0``                              | 1+      |         |
 | <wsrep_max_ws_rows>`                  |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_max_ws_size               | ``1G``                             | 1+      |         |
@@ -790,12 +790,12 @@ Defines the maximum number of rows the node allows in a write-set.
 +-------------------------+---------------------+-----------------------------------+
 | **Permitted Values**    | *Type:*             | string                            |
 |                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``128k``                          |
+|                         | *Default Value:*    | ``0``                             |
 +-------------------------+---------------------+-----------------------------------+
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter sets the maximum number of rows that the node allows in a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.
+If set to a value greater than ``0``, this parameter sets the maximum number of rows that the node allows in a write-set.
 
 .. code-block:: mysql
 
@@ -804,7 +804,7 @@ This parameter sets the maximum number of rows that the node allows in a write-s
    +-------------------+-------+
    | Variable_name     | Value |
    +-------------------+-------+
-   | wsrep_max_ws_rows | 128k  |
+   | wsrep_max_ws_rows | 128   |
    +-------------------+-------+
 
 

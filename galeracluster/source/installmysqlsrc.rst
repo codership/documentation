@@ -1,7 +1,7 @@
 ==============================================
 Galera Cluster for MySQL - Source Installation
 ==============================================
-.. _`MySQL Source Installation`:
+.. _`galera-mysql-src-install`:
 
 Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based upon a different package management system, if your server uses a different unix-like operating system, such as Solaris or FreeBSD, you will need to build Galera Cluster for MySQL from source.
 
