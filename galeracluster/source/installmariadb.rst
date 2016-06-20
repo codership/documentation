@@ -1,7 +1,7 @@
 ============================================
 MariaDB Galera Cluster - Binary Installation
 ============================================
-.. _`galera-mariadb-binarys-install`:
+.. _`galera-mariadb-binary-install`:
 
 MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux through the MariaDB repository.
 

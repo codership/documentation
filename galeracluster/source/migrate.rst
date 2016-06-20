@@ -1,15 +1,27 @@
-
----------------------------
+---------
 Migration
----------------------------
+---------
 .. _`migration-banner`:
 
-Bear in mind that there are certain key differences between how a standalone instance of the MySQL server works and the Galera Cluster wsrep database server.  This is especially important if you plan to install Galera Cluster over an existing MySQL server, preserving its data for replication.
+In :doc:`gettingstarted`, the installation guides operate on the assumption that Galera Cluster is the first database in your infrastructure, but this won't always be the case.  Sometimes you may need to migrate to Galera Cluster from an existing database infrastructure: such as a single MySQL server or several database servers that were part of a MySQL master-slave cluster.
 
-.. toctree::
-   :maxdepth: 2
 
-   limitations
-   migration
+- :doc:`limitations`
+
+  While clusters operate as distributed database servers, there are some key differences between it and the standard standalone MySQL implementations.
+
+  
+- :doc:`migration`
+
+  When migrating from the standard MySQL implementations to Galera Cluster, there are some additional steps that you need to take in order to ensure that you safely transfer the data from the existing database to the new cluster.  This chapter covers the procedure in updating system tables and how to migrate from standalone MySQL and from MySQL master-slave replication clusters.
+
 
 .. note:: **See Also**: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.
+
+  
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+	      
+   limitations
+   migration

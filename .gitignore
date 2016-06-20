@@ -5,3 +5,4 @@ sphinx-*
 galeracluster/sphinx-*
 *sphinx-*
 .#*
+*.swp
