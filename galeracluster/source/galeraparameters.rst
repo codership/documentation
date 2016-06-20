@@ -468,7 +468,7 @@ This parameter determines how long a delay can run before the node adds an entry
 .. index::
    pair: wsrep Provider Options; evs.evict
 
-Defines the point at which the cluster triggers manual eviction to a certain node value.  Setting this parameter as an empty string causes it to clear the eviction list on the node where it is set.
+If set to the gcomm UUID of some node, that node will be evicted from the cluster.  Setting this parameter to an empty string causes the eviction list to be cleared on the node where it is set.
 
 .. note:: **See Also**: For more information on the eviction and Auto Eviction process, see :doc:`autoeviction`.
    
