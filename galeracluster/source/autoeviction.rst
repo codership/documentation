@@ -27,7 +27,7 @@ You can configure Auto Eviction by setting options through the :ref:`wsrep_provi
 
   The default value is ``PT30S``.
   
-- :ref:`evs.evict <evs.evict>` This sets the point where the cluster triggers manual eviction to a certain node value.  Setting this parameter as an empty string causes it to clear the evict list on the node where it is set.
+- :ref:`evs.evict <evs.evict>`  If set to the gcomm UUID of some node, that node will be evicted from the cluster. Setting this parameter to an empty string causes the eviction list to be cleared on the node where it is set.
 
 - :ref:`evs.auto_evict <evs.auto_evict>`  This sets the number of entries allowed for a delayed node before Auto Eviction takes place.  Setting this to ``0`` disables the Auto Eviction protocol on the node, though the node will continue to monitor node response times.
 
