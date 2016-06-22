@@ -98,8 +98,6 @@ Setting Parallel Slave Threads
 .. index::
    pair: Performance; innodb_autoinc_lock_mode
 .. index::
-   pair: Performance; innodb_locks_unsafe_for_binlog
-.. index::
    pair: Performance; wsrep_slave_threads
 
 There is no rule about how many slave threads you need for replication.  Parallel threads do not guarantee better performance.  But, parallel applying does not impair regular operation performance and may speed up the synchronization of new nodes with the cluster.
@@ -116,8 +114,7 @@ Parallel applying requires the following settings:
 
 .. code-block:: ini
 
-   innodb_autoinc_lockmode=2
-   innodb_locks_unsafe_For_binlog=1
+   innodb_autoinc_lock_mode=2
 
 You can use the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable to determine the maximum number of slave threads possible.  For example:
 
