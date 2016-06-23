@@ -68,6 +68,28 @@ Limitations
 
 In deciding whether you want to use :term:`Streaming Replication` with your application, consider the following limitations.
 
+-------------------------
+Replication Fragment Size
+-------------------------
+.. _`limit-sr-fragement-size`:
+
+While a transaction is in progress, Streaming Replication fragments are temporarily stored as blobs in a dedicated InnoDB table. In MySQL 5.6, InnoDB limits the maximum blob size to 10% of the total redo log size. If the redo log size is insufficient to store a particular fragment, an error will be returned to the client:
+
+.. code-block:: mysql
+
+   ERROR 1534 (HY000): Writing one row to the row-based binary log failed
+
+and an error will be reported in the error log:
+
+.. code-block:: console
+
+   2016-06-23 10:41:36 49989 [ERROR] InnoDB: The total blob data length (10485855) is greater than 10% of the total redo log size (10485760). Please increase total redo log size.
+   2016-06-23 10:41:36 49989 [ERROR] WSREP: Error writing into wsrep_schema.SR: 139
+   2016-06-23 10:41:36 49989 [ERROR] WSREP: Failed to write to frag table: 1
+   2016-06-23 10:41:36 49989 [ERROR] WSREP: Failed to append frag to persistent storage
+
+To accomodate larger fragments, increase the InnoDB redo log size using the ``innodb_log_file_size`` variable.
+
 ----------------------------------
 Performance during the Transaction
 ----------------------------------
