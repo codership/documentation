@@ -3,7 +3,7 @@
 ==============================
 .. _`deployment-variants`:
 
-An instance of Galera Cluster consists of a series of nodes, preferably three or more.  Each node is an instance of MySQL, MariaDB or Percona XtraDB that you convert to Galera Cluster, allowing you to use that node as a cluster base.
+An instance of Galera Cluster consists of a series of nodes, preferably three or more.  Each node is an instance of MySQL or MariaDB that you convert to Galera Cluster, allowing you to use that node as a cluster base.
 
 Galera Cluster provides synchronous multi-master replication, meaning that you can think of the cluster as a single database server that listens through many interfaces.  To give you with an idea of what Galera Cluster is capable of, consider a typical *n*-tier application and the various benefits that would come from deploying it with Galera Cluster.
 

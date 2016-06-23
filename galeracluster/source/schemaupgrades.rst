@@ -13,10 +13,7 @@ Galera Cluster processes schema upgrades in two different methods:
 
 You can set the method for online schema upgrades by using the ``wsrep_OSU_method`` parameter in the configuration file, (**my.ini** or **my.cnf**, depending on your build) or through the MySQL client.  Galera Cluster defaults to the Total Order Isolation method.
 
-.. note:: **See Also**: If you are using Galera Cluster for Percona XtraDB Cluster, see the the `pt-online-schema-change <http://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html>`_ in the Percona Toolkit.
-
-
-
+.. note:: **See Also**: See also the `pt-online-schema-change <http://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html>`_ in the Percona Toolkit for an alternative approach to schema changes.
 
 ---------------------------------
  Total Order Isolation

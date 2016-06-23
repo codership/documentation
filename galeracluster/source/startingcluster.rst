@@ -21,7 +21,7 @@ Before you attempt to initialize the cluster, check that you have the following 
 
 With the hosts prepared, you are ready to initialize the cluster.
 
-.. note:: **See Also**: When migrating from an existing, standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there are some additional steps that you must take.  For more information on what you need to do, see :doc:`migration`.
+.. note:: **See Also**: When migrating from an existing, standalone instance of MySQL or MariaDB Galera Cluster, there are some additional steps that you must take.  For more information on what you need to do, see :doc:`migration`.
 
 
 -------------------------------------

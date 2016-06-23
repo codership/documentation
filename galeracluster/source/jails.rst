@@ -195,7 +195,6 @@ Regardless of whether you are on the host system or working from within a jail, 
 The specific build process that you need to follow depends on the database server that you want to use:
 
 - :doc:`Galera Cluster for MySQL <installmysqlsrc>`
-- :doc:`Percona XtraDB Cluster <installxtradbsrc>`
 - :doc:`MariaDB Galera Cluster <installmariadbsrc>`
 
 Due to certain Linux dependencies, the :term:`Galera Replication Plugin` cannot be built from source on FreeBSD.  Instead you can use the port at ``/usr/ports/databases/galera`` or install it from a binary package within the jail:

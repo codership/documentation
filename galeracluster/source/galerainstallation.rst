@@ -19,7 +19,7 @@ For server hardware, each node requires at a minimum:
 For software, each node in the cluster requires:
 
 - Linux or FreeBSD;
-- MySQL, MariaDB or Percona XtraDB server with wsrep API patch;
+- MySQL or MariaDB server with wsrep API patch;
 - Galera Replication Plugin.
 
 .. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, you must apply this patch yourself.
@@ -131,7 +131,7 @@ Installing Galera Cluster
 ---------------------------
 .. _`galera-install`:
 
-There are three versions of Galera Cluster for MySQL: the original Codership reference implementation; Percona XtraDB Cluster; and MariaDB Galera Cluster.  For each database server, binary packages are available for Debian- and RPM-based Linux distributions, or you can build them from source.
+There are two versions of Galera Cluster for MySQL: the original Codership reference implementation and MariaDB Galera Cluster.  For each database server, binary packages are available for Debian- and RPM-based Linux distributions, or you can build them from source.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Galera Cluster for MySQL
@@ -144,15 +144,6 @@ Galera Cluster for MySQL
    installmysqlsrc
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Percona XtraDB Cluster
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. toctree::
-   :maxdepth: 1
-	      
-   installxtradb
-   installxtradbsrc
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 MariaDB Galera Cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -163,7 +154,7 @@ MariaDB Galera Cluster
    installmariadbsrc
   
 
-.. note:: **See Also**: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+.. note:: **See Also**: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
 

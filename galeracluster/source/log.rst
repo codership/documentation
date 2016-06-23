@@ -3,7 +3,7 @@ Database Server Logs
 =====================
 .. _`server-log`:
 
-Galera Cluster provides the same database server logging features available to MySQL, MariaDB and Percona XtraDB, depending on which you use.  By default, it writes errors to a ``<hostname>.err`` in the data directory.  You can change this in the ``my.cnf`` configuration file using the `log_error <https://dev.mysql.com/doc/refman/5.6/en/server-options.html#option_mysqld_log-error>`_ parameter, or by using the ``--log-error`` parameter.
+Galera Cluster provides the same database server logging features available to MySQL and MariaDB, depending on which you use.  By default, it writes errors to a ``<hostname>.err`` in the data directory.  You can change this in the ``my.cnf`` configuration file using the `log_error <https://dev.mysql.com/doc/refman/5.6/en/server-options.html#option_mysqld_log-error>`_ parameter, or by using the ``--log-error`` parameter.
 
 
 ------------------------

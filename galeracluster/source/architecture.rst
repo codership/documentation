@@ -13,7 +13,7 @@ Synchronous replication systems use eager replication.  Nodes in the cluster syn
 
 The internal architecture of Galera Cluster revolves around four components:
 
-- **Database Management System (DBMS)** The database server that runs on the individual node.  Galera Cluster can use MySQL, MariaDB or Percona XtraDB.
+- **Database Management System (DBMS)** The database server that runs on the individual node.  Galera Cluster can use MySQL or MariaDB.
 
 - **wsrep API** The interface and the responsibilities for the database server and replication provider.  It consists of:
 

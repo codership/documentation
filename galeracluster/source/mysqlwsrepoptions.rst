@@ -744,7 +744,7 @@ Defines whether the node logs additional information about conflicts.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB or Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems.  
+In Galera Cluster, the database server uses the standard logging features of MySQL or MariaDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems.  
 
 .. note:: **See Also**: You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
 
