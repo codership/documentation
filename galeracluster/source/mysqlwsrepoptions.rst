@@ -59,10 +59,10 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_log_conflicts             | ``OFF``                            | 1+      |         |
 | <wsrep_log_conflicts>`                |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
-| :ref:`wsrep_max_ws_rows               | ``128K``                           | 1+      |         |
+| :ref:`wsrep_max_ws_rows               | ``0``                              | 1+      |         |
 | <wsrep_max_ws_rows>`                  |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
-| :ref:`wsrep_max_ws_size               | ``1G``                             | 1+      |         |
+| :ref:`wsrep_max_ws_size               | ``2G``                             | 1+      |         |
 | <wsrep_max_ws_size>`                  |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_node_address              | *host address:default port*        | 1+      |         |
@@ -771,7 +771,7 @@ The additional information includes the table and schema where the conflict occu
    pair: Parameters; wsrep_max_ws_rows
 
 
-Defines the maximum number of rows the node allows in a write-set.
+Defines the maximum number of rows the node allows in a write-set. A value of ``0`` specifies no limit.
    
 +-------------------------+---------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-max-ws-rows``                                 |
@@ -784,7 +784,7 @@ Defines the maximum number of rows the node allows in a write-set.
 +-------------------------+---------------------+-----------------------------------+
 | **Permitted Values**    | *Type:*             | string                            |
 |                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``128k``                          |
+|                         | *Default Value:*    | ``0``                             |
 +-------------------------+---------------------+-----------------------------------+
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
@@ -822,7 +822,7 @@ Defines the maximum size the node allows for write-sets.
 +-------------------------+---------------------+-----------------------------------+
 | **Permitted Values**    | *Type:*             | string                            |
 |                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``1G``                            |
+|                         | *Default Value:*    | ``2G``                            |
 +-------------------------+---------------------+-----------------------------------+
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
@@ -839,7 +839,7 @@ The maximum allowed write-set size is ``2G``.
    +-------------------+-------+
    | Variable_name     | Value |
    +-------------------+-------+
-   | wsrep_max_ws_size | 1G    |
+   | wsrep_max_ws_size | 2G    |
    +-------------------+-------+
 
 
