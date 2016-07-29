@@ -1580,7 +1580,7 @@ It continues retrying the state transfer request until it succeeds.  When the st
 
    Node 0 (XXX) requested state transfer from '*any*'. Selected 1 (XXX) as donor.
 
-Using this parameter, you can tell the node which cluster node or nodes it should use instead for state transfers.  The names used to in this parameter must match the names given with :ref:`wsrep_node_name <wsrep_node_name>` on the donor nodes.
+Using this parameter, you can tell the node which cluster node or nodes it should use instead for state transfers.  The names used in this parameter must match the names given with :ref:`wsrep_node_name <wsrep_node_name>` on the donor nodes.  The setting affects both Incremental State Transfers (IST) and Snapshot State Transfers (SST).
 
 If the list contains a trailing comma, the remaining nodes in the cluster will also be considered if the nodes from the list are not available.
 
