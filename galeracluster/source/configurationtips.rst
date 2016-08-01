@@ -26,6 +26,8 @@ The following parameters can tolerate 30 second connectivity outages.
   	evs.inactive_timeout = PT1M; 
   	evs.install_timeout = PT1M"
 
+.. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
+
 In configuring these parameters, consider the following:
 
 - You want :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter set as high as possible to help avoid partitions.  Given that partitions cause state transfers, which can effect performance.
