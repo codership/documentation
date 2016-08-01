@@ -9,6 +9,8 @@ As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key 
 
 Where ``<group>`` roughly corresponds to some Galera module.
 
+.. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
+
 Table legend:
 
 - **Numeric values** Galera Cluster understands the following numeric modifiers:
