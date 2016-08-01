@@ -1233,6 +1233,8 @@ When the node loads the wsrep Provider, there are several configuration options 
 
 For example, you can use :ref:`gcache.size <gcache.size>` to define how large a write-set cache the node keeps or manage group communications timeouts.
 
+.. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
+
 .. note:: **See Also**: For more information on the wsrep Provider options, see :doc:`galeraparameters`.
 
 
