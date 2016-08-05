@@ -1687,7 +1687,7 @@ Galera Cluster ships with a number of default scripts that the node can use in s
      [mysqld]
      wsrep_sst_auth=YOUR_SST_USER:YOUR_SST_PASSWORD
      wsrep_sst_method=xtrabackup
-     datadri=/path/to/datadir
+     datadir=/path/to/datadir
 
      [client]
      socket=/path/to/socket
