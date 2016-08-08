@@ -232,6 +232,8 @@ Table legend:
 | :ref:`repl.proto_max                  | ``5``                 | 2+         | No       |
 | <repl.proto_max>`                     |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
+| :ref:`socket.socket.recv_buf_size     | ``212992``            | 3.17+      | Yes      |
++---------------------------------------+-----------------------+------------+----------+
 | :ref:`socket.ssl_ca                   |                       | 1+         | No       |
 | <socket.ssl_ca>`                      |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
@@ -1690,6 +1692,25 @@ The maximum protocol version in replication. Changes to this parameter will only
 +=======================+=========+============+============+
 | ``5``                 | No      | 2.0        |            |
 +-----------------------+---------+------------+------------+
+
+
+.. rubric:: ``socket.recv_buf_size``
+.. _`socket.recv_buf_size`:
+.. index::
+   pair: wsrep Provider Options;  socket.recv_buf_size
+
+The size of the receive buffer that used on the network sockets between nodes. Galera passes the value to the kernel via the ``SO_RCVBUF`` socket option.
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.recv_buf_size=212992"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``212992``            | No      | 3.17       |            |
++-----------------------+---------+------------+------------+
+
 
 
 .. rubric:: ``socket.ssl_ca``
