@@ -232,7 +232,8 @@ Table legend:
 | :ref:`repl.proto_max                  | ``5``                 | 2+         | No       |
 | <repl.proto_max>`                     |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.socket.recv_buf_size     | ``212992``            | 3.17+      | Yes      |
+| :ref:`socket.recv_buf_size            | ``212992``            | 3.17+      | Yes      |
+| <socket.recv_buf_size>`               |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`socket.ssl_ca                   |                       | 1+         | No       |
 | <socket.ssl_ca>`                      |                       |            |          |
