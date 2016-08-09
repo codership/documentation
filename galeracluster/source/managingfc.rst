@@ -117,7 +117,7 @@ These parameters control the point at which the node triggers Flow Control and t
 
 - :ref:`gcs.fc_limit <gcs.fc_limit>` This parameter determines the point at which Flow Control engages.  When the slave queue exceeds this limit, the node pauses replication.
 
-  It is essential for multi-master configurations that you keep this limit low.  The certification conflict rate is proportional to the slave queue length.  In master-save setups, you can use a considerably higher value to reduce Flow Control intervention.
+  It is essential for multi-master configurations that you keep this limit low.  The certification conflict rate is proportional to the slave queue length.  In master-slave setups, you can use a considerably higher value to reduce Flow Control intervention.
 
   The default value is ``16``.
 
