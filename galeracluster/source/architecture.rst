@@ -103,7 +103,7 @@ The Group Communication Framework provides a plugin architecture for the various
 
 Galera Cluster is built on top of a proprietary group communication system layer, which implements a virtual synchrony :abbr:`QoS (Quality of Service)`.  Virtual synchrony unifies the data delivery and cluster membership services, providing clear formalism for message delivery semantics.
 
-While virtual synchrony guarantees consistency, it does not guarantee temporal synchrony, which is necessary for smooth multi-master operations.  To get around this, Galera Cluster implements its own runtime-configurable temporal flow control.  Flow control keeps nodes synchronized to the faction of a second.
+While virtual synchrony guarantees consistency, it does not guarantee temporal synchrony, which is necessary for smooth multi-master operations.  To get around this, Galera Cluster implements its own runtime-configurable temporal flow control.  Flow control keeps nodes synchronized to the fraction of a second.
 
 In addition to this, the Group Communication Framework also provides a total ordering of messages from multiple sources.  It uses this to generate :term:`Global Transaction ID`'s in a multi-master cluster.
 
