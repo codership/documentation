@@ -75,9 +75,9 @@ Enabling the ``yum`` Repository
 .. _`mysql-yum-repo`:
 
 
-For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``.repo`` file to the ``/etc/yum.repos.d/`` directory.
+For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``galera.repo`` file to the ``/etc/yum.repos.d/`` directory.
 
-Using your preferred text editor, create the ``.repo`` file.
+Using your preferred text editor, create the ``galera.repo`` file.
 
 .. code-block:: ini
 
@@ -102,7 +102,7 @@ Enabling the ``zypper`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`mysql-zypper-repo`:
 
-For distributions that use ``zypper`` for package management, such as openSUSE and SUSE Linux Enterprise Server, you can enable the Codership repository by importing the GPG key and then creating a ``.repo`` file in the local directory.
+For distributions that use ``zypper`` for package management, such as openSUSE and SUSE Linux Enterprise Server, you can enable the Codership repository by importing the GPG key and then creating a ``galera.repo`` file in the local directory.
 
 #. Import the GPG key.
 
