@@ -715,6 +715,8 @@ When loading huge data loads creates problems for Galera Cluster, in that they e
 
 This parameter tells the node to split ``LOAD DATA`` commands into transactions of 10,000 rows or less, making the data more manageable for the cluster.  This deviates from the standard behavior for MySQL.
 
+In Galera 4.x, this variable has no effect for statements where :term:`Streaming Replication` is in effect.
+
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_load_data_splitting';
