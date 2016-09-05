@@ -108,3 +108,10 @@ Performance during Rollbacks
 Occasionally, you may encounter situations where the cluster needs to roll back a transaction while :term:`Streaming Replication` is in use.  In these cases, the rollback operation consumes system resources on all nodes.
 
 When long-running write transactions frequently need to be rolled back, this can become a performance issue.  Therefore, it is a good application design policy to use shorter transactions wherever possible.  In the event that your application performs batch processing or scheduled housekeeping tasks, consider splitting these into smaller transactions in addition to using Streaming Replication.
+
+------------------------------------
+Interaction with LOAD DATA Splitting
+------------------------------------
+.. _`limit-load-data-splitting`:
+
+The :ref:`wsrep_load_data_splitting <wsrep_load_data_splitting>` variable, which controls the ``LOAD DATA`` splitting functionality, has no effect for statements where :term:`Streaming Replication` is in effect.
