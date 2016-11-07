@@ -54,10 +54,10 @@ If Galera can conclusively determine which node was the last node standing, it w
 	# GALERA saved state
 	version: 2.1
 	uuid:    5981f182-a4cc-11e6-98cc-77fabedd360d
-	seqno:   -1
+	seqno:   1234
 	safe_to_bootstrap: 1
 
-Such a node can be used to bootstrap the cluster from. Attempting to boostrap using any other node will cause the following error message:
+Such a node can be used to bootstrap the cluster. Attempting to boostrap using any other node will cause the following error message:
 
 .. code-block:: console
 
@@ -67,7 +67,7 @@ Such a node can be used to bootstrap the cluster from. Attempting to boostrap us
 
 To override this protection, edit the ``safe_to_bootstrap`` line in the ``grastate.dat`` file of the node you intend to use as the first node.
 
-In the case when all nodes crashed simultaneously, no node will be considered safe to bootstrap from until the ``grastate.dat`` file is edited manually.
+In the case when all nodes crashed simultaneously, no node will be considered safe to bootstrap until the ``grastate.dat`` file is edited manually.
 
 ---------------
 Gcache Recovery
@@ -79,7 +79,7 @@ If gcache recovery is successull, the node will be in position to provide IST to
 
 Gcache recovery requires that the entire gcache file is read twice. For large gcache files located on slow disks, this operation may take some time.
 
-Gcache recovery is a "best effort" operation. If recovery was not successfull, other nodes will fall back to SST when attempting to join, however the nodes will continue to operate normally.
+Gcache recovery is a "best effort" operation. If recovery was not successfull, the node will continue to operate normally however other nodes will fall back to SST when attempting to join.
 
 --------------------------------------
 Identifying Crashed Nodes
