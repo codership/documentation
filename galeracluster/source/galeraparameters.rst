@@ -115,6 +115,9 @@ Table legend:
 | :ref:`gcache.page_size                | ``128Mb``             | 1+         | No       |
 | <gcache.page_size>`                   |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
+| :ref:`gcache.recover                  | ``no``                | 3.19+      | No       |
+| <gcache.recover>`                     |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 | :ref:`gcache.size                     | ``128Mb``             | 1+         | No       |
 | <gcache.size>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
@@ -880,6 +883,23 @@ Size of the page files in page storage. The limit on overall page storage is the
 | ``128M``              | No      | 1.0        |            |
 +-----------------------+---------+------------+------------+
 
+
+.. rubric:: ``gcache.recover``
+.. _`gcache.recover`:
+.. index::
+   pair: wsrep Provider Options; gcache.recover
+
+Determines whether gcache recovery takes place on node startup. If gcache could be recovered successfully, the node can then provide IST to other joining nodes, which is useful when the whole cluster is being restarted.
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.recover=yes"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``no``                | No      | 3.19       |            |
++-----------------------+---------+------------+------------+
 
 
 .. rubric:: ``gcache.size``
