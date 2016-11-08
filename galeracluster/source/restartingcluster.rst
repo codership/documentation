@@ -75,11 +75,11 @@ Gcache Recovery
 
 Starting with provider version 3.19, Galera provides the :ref:`gcache.recover <gcache.recover>` parameter. If set to ``yes``, Galera will attempt to recover the gcache on node startup.
 
-If gcache recovery is successull, the node will be in position to provide IST to other joining nodes, which can speed up the overall restart time for the entire cluster.
+If gcache recovery is successful, the node will be in position to provide IST to other joining nodes, which can speed up the overall restart time for the entire cluster.
 
 Gcache recovery requires that the entire gcache file is read twice. For large gcache files located on slow disks, this operation may take some time.
 
-Gcache recovery is a "best effort" operation. If recovery was not successfull, the node will continue to operate normally however other nodes will fall back to SST when attempting to join.
+Gcache recovery is a "best effort" operation. If recovery was not successful, the node will continue to operate normally however other nodes will fall back to SST when attempting to join.
 
 --------------------------------------
 Identifying Crashed Nodes
