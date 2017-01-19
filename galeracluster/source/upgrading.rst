@@ -59,14 +59,14 @@ Once the node finishes synchronizing with the cluster and completes its catch-up
 .. tip:: If you are upgraded a node that is or will be part of a weighted quorum, set the initial node weight to zero.  This guarantees that if the joining node should fail before it finishes synchronizing, it will not affect any quorum computations that follow.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Rolling Upgrades Between Major Versions of Galera Cluster
+Rolling Upgrades between Major Versions of Galera Cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Performing a rolling upgrade between major versions of Galera Cluster, such as from 5.6 to 5.7 is subject to additional limitations:
+Performing a rolling upgrade between major versions of Galera Cluster, such as from 5.6 to 5.7 has certain additional limitations:
 
-#. SST is not supported between nodes of different major versions. Therefore, nodes of different major versions should not coexist in the same cluster for prolonged periods of time;
+#. SST is not supported between nodes of different major versions. Therefore, nodes of different major versions should not coexist in the same cluster for longer than necessary to perform the upgrade;
 
-#. Prior to performing the upgrade, ensure that the **gcache.size** provider option on all nodes is sized so that it can provide IST for the expected duration of the upgrade;
+#. Prior to performing the upgrade, ensure that the :ref:`gcache.size <gcache.size>` provider option on all nodes is sized so that it can provide IST for the expected duration of the upgrade;
 
 #. While the cluster contains nodes of multiple versions, avoid running any statements that are only supported in a particular version or statements that have different effect in different versions. For example, do not run DDL statements that are only available in the newer version.
 
@@ -74,13 +74,13 @@ The following procedure is recommended for rolling upgrades between major versio
 
 #. Shut down the node
 
-#. Edit the **my.cnf** file and comment out the **wsrep_provider** line. This will prevent the node from attempting to rejoin the cluster during the package upgrade process.
+#. Edit the ``my.cnf`` file and temporarily comment out the ``wsrep_provider`` line. This will prevent the node from attempting to rejoin the cluster during the package upgrade process.
 
 #. Uninstall all existing mysql-wsrep packages and install the new packages using your package manager
 
-#. If the **mysql_upgrade** was not run as part of package installation, run it manually. You may need to start the mysqld service first in order to do that
+#. If the ``mysql_upgrade`` was not run as part of package installation, run it manually. You may need to start the mysqld service first in order to do that
 
-#. Shut down the node if it is currently running, restore the **wsrep_provider** line in **my.cnf** and restart the node.
+#. Shut down the node if it is currently running, restore the ``wsrep_provider`` line in ``my.cnf`` and restart the node.
 
 -------------
 Bulk Upgrade
