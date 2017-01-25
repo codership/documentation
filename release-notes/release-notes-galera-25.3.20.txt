@@ -19,12 +19,12 @@ by Codership (3.19):
 
 * Compilation could fail when compiling on FreeBSD (GAL-476)
 
-* An assertion could happen with two consequtive DDLs run under RSU (GAL-480)
+* An assertion could happen with two consecutive DDLs run under RSU (GAL-480)
 
 * A scons option, system_asio=0 is now available to prevent using the system
   asio library when compiling Galera
 
 * Compilation could fail if attempting to compile Galera with GCC 6 (GAL-484)
 
-* An environment variable, GALERA_TEST_DETERMINISTIC is now available to
+* An scons option, deterministic_tests=1, is now available to
   disable non-deterministic Galera unit tests (GAL-470, codership/galera#432)
