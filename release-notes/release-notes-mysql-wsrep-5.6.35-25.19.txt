@@ -35,7 +35,7 @@ Notable bug fixes in MySQL-wsrep:
 
 New features, notable changes and bug fixes in Oracle MySQL 5.6.35:
 
-- Incompatible Change: The mysqld_safe script has been foritfied against various security
+- Incompatible Change: The mysqld_safe script has been fortified against various security
   vulnerabilities
 
 - INSERT operations on a table with an auto_increment key could result in a duplicate

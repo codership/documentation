@@ -18,7 +18,7 @@ Notable bug fixes in MySQL-wsrep:
 
 Notable fixes in Oracle MySQL Community Edition 5.5.54:
 
-- Incompatible Change: The mysqld_safe script has been foritfied against various security
+- Incompatible Change: The mysqld_safe script has been fortified against various security
   vulnerabilities
 
 Known issues with this release:
