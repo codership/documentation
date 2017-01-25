@@ -113,11 +113,16 @@ To manually bootstrap your cluster, complete the following steps:
 
       # service mysql start --wsrep-new-cluster
 
-   For servers that use ``systemd``, instead run this command:
+   For servers that use ``systemd`` and Galera Cluster 5.5 or 5.6, instead run this command:
 
    .. code-block:: console
 
       # systemctl start mysql --wsrep-new-cluster
+
+   For servers that use ``systemd`` and Galera Cluster 5.7, use the following command:
+
+   .. code-block:: console
+      # /usr/bin/mysqld_bootstrap
 
 #. Start every other node in the cluster.  For servers that use ``init``, run the following command:
 

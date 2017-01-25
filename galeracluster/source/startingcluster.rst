@@ -39,21 +39,29 @@ There is no Primary Component when the cluster starts.  In order to initialize i
 
 Bear in mind, the first node is only "first" in that it initializes the Primary Component. This node can fall behind and leave the cluster without necessarily affecting the Primary Component.
 
-To start the first node, launch the database server on your first node.  For systems that use ``init``, run the following command:
+To start the first node, launch the database server on your first node. The command to use depends on your OS and the Galera Cluster version.
+
+For all systems that use SysV ``init`` scripts, run the following command:
 
 .. code-block:: console
 
-   # service mysql start --wsrep-new-cluster
+   $ service mysql start --wsrep-new-cluster
 
-For systems that use ``systemd``, instead use this command:
+For systems that use ``systemd`` and Galera Cluster 5.5 or 5.6, use this command:
 
 .. code-block:: console
 
-   # systemctl start mysql --wsrep-new-cluster
+   $ systemctl start mysql --wsrep-new-cluster
+
+For systems that use ``systemd`` and Galera Cluser 5.7, use the dedicated ``mysqld_bootstrap`` script:
+
+.. code-block:: console
+
+   $ /usr/bin/mysqld_bootstrap
 
 This starts ``mysqld`` on the node.
 
-.. note:: **Warning**: Only use the ``--wsrep-new-cluster`` argument when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
+.. note:: **Warning**: Only use the ``--wsrep-new-cluster`` argument or an equivalent command when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
 
 
 Once the node starts the database server, check that startup was successful by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  In the database client, run the following query:
