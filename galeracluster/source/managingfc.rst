@@ -61,7 +61,7 @@ Measuring the Flow Control Pauses
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`measure-fc-pauses`:
 
-In addition to tracking Flow Control pauses, Galera Cluster also allows you to track the amount of time since the last ``SHOW STATUS`` query during which replication was paused due to Flow Control.  
+In addition to tracking Flow Control pauses, Galera Cluster also allows you to track the amount of time since the last ``FLUSH STATUS`` query during which replication was paused due to Flow Control.  
 
 You can find this using one of two status variables:
 

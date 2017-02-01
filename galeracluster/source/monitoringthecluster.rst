@@ -199,7 +199,7 @@ In the event that each status variable returns the desired values, the node is i
 Monitoring cluster integrity and node status can show you issues that may prevent or otherwise block replication.  These status variables will help in identifying performance issues and identifying problem areas so that you can get the most from your cluster.
 
 
-.. note:: Unlike other the status variables, these are differential and reset on every ``SHOW STATUS`` command.  Execute the query a second time, about a minute after the first to get the current value.
+.. note:: Unlike other the status variables, these are differential and reset on every ``FLUSH STATUS`` command.
   
 Galera Cluster triggers a feedback mechanism called Flow Control to manage the replication process.  When the local received queue of write-sets exceeds a certain threshold, the node engages Flow Control to pause replication while it catches up.
 
@@ -265,7 +265,7 @@ You can monitor the local received queue and Flow Control using the following st
 
 While checking the status of Flow Control and the received queue can tell you how the database server copes with incoming write-sets, you can check the send queue to monitor for outgoing connectivity issues.
 
-.. note:: Unlike other the status variables, these are differential and reset on every ``SHOW STATUS`` command.  Execute the query a second time, about a minute after the first to get the current value.
+.. note:: Unlike other the status variables, these are differential and reset on every ``FLUSH STATUS`` command.
 
 
 :ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>` show an average for the send queue length since the last status query.
