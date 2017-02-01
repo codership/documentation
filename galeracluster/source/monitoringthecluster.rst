@@ -221,7 +221,7 @@ You can monitor the local received queue and Flow Control using the following st
 
   .. note::  In addition to this status variable, you can also use :ref:`wsrep_local_recv_queue_max <wsrep_local_recv_queue_max>` and :ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>` to see the maximum and minimum sizes the node recorded for the local received queue.
 	  
-- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` shows the fraction of the time, since the status variable was last called, that the node paused due to Flow Control.
+- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` shows the fraction of the time, since ``FLUSH STATUS`` was last called, that the node paused due to Flow Control.
 
   .. code-block:: mysql
 
@@ -233,7 +233,7 @@ You can monitor the local received queue and Flow Control using the following st
      | wsrep_flow_control_paused | 0.184353 |
      +---------------------------+----------+
 
-  When the node returns a value of ``0.0``, it indicates that the node did not pause due to Flow Control during this period.  When the node returns a value of ``1.0``, it indicates that the node spent the entire period paused.  When the period between calls is one minute and the node returns ``0.25``, it indicates that the node was paused for 15 seconds.
+  When the node returns a value of ``0.0``, it indicates that the node did not pause due to Flow Control during this period.  When the node returns a value of ``1.0``, it indicates that the node spent the entire period paused.  If the time between ``FLUSH STATUS`` and ``SHOW STATUS`` was one minute and the node returned ``0.25``, it indicates that the node was paused for a total 15 seconds over that time period.
 
   Ideally, the return value should stay as close to ``0.0`` as possible, since this means the node is not falling behind the cluster.  In the event that you find that the node is pausing frequently, you can adjust the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter or you can exclude the node from the cluster.
 
@@ -268,7 +268,7 @@ While checking the status of Flow Control and the received queue can tell you ho
 .. note:: Unlike other the status variables, these are differential and reset on every ``FLUSH STATUS`` command.
 
 
-:ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>` show an average for the send queue length since the last status query.
+:ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>` show an average for the send queue length since the last ``FLUSH STATUS`` query.
 
 .. code-block:: mysql
 
