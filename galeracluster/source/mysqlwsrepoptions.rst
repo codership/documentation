@@ -1827,7 +1827,8 @@ This value of this parameter is a bitmask, which determines the type of check yo
 | ``0``   | Disabled.                                            |
 +---------+------------------------------------------------------+
 | ``1``   | Checks on ``READ`` statements, including ``SELECT``, |
-|         | ``SHOW``, and ``BEGIN`` / ``START TRANSACTION``.     |
+|         | and ``BEGIN`` / ``START TRANSACTION``.               |
+|         | Checks on ``SHOW`` (up to versions 5.6.35, 5.7.17)   |
 +---------+------------------------------------------------------+
 | ``2``   | Checks made on ``UPDATE`` and ``DELETE`` statements. |
 +---------+------------------------------------------------------+
@@ -1835,6 +1836,8 @@ This value of this parameter is a bitmask, which determines the type of check yo
 |         | statements.                                          |
 +---------+------------------------------------------------------+
 | ``4``   | Checks made on ``INSERT`` and ``REPLACE`` statements.|
++---------+------------------------------------------------------+
+| ``8``   | Checks made on ``SHOW`` statements                   |
 +---------+------------------------------------------------------+
 
 For example, say that you have a web application.  At one point in its run, you need it to perform a critical read.  That is, you want the application to access the database server and run a ``SELECT`` query that must return the most up to date information possible. 
