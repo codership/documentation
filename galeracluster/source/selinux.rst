@@ -99,15 +99,15 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      # checkmodule -M -m galera.te -o galera.mod
+      # checkmodule -M -m galera.te -o MySQL_galera.mod
 
-   This creates a ``galera.mod`` file in your working directory.
+   This creates a ``MySQL_galera.mod`` file in your working directory.
 
 #. Package the compiled policy module.
 
    .. code-block:: console
 
-      # semodule_package -m galera.mod -o galera.pp.
+      # semodule_package -m MySQL_galera.mod -o galera.pp
 
    This creates a ``galera.pp`` file in your working directory.
 
@@ -115,7 +115,7 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      semodule -i galera.pp
+      # semodule -i galera.pp
 
 #. Disable permissive mode for the database server.
 
