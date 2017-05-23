@@ -36,7 +36,7 @@ Notable bug fixes in MySQL-wsrep:
 
 Known issues with this release:
 
-* SST between 5.6 and 5.7 nodes is not supported;
+* SST between 5.6 and 5.7 nodes is not supported
 
 * The --wsrep-replication-bundle option has no effect and may be removed in
   a future release
@@ -44,5 +44,5 @@ Known issues with this release:
 * InnoDB tablespaces outside of the data directory are not supported, as they
   may not be copied over during SST
 
-* Compilation with DTrace enabled may fail, so -DENABLE_DTRACE=0 may be used
-  to disable DTrace
+* Compilation with DTrace enabled may fail, so -DENABLE_DTRACE=:BOOL=OFF
+  may be used to disable DTrace

@@ -19,8 +19,8 @@ by Codership (3.20):
 
 * Node state is marked unsafe when slave executes TOI (GAL-504)
 
-* Send monitor blockage in case of send thread timeout has been fixed
-  (GAL-495)
+* A bug in send monitor that could cause the node to stop replicating under
+  heavy write load has been fixed. (GAL-495)
 
 * URI parsing has been improved for IPv6 addresses
   (GAL-501, GAL-338, codership/galera#338)
