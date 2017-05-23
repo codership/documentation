@@ -1828,7 +1828,8 @@ This value of this parameter is a bitmask, which determines the type of check yo
 +---------+------------------------------------------------------+
 | ``1``   | Checks on ``READ`` statements, including ``SELECT``, |
 |         | and ``BEGIN`` / ``START TRANSACTION``.               |
-|         | Checks on ``SHOW`` (up to versions 5.6.35, 5.7.17)   |
+|         | Checks on ``SHOW`` (up to versions 5.5.54, 5.6.35,   |
+|         | 5.7.17)                                              |
 +---------+------------------------------------------------------+
 | ``2``   | Checks made on ``UPDATE`` and ``DELETE`` statements. |
 +---------+------------------------------------------------------+
