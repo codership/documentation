@@ -1,0 +1,32 @@
+Codership is pleased to announce the release of Galera Replication library 3.21,
+implementing wsrep API version 25.
+
+The library is now available as targeted packages and package repositories
+for a number of Linux distributions, including Ubuntu, Debian, Fedora, CentOS,
+RHEL, OpenSUSE, SLES and FreeBSD. Obtaining packages using a package repository
+removes the need to download individual files and facilitates the deployment
+and upgrade of Galera nodes.
+
+This and future releases will be available from http://www.galeracluster.com.
+
+New features and notable fixes in Galera replication since last binary release
+by Codership (3.20):
+
+* Galera now considers umask when creating gcache files
+  (GAL-505, codership/galera#449)
+
+* Clean abort is ensured when core piping is used (GAL-505)
+
+* Node state is marked unsafe when slave executes TOI (GAL-504)
+
+* Send monitor blockage in case of send thread timeout has been fixed
+  (GAL-495)
+
+* URI parsing has been improved for IPv6 addresses
+  (GAL-501, GAL-338, codership/galera#338)
+
+* GCache recovery fixes (GAL-494, GAL-500)
+
+* IST progress is reported in the log (GAL-491)
+
+* Improved build time checks for ASIO version (GAL-510)
