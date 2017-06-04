@@ -119,7 +119,9 @@ The way to protect your node from such crashing is to ensure that you have suffi
    /swap/swap1     file        524284   0       -2
    /swap/swap2     file        524284   0       -3
 
-If your system does not have swap space available or if the allotted space is insufficient for your needs, you can fix this by creating swap files.
+On FreeBSD run ``swapinfo`` and consult the `documentation <https://www.freebsd.org/doc/handbook/adding-swap-space.html>`_ for how to add more swap if you need it.
+
+On Linux, if your system does not have swap space available or if the allotted space is insufficient for your needs, you can fix this by creating swap files.
 
 #. Create an empty file on your disk, set the file size to whatever size you require.
 
