@@ -51,6 +51,12 @@ For systems that use ``systemd``, instead use this command:
 
    # systemctl start mysql --wsrep-new-cluster
 
+For FreeBSD use this command:
+
+.. code-block:: console
+
+   # mysql_args="--wsrep-new-cluster" /usr/local/etc/rc.d/mysql-server start
+   
 This starts ``mysqld`` on the node.
 
 .. note:: **Warning**: Only use the ``--wsrep-new-cluster`` argument when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
