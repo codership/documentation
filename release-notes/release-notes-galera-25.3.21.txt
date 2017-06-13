@@ -53,7 +53,7 @@ How To Install
 --------------
 
 Repositories contain dummy or meta packages, called mysql-wsrep-<mversion>
-whish are convenience packages for installation of the corresponding version
+which are convenience packages for installation of the corresponding version
 of WSREP. One can install the whole suite by running, for example:
 `apt-get install mysql-wsrep-5.6 galera-3`
 
