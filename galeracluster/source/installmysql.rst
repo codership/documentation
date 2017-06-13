@@ -45,9 +45,12 @@ Once you have the Software Properties installed, you can enable the Codership re
    .. code-block:: linux-config
 
       # Codership Repository (Galera Cluster for MySQL)
-      deb http://releases.galeracluster.com/DIST RELEASE main
+      deb http://repos.codership.com/release-rc2/mysql-wsrep-VERSION/DIST RELEASE main
+      deb http://repos.codership.com/release-rc2/galera-3/DIST RELEASE main
 
    For the repository address, make the following changes:
+
+   - ``VERSION`` Indicates the desired MySQL-wsrep version. For example, ``5.6``
 
    - ``DIST`` Indicates the name of your Linux distribution.  For example, ``ubuntu``.
 
@@ -94,11 +97,20 @@ Using your preferred text editor, create the ``galera.repo`` file.
 
    [galera]
    name = Galera
-   baseurl = http://releases.galeracluster.com/DIST/RELEASE/ARCH
+   baseurl = http://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
    gpgkey = http://releases.galeracluster.com/GPG-KEY-galeracluster.com
    gpgcheck = 1
 
+   [mysql-wsrep]
+   name = MySQL-wsrep
+   baseurl =  http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
+   gpgkey = http://releases.galeracluster.com/GPG-KEY-galeracluster.com
+   gpgcheck = 1
+
+
 In the ``baseurl`` field, make the following changes to web address:
+
+- ``VERSION`` Indicates the desired MySQL-wsrep version. For example, ``5.6``
 
 - ``DIST`` Indicates the distribution name.  For example, ``centos`` or ``fedora``.
 
@@ -127,13 +139,22 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 
       [galera]
       name = Galera
-      baseurl = http://releases.galeracluster.com/DIST/RELEASE
+      baseurl = http://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
+
+      [MySQL-wsrep]
+      name = MySQL-wsrep
+      baseurl = http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
 
    For the ``baseurl`` repository address, make the following changes:
+
+   - ``VERSION`` Indicates the desired MySQL-wsrep version. For example, ``5.6``
 
    - ``DIST`` indicates the distribution name.  For example, ``opensuse`` or ``sles``.
 
    - ``RELEASE`` indicates the distribution version number.
+
+   - ``ARCH`` indicates the architecture of your hardware.  For example, ``x86_64`` for 64-bit systems.
+
  
 #. Add the Codership repository.
 
