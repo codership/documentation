@@ -59,6 +59,17 @@ Once you have the Software Properties installed, you can enable the Codership re
 
 	$ lsb_release -a
 
+#. Prefer the Codership repository over other sources. Using your preferred text editor, create a `galera.pref` file in the ``/etc/apt/preferences.d/`` directory.
+
+   .. code-block:: linux-config
+   
+      # Prefer Codership repository
+      Package: *
+      Pin: origin releases.galeracluster.com
+      Pin-Priority: 1001
+
+   This is needed to make sure the patched versions are preferred, for example if a 3rd-party program requires ``libmysqlclient20`` and the OS-Version for the library is newer. 
+
 #. Update the local cache.
 
    .. code-block:: console
