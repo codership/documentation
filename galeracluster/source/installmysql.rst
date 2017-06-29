@@ -45,8 +45,8 @@ Once you have the Software Properties installed, you can enable the Codership re
    .. code-block:: linux-config
 
       # Codership Repository (Galera Cluster for MySQL)
-      deb http://repos.codership.com/release-rc2/mysql-wsrep-VERSION/DIST RELEASE main
-      deb http://repos.codership.com/release-rc2/galera-3/DIST RELEASE main
+      deb http://releases.codership.com/mysql-wsrep-VERSION/DIST RELEASE main
+      deb http://releases.codership.com/galera-3/DIST RELEASE main
 
    For the repository address, make the following changes:
 
