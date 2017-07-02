@@ -44,6 +44,8 @@ Known issues with this release:
   be controlled via systemd and must be stopped using the SysV script. Normal
   server startup and shutdown is possible via systemd.
 
+* Server cannot be started using 'service' command on Debian Stretch.
+
 Changes to Repositories Structure
 =================================
 
