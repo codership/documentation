@@ -46,8 +46,11 @@ repositories:
     e.g. http://releases.galeracluster.com/galera-3/<ldist>/
     2. Corresponding mysql-wsrep repository:
     e.g. http://releases.galeracluster.com/mysql-wsrep-<mversion>/<ldist>
-    here: *ldist* is Linux or BSD distribution (Ubuntu, Centos) and *mversion* is MySQL version, i.e.
+    here: *ldist* is Linux distribution (Ubuntu, Centos, ...) and *mversion* is MySQL version, i.e.
     5.5, 5.6, 5.7
+
+The latest version of Galera for FreeBSD is available in FreeBSD
+Ports Collection.
 
 How To Install
 --------------
