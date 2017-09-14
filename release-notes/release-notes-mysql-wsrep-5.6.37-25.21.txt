@@ -5,17 +5,17 @@ This release incorporates all changes up to MySQL 5.6.37.
 
 Galera Cluster is now available as targeted packages and package repositories
 for a number of Linux distributions, including Ubuntu, Debian, CentOS,
-RHEL, OpenSUSE, SLES and FreeBSD. Obtaining packages using a package repository
+RHEL, OpenSUSE and SLES. Obtaining packages using a package repository
 removes the need to download individual files and facilitates the deployment and
 upgrade of Galera nodes.
 
 This and future releases will be available from http://www.galeracluster.com.
-The source repositories and bug tracking are now on http://www.github.com/codership .
+The source repositories and bug tracking are now on http://www.github.com/codership.
 
 Notable bug fixes in MySQL-wsrep:
 
 * Preserve --wsrep-recover log for future reference when starting the server.
-  The preserved log is stored either in a file under MySQL data directory,
+  The preserved log is stored in a file under MySQL data directory,
   either in wsrep_recovery.ok or wsrep_recovery.fail depending on recovery
   success. (MW-318)
 

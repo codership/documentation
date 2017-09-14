@@ -14,7 +14,7 @@ This and future releases will be available from http://www.galeracluster.com.
 Notable bug fixes in MySQL-wsrep:
 
 * Preserve --wsrep-recover log for future reference when starting the server.
-  The preserved log is stored either in a file under MySQL data directory,
+  The preserved log is stored in a file under MySQL data directory,
   either in wsrep_recovery.ok or wsrep_recovery.fail depending on recovery
   success. (MW-318)
 
@@ -44,7 +44,7 @@ Known issues with this release:
   may not be copied over during SST
 
 * Compilation with DTrace enabled may fail, so -DENABLE_DTRACE=:BOOL=OFF
-  may be used to disable DTrace
+  may be given to cmake to disable DTrace
 
 Changes to Repositories Structure
 =================================
