@@ -10,7 +10,12 @@ removes the need to download individual files and facilitates the deployment and
 upgrade of Galera nodes.
 
 This and future releases will be available from http://www.galeracluster.com.
+
+The latest version of MySQL-wsrep 5.6 for FreeBSD is available in the FreeBSD
+Ports Collection.
+
 The source repositories and bug tracking are now on http://www.github.com/codership.
+
 
 Notable bug fixes in MySQL-wsrep:
 
@@ -30,6 +35,10 @@ Notable bug fixes in MySQL-wsrep:
   array. (MW-399)
 
 * Fixes to processing of foreign key cascades. (MW-402)
+
+* ACL checks are now enforced before replication for all DDL operations
+  (MW-416)
+
 
 Known issues with this release:
 

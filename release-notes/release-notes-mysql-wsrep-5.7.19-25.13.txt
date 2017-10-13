@@ -5,11 +5,17 @@ version 25.
 This release incorporates all changes up to MySQL 5.7.19.
 
 Galera Cluster 5.7 is now available as targeted packages and package
-repositories for Debian, Ubuntu and CentOS. Obtaining packages using a
-package repository removes the need to download individual files and
-facilitates the deployment and upgrade of Galera nodes.
+repositories for Debian, Ubuntu, CentOS, RHEL, OpenSUSE and SLES.
+Obtaining packages using a package repository removes the need to download
+individual files and facilitates the deployment and upgrade of Galera nodes.
 
 This and future releases will be available from http://www.galeracluster.com.
+
+The latest version of MySQL-wsrep 5.7 for FreeBSD is available in the FreeBSD
+Ports Collection.
+
+The source repositories and bug tracking are now on http://www.github.com/codership.
+
 
 Notable bug fixes in MySQL-wsrep:
 
@@ -30,6 +36,10 @@ Notable bug fixes in MySQL-wsrep:
 
 * Fixes to processing of foreign key cascades. (MW-402)
 
+* ACL checks are now enforced before replication for all DDL operations
+  (MW-416)
+
+* ALTER EVENT statement failure on slave was fixed (MW-417)
 
 Known issues with this release:
 

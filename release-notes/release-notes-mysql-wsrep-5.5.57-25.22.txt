@@ -20,6 +20,9 @@ Notable bug fixes in MySQL-wsrep:
 
 * Fixes to processing of foreign key cascades. (MW-402)
 
+* ACL checks are now enforced before replication for all DDL operations
+  (MW-416)
+
 Reminder: Changes to Repositories Structure
 ===========================================
 

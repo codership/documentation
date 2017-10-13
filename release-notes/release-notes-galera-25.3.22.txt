@@ -2,12 +2,16 @@ Codership is pleased to announce the release of Galera Replication library 3.22,
 implementing wsrep API version 25.
 
 The library is now available as targeted packages and package repositories
-for a number of Linux distributions, including Ubuntu, Debian, Fedora, CentOS,
+for a number of Linux distributions, including Ubuntu, Debian, CentOS,
 RHEL, OpenSUSE and SLES. Obtaining packages using a package repository
 removes the need to download individual files and facilitates the deployment
 and upgrade of Galera nodes.
 
 This and future releases will be available from http://www.galeracluster.com.
+
+The latest version of Galera for FreeBSD is available in the FreeBSD
+Ports Collection.
+
 
 New features and notable fixes in Galera replication since last binary release
 by Codership (3.21):
@@ -44,9 +48,6 @@ repositories:
     e.g. http://releases.galeracluster.com/mysql-wsrep-<mversion>/<ldist>
     here: *ldist* is Linux distribution (Ubuntu, Centos, ...) and *mversion* is MySQL version, i.e.
     5.5, 5.6, 5.7
-
-The latest version of Galera for FreeBSD is available in the FreeBSD
-Ports Collection.
 
 How To Install
 --------------
