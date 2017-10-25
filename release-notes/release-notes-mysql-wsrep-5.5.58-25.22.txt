@@ -1,7 +1,7 @@
 Codership is pleased to announce a new release of Galera Cluster for MySQL
-consisting of MySQL-wsrep 5.5.57 and Galera 3.22, wsrep API version 25.
+consisting of MySQL-wsrep 5.5.58 and Galera 3.22, wsrep API version 25.
 
-This release incorporates all changes up to MySQL 5.5.57.
+This release incorporates all changes up to MySQL 5.5.58.
 
 Galera Cluster is now available as targeted packages and package repositories
 for a number of Linux distributions, including Ubuntu, Debian, CentOS,
