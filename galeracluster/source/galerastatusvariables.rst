@@ -44,6 +44,9 @@ This distinction is of importance for developers only.  For convenience, all sta
 | :ref:`wsrep_cluster_status            | ``Primary``                              | 1+         |
 | <wsrep_cluster_status>` :sup:`M`      |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_cluster_weight            | ``3``                                    | 3.24+      |
+| <wsrep_cluster_weight>` :sup:`M`      |                                          |            |
++---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_commit_oooe               | ``0.000000``                             | 1+         |
 | <wsrep_commit_oooe>`                  |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
@@ -142,6 +145,12 @@ This distinction is of importance for developers only.  For convenience, all sta
 +---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_local_state_uuid          |                                          | 1+         |
 | <wsrep_local_state_uuid>`             |                                          |            |
++---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_open_connections          | ``3``                                    | 3.24+      |
+| <wsrep_open_connections>`             |                                          |            |
++---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_open_transactions         | ``25``                                   | 3.24+      |
+| <wsrep_open_transactions>`            |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_protocol_version          | ``4``                                    | 1+         |
 | <wsrep_protocol_version>`             |                                          |            |
@@ -443,6 +452,31 @@ Status of this cluster component.  That is, whether the node is part of a ``PRIM
 | ``Primary``        | MySQL     |            |            |
 +--------------------+-----------+------------+------------+
 
+.. rubric:: ``wsrep_cluster_weight``
+.. _`wsrep_cluster_weight`:
+.. index::
+   pair: Status Variables; wsrep_cluster_weight
+
+The total weight of the current members in the cluster. The value is counted as a sum of
+of :ref:`pc.weight <pc.weight>` of the nodes in the current :term:`Primary Component`.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_cluster_weight';
+
+   +--------------------+-------+
+   | Variable_name      | Value |
+   +--------------------+-------+
+   | wsrep_cluster_size | 3     |
+   +--------------------+-------+
+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``3``              | Galera    | 3.24       |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_commit_oooe``
@@ -1286,13 +1320,63 @@ The UUID of the state stored on this node.
 
 .. note:: **See Also**: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`. 
 
-
 +-----------------------+-----------+------------+------------+
 | Example Value         | Location  | Introduced | Deprecated |
 +=======================+===========+============+============+
 | ``e2c9a15e-5385-11e0- | Galera    |            |            |
 | 0800-6bbb637e7211``   |           |            |            |
 +-----------------------+-----------+------------+------------+
+
+.. rubric:: ``wsrep_open_connections``
+.. _`wsrep_open_connections`:
+.. index::
+   pair: Status Variables; wsrep_open_connections
+
+The number of open connection objects inside the wsrep provider.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_open_connections';
+
+   +------------------------+-------+
+   | Variable_name          | Value |
+   +------------------------+-------+
+   | wsrep_open_connections | 1     |
+   +------------------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``1``              | Galera    | 3.24       |            |
++--------------------+-----------+------------+------------+
+
+.. rubric:: ``wsrep_open_transactions``
+.. _`wsrep_open_transactions`:
+.. index::
+   pair: Status Variables; wsrep_open_transactions
+
+The number of locally running transactions which have been registered inside
+the wsrep provider. This means transactions which have made operations
+which have caused write set population to happen. Transactions which are
+read only are not counted.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_open_transactions';
+
+   +-------------------------+-------+
+   | Variable_name           | Value |
+   +-------------------------+-------+
+   | wsrep_open_transactions | 6     |
+   +-------------------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``6``              | Galera    | 3.24       |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_protocol_version``
