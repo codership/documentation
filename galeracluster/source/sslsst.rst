@@ -37,7 +37,7 @@ Before you shut down the cluster, you need to create a user for ``mysqldump`` on
 
    .. code-block:: mysql
 
-      CREATE USER 'sst_user'$'%' IDENTIFIED BY PASSWORD 'sst_password';
+      CREATE USER 'sst_user'@'%' IDENTIFIED BY PASSWORD 'sst_password';
 
    Bear in mind that, due to the manner in which the SST script is called, the user name and password must be the same on all nodes.
 

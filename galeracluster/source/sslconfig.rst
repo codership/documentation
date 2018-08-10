@@ -105,13 +105,11 @@ Configuring the Encryption Cipher
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`configuring-cipher`:
 
-Using the :ref:`socket.ssl_cipher<socket.ssl_cipher>` parameter, you define which cipher the node uses in encrypting replication traffic.  Galera Cluster uses whatever ciphers are available to the :abbr:`SSL (Secure Sockets Layer)` implementation installed on the nodes. For instance, if you install OpenSSL on your node, Galera Cluster can use any cryptographic algorithms OpenSSL uses in ciphers.
-
-The :abbr:`SSL (Secure Sockets Layer)` configuration for Galera Cluster defaults to AES128-SHA, as this setting is considerably faster and no less secure than AES256.
+Using the :ref:`socket.ssl_cipher<socket.ssl_cipher>` parameter, one can override the default :abbr:`SSL (Secure Sockets Layer)` cipher the node uses to encrypt replication traffic.  Galera Cluster uses whatever ciphers are available to the :abbr:`SSL (Secure Sockets Layer)` implementation installed on the nodes. For instance, if you install OpenSSL on your node, Galera Cluster can use any cipher supported by OpenSSL, as well as use filters to ensure that "weak" algorithms are not accepted on connection handshake.
 
 .. code-block:: ini
 
-   wsrep_provider_options = "socket.ssl_cipher=AES128-SHA"
+   wsrep_provider_options = "socket.ssl_cipher=ALL:!EXP:!NULL:!ADH:!LOW:!SSLv2:!SSLv3:!MD5:!RC4:!RSA"
 
 
 

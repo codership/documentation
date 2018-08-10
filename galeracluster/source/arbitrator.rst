@@ -67,7 +67,7 @@ When starting Galera Arbitrator from the shell, you have two options in how you 
 
    $ garbd --group=example_cluster \
         --address="gcomm://192.168.1.1,192.168.1.2,192.168.1.3" \
-        --option="socket.ssl_key=/etc/ssl/galera/server-key.pem;socket.ssl_cert=/etc/ssl/galera/server-cert.pem;socket.ssl_ca=/etc/ssl/galera/ca-cert.pem;socket.ssl_cipher=AES128-SHA""
+        --option="socket.ssl_key=/etc/ssl/galera/server-key.pem;socket.ssl_cert=/etc/ssl/galera/server-cert.pem;socket.ssl_ca=/etc/ssl/galera/ca-cert.pem;socket.ssl_cipher=AES128-SHA256""
 
 If you use SSL it is necessary to also specify the cipher, otherwise there will be "terminate called after throwing an instance of 'gu::NotSet'" after initializing the ssl context.
 

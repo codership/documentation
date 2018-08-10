@@ -248,8 +248,9 @@ Table legend:
 | <socket.checksum>`                    |                       |            |          |
 |                                       | ``2`` (for version 3+)|            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_cipher               | ``AES128-SHA``        | 1+         | No       |
-| <socket.ssl_cipher>`                  |                       |            |          |
+| :ref:`socket.ssl_cipher               | ``AES128-SHA`` before | 1+         | No       |
+| <socket.ssl_cipher>`                  | version 3.24, system  |            |          |
+|                                       | default after         |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`socket.ssl_compression          | ``YES``               | 1+         | No       |
 | <socket.ssl_compression>`             |                       |            |          |
@@ -958,14 +959,14 @@ The format for this option is: ``<policy>:<priority>``.  The priority value is a
 |                       |  No     | 3.0        |            |
 +-----------------------+---------+------------+------------+
 
-   
+
 
 .. rubric:: ``gcs.fc_debug``
 .. _`gcs.fc_debug`:
 .. index::
    pair: wsrep Provider Options; gcs.fc_debug
 
-Post debug statistics about SST flow every this number of writesets. 
+Post debug statistics about replication flow every this number of writesets.
 
 .. code-block:: ini
 
@@ -1810,18 +1811,20 @@ Checksum to use on socket layer:
 .. index::
    pair: wsrep Provider Options; socket.ssl_cipher
 
-Symmetric cipher to use. AES128 is used by default it is considerably faster and no less secure than AES256.
+Symmetric cipher to use. By default SSL library implementation default cipher is used.
 
 .. code-block:: ini
 
-   wsrep_provider_options="socket.ssl_cipher=AES128-SHA"
+   wsrep_provider_options="socket.ssl_cipher=AES128-SHA256"
 
 
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-| ``AES128-SHA``        | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
++--------------------------------+---------+------------+------------+
+| Default Value                  | Dynamic | Introduced | Deprecated |
++================================+=========+============+============+
+| version 1     : ``AES128-SHA`` | No      | 1.0        |            |
++--------------------------------+---------+------------+------------+
+| version 3.24+ : system default |         |            |            |
++--------------------------------+---------+------------+------------+
 
 
 
