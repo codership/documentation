@@ -56,7 +56,7 @@ While SELinux remains in permissive mode, it continues to log activity from the 
 For servers that use ``init``, start the database with the following command:
 
 .. code-block:: console
-		
+
    # service mysql start
 
 For servers that use ``systemd``, instead run this command:

@@ -21,9 +21,9 @@ The following parameters can tolerate 30 second connectivity outages.
 
 .. code-block:: ini
 
-  wsrep_provider_options = "evs.keepalive_period = PT3S; 
-  	evs.suspect_timeout = PT30S; 
-  	evs.inactive_timeout = PT1M; 
+  wsrep_provider_options = "evs.keepalive_period = PT3S;
+  	evs.suspect_timeout = PT30S;
+  	evs.inactive_timeout = PT1M;
   	evs.install_timeout = PT1M"
 
 .. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
@@ -57,7 +57,7 @@ To take RTT measurements, use ``ping`` on each cluster node to ping the others. 
      3 packets transmitted, 3 received, 0% packet loss, time 2002ms
      rtt min/avg/max/mdev = 0.736/4.788/12.752/5.631 ms
 
-Take RTT measurements on each node in your cluster and note the highest value among them.  
+Take RTT measurements on each node in your cluster and note the highest value among them.
 
 Parameters that relate to periods and timeouts, such as :ref:`evs.join_retrans_period <evs.join_retrans_period>`.  They must all use values that exceed the highest RTT measurement in your cluster.
 
@@ -66,13 +66,13 @@ Parameters that relate to periods and timeouts, such as :ref:`evs.join_retrans_p
    wsrep_provider_options="evs.join_retrans_period=PT0.5S"
 
 This allows the cluster to compensate for the latency issues of the :abbr:`WAN (Wide Area Network)` links between your cluster nodes.
-  
+
 ---------------------
  Multi-Master Setup
 ---------------------
 .. _`multi-master-setup`:
 
-A master is a node that can simultaneously process writes from clients.  
+A master is a node that can simultaneously process writes from clients.
 
 The more masters you have in the cluster the higher the probability of certification conflicts.  This can lead to undesirable rollbacks and performance degradation.
 
@@ -91,8 +91,8 @@ To relax flow control, use the settings below:
 
 .. code-block:: ini
 
-    wsrep_provider_options = "gcs.fc_limit = 256; 
-    	gcs.fc_factor = 0.99; 
+    wsrep_provider_options = "gcs.fc_limit = 256;
+    	gcs.fc_factor = 0.99;
     	gcs.fc_master_slave = YES"
 
 By reducing the rate of flow control events, these settings may improve replication performance.
@@ -119,4 +119,4 @@ Once SELinux no longer registers warnings from Galera Cluster, you can switch it
 
 
 
-   
+

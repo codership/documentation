@@ -190,7 +190,7 @@ Table legend:
 | :ref:`pc.checksum                     | ``FALSE``             | 1+         | No       |
 | <pc.checksum>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.ignore_sb                    | ``FALSE``             | 1+         | Yes      | 
+| :ref:`pc.ignore_sb                    | ``FALSE``             | 1+         | Yes      |
 | <pc.ignore_sb>`                       |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`pc.ignore_quorum                | ``FALSE``             | 1+         | Yes      |
@@ -267,7 +267,7 @@ Table legend:
 .. index::
    pair: wsrep Provider Options; base_host
 
-Global variable for internal use. 
+Global variable for internal use.
 
 .. note:: **Warning**: Do not manually set this variable.
 
@@ -285,7 +285,7 @@ Global variable for internal use.
 .. index::
    pair: wsrep Provider Options; base_port
 
-Global variable for internal use. 
+Global variable for internal use.
 
 .. note:: **Warning**: Do not manually set this variable.
 
@@ -349,11 +349,11 @@ Defines how many entries the node allows for given a delayed node before it trig
 
 Each cluster node monitors the group communication response times from all other nodes.  When the cluster registers delayed response from a given node, it adds an entry for that node to its delayed list.  If the majority of the cluster nodes show the node as delayed, the node is permanently evicted from the cluster.
 
-This parameter determines how many entries a given node can receive before it triggers Auto Eviction.  
+This parameter determines how many entries a given node can receive before it triggers Auto Eviction.
 
-When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node.  Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster. 
+When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node.  Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster.
 
-   
+
 .. note:: **See Also**: For more information on the Auto Eviction process, see :doc:`autoeviction`.
 
 +-----------------------+---------+------------+------------+
@@ -437,7 +437,7 @@ This parameter determines how long a node on the delayed list must remain respon
 
 
 .. note:: **See Also**: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
-   
+
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
@@ -446,7 +446,7 @@ This parameter determines how long a node on the delayed list must remain respon
 
 
 
-   
+
 .. rubric:: ``evs.delayed_margin``
 .. _`evs.delayed_margin`:
 .. index::
@@ -458,9 +458,9 @@ Defines how long the node allows response times to deviate before adding an entr
 
    wsrep_provider_options="evs.delayed_margin=PT5S"
 
-Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list.  Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.  
+Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list.  Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.
 
-This parameter determines how long a delay can run before the node adds an entry to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.  
+This parameter determines how long a delay can run before the node adds an entry to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
 
 
 .. note:: **See Also**: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
@@ -480,7 +480,7 @@ This parameter determines how long a delay can run before the node adds an entry
 If set to the gcomm UUID of some node, that node will be evicted from the cluster.  Setting this parameter to an empty string causes the eviction list to be cleared on the node where it is set.
 
 .. note:: **See Also**: For more information on the eviction and Auto Eviction process, see :doc:`autoeviction`.
-   
+
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
@@ -550,7 +550,7 @@ Defines additional logging options for the EVS Protocol.
    wsrep_provider_options="evs.info_log_mask=0x4"
 
 The EVS Protocol monitors group communication response times and controls the node eviction and auto eviction processes.  This parameter allows you to enable additional logging options, through a bitmask value.
- 
+
 - ``0x1`` Provides extra view change info.
 - ``0x2`` Provides extra state change info
 - ``0x4`` Provides statistics
@@ -830,7 +830,7 @@ This parameter determines where you want the node to save these files for write-
 .. index::
    pair: wsrep Provider Options; gcache.keep_pages_size
 
-Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present. 
+Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present.
 
 .. code-block:: ini
 
@@ -856,7 +856,7 @@ Defines the filename for the write-set cache.
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
-This parameter determines the name you want the node to use for this ring buffer storage file.  
+This parameter determines the name you want the node to use for this ring buffer storage file.
 
 
 +-----------------------+---------+------------+------------+
@@ -916,7 +916,7 @@ Defines the disk space you want to node to use in caching write-sets.
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
-This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.  
+This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.
 
 .. note:: **See Also**: For more information on customizing the write-set cache, see :ref:`Performance <customizing-gcache-size>`.
 
@@ -936,13 +936,13 @@ This parameter defines the amount of disk space you want to allocate for the pre
 
 
 Defines the policy and priority for the gcomm thread.
-   
+
 .. code-block:: ini
 
    wsrep_provider_options="gcomm.thread_prio=rr:2"
 
 Using this option, you can raise the priority of the gcomm thread to a higher level than it normally uses.  You may find this useful in situations where Galera Cluster threads do not receive sufficient CPU time, due to competition with other MySQL threads.  In these cases, when the thread scheduler for the operating system does not run the Galera threads frequently enough, timeouts may occur, causing the node to drop from the cluster.
-   
+
 The format for this option is: ``<policy>:<priority>``.  The priority value is an integer.  The policy value supports the following options:
 
 - ``other`` Designates the default time-sharing scheduling in Linux.  They can run until they are blocked by an I/O request or preempted by higher priorities or superior scheduling designations.
@@ -951,7 +951,7 @@ The format for this option is: ``<policy>:<priority>``.  The priority value is a
 
 - ``rr`` Designates round-robin scheduling.  These threads always preempt any currently running other, batch or idle threads.  The scheduler allows these threads to run for a fixed period of a time.  If the thread is still running when this time period is exceeded, they are stopped and moved to the end of the list, allowing another round-robin thread of the same priority to run in their place.  They can otherwise continue to run until they are blocked by an I/O request or are preempted by threads of a higher priority.
 
-   
+
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -1026,7 +1026,7 @@ Pause replication if recv queue exceeds this number of  writesets. For master-sl
    pair: wsrep Provider Options; gcs.fc_master_slave
 
 Defines whether there is only one master node in the group.
-   
+
 .. code-block:: ini
 
    wsrep_provider_options="gcs.fc_master_slave=NO"
@@ -1065,7 +1065,7 @@ All writesets exceeding that size will be fragmented.
 .. index::
    pair: wsrep Provider Options; gcs.max_throttle
 
-How much to throttle replication rate during state transfer (to avoid running out of memory). Set the value to 0.0 if stopping replication is acceptable for completing state transfer. 
+How much to throttle replication rate during state transfer (to avoid running out of memory). Set the value to 0.0 if stopping replication is acceptable for completing state transfer.
 
 .. code-block:: ini
 
@@ -1111,7 +1111,7 @@ The fraction of :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` after which
    wsrep_provider_options="gcs.recv_q_soft_limit=0.25"
 
 The degree of throttling is a linear function of recv queue size and goes from 1.0 (``full rate``)
-at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttle <gcs.max_throttle>` at :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Note that ``full rate``, as estimated between 0 and :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` is a very imprecise estimate of a regular replication rate. 
+at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttle <gcs.max_throttle>` at :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Note that ``full rate``, as estimated between 0 and :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` is a very imprecise estimate of a regular replication rate.
 
 
 +-----------------------+---------+------------+------------+
@@ -1196,7 +1196,7 @@ If you are planning to build a large cluster, we recommend using UDP.
 Time to live value for multicast packets.
 
 .. code-block:: ini
-	
+
    wsrep_provider_options="gmcast.mcast_ttl=1"
 
 +-----------------------+---------+------------+------------+
@@ -1314,7 +1314,7 @@ Defines the address that the node binds on for receiving an :term:`Incremental S
    wsrep_provider_options="ist.recv_bind=192.168.1.1"
 
 This option defines the address to which the node will bind in order to receive Incremental State Transfers.  When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`.  You may find it useful when the node runs behind a NAT or in similar cases where the public and private addresses differ.
-   
+
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
@@ -1323,7 +1323,7 @@ This option defines the address to which the node will bind in order to receive 
 
 
 
-   
+
 .. rubric:: ``pc.recovery``
 .. _`pc.recovery`:
 .. index::
@@ -1332,7 +1332,7 @@ This option defines the address to which the node will bind in order to receive 
    single: gvwstate.dat
 
 
-When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file.  The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.  
+When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file.  The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.
 
 .. code-block:: ini
 
@@ -1478,7 +1478,7 @@ The period for which the PC protocol waits for the EVS termination.
 .. index::
    pair: Parameters; pc.npvo
 
-If set to ``TRUE``, the more recent primary component overrides older ones in the case of conflicting primaries. 
+If set to ``TRUE``, the more recent primary component overrides older ones in the case of conflicting primaries.
 
 .. code-block:: ini
 
@@ -1554,7 +1554,7 @@ As of version 2.4. Node weight for quorum calculation.
 .. index::
    pair: wsrep Provider Options; pc.version
 
-This status variable is used to check which pc protocol version is used. 
+This status variable is used to check which pc protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1590,7 +1590,7 @@ Which transport backend to use. Currently only ASIO is supported.
 .. index::
    pair: wsrep Provider Options; protonet.version
 
-This status variable is used to check which transport backend protocol version is used. 
+This status variable is used to check which transport backend protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1608,7 +1608,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: wsrep Provider Options; repl.commit_order
 
-Whether to allow Out-Of-Order committing (improves parallel applying performance). 
+Whether to allow Out-Of-Order committing (improves parallel applying performance).
 
 .. code-block:: ini
 
@@ -1766,7 +1766,7 @@ The node uses the CA file to verify the signature on the certificate.  You can u
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate.
 
-The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
 .. code-block:: ini
 
@@ -1853,7 +1853,7 @@ Whether to enable compression on SSL connections.
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate key.
 
-The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
 .. code-block:: ini
 
@@ -1898,7 +1898,7 @@ In the event that you have your SSL key file encrypted, the node uses the SSL pa
    pair: wsrep Provider Options; Setting
 .. index::
    pair: wsrep Provider Options; Checking
-   
+
 You can set *Galera Cluster* parameters in the ``my.cnf`` configuration file as follows:
 
 .. code-block:: ini

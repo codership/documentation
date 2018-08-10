@@ -1,5 +1,5 @@
 =================
- Getting Started 
+ Getting Started
 =================
 .. _`getting-started`:
 
@@ -35,13 +35,13 @@ Node Initialization
 --------------------
 .. _`node-initialization`:
 
-Galera Cluster for MySQL is not the same as a standard standalone MySQL database server.  You will need to install and configure additional software.  
+Galera Cluster for MySQL is not the same as a standard standalone MySQL database server.  You will need to install and configure additional software.
 
-This software runs on any unix-like operating system.  You can choose to build from source or to install using Debian- or RPM-based binary packages.  Once you have the software installed on your individual server, you must also configure the server to function as a node in your cluster. 
+This software runs on any unix-like operating system.  You can choose to build from source or to install using Debian- or RPM-based binary packages.  Once you have the software installed on your individual server, you must also configure the server to function as a node in your cluster.
 
 .. toctree::
    :maxdepth: 3
-	      
+
    galerainstallation
    configuration
    dbconfiguration

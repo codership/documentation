@@ -84,11 +84,11 @@ Conversely, if you already know the period in which you want the write-set cache
 
    cachesize = writerate \times time
 
-   
+
 This equation can show how the size of the write-set cache can improve performance.  For instance, say you find that cluster nodes frequently request state snapshot transfers.  Increasing the :ref:`gcache.size <gcache.size>` parameter extends the period in which the write-set remains valid, allowing the nodes to update instead through incremental state transfers.
 
-   
-      
+
+
 .. note:: Consider these configuration tips as guidelines only. For example, in cases where you must avoid state snapshot transfers as much as possible, you may end up using a much larger write-set cache than suggested above.
 
 -----------------------------------
@@ -128,7 +128,7 @@ You can use the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` statu
    | wsrep_cert_deps_distance   | 23.88889  |
    +----------------------------+-----------+
 
-This value essentially determines the number of write-sets that the node can apply in parallel on average.  
+This value essentially determines the number of write-sets that the node can apply in parallel on average.
 
 .. note:: **Warning**: Do not use a value for :ref:`wsrep_slave_threads <wsrep_slave_threads>` that is higher than the average given by the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable.
 

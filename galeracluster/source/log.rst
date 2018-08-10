@@ -19,7 +19,7 @@ Galera Cluster provides parameters and wsrep Options that allow you to enable er
 
 - :ref:`wsrep_debug <wsrep_debug>` This parameter enables debugging information for the database server logs.
 
-  
+
   .. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
 
 You can enable these through the ``my.cnf`` configuration file.
@@ -38,7 +38,7 @@ Additional Log Files
 --------------------------
 .. _`gra.log`:
 
-Whenever the node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``. 
+Whenever the node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.
 
 
 

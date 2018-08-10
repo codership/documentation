@@ -6,7 +6,7 @@
 
 .. toctree::
    :maxdepth: 2
-	      
+
    introduction
    certificationbasedreplication
    architecture

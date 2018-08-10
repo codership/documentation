@@ -54,7 +54,7 @@ From the database client on each node, run the following query:
    +----------------------+--------+
 
 The return value is the seqno for the last transaction the node committed.  The node that provides the highest seqno is the most advanced node in your cluster.  Use it as the starting point in the next section when bootstrapping the new Primary Component.
-   
+
 
 ---------------------------------
 Resetting the Quorum
@@ -137,5 +137,5 @@ To manually bootstrap your cluster, complete the following steps:
 
       # systemctl start mysql
 
-When the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.  
-      
+When the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.
+

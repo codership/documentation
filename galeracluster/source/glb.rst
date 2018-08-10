@@ -6,7 +6,7 @@ Galera Load Balancer
 Galera Load Balancer provides simple TCP connection balancing developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.
 
 - Support for configuring back-end servers at runtime.
-- Support for draning servers. 
+- Support for draning servers.
 - Support for the epoll API for routing performance.
 - Support for multithreaded operations.
 - Optional watchdog module to monitor destinations and adjust the routing table.
@@ -25,7 +25,7 @@ To build Galera Load Balancer, complete the following steps:
    .. code-block:: console
 
       $ git clone https://github.com/codership/glb
-   
+
 #. Change into the new ``glb/`` directory created by Git, then run the bootstrap script.
 
    .. code-block:: console
@@ -50,7 +50,7 @@ To build Galera Load Balancer, complete the following steps:
    .. code-block:: console
 
       # make install
-   
+
    .. note:: Galera Load Balancer installs in ``/usr/sbin``.  You need to run the above command as root.
 
 Galera Load Balancer is now installed on your system.  You can launch it from the command-line, using the ``glbd`` command.
@@ -81,13 +81,13 @@ In the source directory you cloned from GitHub, navigate into the ``files/`` dir
   .. note:: The ``glbd.cfg`` configuration file used below refer to the one you have copied into ``/etc``.
 
 When you finish this, you can manage Galera Load Balancer through the ``service`` command.  For more information on available commands, see :ref:`Using Galera Load Balancer <glb-use>`.
-	    
+
 ---------------------
 Configuration
 ---------------------
 .. _`glb-config`:
 
-When you run Galera Load Balancer, you can configure its use through the command-line options, which you can reference through the ``--help`` command.  For users that run Galera Load Balancer as a service, you can manage it through the ``glbd.cfg`` configuration file. 
+When you run Galera Load Balancer, you can configure its use through the command-line options, which you can reference through the ``--help`` command.  For users that run Galera Load Balancer as a service, you can manage it through the ``glbd.cfg`` configuration file.
 
 - :ref:`LISTEN_ADDR <glb-listen_addr>` Defines the address that Galera Load Balancer monitors for incoming client connections.
 
@@ -103,7 +103,7 @@ For instance,
    LISTEN_ADDR="8010"
    DEFAULT_TARGETS="192.168.1.1 192.168.1.2 192.168.1.3"
    OTHER_OPTIONS="--random --top 3"
-  
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Destination Selection Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -121,7 +121,7 @@ Galera Load Balancer, both the system daemon and the shared library, support fiv
 
 - **Source Tracking** Directs connections originating from the same address to the same server.  You can enable it through the :ref:`--source <glb-source>` option.
 
-  
+
 
 ---------------------------
 Using Galera Load Balancer
@@ -133,7 +133,7 @@ In the above section :ref:`Service Installation <glb-service>`, you configured y
 .. code-block:: console
 
    # service glb getinfo
-   
+
    Router:
    -------------------------------------------
         Address       : weight   usage  cons
@@ -142,7 +142,7 @@ In the above section :ref:`Service Installation <glb-service>`, you configured y
      192.168.1.3:4444 : 1.000    0.000    0
    -------------------------------------------
    Destinations: 3, total connections: 0
-   
+
 The ``service`` script supports the following operations:
 
 - ``start``/``stop``/``restart`` Commands to start, stop and restart Galera Load Balancer.

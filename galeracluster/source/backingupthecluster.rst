@@ -30,7 +30,7 @@ Taking a full data backup is very similar to node provisioning through a :term:`
 In order to enable this feature for backups, you need a script that implements both your preferred backup procedure and the Galera Arbitrator daemon, triggering it in a manner similar to a state snapshot transfer.
 
 .. code-block:: console
-		
+
    $ garbd --address gcomm://192.168.1.2?gmcast.listen_addr=tcp://0.0.0.0:4444 \
      --group example_cluster --donor example_donor --sst backup
 

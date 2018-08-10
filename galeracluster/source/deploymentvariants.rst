@@ -24,9 +24,9 @@ Internet traffic filters down to your application servers, all of which read and
    *No Clustering*
 
 
-This solution is simple and easy to manage, but suffers a particular weakness in the data tier's lack of redundancy.  
+This solution is simple and easy to manage, but suffers a particular weakness in the data tier's lack of redundancy.
 
-For example, should for any reason the :abbr:`DBMS (Database Management System)` server become unavailable, your application also becomes unavailable.  This is the same whether the server crashes or if you need to take it down for maintenance. 
+For example, should for any reason the :abbr:`DBMS (Database Management System)` server become unavailable, your application also becomes unavailable.  This is the same whether the server crashes or if you need to take it down for maintenance.
 
 Similarly, this deployment also introduces performance concerns.  While you can start as many instances as you need to meet the demands on your web and application servers, they can only put so much load on the :abbr:`DBMS (Database Management System)` server before the load begins to slow down the experience for end users.
 
@@ -36,7 +36,7 @@ Similarly, this deployment also introduces performance concerns.  While you can 
 ----------------------------
 .. _`whole-stack-cluster`:
 
-In the typical *n*-tier application cluster you can avoid the performance bottleneck by building a whole stack cluster.  
+In the typical *n*-tier application cluster you can avoid the performance bottleneck by building a whole stack cluster.
 
 Internet traffic filters down to the application server, which stores data on its own dedicated :abbr:`DBMS (Database Management System)` server.  Galera Cluster then replicates the data through to the cluster, ensuring that it remains synchronous.
 
@@ -68,7 +68,7 @@ Data Tier Clustering
 -----------------------
 .. _`data-tier-cluster`:
 
-To compensate for the shortcomings in whole stack clusters, you can cluster the data tier separate from your web and application servers. 
+To compensate for the shortcomings in whole stack clusters, you can cluster the data tier separate from your web and application servers.
 
 Here, the :abbr:`DBMS (Database Management System)` servers form a cluster distinct from your *n*-tier application cluster.  The application servers treat the database cluster as a single virtual server, making their calls through load balancers to the data tier.
 

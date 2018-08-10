@@ -60,7 +60,7 @@ For this section, provide a comma separate list of IP addresses for nodes in the
 
 - The IP addresses of any possible cluster members, assuming that the list members can belong to no more than one Primary Component;
 
-If you start the node without an IP address for this parameter, the node assumes that it is the first node of a new cluster.  It initializes a cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option. 
+If you start the node without an IP address for this parameter, the node assumes that it is the first node of a new cluster.  It initializes a cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,9 +68,9 @@ Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`cluster-address-options`:
 
-You can also use the options list to set backend parameters, such as the listen address and timeout values.  
+You can also use the options list to set backend parameters, such as the listen address and timeout values.
 
-.. note:: **See Also**: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on every connection to the cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter. 
+.. note:: **See Also**: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on every connection to the cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter.
 
 The options list set in the URL take precedent over parameters set elsewhere.  Parameters that you can set through the options list are prefixed by ``evs``, ``pc`` and ``gmcast``.
 
@@ -80,7 +80,7 @@ You can set the options with a list of ``key=value`` pairs according to the URL 
 
 .. code-block:: ini
 
-   wsrep_cluster_address="gcomm://192.168.0.1, 192.168.0.2, 192.168.0.3 ? gmcast.segment=0 & evs.max_install_timeouts=1" 
+   wsrep_cluster_address="gcomm://192.168.0.1, 192.168.0.2, 192.168.0.3 ? gmcast.segment=0 & evs.max_install_timeouts=1"
 
 
 .. note:: If the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it is not specified in the cluster address, the default port is ``4567``.

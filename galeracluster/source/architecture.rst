@@ -19,8 +19,8 @@ The internal architecture of Galera Cluster revolves around four components:
 
  - *wsrep hooks* The integration with the database server engine for write-set replication.
 
- - *dlopen()* The function that makes the wsrep provider available to the wsrep hooks. 
-  
+ - *dlopen()* The function that makes the wsrep provider available to the wsrep hooks.
+
 - **Galera Replication Plugin** The plugin that enables write-set replication service functionality.
 
 - **Group Communication plugins** The various group communication systems available to Galera Cluster.  For instance, *gcomm* and `Spread <http://www.spread.org/>`_.
@@ -84,7 +84,7 @@ The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It oper
 
 From a more technical perspective, the Galera Replication Plugin consists of the following components:
 
-- **Certification Layer** This layer prepares the write-sets and performs the certification checks on them, ensuring that they can be applied. 
+- **Certification Layer** This layer prepares the write-sets and performs the certification checks on them, ensuring that they can be applied.
 
 - **Replication Layer** This layer manages the replication protocol and provides the total ordering capability.
 

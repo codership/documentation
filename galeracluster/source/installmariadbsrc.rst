@@ -36,9 +36,9 @@ In the event that neither command works for your system or that you use a differ
 
 - **Galera Replication Plugin**: SCons, as well as development releases of Boost, Check and OpenSSL.
 
-Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.  
+Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.
 
-     
+
 -----------------------------------------
 Building MariaDB Galera Cluster
 -----------------------------------------
@@ -69,13 +69,13 @@ The source code for MariaDB Galera Cluster is available through GitHub_. Using G
 
    .. note:: **Warning**: MariaDB version 10.1 is still in beta.
 
-     
+
 You now have the source files for the MariaDB database server with the wsrep API needed to function as a Galera Cluster node.
 
 In addition to the database server, you also need the wsrep Provider, also known as the Galera Replicator Plugin.  In a separate directory run the following command:
-     
+
 .. code-block:: console
-		
+
    # cd ..
    # git clone https://github.com/codership/galera.git
 
@@ -97,7 +97,7 @@ To build the database server, ``cd`` into the ``server/`` directory and run the 
    # make install
 
 
-.. note:: In addition to compiling through ``cmake`` and ``make``, there are also a number of build scripts in the ``BUILD/`` directory, which you may find more convenient to use.  For example, 
+.. note:: In addition to compiling through ``cmake`` and ``make``, there are also a number of build scripts in the ``BUILD/`` directory, which you may find more convenient to use.  For example,
 
 	  .. code-block:: console
 
@@ -110,7 +110,7 @@ Building the wsrep Provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`build-mariadb-galera`:
 
-The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.  
+The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
 
 To build the Galera Replication Plugin, ``cd`` into the ``galera/`` directory and run SCons.
 
@@ -125,7 +125,7 @@ This process creates the Galera Replication Pluigin, (that is, the ``libgalera_s
 	  .. code-block:: console
 
 	     # pkg install galera
-	  
+
 --------------------------------
 Post-installation Configuration
 --------------------------------
@@ -157,7 +157,7 @@ After the build completes, there are some additional steps that you must take in
 
       # chown -R mysql /usr/local/mysql
       # chgrp -R mysql /usr/local/mysql
-      
+
 #. Create a system unit for the database server.
 
    .. code-block:: console

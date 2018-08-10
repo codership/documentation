@@ -13,7 +13,7 @@ Enabling PF
 -------------------
 .. _`using-pf`:
 
-In order to use PF on FreeBSD, you must first set the system up to load its kernel module.  Additionally, you need to set the path to the configuration file for PF.  
+In order to use PF on FreeBSD, you must first set the system up to load its kernel module.  Additionally, you need to set the path to the configuration file for PF.
 
 Using your preferred text editor, add the following lines to ``/etc/rc.conf``:
 
@@ -21,7 +21,7 @@ Using your preferred text editor, add the following lines to ``/etc/rc.conf``:
 
    pf_enable="YES"
    pf_rules="/etc/pf.conf"
-   
+
 You may also want to enable logging support for PF and set the path for the log file.  This can be done by adding the following lines to ``/etc/rc.conf``:
 
 .. code-block:: ini
@@ -52,9 +52,9 @@ Once you have these defined, you can add the rule to allow cluster packets to pa
 
    # Galera Cluster TCP Filter Rule
    pass in proto tcp from <wsrep_cluster_address> to any port $wsrep_ports keep state
-   
+
 In the event that you deployed your cluster in a :abbr:`LAN (Local Area Network)` environment, you need to also create on additional rule to open port ``4568`` to :abbr:`UDP (User Datagram Protocol)` transport for mutlicast replication.
- 
+
 .. code-block:: ini
 
    # Galera Cluster UDP Filter Rule

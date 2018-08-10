@@ -17,7 +17,7 @@ Configuring the Container
 
 Images are the containers that Docker has available to run.  There are a number of base images available through `Docker Hub <https://registry.hub.docker.com>`_.  You can pull these down to your system through the ``docker`` command-line tool.  You can also build new images.
 
-When Docker builds a new image, it sources a ``Dockerfile`` to determine the steps that it needs to take in order to generate the image that you want to use. What this means that you can script the installation and configuration process: loading the needed configuration files, running updates and installing packages when the image is built through a single command.  
+When Docker builds a new image, it sources a ``Dockerfile`` to determine the steps that it needs to take in order to generate the image that you want to use. What this means that you can script the installation and configuration process: loading the needed configuration files, running updates and installing packages when the image is built through a single command.
 
 .. code-block:: Dockerfile
 
@@ -26,15 +26,15 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
    MAINTAINER your name <your.user@example.org>
 
    ENV DEBIAN_FRONTEND noninteractive
-   
-   RUN apt-get update 
+
+   RUN apt-get update
    RUN apt-get install -y  software-properties-common
-   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA 
+   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA
    RUN add-apt-repository 'deb http://releases.galeracluster.com/galera-3/ubuntu trusty main'
    RUN add-apt-repository 'deb http://releases.galeracluster.com/mysql-wsrep-5.6/ubuntu trusty main'
 
 
-   RUN apt-get update 
+   RUN apt-get update
    RUN apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync
 
    COPY my.cnf /etc/mysql/my.cnf
@@ -47,7 +47,7 @@ Configuration File
 ^^^^^^^^^^^^^^^^^^^^
 .. _`docker-my-cnf`:
 
-Before you build the container, you need to write the configuration file for the node.  The ``COPY`` command in the ``Dockerfile`` above copies ``my.cnf`` from the build directory into the container.   
+Before you build the container, you need to write the configuration file for the node.  The ``COPY`` command in the ``Dockerfile`` above copies ``my.cnf`` from the build directory into the container.
 
 For the most part, the configuration file for a node running within Docker is the same as when the node is running on a standard Linux server.  But, there are some parameters that draw their defaults from the base system.  These you need to set manually, as Docker cannot access the host system.
 
@@ -59,7 +59,7 @@ Changing the ``my.cnf`` file does not propagate into the container.  Whenever yo
 
 .. note:: If you need Docker to rerun the entire build, use the ``--force-rm=true`` option.
 
-  
+
 
 -----------------------------
 Building the Container Image
@@ -72,14 +72,14 @@ You can build a container node using the ``docker`` command-line tool.
 
 .. code-block:: console
 
-   # docker build -t ubuntu:galera-node1 ./ 
+   # docker build -t ubuntu:galera-node1 ./
 
 When this command runs, Docker looks in the working directory, (here ``./``), for the ``Dockerfile``.  It then follows each command in the ``Dockerfile`` to build the image you want.  When the build is complete, you can view the addition among the available images:
-   
+
 .. code-block:: console
 
    # docker images
-   
+
    REPOSITORY  TAG           IMAGE ID      CREATED        SIZE
    ubuntu      galera-node-1 53b97c3d7740  2 minutes ago  362.7 MB
    ubuntu      14.04         ded7cd95e059  5 weeks ago    185.5 MB
@@ -90,9 +90,9 @@ Update the container tag to help differentiate between them.  That is,
 
 .. code-block:: console
 
-   [root@node2]# docker build -t ubuntu:galera-node2 ./ 
+   [root@node2]# docker build -t ubuntu:galera-node2 ./
    [root@node3]# docker build -t ubuntu:galera-node3 ./
-   
+
 -------------------------
 Deploying the Container
 -------------------------
@@ -113,7 +113,7 @@ Update the ``--name`` option for each node container you start.
 
 .. note:: The above command starts a container node meant to be attached to an existing cluster.  If you are starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.  For more information, see :doc:`startingcluster`.
 
-   
+
 ^^^^^^^^^^^^^^^^^^^
 Firewall Settings
 ^^^^^^^^^^^^^^^^^^^

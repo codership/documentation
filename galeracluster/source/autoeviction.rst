@@ -26,7 +26,7 @@ You can configure Auto Eviction by setting options through the :ref:`wsrep_provi
 - :ref:`evs.delayed_keep_period <evs.delayed_keep_period>` This sets the time period you require a node to remain responsive until one entry is removed from the delayed list.
 
   The default value is ``PT30S``.
-  
+
 - :ref:`evs.evict <evs.evict>`  If set to the gcomm UUID of some node, that node will be evicted from the cluster. Setting this parameter to an empty string causes the eviction list to be cleared on the node where it is set.
 
 - :ref:`evs.auto_evict <evs.auto_evict>`  This sets the number of entries allowed for a delayed node before Auto Eviction takes place.  Setting this to ``0`` disables the Auto Eviction protocol on the node, though the node will continue to monitor node response times.
@@ -61,7 +61,7 @@ You can check these status variables using the ``SHOW STATUS`` query from the da
 .. code-block:: mysql
 
    SHOW STATUS LIKE 'wsrep_evs_delayed';
-  
+
 
 ----------------------------------
 Upgrading from Previous Versions
@@ -145,7 +145,7 @@ Repeat the above procedure to update the remaining nodes in the cluster.  Once t
       SHOW STATUS LIKE 'wsrep_evs_state';
 
    If the ``STATUS`` query returns an empty set, something went wrong and your database server is still on EVS Protocol version 0.  If it returns a set, the EVS Protocol is on the right version and you can proceed.
-      
+
 
 #. Check the node state.
 
@@ -158,7 +158,7 @@ Repeat the above procedure to update the remaining nodes in the cluster.  Once t
       +----------------------------+--------+
       | wsrep_local_state_comment  | Joined |
       +----------------------------+--------+
-      
+
    When the node state reads as ``Synced``, the node is back in sync with the cluster.
 
 This updates the EVS Protocol version for one node in your cluster.  Repeat the process on the remaining nodes, so that they all use EVS Protocol version 1.

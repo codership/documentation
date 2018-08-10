@@ -13,9 +13,9 @@ and the Codership logo are trademarks or registered trademarks of Codership.
 
 All Materials on this Document are (and shall continue to be) owned exclusively by Codership or other respective third party owners and are protected under applicable  copyrights, patents, trademarks, trade dress and/or other proprietary rights. Under no circumstances will you acquire any ownership rights or other interest in any Materials by or through your access or use of the Materials. All right, title and interest not expressly granted is reserved to Codership.
 
-- *"MySQL"* is a registered trademark of Oracle Corporation. 
+- *"MySQL"* is a registered trademark of Oracle Corporation.
 
-- *"Percona XtraDB Cluster"* and *"Percona Server"* are registered trademarks of Percona LLC.  
+- *"Percona XtraDB Cluster"* and *"Percona Server"* are registered trademarks of Percona LLC.
 
 - *"MariaDB"* and *"MariaDB Galera Cluster"* are registered trademarks of Monty Program Ab.
 

@@ -84,7 +84,7 @@ This is an optional parameter.  It defines the path to the FIFO control file as 
 
    CONTROL_FIFO="/var/run/glbd.fifo"
 
-   
+
 .. rubric:: ``DEFAULT_TARGETS``
 .. _`glb-default_targets`:
 
@@ -102,7 +102,7 @@ This parameter defines that IP addresses that Galera Load Balancer uses as desti
 .. code-block:: ini
 
    DEFAULT_TARGETS="192.168.1.1 192.168.1.2 192.168.1.3"
-   
+
 
 .. rubric:: ``LISTEN_ADDR``
 .. _`glb-listen_addr`:
@@ -220,7 +220,7 @@ In the event that you would like to set any of these options when you run Galera
 | <glb-keepalive>`     |        |            |                         |
 +----------------------+--------+------------+-------------------------+
 | :ref:`--latency      | ``-L`` | Integer    |                         |
-| <glb-latency>`       |        |            |                         | 
+| <glb-latency>`       |        |            |                         |
 +----------------------+--------+------------+-------------------------+
 | :ref:`--linger       | ``-l`` | Boolean    |                         |
 | <glb-linger>`        |        |            |                         |
@@ -341,10 +341,10 @@ When you define the :ref:`--watchdog <glb-watchdog>` option, this option defines
 .. code-block:: console
 
    # glbd --discover -w exec:"mysql.sh -utest -ptestpass" 3306 \
-         192.168.1.1 192.168.1.2 192.168.1.3   
+         192.168.1.1 192.168.1.2 192.168.1.3
 
 
-	 
+
 .. rubric:: ``--extra``
 .. _`glb-extra`:
 
@@ -363,7 +363,7 @@ This option defines whether and when you want Galera Load Balancer to perform an
 .. code-block:: console
 
    # glbd --extra 1.35 3306 \
-         192.168.1.1 192.168.1.2 192.168.1.3   
+         192.168.1.1 192.168.1.2 192.168.1.3
 
 
 .. rubric:: ``--fifo``
@@ -615,7 +615,7 @@ For more information on other policies, see :ref:`Destination Selection Policies
 .. _`glb-threads-arg`:
 
 Defines the number of threads that you want to use.
-   
+
 +-----------------------------+----------------------------------+
 | **Short Argument**          | ``-t``                           |
 +-----------------------------+----------------------------------+
@@ -651,7 +651,7 @@ This option restricts all balancing policies to a subset of destination servers 
    # glbd --top 3306 \
          192.168.1.1 192.168.1.2 192.168.1.3
 
-	 
+
 
 
 .. rubric:: ``--verbose``
@@ -701,4 +701,4 @@ This initializes the ``exec`` back-end to execute external programs.  It runs th
 
 .. note:: The Watchdog module remains a work in progress.  Neither its functionality nor terminology is final.
 
-	 
+

@@ -19,7 +19,7 @@ Troubleshooting
    detectingaslownode
    dealingwithmultimasterconflicts
    twonode
-   
+
 ------------------
 Tutorials
 ------------------

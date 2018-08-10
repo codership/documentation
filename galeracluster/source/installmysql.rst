@@ -65,13 +65,13 @@ Once you have the Software Properties installed, you can enable the Codership re
 #. Prefer the Codership repository over other sources. Using your preferred text editor, create a `galera.pref` file in the ``/etc/apt/preferences.d/`` directory.
 
    .. code-block:: linux-config
-   
+
       # Prefer Codership repository
       Package: *
       Pin: origin releases.galeracluster.com
       Pin-Priority: 1001
 
-   This is needed to make sure the patched versions are preferred, for example if a 3rd-party program requires ``libmysqlclient20`` and the OS-Version for the library is newer. 
+   This is needed to make sure the patched versions are preferred, for example if a 3rd-party program requires ``libmysqlclient20`` and the OS-Version for the library is newer.
 
 #. Update the local cache.
 
@@ -155,7 +155,7 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 
    - ``ARCH`` indicates the architecture of your hardware.  For example, ``x86_64`` for 64-bit systems.
 
- 
+
 #. Add the Codership repository.
 
    .. code-block:: console
@@ -167,7 +167,7 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
    .. code-block:: console
 
       $ sudo zypper refresh
-      
+
 Packages in the Codership repository are now available for installation through ``zypper``.
 
 
@@ -193,20 +193,20 @@ For Debian-based distributions, run the following command:
 For Red Hat, Fedora and CentOS distributions, instead run this command:
 
 .. code-block:: console
-	 
+
    # yum install galera-3 \
 		mysql-wsrep-5.6
 
 
 .. note:: On CentOS 6 and 7, this command may generate a transaction check error. For more information on this error and how to fix it, see :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
-		
+
 For openSUSE and SUSE Linux Enterprise Server, run this command:
 
 .. code-block:: console
 
    # zypper install galera-3 \
 		mysql-wsrep-5.6
-		
+
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
 
 .. note:: When deciding which packages to install, the package manager may elect to install a newer major verion of Galera Cluster than the one you intended to install. Before confirming the installation of packages, please make sure that the package manager intends to install the desired Galera Cluster version.
@@ -219,7 +219,7 @@ MySQL Shared Compatibility Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`centos-mysql-shared-compt`:
 
-When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check error that blocks the installation.  
+When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check error that blocks the installation.
 
 .. code-block:: text
 

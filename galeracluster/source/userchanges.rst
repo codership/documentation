@@ -20,7 +20,7 @@ For instance, say that you want to add a new user to your cluster.  You log into
 When finished, you check your work by running a ``SELECT`` query, to make sure that ``user1`` does in fact exist on the node:
 
 .. code-block:: mysql
-      
+
    SELECT User, Host, Password FROM mysql.user WHERE User='user1';
 
    +-------+-------------+-------------------------------------------+
@@ -32,7 +32,7 @@ When finished, you check your work by running a ``SELECT`` query, to make sure t
 This checks out fine. However, when you run the same query on a different node, you receive different results:
 
 .. code-block:: mysql
-      
+
    SELECT User, Host, Password FROM mysql.user WHERE User='user1';
 
    Empty set (0.00 sec)
@@ -58,9 +58,9 @@ For instance, consider the above example where you added a user to node.  If ins
    CREATE USER user1 IDENTIFIED BY 'my_password';
 
 This creates ``user1`` in a way that replicates through the cluster.  If you run ``SELECT`` query to check the ``mysql.user`` table on any node, it returns the same results:
-   
+
 .. code-block:: mysql
-      
+
    SELECT User, Host, Password FROM mysql.user WHERE User='user1';
 
    +-------+-------------+-------------------------------------------+

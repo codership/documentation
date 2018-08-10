@@ -44,7 +44,7 @@ Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``.  T
 
 How you configure Galera Arbitrator depends on how you start it.  That is, whether it runs from the shell or as a service.
 
-.. note::  When Galera Arbitrator starts, the script executes a ``sudo`` statement as the user ``nobody`` during its process.  There is a particular issue in Fedora and some other distributions of Linux, where the default ``sudo`` configuration blocks users that operate without ``tty`` access.  To correct this, using your preferred text editor, edit the ``/etc/sudoers`` file and comment out the line 
+.. note::  When Galera Arbitrator starts, the script executes a ``sudo`` statement as the user ``nobody`` during its process.  There is a particular issue in Fedora and some other distributions of Linux, where the default ``sudo`` configuration blocks users that operate without ``tty`` access.  To correct this, using your preferred text editor, edit the ``/etc/sudoers`` file and comment out the line
 
 	   .. code-block:: bash
 
@@ -52,7 +52,7 @@ How you configure Galera Arbitrator depends on how you start it.  That is, wheth
 
 	   This prevents the operating system from blocking Galera Arbitrator.
 
-			      
+
 
 
 
@@ -124,7 +124,7 @@ When starting Galera Aribtrator as a service, whether using ``init`` or ``system
 
    # Copyright (C) 2013-2015 Codership Oy
    # This config file is to be sourced by garbd service script.
-   
+
    # A space-separated list of node addresses (address[:port]) in the cluster:
    GALERA_NODES="192.168.1.1:4567 192.168.1.2:4567"
 
@@ -134,7 +134,7 @@ When starting Galera Aribtrator as a service, whether using ``init`` or ``system
    # Optional Galera internal options string (e.g. SSL settings)
    # see http://galeracluster.com/documentation-webpages/galeraparameters.html
    GALERA_OPTIONS="socket.ssl_cert=/etc/galera/cert/cert.pem;socket.ssl_key=/$"
-    
+
    # Log file for garbd. Optional, by default logs to syslog
    LOG_FILE="/var/log/garbd.log"
 
@@ -149,7 +149,7 @@ Common locations include:
 - ``/etc/systemd/``
 
 - ``/etc/sysconfig/``
-  
+
 Check the documentation for your distribution to determine where to place service configuration files.
 
 Once you have the service configuration file in the right location, you can start the ``garb`` service.  For systems that use ``init``, run the following command:

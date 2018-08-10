@@ -15,7 +15,7 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | Option                                | Default                            | Support | Dynamic |
 +=======================================+====================================+=========+=========+
 | :ref:`wsrep_auto_increment_control    | ``ON``                             | 1+      |         |
-| <wsrep_auto_increment_control>`       |                                    |         |         |     
+| <wsrep_auto_increment_control>`       |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_causal_reads              | ``OFF``                            | 1 - 3.6 |         |
 | <wsrep_causal_reads>` :sup:`S`        |                                    |         |         |
@@ -185,7 +185,7 @@ It significantly reduces the rate of certification conflicts for ``INSERT`` comm
 .. index::
    pair: Parameters; wsrep_causal_reads
 
-Enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on non-transactional reads. Results in larger read latencies. 
+Enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on non-transactional reads. Results in larger read latencies.
 
 +-------------------------+--------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-causal-reads``                               |
@@ -208,7 +208,7 @@ Enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on n
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_causal_reads';
-		
+
 
 
 .. note:: **Warning**: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
@@ -222,7 +222,7 @@ Enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on n
 .. _`wsrep_certify_nonPK`:
 .. index::
    pair: Parameters; wsrep_certify_nonPK
- 
+
 Defines whether the node should generate primary keys on rows without them for the purposes of certification.
 
 +-------------------------+--------------------------------------------------------+
@@ -263,10 +263,10 @@ Galera Cluster requires primary keys on all tables.  The node uses the primary k
    pair: Parameters; wsrep_cluster_address
 .. index::
    single: my.cnf
-  
-	  
+
+
 Defines the back-end schema, IP addresses, ports and options the node uses in connecting to the cluster.
-	  
+
 +-------------------------+--------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-cluster-address``                            |
 +-------------------------+---------------------+----------------------------------+
@@ -303,14 +303,14 @@ Changing this variable in runtime will cause the node to close connection to the
 
     gcomm://node1:port1,node2:port2,...[?option1=value1&...]
 
-    
+
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster (that the other nodes can join to).  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. note:: **Warning**: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line. For more information, see :doc:`startingcluster`. 
+.. note:: **Warning**: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node to not join back to the cluster that it was part of, rather it will initialize a new one node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string, (instead of using ``--wsrep-cluster-address="gcomm://"``) on the command line. For more information, see :doc:`startingcluster`.
 
 
 .. code-block:: mysql
-	  
+
    SHOW VARIABLES LIKE 'wsrep_cluster_address';
 
    +-----------------------+---------------------------------------------+
@@ -320,7 +320,7 @@ Using the string ``gcomm://`` without any address will cause the node to startup
    +-----------------------+---------------------------------------------+
 
 
-   
+
 .. rubric:: ``wsrep_cluster_name``
 .. _`wsrep_cluster_name`:
 .. index::
@@ -357,7 +357,7 @@ This parameter allows you to define the logical name the node uses for the clust
    +--------------------+-----------------+
 
 
-   
+
 .. rubric:: ``wsrep_convert_lock_to_trx``
 .. _`wsrep_convert_lock_to_trx`:
 .. index::
@@ -392,7 +392,7 @@ Sometimes this parameter may help to get old applications working in a multi-mas
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_convert_lock_to_trx';
-   
+
    +---------------------------+-------+
    | Variable_name             | Value |
    +---------------------------+-------+
@@ -400,7 +400,7 @@ Sometimes this parameter may help to get old applications working in a multi-mas
    +---------------------------+-------+
 
 
-	  
+
 
 .. rubric:: ``wsrep_data_home_dir``
 .. _`wsrep_data_home_dir`:
@@ -471,14 +471,14 @@ Defines debug options to pass to the wsrep Provider.
    +-------------------+-------+
 
 
-   
+
 .. rubric:: ``wsrep_debug``
 .. _`wsrep_debug`:
 .. index::
    pair: Parameters; wsrep_debug
 
 Enables additional debugging output for the database server error log.
-   
+
 
 +-------------------------+--------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-debug``                                      |
@@ -497,7 +497,7 @@ Enables additional debugging output for the database server error log.
 +-------------------------+---------------------+----------------------------------+
 
 
-Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help you in identifying and correcting problems. 
+Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help you in identifying and correcting problems.
 
 
 .. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
@@ -505,14 +505,14 @@ Under normal operation, error events are logged to an error log file for the dat
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_debug';
-		
+
    +---------------+-------+
    | Variable_name | Value |
    +---------------+-------+
    | wsrep_debug   | OFF   |
    +---------------+-------+
 
-   
+
 
 .. rubric:: ``wsrep_desync``
 .. _`wsrep_desync`:
@@ -574,13 +574,13 @@ Defines whether the node accepts read queries when in a non-operational state.
 | **Support**             | *Introduced:*       |                                   |
 +-------------------------+---------------------+-----------------------------------+
 
-When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it cannot keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.  
+When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it cannot keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.
 
 .. note:: Remember that by its nature, data reads from nodes in a non-operational state are stale.  Current data in the Primary Component remains inaccessible to these nodes until they rejoin the cluster.
 
 When enabling this parameter the node only permits reads, it still rejects any command that modifies or updates the database.  When in this state, the node allows ``USE``, ``SELECT``, ``LOCK TABLE`` and ``UNLOCK TABLES``.  It does not allow DDL statements.  It also rejects DML statements, such as ``INSERT``, ``DELETE`` and ``UPDATE``.
 
-You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.  
+You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.
 
 
 .. code-block:: mysql
@@ -705,7 +705,7 @@ Defines whether the node splits large ``LOAD DATA`` commands into more manageabl
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-When loading huge data loads creates problems for Galera Cluster, in that they eventually reach a size that is too large for the node to completely roll the operation back in the event of a conflict and whatever gets committed stays committed.  
+When loading huge data loads creates problems for Galera Cluster, in that they eventually reach a size that is too large for the node to completely roll the operation back in the event of a conflict and whatever gets committed stays committed.
 
 This parameter tells the node to split ``LOAD DATA`` commands into transactions of 10,000 rows or less, making the data more manageable for the cluster.  This deviates from the standard behavior for MySQL.
 
@@ -744,7 +744,7 @@ Defines whether the node logs additional information about conflicts.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-In Galera Cluster, the database server uses the standard logging features of MySQL or MariaDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems.  
+In Galera Cluster, the database server uses the standard logging features of MySQL or MariaDB.  This parameter enables additional information for the logs pertaining to conflicts, which you may find useful in troubleshooting problems.
 
 .. note:: **See Also**: You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
 
@@ -761,7 +761,7 @@ The additional information includes the table and schema where the conflict occu
    +---------------------+-------+
 
 
-	     
+
 
 
 
@@ -772,7 +772,7 @@ The additional information includes the table and schema where the conflict occu
 
 
 Defines the maximum number of rows the node allows in a write-set. A value of ``0`` specifies no limit.
-   
+
 +-------------------------+---------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-max-ws-rows``                                 |
 +-------------------------+---------------------+-----------------------------------+
@@ -828,7 +828,7 @@ Defines the maximum size the node allows for write-sets.
 +-------------------------+---------------------+-----------------------------------+
 
 
-This parameter sets the maximum size that the node allows for a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.  
+This parameter sets the maximum size that the node allows for a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.
 
 The maximum allowed write-set size is ``2G``.
 
@@ -879,7 +879,7 @@ While the default behavior is often sufficient, there are situations where this 
 - Container deployments, such as with Docker and jails.
 - Cloud deployments, such as with Amazon EC2 and OpenStack.
 
-In these cases, you need to provide an explicit value for this parameter, given that the auto-guess of the IP address does not produce the correct result.  
+In these cases, you need to provide an explicit value for this parameter, given that the auto-guess of the IP address does not produce the correct result.
 
 
 .. note:: **See Also**: In addition to defining the node address and port, this parameter also provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
@@ -958,7 +958,7 @@ Defines the logical name that the node uses for itself.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines the logical name that the node uses when referring to itself in logs and to the cluster.  It is for convenience, to help you in identifying nodes in the cluster by means other than the node address. 
+This parameter defines the logical name that the node uses when referring to itself in logs and to the cluster.  It is for convenience, to help you in identifying nodes in the cluster by means other than the node address.
 
 By default, the node uses the server hostname.  In some situations, you may need to set it explicitly, such as in container deployments with Docker or FreeBSD jails, where the node uses the name of the container rather than the hostname.
 
@@ -1008,28 +1008,28 @@ When the node calls the command, it passes one or more arguments that you can us
 --status <status str>        The status of this node. The possible statuses are:
 
                              - ``Undefined`` The node has just started up and is not connected to any :term:`Primary Component`.
-                               
+
                              - ``Joiner`` The node is connected to a primary component and now is receiving state snapshot.
-                             
+
                              - ``Donor`` The node is connected to primary component and now is sending state snapshot.
-                             
-                             - ``Joined`` The node has a complete state and now is catching up with the cluster.  
-                             
+
+                             - ``Joined`` The node has a complete state and now is catching up with the cluster.
+
                              - ``Synced`` The node has synchronized itself with the cluster.
-                             
+
                              - ``Error(<error code if available>)`` The node is in an error state.
-                                
+
 --uuid <state UUID>          The cluster state UUID.
 
 --primary <yes/no>           Whether the current cluster component is primary or not.
 
 --members <list>             A comma-separated list of the component member UUIDs.
-                             The members are presented in the following syntax: 
-                            
+                             The members are presented in the following syntax:
+
                              - ``<node UUID>`` A unique node ID. The wsrep Provider automatically assigns this ID for each node.
-                             
+
                              - ``<node name>`` The node name as it is set in the ``wsrep_node_name`` option.
-                             
+
                              - ``<incoming address>`` The address for client connections as it is set in the ``wsrep_node_incoming_address`` option.
 
 --index                      The index of this node in the node list.
@@ -1130,7 +1130,7 @@ DDL statements are non-transactional and as such do not replicate through write-
    | wsrep_OSU_method | TOI   |
    +------------------+-------+
 
-   
+
 .. rubric:: ``wsrep_preordered``
 .. _`wsrep_preordered`:
 .. index::
@@ -1173,7 +1173,7 @@ Preordered events should not interfere with events that originate on the local n
 .. _`wsrep_provider`:
 .. index::
    pair: Parameters; wsrep_provider
-  
+
 Defines the path to the :term:`Galera Replication Plugin`.
 
 +-------------------------+---------------------------------------------------------+
@@ -1287,7 +1287,7 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 
 - ``NONE`` The node disables this feature.
 
-- ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections. 
+- ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections.
 
 - ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including the current connection.
 
@@ -1340,7 +1340,7 @@ Enabling this parameter tells the node to restart the replication slave when it 
    | wsrep_restart_slave | OFF   |
    +---------------------+-------+
 
-   
+
 
 
 .. rubric:: ``wsrep_retry_autocommit``
@@ -1440,7 +1440,7 @@ Defines the number of threads to use in applying slave write-sets.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs. 
+This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs.
 
 Instead of concrete recommendations, there are some general guidelines that you can use as a starting point in finding the value that works best for your system:
 
@@ -1461,14 +1461,14 @@ Instead of concrete recommendations, there are some general guidelines that you 
    +---------------------+-------+
 
 
-   
+
 .. rubric:: ``wsrep_slave_UK_checks``
 .. _`wsrep_slave_UK_checks`:
 .. index::
    pairs: Parameters; wsrep_slave_UK_checks
 
 Defines whether the node performs unique key checking on applier threads.
-   
+
 +-------------------------+---------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-slave-UK-checks``                             |
 +-------------------------+---------------------+-----------------------------------+
@@ -1495,7 +1495,7 @@ This parameter enables unique key checking on applier threads.
    | Variable_name         | Value |
    +-----------------------+-------+
    | wsrep_slave_UK_checks | OFF   |
-   +-----------------------+-------+   
+   +-----------------------+-------+
 
 
 
@@ -1541,7 +1541,7 @@ Format this value to the pattern: ``username:password``.
    +----------------+---------------------------+
    | wsrep_sst_auth | wsrep_sst_user:mypassword |
    +----------------+---------------------------+
-	  
+
 
 
 .. rubric:: ``wsrep_sst_donor``
@@ -1643,7 +1643,7 @@ Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to t
 
 
 
-	  
+
 
 .. rubric:: ``wsrep_sst_method``
 .. _`wsrep_sst_method`:
@@ -1788,7 +1788,7 @@ This parameter defines the node start position.  It exists for the sole purpose 
    +----------------------+-----------------------------------------+
    | wsrep_start_position | 00000000-0000-0000-0000-000000000000:-1 |
    +----------------------+-----------------------------------------+
-	     
+
 
 .. rubric:: ``wsrep_sync_wait``
 .. _`wsrep_sync_wait`:
@@ -1841,7 +1841,7 @@ This value of this parameter is a bitmask, which determines the type of check yo
 | ``8``   | Checks made on ``SHOW`` statements                   |
 +---------+------------------------------------------------------+
 
-For example, say that you have a web application.  At one point in its run, you need it to perform a critical read.  That is, you want the application to access the database server and run a ``SELECT`` query that must return the most up to date information possible. 
+For example, say that you have a web application.  At one point in its run, you need it to perform a critical read.  That is, you want the application to access the database server and run a ``SELECT`` query that must return the most up to date information possible.
 
 .. code-block:: mysql
 
@@ -1892,7 +1892,7 @@ Defines whether the node stores write-sets locally for debugging.
 |                         | *Deprecated:*       | 0.8                               |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether the node stores write-sets locally for debugging purposes.  
+This parameter defines whether the node stores write-sets locally for debugging purposes.
 
 .. code-block:: mysql
 

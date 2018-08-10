@@ -17,7 +17,7 @@ Galera Cluster is a synchronous multi-master database cluster, based on synchron
 
 At a high level, Galera Cluster consists of a database server |---| that is, MySQL or MariaDB |---| that then uses the :term:`Galera Replication Plugin` to manage replication.  To be more specific, the MySQL replication plugin API has been extended to provide all the information and hooks required for true multi-master, synchronous replication.  This extended API is called the Write-Set Replication API, or wsrep API.
 
-Through the wsrep API, Galera Cluster provides certification-based replication.  A transaction for replication, the write-set, not only contains the database rows to replicate, but also includes information on all the locks that were held by the database during the transaction.  Each node then certifies the replicated write-set against other write-sets in the applier queue.  The write-set is then applied, if there are no conflicting locks.  At this point, the transaction is considered committed, after which each node continues to apply it to the tablespace. 
+Through the wsrep API, Galera Cluster provides certification-based replication.  A transaction for replication, the write-set, not only contains the database rows to replicate, but also includes information on all the locks that were held by the database during the transaction.  Each node then certifies the replicated write-set against other write-sets in the applier queue.  The write-set is then applied, if there are no conflicting locks.  At this point, the transaction is considered committed, after which each node continues to apply it to the tablespace.
 
 This approach is also called virtually synchronous replication, given that while it is logically synchronous, the actual writing and committing to the tablespace happens independently, and thus asynchronously on each node.
 
@@ -45,9 +45,9 @@ The following features are available through Galera Cluster:
 
 - **Supports InnoDB.**
 
-- **Transparent to Applications** Required no (or minimal) changes) to the application. 
+- **Transparent to Applications** Required no (or minimal) changes) to the application.
 
-- **No Read and Write Splitting Needed.** 
+- **No Read and Write Splitting Needed.**
 
 
 
@@ -77,7 +77,7 @@ An additional benefit of Galera Cluster is good cloud support.  Automatic node p
 
 - :ref:`genindex`
 - :ref:`search`
-   
+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

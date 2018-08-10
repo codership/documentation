@@ -1,4 +1,3 @@
-
 ==============
 Installation
 ==============
@@ -24,7 +23,7 @@ For software, each node in the cluster requires:
 
 .. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, you must apply this patch yourself.
 
-	  
+
 -------------------------------
 Preparing the Server
 -------------------------------
@@ -45,13 +44,13 @@ To disable SELinux for mysql run the following command:
 
    # semanage permissive -a mysqld_t
 
-This command switches SELinux into permissive mode when it registers activity from the database server.  While this is fine during the installation and configuration process, it is not in general a good policy to disable applications that improve security.  
+This command switches SELinux into permissive mode when it registers activity from the database server.  While this is fine during the installation and configuration process, it is not in general a good policy to disable applications that improve security.
 
 In order to use SELinux with Galera Cluster, you need to create an access policy, so that SELinux can understand and allow normal operations from the database server.  For information on how to create an access policy, see :doc:`selinux`.
 
 .. note:: **See Also**: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.
 .. Revision Note: Add a label for port 4567 as mysqld_port_t, check if other ports on the firewall need something similar.  Check if AppArmor requires a similar label as well.
-	     
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,7 +63,7 @@ Next, you need to update the firewall settings on each node so that they can com
 As an example, to open ports between trusted hosts using ``iptables`` the commands you run on each  would look something like this:
 
 .. code-block:: console
-		
+
    # iptables --append INPUT --protocol tcp \
          --source 64.57.102.34 --jump ACCEPT
    # iptables --apend INPUT --protocol tcp \
@@ -125,7 +124,7 @@ If instead, your system uses ``systemd``, run the following command instead:
 
   $ sudo systemctl restart apparmor
 
- 
+
 ---------------------------
 Installing Galera Cluster
 ---------------------------
@@ -152,7 +151,7 @@ MariaDB Galera Cluster
 
    installmariadb
    installmariadbsrc
-  
+
 
 .. note:: **See Also**: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 

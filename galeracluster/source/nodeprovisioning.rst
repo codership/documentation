@@ -25,13 +25,13 @@
 
 When the state of a new or failed node differs from that of the cluster's :term:`Primary Component`, the new or failed node must be synchronized with the cluster.  Because of this, the provisioning of new nodes and the recover of failed nodes are essentially the same process as that of joining a node to the cluster Primary Component.
 
-Galera reads the initial node state ID from the **grastate.txt** file, found in the directory assigned by the ``wsrep_data_dir`` parameter.  Each time the node gracefully shuts down, Galera saves to this file.  
+Galera reads the initial node state ID from the **grastate.txt** file, found in the directory assigned by the ``wsrep_data_dir`` parameter.  Each time the node gracefully shuts down, Galera saves to this file.
 
 In the event that the node crashes while in :term:`Total Order Isolation` mode, its database state is unknown and its initial node state remains undefined::
 
 	00000000-0000-0000-0000-000000000000:-1
 
-.. note:: In normal transaction processing, only the seqno part of the GTID remains undefined, (that is, with a value of ``-1``.  The UUID, (that is, the remainder of the node state), remains valid.  In such cases, you can recover the node through an :term:`Incremental State Transfer`. 
+.. note:: In normal transaction processing, only the seqno part of the GTID remains undefined, (that is, with a value of ``-1``.  The UUID, (that is, the remainder of the node state), remains valid.  In such cases, you can recover the node through an :term:`Incremental State Transfer`.
 
 ---------------------------
 How Nodes Join the Cluster
@@ -45,13 +45,13 @@ There are two options available to determining the state transfer donor:
 
 - **Manual** When the node attempts to join the cluster, it uses the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter to determine which state donor it should use.  If it finds that the state donor it is looking for is not part of the Primary Component, the state transfer fails and the joining node aborts.  For :ref:`wsrep_sst_donor <wsrep_sst_donor>`, use the same name as you use on the donor node for the :ref:`wsrep_node_name <wsrep_node_name>` parameter.
 
-.. note:: A state transfer is a heavy operation.  This is true not only for the joining node, but also for the donor.  In fact, a state donor may not be able to serve client requests.  
+.. note:: A state transfer is a heavy operation.  This is true not only for the joining node, but also for the donor.  In fact, a state donor may not be able to serve client requests.
 
 	  Thus, whenever possible: manually select the state donor, based on network proximity and configure the load balancer to transfer client connections to other nodes in the cluster for the duration of the state transfer.
 
 When a state transfer is in process, the joining node caches write-sets that it receives from other nodes in a slave queue.  Once the state transfer is complete, it applies the write-sets from the slave queue to catch up with the current Primary Component state.  Since the state snapshot carries a state UUID, it is easy to determine which write-sets the snapshot contains and which it should discard.
 
-During the catch-up phase, flow control ensures that the slave queue shortens, (that is, it limits the cluster replication rates to the write-set application rate on the node that is catching up).  
+During the catch-up phase, flow control ensures that the slave queue shortens, (that is, it limits the cluster replication rates to the write-set application rate on the node that is catching up).
 
 While there is no guarantee on how soon a node will catch up, when it does the node status updates to ``SYNCED`` and it begins to accept client connections.
 

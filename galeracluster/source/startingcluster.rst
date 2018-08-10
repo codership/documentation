@@ -35,7 +35,7 @@ When nodes start, they attempt to establish network connectivity with the other 
 
 There is no Primary Component when the cluster starts.  In order to initialize it, you need to explicitly tell one node to do so with the ``--wsrep-new-cluster`` argument.  By convention, the node you use to initialize the Primary Component is called the first node, given that it is the first that becomes operational.
 
-.. note:: **See Also**: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`migration` and :doc:`quorumreset`. 
+.. note:: **See Also**: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`migration` and :doc:`quorumreset`.
 
 Bear in mind, the first node is only "first" in that it initializes the Primary Component. This node can fall behind and leave the cluster without necessarily affecting the Primary Component.
 
@@ -69,7 +69,7 @@ Once the node starts the database server, check that startup was successful by c
 .. code-block:: mysql
 
    SHOW STATUS LIKE 'wsrep_cluster_size';
-      
+
    +--------------------+-------+
    | Variable_name      | Value |
    +--------------------+-------+

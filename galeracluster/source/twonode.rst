@@ -39,7 +39,7 @@ There are two solutions available to you:
 In addition to the solutions provided above, you can avoid the situation entirely using Galera Arbitrator.  Galera Arbitrator functions as an odd node in quorum calculations.  Meaning that, if you enable Galera Arbitrator on one node in a two-node cluster, that node remains the Primary Component, even if the other node fails or loses network connectivity.
 
 .. see also:: For more information, see :doc:`arbitrator`.
-	    
+
 
 
 

@@ -13,9 +13,9 @@ Enabling SSL
 -----------------------
 .. _`enable-ssl`:
 
-There are three vectors that you can secure through :abbr:`SSL (Secure Socket Layer)`: traffic between the database server and client, replication traffic within Galera Cluster, and the :term:`State Snapshot Transfer`.  
+There are three vectors that you can secure through :abbr:`SSL (Secure Socket Layer)`: traffic between the database server and client, replication traffic within Galera Cluster, and the :term:`State Snapshot Transfer`.
 
-.. note:: The configurations shown here cover the first two.  The procedure for securing state snapshot transfers through SSL varies depending on the SST method you use.  For more information, see :doc:`sslsst`. 
+.. note:: The configurations shown here cover the first two.  The procedure for securing state snapshot transfers through SSL varies depending on the SST method you use.  For more information, see :doc:`sslsst`.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -57,9 +57,9 @@ In order to enable SSL on the internal node processes, you need to define the pa
 - :ref:`socket.ssl_ca <socket.ssl_ca>` The certificate authority file.
 
 You can configure these options through the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter in the configuration file, (that is, ``my.cnf``).
-  
+
 .. code-block:: ini
-		
+
    wsrep_provider_options="socket.ssl_key=/path/to/server-key.pem;socket.ssl_cert=/path/to/server-cert.pem;socket.ssl_ca=/path/to/cacert.pem"
 
 This tells Galera Cluster which files to use in encrypting and decrypting replication traffic through SSL.  The node will begin to use them once it restarts.

@@ -43,7 +43,7 @@ When configuring packet filtering rules for a :abbr:`LAN (Local Area Network)` e
 These commands open the relevant ports to :abbr:`TCP (Transmission Control Protocol)` and :abbr:`UDP (User Datagram Protocol)` transport.  It assumes that the IP addresses in your network begin with 192.168.0.
 
 .. note:: **Warning**: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your ``iptables`` configuration.
-      
+
 Galera Cluster can now pass packets through the firewall to the node, but the configuration reverts to default on reboot.  In order to update the default firewall configuration, see :ref:`Making Firewall Changes Persistent <persistent-config>`.
 
 ^^^^^^^^^^^^^^^^^^^
@@ -60,13 +60,13 @@ Without much loss in security, you can instead open a range of ports between tru
     # iptables --append INPUT --protocol tcp \
     	--source 64.57.102.34 --jump ACCEPT
     # iptables --append INPUT --protocol tcp \
-    	--source 193.166.3.20  --jump ACCEPT 
+    	--source 193.166.3.20  --jump ACCEPT
     # iptables --append INPUT --protocol tcp \
-    	--source 193.125.4.10  --jump ACCEPT 
+    	--source 193.125.4.10  --jump ACCEPT
 
 When these commands are run on each node, they set the node to accept :abbr:`TCP (Transmission Control Protocol)` connections from the IP addresses of the other cluster nodes.
 
-	
+
 .. note:: **Warning**: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your ``iptables`` configuration.
 
 Galera Cluster can now pass packets through the firewall to the node, but the configuration reverts to default on reboot.  In order to update the default firewall configuration, see :ref:`Making Firewall Changes Persistent <persistent-config>`.
@@ -77,7 +77,7 @@ Making Firewall Changes Persistent
 ------------------------------------
 .. _`persistent-config`:
 
-Whether you decide to open ports individually for :abbr:`LAN (Local Area Network)` deployment or in a range between trusted hosts for a :abbr:`WAN (Wide Area Network)` deployment, the tables you configure in the above sections are not persistent.  When the server reboots, the firewall reverts to its default state.  
+Whether you decide to open ports individually for :abbr:`LAN (Local Area Network)` deployment or in a range between trusted hosts for a :abbr:`WAN (Wide Area Network)` deployment, the tables you configure in the above sections are not persistent.  When the server reboots, the firewall reverts to its default state.
 
 For systems that use ``init``, you can save the packet filtering state with one command:
 
@@ -96,9 +96,9 @@ Once you find where your system stores the rules file, use ``iptables-save`` to 
 
    # iptables-save > /etc/sysconfig/iptables
 
-When your system reboots, it now reads this file as the default packet filtering rules.  
+When your system reboots, it now reads this file as the default packet filtering rules.
 
 
-	  
+
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

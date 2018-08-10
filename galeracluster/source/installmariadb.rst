@@ -42,7 +42,7 @@ Once you have the Software Properties installed, you can enable the MariaDB repo
 
 #. Add the MariaDB repository to your sources list.
 
-   
+
    .. code-block:: console
 
       # add-apt-repository 'deb http://mirror.jmu.edu/pub/mariadb/repo/version/distro release main'
@@ -69,7 +69,7 @@ Once you have the Software Properties installed, you can enable the MariaDB repo
 
 
 For more information on the repository, package names or available mirrors, see the `MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_.
-      
+
 Packages in the MariaDB repository are now available for installation through ``apt-get``.
 
 

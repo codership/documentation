@@ -52,7 +52,7 @@ In order to enable automatic failovers, you need to use at least three nodes.  B
 ^^^^^^^^^^^^^^^^^^^^^^^
 Split-brain Condition
 ^^^^^^^^^^^^^^^^^^^^^^^
-  
+
 .. _`split-brain-condition`:
 
 Cluster failures that result in database nodes operating autonomous of each other are called split-brain conditions.  When this occurs, data can become irreparably corrupted, such as would occur when two database nodes independently update the same row on the same table.  As is the case with any quorum-based system, Galera Cluster is subject to split-brain conditions when the quorum algorithm fails to select a :term:`Primary Component`.
@@ -83,16 +83,16 @@ Quorum Calculation
 .. index::
    pair: Parameters; pc.weight
 
-Galera Cluster supports a weighted quorum, where each node can be assigned a weight in the 0 to 255 range, with which it will participate in quorum calculations. 
+Galera Cluster supports a weighted quorum, where each node can be assigned a weight in the 0 to 255 range, with which it will participate in quorum calculations.
 
 The quorum calculation formula is
 
 .. math::
    \frac{ \sum_{p_i \times w_i} - \sum_{l_i \times w_i}}
    { 2} < \sum_{m_i \times w_i}
-   
+
 .. The original equation read (sum(p_i * w_i) - sum(l_i * w_i)) / 2 < sum(m_i * w_i).  Remove this comment after confirming that the LaTeX renders correctly.
-    
+
 Where:
 
 - :math:`p_i` Members of the last seen primary component;
@@ -158,14 +158,14 @@ When configuring quorum weights for a simple master-slave scenario, use the foll
 Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary component.  However, in the event that ``node2`` dies, ``node1`` continues as the :term:`Primary Component`.  If the network connection between the nodes fails, ``node1`` continues as the Primary Component while ``node2`` becomes a non-primary component.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Weighted Quorum for a Master and Multiple Slaves Scenario  
+Weighted Quorum for a Master and Multiple Slaves Scenario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`wq-master-multi-slave`:
 
 When configuring quorum weights for a master-slave scenario that features multiple slave nodes, use the following pattern:
 
 .. code-block:: text
-		
+
    node1: pc.weight = 1
    node2: pc.weight = 0
    node3: pc.weight = 0
@@ -193,9 +193,9 @@ When configuring quorum weights for primary and secondary sites, use the followi
 
 
 Under this pattern, some nodes are located at the primary site while others are at the secondary site.  In the event that the secondary site goes down or if network connectivity is lost between the sites, the nodes at the primary site remain the :term:`Primary Component`.  Additionally, either ``node1`` or ``node2`` can crash without the rest of the nodes becoming non-primary components.
-  
 
 
-  
+
+
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

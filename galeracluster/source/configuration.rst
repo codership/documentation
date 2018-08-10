@@ -8,7 +8,7 @@ When you have finished installing Galera Cluster on your server hardware, you ar
 Using your preferred text editor, edit the ``/etc/my.cnf`` file.
 
 .. code-block:: ini
-		
+
    [mysqld]
    datadir=/var/lib/mysql
    socket=/var/lib/mysql/mysql.sock
@@ -73,7 +73,7 @@ There are certain basic configurations that you will need to set up in the ``/et
 
      innodb_autoinc_lock_mode=2
 
-  Do not change this value.  Other modes may cause ``INSERT`` statements on tables with ``AUTO_INCREMENT`` columns to fail.  
+  Do not change this value.  Other modes may cause ``INSERT`` statements on tables with ``AUTO_INCREMENT`` columns to fail.
 
   .. note:: **Warning**: When `innodb_autoinc_lock_mode <http://dev.mysql.com/doc/refman/5.5/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode, indicated by ``0``, or to consecutive lock mode, indicated by ``1``, in Galera Cluster it can cause unresolved deadlocks and make the system unresponsive.
 
@@ -93,7 +93,7 @@ Configuring the InnoDB Buffer Pool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`config_innodb_buffer_pool_size`:
 
-The InnoDB storage engine uses a memory buffer to cache data and indexes of its tables, which you can configure through the 
+The InnoDB storage engine uses a memory buffer to cache data and indexes of its tables, which you can configure through the
 `innodb_buffer_pool_size <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ parameter.  The default value is 128MB.  To compensate for the increased memory usage of Galera Cluster over the standalone MySQL database server, you should scale your usual value back by 5%.
 
 .. code-block:: ini
@@ -163,11 +163,11 @@ If your system does not have swap space available or if the allotted space is in
    .. code-block:: ini
 
       /swapfile none swap defaults 0 0
- 
+
 After you save the ``/etc/fstab`` file, you can see the results with ``swapon``.
 
 .. code-block:: console
-  
+
    $ swapon --summary
    Filename        Type        Size     Used    Priority
    /swapfile       file        524284   0       -1

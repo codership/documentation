@@ -71,7 +71,7 @@ Split-brain Testing
 
 To test Galera Cluster for split-brain situations on a two node cluster, complete the following steps:
 
-1. Disconnect the network connection between the two cluster nodes.  
+1. Disconnect the network connection between the two cluster nodes.
 
    The quorum is lost and the nodes do not serve requests.
 

@@ -57,7 +57,7 @@ When you want to maintain high-availability during schema upgrades and can avoid
 
 In Rolling Schema Upgrade, queries that update the schema are only processed on the local node.  While the node processes the schema upgrade, it desynchronizes with the cluster.  When it finishes processing the schema upgrade it applies delayed replication events and synchronizes itself with the cluster.
 
-To upgrade the schema cluster-wide, you must manually execute the query on each node in turn.  Bear in mind that during a rolling schema upgrade the cluster continues to operate, with some nodes using the old schema structure while others use the new schema structure. 
+To upgrade the schema cluster-wide, you must manually execute the query on each node in turn.  Bear in mind that during a rolling schema upgrade the cluster continues to operate, with some nodes using the old schema structure while others use the new schema structure.
 
 The main advantage of the Rolling Schema Upgrade is that it only blocks one node at a time.
 

@@ -34,10 +34,10 @@ In the event that neither command works on your system or that you use a differe
 
 - **Galera Replication Plugin**: SCons, as well as development releases of Boost, Check and OpenSSL.
 
-Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.  
+Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.
 
 
-	  
+
 ---------------------------------
 Building Galera Cluster for MySQL
 ---------------------------------
@@ -64,7 +64,7 @@ To download the database server, complete the following steps:
    - ``5.6``
    - ``5.5``
 
-  
+
 You now have the source files for the MySQL database server, including the wsrep API patch needed for it to function as a Galera Cluster node.
 
 In addition to the database server, you need the wsrep Provider, also known as the Galera Replication Plugin.  In a separator directory, run the following command:
@@ -97,7 +97,7 @@ Building the wsrep Provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`build-mysql-galera`:
 
-The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.  
+The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
 
 To build the Galera Replicator plugin, ``cd`` into the ``galera/`` directory and run SCons:
 
@@ -127,7 +127,7 @@ After the build completes, there are some additional steps that you must take in
       # groupadd mysql
       # useradd -g mysql mysql
 
-	  
+
 #. Install the database.
 
    .. code-block:: console
@@ -157,7 +157,7 @@ After the build completes, there are some additional steps that you must take in
 
 In addition to this procedure, bear in mind that any custom variables you enabled during the build process, such as a nonstandard base or data directory, requires that you add parameters to cover this in the configuration file, (that is, ``my.cnf``).
 
-      
+
 .. note:: This tutorial omits MySQL authentication options for brevity.
 .. _GitHub: https://github.com
 

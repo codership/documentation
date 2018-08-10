@@ -62,7 +62,7 @@ The commands given in the above section allow you to configure FirewallD on a ru
 
       # firewall-cmd --zone=public --add-port=3306/tcp \
             --permanent
-      # firewall-cmd --zone=public --add-port=4567/tcp \ 
+      # firewall-cmd --zone=public --add-port=4567/tcp \
             --permanent
       # firewall-cmd --zone=public --add-port=4568/tcp \
             --permanent
