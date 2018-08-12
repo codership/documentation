@@ -91,7 +91,7 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      # fgrep "mysqld" /var/log/audit/audit.log | audit2allow -m MySQL_galera -o galera.te
+      # fgrep "mysqld" /var/log/audit/audit.log | audit2allow -m galera -o galera.te
 
    This creates a ``galera.te`` file in your working directory.
 
@@ -121,7 +121,7 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      # semanage permissive -d mysql_t
+      # semanage permissive -d mysqld_t
 
 
 SELinux returns to enforcement mode, now using new policies that work with Galera Cluster.
