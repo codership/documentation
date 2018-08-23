@@ -20,6 +20,9 @@ These are MySQL system variables introduced by wsrep API patch v0.8. All variabl
 | :ref:`wsrep_causal_reads              | ``OFF``                            | 1 - 3.6 |         |
 | <wsrep_causal_reads>` :sup:`S`        |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
+| :ref:`wsrep_certification_rules       | ``STRICT``                         | 3.24+   |         |
+| <wsrep_certification_rules>`          |                                    |         |         |
++---------------------------------------+------------------------------------+---------+---------+
 | :ref:`wsrep_certify_nonPK             | ``ON``                             | 1+      |         |
 | <wsrep_certify_nonPK>`                |                                    |         |         |
 +---------------------------------------+------------------------------------+---------+---------+
@@ -215,6 +218,49 @@ Enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on n
 
 
 
+
+
+
+.. rubric:: ``wsrep_certification_rules``
+.. _`wsrep_certification_rules`:
+.. index::
+   pair: Parameters; wsrep_certification_rules
+
+Certification rules to use in the cluster.
+
++-------------------------+-----------------------------------------------------+
+| **Command-line Format** | ``--wsrep-certification-rules``                     |
++-------------------------+---------------------+-------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_certification_rules`` |
+|                         +---------------------+-------------------------------+
+|                         | *Variable Scope:*   | Global                        |
+|                         +---------------------+-------------------------------+
+|                         | *Dynamic Variable:* | Yes                           |
++-------------------------+---------------------+-------------------------------+
+| **Permitted Values**    | *Type:*             | enumeration                   |
+|                         +---------------------+-------------------------------+
+|                         | *Default Value:*    | ``STRICT``                    |
+|                         +---------------------+-------------------------------+
+|                         | *Valid Values:*     | ``OPTIMIZED``                 |
+|                         |                     +-------------------------------+
+|                         |                     | ``STRICT``                    |
++-------------------------+---------------------+-------------------------------+
+| **Support**             | *Introduced:*       |                               |
++-------------------------+---------------------+-------------------------------+
+
+Controls how certification is done in the cluster, in particular this affects how foreign keys are handled: with the ``STRICT`` option two INSERTs that happen at about the same time on two different nodes in a child table, that insert different (non conflicting rows), but both rows point to the same row in the parent table could result in certification failure. With the ``OPTIMIZED`` option such certification failure is avoided.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_certification_rules';
+
+   +---------------------------+--------+
+   | Variable_name             | Value  |
+   +---------------------------+--------+
+   | wsrep_certification_rules | STRICT |
+   +---------------------------+--------+
+
+.. note:: This is a MySQL wsrep parameter. It was introduced in 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15.
 
 
 
