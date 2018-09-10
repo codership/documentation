@@ -464,11 +464,11 @@ of :ref:`pc.weight <pc.weight>` of the nodes in the current :term:`Primary Compo
 
    SHOW STATUS LIKE 'wsrep_cluster_weight';
 
-   +--------------------+-------+
-   | Variable_name      | Value |
-   +--------------------+-------+
-   | wsrep_cluster_size | 3     |
-   +--------------------+-------+
+   +----------------------+-------+
+   | Variable_name        | Value |
+   +----------------------+-------+
+   | wsrep_cluster_weight | 3     |
+   +----------------------+-------+
 
 
 
