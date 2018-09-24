@@ -75,7 +75,7 @@ If you do not want to type out the options every time you start Galera Arbitrato
 
 .. code-block:: linux-config
 
-   # arbtirator.config
+   # arbitrator.config
    group = example_cluster
    address = gcomm://192.168.1.1,192.168.1.2,192.168.1.3
 
