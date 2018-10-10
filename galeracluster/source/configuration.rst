@@ -22,7 +22,7 @@ Using your preferred text editor, edit the ``/etc/my.cnf`` file.
    wsrep_provider=/usr/lib/libgalera_smm.so
    wsrep_provider_options="gcache.size=300M; gcache.page_size=300M"
    wsrep_cluster_name="example_cluster"
-   wsrep_cluster_address="gcomm://IP.node1,IP.node2,IP.node3"
+   wsrep_cluster_address="gcomm://IPnode1,IPnode2,IPnode3"
    wsrep_sst_method=rsync
 
    [mysql_safe]
