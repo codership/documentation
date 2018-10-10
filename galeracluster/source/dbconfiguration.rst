@@ -18,7 +18,7 @@ In addition to the configuration for the database server, there are some specifi
 
 .. code-block:: ini
 
-   [mysql]
+   [mysqld]
    wsrep_cluster_name=MyCluster
    wsrep_cluster_address="gcomm://192.168.0.1,192.168.0.2,192.168.0.3"
    wsrep_node_name=MyNode1
