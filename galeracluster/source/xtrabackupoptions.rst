@@ -13,7 +13,7 @@ When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you
    [sst]
    compressor="gzip"
    decompressor="gzip -dc"
-   rebuild=ON
+   rebuild=1
    compact=ON
    encrypt=3
    tkey="/path/to/key.pem"
