@@ -57,7 +57,7 @@ To configure HAProxy to work with Galera Cluster, add the following lines to the
 	option mysql-check user haproxy
 	server node1 192.168.1.1:3306 check weight 1
 	server node2 192.168.1.2:3306 check weight 1
-	server node2 192.168.1.3:3306 check weight 1	
+	server node3 192.168.1.3:3306 check weight 1	
 
 Create the proxy for Galera Cluster using the ``listen`` parameter.  This gives HAProxy an arbitrary name for the proxy and defines the IP address and port you want it to listen on for incoming connections.  Under this parameter, indent and define a series of options to tell HAProxy what you want it to do with these connections.
 
