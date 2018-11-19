@@ -39,6 +39,9 @@ Table legend:
 | :ref:`cert.log_conflicts              | ``NO``                | 2+         | Yes      |
 | <cert.log_conflicts>`                 |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
+| :ref:`cert.optimistic_pa              | ``YES``               | 3.25+      | Yes      |
+| <cert.optimistic_pa>`                 |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 | :ref:`debug                           | ``NO``                | 2+         | Yes      |
 | <debug>`                              |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
@@ -313,6 +316,28 @@ Log details of certification failures.
 | ``NO``                | Yes     | 2.0        |            |
 +-----------------------+---------+------------+------------+
 
+
+
+.. rubric:: ``cert.optimistic_pa``
+.. _`cert.optimistic_pa`:
+.. index::
+   pair: wsrep Provider Options; cert.optimistic_pa
+
+Controls parallel applying of slave actions. When enabled allows full range
+of parallelization as determined by certification algorithm. When disabled
+limits parallel applying window to not exceed that seen on master. In other
+words, the action starts applying no sooner than all actions it has seen
+on the master are committed.
+
+.. code-block:: ini
+
+   wsrep_provider_options="cert.optimistic_pa=NO"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``YES``               | Yes     | 3.25       |            |
++-----------------------+---------+------------+------------+
 
 
 
