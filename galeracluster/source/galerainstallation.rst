@@ -1,4 +1,3 @@
-
 ==============
 Installation
 ==============
@@ -8,63 +7,67 @@ Galera Cluster requires server hardware for a minimum of three nodes.
 
 If your cluster runs on a single switch, use three nodes.  If your cluster spans switches, use three switches.  If your cluster spans networks, use three networks.  If your cluster spans data centers, use three data centers.  This ensures that the cluster can maintain a Primary Component in the event of network outages.
 
-For server hardware, each node requires at a minimum:
+**Hardware Requirements**
 
-- 1GHz single core CPU
-- 512MB RAM
+For server hardware, each node requires at a minimum the following components:
+
+- 1 GHz single core CPU;
+- 512 MB RAM; and
 - 100 Mbps network connectivity
 
-.. note:: **See Also**: Galera Cluster may occasionally crash when run on limited hardware due to insufficient memory.  To prevent this, ensure that you have sufficient swap space available.  For more information on how to create swap space, see :ref:`Configuring Swap Space <swap-config>`.
+.. note:: **See Also**: Galera Cluster may occasionally crash when run on limited hardware due to insufficient memory.  To prevent this, make sure that you have allocated a sufficient amount of swap space.  For more information on how to create swap space, see :ref:`Configuring Swap Space <swap-config>`.
 
-For software, each node in the cluster requires:
+**Software Requirements**
 
-- Linux or FreeBSD;
-- MySQL, MariaDB or Percona XtraDB server with wsrep API patch;
-- Galera Replication Plugin.
+For software, each node in the cluster requires at a minimum the following:
 
-.. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, you must apply this patch yourself.
+- Linux or FreeBSD operating system installed;
+- MySQL or MariaDB server with the wsrep API patch; and
+- Galera Replication Plugin installed.
 
-	  
+.. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, though, you must apply this patch manually.
+
+
 -------------------------------
 Preparing the Server
 -------------------------------
 .. _`system-requirements`:
 
-Before you begin the installation process, there are a few tasks that you need to undertake to prepare the servers for Galera Cluster.  You must perform the following steps for each node in your cluster.
+Before you begin the installation process, there are a few tasks that you need to do to prepare the servers for Galera Cluster.  You must perform the following steps on each node in your cluster.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Disabling SELinux for mysqld
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`disable-selinux`:
 
-If you have SELinux enabled, it may block ``mysqld`` from carrying out required operations.  You must either disable SELinux for mysqld or configure it to allow ``mysqld`` to run external programs and open listen sockets on unprivileged ports |---| that is, things that an unprivileged user can do.
+If SELinux (Security-Enhanced Linux) is enabled on the servers, it may block ``mysqld`` from performing required operations.  You must either disable SELinux for ``mysqld`` or configure it to allow ``mysqld`` to run external programs and open listen sockets on unprivileged ports |---| that is, operations that an unprivileged user may do.
 
-To disable SELinux for mysql run the following command:
+To disable SELinux for ``mysqld``, execute the following from the command-line:
 
 .. code-block:: console
 
    # semanage permissive -a mysqld_t
 
-This command switches SELinux into permissive mode when it registers activity from the database server.  While this is fine during the installation and configuration process, it is not in general a good policy to disable applications that improve security.  
+This command switches SELinux into permissive mode when it registers activity from the database server.  While this is fine during the installation and configuration process, it is not in general a good policy to disable security applications.
 
-In order to use SELinux with Galera Cluster, you need to create an access policy, so that SELinux can understand and allow normal operations from the database server.  For information on how to create an access policy, see :doc:`selinux`.
+Rather than disable SELinux, so that your may use it along with Galera Cluster, you will need to create an access policy. This will allow SELinux to understand and allow normal operations from the database server.  For information on how to create such an access policy, see :doc:`selinux`.
 
 .. note:: **See Also**: For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.
-.. Revision Note: Add a label for port 4567 as mysqld_port_t, check if other ports on the firewall need something similar.  Check if AppArmor requires a similar label as well.
-	     
+.. Revision Note: Add a label for port 4567 as ``mysqld_port_t``. Also, check if other ports on the firewall need something similar.  See if AppArmor requires a similar label, as well.
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`firewall-config`:
 
-Next, you need to update the firewall settings on each node so that they can communicate with the cluster.  How you do this varies depending upon your distribution and the particular firewall software that you use.
+Next, you will need to update the firewall settings on each node so that they may communicate with the cluster.  How you do this varies depending upon your distribution and the particular firewall software that you use.
 
 .. note:: If there is a :abbr:`NAT (Network Address Translation)` firewall between the nodes, you must configure it to allow for direct connections between the nodes, such as through port forwarding.
 
-As an example, to open ports between trusted hosts using ``iptables`` the commands you run on each  would look something like this:
+As an example, to open ports between trusted hosts using ``iptables``, you would execute something like the following on each node:
 
 .. code-block:: console
-		
+
    # iptables --append INPUT --protocol tcp \
          --source 64.57.102.34 --jump ACCEPT
    # iptables --apend INPUT --protocol tcp \
@@ -125,13 +128,13 @@ If instead, your system uses ``systemd``, run the following command instead:
 
   $ sudo systemctl restart apparmor
 
- 
+
 ---------------------------
 Installing Galera Cluster
 ---------------------------
 .. _`galera-install`:
 
-There are three versions of Galera Cluster for MySQL: the original Codership reference implementation; Percona XtraDB Cluster; and MariaDB Galera Cluster.  For each database server, binary packages are available for Debian- and RPM-based Linux distributions, or you can build them from source.
+There are two versions of Galera Cluster for MySQL: the original Codership reference implementation and MariaDB Galera Cluster.  For each database server, binary packages are available for Debian- and RPM-based Linux distributions, or you can build them from source.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Galera Cluster for MySQL
@@ -144,15 +147,6 @@ Galera Cluster for MySQL
    installmysqlsrc
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Percona XtraDB Cluster
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. toctree::
-   :maxdepth: 1
-	      
-   installxtradb
-   installxtradbsrc
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 MariaDB Galera Cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -161,9 +155,9 @@ MariaDB Galera Cluster
 
    installmariadb
    installmariadbsrc
-  
 
-.. note:: **See Also**: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL, MariaDB or Percona XtraDB there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
+
+.. note:: **See Also**: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
 
