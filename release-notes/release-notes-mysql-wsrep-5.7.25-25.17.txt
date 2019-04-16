@@ -17,7 +17,8 @@ The source repositories and bug tracking are now on http://www.github.com/coders
 
 New features in MySQL-wsrep:
 
-* Packages for openSUSE Leap 15 were added in this release.
+* Packages for openSUSE Leap 15 and Ubuntu 18.04 Bionic Beaver were added
+  in this release.
 
 Known issues with this release:
 
