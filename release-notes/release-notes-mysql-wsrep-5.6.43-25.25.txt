@@ -14,7 +14,8 @@ This and future releases will be available from http://www.galeracluster.com.
 The latest version of MySQL-wsrep 5.6 for FreeBSD is available in the FreeBSD
 Ports Collection.
 
-The source repositories and bug tracking are now on http://www.github.com/codership.
+The source repositories and bug tracking are now on
+https://github.com/codership/mysql-wsrep.
 
 
 Known issues with this release:
