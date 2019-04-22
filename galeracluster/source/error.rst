@@ -10,36 +10,35 @@ Server Error Log
 
 The node is attempting to initiate a :term:`State Snapshot Transfer`.
 
-In the event that you do not explicitly set the donor node through :ref:`wsrep_sst_donor <wsrep_sst_donor>`, the Group Communication module selects a donor based on the information available about the node states.
+In the event that you do not explicitly set the donor node through :ref:`wsrep_sst_donor <wsrep_sst_donor>`, the *Group Communication* module will select a donor based on the information available about the node states.
 
-Group Communication monitors node states for the purposes of flow control, state transfers and quorum calculations.  That is, to ensure that a node that shows as ``JOINING`` does not count towards flow control and quorum.
+Group Communication monitors node states for the purposes of flow control, state transfers and quorum calculations.  It ensures that a node that shows as ``JOINING`` doesn't count towards flow control and quorum.
 
-The node can serve as a donor when it is in the ``SYNCED`` state.  The joiner node selects a donor from the available synced nodes.  It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option or it selects the first in the index.  When the donor node is chosen its state changes immediately to ``DONOR``, meaning that it is no longer available for requests.
+A node can serve as a donor when it is in the ``SYNCED`` state.  The joiner node selects a donor from the available synced nodes.  It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option, or it selects the first in the index.  When a donor node is chosen, its state changes immediately to ``DONOR``. It's no longer available for requests.
 
-If the node can find no free nodes that show as ``SYNCED``, the joining node reports:
+If a node can find no free nodes that show as ``SYNCED``, the joining node reports the following:
 
 .. code-block:: text
 
    Requesting state transfer failed: -11(Resource temporarily
    unavailable).  Will keep retrying every 1 second(s).
 
-The joining node continues to retry the state transfer request.
-
+The joining node will continue to retry the state transfer request.
 
 
 
 .. rubric:: ``SQL SYNTAX`` Errors
 .. _`sql-syntax`:
 
-When a :term:`State Snapshot Transfer` fails using ``mysqldump`` for any reason, the node writes a ``SQL SYNTAX`` message into the server error logs.
+When a :term:`State Snapshot Transfer` fails using ``mysqldump`` for any reason, the node will write a ``SQL SYNTAX`` message into the server error logs.
 
-This is a pseudo-statement.  You can find the actual error message the state transfer returned within the ``SQL SYNTAX`` entry.  It provides the information you need to correct the problem.
+This is a pseudo-statement, though.  You can find the actual error message the state transfer returned within the ``SQL SYNTAX`` entry.  It will provide the information you need to correct the problem.
 
 
 .. rubric:: ``Commit failed for reason: 3``
 .. _`commit-failed-reason-3`:
 
-When you have :ref:`wsrep_debug <wsrep_debug>` turned ``ON``, you may occasionally see a message noting that a commit has failed due to reason ``3``.  For example:
+When you have :ref:`wsrep_debug <wsrep_debug>` turned ``ON``, you may occasionally see a message noting that a commit has failed due to reason ``3``.  Below is an example of this:
 
 .. code-block:: text
   
@@ -52,11 +51,13 @@ When attempting to apply a replicated write-set, slave threads occasionally enco
 
 This is a consequence of optimistic transaction execution.  The database server executes transaction under the expectation that there will be no row conflicts.  It is an expected issue in a multi-master configuration.
 
-To mitigate such conflicts:
+To mitigate such conflicts, there are a couple of things you can do:
 
 - Use the cluster in a master-slave configuration.  Direct all writes to a single node.
 
-- Use the same approaches as for master-slave read/write splitting.
+- Use the same approach as master-slave read/write splitting.
 
 
-
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:
+  
