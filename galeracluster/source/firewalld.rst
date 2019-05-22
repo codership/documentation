@@ -3,41 +3,42 @@ Firewall Configuration with FirewallD
 ======================================
 .. _`firewalld`:
 
-The firewall daemon, or FirewallD, is an interface for dynamically managing firewalls on Linux operating systems, allowing you to set up, maintain and inspect IPv4 and IPv6 firewall rules.
+The firewall daemon, or FirewallD, is an interface for dynamically managing firewalls on Linux operating systems. It allows you to set up, maintain and inspect IPv4 and IPv6 firewall rules.
 
-FirewallD includes support for defining zones, allowing you to set the trust level of a given network connection or interface.  For example, when deploying nodes that connect to each other over the internet, rather than a private network, you might configure your firewall around the ``public`` zone.  This assumes that other computers on the network are untrusted and only accepts designated connections.
+FirewallD includes support for defining zones. This allows you to set the trust level of a given network connection or interface.  For example, when deploying nodes that connect to each other over the internet--rather than a private network--you might configure your firewall around the ``public`` zone.  This assumes that other computers on the network are untrusted and only accept designated connections.
 
 .. note:: For more information on FirewallD, see the `Documentation <https://fedoraproject.org/wiki/FirewallD>`_.
+
 
 --------------------------------------
 Opening Ports for Galera Cluster
 --------------------------------------
 .. _`firewalld-ports`:
 
-Galera Cluster requires four ports open for replication over TCP, and, in the event that you want to use multicast replication, one for UDP transport.  In order for this to work over FirewallD, you also need to add the database service to your firewall rules.
+Galera Cluster requires four open ports for replication over TCP. To use multicast replication, it also requires one for UDP transport.  In order for this to work over FirewallD, you also need to add the database service to the firewall rules.
 
-#. Enable the database service for FirewallD:
+To enable the database service for FirewallD, you would enter something like the following at the command-line:
 
-   .. code-block:: console
+ .. code-block:: console
 
-      # firewall-cmd --zone=public --add-service=mysql
+    # firewall-cmd --zone=public --add-service=mysql
 
-#. Open the TCP ports for Galera Cluster:
+Next, you will need to open the TCP ports for Galera Cluster. Do this by executing the following from the command-line:
 
-   .. code-block:: console
+ .. code-block:: console
 
-      # firewall-cmd --zone=public --add-port=3306/tcp
-      # firewall-cmd --zone=public --add-port=4567/tcp
-      # firewall-cmd --zone=public --add-port=4568/tcp
-      # firewall-cmd --zone=public --add-port=4444/tcp
+    # firewall-cmd --zone=public --add-port=3306/tcp
+    # firewall-cmd --zone=public --add-port=4567/tcp
+    # firewall-cmd --zone=public --add-port=4568/tcp
+    # firewall-cmd --zone=public --add-port=4444/tcp
 
-#. Optionally, in the event that you would like to use multicast replication, run this command as well to open UDP transport on ``4567``:
+Optionally, if you would like to use multicast replication, execute the following from the command-line to open UDP transport on ``4567``:
 
-   .. code-block:: console
+ .. code-block:: console
 
-      # firewall-cmd --zone=public --add-port=4567/udp
+    # firewall-cmd --zone=public --add-port=4567/udp
 
-These commands dynamically configure FirewallD.  Your firewall now permits the rest of the cluster to connect to the node hosted on this server.  Repeat the above commands on each server.  Bear in mind, these changes are not persistent.  When the server reboots, FirewallD returns to its default state.
+These commands dynamically configure FirewallD. Your firewall will then permit the rest of the cluster to connect to the node hosted on the server.  Repeat the above commands on each server.  Keep in mind, changes to the firewall made by this method are not persistent.  When the server reboots, FirewallD will return to its default state.
 
 
 
@@ -46,40 +47,44 @@ Making Firewall Changes Persistent
 --------------------------------------
 .. _`firewalld-persistent`:
 
-The commands given in the above section allow you to configure FirewallD on a running server and update the firewall rules without restarting.  However, these changes are not persistent.  When the server restarts, FirewallD reverts to its default configuration.  To update the default configuration yourself, a somewhat different approach is required:
+The commands given in the above section allow you to configure FirewallD on a running server and update the firewall rules without restarting.  However, these changes are not persistent.  When the server restarts, FirewallD reverts to its default configuration.  To change the default configuration, a somewhat different approach is required:
 
 
-#. Enable the database service for FirewallD:
+First, enable the database service for FirewallD by entering the following from the command-line:
 
-   .. code-block:: console
+ .. code-block:: console
 
-      # firewall-cmd --zone=public --add-service=mysql \
-            --permanent
+    # firewall-cmd --zone=public --add-service=mysql \
+          --permanent
 
-#. Open the TCP ports for Galera Cluster:
+Now, you'll need to open the TCP ports for Galera Cluster.  To do so, enter the following lines from the command-line:
 
-   .. code-block:: console
+ .. code-block:: console
 
-      # firewall-cmd --zone=public --add-port=3306/tcp \
-            --permanent
-      # firewall-cmd --zone=public --add-port=4567/tcp \ 
-            --permanent
-      # firewall-cmd --zone=public --add-port=4568/tcp \
-            --permanent
-      # firewall-cmd --zone=public --add-port=4444/tcp \
-            --permanent
+    # firewall-cmd --zone=public --add-port=3306/tcp \
+          --permanent
+    # firewall-cmd --zone=public --add-port=4567/tcp \ 
+          --permanent
+    # firewall-cmd --zone=public --add-port=4568/tcp \
+          --permanent
+    # firewall-cmd --zone=public --add-port=4444/tcp \
+          --permanent
 
-#. Optionally, in the event that you would like to use multicast replication, run this command as well to open UDP transport on ``4567``:
+If you would like to use multicast replication, execute the following command. It will open UDP transport on ``4567``.
 
-   .. code-block:: console
+ .. code-block:: console
 
-      # firewall-cmd --zone=public --add-port=4567/udp \
-            --permanent
+    # firewall-cmd --zone=public --add-port=4567/udp \
+          --permanent
 
-#. Reload the firewall rules, maintaining the current state information:
+Now you just need to reload the firewall rules, maintaining the current state information. To do this, executing the following:
 
-   .. code-block:: console
+ .. code-block:: console
 
-      # firewall-cmd --reload
+    # firewall-cmd --reload
 
-These commands modify the default FirewallD settings and then cause the new settings take effect immediately.  FirewallD is now configured to allow the rest of the cluster to access this node.  The configuration remains in effect across reboots.
+These commands modify the default FirewallD settings and then cause the new settings to take effect, immediately.  FirewallD will then be configured to allow the rest of the cluster to access the node.  The configuration remains in effect after reboots. You'll have to repeat these commands on each server. 
+
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

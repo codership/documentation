@@ -3,15 +3,15 @@ Security
 --------
 .. _`security`:
 
-On occasion, you may want or need to enable degrees of security that go beyond the basics of unix file permissions and secure database management.  For situations such as these,  you can secure both the communications between the nodes and the client connections between the application servers and the cluster.
+On occasion, you may want or need to enable degrees of security that go beyond the basics of Unix file permissions and secure database management.  For situations such as these,  you can secure both node communications and client connections between the application servers and the cluster.
 
 - :doc:`firewallsettings`
 
-  In order to use Galera Cluster, nodes must have access to a number of ports in order to maintain network connectivity with the cluster.  While it was touched upon briefly in the :ref:`Installation <firewall-config>` chapter, this chapter provides more detailed guides on configuring your system firewall using iptables, FirewallD and PF.
+  In order to use Galera Cluster, nodes must have access to a number of ports to maintain network connectivity with the cluster.  While it was touched upon briefly in the :ref:`Installation <firewall-config>` chapter, this chapter provides more detailed guides on configuring a system firewall using ``iptables``, FirewallD and PF.
   
 - :doc:`ssl`
 
-  In order to secure communications both between the nodes and from the application severs, you can enable encryption through the SSL protocol for client connections, replication traffic and State Snapshot Transfers.  This chapter provides guides to setting up SSL on Galera Cluster.
+  To secure communications between nodes and from the application severs, you can enable encryption through the SSL protocol for client connections, replication traffic and State Snapshot Transfers.  This chapter provides guidance to configuring SSL on Galera Cluster.
   
 - :doc:`selinux`
 

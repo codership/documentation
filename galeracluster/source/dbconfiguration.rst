@@ -3,17 +3,17 @@ Replication Configuration
 =============================
 .. _`wsrep-config`:
 
-In addition to the configuration for the database server, there are some specific options that you need to set to enable write-set replication.  You must apply these changes to the configuration file, that is ``my.cnf``, for each node in your cluster.
+In addition to the configuration for the database server, there are some specific options that you need to set to enable write-set replication.  You must apply these changes to the configuration file (i.e., ``my.cnf``) for each node in the cluster.
 
-- :ref:`wsrep_cluster_name <wsrep_cluster_name>` Use this parameter to set the logical name for your cluster.  You must use the same name for every node in your cluster.  The connection fails on nodes that have different values for this parameter.
+- :ref:`wsrep_cluster_name <wsrep_cluster_name>`: Use this parameter to set the logical name for the cluster.  You must use the same name for each node in the cluster.  The connection will fail on nodes that have different values for this parameter.
 
-- :ref:`wsrep_cluster_address <wsrep_cluster_address>` Use this parameter to define the IP addresses for the cluster in a comma separated list.
+- :ref:`wsrep_cluster_address <wsrep_cluster_address>`: Use this parameter to define the IP addresses for the cluster in a comma-separated list.
 
-  .. note:: **See Also**: There are additional schemas and options available through this parameter.  For more information on the syntax, see :ref:`Understanding Cluster Addresses <understanding-cluster-addresses>` below.
+  .. note:: **See Also**: There are additional schemata and options available through this parameter.  For more information on the syntax, see :ref:`Understanding Cluster Addresses <understanding-cluster-addresses>` below.
 
-- :ref:`wsrep_node_name <wsrep_node_name>` Use this parameter to define the logical name for the individual node |---| for convenience.
+- :ref:`wsrep_node_name <wsrep_node_name>`: Use this parameter to define the logical name for the individual node |---| for convenience.
 
-- :ref:`wsrep_node_address <wsrep_node_address>` Use this parameter to explicitly set the IP address for the individual node.  It gets used in the event that the auto-guessing does not produce desirable results.
+- :ref:`wsrep_node_address <wsrep_node_address>`: Use this parameter to set explicitly the IP address for the individual node.  It's used when auto-guessing doesn't produce desirable results.
 
 
 .. code-block:: ini
@@ -26,27 +26,17 @@ In addition to the configuration for the database server, there are some specifi
 
 
 
--------------------------------------
-Understanding Cluster Addresses
--------------------------------------
-.. _`understanding-cluster-addresses`:
-
-For each node in the cluster, you must provide IP addresses for all other nodes in the cluster, using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Cluster addresses are listed using a particular syntax:
-
-.. code-block:: ini
-
-	<backend schema>://<cluster address>[?<option1>=<value1>[&<option2>=<value2>]]
-
 ^^^^^^^^^^^^^^^^^^^
 Backend Schema
 ^^^^^^^^^^^^^^^^^^^
 .. _`backend-schema`:
 
-There are two backend schemas available for Galera Cluster.
+There are two backend schemata available with Galera Cluster.
 
-- ``dummy`` Which provides a pass-through back-end for testing and profiling purposes.  It does not connect to any other nodes.  It ignores any values given to it.
+- ``dummy``: This provides a pass-through back-end for testing and profiling purposes.  It doesn't connect to other nodes and will ignore any values given to it.
 
-- ``gcomm`` Which provides the group communications back-end for use in production.  It takes an address and has several settings that you can enable through the option list, or by using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter.
+- ``gcomm``: This provides the group communications back-end for use in production.  It accepts an address and has several settings that may be enabled through the option list, or by using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter.
+
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -54,13 +44,24 @@ Cluster Addresses
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`cluster-addresses`:
 
-For this section, provide a comma separate list of IP addresses for nodes in the cluster.  The values here can indicate,
+For the cluster address section, you have to provide a comma-separate list of IP addresses for all of the nodes in the cluster.  You would do this using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Cluster addresses are listed in the configuration file using a particular syntax, like so:
 
-- The IP addresses of any current members, in the event that you want to connect to an existing cluster; or,
+.. code-block:: ini
 
-- The IP addresses of any possible cluster members, assuming that the list members can belong to no more than one Primary Component;
+	<backend schema>://<cluster address>[?<option1>=<value1>[&<option2>=<value2>]]
+	
+Below is an example of how this line from the configuration file might look:  
 
-If you start the node without an IP address for this parameter, the node assumes that it is the first node of a new cluster.  It initializes a cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option. 
+.. code-block:: ini
+
+   wsrep_cluster_address="gcomm://192.168.0.1,192.168.0.2,192.168.0.3"
+
+Here, the backend schema is ``gcomm``.  The cluster addresses (i.e., ``192.168.0.1``, etc.) are listed next, separted by commas.  You can add options after that, within the quotes. You would start with a question mark, followed by each option setting. Option key/value pairs are separated by an ampersand. This is covered in the Options section below.
+
+The IP addresses given in the configuration file should include any current members of the cluster.  The list may also include the IP addresses of any possible cluster members. Members can belong to no more than one Primary Component;
+
+If you start a node without proving an IP address for this parameter, the node will assume that it's the first node of a new cluster.  It will initialize the cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option. 
+
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,22 +69,24 @@ Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`cluster-address-options`:
 
-You can also use the options list to set backend parameters, such as the listen address and timeout values.  
+When setting the IP address in the configuration file using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, you can also set some options. You can set backend parameters, such as the listen address and timeout values.
 
-.. note:: **See Also**: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on every connection to the cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter. 
+.. note:: **See Also**: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on each connection to a cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter. 
 
-The options list set in the URL take precedent over parameters set elsewhere.  Parameters that you can set through the options list are prefixed by ``evs``, ``pc`` and ``gmcast``.
+The options set in the URL take precedent over parameters set elsewhere.  Parameters you set through the options list are prefixed by ``evs`` (i.e., Extended Virtual Synchrony), ``pc`` (i.e., Primary Component) and ``gmcast``.
 
 .. note:: **See Also**: For more information on the available parameters, see :doc:`Galera Parameters <galeraparameters>`.
 
-You can set the options with a list of ``key=value`` pairs according to the URL standard.  For example,
+When listing options, start with a question mark after the IP address list. Then provide the options in a ``key=value`` format. Key/value pairs must be separated by an ampersand. Below is an example of how this might look:
 
 .. code-block:: ini
 
    wsrep_cluster_address="gcomm://192.168.0.1, 192.168.0.2, 192.168.0.3 ? gmcast.segment=0 & evs.max_install_timeouts=1" 
 
 
-.. note:: If the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it is not specified in the cluster address, the default port is ``4567``.
+In this example, the ``segment`` option for ``gcomm`` and the ``max_install_timeouts`` option for ``evs`` are set. 
+
+Incidentally, if the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it's not specified in the cluster address, the default port is ``4567``.
 
 
 

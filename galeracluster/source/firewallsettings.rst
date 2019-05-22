@@ -9,17 +9,17 @@
 .. index::
    single: Firewall settings; Ports
 
-Galera Cluster requires a number of ports in order to maintain network connectivity between the nodes.  Depending on your deployment, you may require all or some of these ports on each node in the cluster:
+Galera Cluster requires a number of ports to maintain network connectivity between the nodes.  Depending on your deployment, you may not require all of these ports, but a cluster might require all of them on each node.  Below is a list of these ports and their purpose:
 
-- ``3306`` For MySQL client connections and :term:`State Snapshot Transfer` that use the ``mysqldump`` method.
+- ``3306`` is the default port for MySQL client connections and :term:`State Snapshot Transfer` using ``mysqldump`` for backups.
 
-- ``4567`` For Galera Cluster replication traffic, multicast replication uses both UDP transport and TCP on this port.
+- ``4567`` is reserved for Galera Cluster replication traffic. Multicast replication uses both TCP and UDP transport on this port.
 
-- ``4568`` For :term:`Incremental State Transfer`.
+- ``4568`` is the port for :term:`Incremental State Transfer`.
 
-- ``4444`` For all other :term:`State Snapshot Transfer`.
+- ``4444`` is used for all other :term:`State Snapshot Transfer`.
 
-How to open these ports for Galera Cluster can vary depending upon your distribution and what you use to configure the firewall.  
+How these ports are enabled for Galera Cluster can vary depending upon your operating system distribution and what you use to configure the firewall.  
 
 .. toctree::
    :maxdepth: 2
