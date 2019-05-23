@@ -14,6 +14,10 @@ Defining persistent configurations in Galera Cluster is done through the underly
 - :doc:`mysqlwsrepoptions`
 
   In addition to the standard configuration variables available through the database server, Galera Cluster implements several that are unique and specific to fine-tuning database replication.  This chapter provides a reference guide to these new configuration variables in Galera Cluster
+  
+- :doc:`mysqlwsrepfunctions`
+
+  There are a few Galera specific functions. This page lists and explains them, as well as gives examples of their use.
 
 - :doc:`galeraparameters`
 
@@ -49,6 +53,11 @@ In some cases your configuration or implementation may require that you work wit
 - :doc:`versioninginformation`
 
   While the documentation follows a convention of 3.x in speaking of release versions for Galera Cluster, in practice the numbering system is somewhat more complicated: covering releases of the underlying database server, the wsrep Provider and the wsrep API.  This chapter provides a more thorough explanation of versioning with Galera Cluster.
+
+- :doc:`systemtables`
+
+  This page provides information on the Galera specific system tables.  These were added as of version 4 of Galera.
+
 
 - :doc:`legalnotice`
 

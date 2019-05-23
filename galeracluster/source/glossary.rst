@@ -8,11 +8,11 @@
 
 
    Galera Arbitrator
-      External process that functions as an additional node in certain cluster operations, such as quorum calculations and generating consistent application state snapshots.
+      An external process that functions as an additional node in certain cluster operations, such as quorum calculations and generating consistent application state snapshots.
 
-      Consider a situation where you cluster becomes partitioned due to a loss of network connectivity that results in two components of equal size.  Each component initiates quorum calculations to determine which should remain the :term:`Primary Component` and which should become a nonoperational component.  If the components are of equal size, it risks a split-brain condition.  Galera Arbitrator provides an addition vote in the quorum calculation, so that one component registers as larger than the other.  The larger component then remains the Primary Component.  
+      For example, consider a situation where your cluster becomes partitioned due to a loss of network connectivity that results in two components of equal size.  Each component initiates quorum calculations to determine which should remain the :term:`Primary Component` and which should become a non-operational component.  If the components are of equal size, it risks a split-brain condition.  Galera Arbitrator provides an addition vote in the quorum calculation, so that one component registers as larger than the other.  The larger component then remains the Primary Component.  
 
-      Unlike the main ``mysqld`` process, ``garbd`` does not generate replication events of its own and does not store replication data, but it does acknowledge all replication events.  Furthermore, you can route replication through Galera Arbitrator, such as when generating a consistent application state snapshot for backups.
+      Unlike the main ``mysqld`` process, ``garbd`` doesn't generate replication events of its own and doesn't store replication data. It does, however, acknowledge all replication events.  Furthermore, you can route replication through Galera Arbitrator, such as when generating a consistent application state snapshot for backups.
 
       .. note:: **See Also**: For more information, see :doc:`arbitrator` and :doc:`backingupthecluster`.
 
@@ -20,24 +20,18 @@
    Galera Replication Plugin
       Galera Replication Plugin is a general purpose replication plugin for any transactional system. It can be used to create a synchronous multi-master replication solution to achieve high availability and scale-out.
       
-      .. note:: **See Also**: For more information, see :ref:`Galera Replication Plugin <galera-replication-plugin>` for more details.
+      .. note:: **See Also**: See :ref:`Galera Replication Plugin <galera-replication-plugin>` for more details.
 
    Global Transaction ID
-      To keep the state identical on all nodes, the :term:`wsrep API` uses global transaction IDs (GTID), which are used to both:
+      To keep the state identical on all nodes, the :term:`wsrep API` uses global transaction IDs (GTID), which are used to identify the state change and to identify the state itself by the ID of the last state change
 
-        - Identify the state change
-        - Identify the state itself by the ID of the last state change
-
-      The GTID consists of:
-
-        - A state UUID, which uniquely identifies the state and the sequence of changes it undergoes
-        - An ordinal sequence number (seqno, a 64-bit signed integer) to denote the position of the change in the sequence
+      The GTID consists of a state UUID, which uniquely identifies the state and the sequence of changes it undergoes, and an ordinal sequence number (seqno, a 64-bit signed integer) to denote the position of the change in the sequence.
           
       .. note:: **See Also**: For more information on Global Transaction ID's, see :ref:`wsrep API <wsrep-api>`.
 
       
    Incremental State Transfer
-      In an Incremental State Transfer (IST) a node only receives the missing write-sets and catch up with the group by replaying them. See also the definition for State Snapshot Transfer (SST).
+      In an Incremental State Transfer (IST) a node only receives the missing write-sets and catchs up with the group by replaying them. See also the definition for State Snapshot Transfer (SST).
       
       .. note:: **See Also**: For more information on IST's, see :ref:`Incremental State Transfer (IST) <ist>`.
 
@@ -45,52 +39,23 @@
       See :term:`Incremental State Transfer`.
 
    Logical State Transfer Method
-      Type of back-end state transfer method that operates through the database server.  For example: ``mysqldump``.
+      This is a type of back-end state transfer method that operates through the database server (e.g., ``mysqldump``).
 
-      .. note:: **See Also**: For more information see, :ref:`Logical State Snapshot <sst-logical>`.
-
-   Non-Blocking Operation
-
-      The non-blocking operation schema upgrade is a :abbr:`DDL (Data Definition Language)` processing method, where the cluster replicates a limited subset of DDL statements without blocking reads or writes on the nodes during the process.
-
-      When the DDL statement starts, the relevant table is locked using metadata locks.  The DDL statement is then replicated to all nodes in the cluster.  The node apply the changes, then simultaneously release the locks.
-
-      DDL statements that support Non-Blocking Operation:
-
-      - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE}, alter_specification``
-      - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} PARTITION``
-      - ``ANALYZE TABLE``
-      - ``OPTIMIZE TABLE`` 
-
-      .. note:: For partition management, no comma is used after ``LOCK = {SHARED|EXCLUSIVE}``
-
-
-      DDL statements that do not support Non-Blocking Operation:
-
-      - ``ALTER TABLE LOCK = {DEFAULT|NONE}``, including ``ALTER`` statements without the ``LOCK`` clause, as these default to the ``DEFAULT`` lock.
-      - ``CREATE``, ``RENAME``, ``DROP`` and ``REPAIR``.
-
-      Issuing unsupported operations while using the Non-Blocking Operation method results in an error code.
-
-      Given its :ref:`limitations <nbo-limitations>`, the recommended method for using this online schema upgrade method is to enable it as a session variable, update the schema, then reset :ref:`wsrep_OSU_method <wsrep_OSU_method>` back to either ``RSU`` or ``TOI``.
-
-	
-   NBO
-      See :term:`Non-Blocking Operation`.
+      .. note:: **See Also**: For more information, see :ref:`Logical State Snapshot <sst-logical>`.
 
 
    Physical State Transfer Method
-      Type of back-end state transfer method that operates on the physical media in the datadir.  For example: ``rsync`` and ``xtrabackup``.
+      This is another type of back-end state transfer method, but it operates on the physical media in the datadir (e.g., ``rsync`` and ``xtrabackup``).
 
-      .. note:: **See Also**: For more information see, :ref:`Physical State Snapshot <sst-physical>`.
+      .. note:: **See Also**: For more information, see :ref:`Physical State Snapshot <sst-physical>`.
       
    Primary Component
-      In addition to single node failures, the cluster may be split into several components due to network failure. In such a situation, only one of the components can continue to modify the database state to avoid history divergence. This component is called the Primary Component (PC). 
+      In addition to single-node failures, the cluster may be split into several components due to network failure. In such a situation, only one of the components can continue to modify the database state to avoid history divergence. This component is called the Primary Component (PC). 
       
-      .. note:: **See Also**: For more information on the Primary Component, see :doc:`weightedquorum` for more details.
+      .. note:: **See Also**: For more information on the Primary Component, see :doc:`weightedquorum`.
 
    Rolling Schema Upgrade
-      The rolling schema upgrade is a :abbr:`DDL (Data Definition Language)` processing method, where the :abbr:`DDL (Data Definition Language)` will only be processed locally at the node. The node is desynchronized from the cluster for the duration of the :abbr:`DDL (Data Definition Language)` processing in a way that it does not block the rest of the nodes.  When the :abbr:`DDL (Data Definition Language)` processing is complete, the node applies the delayed replication events and synchronizes back with the cluster.
+      The rolling schema upgrade is a :abbr:`DDL (Data Definition Language)` processing method in which the :abbr:`DDL (Data Definition Language)` will only be processed locally on the node. The node is desynchronized from the cluster for the duration of the :abbr:`DDL (Data Definition Language)` processing in a way that it doesn't block the other nodes.  When the :abbr:`DDL (Data Definition Language)` processing is complete, the node applies the delayed replication events and synchronizes with the cluster.
       
       .. note:: **See Also**: For more information, see :ref:`Rolling Schema Upgrade <rsu>`.
 
@@ -100,31 +65,31 @@
    seqno
       See :term:`Sequence Number`.
 
-   sequence number
-      64-bit signed integer that the node uses to denote the position of a given transaction in the sequence.  The seqno is second component to the :term:`Global Transaction ID`.
+   Sequence Number
+      This is a 64-bit signed integer that the node uses to denote the position of a given transaction in the sequence.  The seqno is second component to the :term:`Global Transaction ID`.
       
    State Snapshot Transfer
-      State Snapshot Transfer refers to a full data copy from one cluster node (donor) to the joining node (joiner). See also the definition for Incremental State Transfer (IST).
+      State Snapshot Transfer refers to a full data copy from one cluster node (i.e., a donor) to the joining node (i.e., a joiner). See also the definition for Incremental State Transfer (IST).
       
       .. note:: **See Also**: For more information, see :ref:`State Snapshot Transfer (SST) <sst>`.
 
    State UUID
-      Unique identifier for the state of a node and the sequence of changes it undergoes.  It is the first component of the :term:`Global Transaction ID`.
+      Unique identifier for the state of a node and the sequence of changes it undergoes.  It's the first component of the :term:`Global Transaction ID`.
 
    SST
       See :term:`State Snapshot Transfer`.
 
 
    Streaming Replication
-      Provides an alternative replication method for handling large or long-running write transactions.  This is a new feature in version 4.0 of Galera Cluster.  In older versions the feature is unsupported.
+      This provides an alternative replication method for handling large or long-running write transactions.  It's a new feature in version 4.0 of Galera Cluster.  In older versions, the feature is unsupported.
 
-      Under normal operation, the node performs all replication and certification operations when the transaction commits, which with large transactions can result in conflicts if smaller transactions are committed first.  With Streaming Replication, the node breaks the transaction into fragments, then certifies and replicates them to all nodes while the transaction is still in progress.  Once certified, a fragment can no longer be aborted by a conflicting transaction.
+      Under normal operation, the node performs all replication and certification operations when the transaction commits. With large transactions this can result in conflicts if smaller transactions are committed first.  With Streaming Replication, the node breaks the transaction into fragments, then certifies and replicates them to all nodes while the transaction is still in progress.  Once certified, a fragment can no longer be aborted by a conflicting transaction.
 
       .. note:: For more information see :doc:`streamingreplication` and :doc:`usingsr`.
 
    
    Total Order Isolation
-      By default, :abbr:`DDL (Data Definition Language)` statements are processed by using the Total Order Isolation (TOI) method. In TOI, the query is replicated to the nodes in a statement form before executing on master. The query waits for all preceding transactions to commit and then gets executed in isolation on all nodes simultaneously.
+      By default, :abbr:`DDL (Data Definition Language)` statements are processed by using the Total Order Isolation (TOI) method. In TOI, the query is replicated to the nodes in a statement form before executing on the master. The query waits for all preceding transactions to commit and then gets executed in isolation on all nodes, simultaneously.
       
       .. note:: **See Also**: For more information, see :ref:`Total Order Isolation <toi>`.
 
@@ -135,7 +100,7 @@
       Transaction commits the node sends to and receives from the cluster. 
 
    Write-set Cache
-      Galera stores write-sets in a special cache called Write-set Cache (GCache).  In short, GCache is a memory allocator for write-sets and its primary purpose is to minimize the write set footprint on the RAM.
+      Galera stores write-sets in a special cache called, Write-set Cache (GCache). GCache is a memory allocator for write-sets. Its primary purpose is to minimize the write set footprint on the RAM.
       
       .. note:: **See Also**: For more information, see :ref:`Write-set Cache (GCache) <gcache>`.
 

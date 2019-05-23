@@ -25,7 +25,7 @@ MySQL wsrep Functions
 .. index::
    pair: Galera Cluster 4.x; Synchronization Functions
    
-Returns the :term:`Global Transaction ID` of the last write transaction observed by the client.
+Much like ``LAST_INSERT_ID()`` for getting the identification number of the last row inserted in MySQL, this function returns the :term:`Global Transaction ID` of the last write transaction observed by the client.
 
 +---------------+----------------------------+
 | **Function**  | ``WSREP_LAST_SEEN_GTID()`` |
@@ -35,8 +35,9 @@ Returns the :term:`Global Transaction ID` of the last write transaction observed
 | **Support**   | 4+                         |
 +---------------+----------------------------+
 
-This function returns the Global Transaction ID of the last write transaction observed by the client.  You may find it useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`, using this parameter to identify the transaction it should wait on before unblocking the client.
+This function returns the :term:`Global Transaction ID` of the last write transaction observed by the client. It can be useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`. You can use this parameter to identify the transaction upon which it should wait before unblocking the client.
 
+Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function to get the Global Transaction ID of the last write transaction observed:
 
 .. code-block:: mysql
 
@@ -51,7 +52,7 @@ This function returns the Global Transaction ID of the last write transaction ob
 .. index::
    pair: Galera Cluster 4.x; Synchronization Functions
    
-Returns the :term:`Global Transaction ID` of the last write transaction made by the client.
+This function returns the :term:`Global Transaction ID` of the last write transaction made by the client.
 
 
 +---------------+-------------------------------+
@@ -62,16 +63,20 @@ Returns the :term:`Global Transaction ID` of the last write transaction made by 
 | **Support**   | 4+                            |
 +---------------+-------------------------------+
 
-This function returns the Global Transaction ID of the last write transaction made by the client.  You may find it useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`, using this parameter to identify the transaction it should wait on before unblocking the client.
+This function returns the Global Transaction ID of the last write transaction made by the client.  This can be useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`. You can use this parameter to identify the transaction upon which it should wait before unblocking the client.
+
+Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function to get the Global Transaction ID of the last write transaction observed:
 
 .. code-block:: mysql
 
    BEGIN;
-   UPDATE table_name SET id = 0 WHERE field = 'example';
+   
+   UPDATE table_name SET id = 0 
+   WHERE field = 'example';
+   
    COMMIT;
+   
    SELECT WSREP_LAST_WRITTEN_GTID();
-
-
 
    
 .. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
@@ -81,7 +86,7 @@ This function returns the Global Transaction ID of the last write transaction ma
 .. index::
    pair: Galera Cluster 4.x; Synchronization Functions
    
-Blocks the client until the node applies and commits the given transaction.
+This function blocks the client until the node applies and commits the given transaction.
 
 +---------------+----------------------------------------------+
 | **Function**  | ``WSREP_LAST_WRITTEN_GTID()``                |
@@ -93,19 +98,22 @@ Blocks the client until the node applies and commits the given transaction.
 | **Support**   | 4+                                           |
 +---------------+----------------------------------------------+
 
-This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`.  If you don't provide a timeout, it defaults to the value of :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`.
+This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`.  If you don't provide a timeout, it defaults to the value of :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`. It the following return values:
 
-The function uses the following return values:
+- ``1``: The node applied and committed the given Global Transaction ID.
 
-- When the node applies and commits the given Global Transaction ID, it returns the value ``1``.
+- ``ER_LOCAL_WAIT_TIMEOUT`` Error: The function times out before the node can apply the transaction.
 
-- When the function times out before the node can apply the transaction, it returns an ``ER_LOCAL_WAIT_TIMEOUT`` error.
+- ``ER_WRONG_ARGUMENTS`` Error: The function is given an incorrect Global Transaction ID.
 
-- When the function is given an incorrect Global Transaction ID, it returns an ``ER_WRONG_ARGUMENTS`` error.
+
+Below is an example of how you might use the ``WSREP_SYNC_WAIT_UPTO_GTID()`` function:
 
 .. code-block:: mysql
 
    $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
    ...
    SELECT WSREP_SYNC_WAIT_UPTO_GTID($transaction_gtid);
+
+
 
