@@ -8,7 +8,7 @@
    pair: Logs; Debug log
 
 
-These are MySQL system variables introduced by wsrep API patch version 0.8. Almost all of the variables are global except for a few. Those are session variables.
+These are MySQL system variables introduced by wsrep API patch version 0.8. Almost all of the variables are global except for a few. Those are session variables.  If you click on a particular variable in this table, your web browser will scroll down to the entry for it with more details and an explanation.
 
 
 +---------------------------------------+-----------------------------+--------+---------+---------+
@@ -17,7 +17,7 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
 | :ref:`wsrep_auto_increment_control    | ``ON``                      |  Yes   | 1+      |         |
 | <wsrep_auto_increment_control>`       |                             |        |         |         |     
 +---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_causal_reads              | ``OFF``                     |  No    | 1 - 3.6 |         |
+| :ref:`wsrep_causal_reads              | ``OFF``                     |        | 1 - 3.6 |         |
 | <wsrep_causal_reads>`                 |                             |        |         |         |
 +---------------------------------------+-----------------------------+--------+---------+---------+
 | :ref:`wsrep_certify_nonPK             | ``ON``                      |  Yes   | 1+      |         |
@@ -77,10 +77,10 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
 | :ref:`wsrep_notify_cmd                |                             |  Yes   | 1+      |         |
 | <wsrep_notify_cmd>`                   |                             |        |         |         |
 +---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_on                        | ``ON``                      |  No    | 1+      |         |
+| :ref:`wsrep_on                        | ``ON``                      |        | 1+      |         |
 | <wsrep_on>`                           |                             |        |         |         |
 +---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_OSU_method                | ``TOI``                     |  No    | 3+      |         |
+| :ref:`wsrep_OSU_method                | ``TOI``                     |        | 3+      |         |
 | <wsrep_OSU_method>`                   |                             |        |         |         |
 +---------------------------------------+-----------------------------+--------+---------+---------+
 | :ref:`wsrep_preordered                | ``OFF``                     |  Yes   | 1+      |         |
@@ -140,6 +140,15 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
 | :ref:`wsrep_ws_persistency            |                             |  Yes   | 1       |         |
 | <wsrep_ws_persistency>`               |                             |        |         |         |
 +---------------------------------------+-----------------------------+--------+---------+---------+
+
+
+You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get list of all Galera related variables on your server:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep%';
+
+The results will vary depending on which version of Galera is running on your server. All of the parameters and variables possible are listed above, but they're listed below with explanations of each.
 
 
 .. rubric:: ``wsrep_auto_increment_control``

@@ -5,15 +5,11 @@ What's New in Galera Cluster 4.x
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
 .. index::
-   pair: Galera Cluster 4.x; Non-Blocking Operation
-.. index::
    pair: Galera Cluster 4.x; Synchronization Functions
+.. index::
+   pair: Galera Cluster 4.x; System Tables
 
-With the latest release of Galera Cluster in the 4.x branch, a number of new features are now available to you, including,
-
-- **Non-Blocking Operations** When performing DDL statements that update, analyze or optimize tables, you can now use the Non-Blocking Operation online schema upgrade method.  Unlike other methods, this allows you to update the cluster schema without blocking reads on the nodes.
-
-  For more information, see :ref:`Non-Blocking Operations <nbo>`.
+With the latest release of Galera Cluster in the 4.x branch, there are some new features available to you, including the following:
 
 - **Streaming Replication** Under normal operation, the node initiates all replication and certification operations when the transaction commits.  For large transactions, this can result in conflicts: smaller transactions can get in first and cause the large transactions to abort.  With Streaming Replication, the node breaks the transaction into fragments, then certifies and replicates them on all slave nodes while the transaction is still in progress.  Once certified, conflicting transactions can no longer abort the fragment.
 
@@ -25,6 +21,6 @@ With the latest release of Galera Cluster in the 4.x branch, a number of new fea
 
   For more information, see :ref:`Using Synchronization Functions <using-sync-functions>` and :doc:`mysqlwsrepfunctions`.
   
+- **Galera System Tables**  In version 4 of Galera, three system tables were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  These tables may be used by database administrators to get a sense the current activity of the nodes in a cluster.
 
-
-  
+  For more information, see :ref:`System Tables <system-tables>` and :doc:`system-tables`.

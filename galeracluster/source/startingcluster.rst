@@ -3,60 +3,59 @@ Starting the Cluster
 =====================================
 .. _`Starting a Cluster`:
 
-When you finish installing and configuring Galera Cluster you have the databases ready for use, but they are not yet connected to each other to form a cluster.  To do this, you will need to start ``mysqld`` on one node, using the ``--wsrep-new-cluster`` option.  This initializes the new :term:`Primary Component` for the cluster.  Each node you start after this will connect to the component and begin replication.
+After you finish installing MySQL (or MariaDB or Percona XtraDB to Galera Cluster) and Galera and have added the necessary settings for the configuration file needed for Galera Cluster, the next steps are to start the nodes that will form the cluster.  To do this, you will need to start the ``mysqld`` daemon on one node, using the ``--wsrep-new-cluster`` option.  This initializes the new :term:`Primary Component` for the cluster.  Each node you start after that will connect to the component and begin replication.
 
-Before you attempt to initialize the cluster, check that you have the following ready:
+Before you attempt to initialize the cluster, there are a few things you should verify are in place on each node and related services:
 
-- Database hosts with Galera Cluster installed, you will need a minimum of three hosts;
+- At least three servers with the same version of MySQL, MariaDB, or Percona XtraDB installed on each;
 
-- No firewalls between the hosts;
+- If you're using firewalls, make sure the ports 4444, 4567, and 4568 for TCP traffic, and 4567 for UPD traffic are open between the hosts;
 
-- SELinux and AppArmor set to permit access to ``mysqld``; and,
+- SELinux and AppArmor, whichever your system uses or both, has to be set to allow access to ``mysqld``; and,
 
-- Correct path to ``libgalera_smm.so`` given to the :ref:`wsrep_provider <wsrep_provider>` option.  For example,
+- Set the parameter for :ref:`wsrep_provider <wsrep_provider>` to the location of ``libgalera_smm.so``. That line in the configuration file might look like this:
 
   .. code-block:: ini
 
      wsrep_provider=/usr/lib64/libgalera_smm.so
 
-With the hosts prepared, you are ready to initialize the cluster.
+Once you have at least three hosts ready, you can initialize the cluster.
 
-.. note:: **See Also**: When migrating from an existing, standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there are some additional steps that you must take.  For more information on what you need to do, see :doc:`migration`.
+.. note:: **See Also**: When migrating from an existing, stand-alone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there will be some additional steps that you must take.  For more information on what you need to do, see :doc:`migration`.
 
 
 -------------------------------------
-Starting the First Cluster Node
+Starting the First Node
 -------------------------------------
 .. _`Starting First Cluster Node`:
 
-By default, nodes do not start as part of the :term:`Primary Component`.  Instead, they assume that the Primary Component exists already somewhere in the cluster.
+By default, a node don't start as part of the :term:`Primary Component`.  Instead, it assumes that the Primary Component is already running and it is merely joining an existing cluster.  For each node it encounters in the cluster, it checks whether or not it's a part of the Primary Component.  When it finds the Primary Component, it requests a state transfer to bring its database into sync with the cluster.  If it can't find the Primary Component, it will remains in a non-operational state.
 
-When nodes start, they attempt to establish network connectivity with the other nodes in the cluster.  For each node they find, they check whether or not it is a part of the Primary Component.  When they find the Primary Component, they request a state transfer to bring the local database into sync with the cluster.  If they cannot find the Primary Component, they remain in a nonoperational state.
-
-There is no Primary Component when the cluster starts.  In order to initialize it, you need to explicitly tell one node to do so with the ``--wsrep-new-cluster`` argument.  By convention, the node you use to initialize the Primary Component is called the first node, given that it is the first that becomes operational.
+The problem is that there is no Primary Component when a cluster starts, when the first node is initiated.  Therefore, you need explicitly to tell that first node to do so with the ``--wsrep-new-cluster`` argument.  Althought this initiate node is said to be the first node, it can fall behind and leave the cluster without necessarily affecting the Primary Component.
 
 .. note:: **See Also**: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`migration` and :doc:`quorumreset`. 
 
-Bear in mind, the first node is only "first" in that it initializes the Primary Component. This node can fall behind and leave the cluster without necessarily affecting the Primary Component.
-
-To start the first node, launch the database server on your first node.  For systems that use ``init``, run the following command:
+To start the first node--which should have MySQL, MariaDB or Percona XtraDB, and Galera installed--you'll have to launch the database server on it with the ``--wsrep-new-cluster`` option.  There are a few ways you might do this, depending on the operating system. For systems that use ``init``, execute the following from the command-line:
 
 .. code-block:: console
 
    # service mysql start --wsrep-new-cluster
 
-For systems that use ``systemd``, instead use this command:
+For operating systems that use ``systemd``, you would instead enter the following from the command-line:
 
 .. code-block:: console
 
    # systemctl start mysql --wsrep-new-cluster
 
-This starts ``mysqld`` on the node.
+Both of these start the ``mysqld`` daemon on the node. Starting in MariaDB version 10.4, which includes Galera version 4, you can enter instead the following from the command-line to start MariaDB, Galera, and to establish the Primary Component:
 
-.. note:: **Warning**: Only use the ``--wsrep-new-cluster`` argument when initializing the Primary Component.  Do not use it when you want the node to connect to an existing cluster.
+.. code-block:: console
 
+   # galera_new_cluster
 
-Once the node starts the database server, check that startup was successful by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  In the database client, run the following query:
+.. note:: **Warning**: Use the ``--wsrep-new-cluster`` argument only when initializing the Primary Component.  Don't use it to connect a new node to an existing cluster.
+
+Once the first node starts the database server, verify that the cluster has started, albeit a one-node cluster, by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  With the database client, execute the following SQL statement:
 
 .. code-block:: mysql
 
@@ -68,34 +67,35 @@ Once the node starts the database server, check that startup was successful by c
    | wsrep_cluster_size | 1     |
    +--------------------+-------+
 
-This status variable tells you the number of nodes that are connected to the cluster.  Since you have just started your first node, the value is ``1``.
+This status variable indicates the number of nodes that are connected to the cluster.  Since only the first node has been started, the value is ``1`` here.  After you start other nodes that will be part of this same cluster, execute this SQL statement again--on thee first node or any node you've verified are in the cluster.  The value should reflect the number of nodes in the cluster.
 
+Once you get the first node started and the Primary Component initialized, don't restart ``mysqld``. Instead, wait until you've added more nodes to the cluster so that it can stay viable without the first node. If you must restart the first node before adding other nodes, shutdown ``mysqld`` and then bootstrap start it again (e.g., execute ``galera_new_cluster``). If it won't start as easily as it did the first time, you may have to edit the file containing the Galera Saved State (i.e., /var/lib/mysql/grastate.dat).  The contents of that file will look something like this:
 
-.. note:: Do not restart ``mysqld`` at this point.
+.. code-block:: mysql
+
+   # GALERA saved state
+   version: 2.1
+   uuid:    bd5fe1c3-7d80-11e9-8913-4f209d688a15
+   seqno:   -1
+   safe_to_bootstrap: 0
+
+The variable ``safe_to_bootstrap`` is set to 0 on the first node after it's been bootstrapped to protect against you inadvertently bootstrapping again while the cluster is runnning.  You'll have to change the value to 1 to be able to bootstrap anew.    
 
 
 --------------------------------------
-Adding Additional Nodes to the Cluster
+Adding Nodes to the Cluster
 --------------------------------------
 .. _`Add Nodes to Cluster`:
 
-When you start the first node you initialize a new cluster.  Once this is done, the procedure for adding all the other nodes is the same.
-
-To add a node to an existing cluster, launch ``mysqld`` as you would normally.  If your system uses ``init``, run the following command:
+Once you have successfully started the first node and thereby initialized a new cluster, the procedure for adding all the other nodes is even simpler. You just launch ``mysqld`` as you would normally--without the ``--wsrep-new-cluster`` option.  You would enter something like the following from the command-line, depending on your operating system and database system (see above for other methods):
 
 .. code-block:: console
 
-   # service mysql start
+   # systemctl start mariadb
 
-For systems that use ``systemd``, instead run this command:
+When the database server initializes as a new node, it will try to connect to the cluster members. It knows where to find these other nodes based on the IP addresses listed in the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter in the configuration file.
 
-.. code-block:: console
-
-   # systemctl start mysql
-
-When the database server initializes as a new node, it connects to the cluster members as defined by the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Using this parameter, it automatically retrieves the cluster map and connects to all other available nodes.
-
-You can test that the node connection was successful using the :ref:`wsrep_cluster_size <wsrep_cluster_size>` status variable.  In the database client, run the following query:
+You can verify that the node connection was successful checking the :ref:`wsrep_cluster_size <wsrep_cluster_size>` status variable.  In the database client of any node in the cluster, run the following SQL statement:
 
 .. code-block:: mysql
 
@@ -107,9 +107,7 @@ You can test that the node connection was successful using the :ref:`wsrep_clust
    | wsrep_cluster_size | 2     |
    +--------------------+-------+
 
-This indicates that the second node is now connected to the cluster.  Repeat this procedure to add the remaining nodes to your cluster.
-
-When all nodes in the cluster agree on the membership state, they initiate state exchange.  In state exchange, the new node checks the cluster state.  If the node state differs from the cluster state, (which is normally the case), the new node requests a state snapshot transfer from the cluster and it installs it on the local database.  After this is done, the new node is ready for use.
+This indicates that the two nodes are now connected to the cluster.  When the nodes in the cluster agree on the membership state, they initiate state exchange.  In state exchange, a new node will check the cluster state.  If the state of a new node differs from the cluster state--which is normally the case--the new node requests a state snapshot transfer (SST) from the cluster and it installs it on its local database.  After this is done, the new node is ready for use.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
