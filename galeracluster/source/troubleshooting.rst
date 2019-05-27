@@ -5,7 +5,7 @@ Knowledge Base
 
 The Galera Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster.  Here you'll find answers to frequently asked questions, troubleshooting articles, and best practices articles.
 
-.. rubric:: Troubleshooting
+.. rubric:: Frequently Asked Questions
 .. _`faq`:
 - :doc:`faq`
 
