@@ -10,7 +10,7 @@ In :doc:`gettingstarted`, the installation guides were written on the assumption
 
   While clusters operate as distributed database servers, there are some key differences between them and the standard stand-alone MySQL implementations.
 
-  
+
 - :doc:`migration`
 
   When migrating from the standard MySQL implementations to Galera Cluster, there are some additional steps that you need to take to ensure that you safely transfer the data from the existing database to the new cluster.  This section covers the procedure to update system tables and how to migrate from stand-alone MySQL, as well as from MySQL master-slave replication clusters.
@@ -18,10 +18,10 @@ In :doc:`gettingstarted`, the installation guides were written on the assumption
 
 .. note:: **See Also**: For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <gettingstarted>`.
 
-  
+
 .. toctree::
    :maxdepth: 2
    :hidden:
-	      
+
    limitations
    migration

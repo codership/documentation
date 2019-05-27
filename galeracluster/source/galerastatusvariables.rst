@@ -7,7 +7,7 @@ These variables are *Galera Cluster* 0.8.x status variables. There are two types
 
 - Galera Cluster-specific variables exported by Galera Cluster
 
-- Variables exported by MySQL. These variables are for the general wsrep provider. 
+- Variables exported by MySQL. These variables are for the general wsrep provider.
 
 This distinction is of importance for developers only.  For convenience, all status variables are presented as a single list below.  Variables exported by MySQL are indicated by an *M* in superscript.
 
@@ -17,8 +17,8 @@ This distinction is of importance for developers only.  For convenience, all sta
 | :ref:`wsrep_apply_oooe                | ``0.671120``                             | 1+         |
 | <wsrep_apply_oooe>`                   |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_apply_oool                | ``0.195248``                             | 1+         | 
-| <wsrep_apply_oool>`                   |                                          |            | 
+| :ref:`wsrep_apply_oool                | ``0.195248``                             | 1+         |
+| <wsrep_apply_oool>`                   |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_apply_window              | ``5.163966``                             | 1+         |
 | <wsrep_apply_window>`                 |                                          |            |
@@ -43,6 +43,9 @@ This distinction is of importance for developers only.  For convenience, all sta
 +---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_cluster_status            | ``Primary``                              | 1+         |
 | <wsrep_cluster_status>` :sup:`M`      |                                          |            |
++---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_cluster_weight            | ``3``                                    | 3.24+      |
+| <wsrep_cluster_weight>` :sup:`M`      |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_commit_oooe               | ``0.000000``                             | 1+         |
 | <wsrep_commit_oooe>`                  |                                          |            |
@@ -143,6 +146,12 @@ This distinction is of importance for developers only.  For convenience, all sta
 | :ref:`wsrep_local_state_uuid          |                                          | 1+         |
 | <wsrep_local_state_uuid>`             |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_open_connections          | ``3``                                    | 3.24+      |
+| <wsrep_open_connections>`             |                                          |            |
++---------------------------------------+------------------------------------------+------------+
+| :ref:`wsrep_open_transactions         | ``25``                                   | 3.24+      |
+| <wsrep_open_transactions>`            |                                          |            |
++---------------------------------------+------------------------------------------+------------+
 | :ref:`wsrep_protocol_version          | ``4``                                    | 1+         |
 | <wsrep_protocol_version>`             |                                          |            |
 +---------------------------------------+------------------------------------------+------------+
@@ -242,7 +251,7 @@ How often write-set was so slow to apply that write-set with higher seqno's were
 .. index::
    pair: Status Variables; wsrep_apply_window
 
-Average distance between highest and lowest concurrently applied seqno. 
+Average distance between highest and lowest concurrently applied seqno.
 
 .. code-block:: mysql
 
@@ -266,7 +275,7 @@ Average distance between highest and lowest concurrently applied seqno.
 .. index::
    pair: Status Variables; wsrep_cert_deps_distance
 
-Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization). 
+Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization).
 
 .. code-block:: mysql
 
@@ -329,7 +338,7 @@ Average number of transactions received while a transaction replicates.
 
 When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it.  By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
 
-To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts.  Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.  
+To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts.  Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.
 
 This shows you the number of write-sets concurrently replicating to the cluster. In a fully synchronous cluster, with one write-set replicating at a time, :ref:`wsrep_cert_interval <wsrep_cert_interval>` returns a value of ``1.0``.
 
@@ -337,14 +346,14 @@ This shows you the number of write-sets concurrently replicating to the cluster.
 | Example Value | Location  | Introduced | Deprecated |
 +===============+===========+============+============+
 | ``1.0``       | Galera    |            |            |
-+---------------+-----------+------------+------------+  
- 
++---------------+-----------+------------+------------+
+
 .. rubric:: ``wsrep_cluster_conf_id``
 .. _`wsrep_cluster_conf_id`:
 .. index::
    pair: Status Variables; wsrep_cluster_conf_id
 
-Total number of cluster membership changes happened. 
+Total number of cluster membership changes happened.
 
 .. code-block:: mysql
 
@@ -443,6 +452,31 @@ Status of this cluster component.  That is, whether the node is part of a ``PRIM
 | ``Primary``        | MySQL     |            |            |
 +--------------------+-----------+------------+------------+
 
+.. rubric:: ``wsrep_cluster_weight``
+.. _`wsrep_cluster_weight`:
+.. index::
+   pair: Status Variables; wsrep_cluster_weight
+
+The total weight of the current members in the cluster. The value is counted as a sum of
+of :ref:`pc.weight <pc.weight>` of the nodes in the current :term:`Primary Component`.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_cluster_weight';
+
+   +----------------------+-------+
+   | Variable_name        | Value |
+   +----------------------+-------+
+   | wsrep_cluster_weight | 3     |
+   +----------------------+-------+
+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``3``              | Galera    | 3.24       |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_commit_oooe``
@@ -501,7 +535,7 @@ No meaning.
 .. index::
    pair: Status Variables; wsrep_commit_window
 
-Average distance between highest and lowest concurrently committed seqno. 
+Average distance between highest and lowest concurrently committed seqno.
 
 .. code-block:: mysql
 
@@ -553,7 +587,7 @@ If the value is ``OFF``, the node has not yet connected to any of the cluster co
    pair: Status Variables; wsrep_desync_count
 
 Returns the number of operations in progress that require the node to temporarily desync from the cluster.
-   
+
 .. code-block:: mysql
 
    SHOW STATUS LIKE 'wsrep_desync_count';
@@ -563,10 +597,10 @@ Returns the number of operations in progress that require the node to temporaril
    +--------------------+-------+
    | wsrep_desync_count | 1     |
    +--------------------+-------+
-   
+
 Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
 
-   
+
 +--------------------+-----------+------------+------------+
 | Example Value      | Location  | Introduced | Deprecated |
 +====================+===========+============+============+
@@ -574,7 +608,7 @@ Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <w
 +--------------------+-----------+------------+------------+
 
 
-.. rubric:: ``wsrep_evs_delayed``	    
+.. rubric:: ``wsrep_evs_delayed``
 .. _`wsrep_evs_delayed`:
 .. index::
    pair: Status Variables; wsrep_evs_delayed
@@ -588,7 +622,7 @@ The node listing format is
    uuid:address:count
 
 This refers to the UUID and IP address of the delayed node, with a count of the number of entries it has on the delayed list.
-   
+
 
 +--------------------+-----------+------------+------------+
 | Example Value      | Location  | Introduced | Deprecated |
@@ -662,7 +696,7 @@ Shows the internal state of the EVS Protocol.
 +====================+===========+============+============+
 |                    | Galera    | 3.8        |            |
 +--------------------+-----------+------------+------------+
-  
+
 
 
 .. rubric:: ``wsrep_flow_control_paused``
@@ -672,7 +706,7 @@ Shows the internal state of the EVS Protocol.
 
 The fraction of time since the last ``FLUSH STATUS`` command that replication was paused due to flow control.
 
-In other words, how much the slave lag is slowing down the cluster. 
+In other words, how much the slave lag is slowing down the cluster.
 
 .. code-block:: mysql
 
@@ -717,7 +751,7 @@ The total time spent in a paused state measured in nanoseconds.
 +--------------------+-----------+------------+------------+
 
 
-   
+
 .. rubric:: ``wsrep_flow_control_recv``
 .. _`wsrep_flow_control_recv`:
 .. index::
@@ -744,7 +778,7 @@ Returns the number of ``FC_PAUSE`` events the node has received, including those
 +--------------------+-----------+------------+------------+
 
 
- 
+
 .. rubric:: ``wsrep_flow_control_sent``
 .. _`wsrep_flow_control_sent`:
 .. index::
@@ -827,7 +861,7 @@ Comma-separated list of incoming server addresses in the cluster component.
 .. index::
    pair: Status Variables; wsrep_last_committed
 
-The sequence number, or seqno, of the last committed transaction. See :ref:`wsrep API <wsrep-api>`.  
+The sequence number, or seqno, of the last committed transaction. See :ref:`wsrep API <wsrep-api>`.
 
 .. code-block:: mysql
 
@@ -874,7 +908,7 @@ Total number of local transactions that were aborted by slave transactions while
 | ``960``            | Galera    |            |            |
 +--------------------+-----------+------------+------------+
 
-   
+
 .. rubric:: ``wsrep_local_cached_downto``
 .. _`wsrep_local_cached_downto`:
 .. index::
@@ -983,12 +1017,12 @@ This node index in the cluster (base 0).
 .. index::
    pair: Status Variables; wsrep_local_recv_queue
 
-Current (instantaneous) length of the recv queue. 
+Current (instantaneous) length of the recv queue.
 
 .. code-block:: mysql
 
    SHOW STATUS LIKE 'wsrep_local_recv_queue';
-  
+
    +------------------------+-------+
    | Variable_name          | Value |
    +------------------------+-------+
@@ -1009,7 +1043,7 @@ Current (instantaneous) length of the recv queue.
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_avg
 
-Recv queue length averaged over interval since the last ``FLUSH STATUS`` command. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling. 
+Recv queue length averaged over interval since the last ``FLUSH STATUS`` command. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling.
 
 .. code-block:: mysql
 
@@ -1020,7 +1054,7 @@ Recv queue length averaged over interval since the last ``FLUSH STATUS`` command
    +----------------------------+----------+
    | wsrep_local_recv_queue_avg | 3.348452 |
    +----------------------------+----------+
-   
+
 
 +--------------------+-----------+------------+------------+
 | Example Value      | Location  | Introduced | Deprecated |
@@ -1028,13 +1062,13 @@ Recv queue length averaged over interval since the last ``FLUSH STATUS`` command
 | ``3.348452``       | Galera    |            |            |
 +--------------------+-----------+------------+------------+
 
-   
+
 .. rubric:: ``wsrep_local_recv_queue_max``
 .. _`wsrep_local_recv_queue_max`:
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_max
 
-The maximum length of the recv queue since the last FLUSH STATUS command. 
+The maximum length of the recv queue since the last FLUSH STATUS command.
 
 .. code-block:: mysql
 
@@ -1062,7 +1096,7 @@ The maximum length of the recv queue since the last FLUSH STATUS command.
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_min
 
-The minimum length of the recv queue since the last FLUSH STATUS command. 
+The minimum length of the recv queue since the last FLUSH STATUS command.
 
 .. code-block:: mysql
 
@@ -1074,7 +1108,7 @@ The minimum length of the recv queue since the last FLUSH STATUS command.
    | wsrep_local_recev_queue_min | 0     |
    +-----------------------------+-------+
 
-   
+
 
 +--------------------+-----------+------------+------------+
 | Example Value      | Location  | Introduced | Deprecated |
@@ -1138,7 +1172,7 @@ Current (instantaneous) length of the send queue.
 .. index::
    pair: Status Variables; wsrep_local_send_queue_avg
 
-Send queue length averaged over time since the last ``FLUSH STATUS`` command. Values considerably larger than 0.0 indicate replication throttling or network throughput issue. 
+Send queue length averaged over time since the last ``FLUSH STATUS`` command. Values considerably larger than 0.0 indicate replication throttling or network throughput issue.
 
 .. code-block:: mysql
 
@@ -1164,7 +1198,7 @@ Send queue length averaged over time since the last ``FLUSH STATUS`` command. Va
 .. index::
    pair: Status Variables; wsrep_local_send_queue_max
 
-The maximum length of the send queue since the last ``FLUSH STATUS`` command. 
+The maximum length of the send queue since the last ``FLUSH STATUS`` command.
 
 .. code-block:: mysql
 
@@ -1193,7 +1227,7 @@ The maximum length of the send queue since the last ``FLUSH STATUS`` command.
 .. index::
    pair: Status Variables; wsrep_local_send_queue_min
 
-The minimum length of the send queue since the last ``FLUSH STATUS`` command. 
+The minimum length of the send queue since the last ``FLUSH STATUS`` command.
 
 .. code-block:: mysql
 
@@ -1265,7 +1299,7 @@ Human-readable explanation of the state.
 | ``Synced``         | Galera    |            |            |
 +--------------------+-----------+------------+------------+
 
-   
+
 
 .. rubric:: ``wsrep_local_state_uuid``
 .. _`wsrep_local_state_uuid`:
@@ -1284,8 +1318,7 @@ The UUID of the state stored on this node.
    | wsrep_local_state_uuid | e2c9a15e-5485-11e0-0800-6bbb637e7211 |
    +------------------------+--------------------------------------+
 
-.. note:: **See Also**: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`. 
-
+.. note:: **See Also**: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 
 +-----------------------+-----------+------------+------------+
 | Example Value         | Location  | Introduced | Deprecated |
@@ -1293,6 +1326,57 @@ The UUID of the state stored on this node.
 | ``e2c9a15e-5385-11e0- | Galera    |            |            |
 | 0800-6bbb637e7211``   |           |            |            |
 +-----------------------+-----------+------------+------------+
+
+.. rubric:: ``wsrep_open_connections``
+.. _`wsrep_open_connections`:
+.. index::
+   pair: Status Variables; wsrep_open_connections
+
+The number of open connection objects inside the wsrep provider.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_open_connections';
+
+   +------------------------+-------+
+   | Variable_name          | Value |
+   +------------------------+-------+
+   | wsrep_open_connections | 1     |
+   +------------------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``1``              | Galera    | 3.24       |            |
++--------------------+-----------+------------+------------+
+
+.. rubric:: ``wsrep_open_transactions``
+.. _`wsrep_open_transactions`:
+.. index::
+   pair: Status Variables; wsrep_open_transactions
+
+The number of locally running transactions which have been registered inside
+the wsrep provider. This means transactions which have made operations
+which have caused write set population to happen. Transactions which are
+read only are not counted.
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_open_transactions';
+
+   +-------------------------+-------+
+   | Variable_name           | Value |
+   +-------------------------+-------+
+   | wsrep_open_transactions | 6     |
+   +-------------------------+-------+
+
+
++--------------------+-----------+------------+------------+
+| Example Value      | Location  | Introduced | Deprecated |
++====================+===========+============+============+
+| ``6``              | Galera    | 3.24       |            |
++--------------------+-----------+------------+------------+
 
 
 .. rubric:: ``wsrep_protocol_version``
@@ -1381,7 +1465,7 @@ The name of the wsrep Provider version string.
 .. code-block:: mysql
 
    SHOW STATUS LIKE 'wsrep_provider_version';
-  
+
    +------------------------+----------------------+
    | Variable_name          | Value                |
    +------------------------+----------------------+
@@ -1426,7 +1510,7 @@ unless the ``wsrep_on`` session variable is set to ``0``.
 | ``ON``             | MySQL     |            |            |
 +--------------------+-----------+------------+------------+
 
-   
+
 
 .. rubric:: ``wsrep_received``
 .. _`wsrep_received`:
@@ -1505,7 +1589,7 @@ Total size of data replicated.
 | ``6526788``        | Galera    |            |            |
 +--------------------+-----------+------------+------------+
 
-   
+
 .. rubric:: ``wsrep_repl_keys``
 .. _`wsrep_repl_keys`:
 .. index::

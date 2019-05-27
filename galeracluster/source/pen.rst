@@ -51,7 +51,7 @@ Server Selection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`pen-server-selection`:
 
-When Pen receives a new connection from the application servers, it first checks to see where the application was routed on the last connection and attempts to send traffic there.  In the event that it cannot establish a connection, it falls back on a round-robin selection policy.  
+When Pen receives a new connection from the application servers, it first checks to see where the application was routed on the last connection and attempts to send traffic there.  In the event that it cannot establish a connection, it falls back on a round-robin selection policy.
 
 There are a number of options you can use to modify this behavior when you launch Pen.
 

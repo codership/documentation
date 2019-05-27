@@ -1,4 +1,3 @@
-
 .. raw:: html
 
     <style> .red {color:red} </style>
@@ -19,7 +18,7 @@ State Snapshot Transfers
 When a node requires a state transfer from the cluster, by default it attempts the :term:`Incremental State Transfer` (IST) method.  In the event that there are no nodes available for this or if it finds a manual donor defined through the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter, uses a :term:`State Snapshot Transfer` (SST) method.
 
 Galera Cluster supports several back-end methods for use in state snapshot transfers.  There are two types of methods available: Logical State Snapshots, which interface through the database server and client; and Physical State Snapshots, which copy the data files directly from node to node.
- 
+
 +------------------+------------------+-------------------+--------------------+------------------+-----------------------+
 | Method           | Speed            | Blocks Donor      | Available          | Type             | DB Root Access        |
 |                  |                  |                   | on Live Node       |                  |                       |
@@ -101,7 +100,7 @@ There are two back-end methods available for Physical State Snapshots: ``rsync``
 The :term:`Physical State Transfer Method` has the following advantages:
 
 - These transfers physically copy the data from one node to the disk of the other, and as such do not need to interact with the database server at either end.
-  
+
 - These transfers do not require the database to be in working condition, as the donor node overwrites what was previously on the joining node disk.
 
 - These transfers are faster.
@@ -135,7 +134,7 @@ The ``rsync`` script runs on both donor and joining nodes.  On the joiner, it st
    wsrep_sst_method = rsync
 
 For more information about ``rsync``, see the `rsync Documentation <http://rsync.samba.org/>`_.
-	
+
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ``xtrabackup``
@@ -152,7 +151,7 @@ Given that ``xtrabackup`` copies a large amount of data in the shortest possible
 
 
 .. code-block:: ini
-		
+
    [mysqld]
    wsrep_sst_auth = <wsrep_sst_user>:<password>
    wsrep_sst_method = xtrabackup
@@ -161,4 +160,4 @@ Given that ``xtrabackup`` copies a large amount of data in the shortest possible
    [client]
    socket = /path/to/socket
 
-For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <http://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.  
+For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <http://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.

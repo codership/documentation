@@ -48,7 +48,7 @@ The notification command passes with the ``--member`` parameter a list containin
 .. code-block:: text
 
    <node UUID> / <node name> / <incoming address>
-   
+
 - **Node UUID**  Refers to the unique identifier the node receives from the wsrep Provider.
 - **Node Name** Refers to the node name, as you define it for the :ref:`wsrep_node_name <wsrep_node_name>` parameter, in the configuration file.
 - **Incoming Address** Refers to the IP address for client connections, as set for the :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>` parameter, in the configuration file.
@@ -104,7 +104,7 @@ Nodes can call a notification script when changes happen in the membership of th
    configuration_change()
    {
       echo "$BEGIN;"
-    
+
       local idx=0
 
       for NODE in $(echo $MEMBERS | sed s/,/\ /g)
@@ -117,7 +117,7 @@ Nodes can call a notification script when changes happen in the membership of th
       done
 
       echo "
-         INSERT INTO $STATUS_TABLE 
+         INSERT INTO $STATUS_TABLE
 	 VALUES($idx, $INDEX,'$STATUS', '$CLUSTER_UUID', $PRIMARY);
       "
 
@@ -127,9 +127,9 @@ Nodes can call a notification script when changes happen in the membership of th
    status_update()
    {
       echo "
-         SET wsrep_on=0; 
-	 BEGIN; 
-	 UPDATE $STATUS_TABLE SET status='$STATUS'; 
+         SET wsrep_on=0;
+	 BEGIN;
+	 UPDATE $STATUS_TABLE SET status='$STATUS';
 	 COMMIT;
       "
    }
@@ -160,7 +160,7 @@ Nodes can call a notification script when changes happen in the membership of th
 	    MEMBERS=$2
 	    shift
 	    ;;
-	    esac 
+	    esac
 	    shift
       done
 
@@ -171,7 +171,7 @@ Nodes can call a notification script when changes happen in the membership of th
    fi
 
    exit 0
-  
+
 When you finish editing the script to fit your needs, you need to move it into a directory in the ``$PATH`` environment variable or the binaries directory for your system.  On Linux, the binaries directory is typically at ``/usr/bin``, while on FreeBSD it is at ``/usr/local/bin``.
 
 .. code-block:: console
@@ -181,7 +181,7 @@ When you finish editing the script to fit your needs, you need to move it into a
 In addition to this, given that the notification command contains your root password, change the ownership to the ``mysql`` user and make the script executable only to that user.
 
 .. code-block:: console
-   
+
    # chown mysql:mysql /usr/bin/my-wsrep-notify.sh
    # chmod 700 /usr/bin/my-wsrep-notify.sh.
 
@@ -194,7 +194,7 @@ Enabling the Notification Command
 ----------------------------------
 .. _`enable-notification-command`:
 
-You can enable the  notification command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter in the configuration file. 
+You can enable the  notification command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter in the configuration file.
 
 .. code-block:: ini
 

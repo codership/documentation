@@ -48,7 +48,7 @@ How you configure Galera Arbitrator depends on how you start it.  That is to say
 
 	   This will prevent the operating system from blocking Galera Arbitrator.
 
-			      
+
 
 
 
@@ -63,7 +63,7 @@ When starting Galera Arbitrator from the shell, you have two options as to how y
 
    $ garbd --group=example_cluster \
         --address="gcomm://192.168.1.1,192.168.1.2,192.168.1.3" \
-        --option="socket.ssl_key=/etc/ssl/galera/server-key.pem;socket.ssl_cert=/etc/ssl/galera/server-cert.pem;socket.ssl_ca=/etc/ssl/galera/ca-cert.pem;socket.ssl_cipher=AES128-SHA""
+        --option="socket.ssl_key=/etc/ssl/galera/server-key.pem;socket.ssl_cert=/etc/ssl/galera/server-cert.pem;socket.ssl_ca=/etc/ssl/galera/ca-cert.pem;socket.ssl_cipher=AES128-SHA256""
 
 If you use SSL, it's necessary to specify the cipher. Otherwise, after initializing the ssl context an error will occur with a message saying, "Terminate called after throwing an instance of 'gu::NotSet'".
 
@@ -121,7 +121,7 @@ When starting Galera Aribtrator as a service, whether using ``init`` or ``system
 
    # Copyright (C) 2013-2015 Codership Oy
    # This config file is to be sourced by garbd service script.
-   
+
    # A space-separated list of node addresses (address[:port]) in the cluster:
    GALERA_NODES="192.168.1.1:4567 192.168.1.2:4567"
 
@@ -131,7 +131,7 @@ When starting Galera Aribtrator as a service, whether using ``init`` or ``system
    # Optional Galera internal options string (e.g. SSL settings)
    # see http://galeracluster.com/documentation-webpages/galeraparameters.html
    GALERA_OPTIONS="socket.ssl_cert=/etc/galera/cert/cert.pem;socket.ssl_key=/$"
-    
+
    # Log file for garbd. Optional, by default logs to syslog
    LOG_FILE="/var/log/garbd.log"
 
@@ -144,7 +144,7 @@ In order for Galera Arbitrator to use the configuration file, you must place it 
 - ``/etc/systemd/``
 
 - ``/etc/sysconfig/``
-  
+
 Check the documentation for the operating system distribution your server uses to determine where to place service configuration files.
 
 Once you have the service configuration file in the right location, you can start the ``garb`` service.  For systems that use ``init``, run the following command:
@@ -164,6 +164,3 @@ This starts Galera Arbitrator as a service.  It uses the parameters set in the c
 In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, excepting those prefixed by ``repl``.  When you start it as a service, you can set those using the ``GALERA_OPTIONS`` parameter.
 
 .. note:: **See Also**: For more information on the options available to Galera Arbitrator, see :doc:`galeraparameters`.
-
-
-

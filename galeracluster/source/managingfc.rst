@@ -61,11 +61,11 @@ Measuring the Flow Control Pauses
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`measure-fc-pauses`:
 
-In addition to tracking Flow Control pauses, Galera Cluster also allows you to track the amount of time since the last ``SHOW STATUS`` query during which replication was paused due to Flow Control.  
+In addition to tracking Flow Control pauses, Galera Cluster also allows you to track the amount of time since the last ``FLUSH STATUS`` query during which replication was paused due to Flow Control.
 
 You can find this using one of two status variables:
 
-- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` Provides the amount of time replication was paused as a fraction.  Effectively, how much the slave lag is slowing the cluster.  The value ``1.0`` indicates replication is paused now.  
+- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` Provides the amount of time replication was paused as a fraction.  Effectively, how much the slave lag is slowing the cluster.  The value ``1.0`` indicates replication is paused now.
 
 - :ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>` Provides the amount of time replication was paused in nanoseconds.
 
@@ -76,7 +76,7 @@ Configuring Flow Control
 --------------------------
 .. _`configuring-fc`:
 
-Galera Cluster provides two sets of parameters that allow you to manage how nodes handle the replication rate and Flow Control.  The first set controls the write-set cache, the second relates to the points at which the node engages and disengages Flow Control.  
+Galera Cluster provides two sets of parameters that allow you to manage how nodes handle the replication rate and Flow Control.  The first set controls the write-set cache, the second relates to the points at which the node engages and disengages Flow Control.
 
 
 

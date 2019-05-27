@@ -13,12 +13,12 @@ Replication in the context of databases refers to the frequent copying of data f
 - :doc:`introduction`
 
   This section explains how database replication works in general.  It provides an overview of the problems inherent in the various replication implementations, including master-slave, asynchronous and synchronous replication.
-	    
+
 - :doc:`certificationbasedreplication`
 
-  Using group communications and transaction ordering techniques, certification-based replication allows for synchronous replication.  
+  Using group communications and transaction ordering techniques, certification-based replication allows for synchronous replication.
 
-  
+
 .. rubric:: Understanding Galera Cluster
 .. _`understanding-galera`:
 
@@ -33,7 +33,7 @@ With a better grasp on how replication works, these pages provide a more detaile
 - :doc:`isolationlevels`
 
   In a database system, the server will process concurrent transactions in isolation from each other. The level of isolation determines whether and how these transactions affect one another.  This section provides an overview of the isolation levels supported by Galera Cluster.
-  
+
 - :doc:`statetransfer`
 
   The actual process that nodes use to replicate data into each other is called provisioning.  Galera Cluster supports two provisioning methods: State Snapshot Transfers and Incremental State Transfers.  This section presents an overview of each.
@@ -57,7 +57,7 @@ With a better grasp on how replication works, these pages provide a more detaile
 .. toctree::
    :maxdepth: 2
    :hidden:
-      
+
    introduction
    certificationbasedreplication
    architecture
@@ -67,4 +67,3 @@ With a better grasp on how replication works, these pages provide a more detaile
    recovery
    weightedquorum
    streamingreplication
-

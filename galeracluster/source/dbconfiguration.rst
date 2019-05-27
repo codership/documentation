@@ -18,7 +18,7 @@ In addition to the configuration for the database server, there are some specifi
 
 .. code-block:: ini
 
-   [mysql]
+   [mysqld]
    wsrep_cluster_name=MyCluster
    wsrep_cluster_address="gcomm://192.168.0.1,192.168.0.2,192.168.0.3"
    wsrep_node_name=MyNode1
@@ -49,8 +49,8 @@ For the cluster address section, you have to provide a comma-separate list of IP
 .. code-block:: ini
 
 	<backend schema>://<cluster address>[?<option1>=<value1>[&<option2>=<value2>]]
-	
-Below is an example of how this line from the configuration file might look:  
+
+Below is an example of how this line from the configuration file might look:
 
 .. code-block:: ini
 
@@ -60,7 +60,7 @@ Here, the backend schema is ``gcomm``.  The cluster addresses (i.e., ``192.168.0
 
 The IP addresses given in the configuration file should include any current members of the cluster.  The list may also include the IP addresses of any possible cluster members. Members can belong to no more than one Primary Component;
 
-If you start a node without proving an IP address for this parameter, the node will assume that it's the first node of a new cluster.  It will initialize the cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option. 
+If you start a node without proving an IP address for this parameter, the node will assume that it's the first node of a new cluster.  It will initialize the cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option.
 
 
 
@@ -71,7 +71,7 @@ Options
 
 When setting the IP address in the configuration file using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, you can also set some options. You can set backend parameters, such as the listen address and timeout values.
 
-.. note:: **See Also**: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on each connection to a cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter. 
+.. note:: **See Also**: The :ref:`wsrep_cluster_address <wsrep_cluster_address>` options list is not durable.  The node must resubmit the options on each connection to a cluster.  To make these options durable, set them in the configuration file using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter.
 
 The options set in the URL take precedent over parameters set elsewhere.  Parameters you set through the options list are prefixed by ``evs`` (i.e., Extended Virtual Synchrony), ``pc`` (i.e., Primary Component) and ``gmcast``.
 
@@ -81,10 +81,10 @@ When listing options, start with a question mark after the IP address list. Then
 
 .. code-block:: ini
 
-   wsrep_cluster_address="gcomm://192.168.0.1, 192.168.0.2, 192.168.0.3 ? gmcast.segment=0 & evs.max_install_timeouts=1" 
+   wsrep_cluster_address="gcomm://192.168.0.1, 192.168.0.2, 192.168.0.3 ? gmcast.segment=0 & evs.max_install_timeouts=1"
 
 
-In this example, the ``segment`` option for ``gcomm`` and the ``max_install_timeouts`` option for ``evs`` are set. 
+In this example, the ``segment`` option for ``gcomm`` and the ``max_install_timeouts`` option for ``evs`` are set.
 
 Incidentally, if the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it's not specified in the cluster address, the default port is ``4567``.
 

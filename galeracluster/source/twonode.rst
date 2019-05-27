@@ -35,7 +35,7 @@ The node will resume processing updates, even if it suspects a split-brain situa
 In addition to the solutions provided here, you can avoid this situation entirely by using Galera Arbitrator.  Galera Arbitrator functions as an odd node in quorum calculations.  If you enable Galera Arbitrator on one node in a two-node cluster, that node will remain the Primary Component, even if the other node fails or loses network connectivity.
 
 .. see also:: For more information, see :doc:`arbitrator`.
-	    
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

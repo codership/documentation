@@ -1,4 +1,3 @@
-
 =====================================
 Scriptable State Snapshot Transfers
 =====================================
@@ -33,12 +32,12 @@ These parameters are passed to all state transfer scripts, regardless of method 
 
 - ``--role`` The script is given a string, either ``donor`` or ``joiner``, to indicate whether the node is using it to send or receive a state snapshot transfer.
 
-- ``--address`` The script is given the IP address of the joiner node.  
+- ``--address`` The script is given the IP address of the joiner node.
 
    When the script is run by the joiner, the node uses the value of either the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter or a sensible default formatted as ``<ip_address>:<port>``.   When the script is run by the donor, the node uses the value from the state transfer request.
 
 - ``--auth`` The script is given the node authentication information.
-   
+
    When the script is run by the joiner, the node uses the value given to the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.  When the script is run by the donor, it uses the value given by the state transfer request.
 
 - ``--datadir`` The script is given the path to the data directory.  The value is drawn from the ``mysql_real_data_home`` parameter.
@@ -48,7 +47,7 @@ These parameters are passed to all state transfer scripts, regardless of method 
 
 The values the node passes to these parameters varies depending on whether the node calls the script to send or receive a state snapshot transfer.  For more information, see :ref:`Calling Conventions <calling-conventions>` below.
 
-  
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Donor-specific Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,7 +110,7 @@ The node responds by sending a state transfer request to the donor node.  The no
 When the joiner node receives the state transfer and finishes applying it, print to standard output the :term:`Global Transaction ID` of the received state.  For example:
 
 .. code-block:: console
-		
+
 	e2c9a15e-5485-11e0-0800-6bbb637e7211:8823450456
 
 Then exit the script with a ``0`` status, to indicate that the state transfer was successful.
@@ -137,7 +136,7 @@ In the event of failure, Galera Cluster expects your script to return a code tha
 
 .. note:: Without the ``continue\n`` signal, your script runs in Total Order Isolation, which guarantees that no further commits occur until the script exits.
 
-	  
+
 -----------------------------
 Enabling Scriptable SST's
 -----------------------------
@@ -157,4 +156,4 @@ When the node starts, it uses your custom script for state snapshot transfers.
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-   
+

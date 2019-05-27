@@ -54,7 +54,7 @@ The ``SERIALIZABLE`` level cannot be guaranteed in the multi-master use case bec
 
 .. note:: **See Also**: For more information, see :doc:`isolationlevels`.
 
-	     
+
 .. rubric:: How are DDL's Handled by Galera Cluster?
 .. _`ddl-galera`:
 
@@ -65,8 +65,8 @@ For :abbr:`DDL (Data Definition Language)` statements and similar queries, Galer
 - :term:`Rolling Schema Upgrade`: Schema upgrades run locally, blocking only the node on which they are run.  The changes do not replicate to the rest of the cluster.
 
 .. note:: **See Also**: For more information, see :doc:`schemaupgrades`.
-  
-	     
+
+
 
 
 .. rubric:: What if Connections return an ``Unknown Command`` Error?
@@ -91,7 +91,7 @@ The :term:`Write-set Cache`, which is also called GCache, is a memory allocator 
 - Write-sets are not an optimal entry for the binlog, since they contain extra information.
 
 Nevertheless, it is possible to construct a binlog out of the write-set cache.
-	    
+
 
 
 .. rubric:: What if a Node Crashes during ``rsync`` SST

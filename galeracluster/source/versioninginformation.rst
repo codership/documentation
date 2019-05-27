@@ -5,7 +5,7 @@
 
 
 
-Galera Cluster for MySQL is available in binary software packages for several different Linux distributions, as well as in source code for other distributions and other Unix-like operating systems, such as FreeBSD and Solaris. 
+Galera Cluster for MySQL is available in binary software packages for several different Linux distributions, as well as in source code for other distributions and other Unix-like operating systems, such as FreeBSD and Solaris.
 
 For Linux distributions, binary packages in 32-bit and 64-bit for both the MySQL database server with the wsrep API patch and the :term:`Galera Replication Plugin` are available from the `Codership Repository <http://releases.galeracluster.com>`_.  These include support for:
 
@@ -39,8 +39,8 @@ Software packages for Galera Cluster have their own release numbering schemas.  
 
 
 - **MySQL Server with wsrep API patch**  The second versioning schema relates to the database server.  Here, the MySQL server uses the following versioning schema ``<MySQL server version>-<wsrep API version>``.  For example, release 5.5.29-23.7.3 indicates a MySQL database server in 5.5.29 with wsrep API version 23.7.3.
-   
-For instances of Galera Cluster that use the MariaDB or Percona XtraDB database servers, consult their respective documentation for version and release information.
+
+For instances of Galera Cluster that use the MariaDB database server, consult the MariaDB documentation for version and release information.
 
 
 -----------------------------------------------------
@@ -48,18 +48,7 @@ Third-party Implementations of Galera Cluster
 -----------------------------------------------------
 .. _`third-party-galera`:
 
-In addition to the Galera Cluster for MySQL, the reference implementation from Codership Oy, there are two third party implementations of Galera Cluster.  These are,
-
-- `Percona XtraDB Cluster <http://www.percona.com/software/percona-xtradb-cluster>`_ is a high-availability and high-scalability solution for MySQL users.  Percona XtraDB CLuster integrates Percona XtraDB Server with the Galera library of high-availability solutions in a single product package.
-
-- `MariaDB Galera Cluster <https://mariadb.com>`_ uses the Galera library for the replication implementation.  To interface with the Galera Replication Plugin, MariaDB is enhanced to support the replication API definition in the wsrep API project.  Additionally, releases of MariaDB Server from version 10.1 on are packaged with Galera Cluster.
-
-  For more information, see `What is MariaDB Galera Cluster <https://mariadb.com/kb/en/mariadb/what-is-mariadb-galera-cluster/>`_.
-
-
-
-
-
+In addition to the Galera Cluster for MySQL, the reference implementation from Codership Oy, there is a third-party implementation of Galera Cluster - `MariaDB Galera Cluster <https://mariadb.com>`_ which uses the Galera library for the replication implementation.  To interface with the Galera Replication Plugin, MariaDB has been enhanced to support the replication API definition in the wsrep API project.  Additionally, releases of MariaDB Server starting from version 10.1 on are packaged with Galera Cluster already included.  For more information, see `What is MariaDB Galera Cluster <https://mariadb.com/kb/en/mariadb/what-is-mariadb-galera-cluster/>`_.
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

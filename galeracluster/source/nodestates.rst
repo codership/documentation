@@ -115,11 +115,11 @@ The node state machine handles different state changes on different layers of Ga
 
 2. When the node succeeds with a state transfer request, it begins to cache write-sets.
 
-3. The node receives a :term:`State Snapshot Transfer`.  It now has all cluster data and begins to apply the cached write-sets.  
+3. The node receives a :term:`State Snapshot Transfer`.  It now has all cluster data and begins to apply the cached write-sets.
 
    Here the node enables Flow Control to ensure an eventual decrease in the slave queue.
 
-4. The node finishes catching up with the cluster.  Its slave queue is now empty and it enables Flow Control to keep it empty.  
+4. The node finishes catching up with the cluster.  Its slave queue is now empty and it enables Flow Control to keep it empty.
 
    The node sets the MySQL status variable :ref:`wsrep_ready <wsrep_ready>` to the value ``1``.  The node is now allowed to process transactions.
 
@@ -143,5 +143,5 @@ For the sake of legibility, certain transitions were omitted from the above desc
 
 .. |-->|   unicode:: U+2192 .. RIGHTWARDS ARROW
    :trim:
-   
+
 .. |times|   unicode:: U+00D7 .. MULTIPLICATION SIGN

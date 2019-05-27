@@ -3,7 +3,7 @@ Migrating to Galera Cluster
 ============================
 .. _`migration`:
 
-For systems that already have instances of the standalone versions of MySQL, MariaDB or Percona XtraDB, the Galera Cluster installation replaces the existing database server with a new one that includes the :term:`wsrep API` patch.  This only affects the database server, not the data.
+For systems that already have instances of the standalone versions of MySQL or MariaDB, the Galera Cluster installation replaces the existing database server with a new one that includes the :term:`wsrep API` patch.  This only affects the database server, not the data.
 
 When upgrading from a standalone database server, you must take some additional steps in order to subsequently preserve and use your data with Galera Cluster.
 
@@ -34,7 +34,7 @@ The command starts ``mysqld`` with the :ref:`wsrep_on <wsrep_on>` parameter set 
 
    # mysql_upgrade
 
-If this command generates any errors, check the MySQL Reference Manual for more information related to the particular error message.  Typically, these errors are not critical and you can usually ignore them, unless they relate to specific functionality that your system requires. 
+If this command generates any errors, check the MySQL Reference Manual for more information related to the particular error message.  Typically, these errors are not critical and you can usually ignore them, unless they relate to specific functionality that your system requires.
 
 When you finish upgrading the system tables, you need to stop the ``mysqld`` process until you are ready to initialize the cluster.  For servers that use ``init``, run the following command:
 
@@ -48,7 +48,7 @@ For servers that use ``systemd``, instead use this command:
 
    # systemctl stop mysql
 
-Running this command stops database server.  When you are ready to initialize your cluster, choose this server as your starting node.  
+Running this command stops database server.  When you are ready to initialize your cluster, choose this server as your starting node.
 
 .. note:: **See Also**: For more information on initializing and adding nodes to a cluster, see :doc:`startingcluster`.
 
@@ -131,7 +131,7 @@ In order to migrate data from a MySQL master-slave cluster to Galera Cluster, yo
 
 #. Restart the load from the application servers, this time directing it towards your cluster nodes instead of the master server.
 
-Your application now uses Galera Cluster, instead of your previous MySQL master-slave cluster.  
+Your application now uses Galera Cluster, instead of your previous MySQL master-slave cluster.
 
 .. note:: Bear in mind that your application will experience downtime at this stage of the process.  The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the master server, then transfer and upload it onto a cluster node.
 
@@ -153,7 +153,7 @@ With your application server now using the new cluster nodes, you now need to mi
    For servers that use ``systemd``, instead run this command:
 
    .. code-block:: console
-		  
+
       # systemctl start mysql --wsrep-on=OFF
 
 #. From the database client, manually switch the storage engine on each table from MyISAM to InnoDB:
@@ -192,7 +192,7 @@ With your application server now using the new cluster nodes, you now need to mi
 
 #. Resume load on these servers.
 
-When the former MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.  
+When the former MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.
 
 
 

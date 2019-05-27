@@ -25,7 +25,7 @@ There are two status variables used in finding slow nodes in a cluster: ``wsrep_
    +-------------------------+-------+
    | wsrep_flow_control_sent | 7     |
    +-------------------------+-------+
-  
+
 
 :ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>`: This varaible returns an average of the received queue length since the last status query.
 
@@ -33,15 +33,17 @@ There are two status variables used in finding slow nodes in a cluster: ``wsrep_
 
    SHOW STATUS LIKE 'wsrep_local_recv_queue_avg';
 
-   +----------------------------+---------+
-   | Variable_name              | Value   |
-   +----------------------------+---------+
-   | wsrep_local_recv_queue_avg | 3.34852 |
-   +----------------------------+---------+
-     
-A node that return values much higher than ``0.0`` indicates it cannot apply write-sets as fast as they're received and can generate replication throttling.
-  
-  
+     +----------------------------+---------+
+     | Variable_name              | Value   |
+     +----------------------------+---------+
+     | wsrep_local_recv_queue_avg | 3.34852 |
+     +----------------------------+---------+
+
+  Nodes that return values much higher than ``0.0`` inidcates that it cannot apply write-sets as fast as they are received and can generate replication throttling.
+
+
+Check these status variables on each node in your cluster.  The node that returns the highest value is the slowest node.  Lower values are preferable.
+
+
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-  

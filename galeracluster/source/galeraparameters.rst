@@ -9,6 +9,8 @@ As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key 
 
 Where ``<group>`` roughly corresponds to some Galera module.
 
+.. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
+
 Table legend:
 
 - **Numeric values** Galera Cluster understands the following numeric modifiers:
@@ -36,6 +38,9 @@ Table legend:
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`cert.log_conflicts              | ``NO``                | 2+         | Yes      |
 | <cert.log_conflicts>`                 |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
+| :ref:`cert.optimistic_pa              | ``YES``               | 3.25+      | Yes      |
+| <cert.optimistic_pa>`                 |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`debug                           | ``NO``                | 2+         | Yes      |
 | <debug>`                              |                       |            |          |
@@ -113,6 +118,9 @@ Table legend:
 | :ref:`gcache.page_size                | ``128Mb``             | 1+         | No       |
 | <gcache.page_size>`                   |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
+| :ref:`gcache.recover                  | ``no``                | 3.19+      | No       |
+| <gcache.recover>`                     |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 | :ref:`gcache.size                     | ``128Mb``             | 1+         | No       |
 | <gcache.size>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
@@ -122,7 +130,7 @@ Table legend:
 | :ref:`gcs.fc_debug                    | ``0``                 | 1+         | No       |
 | <gcs.fc_debug>`                       |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.fc_factor                   | ``0.5``               | 1+         | Yes      |
+| :ref:`gcs.fc_factor                   | ``1.0``               | 1+         | Yes      |
 | <gcs.fc_factor>`                      |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`gcs.fc_limit                    | ``16``                | 1+         | Yes      |
@@ -182,10 +190,10 @@ Table legend:
 | :ref:`pc.announce_timeout             | ``PT3S``              | 2+         | No       |
 | <pc.announce_timeout>`                |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.checksum                     | ``TRUE``              | 1+         | No       |
+| :ref:`pc.checksum                     | ``FALSE``             | 1+         | No       |
 | <pc.checksum>`                        |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.ignore_sb                    | ``FALSE``             | 1+         | Yes      | 
+| :ref:`pc.ignore_sb                    | ``FALSE``             | 1+         | Yes      |
 | <pc.ignore_sb>`                       |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`pc.ignore_quorum                | ``FALSE``             | 1+         | Yes      |
@@ -197,10 +205,10 @@ Table legend:
 | :ref:`pc.npvo                         | ``FALSE``             | 1+         | No       |
 | <pc.npvo>`                            |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.wait_prim                    | ``FALSE``             | 1+         | No       |
+| :ref:`pc.wait_prim                    | ``TRUE``              | 1+         | No       |
 | <pc.wait_prim>`                       |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.wait_prim_timeout            | ``P30S``              | 2+         | No       |
+| :ref:`pc.wait_prim_timeout            | ``PT30S``             | 2+         | No       |
 | <pc.wait_prim_timeout>`               |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`pc.weight                       | ``1``                 | 2.4+       | Yes      |
@@ -230,6 +238,9 @@ Table legend:
 | :ref:`repl.proto_max                  | ``5``                 | 2+         | No       |
 | <repl.proto_max>`                     |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
+| :ref:`socket.recv_buf_size            | ``212992``            | 3.17+      | Yes      |
+| <socket.recv_buf_size>`               |                       |            |          |
++---------------------------------------+-----------------------+------------+----------+
 | :ref:`socket.ssl_ca                   |                       | 1+         | No       |
 | <socket.ssl_ca>`                      |                       |            |          |
 +---------------------------------------+-----------------------+------------+----------+
@@ -240,8 +251,9 @@ Table legend:
 | <socket.checksum>`                    |                       |            |          |
 |                                       | ``2`` (for version 3+)|            |          |
 +---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_cipher               | ``AES128-SHA``        | 1+         | No       |
-| <socket.ssl_cipher>`                  |                       |            |          |
+| :ref:`socket.ssl_cipher               | ``AES128-SHA`` before | 1+         | No       |
+| <socket.ssl_cipher>`                  | version 3.24, system  |            |          |
+|                                       | default after         |            |          |
 +---------------------------------------+-----------------------+------------+----------+
 | :ref:`socket.ssl_compression          | ``YES``               | 1+         | No       |
 | <socket.ssl_compression>`             |                       |            |          |
@@ -258,7 +270,7 @@ Table legend:
 .. index::
    pair: wsrep Provider Options; base_host
 
-Global variable for internal use. 
+Global variable for internal use.
 
 .. note:: **Warning**: Do not manually set this variable.
 
@@ -276,7 +288,7 @@ Global variable for internal use.
 .. index::
    pair: wsrep Provider Options; base_port
 
-Global variable for internal use. 
+Global variable for internal use.
 
 .. note:: **Warning**: Do not manually set this variable.
 
@@ -304,6 +316,28 @@ Log details of certification failures.
 | ``NO``                | Yes     | 2.0        |            |
 +-----------------------+---------+------------+------------+
 
+
+
+.. rubric:: ``cert.optimistic_pa``
+.. _`cert.optimistic_pa`:
+.. index::
+   pair: wsrep Provider Options; cert.optimistic_pa
+
+Controls parallel applying of slave actions. When enabled allows full range
+of parallelization as determined by certification algorithm. When disabled
+limits parallel applying window to not exceed that seen on master. In other
+words, the action starts applying no sooner than all actions it has seen
+on the master are committed.
+
+.. code-block:: ini
+
+   wsrep_provider_options="cert.optimistic_pa=NO"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``YES``               | Yes     | 3.25       |            |
++-----------------------+---------+------------+------------+
 
 
 
@@ -340,11 +374,11 @@ Defines how many entries the node allows for given a delayed node before it trig
 
 Each cluster node monitors the group communication response times from all other nodes.  When the cluster registers delayed response from a given node, it adds an entry for that node to its delayed list.  If the majority of the cluster nodes show the node as delayed, the node is permanently evicted from the cluster.
 
-This parameter determines how many entries a given node can receive before it triggers Auto Eviction.  
+This parameter determines how many entries a given node can receive before it triggers Auto Eviction.
 
-When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node.  Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster. 
+When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node.  Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster.
 
-   
+
 .. note:: **See Also**: For more information on the Auto Eviction process, see :doc:`autoeviction`.
 
 +-----------------------+---------+------------+------------+
@@ -428,7 +462,7 @@ This parameter determines how long a node on the delayed list must remain respon
 
 
 .. note:: **See Also**: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
-   
+
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
@@ -437,7 +471,7 @@ This parameter determines how long a node on the delayed list must remain respon
 
 
 
-   
+
 .. rubric:: ``evs.delayed_margin``
 .. _`evs.delayed_margin`:
 .. index::
@@ -449,9 +483,9 @@ Defines how long the node allows response times to deviate before adding an entr
 
    wsrep_provider_options="evs.delayed_margin=PT5S"
 
-Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list.  Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.  
+Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list.  Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.
 
-This parameter determines how long a delay can run before the node adds an entry to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.  
+This parameter determines how long a delay can run before the node adds an entry to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
 
 
 .. note:: **See Also**: For more information on the delayed list and the Auto Eviction process, see :doc:`autoeviction`.
@@ -468,10 +502,10 @@ This parameter determines how long a delay can run before the node adds an entry
 .. index::
    pair: wsrep Provider Options; evs.evict
 
-Defines the point at which the cluster triggers manual eviction to a certain node value.  Setting this parameter as an empty string causes it to clear the eviction list on the node where it is set.
+If set to the gcomm UUID of some node, that node will be evicted from the cluster.  Setting this parameter to an empty string causes the eviction list to be cleared on the node where it is set.
 
 .. note:: **See Also**: For more information on the eviction and Auto Eviction process, see :doc:`autoeviction`.
-   
+
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
@@ -541,7 +575,7 @@ Defines additional logging options for the EVS Protocol.
    wsrep_provider_options="evs.info_log_mask=0x4"
 
 The EVS Protocol monitors group communication response times and controls the node eviction and auto eviction processes.  This parameter allows you to enable additional logging options, through a bitmask value.
- 
+
 - ``0x1`` Provides extra view change info.
 - ``0x2`` Provides extra state change info
 - ``0x4`` Provides statistics
@@ -821,7 +855,7 @@ This parameter determines where you want the node to save these files for write-
 .. index::
    pair: wsrep Provider Options; gcache.keep_pages_size
 
-Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present. 
+Total size of the page storage pages to keep for caching purposes. If only page storage is enabled, one page is always present.
 
 .. code-block:: ini
 
@@ -847,7 +881,7 @@ Defines the filename for the write-set cache.
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
-This parameter determines the name you want the node to use for this ring buffer storage file.  
+This parameter determines the name you want the node to use for this ring buffer storage file.
 
 
 +-----------------------+---------+------------+------------+
@@ -876,6 +910,23 @@ Size of the page files in page storage. The limit on overall page storage is the
 +-----------------------+---------+------------+------------+
 
 
+.. rubric:: ``gcache.recover``
+.. _`gcache.recover`:
+.. index::
+   pair: wsrep Provider Options; gcache.recover
+
+Determines whether gcache recovery takes place on node startup. If gcache could be recovered successfully, the node can then provide IST to other joining nodes, which is useful when the whole cluster is being restarted.
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.recover=yes"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``no``                | No      | 3.19       |            |
++-----------------------+---------+------------+------------+
+
 
 .. rubric:: ``gcache.size``
 .. _`gcache.size`:
@@ -890,7 +941,7 @@ Defines the disk space you want to node to use in caching write-sets.
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
-This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.  
+This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.
 
 .. note:: **See Also**: For more information on customizing the write-set cache, see :ref:`Performance <customizing-gcache-size>`.
 
@@ -910,13 +961,13 @@ This parameter defines the amount of disk space you want to allocate for the pre
 
 
 Defines the policy and priority for the gcomm thread.
-   
+
 .. code-block:: ini
 
    wsrep_provider_options="gcomm.thread_prio=rr:2"
 
 Using this option, you can raise the priority of the gcomm thread to a higher level than it normally uses.  You may find this useful in situations where Galera Cluster threads do not receive sufficient CPU time, due to competition with other MySQL threads.  In these cases, when the thread scheduler for the operating system does not run the Galera threads frequently enough, timeouts may occur, causing the node to drop from the cluster.
-   
+
 The format for this option is: ``<policy>:<priority>``.  The priority value is an integer.  The policy value supports the following options:
 
 - ``other`` Designates the default time-sharing scheduling in Linux.  They can run until they are blocked by an I/O request or preempted by higher priorities or superior scheduling designations.
@@ -925,7 +976,7 @@ The format for this option is: ``<policy>:<priority>``.  The priority value is a
 
 - ``rr`` Designates round-robin scheduling.  These threads always preempt any currently running other, batch or idle threads.  The scheduler allows these threads to run for a fixed period of a time.  If the thread is still running when this time period is exceeded, they are stopped and moved to the end of the list, allowing another round-robin thread of the same priority to run in their place.  They can otherwise continue to run until they are blocked by an I/O request or are preempted by threads of a higher priority.
 
-   
+
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
@@ -933,14 +984,14 @@ The format for this option is: ``<policy>:<priority>``.  The priority value is a
 |                       |  No     | 3.0        |            |
 +-----------------------+---------+------------+------------+
 
-   
+
 
 .. rubric:: ``gcs.fc_debug``
 .. _`gcs.fc_debug`:
 .. index::
    pair: wsrep Provider Options; gcs.fc_debug
 
-Post debug statistics about SST flow every this number of writesets. 
+Post debug statistics about replication flow every this number of writesets.
 
 .. code-block:: ini
 
@@ -1000,7 +1051,7 @@ Pause replication if recv queue exceeds this number of  writesets. For master-sl
    pair: wsrep Provider Options; gcs.fc_master_slave
 
 Defines whether there is only one master node in the group.
-   
+
 .. code-block:: ini
 
    wsrep_provider_options="gcs.fc_master_slave=NO"
@@ -1039,7 +1090,7 @@ All writesets exceeding that size will be fragmented.
 .. index::
    pair: wsrep Provider Options; gcs.max_throttle
 
-How much to throttle replication rate during state transfer (to avoid running out of memory). Set the value to 0.0 if stopping replication is acceptable for completing state transfer. 
+How much to throttle replication rate during state transfer (to avoid running out of memory). Set the value to 0.0 if stopping replication is acceptable for completing state transfer.
 
 .. code-block:: ini
 
@@ -1085,7 +1136,7 @@ The fraction of :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` after which
    wsrep_provider_options="gcs.recv_q_soft_limit=0.25"
 
 The degree of throttling is a linear function of recv queue size and goes from 1.0 (``full rate``)
-at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttle <gcs.max_throttle>` at :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Note that ``full rate``, as estimated between 0 and :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` is a very imprecise estimate of a regular replication rate. 
+at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttle <gcs.max_throttle>` at :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Note that ``full rate``, as estimated between 0 and :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` is a very imprecise estimate of a regular replication rate.
 
 
 +-----------------------+---------+------------+------------+
@@ -1170,7 +1221,7 @@ If you are planning to build a large cluster, we recommend using UDP.
 Time to live value for multicast packets.
 
 .. code-block:: ini
-	
+
    wsrep_provider_options="gmcast.mcast_ttl=1"
 
 +-----------------------+---------+------------+------------+
@@ -1288,7 +1339,7 @@ Defines the address that the node binds on for receiving an :term:`Incremental S
    wsrep_provider_options="ist.recv_bind=192.168.1.1"
 
 This option defines the address to which the node will bind in order to receive Incremental State Transfers.  When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`.  You may find it useful when the node runs behind a NAT or in similar cases where the public and private addresses differ.
-   
+
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
@@ -1297,7 +1348,7 @@ This option defines the address to which the node will bind in order to receive 
 
 
 
-   
+
 .. rubric:: ``pc.recovery``
 .. _`pc.recovery`:
 .. index::
@@ -1306,7 +1357,7 @@ This option defines the address to which the node will bind in order to receive 
    single: gvwstate.dat
 
 
-When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file.  The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.  
+When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file.  The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.
 
 .. code-block:: ini
 
@@ -1383,7 +1434,7 @@ Checksum replicated messages.
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
-| ``TRUE``              | No      | 1.0        |            |
+| ``FALSE``             | No      | 1.0        |            |
 +-----------------------+---------+------------+------------+
 
 
@@ -1452,7 +1503,7 @@ The period for which the PC protocol waits for the EVS termination.
 .. index::
    pair: Parameters; pc.npvo
 
-If set to ``TRUE``, the more recent primary component overrides older ones in the case of conflicting primaries. 
+If set to ``TRUE``, the more recent primary component overrides older ones in the case of conflicting primaries.
 
 .. code-block:: ini
 
@@ -1480,7 +1531,7 @@ If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_p
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |
 +=======================+=========+============+============+
-| ``FALSE``             | No      | 1.0        |            |
+| ``TRUE``              | No      | 1.0        |            |
 +-----------------------+---------+------------+------------+
 
 
@@ -1528,7 +1579,7 @@ As of version 2.4. Node weight for quorum calculation.
 .. index::
    pair: wsrep Provider Options; pc.version
 
-This status variable is used to check which pc protocol version is used. 
+This status variable is used to check which pc protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1564,7 +1615,7 @@ Which transport backend to use. Currently only ASIO is supported.
 .. index::
    pair: wsrep Provider Options; protonet.version
 
-This status variable is used to check which transport backend protocol version is used. 
+This status variable is used to check which transport backend protocol version is used.
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1582,7 +1633,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: wsrep Provider Options; repl.commit_order
 
-Whether to allow Out-Of-Order committing (improves parallel applying performance). 
+Whether to allow Out-Of-Order committing (improves parallel applying performance).
 
 .. code-block:: ini
 
@@ -1690,6 +1741,25 @@ The maximum protocol version in replication. Changes to this parameter will only
 +-----------------------+---------+------------+------------+
 
 
+.. rubric:: ``socket.recv_buf_size``
+.. _`socket.recv_buf_size`:
+.. index::
+   pair: wsrep Provider Options;  socket.recv_buf_size
+
+The size of the receive buffer that used on the network sockets between nodes. Galera passes the value to the kernel via the ``SO_RCVBUF`` socket option.
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.recv_buf_size=212992"
+
++-----------------------+---------+------------+------------+
+| Default Value         | Dynamic | Introduced | Deprecated |
++=======================+=========+============+============+
+| ``212992``            | No      | 3.17       |            |
++-----------------------+---------+------------+------------+
+
+
+
 .. rubric:: ``socket.ssl_ca``
 .. _`socket.ssl_ca`:
 .. index::
@@ -1721,7 +1791,7 @@ The node uses the CA file to verify the signature on the certificate.  You can u
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate.
 
-The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
 .. code-block:: ini
 
@@ -1766,18 +1836,20 @@ Checksum to use on socket layer:
 .. index::
    pair: wsrep Provider Options; socket.ssl_cipher
 
-Symmetric cipher to use. AES128 is used by default it is considerably faster and no less secure than AES256.
+Symmetric cipher to use. By default SSL library implementation default cipher is used.
 
 .. code-block:: ini
 
-   wsrep_provider_options="socket.ssl_cipher=AES128-SHA"
+   wsrep_provider_options="socket.ssl_cipher=AES128-SHA256"
 
 
-+-----------------------+---------+------------+------------+
-| Default Value         | Dynamic | Introduced | Deprecated |
-+=======================+=========+============+============+
-| ``AES128-SHA``        | No      | 1.0        |            |
-+-----------------------+---------+------------+------------+
++--------------------------------+---------+------------+------------+
+| Default Value                  | Dynamic | Introduced | Deprecated |
++================================+=========+============+============+
+| version 1     : ``AES128-SHA`` | No      | 1.0        |            |
++--------------------------------+---------+------------+------------+
+| version 3.24+ : system default |         |            |            |
++--------------------------------+---------+------------+------------+
 
 
 
@@ -1806,7 +1878,7 @@ Whether to enable compression on SSL connections.
 
 Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate key.
 
-The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format. 
+The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
 .. code-block:: ini
 
@@ -1851,7 +1923,7 @@ In the event that you have your SSL key file encrypted, the node uses the SSL pa
    pair: wsrep Provider Options; Setting
 .. index::
    pair: wsrep Provider Options; Checking
-   
+
 You can set *Galera Cluster* parameters in the ``my.cnf`` configuration file as follows:
 
 .. code-block:: ini

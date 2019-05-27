@@ -41,7 +41,7 @@ First, add the GnuPG key for the MariaDB repository by executing the following f
          keyserver.ubuntu.com 0xcbcb082a1bb943db
 
 Next, add the MariaDB repository to your sources list. You can do this by entering something like the following from the command-line:
-   
+
 .. code-block:: console
 
    # add-apt-repository 'deb http://mirror.jmu.edu/pub/mariadb/repo/version/distro release main'
@@ -68,7 +68,7 @@ If you don't know which release is installed on your server, you can determine t
 
 
 For more information on the MariaDB repository, package names and available mirrors, see the `MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_.
-      
+
 Packages in the MariaDB repository are now available for installation through ``apt-get``.
 
 
@@ -126,4 +126,3 @@ For RPM-based distributions, execute instead from the command line the following
 Once you've done this, MariaDB Galera Cluster will be installed on your server.  You'll need to repeat this process for each node in your cluster.
 
 .. note:: **See Also**: If you installed MariaDB Galera Cluster over an existing stand-alone instance of MariaDB, there are some additional steps that you'll need to take to update your system to the new database server.  For more information on this, see :doc:`migration`.
-

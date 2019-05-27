@@ -28,11 +28,11 @@ To create a loopback interface, complete the following steps:
 #. Using your preferred text editor, add the loopback interface to ``/etc/rc.conf``:
 
    .. code-block:: ini
-   
+
       # Network Interface
       cloned_interfaces="${cloned_interfaces} lo1"
 
-#. Create the loopback interface:   
+#. Create the loopback interface:
 
    .. code-block:: console
 
@@ -44,7 +44,7 @@ This creates ``lo1``, a new loopback network interface for your jails.  You can 
 
    $ ifconfig
 
-		
+
 
 ^^^^^^^^^^^^^^^^^^^^^^^
 Firewall Configuration
@@ -66,18 +66,18 @@ To enable PF and create rules for the node, complete the following steps:
       pflog_logfile="/var/log/pf.log"
 
 #. Create the rules files for PF at ``/etc/pf.conf``
-      
+
    .. code-block:: ini
 
       # External Network Interface
       ext_if="vtnet0"
-      
+
       # Internal Network Interface
       int_if="lo1"
 
       # IP Addresses
-      external_addr="host_IP_address"     
-      internal_addr="jail_IP_address_range" 
+      external_addr="host_IP_address"
+      internal_addr="jail_IP_address_range"
 
       # Variables for Galera Cluster
       wsrep_ports="{3306,4567,4568,4444}"
@@ -91,28 +91,28 @@ To enable PF and create rules for the node, complete the following steps:
       rdr on $ext_if proto tcp from any to $external_addr/32 port 4567 -> jail_IP_address port 4567
       rdr on $ext_if proto tcp from any to $external_addr/32 port 4568 -> jail_IP_address port 4568
       rdr on $ext_if proto tcp from any to $external_addr/32 port 4444 -> jail_IP_address port 4444
-   
+
       pass in proto tcp from <wsrep_cluster_address> to any port $wsrep_ports keep state
-      
-   Replace ``host_IP_address`` with the IP address of the host server and ``jail_IP_address`` with the IP address you want to use for the jail.  
-      
+
+   Replace ``host_IP_address`` with the IP address of the host server and ``jail_IP_address`` with the IP address you want to use for the jail.
+
 #. Using ``pfctl``, check for any typos in your PF configurations:
-      
+
    .. code-block:: console
 
       # pfctl -v -nf /etc/pf.conf
 
 #. If ``pfctl`` runs without throwing any errors, start PF and PF logging services:
-      
+
    .. code-block:: console
 
       # service pf start
       # service pflog start
 
 The server now uses PF to manage its firewall.  Network traffic directed at the four ports Galera Cluster uses is routed to the comparable ports within the jail.
-            
+
 .. note:: **See Also**: For more information on firewall configurations for FreeBSD, see :doc:`pf`.
-   
+
 ----------------------
 Creating the Node Jail
 ----------------------
@@ -127,7 +127,7 @@ To create a node jail with ``ezjail``, complete the following steps:
 #. Using your preferred text editor, add the following line to ``/etc/rc.conf``:
 
    .. code-block:: ini
-		   
+
       ezjail_enable="YES"
 
    This allows you to start and stop jails through the ``service`` command.
@@ -145,7 +145,7 @@ To create a node jail with ``ezjail``, complete the following steps:
 #. Create the node jail.
 
    .. code-block:: console
-   
+
       # ezjail-admin create galera-node 'lo1|192.168.68.1'
 
    This creates the particular jail for your node and links it to the ``lo1`` loopback interface and IP address.  Replace the IP address with the local IP for internal use on your server.  It is the same address as you assigned in the firewall redirects above for ``/etc/pf.conf``.
@@ -159,15 +159,15 @@ To create a node jail with ``ezjail``, complete the following steps:
       # cp /etc/resolv.conf /usr/jails/galera-node/etc/
 
    This allows the network interface within the jail to resolve domain names in connecting to the internet.
-      
+
 #. Start the node jail.
 
    .. code-block:: console
-  
+
       # ezjail-admin start galera-node
 
 The node jail is now running on your server.  You can view running jails using the ``ezjail-admin`` command:
-      
+
 .. code-block:: console
 
    # ezjail-admin list
@@ -176,26 +176,25 @@ The node jail is now running on your server.  You can view running jails using t
    DR  2    192.168.68.1  galera-node  /usr/jails/galera-node
 
 While on the host system, you can access and manipulate files and directories in the jail file system from ``/usr/jails/galera-node/``.  Additionally, you can enter the jail directly and manipulate processes running within using the following command:
- 
+
 .. code-block:: console
 
    root@FreeBSDHost:/usr/jails # ezjail-admin console galera-node
    root@galera-node:~ #
 
 When you enter the jail file system, note that the hostname changes to indicate the transition.
-   
+
 
 --------------------------
 Installing Galera Cluster
 --------------------------
 .. _`jails-galera-install`:
 
-Regardless of whether you are on the host system or working from within a jail, currently, there is no binary package or port available to fully install Galera Cluster on FreeBSD.  You must build the database server from source code.  
+Regardless of whether you are on the host system or working from within a jail, currently, there is no binary package or port available to fully install Galera Cluster on FreeBSD.  You must build the database server from source code.
 
 The specific build process that you need to follow depends on the database server that you want to use:
 
 - :doc:`Galera Cluster for MySQL <installmysqlsrc>`
-- :doc:`Percona XtraDB Cluster <installxtradbsrc>`
 - :doc:`MariaDB Galera Cluster <installmariadbsrc>`
 
 Due to certain Linux dependencies, the :term:`Galera Replication Plugin` cannot be built from source on FreeBSD.  Instead you can use the port at ``/usr/ports/databases/galera`` or install it from a binary package within the jail:
@@ -206,7 +205,7 @@ Due to certain Linux dependencies, the :term:`Galera Replication Plugin` cannot 
 
 This install the wsrep Provider file in ``/usr/local/lib``.  Use this path in the configuration file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
 
-  
+
 ^^^^^^^^^^^^^^^^^^^^^^^
 Configuration File
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -216,10 +215,10 @@ For the most part, the configuration file for a node running in a jail is the sa
 
 - :ref:`wsrep_node_address <wsrep_node_address>` The node determines the default address from the IP address on the first network interface.  Jails cannot see the network interfaces on the host system.  You need to set this parameter to ensure that the cluster is given the correct IP address for the node.
 
-- :ref:`wsrep_node_name <wsrep_node_name>` The node determines the default name from the system hostname.  Jails have their own hostnames, distinct from that of the host system.  
+- :ref:`wsrep_node_name <wsrep_node_name>` The node determines the default name from the system hostname.  Jails have their own hostnames, distinct from that of the host system.
 
 .. code-block:: ini
-		
+
    [mysqld]
    user=mysql
    #bind-address=0.0.0.0
@@ -230,7 +229,7 @@ For the most part, the configuration file for a node running in a jail is the sa
    wsrep_node_address="192.168.1.1"
    wsrep_node_name="node1"
    wsrep_cluster_name="example_cluster"
-   
+
    # InnoDB Options
    default_storage_engine=innodb
    innodb_autoinc_lock_mode=2
@@ -265,4 +264,4 @@ To start each additional node, run the following commands:
 
 Each node you start after the initial will attempt to establish network connectivity with the :term:`Primary Component` and begin syncing their database states into one another.
 
-   
+

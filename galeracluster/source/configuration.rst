@@ -8,7 +8,7 @@ After you finish installing Galera Cluster on your server, you're ready to confi
 Using a text editor, edit the ``/etc/my.cnf`` file.  You'll need to include entries like the ones shown in this sample excerpt:
 
 .. code-block:: ini
-		
+
    [mysqld]
    datadir=/var/lib/mysql
    socket=/var/lib/mysql/mysql.sock
@@ -72,7 +72,7 @@ Next, ensure the InnoDB locking mode for generating auto-increment values is set
 
    innodb_autoinc_lock_mode=2
 
-Don't change this value afterwards.  Other modes may cause ``INSERT`` statements to fail on tables with ``AUTO_INCREMENT`` columns.  
+Don't change this value afterwards.  Other modes may cause ``INSERT`` statements to fail on tables with ``AUTO_INCREMENT`` columns.
 
 .. note:: **Warning**: When `innodb_autoinc_lock_mode <http://dev.mysql.com/doc/refman/5.5/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode (i.e., a value of ``0``) or to consecutive lock mode (i.e., a value of ``1``) it can cause unresolved deadlocks and make the system unresponsive in Galera Cluster.
 
@@ -93,7 +93,7 @@ Configuring the InnoDB Buffer Pool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`config_innodb_buffer_pool_size`:
 
-The InnoDB storage engine uses its own memory buffer to cache data and for indexes of tables. You can configure this memory buffer through the 
+The InnoDB storage engine uses its own memory buffer to cache data and for indexes of tables. You can configure this memory buffer through the
 `innodb_buffer_pool_size <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ parameter.  The default value is 128 MB.  To compensate for the increased memory usage of Galera Cluster over a standalone MySQL database server, you should scale your usual value back by five percent.
 
 .. code-block:: ini
@@ -114,7 +114,7 @@ The way to protect a node from such crashes is to ensure that there is sufficien
 .. code-block:: console
 
    # swapon --summary
-   
+
    Filename        Type        Size     Used    Priority
    /dev/sda2       partition   3369980  0       -1
    /swap/swap1     file        524284   0       -2
@@ -139,9 +139,9 @@ Be sure to secure the swap file by changing the permissions on the filesystem wi
 .. code-block:: console
 
    # chmod 600 /swapfile
-   
+
    $ ls -a / | grep swapfile
-   
+
    -rw------- 1 root root 536870912 Feb 12 23:55 swapfile
 
 This sets the file permissions so that only the root user can read and write to the file.  No other user or group member can access it.  Using the ``ls`` command command above shows the results.
@@ -158,11 +158,11 @@ Using a text editor, update the ``/etc/fstab`` file to include the swap file by 
 .. code-block:: ini
 
    /swapfile none swap defaults 0 0
- 
+
 After you save the ``/etc/fstab`` file, you run ``swapon`` again to see the results:
 
 .. code-block:: console
-  
+
    $ swapon --summary
    Filename        Type        Size     Used    Priority
    /swapfile       file        524284   0       -1
@@ -170,5 +170,3 @@ After you save the ``/etc/fstab`` file, you run ``swapon`` again to see the resu
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-
-

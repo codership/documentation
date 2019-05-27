@@ -15,7 +15,7 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
 | Option                                | Default                     | Global | Support | Dynamic |
 +=======================================+=============================+========+=========+=========+
 | :ref:`wsrep_auto_increment_control    | ``ON``                      |  Yes   | 1+      |         |
-| <wsrep_auto_increment_control>`       |                             |        |         |         |     
+| <wsrep_auto_increment_control>`       |                             |        |         |         |
 +---------------------------------------+-----------------------------+--------+---------+---------+
 | :ref:`wsrep_causal_reads              | ``OFF``                     |        | 1 - 3.6 |         |
 | <wsrep_causal_reads>`                 |                             |        |         |         |
@@ -179,7 +179,7 @@ The node manages auto-increment values in a table using two variables: ``auto_in
 
 The :ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>` parameter enables additional calculations to this process, using the number of nodes connected to the :term:`Primary Component` to adjust the increment and offset.  This is done to reduce the likelihood that two nodes will attempt to write the same auto-increment value to a table.
 
-It significantly reduces the rate of certification conflicts for ``INSERT`` statements. You can execute the following ``SHOW VARIABLES`` statement to see how its set: 
+It significantly reduces the rate of certification conflicts for ``INSERT`` statements. You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 
 .. code-block:: mysql
 
@@ -198,7 +198,7 @@ It significantly reduces the rate of certification conflicts for ``INSERT`` stat
 .. index::
    pair: Parameters; wsrep_causal_reads
 
-This parameter enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on non-transactional reads. It results in larger read latencies. 
+This parameter enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on non-transactional reads. It results in larger read latencies.
 
 +-------------------------+--------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-causal-reads``                               |
@@ -219,12 +219,12 @@ This parameter enables the enforcement of strict cluster-wide ``READ COMMITTED``
 +-------------------------+---------------------+----------------------------------+
 
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_causal_reads';
-		
+
 
 .. note:: **Warning**: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
 
@@ -233,11 +233,54 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 
+.. rubric:: ``wsrep_certification_rules``
+.. _`wsrep_certification_rules`:
+.. index::
+   pair: Parameters; wsrep_certification_rules
+
+Certification rules to use in the cluster.
+
++-------------------------+-----------------------------------------------------+
+| **Command-line Format** | ``--wsrep-certification-rules``                     |
++-------------------------+---------------------+-------------------------------+
+| **System Variable**     | *Name:*             | ``wsrep_certification_rules`` |
+|                         +---------------------+-------------------------------+
+|                         | *Variable Scope:*   | Global                        |
+|                         +---------------------+-------------------------------+
+|                         | *Dynamic Variable:* | Yes                           |
++-------------------------+---------------------+-------------------------------+
+| **Permitted Values**    | *Type:*             | enumeration                   |
+|                         +---------------------+-------------------------------+
+|                         | *Default Value:*    | ``STRICT``                    |
+|                         +---------------------+-------------------------------+
+|                         | *Valid Values:*     | ``OPTIMIZED``                 |
+|                         |                     +-------------------------------+
+|                         |                     | ``STRICT``                    |
++-------------------------+---------------------+-------------------------------+
+| **Support**             | *Introduced:*       |                               |
++-------------------------+---------------------+-------------------------------+
+
+Controls how certification is done in the cluster, in particular this affects how foreign keys are handled: with the ``STRICT`` option two INSERTs that happen at about the same time on two different nodes in a child table, that insert different (non conflicting rows), but both rows point to the same row in the parent table could result in certification failure. With the ``OPTIMIZED`` option such certification failure is avoided.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_certification_rules';
+
+   +---------------------------+--------+
+   | Variable_name             | Value  |
+   +---------------------------+--------+
+   | wsrep_certification_rules | STRICT |
+   +---------------------------+--------+
+
+.. note:: This is a MySQL wsrep parameter. It was introduced in 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15.
+
+
+
 .. rubric:: ``wsrep_certify_nonPK``
 .. _`wsrep_certify_nonPK`:
 .. index::
    pair: Parameters; wsrep_certify_nonPK
- 
+
 This parameter is used to define whether the node should generate primary keys on rows without them for the purposes of certification.
 
 +-------------------------+--------------------------------------------------------+
@@ -258,7 +301,7 @@ This parameter is used to define whether the node should generate primary keys o
 
 Galera Cluster requires primary keys on all tables.  The node uses the primary key in replication to allow for the parallel applying of transactions to a table.  This parameter tells the node that when it encounters a row without a primary key, it should create one for replication purposes.  However, as a rule don't use tables without primary keys.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
 .. code-block:: mysql
 
@@ -279,10 +322,10 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    pair: Parameters; wsrep_cluster_address
 .. index::
    single: my.cnf
-  
-	  
+
+
 This parameter sets the back-end schema, IP addresses, ports and options the node uses in connecting to the cluster.
-	  
+
 +-------------------------+--------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-cluster-address``                            |
 +-------------------------+---------------------+----------------------------------+
@@ -319,16 +362,16 @@ Changing this variable while Galera is running will cause the node to close the 
 
     gcomm://node1:port1,node2:port2,...[?option1=value1&...]
 
-    
+
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster--that the other nodes can join to.  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. note:: **Warning**: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node not to rejoin the cluster of which it was a member. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`startingcluster`. 
+.. note:: **Warning**: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node not to rejoin the cluster of which it was a member. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`startingcluster`.
 
 
-You can execute the following SQL statement to see how this variable is set: 
+You can execute the following SQL statement to see how this variable is set:
 
 .. code-block:: mysql
-	  
+
    SHOW VARIABLES LIKE 'wsrep_cluster_address';
 
    +-----------------------+---------------------------------------------+
@@ -338,7 +381,7 @@ You can execute the following SQL statement to see how this variable is set:
    +-----------------------+---------------------------------------------+
 
 
-   
+
 .. rubric:: ``wsrep_cluster_name``
 .. _`wsrep_cluster_name`:
 .. index::
@@ -365,7 +408,7 @@ This parameter defines the logical cluster name for the node.
 This parameter allows you to define the logical name the node uses for the cluster.  When a node attempts to connect to a cluster, it checks the value of this parameter against that of the cluster.  The connection is only made if the names match.  If they don't match, the connection fails.  Because of this, the cluster name must be the same on all nodes.
 
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
 .. code-block:: mysql
 
@@ -378,7 +421,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +--------------------+-----------------+
 
 
-   
+
 .. rubric:: ``wsrep_convert_lock_to_trx``
 .. _`wsrep_convert_lock_to_trx`:
 .. index::
@@ -409,12 +452,12 @@ This parameter may help sometimes to get old applications working in a multi-mas
 
 .. note:: Loading a large database dump with ``LOCK`` statements can result in abnormally large transactions and cause an out-of-memory condition.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_convert_lock_to_trx';
-   
+
    +---------------------------+-------+
    | Variable_name             | Value |
    +---------------------------+-------+
@@ -446,7 +489,7 @@ Use this parameter to set the directory the wsrep Provider uses for its files.
 
 During operation, the wsrep Provider needs to save various files to disk that record its internal state.  This parameter defines the path to the directory that you want it to use.  If not set, it defaults the MySQL ``datadir`` path.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
 .. code-block:: mysql
 
@@ -497,14 +540,14 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +-------------------+-------+
 
 
-   
+
 .. rubric:: ``wsrep_debug``
 .. _`wsrep_debug`:
 .. index::
    pair: Parameters; wsrep_debug
 
 This parameter enables additional debugging output for the database server error log.
-   
+
 
 +-------------------------+--------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-debug``                                      |
@@ -523,24 +566,24 @@ This parameter enables additional debugging output for the database server error
 +-------------------------+---------------------+----------------------------------+
 
 
-Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems. 
+Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
 
 
 .. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information (i.e., passwords) to the error logs.  Don't enable it in production environments.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_debug';
-		
+
    +---------------+-------+
    | Variable_name | Value |
    +---------------+-------+
    | wsrep_debug   | OFF   |
    +---------------+-------+
 
-   
+
 
 .. rubric:: ``wsrep_desync``
 .. _`wsrep_desync`:
@@ -569,7 +612,7 @@ When a node receives more write-sets than it can apply, the transactions are pla
 
 When set to ``ON``, this parameter disables Flow Control for the node.  The node will continue to receive write-sets and fall further behind the cluster.  The cluster doesn't wait for desynced nodes to catch up, even if it reaches the ``fc_limit`` value.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
 .. code-block:: mysql
 
@@ -605,15 +648,15 @@ This parameter defines whether the node accepts read queries when in a non-opera
 | **Support**             | *Introduced:*       |                                   |
 +-------------------------+---------------------+-----------------------------------+
 
-When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it can't keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.  
+When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it can't keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.
 
 .. note:: Remember that by its nature, data reads from nodes in a non-operational state are stale.  Current data in the Primary Component remains inaccessible to these nodes until they rejoin the cluster.
 
 When enabling this parameter, the node only permits reads. It still rejects any command that modifies or updates the database.  When in this state, the node allows ``USE``, ``SELECT``, ``LOCK TABLE`` and ``UNLOCK TABLES`` statements.  It doesn't allow DDL statements.  It also rejects DML statements (i.e., ``INSERT``, ``DELETE`` and ``UPDATE``).
 
-You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.  
+You must set the :ref:`wsrep_sync_wait <wsrep_sync_wait>` parameter to ``0`` when using this parameter, else it raises a deadlock error.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
 .. code-block:: mysql
 
@@ -656,7 +699,7 @@ Drupal installations using MySQL are subject to a bug in InnoDB, tracked as `MyS
 
 This parameter enables a workaround for the bug on Galera Cluster.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
 .. code-block:: mysql
 
@@ -701,11 +744,11 @@ This parameter defines the binary log format for all transactions.
 | **Support**             | *Introduced:*       | 1                                |
 +-------------------------+---------------------+----------------------------------+
 
-The node uses the format given by this parameter regardless of the client session variable `binlog_format <https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html>`_.  Valid choices for this parameter are: ``ROW``, ``STATEMENT``, and ``MIXED``.  Additionally, there is the special value ``NONE``, which means that there is no forced format in effect for the binary logs. When set to a value other than ``NONE``, this parameter forces all transactions to use a given binary log format.  
+The node uses the format given by this parameter regardless of the client session variable `binlog_format <https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html>`_.  Valid choices for this parameter are: ``ROW``, ``STATEMENT``, and ``MIXED``.  Additionally, there is the special value ``NONE``, which means that there is no forced format in effect for the binary logs. When set to a value other than ``NONE``, this parameter forces all transactions to use a given binary log format.
 
 This variable was introduced to support ``STATEMENT`` format replication during :term:`Rolling Schema Upgrade`.  In most cases, however, ``ROW`` format replication is valid for asymmetric schema replication.
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set: 
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
 .. code-block:: mysql
 
@@ -741,11 +784,11 @@ This parameter defines whether the node splits large ``LOAD DATA`` commands into
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-When loading huge amounts of data creates problems for Galera Cluster, in that they eventually reach a size that is too large for the node to rollback completely the operation in the event of a conflict and whatever gets committed stays committed.  
+When loading huge amounts of data creates problems for Galera Cluster, in that they eventually reach a size that is too large for the node to rollback completely the operation in the event of a conflict and whatever gets committed stays committed.
 
 This parameter tells the node to split ``LOAD DATA`` commands into transactions of 10,000 rows or less, making the data more manageable for the cluster.  This deviates from the standard behavior for MySQL.
 
-You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set: 
+You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
 
 .. code-block:: mysql
 
@@ -786,7 +829,7 @@ In Galera Cluster, the database server uses the standard logging features of MyS
 
 The additional information includes the table and schema where the conflict occurred, as well as the actual values for the keys that produced the conflict.
 
-You can execute the following ``SHOW VARIABLES`` statement to see if this feature is enabled: 
+You can execute the following ``SHOW VARIABLES`` statement to see if this feature is enabled:
 
 .. code-block:: mysql
 
@@ -799,7 +842,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see if this featur
    +---------------------+-------+
 
 
-	     
+
 .. rubric:: ``wsrep_max_ws_rows``
 .. _`wsrep_max_ws_rows`:
 .. index::
@@ -807,7 +850,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see if this featur
 
 
 With this parameter you can set the maximum number of rows the node allows in a write-set.
-   
+
 +-------------------------+---------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-max-ws-rows``                                 |
 +-------------------------+---------------------+-----------------------------------+
@@ -826,7 +869,7 @@ With this parameter you can set the maximum number of rows the node allows in a 
 
 If set to a value greater than ``0``, this parameter sets the maximum number of rows that the node allows in a write-set.
 
-You can execute the following ``SHOW VARIABLES`` statement to see the current value of this parameter: 
+You can execute the following ``SHOW VARIABLES`` statement to see the current value of this parameter:
 
 .. code-block:: mysql
 
@@ -858,14 +901,14 @@ You can set the maximum size the node allows for write-sets with this parameter.
 +-------------------------+---------------------+-----------------------------------+
 | **Permitted Values**    | *Type:*             | string                            |
 |                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``1G``                            |
+|                         | *Default Value:*    | ``2G``                            |
 +-------------------------+---------------------+-----------------------------------+
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter sets the maximum size that the node allows for a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.  
+This parameter sets the maximum size that the node allows for a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.
 
-The maximum allowed write-set size is ``2G``.  You can execute the following ``SHOW VARIABLES`` statement to see the current value of this parameter: 
+The maximum allowed write-set size is ``2G``.  You can execute the following ``SHOW VARIABLES`` statement to see the current value of this parameter:
 
 .. code-block:: mysql
 
@@ -874,7 +917,7 @@ The maximum allowed write-set size is ``2G``.  You can execute the following ``S
    +-------------------+-------+
    | Variable_name     | Value |
    +-------------------+-------+
-   | wsrep_max_ws_size | 1G    |
+   | wsrep_max_ws_size | 2G    |
    +-------------------+-------+
 
 
@@ -921,7 +964,7 @@ In these scenarios, since auto-guess of the IP address does not produce the corr
 
 In some cases, you may need to provide a different value.  For example, Galera Cluster running on Amazon EC2 requires that you use the global DNS name instead of the local IP address.
 
-You can execute the ``SHOW VARIABLES`` statement as shown below to get the current value of this parameter: 
+You can execute the ``SHOW VARIABLES`` statement as shown below to get the current value of this parameter:
 
 .. code-block:: mysql
 
@@ -959,7 +1002,7 @@ This parameter is used to provide the IP address and port from which the node sh
 
 This parameter defines the IP address and port number at which the node should expect to receive client connections.  It's intended for integration with load balancers. For now, it's otherwise unused by the node.
 
-You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get the IP address and port setting of this parameter: 
+You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get the IP address and port setting of this parameter:
 
 .. code-block:: mysql
 
@@ -996,11 +1039,11 @@ You can set the logical name that the node uses for itself with this parameter.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines the logical name that the node uses when referring to itself in logs and in the cluster.  It's for convenience, to help you in identifying nodes in the cluster by means other than the node address. 
+This parameter defines the logical name that the node uses when referring to itself in logs and in the cluster.  It's for convenience, to help you in identifying nodes in the cluster by means other than the node address.
 
 By default, the node uses the server hostname.  In some situations, you may need explicitly to set it. You would do this when using container deployments with Docker or FreeBSD jails, where the node uses the name of the container rather than the hostname.
 
-You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get the node name: 
+You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get the node name:
 
 .. code-block:: mysql
 
@@ -1039,6 +1082,8 @@ Defines the command the node runs whenever cluster membership or the state of th
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
+.. note:: **Warning**: The node will block and wait until the script completes and returns before it can proceed. If the script performs any potentially blocking or long-running operations, such as network communication, you may wish initiate such operations in the background and have the script return immediately.
+
 .. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the :doc:`notificationcmd`.
 
 When the node calls the command, it passes one or more arguments that you can use in configuring your custom notification script and how it responds to the change.  The options are:
@@ -1046,28 +1091,28 @@ When the node calls the command, it passes one or more arguments that you can us
 --status <status str>        The status of this node. The possible statuses are:
 
                              - ``Undefined`` The node has just started up and is not connected to any :term:`Primary Component`.
-                               
+
                              - ``Joiner`` The node is connected to a primary component and now is receiving state snapshot.
-                             
+
                              - ``Donor`` The node is connected to primary component and now is sending state snapshot.
-                             
-                             - ``Joined`` The node has a complete state and now is catching up with the cluster.  
-                             
+
+                             - ``Joined`` The node has a complete state and now is catching up with the cluster.
+
                              - ``Synced`` The node has synchronized itself with the cluster.
-                             
+
                              - ``Error(<error code if available>)`` The node is in an error state.
-                                
+
 --uuid <state UUID>          The cluster state UUID.
 
 --primary <yes/no>           Whether the current cluster component is primary or not.
 
 --members <list>             A comma-separated list of the component member UUIDs.
-                             The members are presented in the following syntax: 
-                            
+                             The members are presented in the following syntax:
+
                              - ``<node UUID>`` A unique node ID. The wsrep Provider automatically assigns this ID for each node.
-                             
+
                              - ``<node name>`` The node name as it is set in the ``wsrep_node_name`` option.
-                             
+
                              - ``<incoming address>`` The address for client connections as it is set in the ``wsrep_node_incoming_address`` option.
 
 --index                      The index of this node in the node list.
@@ -1127,7 +1172,7 @@ This parameter defines whether or not updates made in the current session replic
 .. _`wsrep_OSU_method`:
 .. index::
    pair: Parameters; wsrep_OSU_method
-   
+
 Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (Data Definition Language)` statements.
 
 +-------------------------+---------------------------------------------------------+
@@ -1145,7 +1190,7 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
 |                         +---------------------+-----------------------------------+
 |                         | *Valid Values:*     | ``TOI``                           |
 |                         |                     +-----------------------------------+
-|                         |                     | ``ROI``                           |
+|                         |                     | ``RSU``                           |
 +-------------------------+---------------------+-----------------------------------+
 | **Support**             | *Introduced:*       | Patch v. 3 (5.5.17-22.3)          |
 +-------------------------+---------------------+-----------------------------------+
@@ -1169,7 +1214,7 @@ DDL statements are non-transactional and as such do not replicate through write-
    | wsrep_OSU_method | TOI   |
    +------------------+-------+
 
-   
+
 .. rubric:: ``wsrep_preordered``
 .. _`wsrep_preordered`:
 .. index::
@@ -1212,7 +1257,7 @@ Preordered events should not interfere with events that originate on the local n
 .. _`wsrep_provider`:
 .. index::
    pair: Parameters; wsrep_provider
-  
+
 Defines the path to the :term:`Galera Replication Plugin`.
 
 +-------------------------+---------------------------------------------------------+
@@ -1272,6 +1317,8 @@ When the node loads the wsrep Provider, there are several configuration options 
 
 For example, you can use :ref:`gcache.size <gcache.size>` to define how large a write-set cache the node keeps or manage group communications timeouts.
 
+.. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
+
 .. note:: **See Also**: For more information on the wsrep Provider options, see :doc:`galeraparameters`.
 
 
@@ -1324,7 +1371,7 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 
 - ``NONE`` The node disables this feature.
 
-- ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections. 
+- ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections.
 
 - ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including the current connection.
 
@@ -1377,7 +1424,7 @@ Enabling this parameter tells the node to restart the replication slave when it 
    | wsrep_restart_slave | OFF   |
    +---------------------+-------+
 
-   
+
 
 
 .. rubric:: ``wsrep_retry_autocommit``
@@ -1477,7 +1524,7 @@ Defines the number of threads to use in applying slave write-sets.
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs. 
+This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs.
 
 Instead of concrete recommendations, there are some general guidelines that you can use as a starting point in finding the value that works best for your system:
 
@@ -1498,14 +1545,14 @@ Instead of concrete recommendations, there are some general guidelines that you 
    +---------------------+-------+
 
 
-   
+
 .. rubric:: ``wsrep_slave_UK_checks``
 .. _`wsrep_slave_UK_checks`:
 .. index::
    pairs: Parameters; wsrep_slave_UK_checks
 
 Defines whether the node performs unique key checking on applier threads.
-   
+
 +-------------------------+---------------------------------------------------------+
 | **Command-line Format** | ``--wsrep-slave-UK-checks``                             |
 +-------------------------+---------------------+-----------------------------------+
@@ -1532,7 +1579,7 @@ This parameter enables unique key checking on applier threads.
    | Variable_name         | Value |
    +-----------------------+-------+
    | wsrep_slave_UK_checks | OFF   |
-   +-----------------------+-------+   
+   +-----------------------+-------+
 
 
 
@@ -1578,7 +1625,7 @@ Format this value to the pattern: ``username:password``.
    +----------------+---------------------------+
    | wsrep_sst_auth | wsrep_sst_user:mypassword |
    +----------------+---------------------------+
-	  
+
 
 
 .. rubric:: ``wsrep_sst_donor``
@@ -1619,17 +1666,19 @@ It continues retrying the state transfer request until it succeeds.  When the st
 
    Node 0 (XXX) requested state transfer from '*any*'. Selected 1 (XXX) as donor.
 
-Using this parameter, you can tell the node which cluster node it should use instead for state transfers.  The name given to the receiving node with this parameter must match the name given for :ref:`wsrep_node_name <wsrep_node_name>` on the donor node.
+Using this parameter, you can tell the node which cluster node or nodes it should use instead for state transfers.  The names used in this parameter must match the names given with :ref:`wsrep_node_name <wsrep_node_name>` on the donor nodes.  The setting affects both Incremental State Transfers (IST) and Snapshot State Transfers (SST).
+
+If the list contains a trailing comma, the remaining nodes in the cluster will also be considered if the nodes from the list are not available.
 
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_sst_donor';
 
-   +-----------------+---------------+
-   | Variable_name   | Value         |
-   +-----------------+---------------+
-   | wsrep_sst_donor | my_donor_node |
-   +-----------------+---------------+
+   +-----------------+--------------------------------+
+   | Variable_name   | Value                          |
+   +-----------------+--------------------------------+
+   | wsrep_sst_donor | my_donor_node1,my_donor_node2, |
+   +-----------------+--------------------------------+
 
 
 
@@ -1678,7 +1727,7 @@ Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to t
 
 
 
-	  
+
 
 .. rubric:: ``wsrep_sst_method``
 .. _`wsrep_sst_method`:
@@ -1698,7 +1747,7 @@ Defines the method or script the node uses in a :term:`State Snapshot Transfer`.
 +-------------------------+---------------------+-----------------------------------+
 | **Permitted Values**    | *Type:*             | string                            |
 |                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``mysqldump``                     |
+|                         | *Default Value:*    | ``rsync``                         |
 +-------------------------+---------------------+-----------------------------------+
 | **Support**             | *Introduced:*       | 1                                 |
 +-------------------------+---------------------+-----------------------------------+
@@ -1722,7 +1771,7 @@ Galera Cluster ships with a number of default scripts that the node can use in s
      [mysqld]
      wsrep_sst_auth=YOUR_SST_USER:YOUR_SST_PASSWORD
      wsrep_sst_method=xtrabackup
-     datadri=/path/to/datadir
+     datadir=/path/to/datadir
 
      [client]
      socket=/path/to/socket
@@ -1823,7 +1872,7 @@ This parameter defines the node start position.  It exists for the sole purpose 
    +----------------------+-----------------------------------------+
    | wsrep_start_position | 00000000-0000-0000-0000-000000000000:-1 |
    +----------------------+-----------------------------------------+
-	     
+
 
 .. rubric:: ``wsrep_sync_wait``
 .. _`wsrep_sync_wait`:
@@ -1862,7 +1911,9 @@ This value of this parameter is a bitmask, which determines the type of check yo
 | ``0``   | Disabled.                                            |
 +---------+------------------------------------------------------+
 | ``1``   | Checks on ``READ`` statements, including ``SELECT``, |
-|         | ``SHOW``, and ``BEGIN`` / ``START TRANSACTION``.     |
+|         | and ``BEGIN`` / ``START TRANSACTION``.               |
+|         | Checks on ``SHOW`` (up to versions 5.5.54, 5.6.35,   |
+|         | 5.7.17)                                              |
 +---------+------------------------------------------------------+
 | ``2``   | Checks made on ``UPDATE`` and ``DELETE`` statements. |
 +---------+------------------------------------------------------+
@@ -1871,8 +1922,10 @@ This value of this parameter is a bitmask, which determines the type of check yo
 +---------+------------------------------------------------------+
 | ``4``   | Checks made on ``INSERT`` and ``REPLACE`` statements.|
 +---------+------------------------------------------------------+
+| ``8``   | Checks made on ``SHOW`` statements                   |
++---------+------------------------------------------------------+
 
-For example, say that you have a web application.  At one point in its run, you need it to perform a critical read.  That is, you want the application to access the database server and run a ``SELECT`` query that must return the most up to date information possible. 
+For example, say that you have a web application.  At one point in its run, you need it to perform a critical read.  That is, you want the application to access the database server and run a ``SELECT`` query that must return the most up to date information possible.
 
 .. code-block:: mysql
 
@@ -1906,7 +1959,7 @@ In the example, the application first runs a ``SET`` command to enable :ref:`wsr
    pair: Galera Cluster 4.x; Streaming Replication
 .. index::
    pair: wsrep_trx_fragment_size; Streaming Replication
-   
+
 Defines the number of replication units needed to generate a new fragment in Streaming Replication.
 
 
@@ -1985,7 +2038,7 @@ Supported replication units are:
 
 - **rows**: Refers to the number of rows updated in the fragment.
 
-- **statements**: Refers to the number of SQL statements in the fragment. 
+- **statements**: Refers to the number of SQL statements in the fragment.
 
 
 .. code-block:: mysql
@@ -2000,7 +2053,7 @@ Supported replication units are:
 
 
 
-   
+
 
 .. rubric:: ``wsrep_ws_persistency``
 .. _`wsrep_ws_persistency`:
@@ -2027,7 +2080,7 @@ Defines whether the node stores write-sets locally for debugging.
 |                         | *Deprecated:*       | 0.8                               |
 +-------------------------+---------------------+-----------------------------------+
 
-This parameter defines whether the node stores write-sets locally for debugging purposes.  
+This parameter defines whether the node stores write-sets locally for debugging purposes.
 
 .. code-block:: mysql
 
@@ -2043,4 +2096,3 @@ This parameter defines whether the node stores write-sets locally for debugging 
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-

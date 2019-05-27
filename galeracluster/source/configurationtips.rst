@@ -21,10 +21,12 @@ The following parameters can tolerate 30 second connectivity outages:
 
 .. code-block:: ini
 
-  wsrep_provider_options = "evs.keepalive_period = PT3S; 
-  	                        evs.suspect_timeout = PT30S; 
-  	                        evs.inactive_timeout = PT1M; 
+  wsrep_provider_options = "evs.keepalive_period = PT3S;
+  	                        evs.suspect_timeout = PT30S;
+  	                        evs.inactive_timeout = PT1M;
   	                        evs.install_timeout = PT1M"
+
+.. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
 
 In configuring these parameters, consider the following:
 
@@ -47,14 +49,14 @@ To take RTT measurements, use ``ping`` on each cluster node to ping the others. 
 .. code-block:: console
 
    $ ping -c 3 192.168.1.2
-   
+
      PING 192.168.1.2 (192.168.1.2) 58(84) bytes of data.
      64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=0.736 ms
      64 bytes from 192.168.1.2: icmp_seq=2 ttl=64 time=0.878 ms
      64 bytes from 192.168.1.2: icmp_seq=3 ttl=64 time=12.7 ms
 
      --- 192.168.1.2 ---
-     
+
      3 packets transmitted, 3 received, 0% packet loss, time 2002ms
      rtt min/avg/max/mdev = 0.736/4.788/12.752/5.631 ms
 
@@ -68,7 +70,7 @@ Parameters that relate to periods and timeouts, such as :ref:`evs.join_retrans_p
 
 This allows the cluster to compensate for the latency issues of the :abbr:`WAN (Wide Area Network)` links between the cluster nodes.
 
-  
+
 ---------------------
  Multi-Master Setup
 ---------------------
@@ -92,8 +94,8 @@ To relax flow control, you might use the settings below:
 
 .. code-block:: ini
 
-    wsrep_provider_options = "gcs.fc_limit = 256; 
-                              gcs.fc_factor = 0.99; 
+    wsrep_provider_options = "gcs.fc_limit = 256;
+                              gcs.fc_factor = 0.99;
                               gcs.fc_master_slave = YES"
 
 By reducing the rate of flow control events, these settings may improve replication performance.
@@ -155,7 +157,7 @@ Now, on ``node2``, suppose you set it to wait until it replicates and applies th
 .. code-block:: mysql
 
    SELECT WSREP_SYNC_WAIT_UPTO_GTID($transaction_1_gtid);
-   
+
    START TRANSACTION;
 
 Next, you execute your critical reads.

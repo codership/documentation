@@ -33,19 +33,19 @@ By default, a node don't start as part of the :term:`Primary Component`.  Instea
 
 The problem is that there is no Primary Component when a cluster starts, when the first node is initiated.  Therefore, you need explicitly to tell that first node to do so with the ``--wsrep-new-cluster`` argument.  Althought this initiate node is said to be the first node, it can fall behind and leave the cluster without necessarily affecting the Primary Component.
 
-.. note:: **See Also**: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`migration` and :doc:`quorumreset`. 
+.. note:: **See Also**: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`migration` and :doc:`quorumreset`.
 
 To start the first node--which should have MySQL, MariaDB or Percona XtraDB, and Galera installed--you'll have to launch the database server on it with the ``--wsrep-new-cluster`` option.  There are a few ways you might do this, depending on the operating system. For systems that use ``init``, execute the following from the command-line:
 
 .. code-block:: console
 
-   # service mysql start --wsrep-new-cluster
+   $ systemctl start mysql --wsrep-new-cluster
 
 For operating systems that use ``systemd``, you would instead enter the following from the command-line:
 
 .. code-block:: console
 
-   # systemctl start mysql --wsrep-new-cluster
+   $ /usr/bin/mysqld_bootstrap
 
 Both of these start the ``mysqld`` daemon on the node. Starting in MariaDB version 10.4, which includes Galera version 4, you can enter instead the following from the command-line to start MariaDB, Galera, and to establish the Primary Component:
 
@@ -60,7 +60,7 @@ Once the first node starts the database server, verify that the cluster has star
 .. code-block:: mysql
 
    SHOW STATUS LIKE 'wsrep_cluster_size';
-      
+
    +--------------------+-------+
    | Variable_name      | Value |
    +--------------------+-------+
@@ -79,7 +79,7 @@ Once you get the first node started and the Primary Component initialized, don't
    seqno:   -1
    safe_to_bootstrap: 0
 
-The variable ``safe_to_bootstrap`` is set to 0 on the first node after it's been bootstrapped to protect against you inadvertently bootstrapping again while the cluster is runnning.  You'll have to change the value to 1 to be able to bootstrap anew.    
+The variable ``safe_to_bootstrap`` is set to 0 on the first node after it's been bootstrapped to protect against you inadvertently bootstrapping again while the cluster is runnning.  You'll have to change the value to 1 to be able to bootstrap anew.
 
 
 --------------------------------------

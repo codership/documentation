@@ -24,9 +24,9 @@ Internet traffic will be filtered down to your application servers, all of which
    *No Clustering*
 
 
-This solution is simple and easy to manage, but has a particular weakness in the data tier's lack of redundancy.  
+This solution is simple and easy to manage, but has a particular weakness in the data tier's lack of redundancy.
 
-For example, if for any reason the :abbr:`DBMS (Database Management System)` server become unavailable, your application also becomes unavailable.  This is the same whether the server crashes or it has been shut down for maintenance. 
+For example, if for any reason the :abbr:`DBMS (Database Management System)` server become unavailable, your application also becomes unavailable.  This is the same whether the server crashes or it has been shut down for maintenance.
 
 Similarly, this deployment also introduces performance concerns.  While you can start as many instances as you need to meet the demands on your web and application servers, they can only so much load on the :abbr:`DBMS (Database Management System)` server can be handled before the load begins to slow end-user activities.
 
@@ -68,7 +68,7 @@ Data Tier Clustering
 -----------------------
 .. _`data-tier-cluster`:
 
-To compensate for the shortcomings in whole stack clusters, you can cluster the data tier separately from your web and application servers. 
+To compensate for the shortcomings in whole stack clusters, you can cluster the data tier separately from your web and application servers.
 
 With data tier clustering, the :abbr:`DBMS (Database Management System)` servers form a cluster distinct from your *n*-tier application cluster.  The application servers treat the database cluster as a single virtual server, making calls through load balancers to the data tier.
 

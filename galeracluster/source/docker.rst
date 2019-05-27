@@ -26,13 +26,15 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
    MAINTAINER your name <your.user@example.org>
 
    ENV DEBIAN_FRONTEND noninteractive
-   
-   RUN apt-get update 
-   RUN apt-get install -y  software-properties-common
-   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA 
-   RUN add-apt-repository 'deb http://releases.galeracluster.com/ubuntu trusty main'
 
-   RUN apt-get update 
+   RUN apt-get update
+   RUN apt-get install -y  software-properties-common
+   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA
+   RUN add-apt-repository 'deb http://releases.galeracluster.com/galera-3/ubuntu trusty main'
+   RUN add-apt-repository 'deb http://releases.galeracluster.com/mysql-wsrep-5.6/ubuntu trusty main'
+
+
+   RUN apt-get update
    RUN apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync
 
    COPY my.cnf /etc/mysql/my.cnf
@@ -46,7 +48,7 @@ Configuration File
 ^^^^^^^^^^^^^^^^^^^^
 .. _`docker-my-cnf`:
 
-Before you build the container, you need to create the configuration file for the node.  The ``COPY`` command in the ``Dockerfile`` example above copies ``my.cnf``, the MySQL configuration file, from the build directory into the container.   
+Before you build the container, you need to create the configuration file for the node.  The ``COPY`` command in the ``Dockerfile`` example above copies ``my.cnf``, the MySQL configuration file, from the build directory into the container.
 
 For the most part, the configuration file for a node running within Docker is the same as when the node is running on a standard Linux server.  However, there are some parameters that may not be included in the MySQL configuration file and instead use the default values from the underlying database system---or they may have been set manually, on-the-fly using the ``SET`` statement.  For these parameters, since Docker can't access the host system, you may need to set them, manually.
 
@@ -58,7 +60,7 @@ Changes to the ``my.cnf`` file will not propagate into an existing container.  T
 
 .. note:: If you need Docker to rerun the entire build, use the ``--force-rm=true`` option.
 
-  
+
 
 -----------------------------
 Building a Container Image
@@ -71,14 +73,14 @@ You can build a container node using the ``docker`` command-line tool like so:
 
 .. code-block:: console
 
-   # docker build -t ubuntu:galera-node1 ./ 
+   # docker build -t ubuntu:galera-node1 ./
 
 When this command runs, Docker looks in the current working directory, (i.e., ``./``), for the ``Dockerfile``.  It then follows each command in the ``Dockerfile`` to build the image.  When the build is complete, you can view the addition among the available images by executing the following:
-   
+
 .. code-block:: console
 
    # docker images
-   
+
    REPOSITORY  TAG           IMAGE ID      CREATED        SIZE
    ubuntu      galera-node-1 53b97c3d7740  2 minutes ago  362.7 MB
    ubuntu      14.04         ded7cd95e059  5 weeks ago    185.5 MB
@@ -89,7 +91,7 @@ You would then update the container tag to help differentiate between each node 
 
 .. code-block:: console
 
-   [root@node2]# docker build -t ubuntu:galera-node2 ./ 
+   [root@node2]# docker build -t ubuntu:galera-node2 ./
    [root@node3]# docker build -t ubuntu:galera-node3 ./
 
 
@@ -115,7 +117,7 @@ You'll notice in the example here there are several ``-p`` options included. Tho
 .. note:: The above command starts a container node meant to be attached to an existing cluster.  If you're starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.  For more information, see :doc:`startingcluster`.
 
 
-   
+
 ^^^^^^^^^^^^^^^^^^^
 Firewall Settings
 ^^^^^^^^^^^^^^^^^^^
@@ -148,10 +150,9 @@ Using the example above, if you want access to the database client, you would ru
 .. code-block:: console
 
    # docker exec -ti Node1 /bin/mysql -u root -p
-   
+
 Notice here that ``Node1`` is the name given with the ``--name`` parameter in the example earlier.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-  

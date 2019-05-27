@@ -12,11 +12,11 @@ The chapters in this part relate to the administration of nodes and the cluster.
 .. _`node-admin`:
 
 Managing and administering nodes in Galera Cluster is similar to the administration and management of the standard standalone MySQL, MariaDB and Percona XtraDB database servers, with some additional features used to manage its interaction with the cluster.  These chapters cover the administration of individual nodes, how they handle write-set replication and schema updates, and the procedure for upgrading Galera Cluster software.
-	    
+
 - :doc:`nodeprovisioning`
 
   The complete process of replicating data into a node so that it can operate as part of the Primary Component is called 'provisioning' the node.  It ensures that the nodes update the local data, keeping it consistent with the state of the cluster.  This chapter provides an overview to how nodes join the cluster and maintain their state through state transfers.
-  
+
 - :doc:`sst`
 
   When a node falls too far behind the cluster, they request State Snapshot Transfers from another node in order to bring its local database up to date with the cluster.  This chapter provides a guide to each state transfer method Galera Cluster supports.
@@ -24,7 +24,7 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 - :doc:`scriptablesst`
 
   When nodes send and receive State Snapshot Transfers, they manage the process through external scripts that call the standard state transfer methods.  In event that you require additional functionality than what is available by default, you can use scripts to implement your own custom state snapshot transfer methods.
- 
+
 - :doc:`sysdbs`
 
   When you install Galera Cluster, it creates a set of system databases, which it uses to store configuration information.  Similar to how the underlying database server uses the ``performance_schema`` and ``information_schema``, Galera Cluster uses ``wsrep_schema`` to record information relevant to replication.  This chapter provides a guide to what you'll find in this database and how you might query it for useful information about the health of the node and the cluster.
@@ -40,8 +40,8 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 
 
 
-  
-  
+
+
 .. rubric:: Cluster Administration
 .. _`cluster-admin`:
 
@@ -51,7 +51,7 @@ In addition to node administration, Galera Cluster also provides interfaces for 
 - :doc:`pcrecovery`
 
   When nodes establish connections with each other, they form components.  The operational component in the cluster is called the Primary Component.  This chapter covers a new feature in version 3.6 of Galera Cluster, which sets the nodes to save the Primary Component state to disk.  In the event of an outage, once all the nodes that previously formed the Primary Component reestablish network connectivity, they automatically restore themselves as the new Primary Component.
-  
+
 - :doc:`quorumreset`
 
   The Primary Component maintains quorum when most of the nodes in the cluster are connected to it.  This chapter provides a guide to resetting the quroum in the event that the cluster becomes non-operational due to a major network outage, the failure of more than half the nodes, or a split-brain situation.
@@ -59,7 +59,7 @@ In addition to node administration, Galera Cluster also provides interfaces for 
 - :doc:`managingfc`
 
   When nodes fall too far behind, Galera Cluster uses a feedback mechanism called Flow Control, pausing replication to give the node to process transactions and catch up with the cluster.  This chapter covers the monitoring and configuration of Flow Control, in order to improve node performance.
-  
+
 - :doc:`autoeviction`
 
   When Galera Cluster notices erratic behavior from a node, such as in the case of unusually delayed response times, it can initiate a process to remove the node permanently from the cluster.  This chapter covers the configuration and management of how the cluster handles these Auto Evictions.
@@ -77,11 +77,11 @@ In addition to node administration, Galera Cluster also provides interfaces for 
 
   Standard backup methods available to MySQL database servers fail to preserve Global Transaction ID's used by Galera Cluster.  You can recover data from these backups, but they're insufficient in restoring nodes to a well-defined state.  This chapter shows how to use state transfers to properly perform backups in Galera Cluster.
 
-  
+
 .. toctree::
    :maxdepth: 2
    :hidden:
-      
+
    nodeprovisioning
    sst
    scriptablesst

@@ -63,7 +63,7 @@ Now, you'll need to open the TCP ports for Galera Cluster.  To do so, enter the 
 
     # firewall-cmd --zone=public --add-port=3306/tcp \
           --permanent
-    # firewall-cmd --zone=public --add-port=4567/tcp \ 
+    # firewall-cmd --zone=public --add-port=4567/tcp \
           --permanent
     # firewall-cmd --zone=public --add-port=4568/tcp \
           --permanent
@@ -83,7 +83,7 @@ Now you just need to reload the firewall rules, maintaining the current state in
 
     # firewall-cmd --reload
 
-These commands modify the default FirewallD settings and then cause the new settings to take effect, immediately.  FirewallD will then be configured to allow the rest of the cluster to access the node.  The configuration remains in effect after reboots. You'll have to repeat these commands on each server. 
+These commands modify the default FirewallD settings and then cause the new settings to take effect, immediately.  FirewallD will then be configured to allow the rest of the cluster to access the node.  The configuration remains in effect after reboots. You'll have to repeat these commands on each server.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

@@ -1,5 +1,5 @@
 =================
- Getting Started 
+ Getting Started
 =================
 .. _`getting-started`:
 
@@ -26,21 +26,21 @@ Individual nodes in Galera Cluster are MySQL, MariaDB or Percona XtraDB.  But, d
   Once you have your server hardware ready, including at least three hosts running either Linux or FreeBSD and their respective IP addresses.  This chapter provides guides to preparing the server and installing Galera Cluster.  When you install Galera Cluster, you must choose between three implementations available.  For each implementations, you can install the software using Debian- and RPM-based binary packages or by building the node from source.
 
   - **Galera Cluster for MySQL**: The reference implementation from Codership, Oy. You can use either the :ref:`Binary Installation <galera-mysql-binary-install>` or the :ref:`Source Build <galera-mysql-src-install>` methods.
-    
+
   - **Percona XtraDB Cluster**: The Percona alternative implementation of Galera Cluster, which uses XtraDB in place of MySQL.  You can use either the :ref:`Binary Installation <galera-xtradb-binary-install>` or the :ref:`Source Build <galera-xtradb-src-install>` methods.
-	 
+
   - **MariaDB Galera Cluster**: The MariaDB Ab alternative implementation of Galera Cluster, which uses MariaDB in place of MySQL.  You can use either the :ref:`Binary Installation <galera-mariadb-binary-install>` or the :ref:`Source Build <galera-mariadb-src-install>`.
-    
+
 - :doc:`configuration`
 
   Before you can start the cluster, you need to configure the individual nodes.  This chapter covers general parameters that you must set in the ``my.cnf`` configuration file in order to use Galera Cluster.  It also provides a guide to configuring swap space in order to protect the node from crashing due to large write-sets requiring more memory than the server has available.
-  
+
 - :doc:`dbconfiguration`
 
   With the system-level configurations complete, this chapter provides a guide to configuring the database server to connect and communicate with the cluster and explains the syntax format used in cluster addresses.
 
 
-  
+
 .. rubric:: Cluster Initialization
 .. _`cluster-init`:
 
@@ -75,12 +75,12 @@ Certification-based replication is an alternative approach to synchronous databa
 .. note:: For security and performance reasons, it's recommended that you run Galera Cluster on its own subnet.
 
 
-	  
+
 
 .. toctree::
    :maxdepth: 3
    :hidden:
-   
+
    whatsnew
    galerainstallation
    configuration
@@ -90,8 +90,6 @@ Certification-based replication is an alternative approach to synchronous databa
    restartingcluster
 
 
-   
+
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-
-      

@@ -41,7 +41,7 @@ This is a pseudo-statement, though.  You can find the actual error message the s
 When you have :ref:`wsrep_debug <wsrep_debug>` turned ``ON``, you may occasionally see a message noting that a commit has failed due to reason ``3``.  Below is an example of this:
 
 .. code-block:: text
-  
+
       110906 17:45:01 [Note] WSREP: BF kill (1, seqno: 16962377), victim:  (140588996478720 4) trx: 35525064
       110906 17:45:01 [Note] WSREP: Aborting query: commit
       110906 17:45:01 [Note] WSREP: kill trx QUERY_COMMITTING for 35525064

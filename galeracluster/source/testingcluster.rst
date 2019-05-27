@@ -38,19 +38,19 @@ For the next test, try creating a table and inserting data into it. Use a databa
  .. code-block:: mysql
 
  CREATE DATABASE galeratest;
- 
+
  USE galeratest;
- 
+
  CREATE TABLE test_table (
     id INT PRIMARY KEY AUTO_INCREMENT,
 	msg TEXT ) ENGINE=InnoDB;
-	
+
  INSERT INTO test_table (msg)
 	VALUES ("Hello my dear cluster.");
-	
+
  INSERT INTO test_table (msg)
 	VALUES ("Hello, again, cluster dear.");
-	
+
 These statements will create the database ``galeratest`` and the table ``test_table`` within it.  The last two SQL statements inserts data into that table.  After doing this, log into ``node2`` and check that the data was replicated correctly.  You would do this with by executing the following SQL statement on ``node2``:
 
  .. code-block:: mysql
@@ -101,5 +101,3 @@ To simulate a network disconnection, use ``iptables`` or ``netem`` to block all 
 To simulate an entire server crash, run each ``mysqld`` in a virtualized guest, and abrubtly terminate the entire virtual instance.
 
 If you have three or more Galera Cluster nodes, the cluster should be able to survive the simulations.
-
-

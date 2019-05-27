@@ -19,11 +19,11 @@ Galera Cluster requires a number of ports to maintain network connectivity betwe
 
 - ``4444`` is used for all other :term:`State Snapshot Transfer`.
 
-How these ports are enabled for Galera Cluster can vary depending upon your operating system distribution and what you use to configure the firewall.  
+How these ports are enabled for Galera Cluster can vary depending upon your operating system distribution and what you use to configure the firewall.
 
 .. toctree::
    :maxdepth: 2
-   
+
    iptables
    firewalld
    pf

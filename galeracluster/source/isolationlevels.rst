@@ -1,9 +1,9 @@
-====================== 
+======================
  Isolation Levels
 ======================
 .. _`isolation-levels`:
 
-In a database system, concurrent transactions are processed in "isolation" from each other. The level of isolation determines how transactions can affect each other. 
+In a database system, concurrent transactions are processed in "isolation" from each other. The level of isolation determines how transactions can affect each other.
 
 -----------------------------------------------------
 Intra-Node vs. Inter-Node Isolation in Galera Cluster
@@ -29,14 +29,14 @@ Data consistency between the nodes is always guaranteed regardless of the isolat
 Understanding Isolation Levels
 -------------------------------
 
-.. note:: **Warning**: When using Galera Cluster in master-slave mode, all four levels are available to you, to the extend that MySQL supports it.  In multi-master mode, however, you can only use the ``REPEATABLE-READ`` level. 
-  
+.. note:: **Warning**: When using Galera Cluster in master-slave mode, all four levels are available to you, to the extend that MySQL supports it.  In multi-master mode, however, you can only use the ``REPEATABLE-READ`` level.
+
 ^^^^^^^^^^^^^^^^^^^^^^^^
 READ-UNCOMMITTED
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`read-uncommitted`:
 
-Here transactions can see changes to data made by other transactions that are not yet committed.  
+Here transactions can see changes to data made by other transactions that are not yet committed.
 
 In other words, transactions can read data that eventually may not exist, given that other transactions can always rollback the changes without commit.  This is known as a dirty read.  Effectively, ``READ-UNCOMMITTED`` has no real isolation at all.
 
@@ -46,7 +46,7 @@ READ-COMMITTED
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`read-committed`:
 
-Here dirty reads are not possible.  Uncommitted changes remain invisible to other transactions until the transaction commits.  
+Here dirty reads are not possible.  Uncommitted changes remain invisible to other transactions until the transaction commits.
 
 However, at this isolation level ``SELECT`` queries use their own snapshots of committed data, that is data committed before the ``SELECT`` query executed.  As a result, ``SELECT`` queries, when run multiple times within the same transaction, can return different result sets.  This is called a non-repeatable read.
 
@@ -56,7 +56,7 @@ REPEATABLE-READ
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`repeatable-read`:
 
-Here non-repeatable reads are not possible.  Snapshots taken for the ``SELECT`` query are taken the first time the ``SELECT`` query runs during the transaction.  
+Here non-repeatable reads are not possible.  Snapshots taken for the ``SELECT`` query are taken the first time the ``SELECT`` query runs during the transaction.
 
 The snapshot remains in use throughout the entire transaction for the ``SELECT`` query.  It always returns the same result set.  This level does not take into account changes to data made by other transactions, regardless of whether or not they have been committed.  IN this way, reads remain repeatable.
 

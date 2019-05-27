@@ -6,7 +6,7 @@ Galera Load Balancer
 Galera Load Balancer provides simple TCP connection balancing. It was developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.  It provides several features:
 
 - Support for configuring back-end servers at runtime.
-- Support for draning servers. 
+- Support for draning servers.
 - Support for the epoll API for routing performance.
 - Support for multithreaded operations.
 - Optional watchdog module to monitor destinations and adjust the routing table.
@@ -23,7 +23,7 @@ To build Galera Load Balancer, you will need to complete a few steps.  First, fr
  .. code-block:: console
 
     $ git clone https://github.com/codership/glb
-   
+
 Next, from within ``glb`` directory created by ``git``, run the bootstrap script--which will be found in that directory.
 
  .. code-block:: console
@@ -40,7 +40,7 @@ Now you will need to configure ``make`` to build on your system, then run ``make
     $ make
 
     # make install
-   
+
 .. note:: Galera Load Balancer installs in the ``/usr/sbin`` directory.  So you will need to run the last line above as root.
 
 Once you've successfully execute everything above, Galera Load Balancer will be installed on your system.  You can launch it from the command-line, using the ``glbd`` command.
@@ -71,13 +71,13 @@ Now, copy the default ``glbd.cfg`` file into the appropriate configuration direc
 
 When you finish this, you will be able to manage Galera Load Balancer through the ``service`` command.  For more information on available commands, see :ref:`Using Galera Load Balancer <glb-use>`.
 
-	    
+
 ---------------------
 Configuration
 ---------------------
 .. _`glb-config`:
 
-When you run Galera Load Balancer, you can configure its use through the command-line options. You can get a list of by exeduting ``glb`` with the ``--help`` option.  For servers running Galera Load Balancer as a service, you can manage it through the ``glbd.cfg`` configuration file. 
+When you run Galera Load Balancer, you can configure its use through the command-line options. You can get a list of by exeduting ``glb`` with the ``--help`` option.  For servers running Galera Load Balancer as a service, you can manage it through the ``glbd.cfg`` configuration file.
 
 - :ref:`LISTEN_ADDR <glb-listen_addr>`: This is the address that Galera Load Balancer monitors for incoming client connections.
 
@@ -93,10 +93,10 @@ Below is an example of a `glbd.cfg`` configuration file:
    LISTEN_ADDR="8010"
    DEFAULT_TARGETS="192.168.1.1 192.168.1.2 192.168.1.3"
    OTHER_OPTIONS="--random --top 3"
-   
+
 The ``glbd.cfg`` configuration file would be the one you copied into ``/etc`` as mentioned in the previous section.
 
-  
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Destination Selection Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -114,21 +114,21 @@ Galera Load Balancer--both the system daemon and the shared library--supports fi
 
 - **Source Tracking**: This will direct connections originating from the same address to the same server.  You can enable it with the :ref:`--source <glb-source>` option.
 
-  
+
 
 ---------------------------
 Using Galera Load Balancer
 ---------------------------
 .. _`glb-use`:
 
-The section on :ref:`Service Installation <glb-service>` explained how to configure a system to run Galera Load Balancer as a service.  If you do that, you can then manage common operations with the ``service`` command. The format for doing this is to enter ``service``, followed by ``glb``, and then an option. 
+The section on :ref:`Service Installation <glb-service>` explained how to configure a system to run Galera Load Balancer as a service.  If you do that, you can then manage common operations with the ``service`` command. The format for doing this is to enter ``service``, followed by ``glb``, and then an option.
 
 Below is an example of how you might use ``service`` to get information on the Galera Load Balancer:
 
 .. code-block:: console
 
    # service glb getinfo
-   
+
    Router:
    -------------------------------------------
         Address       : weight   usage  cons
@@ -138,8 +138,8 @@ Below is an example of how you might use ``service`` to get information on the G
    -------------------------------------------
    Destinations: 3, total connections: 0
 
-In the results shown here, you can see a list of servers available, their weight and usage, as well as the number of connections made to them. 
-   
+In the results shown here, you can see a list of servers available, their weight and usage, as well as the number of connections made to them.
+
 The ``service`` script supports several operations.  Below is a list of them and their uses:
 
 - ``start`` is used to start ``glb``, the Galera Load Balancer.

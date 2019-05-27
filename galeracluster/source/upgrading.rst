@@ -6,7 +6,7 @@
 
 You have three methods available in upgrading Galera Cluster:
 
-- :ref:`Rolling Upgrade <rolling-upgrade>` Where you upgrade each node one at a time. 
+- :ref:`Rolling Upgrade <rolling-upgrade>` Where you upgrade each node one at a time.
 - :ref:`Bulk Upgrade <bulk-upgrade>` Where you upgrade all nodes together.
 - :ref:`Provider Upgrade <provider-upgrade>` Where you only upgrade the Galera Replication Plugin.
 
@@ -30,15 +30,15 @@ Some of the disadvantages to consider in rolling upgrades are:
 
   Unless you use :term:`Incremental State Transfer`, as you bring each node back online after an upgrade, it initiates a full :term:`State Snapshot Transfer`, which can take a long time to process on larger databases and slower state transfer methods.
 
-  During the State Snapshot Transfer, the node continues to accumulate catch-up in the replication event queue, which it will then have to replay to synchronize with the cluster.  At the same time, the cluster is operational and continues to add further replication events to the queue. 
-  
-- **Blocking Nodes** When the node comes back online, if you use **mysqldump** for State Snapshot Transfers, the donor node remains blocked for the duration of the transfer.  In practice, this means that the cluster is short two nodes for the duration of the state transfer, one for the donor node and one for the node in catch-up.  
+  During the State Snapshot Transfer, the node continues to accumulate catch-up in the replication event queue, which it will then have to replay to synchronize with the cluster.  At the same time, the cluster is operational and continues to add further replication events to the queue.
+
+- **Blocking Nodes** When the node comes back online, if you use **mysqldump** for State Snapshot Transfers, the donor node remains blocked for the duration of the transfer.  In practice, this means that the cluster is short two nodes for the duration of the state transfer, one for the donor node and one for the node in catch-up.
 
   Using **xtrabackup** or **rsync** with the LVM state transfer methods, you can avoid blocking the donor, but doing so may slow the donor node down.
 
   .. note:: Depending on the load balancing mechanism, you may have to configure the load balancer not to direct requests at joining and donating nodes.
-  
-- **Cluster Availability** Taking down nodes for a rolling upgrade can greatly diminish cluster performance or availability, such as if there are too few nodes in the cluster to begin with or where the cluster is operating at its maximum capacity.  
+
+- **Cluster Availability** Taking down nodes for a rolling upgrade can greatly diminish cluster performance or availability, such as if there are too few nodes in the cluster to begin with or where the cluster is operating at its maximum capacity.
 
   In such cases, losing access to two nodes during a rolling upgrade can create situations where the cluster can no longer serve all requests made of it or where the execution times of each request increase to the point where services become less available.
 
@@ -58,8 +58,29 @@ Once the node finishes synchronizing with the cluster and completes its catch-up
 
 .. tip:: If you are upgraded a node that is or will be part of a weighted quorum, set the initial node weight to zero.  This guarantees that if the joining node should fail before it finishes synchronizing, it will not affect any quorum computations that follow.
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Rolling Upgrades between Major Versions of Galera Cluster
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Performing a rolling upgrade between major versions of Galera Cluster, such as from 5.6 to 5.7 has certain additional limitations:
 
+#. SST is not supported between nodes of different major versions. Therefore, nodes of different major versions should not coexist in the same cluster for longer than necessary to perform the upgrade;
+
+#. Prior to performing the upgrade, ensure that the :ref:`gcache.size <gcache.size>` provider option on all nodes is sized so that it can provide IST for the expected duration of the upgrade;
+
+#. While the cluster contains nodes of multiple versions, avoid running any statements that are only supported in a particular version or statements that have different effect in different versions. For example, do not run DDL statements that are only available in the newer version.
+
+The following procedure is recommended for rolling upgrades between major versions:
+
+#. Shut down the node
+
+#. Edit the ``my.cnf`` file and temporarily comment out the ``wsrep_provider`` line. This will prevent the node from attempting to rejoin the cluster during the package upgrade process.
+
+#. Uninstall all existing mysql-wsrep packages and install the new packages using your package manager
+
+#. If the ``mysql_upgrade`` was not run as part of package installation, run it manually. You may need to start the mysqld service first in order to do that
+
+#. Shut down the node if it is currently running, restore the ``wsrep_provider`` line in ``my.cnf`` and restart the node.
 
 -------------
 Bulk Upgrade
@@ -74,9 +95,9 @@ In bulk upgrades, you take all of the nodes down in an idle cluster, perform the
 
 The main advantage of bulk upgrade is that when you are working with huge databases, it is much faster and results in better availability than rolling upgrades.
 
-The main disadvantage is that it relies on the upgrade and restart being quick.  Shutting down InnoDB may take a few minutes as it flushes dirty pages.  If something goes wrong during the upgrade, there is little time to troubleshoot and fix the problem.  
+The main disadvantage is that it relies on the upgrade and restart being quick.  Shutting down InnoDB may take a few minutes as it flushes dirty pages.  If something goes wrong during the upgrade, there is little time to troubleshoot and fix the problem.
 
-.. note:: To minimize any issues that might arise from an upgrade, do not upgrade all of the nodes at once.  Rather, run the upgrade on a single node first.  If it runs without issue, upgrade the rest of the cluster.  
+.. note:: To minimize any issues that might arise from an upgrade, do not upgrade all of the nodes at once.  Rather, run the upgrade on a single node first.  If it runs without issue, upgrade the rest of the cluster.
 
 To perform a bulk upgrade on Galera Cluster, complete the following steps:
 
@@ -115,13 +136,13 @@ If you installed Galera Cluster for MySQL using the binary package from the Code
 To upgrade the Galera Replicator Plugin on an RPM-based Linux distribution, run the following command for each node in the cluster:
 
    .. code-block:: console
-   
+
       $ yum update galera
 
 To upgrade the Galera Replicator Plugin on a Debian-based Linux distribution, run the following commands for each node in the cluster:
 
    .. code-block:: console
-   
+
       $ apt-get update
       $ apt-get upgrade galera
 
@@ -138,22 +159,22 @@ After you upgrade the Galera Replicator Plugin package on each node in the clust
 #. For each node in the cluster, issue the following queries:
 
    .. code-block:: mysql
-   
+
       SET GLOBAL wsrep_provider='none';
       SET GLOBAL wsrep_provider='/usr/lib64/galera/libgalera_smm.so';
 
 #. One any one node in the cluster, issue the following query:
 
    .. code-block:: mysql
-   
+
       SET GLOBAL wsrep_cluster_address='gcomm://';
 
 #. For every other node in the cluster, issue the following query:
 
    .. code-block:: mysql
-   
+
       SET GLOBAL wsrep_cluster_address='gcomm://node1addr';
-   
+
    For ``node1addr``, use the address of the node in step 3.
 
 #. Resume the load on the cluster.

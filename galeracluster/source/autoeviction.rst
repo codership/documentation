@@ -24,7 +24,7 @@ You can configure the parameters of Auto-Eviction by setting the following optio
 - :ref:`evs.delayed_keep_period <evs.delayed_keep_period>`: This sets the time period you require a node to remain responsive until it's removed from the delayed list.
 
   The default value is ``PT30S``.
-  
+
 - :ref:`evs.evict <evs.evict>` This sets the point in which the cluster triggers manual eviction to a certain node value.  Setting this parameter as an empty string causes it to clear the evict list on the node where it is set.
 
 - :ref:`evs.auto_evict <evs.auto_evict>`:  This sets the number of entries allowed for a delayed node before Auto-Eviction takes place.  Setting this to ``0`` disables the Auto-Eviction protocol on the node, though the node will continue to monitor node response times.
@@ -58,7 +58,7 @@ Below are the Galera status variables available to you:
 
 - :ref:`wsrep_evs_evict_list <wsrep_evs_evict_list>`: This status variable lists the UUID's of evicted nodes.
 
-  
+
 
 ----------------------------------
 Upgrading from Previous Versions
@@ -142,7 +142,7 @@ Repeat the above steps on each node in the cluster to update them.  Once this pr
       SHOW STATUS LIKE 'wsrep_evs_state';
 
    If the ``SHOW STATUS`` statement returns an empty set, something went wrong and your database server is still using EVS Protocol version 0.  If it returns a results set, the EVS Protocol is on the right version and you can proceed.
-      
+
 
 #. Once you confirm the server is using the right version, check the node state. Execute the ``SHOW STATUS`` statement like so:
 
@@ -155,11 +155,10 @@ Repeat the above steps on each node in the cluster to update them.  Once this pr
       +----------------------------+--------+
       | wsrep_local_state_comment  | Joined |
       +----------------------------+--------+
-      
+
    When the node state reads as ``Synced``, the node is back in sync with the cluster.
 
 These steps will update the EVS Protocol version for one node in a cluster. Repeat the process on each of the remaining nodes so that they all use EVS Protocol version 1.
 
 
 .. note:: **See Also**: For more information on upgrading in general, see :doc:`upgrading`.
-

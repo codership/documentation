@@ -14,8 +14,8 @@ Galera Cluster provides synchronous multi-master replication.  This means that t
 In high availability environments, you may sometimes encounter situations in which some nodes have a much greater load of traffic than others.  If you discover such a situation, there may be some benefit in configuring and deploying load balancers between your application servers and Galera Cluster.  Doing so will allow you to distribute client connections more evenly between the nodes, ensuring better performance.
 
 This section provides guides to installing, configuring and deploying HAProxy, Pen and Galera Load Balancer, helping you to manage traffic between clients and the cluster.
-  
-  
+
+
 :doc:`containers`
 
 When using the standard deployment methods of Galera Cluster, nodes run directly on the  server hardware -- interacting directly with the operating system (i.e., Linux, FreeBSD).  By contrast, with container deployments nodes run in containerized virtual environments on the server.  You may find containers useful in building portable deployments across numerous machines, when testing applications or scripting installations, or when isolating processes for security.
@@ -23,15 +23,15 @@ When using the standard deployment methods of Galera Cluster, nodes run directly
 This section provides guides to installing, configuring and deploying Galera Cluster nodes in container instances using FreeBSD Jails and Docker.
 
 
-  
+
 .. toctree::
    :maxdepth: 2
    :hidden:
-   
+
    deploymentvariants
    loadbalancing
    containers
-      
+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

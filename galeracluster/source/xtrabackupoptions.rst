@@ -19,13 +19,13 @@ When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you
    tkey="/path/to/key.pem"
    tcert="/path/to/cert.pem"
    tca="/path/to/ca.pem"
-   
+
 Bear in mind, some XtraBackup parameters require that you match the configuration on donor and joiner nodes, (as designated in the table below).
 
-   
+
 
 +-----------------------------+--------------+--------+
-| Option                      | Default      | Match  |  
+| Option                      | Default      | Match  |
 +=============================+==============+========+
 | :ref:`compressor            |              |        |
 | <xtra-compressor>`          |              |        |
@@ -257,7 +257,7 @@ Defines whether where the node reports :term:`State Snapshot Transfer` progress.
 |                         |                  | /path/to/file    |
 +-------------------------+------------------+------------------+
 
-When you set this parameter, the node reports progress on XtraBackup progress in state transfers.  If you set the value to ``1``, the node makes these reports to the database server stderr.  If you set the value to a file path, it writes the progress to that file.  
+When you set this parameter, the node reports progress on XtraBackup progress in state transfers.  If you set the value to ``1``, the node makes these reports to the database server stderr.  If you set the value to a file path, it writes the progress to that file.
 
 .. note:: Bear in mind, that a ``0`` value is invalid.  If you want to disable this parameter, delete or comment it out.
 
@@ -404,7 +404,7 @@ Defines the stream formatting utility.
 This parameter defines the utility the node uses to archive the node state before the transfer is sent and how to unarchive the state transfers that is receives.  There are two methods available: ``tar`` and ``xbstream``.  Given that the receiving node needs to know how to read the stream, it is necessary that both nodes use the same values for this parameter.
 
 The default and recommended utility is ``xbstream`` given that it supports encryption, compression, parallel streaming, incremental backups and compaction.  ``tar`` does not support these features.
- 
+
 
 .. code-block:: ini
 
@@ -452,7 +452,7 @@ Defines the certificate to use in SSL encryption.
 |                         | *Default Value:* |                  |
 +-------------------------+------------------+------------------+
 
-This parameter defines the SSL certificate file that the node uses with SSL encryption on XtraBackup state transfers.  In order to use SSL encryption with XtraBackup, you must configure the :ref:`transferfmt <xtra-transferfmt>` parameter to use Socat.  
+This parameter defines the SSL certificate file that the node uses with SSL encryption on XtraBackup state transfers.  In order to use SSL encryption with XtraBackup, you must configure the :ref:`transferfmt <xtra-transferfmt>` parameter to use Socat.
 
 .. note:: For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
 

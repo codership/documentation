@@ -45,9 +45,12 @@ Once you have the Software Properties installed, you can enable the Codership re
    .. code-block:: linux-config
 
       # Codership Repository (Galera Cluster for MySQL)
-      deb http://releases.galeracluster.com/DIST RELEASE main
+      deb http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST RELEASE main
+      deb http://releases.galeracluster.com/galera-3/DIST RELEASE main
 
    For the repository address, make the following changes:
+
+   - ``VERSION`` Indicates the desired MySQL-wsrep version. For example, ``5.6``
 
    - ``DIST`` Indicates the name of your Linux distribution.  For example, ``ubuntu``.
 
@@ -58,6 +61,17 @@ Once you have the Software Properties installed, you can enable the Codership re
      .. code-block:: console
 
 	$ lsb_release -a
+
+#. Prefer the Codership repository over other sources. Using your preferred text editor, create a `galera.pref` file in the ``/etc/apt/preferences.d/`` directory.
+
+   .. code-block:: linux-config
+
+      # Prefer Codership repository
+      Package: *
+      Pin: origin releases.galeracluster.com
+      Pin-Priority: 1001
+
+   This is needed to make sure the patched versions are preferred, for example if a 3rd-party program requires ``libmysqlclient20`` and the OS-Version for the library is newer.
 
 #. Update the local cache.
 
@@ -75,19 +89,28 @@ Enabling the ``yum`` Repository
 .. _`mysql-yum-repo`:
 
 
-For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``.repo`` file to the ``/etc/yum.repos.d/`` directory.
+For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``galera.repo`` file to the ``/etc/yum.repos.d/`` directory.
 
-Using your preferred text editor, create the ``.repo`` file.
+Using your preferred text editor, create the ``galera.repo`` file.
 
 .. code-block:: ini
 
    [galera]
    name = Galera
-   baseurl = http://releases.galeracluster.com/DIST/RELEASE/ARCH
+   baseurl = http://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
    gpgkey = http://releases.galeracluster.com/GPG-KEY-galeracluster.com
    gpgcheck = 1
 
+   [mysql-wsrep]
+   name = MySQL-wsrep
+   baseurl =  http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
+   gpgkey = http://releases.galeracluster.com/GPG-KEY-galeracluster.com
+   gpgcheck = 1
+
+
 In the ``baseurl`` field, make the following changes to web address:
+
+- ``VERSION`` Indicates the desired MySQL-wsrep version. For example, ``5.6``
 
 - ``DIST`` Indicates the distribution name.  For example, ``centos`` or ``fedora``.
 
@@ -102,7 +125,7 @@ Enabling the ``zypper`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`mysql-zypper-repo`:
 
-For distributions that use ``zypper`` for package management, such as openSUSE and SUSE Linux Enterprise Server, you can enable the Codership repository by importing the GPG key and then creating a ``.repo`` file in the local directory.
+For distributions that use ``zypper`` for package management, such as openSUSE and SUSE Linux Enterprise Server, you can enable the Codership repository by importing the GPG key and then creating a ``galera.repo`` file in the local directory.
 
 #. Import the GPG key.
 
@@ -116,14 +139,23 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 
       [galera]
       name = Galera
-      baseurl = http://releases.galeracluster.com/DIST/RELEASE
+      baseurl = http://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
+
+      [MySQL-wsrep]
+      name = MySQL-wsrep
+      baseurl = http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
 
    For the ``baseurl`` repository address, make the following changes:
+
+   - ``VERSION`` Indicates the desired MySQL-wsrep version. For example, ``5.6``
 
    - ``DIST`` indicates the distribution name.  For example, ``opensuse`` or ``sles``.
 
    - ``RELEASE`` indicates the distribution version number.
- 
+
+   - ``ARCH`` indicates the architecture of your hardware.  For example, ``x86_64`` for 64-bit systems.
+
+
 #. Add the Codership repository.
 
    .. code-block:: console
@@ -135,7 +167,7 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
    .. code-block:: console
 
       $ sudo zypper refresh
-      
+
 Packages in the Codership repository are now available for installation through ``zypper``.
 
 
@@ -161,21 +193,23 @@ For Debian-based distributions, run the following command:
 For Red Hat, Fedora and CentOS distributions, instead run this command:
 
 .. code-block:: console
-	 
+
    # yum install galera-3 \
 		mysql-wsrep-5.6
 
 
 .. note:: On CentOS 6 and 7, this command may generate a transaction check error. For more information on this error and how to fix it, see :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
-		
+
 For openSUSE and SUSE Linux Enterprise Server, run this command:
 
 .. code-block:: console
 
    # zypper install galera-3 \
 		mysql-wsrep-5.6
-		
+
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
+
+.. note:: When deciding which packages to install, the package manager may elect to install a newer major verion of Galera Cluster than the one you intended to install. Before confirming the installation of packages, please make sure that the package manager intends to install the desired Galera Cluster version.
 
 .. note:: **See Also**: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
@@ -185,7 +219,7 @@ MySQL Shared Compatibility Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`centos-mysql-shared-compt`:
 
-When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check error that blocks the installation.  
+When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check error that blocks the installation.
 
 .. code-block:: text
 

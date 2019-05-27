@@ -101,9 +101,9 @@ You can check cluster integrity using the following status variables:
   .. note:: **See Also**: In the event that you check all nodes in your cluster and find none that return a value of ``Primary``, see :doc:`quorumreset`.
 
 When these status variables check out and return the desired results on each node, the cluster is up and has integrity.  What this means is that replication is able to occur normally on every node.  The next step then is :ref:`checking node status <check-node-status>` to ensure that they are all in working order and able to receive write-sets.
-	       
-  
-      
+
+
+
 
 ---------------------------------
  Checking the Node Status
@@ -177,7 +177,7 @@ In addition to checking cluster integrity, you can also monitor the status of in
   .. note:: If the node returns any value other than the one listed here, the state comment is momentary and transient.  Check the status variable again for an update.
 
 In the event that each status variable returns the desired values, the node is in working order.  This means that it is receiving write-sets from the cluster and replicating them to tables in the local database.
-	    
+
 
 
 ---------------------------------
@@ -195,16 +195,16 @@ In the event that each status variable returns the desired values, the node is i
 .. index::
    pair: Parameters; wsrep_local_recv_queue_min
 
-   
+
 Monitoring cluster integrity and node status can show you issues that may prevent or otherwise block replication.  These status variables will help in identifying performance issues and identifying problem areas so that you can get the most from your cluster.
 
 
-.. note:: Unlike other the status variables, these are differential and reset on every ``SHOW STATUS`` command.  Execute the query a second time, about a minute after the first to get the current value.
-  
+.. note:: Unlike other the status variables, these are differential and reset on every ``FLUSH STATUS`` command.
+
 Galera Cluster triggers a feedback mechanism called Flow Control to manage the replication process.  When the local received queue of write-sets exceeds a certain threshold, the node engages Flow Control to pause replication while it catches up.
 
 You can monitor the local received queue and Flow Control using the following status variables:
-	  
+
 - :ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>` shows the average size of the local received queue since the last status query.
 
   .. code-block:: mysql
@@ -220,8 +220,8 @@ You can monitor the local received queue and Flow Control using the following st
   When the node returns a value higher than ``0.0`` it means that the node cannot apply write-sets as fast as it receives them, which can lead to replication throttling.
 
   .. note::  In addition to this status variable, you can also use :ref:`wsrep_local_recv_queue_max <wsrep_local_recv_queue_max>` and :ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>` to see the maximum and minimum sizes the node recorded for the local received queue.
-	  
-- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` shows the fraction of the time, since the status variable was last called, that the node paused due to Flow Control.
+
+- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` shows the fraction of the time, since ``FLUSH STATUS`` was last called, that the node paused due to Flow Control.
 
   .. code-block:: mysql
 
@@ -233,7 +233,7 @@ You can monitor the local received queue and Flow Control using the following st
      | wsrep_flow_control_paused | 0.184353 |
      +---------------------------+----------+
 
-  When the node returns a value of ``0.0``, it indicates that the node did not pause due to Flow Control during this period.  When the node returns a value of ``1.0``, it indicates that the node spent the entire period paused.  When the period between calls is one minute and the node returns ``0.25``, it indicates that the node was paused for 15 seconds.
+  When the node returns a value of ``0.0``, it indicates that the node did not pause due to Flow Control during this period.  When the node returns a value of ``1.0``, it indicates that the node spent the entire period paused.  If the time between ``FLUSH STATUS`` and ``SHOW STATUS`` was one minute and the node returned ``0.25``, it indicates that the node was paused for a total 15 seconds over that time period.
 
   Ideally, the return value should stay as close to ``0.0`` as possible, since this means the node is not falling behind the cluster.  In the event that you find that the node is pausing frequently, you can adjust the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter or you can exclude the node from the cluster.
 
@@ -265,10 +265,10 @@ You can monitor the local received queue and Flow Control using the following st
 
 While checking the status of Flow Control and the received queue can tell you how the database server copes with incoming write-sets, you can check the send queue to monitor for outgoing connectivity issues.
 
-.. note:: Unlike other the status variables, these are differential and reset on every ``SHOW STATUS`` command.  Execute the query a second time, about a minute after the first to get the current value.
+.. note:: Unlike other the status variables, these are differential and reset on every ``FLUSH STATUS`` command.
 
 
-:ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>` show an average for the send queue length since the last status query.
+:ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>` show an average for the send queue length since the last ``FLUSH STATUS`` query.
 
 .. code-block:: mysql
 

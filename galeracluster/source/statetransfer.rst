@@ -112,7 +112,7 @@ Galera Cluster stores write-sets in a special cache called the :term:`Write-set 
 
 GCache employs three types of storage:
 
-- **Permanent In-Memory Store** Here write-sets allocate using the default memory allocator for the operating system.  This is useful in systems that have spare :abbr:`RAM (Random Access Memory)`.  The store has a hard size limit.  
+- **Permanent In-Memory Store** Here write-sets allocate using the default memory allocator for the operating system.  This is useful in systems that have spare :abbr:`RAM (Random Access Memory)`.  The store has a hard size limit.
 
   By default it is disabled.
 
@@ -120,11 +120,11 @@ GCache employs three types of storage:
 
   By default, its size is 128Mb.
 
-- **On-Demand Page Store** Here write-sets allocate to memory-mapped page files during runtime as necessary.  
+- **On-Demand Page Store** Here write-sets allocate to memory-mapped page files during runtime as necessary.
 
-  By default, its size is 128Mb, but can be larger if it needs to store a larger write-set.  The size of the page store is limited by the free disk space.  By default, Galera Cluster deletes page files when not in use, but you can set a limit on the total size of the page files to keep.  
+  By default, its size is 128Mb, but can be larger if it needs to store a larger write-set.  The size of the page store is limited by the free disk space.  By default, Galera Cluster deletes page files when not in use, but you can set a limit on the total size of the page files to keep.
 
-  When all other stores are disabled, at least one page file remains present on disk.  
+  When all other stores are disabled, at least one page file remains present on disk.
 
 
 .. note:: **See Also**: For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :ref:`Galera Parameters <Galera Parameters>`.
@@ -135,5 +135,4 @@ By default, the write-set cache allocates files in the working directory of the 
 
 .. note:: Given that all cache files are memory-mapped, the write-set caching process may appear to use more memory than it actually does.
 
-
-
+.. note:: If the :ref:`gcache.recover <gcache.recover>` parameter is set to ``yes``, an attempt to recover the gcache will be performed on startup, so that the node may continue to serve IST to other nodes. If set to ``no``, gcache will be invalidated on startup and the node will only be able to serve SST.
