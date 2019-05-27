@@ -1,26 +1,28 @@
-=======
-Support
-=======
-.. _`support`:
+==============
+Knowledge Base
+==============
+.. _`kb`:
 
+The Galera Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster.  Here you'll find answers to frequently asked questions, troubleshooting articles, and best practices articles.
+
+.. rubric:: Troubleshooting
+.. _`faq`:
+- :doc:`faq`
+
+This section provides an FAQ for Galera Cluster. The questions range from the meaning behind the name Galera, to common issues like failover and how to handle crashes during rsync.
 
 
 .. rubric:: Troubleshooting
 .. _`troubleshooting`:
 
-When you experience difficulties with a Galera Cluster deployment, these sections may provide some assistance. They include frequently asked questions, as well as guides to diagnosing and addressing various performance and replication issues.
-
-- :doc:`faq`
-
-  This section provides an FAQ for Galera Cluster. The questions range from the meaning behind the name Galera, to common issues like failover and how to handle crashes during rsync. 
-
+When you experience difficulties with a Galera Cluster deployment, these sections of the KB may provide some assistance. They include articles to diagnose and address various performance and replication issues.
 
 - :doc:`error`
 
   Given that Galera Cluster enables a number of new features not present in the standard MySQL implementation, it may on occasion log server errors that are unfamiliar to you.  This section lists common error messages and explains them, as well as what to do about them.
 
 - :doc:`unknowncommand`
-  
+
   When a node encounters issues in loading the wsrep Provider, statements run in a console will generate an unknown command error.  This section covers identifying the source of the problem and how to solve it.
 
 - :doc:`userchanges`
@@ -31,25 +33,25 @@ When you experience difficulties with a Galera Cluster deployment, these section
 - :doc:`clusterstallonalter`
 
   Sometimes, when executing ``ALTER`` statements that take a long time, you may encounter issues in which other nodes in the cluster stall.  This section provides information on how to identify this problem and what to do about it.
-  
+
 - :doc:`detectingaslownode`
 
   By design, a cluster's performance is limited by its slowest node.  This section shows you how to identify which node is the slowest and to help determine the cause. It also explains how thereby to improve performance.
 
 - :doc:`dealingwithmultimasterconflicts`
 
-  Multi-master conflicts occur in as a result of application servers writing to different nodes.  This can lead to two nodes attempting to update the same row with different data. This section provides information on diagnosing and correcting these conflicts. 
+  Multi-master conflicts occur in as a result of application servers writing to different nodes.  This can lead to two nodes attempting to update the same row with different data. This section provides information on diagnosing and correcting these conflicts.
 
 - :doc:`twonode`
 
   Optimally, Galera Cluster requires a minimum of three nodes.  If you have a cluster that uses only two nodes, you may sometimes encounter issues in which single-node failures cause the cluster to stop working.  This section gives some pointers in how to manage these cases.
 
-   
 
-.. rubric:: Tutorials
-.. _`tutorials`:
 
-Whereas the above sections relate to handling problems with a cluster, these sections provide additional information and guides on improving performance and optimizing configuration.
+.. rubric:: Best Practices
+.. _`best-practices`:
+
+Whereas the above sections relate to handling problems with a cluster, these sections of the KB provide additional information and guidance on improving performance and optimizing configuration.
 
 - :doc:`performance`
 
@@ -65,7 +67,7 @@ Whereas the above sections relate to handling problems with a cluster, these sec
 .. toctree::
    :maxdepth: 2
    :hidden:
-     
+
    faq
    error
    unknowncommand
@@ -73,7 +75,6 @@ Whereas the above sections relate to handling problems with a cluster, these sec
    clusterstallonalter
    detectingaslownode
    dealingwithmultimasterconflicts
-   twonode      
+   twonode
    performance
    configurationtips
-
