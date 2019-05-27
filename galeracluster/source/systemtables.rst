@@ -6,9 +6,9 @@
 .. index::
    pair: Galera Cluster 4.x; System Tables
 
-Starting with version 4 of Galera, three system tables were added to the ``mysql`` database related to Galera replication: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  These system tables may be used by database administrators to get a sense of the current activity of the nodes in a cluster.
+Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
 
-To verify the version of Galera installed on your servers has these tables, execute the following SQL statement one of your servers using the ``mysql`` client or a similar client:
+To see these tables on your server, execute the following SQL statement one of them using the ``mysql`` client or a similar client:
 
 .. code-block:: mysql
 
@@ -22,7 +22,7 @@ To verify the version of Galera installed on your servers has these tables, exec
    | wsrep_streaming_log       |
    +---------------------------+
 
-Database administrators and clients with the access to the ``mysql`` database may read these tables, but they may not modify them: the database itself will make modifications, as needed.
+Database administrators and clients with the access to the ``mysql`` database may read these tables, but they may not modify them: the database itself will make modifications, as needed. If your server doesn't have these tables, it may be that your server is using an older version of Galera.
 
 
 -----------------
@@ -121,9 +121,9 @@ If you execute the following SQL statement from any node in a cluster, you can s
 In the results of this example you can see that this cluster is composed of three nodes.  The node UUIDs are unique for each node. Notice that the cluster UUID is the same for all three and corresponds to the related value found in the ``wsrep_cluster`` table shown in the example earlier. Each node has a unique name (e.g., galera1). They were named in the configuration file using the ``wsrep_node_name`` parameter.  The incoming node address is set to ``AUTO`` for all of these nodes, but they can be set individual to specific nodes with the ``wsrep-node-address`` or the ``bind-address`` parameter in each node's configuration file.
 
 
------------------
+-----------------------
 Cluster Streaming Log
------------------
+-----------------------
 
 The last Galera related system tables is the ``wsrep_streaming_log`` table. This system table contains meta data and row events for ongoing streaming transactions, write set fragment per row.
 
