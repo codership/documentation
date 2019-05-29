@@ -68,9 +68,9 @@ Limitations
 
 In deciding whether you want to use :term:`Streaming Replication` with your application, consider the following limitations.
 
-----------------------------------
+--------------------------------
 Performance During a Transaction
-----------------------------------
+--------------------------------
 .. _`limit-in-trx`:
 
 When you enable :term:`Streaming Replication`, as of version 4 of Galera, each node in the cluster begins recording its write-sets to the ``wsrep_streaming_log`` table in the ``mysql`` database. Nodes do this to ensure the persistence of Streaming Replication updates in the event that they crash.  However, this operation increases the load on the node, which may adversely affect its performance.
