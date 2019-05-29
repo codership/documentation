@@ -13,7 +13,7 @@ Additionally, Streaming Replication allows the node to process transaction write
 
 .. note:: Streaming Replication is a new feature introduced in version 4.0 of Galera Cluster.  Older versions do not support these operations.
 
-	  
+
 =================================
 When to Use Streaming Replication
 =================================
@@ -57,7 +57,7 @@ Hot Records
 
 In situations in which an application frequently updates one and the same records from the same table (e.g., when implementing a locking scheme, a counter, or a job queue), you can use :term:`Streaming Replication` to force critical updates to replicate to the entire cluster.
 
-Running a transaction in this way effectively locks the hot record on all nodes, preventing other transactions from modifying the row.  It also increases the chances that the transaction will commit successfully and that the client in turn will receive the desired outcome. 
+Running a transaction in this way effectively locks the hot record on all nodes, preventing other transactions from modifying the row.  It also increases the chances that the transaction will commit successfully and that the client in turn will receive the desired outcome.
 
 .. note:: For more information and an example of how to implement Streaming Replication in situations such as this, see :ref:`Using Streaming Replication with Hot Records <usr-hot-records>`.
 
@@ -73,7 +73,7 @@ Performance During a Transaction
 ----------------------------------
 .. _`limit-in-trx`:
 
-When you enable :term:`Streaming Replication`, each node in the cluster begin recording its write-sets to the ``SR`` table in the ``wsrep_schema`` database.  The nodes do this to ensure the persistence of Streaming Replication updates in the event that they crash.  However, this operation increases the load on the node, which may adversely affect its performance.
+When you enable :term:`Streaming Replication`, as of version 4 of Galera, each node in the cluster begins recording its write-sets to the ``wsrep_streaming_log`` table in the ``mysql`` database. Nodes do this to ensure the persistence of Streaming Replication updates in the event that they crash.  However, this operation increases the load on the node, which may adversely affect its performance.
 
 As such, it's recommended that you only enable Streaming Replication at a session-level and then only for transactions that would not run correctly without it.
 
@@ -86,5 +86,3 @@ Performance During Rollbacks
 Occasionally, you may encounter situations in which the cluster needs to roll back a transaction while :term:`Streaming Replication` is in use.  In these situations, the rollback operation consumes system resources on all nodes.
 
 When long-running write transactions frequently need to be rolled back, this can become a performance problem.  Therefore, it's a good application design policy to use shorter transactions whenever possible.  In the event that your application performs batch processing or scheduled housekeeping tasks, consider splitting these into smaller transactions in addition to using Streaming Replication.
-
-

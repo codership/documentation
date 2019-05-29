@@ -42,7 +42,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Galera Cluster'
-copyright = '2013 - 2016, Codership Oy'
+copyright = '2013 - 2019, Codership Oy'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

@@ -14,7 +14,7 @@ Defining persistent configurations in Galera Cluster is done through the underly
 - :doc:`mysqlwsrepoptions`
 
   In addition to the standard configuration variables available through the database server, Galera Cluster implements several that are unique and specific to fine-tuning database replication.  This chapter provides a reference guide to these new configuration variables in Galera Cluster
-  
+
 - :doc:`mysqlwsrepfunctions`
 
   There are a few Galera specific functions. This page lists and explains them, as well as gives examples of their use.
@@ -22,7 +22,7 @@ Defining persistent configurations in Galera Cluster is done through the underly
 - :doc:`galeraparameters`
 
   The Galera Replication Plugin, which acts as the wsrep Provider, includes a number of parameters specific to its operation.  This chapter provides a reference guide to the various wsrep Provider options available.
-  
+
 - :doc:`galerastatusvariables`
 
   In addition to the standard status variables available through the database server, Galera Cluster also implements several that you can use in determining the status and health of the node and the cluster.  This chapter provides a reference guide to these new status variables in Galera Cluster.
@@ -39,15 +39,15 @@ In some cases your configuration or implementation may require that you work wit
 
   When you manage State Snapshot Transfers using Percona XtraBackup, it allows you to set various parameters on the state transfer script the node uses from the ``my.cnf`` configuration file.  This chapter provides a reference guide to options available to XtraBackup.
 
-  
+
 - :doc:`glbparameters`
 
   In high availability situations or similar cases where nodes are subject to high traffic situations, you may find it beneficial to set up a load balancer between your application servers and the cluster.  This chapter provides a reference guide to the Codership implementation: the Galera Load Balancer.
 
-- :doc:`systemtables`
+- :doc:`system-tables`
 
   This page provides information on the Galera specific system tables.  These were added as of version 4 of Galera.
-  
+
 
 .. rubric:: Miscellaneous References
 .. _`ref-misc`:
@@ -67,10 +67,10 @@ In some cases your configuration or implementation may require that you work wit
   In the event that you would like clarification on particular topics, this chapter provides reference information on core concepts in Galera Cluster.
 
 - :ref:`genindex`
- 
+
   In the event that you would like to check these concepts against related terms to find more information in the docs, this chapter provides a general index of the site.
-  
-   
+
+
 .. toctree::
    :maxdepth: 2
    :hidden:
@@ -79,7 +79,7 @@ In some cases your configuration or implementation may require that you work wit
    mysqlwsrepfunctions
    galeraparameters
    galerastatusvariables
-   systemtables
+   system-tables
    xtrabackupoptions
    glbparameters
    versioninginformation

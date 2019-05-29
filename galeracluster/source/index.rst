@@ -49,7 +49,7 @@ The following features are available through Galera Cluster:
  There's no need to backup manually the database and copy it to the new node.
 
 - **Supports InnoDB.**
- The InnoDB storage engine allows for transactional tables, which is necessary for Galera.
+ The InnoDB storage engine provides for transactional tables.
 
 - **Transparent to Applications**
  Generally, you won't have to change an application that will interface with the database as a result of Galera. If you do, it will be minimal changes.

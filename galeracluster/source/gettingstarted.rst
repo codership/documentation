@@ -13,7 +13,7 @@ Galera Cluster is a synchronous replication solution to improve availability and
 
 Galera Cluster is well suited for LAN, WAN, container and cloud environments.  The following chapters provide you with the basics to setting up and deploying Galera Cluster.  Bear in mind before you get started that you need root access to at least three Linux or FreeBSD hosts and their IP addresses.
 
-.. note:: With the latest release Glaerea Cluster begins the 4.x branch, introducing a number of new releases.  For more information on these features, see :doc:`whatsnew`.
+.. note:: With the latest release Galerea Cluster begins the 4.x branch, introducing a number of new features.  For more information on these features, see :doc:`whatsnew`.
 
 
 .. rubric:: Node Initialization

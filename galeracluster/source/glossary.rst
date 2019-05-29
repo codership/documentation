@@ -31,7 +31,7 @@
 
 
    Incremental State Transfer
-      In an Incremental State Transfer (IST) a node only receives the missing write-sets and catchs up with the group by replaying them. See also the definition for State Snapshot Transfer (SST).
+      In an Incremental State Transfer (IST) a node only receives the missing write-sets and catches up with the group by replaying them. See also the definition for State Snapshot Transfer (SST).
 
       .. note:: **See Also**: For more information on IST's, see :ref:`Incremental State Transfer (IST) <ist>`.
 

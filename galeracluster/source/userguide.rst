@@ -25,9 +25,9 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 
   When nodes send and receive State Snapshot Transfers, they manage the process through external scripts that call the standard state transfer methods.  In event that you require additional functionality than what is available by default, you can use scripts to implement your own custom state snapshot transfer methods.
 
-- :doc:`sysdbs`
+- :doc:`system-tables`
 
-  When you install Galera Cluster, it creates a set of system databases, which it uses to store configuration information.  Similar to how the underlying database server uses the ``performance_schema`` and ``information_schema``, Galera Cluster uses ``wsrep_schema`` to record information relevant to replication.  This chapter provides a guide to what you'll find in this database and how you might query it for useful information about the health of the node and the cluster.
+  When you install Galera Cluster, it creates a set of system tables in the ``mysql`` database, which it uses to store configuration information.  Similar to how the underlying database server uses the ``performance_schema`` and ``information_schema``, Galera Cluster uses these tables to record information relevant to replication.  This section provides a guide to what you'll find in these tables and how you might query them for useful information about the status of the node and the cluster.
 
 
 - :doc:`schemaupgrades`
@@ -85,7 +85,7 @@ In addition to node administration, Galera Cluster also provides interfaces for 
    nodeprovisioning
    sst
    scriptablesst
-   sysdbs
+   system-tables
    schemaupgrades
    upgrading
    pcrecovery

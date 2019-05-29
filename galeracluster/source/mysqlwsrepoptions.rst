@@ -1195,7 +1195,7 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
 | **Support**             | *Introduced:*       | Patch v. 3 (5.5.17-22.3)          |
 +-------------------------+---------------------+-----------------------------------+
 
-DDL statements are non-transactional and as such do not replicate through write-sets.  There are three methods available that determine how the node handles replicating these statements:
+DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
 
 - ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress.
 
@@ -1954,7 +1954,7 @@ In the example, the application first runs a ``SET`` command to enable :ref:`wsr
 .. rubric:: ``wsrep_trx_fragment_size``
 .. _`wsrep_trx_fragment_size`:
 .. index::
-   pair: Parameters; wsrep_trx_transaction_size
+   pair: Parameters; wsrep_trx_fragment_size
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
 .. index::

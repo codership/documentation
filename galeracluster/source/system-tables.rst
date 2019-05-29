@@ -36,9 +36,9 @@ To see the names of the columns in this table, either use the ``DESCRIBE`` state
 .. code-block:: mysql
 
    SELECT COLUMN_NAME FROM information_schema.columns
-   WHERE table_schema='mysql' 
+   WHERE table_schema='mysql'
    AND table_name='wsrep_cluster';
-   
+
    +------------------+
    | COLUMN_NAME      |
    +------------------+
@@ -49,16 +49,16 @@ To see the names of the columns in this table, either use the ``DESCRIBE`` state
    | capabilities     |
    +------------------+
 
-The ``cluster_uuid`` contains the UUID of the cluster. 
+The ``cluster_uuid`` contains the UUID of the cluster.
 
 The ``view_id`` corresponds to the status value of the ``wsrep_cluster_conf_id``, the number of cluster configuration changes which have occurred in the cluster.  The ``view_seqno`` on the other hand, corresponds to Galera sequence number associated with the cluster view.  The protocol version is the same value as contained in the ``wsrep_protocol_version`` variable.  It's the protocol version of the MySQL-wsrep or the MariaDB wsrep patch. Last, the  ``capabilities`` column contains the capabilities bitmask provided by the Galera library. It's metadata that will be needed to recover node state during crash recovery.
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
- 
+
 .. code-block:: mysql
 
    SELECT * FROM mysql.wsrep_cluster \G
-   
+
    *************************** 1. row ***************************
        cluster_uuid: bd5fe1c3-7d80-11e9-8913-4f209d688a15
             view_id: 3
@@ -66,7 +66,7 @@ If you execute the following SQL statement from any node in a cluster, you can s
    protocol_version: 4
        capabilities: 184703
 
-In the results here, you can see the cluster UUID. This can also be found by using the SQL statement, ``SHOW STATUS`` for the variable, ``wsrep_local_state_uuid``. 
+In the results here, you can see the cluster UUID. This can also be found by using the SQL statement, ``SHOW STATUS`` for the variable, ``wsrep_local_state_uuid``.
 
 
 -----------------
@@ -79,8 +79,8 @@ To see the names of columns in this table, either use the ``DESCRIBE`` statement
 
 .. code-block:: mysql
 
-   SELECT COLUMN_NAME FROM information_schema.columns 
-   WHERE table_schema='mysql' 
+   SELECT COLUMN_NAME FROM information_schema.columns
+   WHERE table_schema='mysql'
    AND table_name='wsrep_cluster_members';
 
    +-----------------------+
@@ -96,11 +96,11 @@ To see the names of columns in this table, either use the ``DESCRIBE`` statement
 The ``node_uuid`` records the UUID of each node in the cluster. The ``cluster_uuid`` is the UUID of the cluster for which the node belongs--the one on which the table has been queried. This is currently the same as what's contained in the ``wsrep_cluster table``. The ``node_name`` contains the human readable name of each node, Last, the ``node_incoming_address`` stores the IP address and port on which each node is listening for client connections.
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
- 
+
 .. code-block:: mysql
 
    SELECT * FROM mysql.wsrep_cluster_members ORDER BY node_name \G
-   
+
    *************************** 1. row ***************************
                node_uuid: e39d1774-7e2b-11e9-b5b2-7696f81d30fb
             cluster_uuid: bd5fe1c3-7d80-11e9-8913-4f209d688a15
@@ -133,8 +133,8 @@ To see the names of columns in this table, either use the ``DESCRIBE`` statement
 
 .. code-block:: mysql
 
-   SELECT COLUMN_NAME FROM information_schema.columns 
-   WHERE table_schema='mysql' 
+   SELECT COLUMN_NAME FROM information_schema.columns
+   WHERE table_schema='mysql'
    AND table_name='wsrep_streaming_log';
 
    +-------------+
@@ -148,7 +148,7 @@ To see the names of columns in this table, either use the ``DESCRIBE`` statement
    +-------------+
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
- 
+
 .. code-block:: mysql
 
    SELECT * FROM mysql.wsrep_streaming_log \G
@@ -175,4 +175,3 @@ Typically, you won't see any results since it will contain entries only for tran
    +--------------------------------------+--------+-------+-------+
 
 You can see in the results from the example here that the node UUID matches that of the third node (i.e., ``galera3``) in the results for the example above related to the ``wsrep_cluster_members`` table. In this example, the ``frag`` column was omitted from the ``SELECT`` statement since it contains binary characters that don't format well.
-
