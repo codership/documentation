@@ -21,21 +21,20 @@ The best practice when working with :term:`Streaming Replication` is to enable i
 
 .. note:: For more information, see :ref:`When to Use Streaming Replication <when-use-sr>`.
 
-Enabling Streaming Replication requires you tp define the replication unit and number of units to use in forming the transaction fragments.  Two parameters control these variables: :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>` and :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
+Enabling Streaming Replication requires you to define the replication unit and number of units to use in forming the transaction fragments.  Two parameters control these variables: :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>` and :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
 
 Below is an example of how to set these two parameters:
 
 .. code-block:: mysql
 
-   SET SESSION wsrep_trx_fragment_unit='statement';
+   SET SESSION wsrep_trx_fragment_unit='statements';
    SET SESSION wsrep_trx_fragment_size=3;
 
 In this example, the fragment is set to three statements.  For every three statements from a transaction, the node will generate, replicate and certify a fragment.
 
-You can choose between several replication units when forming fragments:
+You can choose between a few replication units when forming fragments:
 
 - **bytes** This defines the fragment size in bytes.
-- **events** This defines the fragment size as the number of binary log events generated.
 - **rows** This defines the fragment size as the number of rows the fragment updates.
 - **statements** This defines the fragment size as the number of statements in a fragment.
 
@@ -60,17 +59,17 @@ After reading the data that you need for the application, you would enable Strea
 
  .. code-block:: mysql
 
-    SET SESSION wsrep_trx_fragment_unit='statement';
+    SET SESSION wsrep_trx_fragment_unit='statements';
     SET SESSION wsrep_trx_fragment_size=1;
 
 Next, set the user's position in the queue like so:
 
  .. code-block:: mysql
 
-    UPDATE work_orders 
+    UPDATE work_orders
     SET queue_position = queue_position + 1;
 
-Witht that done, you can disable Streaming Replication by executing one of the previous ``SET`` statemetns, but with a different value like so:
+With that done, you can disable Streaming Replication by executing one of the previous ``SET`` statements, but with a different value like so:
 
  .. code-block:: mysql
 
@@ -83,6 +82,3 @@ You can now perform whatever additional tasks you need to prepare the work order
       COMMIT;
 
 During the work order transaction, the client initiates Streaming Replication for a single statement, which it uses to set the queue position.  The queue position update then replicates throughout the cluster, which prevents other nodes from coming into conflict with the new work order.
-      
-   
-
