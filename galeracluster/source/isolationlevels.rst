@@ -29,7 +29,7 @@ Data consistency between the nodes is always guaranteed regardless of the isolat
 Understanding Isolation Levels
 -------------------------------
 
-.. note:: **Warning**: When using Galera Cluster in master-slave mode, all four levels are available to you, to the extend that MySQL supports it.  In multi-master mode, however, you can only use the ``REPEATABLE-READ`` level.
+.. warning:: When using Galera Cluster in master-slave mode, all four levels are available to you, to the extend that MySQL supports it.  In multi-master mode, however, you can only use the ``REPEATABLE-READ`` level.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^
 READ-UNCOMMITTED

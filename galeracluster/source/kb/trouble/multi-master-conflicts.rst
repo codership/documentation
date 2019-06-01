@@ -1,45 +1,36 @@
 ======================================
- Dealing with Multi-Master Conflicts
+Multi-Master Conflicts
 ======================================
-.. _`Dealing with Multi-Master Conflicts`:
+.. _`kb-trouble-multi-master-conflicts`:
+
+
+.. rubric:: Scenario
+   :class: kb
 
 These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.  To understand this better, consider a situation in a multi-master replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
 
-.. note:: **See Also**: For more information, see :doc:`certificationbasedreplication`.
 
------------------------------------
- Diagnosing Multi-Master Conflicts
------------------------------------
-
-.. index::
-   pair: Parameters; wsrep_debug
-.. index::
-   pair: Parameters; wsrep_local_bf_aborts
-.. index::
-   pair: Parameters; wsrep_local_cert_failures
-.. index::
-   pair: Parameters; cert.log_conflicts
-.. index::
-   pair: Logs; Debug log
+.. rubric:: Troubleshooting
+   :class: kb
 
 There are a few techniques available to log and monitor problems that may indicate multi-master conflicts.  They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log.  You can enable it through the configuration file with a line like so:
 
 .. code-block:: ini
 
-   # Enable Debugging Output to Server Error Log
    wsrep_debug=ON
 
 Once you turn debugging on, you can use monitoring software to watch for row conflicts.  Below is an example of a log entry that indicates a conflict as described above:
 
 .. code-block:: text
 
-   110906 17:45:01 [Note] WSREP: BF kill (1, seqno: 16962377), victim:  (140588996478720 4) trx: 35525064
+   110906 17:45:01 [Note] WSREP: BF kill (1, seqno: 16962377), victim:
+                                 (140588996478720 4) trx: 35525064
    110906 17:45:01 [Note] WSREP: Aborting query: commit
    110906 17:45:01 [Note] WSREP: kill trx QUERY_COMMITTING for 35525064
    110906 17:45:01 [Note] WSREP: commit failed for reason: 3, seqno: -1
 
 
-.. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
+.. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
 
 If you develop your own notification system, you can use status variables to watch for conflicts. Below is an example of how you might manually retrieve this information. You would simply incorporate something similar into your scripts or customized program.
 
@@ -67,7 +58,6 @@ You can enable conflict logging features with :ref:`wsrep_log_conflicts <wsrep_l
 
 .. code-block:: ini
 
-   # Enable Conflict Logging
    wsrep_log_conflicts=ON
    wsrep_provider_options="cert.log_conflicts=YES"
 
@@ -84,12 +74,8 @@ These parameters enable different forms of conflict logging on the database serv
    g: 8749172, s: 8749171, d: 8749170, ts: 12637839897662340)
 
 
-------------------------------
- Auto-Committing Transactions
-------------------------------
-
-.. index::
-   pair: Parameters; wsrep_retry_autocommit
+.. rubric:: Solution
+   :class: kb
 
 When two transactions are conflicting, the later of the two is rolled back by the cluster.  The client application registers this rollback as a deadlock error.  Ideally, the client application should retry the deadlocked transaction. However, not all client applications have this logic built in.
 
@@ -101,15 +87,11 @@ If you encounter this problem, you can set the node to attempt to auto-commit th
 
 When a transaction fails the certification test due to a cluster-wide conflict, this parameter tells the node how many times you want it to retry the transaction before returning a deadlock error. In the example line above, it's set to four times.
 
-.. note:: Retrying only applies to auto-commit transactions, as retrying is not safe for multi-statement transactions.
+Retrying only applies to auto-commit transactions, as retrying is not safe for multi-statement transactions.
 
 
----------------------------------------
- Multi-Master Conflict Work-Around
----------------------------------------
-
-.. index::
-   pair: Parameters; wsrep_retry_autocommit
+.. rubric:: Work-Around
+   :class: kb
 
 While Galera Cluster resolves multi-master conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.
 
@@ -120,3 +102,19 @@ While Galera Cluster resolves multi-master conflicts automatically, there are st
 - Last, limit the number of master nodes or switch to a master-slave model.
 
 If you can filter out access to the hot-spot table, it may be enough to treat writes only to the hot-spot table as master-slave.
+
+
+.. rubric:: Additional Information
+   :class: kb
+
+For more information related to this KB article, see the following documents:
+
+- :doc:`certificationbasedreplication`
+- :ref:`cert.log_conflicts <cert.log_conflicts>` option
+- :ref:`wsrep_debug <wsrep_debug>` option
+- :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` option
+- :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` option
+- :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

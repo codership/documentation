@@ -1,0 +1,72 @@
+=================================
+ Using Synchronization Functions
+=================================
+.. _`kb-best-using-sync-functions`:
+
+Occasionally, an application may need to perform a critical read. Critical reads are queries that require that the local database reaches the most up-to-date state possible before the query is executed.
+
+In Galera Cluster prior to 4.x, you could manage critical reads using the :ref:`wsrep_sync_wait <wsrep_sync_wait>` session variable.  This would cause the node to enable causality checks, holding new queries until the database server catches up with all updates that were made prior to the start of the current transaction.  While this method does ensure that the node reaches the most up-to-date state before executing the query, it also means that the node may wait to receive updates that might have nothing to do with the query at hand.
+
+Beginning with Galera Cluster 4.0, though, you can use synchronization functions.  This allows you to tie the synchronization process to specific transactions so that the node waits only until a specific transaction is applied before executing the query.  Here is an example of how this might work:
+
+
+.. rubric:: Scenario
+   :class: kb
+
+Suppose on ``node1``, you begin a transaction, make changes to a table and then commit the transaction like so:
+
+.. code-block:: mysql
+
+   START TRANSACTION;
+
+   UPDATE table1 SET col4 = col4 * 1.2;
+
+   COMMIT;
+
+After that, using the :ref:`WSREP_LAST_WRITTEN_GTID() <WSREP_LAST_WRITTEN_GTID>` function, say you obtain the :term:`Global Transaction ID` of the transaction and save it to the ``$transaction_1_gtid`` variable like this:
+
+.. code-block:: mysql
+
+   $transaction_1_gtid = SELECT WSREP_LAST_WRITTEN_GTID();
+
+Now, on ``node2``, suppose you set it to wait until it replicates and applies the transaction from ``node1`` before starting a new transaction:
+
+.. code-block:: mysql
+
+   SELECT WSREP_SYNC_WAIT_UPTO_GTID($transaction_1_gtid);
+
+   START TRANSACTION;
+
+Next, you execute your critical reads.
+
+
+.. rubric:: Recommendations
+   :class: kb
+
+Using the :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>` function, the node waits until it has replicated and applied the given Global Transaction ID before starting a new transaction.
+
+Synchronization Functions were introduced in Galera Cluster 4.  If you have an older version, you won't be able to use these features.  To determine which version is installed on a server, use the ``SHOW STATUS`` statement and look for the :ref:`wsrep_provider_version <wsrep_provider_version>` status variable.
+
+.. code-block:: mysql
+
+    SHOW STATUS LIKE 'wsrep_provider_version';
+
+	+------------------------+----------------------+
+    | Variable_name          | Value                |
+    +------------------------+----------------------+
+    | wsrep_provider_version | 25.3.5-wheezy(rXXXX) |
+    +------------------------+----------------------+
+
+The digits after the second and third decimal places are the version. The results here indicate that Galera Cluster version 3.5 is installed on the server.
+
+.. rubric:: Additional Information
+   :class: kb
+
+For more information related to this KB article, see the following documents:
+
+- :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`
+- :ref:`wsrep_sync_wait <wsrep_sync_wait>`
+- :ref:`wsrep_provider_version <wsrep_provider_version>`
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

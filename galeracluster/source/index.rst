@@ -21,6 +21,7 @@ This approach is also called virtually synchronous replication, given that while
 
 
 .. rubric:: Benefits of Galera Cluster
+   :class: test
 .. _`Galera Cluster Benefits`:
 
 Galera Cluster provides a significant improvement in high-availability for the MySQL system.  The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in trade-offs.
@@ -28,34 +29,34 @@ Galera Cluster provides a significant improvement in high-availability for the M
 The following features are available through Galera Cluster:
 
 - **True Multi-Master**
- You can read and write to any node at any time. Changes to data on one node will be replicated on all.
+  You can read and write to any node at any time. Changes to data on one node will be replicated on all.
 
 - **Synchronous Replication**
- There is no slave lag, so no data is lost if a node crashes.
+  There is no slave lag, so no data is lost if a node crashes.
 
 - **Tightly Coupled**
- All nodes hold the same state. There is no diverged data between nodes.
+  All nodes hold the same state. There is no diverged data between nodes.
 
 - **Multi-Threaded Slave**
- This allows for better performance and for any workload.
+  This allows for better performance and for any workload.
 
 - **No Master-Slave Failover**
- There is no need for master-slave operations or to use VIP.
+  There is no need for master-slave operations or to use VIP.
 
 - **Hot Standby**
- There is no downtime related to failures or intentionally taking down a node for maintenance since there is no failover.
+  There is no downtime related to failures or intentionally taking down a node for maintenance since there is no failover.
 
 - **Automatic Node Provisioning**
- There's no need to backup manually the database and copy it to the new node.
+  There's no need to backup manually the database and copy it to the new node.
 
 - **Supports InnoDB.**
- The InnoDB storage engine provides for transactional tables.
+  The InnoDB storage engine provides for transactional tables.
 
 - **Transparent to Applications**
- Generally, you won't have to change an application that will interface with the database as a result of Galera. If you do, it will be minimal changes.
+  Generally, you won't have to change an application that will interface with the database as a result of Galera. If you do, it will be minimal changes.
 
 - **No Read and Write Splitting Needed**
- There is no need to split read and write queries.
+  There is no need to split read and write queries.
 
 
 In summary, Galera Cluster is a high-availability solution that is both robust in terms of data integrity and provides high-performance with instant failovers.
@@ -78,7 +79,7 @@ An additional benefit of Galera Cluster is good cloud support.  Automatic node p
    monitor
    security
    migrate
-   troubleshooting
+   kb
    reference
 
 - :ref:`genindex`

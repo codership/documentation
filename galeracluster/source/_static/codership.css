@@ -345,9 +345,8 @@ div.body h6
     padding: 0;
 
     color: #000000;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    text-transform: none;
 
-    font-family: "Noticia Text", serif;
     font-weight: normal;
     line-height: 1em;
 }
@@ -359,30 +358,28 @@ div.body h1 {
     font-size: 200%;
 }
 
-div.body h2 { font-size: 160%; }
+div.body h2 { font-size: 1.4em1; }
 div.body h3 { font-size: 140%; }
 div.body h4 { font-size: 120%; }
 div.body h5 { font-size: 110%; }
 div.body h6 { font-size: 100%; }
 
-div.body p.rubric { font-size: 120%; border-top: 2px solid #7F7F7F;}
+div.body p.rubric {
+    font-size: 120%;
+    border-bottom: 2px solid #7F7F7F;
+}
 div.body p.rubric,
 {
     margin: 1em -10px 0;
     padding: 8px 8px 8px;
     clear: both; /* for floating admonitions */
-    
+
 
     background: #92BCDE;
     border: 1px solid rgba(0,0,0,.125);
     border-width: 0 1px 1px 0;
 
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-
     color: #ffffff;
-    text-shadow: 2px 2px 1px rgba(0,0,0,.1);
 }
 
 
@@ -395,17 +392,10 @@ div.section.emphasize-children > div.section > h3
     padding: 8px 8px 8px;
     clear: both; /* for floating admonitions */
 
-    background: #7F7F7F;
     border: 1px solid rgba(0,0,0,.125);
-    border-width: 0 1px 1px 0;
+    border-width: 0 0 2px 0;
 
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-
-    font-style: italic;
-    color: #ffffff;
-    text-shadow: 2px 2px 1px rgba(0,0,0,.1);
+    color: #5C5C5C;
 }
 
 div.body h2.highlighted,
@@ -711,14 +701,11 @@ td.field-body > p.first:only-child { margin: 0; }
 
 div.admonition, p.deprecated
 {
-    background: #E7F0FE;
+    background: #e3e3e3;
     border: 1px solid rgba(0,0,0,.05);
     border-width: 0 1px 1px 0;
     margin: 1em 0;
     padding: .5em;
-    border-radius: 0 .7em 0 .7em;
-    -webkit-border-radius: 0 .7em 0 .7em;
-    -moz-border-radius: 0 .7em 0 .7em;
 }
 
 div.note, div.seealso, div.warning, div.admonition-todo, p.deprecated, div.caution
@@ -726,14 +713,14 @@ div.note, div.seealso, div.warning, div.admonition-todo, p.deprecated, div.cauti
     background-position: .6em .5em;
     background-size: auto 1.58em;
     background-repeat: no-repeat;
-    padding-left: 2.65em;
+    padding-left: 1em;
 }
 
 
 
 
 div.note {
-    background-color: #F2F2F2;
+    background-color: #e3e3e3;
     background-image: url("icon-note.png");
 }
 
@@ -745,10 +732,17 @@ div.seealso {
 
 
 div.warning {
-    background-color: #ffe4e4;
+    color: #ffffff;
+    background-color: #CD5C5C;
     background-image: url("icon-warning.png");
 }
-
+div.document div.warning a,
+div.document div.warning a:visited {
+    color: #ffffff !important;
+}
+div.document div.warning a:hover {
+    color: #383838 !important;
+}
 
 div.caution {
     background-color: #FFF7E0;
@@ -782,7 +776,7 @@ div.admonition.floater
 {
     float: right;
     max-width: 40%;
-    margin: 1em 0 1.5em 1.5em;
+    margin: 1em 1.5em 1em 1.5em;
 }
 
 /* next few rules merge the title into the first paragraph */
@@ -823,6 +817,10 @@ div#todos div.admonition-todo + p a
  * document - quoted text (TT & PRE)
  *****************************************************/
 
+code {
+    color: #5C5C5C;
+}
+
 div.highlight
 {
     background: none;
@@ -833,18 +831,15 @@ div.highlight-python pre
 {
     padding: 10px;
 
-    background-color: #eeffcc;
-    border: 1px solid #AACC99;
-    border-width: 0 4px;
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
+    background-color: #ffffff;
+    border: 1px solid #696969;
+    border-width: 0 0 1px 4px;
 
     font-family: "Droid Sans Mono", monospace;
     font-size: 85%;
     line-height: 133%;
 
-    color: #111111;
+    color: #003F87;
 }
 
 /* for source-view pages */
@@ -875,7 +870,7 @@ tt
 
 tt.literal
 {
-/*  Removed background color on tt.literal.  
+/*  Removed background color on tt.literal.
     background-color: rgba(0,0,0,.075);*/
     border: 1px solid rgba(0,0,0,.05);
     padding: 0px 4px;
@@ -1040,10 +1035,10 @@ table.indextable td > dl > dd > dl
         display: none;
     }
 
-    
+
      /* FIXME: would like to make this work some how, hiding it til it works */
       div.sidebartoggle { display: none; }
-    
+
 
     div.bodywrapper
     {
@@ -1062,9 +1057,6 @@ table.indextable td > dl > dd > dl
     {
         padding-top: 0.25em;
         padding-bottom: .25em;
-        border-radius: 0;
-        -moz-border-radius: 0;
-        -webkit-border-radius: 0;
     }
 
     div.body
@@ -1114,7 +1106,6 @@ table.indextable td > dl > dd > dl
     div.body h6
     {
         color: #000000 !important;
-        text-shadow: none !important;
         border: none !important;
         padding: 0;
     }
@@ -1147,19 +1138,23 @@ table.indextable td > dl > dd > dl
 		}
 		div.document a,
 		div.document a:link {
-		  color: #ed7703 !important;
+		  color: #4973AB !important;
 		  text-decoration: none !important;
 		  background: none !important;
 		}
 		div.document a:visited {
-		  color: #ed7703 !important;
+		  color: #4973AB !important;
 		  text-decoration: none !important;
 		}
+		div.document a:hover {
+		  color: #B0171F !important;
+		}
+
 		ul.nav-link {
 			text-align:right;
 			display:inline:
 		}
-		div.section p, 
+		div.section p,
 		div.section ul,
 		div.section h2,
 		div.section h3,
@@ -1171,11 +1166,11 @@ table.indextable td > dl > dd > dl
 		a em {
 			font-style:normal;
 		}
-		
+
 		/* Formatting for Parameter Entries */
 		body div.body p.rubric {
-			padding-top:10px;
-			margin-top:25px;
+			padding-bottom: 10px;
+			margin-top: 25px;
 			margin-bottom:12px;
 			font-weight: bold;
 			font-size:110%;
@@ -1189,13 +1184,19 @@ table.indextable td > dl > dd > dl
 			padding:0px;
 			margin:0px;
 		}
-		
+
 		div.admonition {
 			text-align: justify;
 		}
 
 
-		
+.highlight .k,
+.highlight .kp,
+.highlight .kt {
+    color: #26466D !important;
+}
+
+
 
 /*****************************************************
  * EOF

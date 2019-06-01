@@ -272,7 +272,7 @@ Table legend:
 
 Global variable for internal use.
 
-.. note:: **Warning**: Do not manually set this variable.
+.. warning:: Do not manually set this variable.
 
 +-----------------------+---------+-----------+-------------+
 | Default Values        | Dynamic | Introduced | Deprecated |
@@ -290,7 +290,7 @@ Global variable for internal use.
 
 Global variable for internal use.
 
-.. note:: **Warning**: Do not manually set this variable.
+.. warning:: Do not manually set this variable.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |

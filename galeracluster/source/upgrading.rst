@@ -91,7 +91,7 @@ When you want to avoid time-consuming state transfers and the slow process of up
 
 In bulk upgrades, you take all of the nodes down in an idle cluster, perform the upgrades, then bring the cluster back online.  This allows you to upgrade your cluster quickly, but does mean a complete service outage for your cluster.
 
-.. note:: **Warning**: Always use bulk upgrades when using a two-node cluster, as the rolling upgrade would result in a much longer service outage.
+.. warning:: Always use bulk upgrades when using a two-node cluster, as the rolling upgrade would result in a much longer service outage.
 
 The main advantage of bulk upgrade is that when you are working with huge databases, it is much faster and results in better availability than rolling upgrades.
 
@@ -180,7 +180,3 @@ After you upgrade the Galera Replicator Plugin package on each node in the clust
 #. Resume the load on the cluster.
 
 Reloading the provider and connecting it to the cluster typically takes less than ten seconds, so there is virtually no service outage.
-
-
-
-

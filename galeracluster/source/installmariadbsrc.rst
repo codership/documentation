@@ -67,7 +67,7 @@ The source code for MariaDB Galera Cluster is available through GitHub_. Using G
 
    Starting with version 10.1, MariaDB includes the wsrep API for Galera Cluster by default.
 
-   .. note:: **Warning**: MariaDB version 10.1 is still in beta.
+   .. warning:: MariaDB version 10.1 is still in beta.
 
 
 You now have the source files for the MariaDB database server with the wsrep API needed to function as a Galera Cluster node.

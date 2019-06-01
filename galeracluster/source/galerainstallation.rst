@@ -77,7 +77,7 @@ As an example, to open ports between trusted hosts using ``iptables``, you would
 
 This causes packet filtering on the kernel to accept :abbr:`TCP (Transmission Control Protocol)` connections between the given IP addresses.
 
-.. note:: **Warning**: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in the ``iptables`` configuration for your cluster.
+.. warning:: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in the ``iptables`` configuration for your cluster.
 
 The updated packet filtering rules take effect immediately, but are not persistent.  When the server reboots, it reverts to default packet filtering rules, which do not include your updates.  To use these rules after rebooting, you need to save them as defaults.
 

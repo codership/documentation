@@ -127,7 +127,7 @@ These parameters control the point at which the node triggers Flow Control and t
 
 Bear in mind that, while it is critical for multi-master operations that you use as small a slave queue as possible, the slave queue length is not so critical in master-slave setups.  Depending on your application and hardware, the node can apply even 1K of write-sets in a fraction of a second.  The slave queue length has no effect on master-slave failover.
 
-.. note:: **Warning**: Cluster nodes process transactions asynchronously with regards to each other.  Nodes cannot anticipate in any way the amount of replication data.  Because of this, Flow Control is always reactive.  That is, it only comes into affect after the node exceeds certain limits.  It cannot prevent exceeding these limits or, when they are exceeded, it cannot make any guarantee as to the degree they are exceeded.
+.. warning:: Cluster nodes process transactions asynchronously with regards to each other.  Nodes cannot anticipate in any way the amount of replication data.  Because of this, Flow Control is always reactive.  That is, it only comes into affect after the node exceeds certain limits.  It cannot prevent exceeding these limits or, when they are exceeded, it cannot make any guarantee as to the degree they are exceeded.
 
   Meaning, if you were to configure a node with:
 

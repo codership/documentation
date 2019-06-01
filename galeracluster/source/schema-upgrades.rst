@@ -1,7 +1,7 @@
 ==========================
  Schema Upgrades
 ==========================
-.. _`Schema Upgrades`:
+.. _`schema-upgrades`:
 
 Schema changes are of particular interest related to Galara Cluster. Schema changes are  :abbr:`DDL (Data Definition Language)` statement executed on a database (e.g., ``CREATE TABLE``, ``GRANT``).  These :abbr:`DDL (Data Definition Language)` statements change the database itself and are non-transactional.
 
@@ -62,4 +62,4 @@ To change a schema cluster-wide, you must manually execute the query on each nod
 
 The main advantage of the Rolling Schema Upgrade is that it only blocks one node at a time. The main disadvantage of the Rolling Schema Upgrade is that it is potentially unsafe, and may fail if the new and old schema definitions are incompatible at the replication event level.
 
-.. note:: **Warning**: To avoid conflicts between new and old schema definitions, execute SQL statements such as ``CREATE TABLE`` and ``DROP TABLE`` using the :ref:`Total Order Isolation <toi>` method.
+.. warning:: To avoid conflicts between new and old schema definitions, execute SQL statements such as ``CREATE TABLE`` and ``DROP TABLE`` using the :ref:`Total Order Isolation <toi>` method.

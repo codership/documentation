@@ -42,7 +42,7 @@ When configuring packet filtering rules for a :abbr:`LAN (Local Area Network)` e
 
 These commands open the relevant ports to :abbr:`TCP (Transmission Control Protocol)` and :abbr:`UDP (User Datagram Protocol)` transport.  It assumes that the IP addresses in your network begin with 192.168.0.
 
-.. note:: **Warning**: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your ``iptables`` configuration.
+.. warning:: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your ``iptables`` configuration.
 
 Galera Cluster can now pass packets through the firewall to the node, but the configuration reverts to default on reboot.  In order to update the default firewall configuration, see :ref:`Making Firewall Changes Persistent <persistent-config>`.
 
@@ -67,7 +67,7 @@ Without much loss in security, you can instead open a range of ports between tru
 When these commands are run on each node, they set the node to accept :abbr:`TCP (Transmission Control Protocol)` connections from the IP addresses of the other cluster nodes.
 
 
-.. note:: **Warning**: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your ``iptables`` configuration.
+.. warning:: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your ``iptables`` configuration.
 
 Galera Cluster can now pass packets through the firewall to the node, but the configuration reverts to default on reboot.  In order to update the default firewall configuration, see :ref:`Making Firewall Changes Persistent <persistent-config>`.
 

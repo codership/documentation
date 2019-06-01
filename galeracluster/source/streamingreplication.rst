@@ -36,6 +36,9 @@ The longer it takes for a node to commit a transaction, the greater the likeliho
 Using :term:`Streaming Replication` on long-running transactions mitigates this situation.  Once the node replicates and certifies a fragment, it is no longer possible for other transactions to abort it.
 
 
+Certification keys are generated from record locks, therefore they don't cover gap locks or next key locks. If the transaction takes a gap lock, it is possible that a transaction, which is executed on another node, will apply a write set which encounters the gap log and will abort the streaming transaction.
+
+
 -----------------------------
 Large Data Write Transactions
 -----------------------------

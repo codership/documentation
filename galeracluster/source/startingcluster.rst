@@ -53,7 +53,7 @@ Both of these start the ``mysqld`` daemon on the node. Starting in MariaDB versi
 
    # galera_new_cluster
 
-.. note:: **Warning**: Use the ``--wsrep-new-cluster`` argument only when initializing the Primary Component.  Don't use it to connect a new node to an existing cluster.
+.. warning:: Use the ``--wsrep-new-cluster`` argument only when initializing the Primary Component.  Don't use it to connect a new node to an existing cluster.
 
 Once the first node starts the database server, verify that the cluster has started, albeit a one-node cluster, by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  With the database client, execute the following SQL statement:
 

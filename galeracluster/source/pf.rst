@@ -5,7 +5,7 @@ Firewall Configuration with PF
 
 FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.
 
-.. note:: **Warning**: Different versions of FreeBSD use different versions of PF.  Examples here are from FreeBSD 10.1, which uses the same version of PF as OpenBSD 4.5.
+.. warning:: Different versions of FreeBSD use different versions of PF.  Examples here are from FreeBSD 10.1, which uses the same version of PF as OpenBSD 4.5.
 
 
 -------------------
@@ -76,7 +76,7 @@ This defines the packet filtering rules that Galera Cluster requires.  You can t
 
 If there are no syntax errors, ``pfctl`` prints each of the rules it adds to the firewall, (expanded, as in the example above).  If there are syntax errors, it notes the line near where the errors occur.
 
-.. note:: **Warning**: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your PF configuration.
+.. warning:: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your PF configuration.
 
 
 -------------------
@@ -96,7 +96,3 @@ In the event that you have PF running already and want to update the rule set to
 .. code-block:: console
 
    # pfctl -f /etc/pf.conf
-
-
-
-

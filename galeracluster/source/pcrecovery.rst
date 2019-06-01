@@ -56,7 +56,7 @@ Modifying the Saved Primary Component State
 
 In the event that you find yourself in the unusual situation where you need to force certain nodes to join each other specifically, you can do so by manually changing the saved :term:`Primary Component` state.
 
-.. note:: **Warning**: Under normal circumstances, for safety reasons, you should entirely avoid editing or otherwise modifying the ``gvwstate.dat`` file.  Doing so may lead to unexpected results.
+.. warning:: Under normal circumstances, for safety reasons, you should entirely avoid editing or otherwise modifying the ``gvwstate.dat`` file.  Doing so may lead to unexpected results.
 
 When a node starts for the first time or after a graceful shutdown, it randomly generates and assigns to itself a UUID, which serves as its identifier to the rest of the cluster.  If the node finds a ``gvwstate.dat`` file in the data directory, it reads the ``my_uuid`` field to find the value it should use.
 
@@ -115,4 +115,3 @@ And, the same again for ``node3``:
 
 
 Then start all three nodes without the bootstrap flag.  When they start, Galera Cluster reads the ``gvwstate.dat`` file for each.  It pulls its UUID from the file and uses those of the ``member`` field to determine which nodes it should join in order to form a new Primary Component.
-

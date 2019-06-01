@@ -14,7 +14,7 @@ It's recommended when deploying a Galera Cluster that you use a minimum of three
 
 If the cost of adding resources (e.g., a third datacenter) is too much, you can use :term:`Galera Arbitrator`.  Galera Arbitrator is a member of a cluster that participates in voting, but not in the actual replication.
 
-.. note:: **Warning** While Galera Arbitrator does not participate in replication, it does receive the same data as all other nodes.  You must secure its network connection.
+.. warning:: While Galera Arbitrator does not participate in replication, it does receive the same data as all other nodes.  You must secure its network connection.
 
 Galera Arbitrator serves two purposes: When you have an even number of nodes, it functions as an odd node, to avoid split-brain situations. It can also request a consistent application state snapshot, which is useful in making backups.
 

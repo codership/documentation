@@ -115,7 +115,7 @@ You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter. 
 
    Galera Cluster applies the new weight on the delivery of a message that carries a weight.  At the moment, there is no mechanism to notify the application of a new weight, but will eventually happen when the message is delivered.
 
-.. note:: **Warning**: If a group partitions at the moment when the weight change message is delivered, all partitioned components that deliver weight change messages in the transitional view will become non-primary components.  Partitions that deliver messages in the regular view will go through quorum computation with the applied weight when the following transitional view is delivered.
+.. warning:: If a group partitions at the moment when the weight change message is delivered, all partitioned components that deliver weight change messages in the transitional view will become non-primary components.  Partitions that deliver messages in the regular view will go through quorum computation with the applied weight when the following transitional view is delivered.
 
    In other words, there is a corner case where the entire cluster can become non-primary component, if the weight changing message is sent at the moment when partitioning takes place.  Recovering from such a situation should be done either by waiting for a re-merge or by inspecting which partition is most advanced and by bootstrapping it as a new Primary Component.
 

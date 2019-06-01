@@ -226,7 +226,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    SHOW VARIABLES LIKE 'wsrep_causal_reads';
 
 
-.. note:: **Warning**: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
+.. warning:: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
 
 
 
@@ -365,7 +365,7 @@ Changing this variable while Galera is running will cause the node to close the 
 
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster--that the other nodes can join to.  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. note:: **Warning**: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node not to rejoin the cluster of which it was a member. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`startingcluster`.
+.. warning:: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node not to rejoin the cluster of which it was a member. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`startingcluster`.
 
 
 You can execute the following SQL statement to see how this variable is set:
@@ -569,7 +569,7 @@ This parameter enables additional debugging output for the database server error
 Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
 
 
-.. note:: **Warning**: In addition to useful debugging information, this parameter also causes the database server to print authentication information (i.e., passwords) to the error logs.  Don't enable it in production environments.
+.. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information (i.e., passwords) to the error logs.  Don't enable it in production environments.
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
@@ -1082,7 +1082,7 @@ Defines the command the node runs whenever cluster membership or the state of th
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
-.. note:: **Warning**: The node will block and wait until the script completes and returns before it can proceed. If the script performs any potentially blocking or long-running operations, such as network communication, you may wish initiate such operations in the background and have the script return immediately.
+.. warning:: The node will block and wait until the script completes and returns before it can proceed. If the script performs any potentially blocking or long-running operations, such as network communication, you may wish initiate such operations in the background and have the script return immediately.
 
 .. note:: **See Also**: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the :doc:`notificationcmd`.
 
@@ -1713,7 +1713,7 @@ This parameter determines whether the node rejects blocking client sessions whil
 
 Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to tell whether the requested method is blocking or not.  You may also want to avoid querying the donor even with non-blocking state transfers.  As a result, when this parameter is enabled the donor node rejects queries regardless the state transfer and even if the initial request concerned a blocking-only transfer, (meaning, it also rejects during ``xtrabackup``).
 
-.. note:: **Warning**: The ``mysqldump`` state transfer method does not work with this setting, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
+.. warning:: The ``mysqldump`` state transfer method does not work with this setting, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
 
 .. code-block:: mysql
 
