@@ -243,7 +243,7 @@ Questions about Potential Problems
 
 Although it doesn't happen often, there are several reasons a Galera cluster might crash. Below is a list of them, grouped by type of cause:
 
-**Pysical Server & Related Causes**
+**Physical Server & Related Causes**
 - The nodes are out of disk space;
 - The operating systems are swapping or have a high I/O Wait
 
@@ -254,7 +254,7 @@ Although it doesn't happen often, there are several reasons a Galera cluster mig
 
 **Configuration Problems**
 - Incompatible Changes to Parameters in the MySQL Configuration File;
-- Setting binlog_format to only ROW, instead of MIXED
+- Setting binlog_format to only MIXED, instead of ROW. Only ROW format is supported.
 
 **Galera in General**
 - Excessive deadlocks during heavy load when writing the same set of rows;
