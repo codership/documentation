@@ -16,8 +16,8 @@ State Transfers
 
 The process of replicating data from the cluster to the individual node, bringing the node into sync with the cluster, is known as provisioning.  There are two methods available in Galera Cluster to provision nodes:
 
-- :doc:`State Snapshot Transfers (SST) <sst>` Where a snapshot of the entire node state transfers.
-- :doc:`Incremental State Transfers (IST) <ist>` Where only the missing transactions transfer.
+- :ref:`State Snapshot Transfers (SST) <sst>` Where a snapshot of the entire node state transfers.
+- :ref:`Incremental State Transfers (IST) <ist>` Where only the missing transactions transfer.
 
 ----------------------------------
  State Snapshot Transfer (SST)

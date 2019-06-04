@@ -365,7 +365,7 @@ Changing this variable while Galera is running will cause the node to close the 
 
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster--that the other nodes can join to.  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. warning:: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node not to rejoin the cluster of which it was a member. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :ref:`Starting the Cluster <../training/tutorials/starting-cluster>`.
+.. warning:: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node not to rejoin the cluster of which it was a member. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
 
 
 You can execute the following SQL statement to see how this variable is set:

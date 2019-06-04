@@ -75,9 +75,6 @@ If one node in the cluster fails, the other nodes continue to operate as usual. 
 
 No data is lost in single node failures.
 
-.. note:: For more information on manually recovering nodes, see :doc:`Node Provisioning and Recovery <Node Provisioning>`.
-
-
 
 ------------------------
  State Transfer Failure
