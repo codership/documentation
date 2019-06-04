@@ -50,7 +50,7 @@ To disable SELinux for ``mysqld``, execute the following from the command-line:
 
 This command switches SELinux into permissive mode when it registers activity from the database server.  While this is fine during the installation and configuration process, it is not in general a good policy to disable security applications.
 
-Rather than disable SELinux, so that your may use it along with Galera Cluster, you will need to create an access policy. This will allow SELinux to understand and allow normal operations from the database server.  For information on how to create such an access policy, see :ref:`SELinux <../../../documentation/selinux>`.
+Rather than disable SELinux, so that your may use it along with Galera Cluster, you will need to create an access policy. This will allow SELinux to understand and allow normal operations from the database server.  For information on how to create such an access policy, see :doc:`SELinux <../../../documentation/selinux>`.
 
 .. note::  For more information on writing SELinux policies, see `SELinux and MySQL <https://blogs.oracle.com/jsmyth/entry/selinux_and_mysql>`_.
 .. Revision Note: Add a label for port 4567 as ``mysqld_port_t``. Also, check if other ports on the firewall need something similar.  See if AppArmor requires a similar label, as well.
@@ -100,7 +100,7 @@ When you find the relevant file, you can save the rules using the ``iptables-sav
 
 When ``iptables`` starts it now reads the new defaults, with your updates to the firewall.
 
-.. note:: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :ref:`Firewall Settings <../../../documentation/firewall-settings>`.
+.. note:: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`Firewall Settings <../../../documentation/firewall-settings>`.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,8 +143,8 @@ Galera Cluster for MySQL
 .. toctree::
    :maxdepth: 1
 
-   installmysql
-   installmysqlsrc
+   ../../documentation/install-mysql
+   ../../documentation/install-mysql-src
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 MariaDB Galera Cluster
@@ -153,11 +153,11 @@ MariaDB Galera Cluster
 .. toctree::
    :maxdepth: 1
 
-   installmariadb
-   installmariadbsrc
+   ../../documentation/install-mariadb
+   ../../documentation/install-mariadb-src
 
 
-.. note:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :ref:`Migration <../../../documentation/migration>`.
+.. note:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`Migration <../../../documentation/migration>`.
 
 
 

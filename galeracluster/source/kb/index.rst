@@ -6,7 +6,7 @@ Knowledge Base
 The Codership Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster.  Here you'll find troubleshooting articles and best practices articles, and answers to frequently asked questions.
 
 --------------------------------------
-:ref:`Troubleshooting <kb-trouble>`_
+:doc:`Troubleshooting <./trouble/index>`
 --------------------------------------
 .. rubric:: Troubleshooting Articles
 .. _`kb-trouble`:
@@ -14,7 +14,7 @@ The Codership Knowledge Base (KB) contains information on resolving problems and
 When you experience difficulties with a Galera Cluster deployment, the Troubleshooting section of the KB may be able to provide some assistance. It includes articles to diagnose and address various replication issues.
 
 ------------------------------------
-:ref:`Best Practices <kb-best>`_
+:doc:`Best Practices <./best/index>`
 ------------------------------------
 .. rubric:: Best Practices Articles
 .. _`kb-best`:
@@ -26,8 +26,8 @@ Whereas the Troubleshooting section relates to handling problems with a Galera c
    :maxdepth: 2
    :hidden:
 
-   kb-trouble
-   kb-best
+   trouble/index
+   best/index
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

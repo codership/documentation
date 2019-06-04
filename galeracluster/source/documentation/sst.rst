@@ -54,3 +54,9 @@ To set the State Snapshot Transfer method, use the :ref:`wsrep_sst_method <wsrep
    wsrep_sst_donor  = "node1, node2"
 
 There is no single best method for State Snapshot Transfers.  You must decide which suits your particular needs and cluster deployment.  Fortunately, you need only set the method on the receiving node.  So long as the donor has support, it serves the transfer in whatever method the joiner requests.
+
+.. toctree::
+   :maxdepth: 1
+
+   sst-logical
+   sst-physical

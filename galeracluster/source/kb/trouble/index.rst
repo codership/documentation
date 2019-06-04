@@ -8,14 +8,14 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 .. toctree::
    :maxdepth: 1
 
-   kb-trouble-sql-syntax-error
-   kb-trouble-node-requested-state-transfer
-   kb-trouble-error-unknown-command
-   kb-trouble-node-requested-state-transfer
-   kb-trouble-user-changes
-   kb-trouble-stall-on-alter
-   kb-trouble-node-crash-rsync
-   kb-trouble-multi-master-conflicts
+   commit-failed-reason-3
+   sql-syntax-error
+   error-unknown-command
+   requested-state-transfer-failed
+   user-changes
+   stall-on-alter
+   node-crash-rsync
+   multi-master-conflicts
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

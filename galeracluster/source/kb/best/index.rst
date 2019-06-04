@@ -9,19 +9,19 @@ Whereas the :doc:`../trouble/index` section relates to handling problems with a 
 .. toctree::
    :maxdepth: 1
 
-    kb-best-customizeing-gcache-size
-    kb-best-detecting-slow-node
-    kb-best-galera-with-selinux
-    kb-best-gcache-during-state-transfers
-    kb-best-group-commit
-    kb-best-large-transactions
-    kb-best-multi-master-setup
-    kb-best-parallel-slave-threads
-    kb-best-single-master-setup
-    kb-best-two-node-clusters
-    kb-best-using-sync-functions
-    kb-best-wan-latency
-    kb-best-wan-replication
+   customizing-gcache-size
+   detecting-slow-node
+   galera-with-selinux
+   gcache-during-state-transfers
+   group-commit
+   large-transactions
+   multi-master-setup
+   parallel-slave-threads
+   single-master-setup
+   two-node-clusters
+   using-sync-functions
+   wan-latency
+   wan-replication
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -33,7 +33,7 @@ With Galera, if one master fails, the cluster continues and users can continue t
 
 Yes, it works just fine.  Through Amazon's EC2 environment, you can create multiple instances, virtual servers running the Linux operating system--any distribution is fine.  After the instances are created, you would log into each instance and install MySQL or MariaDB and Galera, as well as configure them. On AWS, you'll have to set inbound security rules to allow the instances to communicate with each.
 
-.. note:: For more details on installing Galera, see :doc:`galerainstallation`.
+.. note:: For more details on installing Galera, see :doc:`./training/tutorials/galera-installation`.
 
 
 .. rubric:: Can nodes for a Galera Cluster be installed in containers such as Docker?
@@ -56,7 +56,7 @@ Major companies all over the world have implemented Galera to protect their data
 .. rubric:: How can I learn to configure and use Galera?
 .. _`faq-learn-galera`:
 
-The :doc:`index` is the best source for detailed information on Galera. It includes a guide for :doc:`gettingstarted`. Several members of the Galera staff occasionally make presentations at conferences around the globe.
+The :doc:`./documentation/index` is the best source for detailed information on Galera. It includes a guide for :doc:`./training/tutorials/getting-started`. Several members of the Galera staff occasionally make presentations at conferences around the globe.
 
 For comprehensive training courses on Galera and related software (e.g., load balancers), check the web sites of our partners (e.g., MariaDB, FromDual, Severalnines). For a list of all of them, along with links to their sites, see the `Support Partners <http://galeracluster.com/support/#support-partners>`_
 
@@ -135,21 +135,21 @@ Basically, if you're already using the latest database software and only InnoDB 
 
 Periodically, updates will become available for Galera Cluster--for the database server itself or the :term:`Galera Replication Plugin`.  To update the software for a node, you would redirect client connections away from it and then stop the node. Then upgrade the node's software.  When finished, just restart the node.
 
-.. note:: For more information on upgrade process, see :doc:`upgrading`.
+.. note:: For more information on upgrade process, see :doc:`./documentation/upgrading`.
 
 
 .. rubric:: Is Galera Installed Separately from the Database Software?
 .. _`faq-galera-installed-serperately`:
 
-Starting with version 10.4 of MariaDB, Galera software is included in the server installation. See the :doc:`installmariadb` related to installing Galera, version 4. Previous version of MariaDB did require you to install separately Galera. The same document will explain this.
+Starting with version 10.4 of MariaDB, Galera software is included in the server installation. See the :doc:`./documentation/install-mariadb` related to installing Galera, version 4. Previous version of MariaDB did require you to install separately Galera. The same document will explain this.
 
-If you'd prefer to use MySQL, see :doc:`installmysql` for information on how to install MySQL and Galera software.  Galera is not yet incorporated into MySQL.
+If you'd prefer to use MySQL, see :doc:`./documentation/install-mysql` for information on how to install MySQL and Galera software.  Galera is not yet incorporated into MySQL.
 
 
 .. rubric:: What's the Minimum and Maximum number of Servers in a Galera Cluster?
 .. _`faq-min-max-galera-nodes`:
 
-The minimum number of nodes required for a cluster is two.  However, a minimum of three nodes is recommend. In a two-node cluster, if one node fails or it's taken down for maintenance, the other node will stop since another node is required. There is a work around for two-node cluster issues: see :doc:`kb-best-two-node-clusters`
+The minimum number of nodes required for a cluster is two.  However, a minimum of three nodes is recommend. In a two-node cluster, if one node fails or it's taken down for maintenance, the other node will stop since another node is required. There is a work around for two-node cluster issues: see :doc:`./kb/best/two-node-clusters`
 
 As for the maximum number of nodes, there is none. However, a single cluster in excessive of ten nodes may experience lag from the synchronizing of so many nodes across a network or the internet. This can be mitigated based on your network configuration, but then other factors come into play.
 
@@ -175,17 +175,17 @@ The primary focus of Galera Cluster is data consistency across the nodes.  This 
 
 The results of this is that you can safely use your favorite approach to distribute or migrate connections between the nodes without the risk of causing inconsistency.
 
-.. note:: For more information on connection distribution, see :doc:`deploymentvariants`.
+.. note:: For more information on connection distribution, see :doc:`./documentation/deployment-variants`.
 
 
 .. rubric:: Are making backups of databases difficult?
 .. _`faq-making-backups`:
 
-Making a backup of the databases in a Galera cluster is easy and simple. One simple method would be to remove one node from the cluster--without shutting down the ``mysqld`` daemon.  From there, you can use ``mysqldump`` to make a logical backup, or whatever backup software you prefer.  It will have little or no effect on overall performance of the cluster. When you're finished, simply reconnect the node to the cluster. The other nodes will quickly provide what's needed for it to be insync with the cluster. For more information on using ``mysqldump`` with Galera, see :doc:`mysqldump`.
+Making a backup of the databases in a Galera cluster is easy and simple. One simple method would be to remove one node from the cluster--without shutting down the ``mysqld`` daemon.  From there, you can use ``mysqldump`` to make a logical backup, or whatever backup software you prefer.  It will have little or no effect on overall performance of the cluster. When you're finished, simply reconnect the node to the cluster. The other nodes will quickly provide what's needed for it to be insync with the cluster. For more information on using ``mysqldump`` with Galera, see :doc:`./documentation/mysqldump`.
 
 The problem with such a simple backup method, though, is that it lacks a :term:`Global Transaction ID` (GTID).  You can use backups of this kind to recover data, but they are insufficient for use in recovering nodes to a well-defined state.  Plus, some backup procedures can block cluster operations during the backup.
 
-Including the GTID in a backup requires a different approach. To do this, you can invoke a backup through the state snapshot transfer mechanism. For more information on this method, see :doc:`backingupthecluster`.
+Including the GTID in a backup requires a different approach. To do this, you can invoke a backup through the state snapshot transfer mechanism. For more information on this method, see :doc:`./documentation/backup-cluster`.
 
 
 .. rubric:: What InnoDB Isolation Levels does Galera Cluster Support?
@@ -197,7 +197,7 @@ Globally, with transactions processing in separate nodes, Galera Cluster impleme
 
 The ``SERIALIZABLE`` level cannot be guaranteed in the multi-master use case because Galera Cluster replication does not carry a transaction read set.  Also, ``SERIALIZABLE`` transaction is vulnerable to multi-master conflicts.  It holds read locks and any replicated write to read locked row will cause the transaction to abort.  Hence, it is recommended not to use it in Galera Cluster.
 
-.. note:: For more information, see :doc:`isolationlevels`.
+.. note:: For more information, see :doc:`./documentation/isolation-levels`.
 
 
 .. rubric:: How are DDL's Handled by Galera Cluster?
@@ -209,7 +209,7 @@ For :abbr:`DDL (Data Definition Language)` statements and similar queries, Galer
 
 - :term:`Rolling Schema Upgrade`: Schema upgrades run locally, blocking only the node on which they are run.  The changes do not replicate to the rest of the cluster.
 
-.. note:: For more information, see :doc:`schemaupgrades`.
+.. note:: For more information, see :doc:`./documentation/schema-upgrades`.
 
 
 .. rubric:: Is GCache a Binlog?
@@ -270,7 +270,7 @@ Galera Cluster is a superb replication system when using MySQL or MariaDB for yo
 
 First, it runs only on Linux and Unix-like operating systems.  There isn't a Windows version. Within the database server, other than the system tables, which use MyISAM, only InnoDB tables are allowed.  InnoDB is used because it's an excellent transactional storage engine. All tables must have an explicit primary key, either a single or a multi-column index.
 
-.. note:: For more details on limitations, see :doc:`limitations`.
+.. note:: For more details on limitations, see :doc:`./documentation/differences`.
 
 
 .. rubric:: Does the slowest node in a Galera Cluster affect the performance of the other nodes?

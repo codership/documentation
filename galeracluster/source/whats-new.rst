@@ -15,12 +15,12 @@ With the latest release of Galera Cluster in the 4.x branch, there are some new 
 
   This provides an alternative replication method for handling large or long-running write transactions, or when working with hot records.
 
-  For more information, see :doc:`streamingreplication` and :doc:`usingsr`.
-  
+  For more information, see :doc:`./documentation/streaming-replication` and :doc:`./documentation/using-sr`.
+
 - **Synchronization Functions**  This version introduces a series of SQL functions for use in wsrep synchronization operations.  You can use them to obtain the :term:`Global Transaction ID`, based on either the last write or last seen transaction, as well as setting the node to wait for a specific GTID to replicate and apply, before initiating the next transaction.
 
-  For more information, see :ref:`Using Synchronization Functions <using-sync-functions>` and :doc:`mysqlwsrepfunctions`.
-  
+  For more information, see :ref:`Using Synchronization Functions <using-sync-functions>` and :doc:`./documentation/mysql-wsrep-functions`.
+
 - **Galera System Tables**  In version 4 of Galera, three system tables were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  These tables may be used by database administrators to get a sense the current activity of the nodes in a cluster.
 
-  For more information, see :ref:`System Tables <system-tables>` and :doc:`system-tables`.
+  For more information, see :ref:`System Tables <system-tables>` and :doc:`./documentation/system-tables`.

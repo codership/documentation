@@ -1,0 +1,21 @@
+==============
+Tutorials
+==============
+.. _`training`:
+
+These are tutorial articles of the training section of the Codership Library. Here you'll finding tutorial articles on how to get started with Galera.
+
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+
+   training/getting-started
+   training/galera-installation
+   training/configuration
+   training/wsrep-configuration
+   training/starting-cluster
+   training/testing-cluster
+   training/restarting-cluster
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

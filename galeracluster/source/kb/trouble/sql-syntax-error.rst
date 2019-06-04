@@ -24,8 +24,8 @@ This SQL statement that was logged is not the actual SQL statement; it's a pseud
 
 For more information related to this KB article, see the following documents:
 
-- :ref:`SST <../../documentation/sst>`
-- :ref:`SST Logical <../../documentation/sst-logical>`
+- :doc:`SST <../../documentation/sst>`
+- :doc:`SST Logical <../../documentation/sst-logical>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

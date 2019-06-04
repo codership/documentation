@@ -114,7 +114,7 @@ In this example, Docker launches a pre-built Ubuntu container tagged as ``galera
 
 You'll notice in the example here there are several ``-p`` options included. Those are described in the next section on Firewall Settings.  The ``-v`` option is described in the section after it on Persistent Data.
 
-.. note:: The above command starts a container node meant to be attached to an existing cluster.  If you're starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.  For more information, see :doc:`starting-cluster`.
+.. note:: The above command starts a container node meant to be attached to an existing cluster.  If you're starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.  For more information, see :doc:`./training/tutorials/starting-cluster`.
 
 
 

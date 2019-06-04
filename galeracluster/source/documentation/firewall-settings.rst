@@ -26,4 +26,4 @@ How these ports are enabled for Galera Cluster can vary depending upon your oper
 
    ip-tables
    firewalld
-   pf
+   firewall-pf
