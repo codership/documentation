@@ -4,11 +4,10 @@ Best Practices
 .. _`kb-best`:
 
 
-Whereas the :doc:`kb/trouble/index` section relates to handling problems with a cluster, this section of the KB provide information and guidance on improving the performance of a cluster and optimizing configuration of the nodes.
+Whereas the :doc:`../trouble/index` section relates to handling problems with a cluster, this section of the KB provide information and guidance on improving the performance of a cluster and optimizing configuration of the nodes.
 
 .. toctree::
-   :maxdepth: 2
-   :hidden:
+   :maxdepth: 1
 
     kb-best-customizeing-gcache-size
     kb-best-detecting-slow-node

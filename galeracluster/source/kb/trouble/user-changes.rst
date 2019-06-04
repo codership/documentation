@@ -51,4 +51,4 @@ This change the host address for the user in a way that replicates through the c
 
 For more information related to this KB article, see the following documents:
 
-- :doc:`migration <migration>`
+- :ref:`Migration <../../documentation/migration>`

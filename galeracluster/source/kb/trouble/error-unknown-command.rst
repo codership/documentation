@@ -86,5 +86,5 @@ For more information related to this KB article, see the following documents:
 - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
 - :ref:`wsrep_cluster_status <wsrep_cluster_status>`
 - :ref:`wsrep_last_committed <wsrep_last_committed>`
-- :ref:`wsrep_on <wsrep_on>` variable
+- :ref:`wsrep_on <wsrep_on>`
 - :ref:`wsrep_provider <wsrep_provider>`

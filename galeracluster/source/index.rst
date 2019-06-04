@@ -1,91 +1,40 @@
-.. galera documentation master file, created by
-   sphinx-quickstart on Sat Apr 20 12:00:55 2013.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 =============================
- Galera Cluster Documentation
+The Codership Library
 =============================
 .. index::
    pair: Certification based replication; Descriptions
 .. index::
    pair: Virtual synchrony; Descriptions
 
-Galera Cluster is a synchronous multi-master database cluster, based on synchronous replication and MySQL and InnoDB.  When Galera Cluster is in use, database reads and writes can be directed to any node. Any individual node can be lost without interruption in operations and without using complex failover procedures.
 
-At a high level, Galera Cluster consists of a database server |---| that is, MySQL, MariaDB or Percona XtraDB |---| that uses the :term:`Galera Replication Plugin` to manage replication.  To be more specific, the MySQL replication plugin API has been extended to provide all the information and hooks required for true multi-master, synchronous replication.  This extended API is called the Write-Set Replication API, or wsrep API.
+This library contains a variety of information about Codership's Galera Cluster |---| a synchronous multi-master database cluster, based on synchronous replication and MySQL and InnoDB.  Here you will find many resources to help you with installing and configuring Galera, as well as learning about it.
 
-Through the wsrep API, Galera Cluster provides certification-based replication.  A transaction for replication, the write-set not only contains the database rows to replicate, but also includes information on all of the locks that were held by the database during the transaction.  Each node then certifies the replicated write-set against other write-sets in the applier queue.  The write-set is then applied |---| if there are no conflicting locks.  At this point, the transaction is considered committed, after which each node continues to apply it to the tablespace.
+----------------------------------------
+:ref:`Documentation <documentation/index>`
+----------------------------------------
 
-This approach is also called virtually synchronous replication, given that while it is logically synchronous, the actual writing and committing to the tablespace happens independently, and thus asynchronously on each node.
+This section is the documentation for Galera Cluster. This is straightforward documentation, not tutorials or advice articles. See below for those. The documentation includes hundreds of pages of information on configuring every aspect of Galera (i.e., :ref:`Reference Manual <documentation/reference>`), as well as information on administering a cluster (i.e., :ref:`Administration Manual <documentation/administration>`).
 
+----------------------------------------
+:ref:`Knowledge Base <kb/index>`
+----------------------------------------
 
-.. rubric:: Benefits of Galera Cluster
-   :class: test
-.. _`Galera Cluster Benefits`:
+Occasionally, you may have problems getting a cluster to work the way you want. Maybe you'll may have a node that just won't join the cluster. Or a node or the cluster crashes. The Knowledge Base provides Troubleshooting articles explaining how to resolve common problems. It also contains Best Practices articles for improving performance, ensuring against crashes, and other methods for getting the most out of Galera.
 
-Galera Cluster provides a significant improvement in high-availability for the MySQL system.  The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in trade-offs.
+----------------------------------------
+:ref:`Frequently Asked Questions <faq>`
+----------------------------------------
 
-The following features are available through Galera Cluster:
+This section is the FAQ for Galera Cluster. It lists a number of frequently asked questions on Galera and other related matters. They're not for solving problems.  Instead, they're mostly questions that you might have before deciding to use Galera software, as well as how to get assistance and learn about Galera.
 
-- **True Multi-Master**
-  You can read and write to any node at any time. Changes to data on one node will be replicated on all.
+------------------------------------------
+:ref:`Training <training/tutorials/index>`
+------------------------------------------
 
-- **Synchronous Replication**
-  There is no slave lag, so no data is lost if a node crashes.
-
-- **Tightly Coupled**
-  All nodes hold the same state. There is no diverged data between nodes.
-
-- **Multi-Threaded Slave**
-  This allows for better performance and for any workload.
-
-- **No Master-Slave Failover**
-  There is no need for master-slave operations or to use VIP.
-
-- **Hot Standby**
-  There is no downtime related to failures or intentionally taking down a node for maintenance since there is no failover.
-
-- **Automatic Node Provisioning**
-  There's no need to backup manually the database and copy it to the new node.
-
-- **Supports InnoDB.**
-  The InnoDB storage engine provides for transactional tables.
-
-- **Transparent to Applications**
-  Generally, you won't have to change an application that will interface with the database as a result of Galera. If you do, it will be minimal changes.
-
-- **No Read and Write Splitting Needed**
-  There is no need to split read and write queries.
-
-
-In summary, Galera Cluster is a high-availability solution that is both robust in terms of data integrity and provides high-performance with instant failovers.
-
-
-.. rubric:: Cloud Implementations with Galera Cluster
-.. _`Galera Cluster Cloud Implementations`:
-
-An additional benefit of Galera Cluster is good cloud support.  Automatic node provisioning makes elastic scale-out and scale-in operations painless.  Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.
-
-
-.. toctree::
-   :includehidden:
-   :maxdepth: 3
-
-   gettingstarted
-   technicaldescription
-   userguide
-   deployment
-   monitor
-   security
-   migrate
-   kb
-   reference
+This is our training section. It contains a :ref:`Getting Started Guide <training/tutorials/getting-started>` , as well as articles using Galera for specific uses.  Soon there will also be videos of training seminars and other presentations.
 
 - :ref:`genindex`
 - :ref:`search`
-
-
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

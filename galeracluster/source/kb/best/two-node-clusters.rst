@@ -43,7 +43,7 @@ In addition to the solutions provided here, you can avoid this situation entirel
 
 For more information related to this KB article, see the following documents:
 
-- :doc:`arbitrator`
+- :ref:`Arbitrator <arbitrator>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

@@ -109,7 +109,7 @@ If you can filter out access to the hot-spot table, it may be enough to treat wr
 
 For more information related to this KB article, see the following documents:
 
-- :doc:`certificationbasedreplication`
+- :ref:`Certification Based Replication <../../documentation/certification-based-replication>`
 - :ref:`cert.log_conflicts <cert.log_conflicts>` option
 - :ref:`wsrep_debug <wsrep_debug>` option
 - :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` option
