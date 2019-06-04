@@ -21,7 +21,7 @@ Many :abbr:`Database Management Systems (DBMS)` replicate the database.
 The most common replication setup uses a master/slave relationship between the original data set and the copies.
 
 
-.. figure:: images/asynchronousreplication.png
+.. figure:: ../images/asynchronousreplication.png
 
    *Master/Slave Replication*
 
@@ -29,7 +29,7 @@ In this system, the master database server logs the updates to the data and prop
 
 Another common replication setup uses mult-master replication, where all nodes function as masters.
 
-.. figure:: images/synchronousreplication.png
+.. figure:: ../images/synchronousreplication.png
 
    *Multi-master Replication*
 

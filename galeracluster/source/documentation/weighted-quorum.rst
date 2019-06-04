@@ -29,7 +29,7 @@ Galera Cluster takes a quorum vote whenever a node does not respond and is suspe
 When the cluster takes a quorum vote, if the majority of the total nodes connected from before the disconnect remain, that partition stays up.  When network partitions occur, there are nodes active on both sides of the disconnect.  The component that has quorum alone continues to operate as the :term:`Primary Component`, while those without quorum enter the non-primary state and begin attempt to connect with the Primary Component.
 
 
-.. figure:: images/pc.png
+.. figure:: ../images/pc.png
 
 Quorum requires a majority, meaning that you cannot have automatic failover in a two node cluster.  This is because the failure of one causes the remaining node automatically go into a non-primary state.
 
@@ -37,7 +37,7 @@ Clusters that have an even number of nodes risk split-brain conditions.  If shou
 
 
 
-.. figure:: images/splitbrain.png
+.. figure:: ../images/splitbrain.png
 
 In order to enable automatic failovers, you need to use at least three nodes.  Bear in mind that this scales out to other levels of infrastructure, for the same reasons.
 

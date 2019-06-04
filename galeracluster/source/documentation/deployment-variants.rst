@@ -19,7 +19,7 @@ In the typical *n*-tier application cluster without database clustering, there's
 Internet traffic will be filtered down to your application servers, all of which read and write from the same :abbr:`DBMS (Database Management System)` server.  Given that the upper tiers usually remain stateless, you can start as many instances as you need to meet the demand from the internet. Each instance stores its data in the data tier.
 
 
-.. figure:: images/galerausecases0.png
+.. figure:: ../images/galerausecases0.png
 
    *No Clustering*
 
@@ -42,7 +42,7 @@ Internet traffic filters down to the application server, which stores data on it
 
 
 
-.. figure:: images/galerausecases1.png
+.. figure:: ../images/galerausecases1.png
 
    *Whole Stack Cluster*
 
@@ -72,7 +72,7 @@ To compensate for the shortcomings in whole stack clusters, you can cluster the 
 
 With data tier clustering, the :abbr:`DBMS (Database Management System)` servers form a cluster distinct from your *n*-tier application cluster.  The application servers treat the database cluster as a single virtual server, making calls through load balancers to the data tier.
 
-.. figure:: images/galerausecases2.png
+.. figure:: ../images/galerausecases2.png
 
    *Data Tier Clustering*
 
@@ -96,7 +96,7 @@ Data Tier Clustering with Distributed Load Balancing
 
 One solution to the limitations of data tier clustering is to deploy them with distributed load balancing.  This method roughly follows the standard data tier cluster method, but includes a dedicated load balancer installed on each application server.
 
-.. figure:: images/galerausecases3.png
+.. figure:: ../images/galerausecases3.png
 
    *Data Tier Cluster with Distributed Load Balancing*
 
@@ -114,7 +114,7 @@ Aggregated Stack Clustering
 
 Besides the deployment methods already mentioned, you could set up a hybrid method that integrates whole stack and data tier clustering by aggregating several application stacks around single :abbr:`DBMS (Database Management System)` servers.
 
-.. figure:: images/galerausecases4.png
+.. figure:: ../images/galerausecases4.png
 
    *Aggregated Stack Clustering*
 

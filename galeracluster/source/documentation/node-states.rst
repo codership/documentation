@@ -107,7 +107,7 @@ The node state machine handles different state changes on different layers of Ga
 
 
 
-.. figure:: images/galerafsm.png
+.. figure:: ../images/galerafsm.png
 
    *Galera Cluster Node State Changes*
 

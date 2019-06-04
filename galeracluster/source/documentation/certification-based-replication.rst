@@ -30,7 +30,7 @@ How Certification-Based Replication Works
 
 The main idea in certification-based replication is that a transaction executes conventionally until it reaches the commit point, assuming there is no conflict.  This is called optimistic execution.
 
-.. figure:: images/certificationbasedreplication.png
+.. figure:: ../images/certificationbasedreplication.png
 
    *Certification Based Replication*
 

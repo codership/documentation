@@ -68,7 +68,7 @@ The primary focus is data consistency.  The transactions are either applied on e
 
 The :term:`Galera Replication Plugin` differs from the standard MySQL Replication by addressing several issues, including multi-master write conflicts, replication lag and slaves being out of sync with the master.
 
-.. figure:: images/galerausecases1.png
+.. figure:: ../images/galerausecases1.png
 
 In a typical instance of a Galera Cluster, applications can write to any node in the cluster and transaction commits, (RBR events), are then applied to all the servers, through certification-based replication.
 

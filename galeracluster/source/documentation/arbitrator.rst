@@ -18,7 +18,7 @@ If the cost of adding resources (e.g., a third datacenter) is too much, you can 
 
 Galera Arbitrator serves two purposes: When you have an even number of nodes, it functions as an odd node, to avoid split-brain situations. It can also request a consistent application state snapshot, which is useful in making backups.
 
-.. figure:: images/arbitrator.png
+.. figure:: ../images/arbitrator.png
 
 *Galera Arbitrator*
 
