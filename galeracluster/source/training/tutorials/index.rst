@@ -7,7 +7,6 @@ These are tutorial articles of the training section of the Codership Library. He
 
 .. toctree::
    :maxdepth: 3
-   :hidden:
 
    getting-started
    galera-installation

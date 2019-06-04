@@ -8,8 +8,6 @@ This is the training section of the Codership Library. Here you'll finding tutor
 --------------------------------------
 :doc:`Tutorials <./tutorials/index>`
 --------------------------------------
-.. rubric:: Troubleshooting Articles
-.. _`kb-trouble`:
 
 This section contains tutorial articles, include a Getting Started Guide.
 
