@@ -9,13 +9,13 @@ These are tutorial articles of the training section of the Codership Library. He
    :maxdepth: 3
    :hidden:
 
-   training/getting-started
-   training/galera-installation
-   training/configuration
-   training/wsrep-configuration
-   training/starting-cluster
-   training/testing-cluster
-   training/restarting-cluster
+   getting-started
+   galera-installation
+   configuration
+   wsrep-configuration
+   starting-cluster
+   testing-cluster
+   restarting-cluster
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

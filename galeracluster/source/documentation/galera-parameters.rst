@@ -943,7 +943,7 @@ When nodes receive state transfers they cannot process incoming write-sets until
 
 This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.
 
-.. note:: For more information on customizing the write-set cache, see :doc:`Performance <customizing-gcache-size>`.
+.. note:: For more information on customizing the write-set cache, see the :doc:`Best Practice Articles <../kb/best/index>`.
 
 +-----------------------+---------+------------+------------+
 | Default Value         | Dynamic | Introduced | Deprecated |

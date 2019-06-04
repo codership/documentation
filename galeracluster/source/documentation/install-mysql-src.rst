@@ -116,7 +116,7 @@ Post-installation Configuration
 ----------------------------------
 .. _`installmysql-postinstall`:
 
-After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configurations listed in :ref:`System Configuration <../training/tutorials/configuration>` and :ref:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
+After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configurations listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
 
 .. note:: Unless you defined the ``CMAKE_INSTALL_PREFIX`` configuration variable when you ran ``cmake`` above, by default the database server installed to the path ``/usr/local/mysql/``.  If you chose a custom path, adjust the commands below to accommodate the change.
 

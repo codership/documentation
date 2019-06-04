@@ -9,7 +9,7 @@ In addition to the configuration for the database server, there are some specifi
 
 - :ref:`wsrep_cluster_address <wsrep_cluster_address>`: Use this parameter to define the IP addresses for the cluster in a comma-separated list.
 
-  .. note:: There are additional schemata and options available through this parameter.  For more information on the syntax, see :ref:`Cluster Addresses <`cluster-addresses>` below.
+  .. note:: There are additional schemata and options available through this parameter.  For more information on the syntax, see Cluster Addresses below.
 
 - :ref:`wsrep_node_name <wsrep_node_name>`: Use this parameter to define the logical name for the individual node |---| for convenience.
 
