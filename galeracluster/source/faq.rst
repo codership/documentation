@@ -161,6 +161,7 @@ Usage Questions
 
 .. rubric:: Does Galera balance loads?
 .. _`faq-galera-load-balancing`:
+
 For high-traffic clusters, to prevent one node from being overwhelmed with write and read queries, you may want to use a load balancer. Galera Cluster doesn't include this feature. However, we could use MariaDB's MaxScale, ProxySQL, or some other such load balancer.
 
 MaxScale is a database proxy that can extend the high availability, scalability, and security of your database server and cluster.  It also simplifies application development by decoupling it from underlying database infrastructure. It will work with both MariaDB and MySQL.
