@@ -5,9 +5,9 @@ Training
 
 This is the training section of the Codership Library. Here you'll finding tutorial articles to start.  Soon there will be training videos and screencasts, as well as other training materials.
 
-------------------------------------
-:ref:`Tutorials <training-tutorials>`
-------------------------------------
+--------------------------------------
+:ref:`Tutorials <training-tutorials>`_
+--------------------------------------
 .. rubric:: Troubleshooting Articles
 .. _`kb-trouble`:
 
