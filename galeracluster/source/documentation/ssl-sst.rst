@@ -90,7 +90,7 @@ With the user now on every node, you can shut the cluster down to enable SSL for
       # mysqldump SST auth
       wsrep_sst_auth = sst_user:sst_password
 
-This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`starting-cluster`.
+This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`Starting a Cluster <../training/tutorials/starting-cluster`.
 
 -----------------------------------
 Enabling SSL for ``xtrabackup``

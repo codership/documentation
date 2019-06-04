@@ -42,7 +42,7 @@ The first SQL statement here will change the Schema Upgrade method to *Rolling S
 
 For more information related to this KB article, see the following documents:
 
-- :ref:`Schema Upgrades <../../documentation/schema-upgrades>`
+- :doc:`Schema Upgrades <../../documentation/schema-upgrades>`
 - :ref:`wsrep_OSU_method <wsrep_OSU_method>` parameter
 
 

@@ -10,7 +10,7 @@ Starting with version 4 of Galera, three system tables related to Galera replica
 
 To see these tables on your server, execute the following SQL statement one of them using the ``mysql`` client or a similar client:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SHOW TABLES FROM mysql LIKE 'wsrep%';
 
@@ -33,7 +33,7 @@ One of the new Galera related system tables is the ``wsrep_cluster`` table. This
 
 To see the names of the columns in this table, either use the ``DESCRIBE`` statement or execute the following SQL statement from the ``mysql`` client on one of the nodes in the cluster:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT COLUMN_NAME FROM information_schema.columns
    WHERE table_schema='mysql'
@@ -55,7 +55,7 @@ The ``view_id`` corresponds to the status value of the ``wsrep_cluster_conf_id``
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT * FROM mysql.wsrep_cluster \G
 
@@ -77,7 +77,7 @@ Another Galera related system tables is the ``wsrep_cluster_members`` table. Thi
 
 To see the names of columns in this table, either use the ``DESCRIBE`` statement or execute the following SQL statement from the ``mysql`` client on one of the nodes in the cluster:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT COLUMN_NAME FROM information_schema.columns
    WHERE table_schema='mysql'
@@ -97,7 +97,7 @@ The ``node_uuid`` records the UUID of each node in the cluster. The ``cluster_uu
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT * FROM mysql.wsrep_cluster_members ORDER BY node_name \G
 
@@ -131,7 +131,7 @@ The ``node_uuid`` column contains the node UUID of the hosting node for the tran
 
 To see the names of columns in this table, either use the ``DESCRIBE`` statement or execute the following SQL statement from the ``mysql`` client on one of the nodes in the cluster:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT COLUMN_NAME FROM information_schema.columns
    WHERE table_schema='mysql'
@@ -149,13 +149,13 @@ To see the names of columns in this table, either use the ``DESCRIBE`` statement
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT * FROM mysql.wsrep_streaming_log \G
 
 Typically, you won't see any results since it will contain entries only for transactions which have streaming replication enabled. For example:
 
-.. code-block:: mysql
+.. code-block:: console
 
    CREATE TABLE table1 (col1 INT PRIMARY KEY);
 

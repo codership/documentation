@@ -39,7 +39,7 @@ This function returns the :term:`Global Transaction ID` of the last write transa
 
 Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function to get the Global Transaction ID of the last write transaction observed:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT WSREP_LAST_SEEN_GTID();
 
@@ -67,7 +67,7 @@ This function returns the Global Transaction ID of the last write transaction ma
 
 Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function to get the Global Transaction ID of the last write transaction observed:
 
-.. code-block:: mysql
+.. code-block:: console
 
    BEGIN;
 
@@ -109,7 +109,7 @@ This function blocks the client until the node applies and commits the given :te
 
 Below is an example of how you might use the ``WSREP_SYNC_WAIT_UPTO_GTID()`` function:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
    ...

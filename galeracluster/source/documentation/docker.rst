@@ -114,7 +114,7 @@ In this example, Docker launches a pre-built Ubuntu container tagged as ``galera
 
 You'll notice in the example here there are several ``-p`` options included. Those are described in the next section on Firewall Settings.  The ``-v`` option is described in the section after it on Persistent Data.
 
-.. note:: The above command starts a container node meant to be attached to an existing cluster.  If you're starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.  For more information, see :doc:`./training/tutorials/starting-cluster`.
+.. note:: The above command starts a container node meant to be attached to an existing cluster.  If you're starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.  For more information, see :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`.
 
 
 
@@ -127,7 +127,7 @@ When you launch the Docker container (i.e., ``docker run`` as shown above), the 
 
 Use these settings, though, when you run only one container on the server.  If you are running multiple containers on the server, you'll need a load balancer to handle and direct incoming connections to individual nodes.
 
-For more information on configuring the firewall for Galera Cluster, see :doc:`firewall-settings`.
+For more information on configuring the firewall for Galera Cluster, see :doc:`Firewall Settings <firewall-settings>`.
 
 
 ^^^^^^^^^^^^^^^^^^

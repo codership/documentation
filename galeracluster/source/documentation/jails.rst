@@ -27,7 +27,7 @@ To create a loopback interface, complete the following steps:
 
 #. Using your preferred text editor, add the loopback interface to ``/etc/rc.conf``:
 
-   .. code-block:: ini
+   .. code-block:: console
 
       # Network Interface
       cloned_interfaces="${cloned_interfaces} lo1"
@@ -57,7 +57,7 @@ To enable PF and create rules for the node, complete the following steps:
 
 #. Using your preferred text editor, make the following additions to ``/etc/rc.conf``:
 
-   .. code-block:: ini
+   .. code-block:: console
 
       # Firewall Configuration
       pf_enable="YES"
@@ -67,7 +67,7 @@ To enable PF and create rules for the node, complete the following steps:
 
 #. Create the rules files for PF at ``/etc/pf.conf``
 
-   .. code-block:: ini
+   .. code-block:: console
 
       # External Network Interface
       ext_if="vtnet0"
@@ -126,7 +126,7 @@ To create a node jail with ``ezjail``, complete the following steps:
 
 #. Using your preferred text editor, add the following line to ``/etc/rc.conf``:
 
-   .. code-block:: ini
+   .. code-block:: console
 
       ezjail_enable="YES"
 
@@ -217,7 +217,7 @@ For the most part, the configuration file for a node running in a jail is the sa
 
 - :ref:`wsrep_node_name <wsrep_node_name>` The node determines the default name from the system hostname.  Jails have their own hostnames, distinct from that of the host system.
 
-.. code-block:: ini
+.. code-block:: console
 
    [mysqld]
    user=mysql

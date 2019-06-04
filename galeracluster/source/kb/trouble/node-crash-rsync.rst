@@ -39,7 +39,7 @@ Once you have killed the orphaned process, it will free the relevant ports and a
 
 For more information related to this KB article, see the following documents:
 
-- :ref:`SST <../../documentation/sst>`
+- :doc:`SST <../../documentation/sst>`
 - :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter
 - :ref:`wsrep_sst_method <wsrep_sst_method>` parameter
 

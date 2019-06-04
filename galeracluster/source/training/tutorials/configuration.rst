@@ -7,7 +7,7 @@ After you finish installing Galera Cluster on your server, you're ready to confi
 
 Using a text editor, edit the ``/etc/my.cnf`` file.  You'll need to include entries like the ones shown in this sample excerpt:
 
-.. code-block:: ini
+.. code-block:: console
 
    [mysqld]
    datadir=/var/lib/mysql
@@ -42,19 +42,19 @@ In addition to settings for the system, there are other basic configurations tha
 
 First, make sure that ``mysqld`` is not bound to 127.0.0.1.  This is the IP address for localhost.  If the ``bind-address`` variable is in the file, comment it out by adding a hash sign (i.e., ``#``) at the start of the line:
 
-.. code-block:: ini
+.. code-block:: console
 
    # bind-address = 127.0.0.1
 
 Next, ensure the configuration file includes the ``conf.d/`` by adding a line with ``!includedir`` at the start, followed by the file path:
 
-.. code-block:: ini
+.. code-block:: console
 
    !includedir /etc/mysql/conf.d/
 
 Now, set the binary log format to use row-level replication, as opposed to statement-level replication. You'd do this by adding the following line:
 
-.. code-block:: ini
+.. code-block:: console
 
    binlog_format=ROW
 
@@ -62,13 +62,13 @@ Don't change this value later as it affects performance and consistency.  The bi
 
 Galera Cluster will not work with MyISAM or other non-transactional storage engines. So, make sure the default storage engine is InnoDB using the ``default_storage_engine`` variable like so:
 
-.. code-block:: ini
+.. code-block:: console
 
    default_storage_engine=InnoDB
 
 Next, ensure the InnoDB locking mode for generating auto-increment values is set to interleaved lock mode. This is designated by a value of ``2`` for the appropriate variable:
 
-.. code-block:: ini
+.. code-block:: console
 
    innodb_autoinc_lock_mode=2
 
@@ -79,7 +79,7 @@ Don't change this value afterwards.  Other modes may cause ``INSERT`` statements
 
 After all of that, make sure the InnoDB log buffer is written to file once per second, rather than on each commit, to improve performance. To do this, set the ``innodb_flush_log_at_trx_commit`` variable to 0 like so;
 
-.. code-block:: ini
+.. code-block:: console
 
    innodb_flush_log_at_trx_commit=0
 
@@ -96,7 +96,7 @@ Configuring the InnoDB Buffer Pool
 The InnoDB storage engine uses its own memory buffer to cache data and for indexes of tables. You can configure this memory buffer through the
 `innodb_buffer_pool_size <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ parameter.  The default value is 128 MB.  To compensate for the increased memory usage of Galera Cluster over a standalone MySQL database server, you should scale your usual value back by five percent.
 
-.. code-block:: ini
+.. code-block:: console
 
    innodb_buffer_pool_size=122M
 
@@ -155,7 +155,7 @@ Now you're read to format the swap file.  You can do this with the ``mkswap`` ut
 
 Using a text editor, update the ``/etc/fstab`` file to include the swap file by adding the following line to the bottom:
 
-.. code-block:: ini
+.. code-block:: console
 
    /swapfile none swap defaults 0 0
 

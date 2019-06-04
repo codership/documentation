@@ -9,14 +9,14 @@ In addition to the configuration for the database server, there are some specifi
 
 - :ref:`wsrep_cluster_address <wsrep_cluster_address>`: Use this parameter to define the IP addresses for the cluster in a comma-separated list.
 
-  .. note:: There are additional schemata and options available through this parameter.  For more information on the syntax, see :ref:`Understanding Cluster Addresses <understanding-cluster-addresses>` below.
+  .. note:: There are additional schemata and options available through this parameter.  For more information on the syntax, see :ref:`Cluster Addresses <`cluster-addresses>` below.
 
 - :ref:`wsrep_node_name <wsrep_node_name>`: Use this parameter to define the logical name for the individual node |---| for convenience.
 
 - :ref:`wsrep_node_address <wsrep_node_address>`: Use this parameter to set explicitly the IP address for the individual node.  It's used when auto-guessing doesn't produce desirable results.
 
 
-.. code-block:: ini
+.. code-block:: console
 
    [mysqld]
    wsrep_cluster_name=MyCluster
@@ -75,7 +75,7 @@ When setting the IP address in the configuration file using the :ref:`wsrep_clus
 
 The options set in the URL take precedent over parameters set elsewhere.  Parameters you set through the options list are prefixed by ``evs`` (i.e., Extended Virtual Synchrony), ``pc`` (i.e., Primary Component) and ``gmcast``.
 
-.. note:: For more information on the available parameters, see :ref:`Galera Parameters <../../../documentation/galera-parameters>`.
+.. note:: For more information on the available parameters, see :doc:`Galera Parameters <../../../documentation/galera-parameters>`.
 
 When listing options, start with a question mark after the IP address list. Then provide the options in a ``key=value`` format. Key/value pairs must be separated by an ampersand. Below is an example of how this might look:
 
@@ -87,8 +87,6 @@ When listing options, start with a question mark after the IP address list. Then
 In this example, the ``segment`` option for ``gcomm`` and the ``max_install_timeouts`` option for ``evs`` are set.
 
 Incidentally, if the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it's not specified in the cluster address, the default port is ``4567``.
-
-
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

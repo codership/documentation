@@ -16,8 +16,8 @@ State Transfers
 
 The process of replicating data from the cluster to the individual node, bringing the node into sync with the cluster, is known as provisioning.  There are two methods available in Galera Cluster to provision nodes:
 
-- :ref:`State Snapshot Transfers (SST) <sst>` Where a snapshot of the entire node state transfers.
-- :ref:`Incremental State Transfers (IST) <ist>` Where only the missing transactions transfer.
+- :doc:`State Snapshot Transfers (SST) <sst>` Where a snapshot of the entire node state transfers.
+- :doc:`Incremental State Transfers (IST) <ist>` Where only the missing transactions transfer.
 
 ----------------------------------
  State Snapshot Transfer (SST)
@@ -127,7 +127,7 @@ GCache employs three types of storage:
   When all other stores are disabled, at least one page file remains present on disk.
 
 
-.. note:: For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :ref:`Galera Parameters <Galera Parameters>`.
+.. note:: For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :doc:`Galera Parameters <galera-parameters>`.
 
 Galera Cluster uses an allocation algorithm that attempts to store write-sets in the above order.  That is, first it attempts to use permanent in-memory store.  If there is not enough space for the write-set, it attempts to store to the permanent ring-buffer file.  The page store always succeeds, unless the write-set is larger than the available disk space.
 

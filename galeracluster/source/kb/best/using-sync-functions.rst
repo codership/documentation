@@ -15,7 +15,7 @@ Beginning with Galera Cluster 4.0, though, you can use synchronization functions
 
 Suppose on ``node1``, you begin a transaction, make changes to a table and then commit the transaction like so:
 
-.. code-block:: mysql
+.. code-block:: console
 
    START TRANSACTION;
 
@@ -25,13 +25,13 @@ Suppose on ``node1``, you begin a transaction, make changes to a table and then 
 
 After that, using the :ref:`WSREP_LAST_WRITTEN_GTID() <WSREP_LAST_WRITTEN_GTID>` function, say you obtain the :term:`Global Transaction ID` of the transaction and save it to the ``$transaction_1_gtid`` variable like this:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $transaction_1_gtid = SELECT WSREP_LAST_WRITTEN_GTID();
 
 Now, on ``node2``, suppose you set it to wait until it replicates and applies the transaction from ``node1`` before starting a new transaction:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT WSREP_SYNC_WAIT_UPTO_GTID($transaction_1_gtid);
 
@@ -47,7 +47,7 @@ Using the :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>` functio
 
 Synchronization Functions were introduced in Galera Cluster 4.  If you have an older version, you won't be able to use these features.  To determine which version is installed on a server, use the ``SHOW STATUS`` statement and look for the :ref:`wsrep_provider_version <wsrep_provider_version>` status variable.
 
-.. code-block:: mysql
+.. code-block:: console
 
     SHOW STATUS LIKE 'wsrep_provider_version';
 

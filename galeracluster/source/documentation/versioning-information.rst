@@ -25,7 +25,7 @@ By installing and configuring the Codership Repository on any of these systems, 
 
 For users of FreeBSD and similar operating systems, the Galera Replication Plugin is also available in ports, at ``/usr/ports/databases/galera``, which corrects for certain compatibility issues with Linux dependencies.
 
-.. note:: For more information on the installation process, see :ref:`Galera Installation <../training/tutorials/galera-installation>`.
+.. note:: For more information on the installation process, see :doc:`Galera Installation <../training/tutorials/galera-installation>`.
 
 
 ---------------------------

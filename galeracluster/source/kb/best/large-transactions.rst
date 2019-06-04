@@ -17,7 +17,7 @@ Suppose you have a node called ``dbhost`` with a database called ``keystone``.  
 
 This problem might be easily resolved by changing the size of the InnoDB buffer pool. The pool is bytes of the memory area where InnoDB caches table and index data. The larger the pool (i.e., the more RAM is used), the less the disk is  accessed, which is especially important when dealing with the same data in tables multiple times as you might in a large transaction on the same table.
 
-To change the buffer pool size, check the value of the :ref:`innodb_buffer_pool_size <innodb_buffer_pool_size>` variable. If your servers are dedicated only to database service, try setting it to 80% of the server's physical memory size. You can use the ``free`` command to see how much memory you have.  Once you determine how much memory you can spare for the InnoDB pool, add or change a line in the server's configuration file like the following:
+To change the buffer pool size, check the value of the `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ variable. If your servers are dedicated only to database service, try setting it to 80% of the server's physical memory size. You can use the ``free`` command to see how much memory you have.  Once you determine how much memory you can spare for the InnoDB pool, add or change a line in the server's configuration file like the following:
 
 .. code-block:: ini
 
@@ -46,8 +46,8 @@ The ``--primary-key-only`` parameter is efficient when purging rows. It prevents
 
 For more information related to this KB article, see the following documents:
 
-- :ref:`innodb_buffer_pool_size <innodb_buffer_pool_size>` variable
-- `pt-archiver <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`
+- `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ variable
+- `pt-archiver <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

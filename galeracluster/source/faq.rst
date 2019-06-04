@@ -33,7 +33,7 @@ With Galera, if one master fails, the cluster continues and users can continue t
 
 Yes, it works just fine.  Through Amazon's EC2 environment, you can create multiple instances, virtual servers running the Linux operating system--any distribution is fine.  After the instances are created, you would log into each instance and install MySQL or MariaDB and Galera, as well as configure them. On AWS, you'll have to set inbound security rules to allow the instances to communicate with each.
 
-.. note:: For more details on installing Galera, see :doc:`./training/tutorials/galera-installation`.
+.. note:: For more details on installing Galera, see :doc:`Installing Galera <./training/tutorials/galera-installation>`.
 
 
 .. rubric:: Can nodes for a Galera Cluster be installed in containers such as Docker?
@@ -56,14 +56,14 @@ Major companies all over the world have implemented Galera to protect their data
 .. rubric:: How can I learn to configure and use Galera?
 .. _`faq-learn-galera`:
 
-The :doc:`./documentation/index` is the best source for detailed information on Galera. It includes a guide for :doc:`./training/tutorials/getting-started`. Several members of the Galera staff occasionally make presentations at conferences around the globe.
+The :doc:`Galera Cluster Documentation <./documentation/index>` is the best source for detailed information on Galera. It includes a guide for :doc:`Getting Started Guide <./training/tutorials/getting-started>`. Several members of the Galera staff occasionally make presentations at conferences around the globe.
 
 For comprehensive training courses on Galera and related software (e.g., load balancers), check the web sites of our partners (e.g., MariaDB, FromDual, Severalnines). For a list of all of them, along with links to their sites, see the `Support Partners <http://galeracluster.com/support/#support-partners>`_
 
 .. rubric:: Are there articles written about Galera?
 .. _`faq-galera-articles`:
 
-You can find many articles on Galera and related software on our `blog <http://galeracluster.com/category/blog/>`_. These are mixed in with information on conferences and press releases, so you'll have to scroll through the list of articles.  Some of our partners regularly publish articles on various aspects of Galera: `MariaDB <https://mariadb.com/resources/blog/tag/galera/>`_, `Severalnines <https://severalnines.com/blog/top-mysql-galera-cluster-resources>`_, and `FromDual <https://www.fromdual.com/search/node/galera>`_.
+You can find many articles on Galera and related software on our `blog <http://galeracluster.com/category/blog/>`_. These are mixed in with information on conferences and press releases, so you'll have to scroll through the list of articles.  Some of our partners regularly publish articles on various aspects of Galera: `MariaDB <https://mariadb.com/resources/blog/tag/galera/>`_, `Severalnines <https://severalnines.com/blog/top-mysql-galera-cluster-resources>`_, and `FromDual Articles <https://www.fromdual.com/search/node/galera>`_.
 
 
 
@@ -82,13 +82,13 @@ Annual Galera support subscription include:
 - Hot bug fixes;
 - Security releases;
 - New Releases of the software;
-- Contact by email, skype or telephone;
+- Contact by email, Skype or telephone;
 - Remote system login;
 - Named support contacts (Galera developers):
 - Zendesk support portal and ticket management; and
 - 8-hour response time for 8/5, 4-hour response time for 24/7
 
-For a quote on the cost of support, write us at info@codership.com or use our on-line form :ref:`to send us a message <http://galeracluster.com/contact-us/#send-us-a-message>`.
+For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <http://galeracluster.com/contact-us/#send-us-a-message>`_.
 
 You can also engage one of our `Support Partners <http://galeracluster.com/support/#support-partners>`_. We are very particular as to who we allow to become one of our Support Partner:  they're well qualified, very responsive, and dependable.
 
@@ -106,7 +106,7 @@ Consulting is usually done remotely. However, if you require in-person, on-site 
 
 There are a few forums on Galera and related software. On these forums, you can post questions to the community. It may take a little time, but you will usually receive responses to your posts.
 
-We have a forum in which the community, as well as our staff monitor and post responses:  `Codership Forum <http://galeracluster.com/community/>`_. Some of our partners maintain forums on Galera:  `FromDual <https://www.fromdual.com/forum/513>`_.
+We have a forum in which the community, as well as our staff monitor and post responses:  `Codership Forum <http://galeracluster.com/community/>`_. Some of our partners maintain forums on Galera:  `FromDual Forum <https://www.fromdual.com/forum/513>`_.
 
 You can also post questions on forums unaffiliated with Codership or our partners:  `Stack Exchange (DBA Section) <https://dba.stackexchange.com/questions/tagged/galera>`_, `Stack Overflow <https://stackoverflow.com/questions/tagged/galera>`_,
 
@@ -135,21 +135,21 @@ Basically, if you're already using the latest database software and only InnoDB 
 
 Periodically, updates will become available for Galera Cluster--for the database server itself or the :term:`Galera Replication Plugin`.  To update the software for a node, you would redirect client connections away from it and then stop the node. Then upgrade the node's software.  When finished, just restart the node.
 
-.. note:: For more information on upgrade process, see :doc:`./documentation/upgrading`.
+.. note:: For more information on upgrade process, see :doc:` Upgrading Galera Cluster <./documentation/upgrading>`.
 
 
 .. rubric:: Is Galera Installed Separately from the Database Software?
 .. _`faq-galera-installed-serperately`:
 
-Starting with version 10.4 of MariaDB, Galera software is included in the server installation. See the :doc:`./documentation/install-mariadb` related to installing Galera, version 4. Previous version of MariaDB did require you to install separately Galera. The same document will explain this.
+Starting with version 10.4 of MariaDB, Galera software is included in the server installation. See the :doc:`Installing MariaDB Galera Cluster <./documentation/install-mariadb>` related to installing Galera, version 4. Previous version of MariaDB did require you to install separately Galera. The same document will explain this.
 
-If you'd prefer to use MySQL, see :doc:`./documentation/install-mysql` for information on how to install MySQL and Galera software.  Galera is not yet incorporated into MySQL.
+If you'd prefer to use MySQL, see :doc:`Installing MySQL Galera Cluster <./documentation/install-mysql>` for information on how to install MySQL and Galera software.  Galera is not yet incorporated into MySQL.
 
 
 .. rubric:: What's the Minimum and Maximum number of Servers in a Galera Cluster?
 .. _`faq-min-max-galera-nodes`:
 
-The minimum number of nodes required for a cluster is two.  However, a minimum of three nodes is recommend. In a two-node cluster, if one node fails or it's taken down for maintenance, the other node will stop since another node is required. There is a work around for two-node cluster issues: see :doc:`./kb/best/two-node-clusters`
+The minimum number of nodes required for a cluster is two.  However, a minimum of three nodes is recommend. In a two-node cluster, if one node fails or it's taken down for maintenance, the other node will stop since another node is required. There is a work around for two-node cluster issues: see :doc:`Two-Node Clusters <./kb/best/two-node-clusters>`
 
 As for the maximum number of nodes, there is none. However, a single cluster in excessive of ten nodes may experience lag from the synchronizing of so many nodes across a network or the internet. This can be mitigated based on your network configuration, but then other factors come into play.
 
@@ -175,17 +175,17 @@ The primary focus of Galera Cluster is data consistency across the nodes.  This 
 
 The results of this is that you can safely use your favorite approach to distribute or migrate connections between the nodes without the risk of causing inconsistency.
 
-.. note:: For more information on connection distribution, see :doc:`./documentation/deployment-variants`.
+.. note:: For more information on connection distribution, see :doc:`Deployment Variants <./documentation/deployment-variants>`.
 
 
 .. rubric:: Are making backups of databases difficult?
 .. _`faq-making-backups`:
 
-Making a backup of the databases in a Galera cluster is easy and simple. One simple method would be to remove one node from the cluster--without shutting down the ``mysqld`` daemon.  From there, you can use ``mysqldump`` to make a logical backup, or whatever backup software you prefer.  It will have little or no effect on overall performance of the cluster. When you're finished, simply reconnect the node to the cluster. The other nodes will quickly provide what's needed for it to be insync with the cluster. For more information on using ``mysqldump`` with Galera, see :doc:`./documentation/mysqldump`.
+Making a backup of the databases in a Galera cluster is easy and simple. One simple method would be to remove one node from the cluster--without shutting down the ``mysqld`` daemon.  From there, you can use ``mysqldump`` to make a logical backup, or whatever backup software you prefer.  It will have little or no effect on overall performance of the cluster. When you're finished, simply reconnect the node to the cluster. The other nodes will quickly provide what's needed for it to be insync with the cluster. For more information on using ``mysqldump`` with Galera, see :doc:`mysqldump <./documentation/mysqldump>`.
 
 The problem with such a simple backup method, though, is that it lacks a :term:`Global Transaction ID` (GTID).  You can use backups of this kind to recover data, but they are insufficient for use in recovering nodes to a well-defined state.  Plus, some backup procedures can block cluster operations during the backup.
 
-Including the GTID in a backup requires a different approach. To do this, you can invoke a backup through the state snapshot transfer mechanism. For more information on this method, see :doc:`./documentation/backup-cluster`.
+Including the GTID in a backup requires a different approach. To do this, you can invoke a backup through the state snapshot transfer mechanism. For more information on this method, see :doc:`Backing Up Cluster Data <./documentation/backup-cluster>`.
 
 
 .. rubric:: What InnoDB Isolation Levels does Galera Cluster Support?
@@ -227,7 +227,7 @@ Nevertheless, it is possible to construct a binlog out of the write-set cache.
 
 
 .. rubric:: Should the binary log be enabled with Galera?
-.. _`faq-gcache-binlog`:
+.. _`faq-enable-binlog`:
 
 Standard MySQL replication uses the binary log for replicating. However, Galera doesn't use the binary log.  Nevertheless, there may be situations in which you might want to use point-in-time recovery methods to restore tables or data since the last backup.
 
@@ -276,9 +276,9 @@ First, it runs only on Linux and Unix-like operating systems.  There isn't a Win
 .. rubric:: Does the slowest node in a Galera Cluster affect the performance of the other nodes?
 .. _`faq-slow-node`:
 
-Integral to Galera Cluster replication, the cluster will wait for all of the nodes in the cluster to return the status of certification test before committing transactions or rolling them back.  Because of this, a node that is innundated with traffic will delay that node from replying to the cluster and delay the other nodes as they wait for it to report.
+Integral to Galera Cluster replication, the cluster will wait for all of the nodes in the cluster to return the status of certification test before committing transactions or rolling them back.  Because of this, a node that is inundated with traffic will delay that node from replying to the cluster and delay the other nodes as they wait for it to report.
 
-To alleviate this problem, you would make sure that all of the servers the same physically (i.e., amount of RAM, types of network interfaces), or at least have close the same amout of resources available.  You would also use a load balancer (e.g., MariaDB MaxScale, ProxySQL) to make sure one node is not overloaded with traffic.
+To alleviate this problem, you would make sure that all of the servers the same physically (i.e., amount of RAM, types of network interfaces), or at least have close the same amount of resources available.  You would also use a load balancer (e.g., MariaDB MaxScale, ProxySQL) to make sure one node is not overloaded with traffic.
 
 
 

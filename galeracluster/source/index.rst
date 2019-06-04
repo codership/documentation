@@ -33,6 +33,16 @@ This section is the FAQ for Galera Cluster. It lists a number of frequently aske
 
 This is our training section. It contains a :doc:`Getting Started Guide <./training/tutorials/getting-started>` , as well as articles using Galera for specific uses.  Soon there will also be videos of training seminars and other presentations.
 
+--------------------------------------------
+Additional Resources
+--------------------------------------------
+
+Below is a link to the general index of all of the pages of the documentation and related documents.  There's also a link to the Search Page for searching all of the documentation.
+
+- :ref:`genindex`
+- :ref:`search`
+
+
 .. toctree::
    :maxdepth: 3
    :hidden:
@@ -42,10 +52,6 @@ This is our training section. It contains a :doc:`Getting Started Guide <./train
    faq
    training/index
    whats-new
-
-- :ref:`genindex`
-- :ref:`search`
-
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -25,10 +25,10 @@ When a node fails the only sign is the loss of connection to the node processes 
 
 Although there are third-party tools for monitoring nodes |---| such as ping, Heartbeat, and Pacemaker |---| they can be grossly off in their estimates on node failures.  These utilities do not participate in the Galera Cluster group communications and remain unaware of the Primary Component.
 
-If you want to monitor the Galera Cluster node status poll the :ref:`wsrep_local_state <wsrep_local_state>` status variable or through the :ref:`Notification Command <notification-cmd>`.
+If you want to monitor the Galera Cluster node status poll the :ref:`wsrep_local_state <wsrep_local_state>` status variable or through the :doc:`Notification Command <notification-cmd>`.
 
 
-.. note:: For more information on monitoring the state of cluster nodes, see the chapter on :ref:`Monitoring the Cluster <monitoring-cluster>`.
+.. note:: For more information on monitoring the state of cluster nodes, see the chapter on :doc:`Monitoring the Cluster <monitoring-cluster>`.
 
 The cluster determines node connectivity from the last time it received a network packet from the node.  You can configure how often the cluster checks this using the :ref:`evs.inactive_check_period <evs.inactive_check_period>` parameter.  During the check, if the cluster finds that the time since the last time it received a network packet from the node is greater than the value of the :ref:`evs.keepalive_period <evs.keepalive_period>` parameter, it begins to emit heartbeat beacons.  If the cluster continues to receive no network packets from the node for the period of the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter, the node is declared suspect.  Once all members of the Primary Component see the node as suspect, it is declared inactive |---| that is, failed.
 
@@ -75,7 +75,7 @@ If one node in the cluster fails, the other nodes continue to operate as usual. 
 
 No data is lost in single node failures.
 
-.. note:: For more information on manually recovering nodes, see :ref:`Node Provisioning and Recovery <Node Provisioning>`.
+.. note:: For more information on manually recovering nodes, see :doc:`Node Provisioning and Recovery <Node Provisioning>`.
 
 
 

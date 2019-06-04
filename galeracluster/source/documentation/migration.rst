@@ -7,8 +7,7 @@ For systems that already have instances of the standalone versions of MySQL or M
 
 When upgrading from a standalone database server, you must take some additional steps in order to subsequently preserve and use your data with Galera Cluster.
 
-.. note:: For more information on installing Galera Cluster, see
-:doc:`Galera Installation <../training/tutorials/galera-installation>`.
+.. note:: For more information on installing Galera Cluster, see :doc:`Galera Installation <../training/tutorials/galera-installation>`.
 
 -----------------------------------
 Upgrading System Tables
@@ -83,7 +82,7 @@ For your existing infrastructure, you have a MySQL master server as well as seve
 
 #. Configure the database server.  In addition to the IP addresses of each node, on the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, include the IP addresses of the MySQL master server and each instance of the slave servers.
 
-   For more information on configuring Galera Cluster, see :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
+For more information on configuring Galera Cluster, see :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
 
 #. When you finish the installation and configuration, start the cluster.  For more information on how to start the cluster, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
 
@@ -145,6 +144,7 @@ Database Migration
 With your application server now using the new cluster nodes, you now need to migrate your master and slave servers from stock MySQL to Galera Cluster.
 
 #. Using the same process described in :doc:`Galera Installation <../training/tutorials/galera-installation>`, install and configure Galera Cluster on the server.
+
 #. Start the node with replication disabled.  For servers that use ``init``, run the following command:
 
    .. code-block:: console
@@ -194,7 +194,6 @@ With your application server now using the new cluster nodes, you now need to mi
 #. Resume load on these servers.
 
 When the former MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.
-
 
 .. toctree::
    :hidden:

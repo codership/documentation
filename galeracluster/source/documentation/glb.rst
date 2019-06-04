@@ -1,7 +1,7 @@
 =================================
 Galera Load Balancer
 =================================
-.. _`glb`:
+.. _`glb-doc`:
 
 Galera Load Balancer provides simple TCP connection balancing. It was developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.  It provides several features:
 

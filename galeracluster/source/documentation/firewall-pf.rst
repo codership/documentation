@@ -17,14 +17,14 @@ In order to use PF on FreeBSD, you must first set the system up to load its kern
 
 Using your preferred text editor, add the following lines to ``/etc/rc.conf``:
 
-.. code-block:: ini
+.. code-block:: console
 
    pf_enable="YES"
    pf_rules="/etc/pf.conf"
 
 You may also want to enable logging support for PF and set the path for the log file.  This can be done by adding the following lines to ``/etc/rc.conf``:
 
-.. code-block:: ini
+.. code-block:: console
 
    pflog_enable="YES"
    pflog_logfile="/var/log/pflog"
@@ -40,7 +40,7 @@ In the above section, the configuration file for PF was set to ``/etc/pf.conf``.
 
 There are two variables that you need to define for Galera Cluster in the PF configuration file:  a list for the ports it needs open for :abbr:`TCP (Transmission Control Protocol)` and a table for the IP addresses of nodes in the cluster.
 
-.. code-block:: ini
+.. code-block:: console
 
    # Galera Cluster Macros
    wsrep_ports="{ 3306, 4567, 4568,4444}"
@@ -48,14 +48,14 @@ There are two variables that you need to define for Galera Cluster in the PF con
 
 Once you have these defined, you can add the rule to allow cluster packets to pass through the firewall.
 
-.. code-block:: ini
+.. code-block:: console
 
    # Galera Cluster TCP Filter Rule
    pass in proto tcp from <wsrep_cluster_address> to any port $wsrep_ports keep state
 
 In the event that you deployed your cluster in a :abbr:`LAN (Local Area Network)` environment, you need to also create on additional rule to open port ``4568`` to :abbr:`UDP (User Datagram Protocol)` transport for mutlicast replication.
 
-.. code-block:: ini
+.. code-block:: console
 
    # Galera Cluster UDP Filter Rule
    pass in proto udp from <wsrep_cluster_address> to any port 4568 keep state
