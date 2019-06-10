@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ======================
 XtraBackup Parameters
 ======================
@@ -21,7 +23,6 @@ When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you
    tca="/path/to/ca.pem"
 
 Bear in mind, some XtraBackup parameters require that you match the configuration on donor and joiner nodes, (as designated in the table below).
-
 
 
 +-----------------------------+--------------+--------+
@@ -76,8 +77,9 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
 | <xtra-transferfmt>`         |              |        |
 +-----------------------------+--------------+--------+
 
-.. rubric:: ``compressor``
+
 .. _`xtra-compressor`:
+.. rubric:: ``compressor``
 
 Defines the compression utility the donor node uses to compress the state transfer.
 
@@ -98,8 +100,8 @@ This parameter defines whether the donor node performs compression on the state 
    compression="gzip"
 
 
-.. rubric:: ``compact``
 .. _`xtra-compact`:
+.. rubric:: ``compact``
 
 Defines whether the joiner node performs compaction when rebuilding indexes after applying a :term:`State Snapshot Transfer`.
 
@@ -121,8 +123,8 @@ This parameter operates on the joiner node with the :ref:`rebuild <xtra-rebuild>
    compact=ON
 
 
-.. rubric:: ``cpat``
 .. _`xtra-cpat`:
+.. rubric:: ``cpat``
 
 Defines what files to clean up from the datadir during state transfers.
 
@@ -145,9 +147,8 @@ When the donor node begins a :term:`State Snapshot Transfer`, it cleans up vario
 
 
 
-
-.. rubric:: ``decompressor``
 .. _`xtra-decompressor`:
+.. rubric:: ``decompressor``
 
 Defines the decompression utility the joiner node uses to decompress the state transfer.
 
@@ -168,11 +169,8 @@ This parameter defines whether the joiner node performs decompression on the sta
    decompressor="gzip -dc"
 
 
-
-
-
-.. rubric:: ``encrypt``
 .. _`xtra-encrypt`:
+.. rubric:: ``encrypt``
 
 Defines whether the node uses SSL encryption for XtraBackup and what kind of encryption it uses.
 
@@ -210,8 +208,8 @@ This parameter determines the type of SSL encryption the node uses when sending 
    tca="/path/to/ca.pem"
 
 
-.. rubric:: ``encrypt-algo``
 .. _`xtra-encrypt-algo`:
+.. rubric:: ``encrypt-algo``
 
 Defines the SSL encryption type the node uses for XtraBackup state transfers.
 
@@ -237,9 +235,8 @@ In the event that you need to clarify the meaning, this parameter allows you to 
 
 
 
-
-.. rubric:: ``progress``
 .. _`xtra-progress`:
+.. rubric:: ``progress``
 
 Defines whether where the node reports :term:`State Snapshot Transfer` progress.
 
@@ -259,7 +256,7 @@ Defines whether where the node reports :term:`State Snapshot Transfer` progress.
 
 When you set this parameter, the node reports progress on XtraBackup progress in state transfers.  If you set the value to ``1``, the node makes these reports to the database server stderr.  If you set the value to a file path, it writes the progress to that file.
 
-.. note:: Bear in mind, that a ``0`` value is invalid.  If you want to disable this parameter, delete or comment it out.
+.. note:: Keep in mind, that a ``0`` value is invalid.  If you want to disable this parameter, delete or comment it out.
 
 .. code-block:: ini
 
@@ -267,9 +264,8 @@ When you set this parameter, the node reports progress on XtraBackup progress in
 
 
 
-
-.. rubric:: ``rebuild``
 .. _`xtra-rebuild`:
+.. rubric:: ``rebuild``
 
 Defines whether the joiner node rebuilds indexes during a :term:`State Snapshot Transfer`.
 
@@ -291,9 +287,8 @@ This parameter operates on the joiner node.  When enabled, the node rebuilds ind
    compact=ON
 
 
-
-.. rubric:: ``rlimit``
 .. _`xtra-rlimit`:
+.. rubric:: ``rlimit``
 
 Defines the rate limit for the donor node.
 
@@ -314,8 +309,8 @@ This parameter allows you to definite the rate-limit the donor node.  This allow
    rlimit=300M
 
 
-.. rubric:: ``sst_initial_timeout``
 .. _`xtra-sst_initial_timeout`:
+.. rubric:: ``sst_initial_timeout``
 
 Defines the initial timeout to receive the first state transfer packet.
 
@@ -336,8 +331,8 @@ This parameter determines the initial timeout in seconds for the joiner to recei
    sst_initial_timeout=130
 
 
-.. rubric:: ``sst_special_dirs``
 .. _`xtra-sst_special_dirs`:
+.. rubric:: ``sst_special_dirs``
 
 Defines whether the node uses special InnoDB home and log directories.
 
@@ -364,8 +359,8 @@ This parameter enables support for ``innodb_data_home_dir`` and ``innodb_log_hom
    sst_special_dirs=TRUE
 
 
-.. rubric:: ``sockopt``
 .. _`xtra-sockopt`:
+.. rubric:: ``sockopt``
 
 Defines socket options.
 
@@ -382,8 +377,8 @@ Defines socket options.
 This parameter allows you to define one or more socket options for XtraBackup using the Socat transfer format.
 
 
-.. rubric:: ``streamfmt``
 .. _`xtra-streamfmt`:
+.. rubric:: ``streamfmt``
 
 Defines the stream formatting utility.
 
@@ -411,8 +406,8 @@ The default and recommended utility is ``xbstream`` given that it supports encry
    streamfmt='xbstream'
 
 
-.. rubric:: ``tca``
 .. _`xtra-tca`:
+.. rubric:: ``tca``
 
 Defines the Certificate Authority (CA) to use in SSL encryption.
 
@@ -428,7 +423,7 @@ Defines the Certificate Authority (CA) to use in SSL encryption.
 
 This parameter defines the Certificate Authority (CA) file that the node uses with XtraBackup state transfers.  In order to use SSL encryption with XtraBackup, you must configure  the :ref:`transferfmt <xtra-transferfmt>` parameter to use ``socat``.
 
-.. note:: For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
+For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
 
 .. code-block:: ini
 
@@ -436,9 +431,8 @@ This parameter defines the Certificate Authority (CA) file that the node uses wi
    tca="/path/to/ca.pem"
 
 
-
-.. rubric:: ``tcert``
 .. _`xtra-tcert`:
+.. rubric:: ``tcert``
 
 Defines the certificate to use in SSL encryption.
 
@@ -454,7 +448,7 @@ Defines the certificate to use in SSL encryption.
 
 This parameter defines the SSL certificate file that the node uses with SSL encryption on XtraBackup state transfers.  In order to use SSL encryption with XtraBackup, you must configure the :ref:`transferfmt <xtra-transferfmt>` parameter to use Socat.
 
-.. note:: For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
+For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
 
 .. code-block:: ini
 
@@ -462,8 +456,8 @@ This parameter defines the SSL certificate file that the node uses with SSL encr
    tcert="/path/to/cert.pem"
 
 
-.. rubric:: ``time``
 .. _`xtra-time`:
+.. rubric:: ``time``
 
 Defines whether XtraBackup instruments key stages in the backup and restore process for state transfers.
 
@@ -483,8 +477,8 @@ This parameter instruments key stages of the backup and restore process for stat
 
    time=ON
 
-.. rubric:: ``transferfmt``
 .. _`xtra-transferfmt`:
+.. rubric:: ``transferfmt``
 
 Defines the transfer stream utility.
 

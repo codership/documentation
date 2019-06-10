@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =======================
 SELinux Configuration
 =======================
@@ -8,17 +10,20 @@ Security-Enhanced Linux, or SELinux, is a kernel module for improving security o
 In the context of Galera Cluster, systems with SELinux may block the database server, keeping it from starting or preventing the node from establishing connections with other nodes in the cluster.  To prevent this, you need to configure SELinux policies to allow the node to operate.
 
 
+.. _`gen-selinux-policy`:
+
 -----------------------------
 Generating an SELinux Policy
 -----------------------------
-.. _`gen-selinux-policy`:
 
 In order to create an SELinux policy for Galera Cluster, you need to first open ports and set SELinux to permissive mode.  Then, after generating various replication events, state transfers and notifications, create a policy from the logs of this activity and reset SELinux from to enforcing mode.
+
+
+.. _`permissive-selinux`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Setting SELinux to Permissive Mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`permissive-selinux`:
 
 When SELinux registers a system event, there are three modes that define its response: enforcing, permissive and disabled.  While you can set it to permit all activity on the system, this is not a good security practice.  Instead, set SELinux to permit activity on the relevant ports and to ignore the database server.
 
@@ -46,10 +51,12 @@ To set SELinux to permissive mode, complete the following steps:
 
 SELinux now permits the database server to function on the server and no longer blocks the node from network connectivity with the cluster.
 
+
+.. _`define-selinux-policy`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Defining the SELinux Policy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`define-selinux-policy`:
 
 While SELinux remains in permissive mode, it continues to log activity from the database server.  In order for it to understand normal operation for the database, you need to start the database and generate routine events for SELinux to see.
 
@@ -78,10 +85,11 @@ When you feel you have generated sufficient events for the log, you can begin wo
 .. note:: In order to for your policy to work you must generate both State Snapshot and Incremental State transfers.
 
 
+.. _`enable-selinux`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling an SELinux Policy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`enable-selinux`:
 
 Generating an SELinux policy requires that you search log events for the relevant information and pipe it to the ``audit2allow`` utility, creating a ``galera.te`` file to load into SELinux.
 
@@ -125,4 +133,3 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
 
 SELinux returns to enforcement mode, now using new policies that work with Galera Cluster.
-

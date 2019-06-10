@@ -1,6 +1,8 @@
-====================================
+.. cssclass:: library-document
+
+==========================
  Upgrading Galera Cluster
-====================================
+==========================
 .. _`upgrading`:
 
 
@@ -13,10 +15,11 @@ You have three methods available in upgrading Galera Cluster:
 There are advantages and disadvantages to each method.  For instance, while a rolling upgrade may prove time consuming, the cluster remains up.  Similarly, while a bulk upgrade is faster, problems can result in longer outages.  You must choose the best method to implement in upgrading your cluster.
 
 
+.. _`rolling-upgrade`:
+
 -----------------
 Rolling Upgrade
 -----------------
-.. _`rolling-upgrade`:
 
 When you need the cluster to remain live and do not mind the time it takes to upgrade each node, use rolling upgrades.
 
@@ -58,6 +61,9 @@ Once the node finishes synchronizing with the cluster and completes its catch-up
 
 .. tip:: If you are upgraded a node that is or will be part of a weighted quorum, set the initial node weight to zero.  This guarantees that if the joining node should fail before it finishes synchronizing, it will not affect any quorum computations that follow.
 
+
+.. _`rolling-upgrade-major-versions`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Rolling Upgrades between Major Versions of Galera Cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,10 +88,12 @@ The following procedure is recommended for rolling upgrades between major versio
 
 #. Shut down the node if it is currently running, restore the ``wsrep_provider`` line in ``my.cnf`` and restart the node.
 
+
+.. _`bulk-upgrade`:
+
 -------------
 Bulk Upgrade
 -------------
-.. _`bulk-upgrade`:
 
 When you want to avoid time-consuming state transfers and the slow process of upgrading each node, one at a time, use a bulk upgrade.
 
@@ -114,10 +122,11 @@ To perform a bulk upgrade on Galera Cluster, complete the following steps:
 .. note:: You can carry out steps 2-3-4 on all nodes in parallel, therefore reducing the service outage time to virtually the time needed for a single server restart.
 
 
+.. _`provider-upgrade`:
+
 ---------------------
 Provider-only Upgrade
 ---------------------
-.. _`provider-upgrade`:
 
 .. index::
    pair: Parameters; wsrep_cluster_address
@@ -126,10 +135,12 @@ When you only need to upgrade the Galera provider, you can further optimize the 
 
 .. important:: In provider-only upgrade, the warmed up InnoDB buffer pool is fully preserved and the cluster continues to operate at full speed as soon as you resume the load.
 
+
+.. _`upgrade-plugin`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Upgrading Galera Replication Plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`upgrade-plugin`:
 
 If you installed Galera Cluster for MySQL using the binary package from the Codership repository, you can upgrade the Galera Replication Plugin through your package manager..
 
@@ -147,6 +158,9 @@ To upgrade the Galera Replicator Plugin on a Debian-based Linux distribution, ru
       $ apt-get upgrade galera
 
 When ``apt-get`` or ``yum`` finish, you will have the latest version of the Galera Replicator Plugin available on the node.  Once this process is complete, you can move on to updating the cluster to use the newer version of the plugin.
+
+
+.. _`updating-galera-cluster`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Updating Galera Cluster

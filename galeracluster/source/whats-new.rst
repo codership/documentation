@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ################################
 What's New in Galera Cluster 4.x
 ################################

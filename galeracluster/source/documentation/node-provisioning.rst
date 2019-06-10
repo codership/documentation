@@ -9,9 +9,11 @@
 .. role:: red
 .. role:: green
 
-================================
+.. cssclass:: library-document
+
+====================
  Node Provisioning
-================================
+====================
 .. _`node-provisioning`:
 
 .. index::
@@ -55,10 +57,12 @@ During the catch-up phase, flow control ensures that the slave queue shortens, (
 
 While there is no guarantee on how soon a node will catch up, when it does the node status updates to ``SYNCED`` and it begins to accept client connections.
 
+
+.. _`node-provisioning-state-transfer`:
+
 -------------------
 State Transfers
 -------------------
-.. _`state-transfer`:
 
 There are two types of state transfers available to bring the node up to date with the cluster:
 

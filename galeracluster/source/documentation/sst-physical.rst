@@ -1,7 +1,8 @@
+.. cssclass:: library-document
 
-===============================
+========================
 Physical State Snapshot
-===============================
+========================
 .. _`sst-physical`:
 
 
@@ -24,10 +25,11 @@ The Physical State Transfer Method has the following disadvantages:
   What this means is that when your node requires a state snapshot transfer, the database server must restart to apply the changes.  The database server remains inaccessible to the client until the state snapshot transfer is complete, since it cannot perform authentication without the storage engines.
 
 
+.. _`sst-physical-rsync`:
+
 ----------------------------
 ``rsync``
 ----------------------------
-.. _`rsync`:
 
 The fastest back-end method for State Snapshot Transfers is ``rsync``.  It carries all the advantages and disadvantages of of the Physical Snapshot Transfer.  While it does block the donor node during transfer, ``rsync`` does not require database configuration or root access, which makes it easier to configure.
 
@@ -46,10 +48,11 @@ The ``rsync`` script runs on both donor and joining nodes.  On the joiner, it st
 For more information about ``rsync``, see the `rsync Documentation <http://rsync.samba.org/>`_.
 
 
+.. _`sst-physical-xtrabackup`:
+
 ----------------------------
 ``xtrabackup``
 ----------------------------
-.. _`xtrabackup`:
 
 The most popular back-end method for State Snapshot Transfers is ``xtrabackup``.  It carries all the advantages and disadvantages of a Physical State Snapshot, but is virtually non-blocking on the donor node.
 

@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =========================
  Backing Up Cluster Data
 =========================
@@ -20,10 +22,12 @@ The problem with such a simple backup method, though, is that it lacks a :term:`
 
 Getting backups with the associated Global Transaction ID requires a different approach.
 
+
+.. _`sst-backup`:
+
 ----------------------------------
 State Snapshot Transfer as Backup
 ----------------------------------
-.. _`sst-backup`:
 
 Taking a full data backup is very similar to node provisioning through a :term:`State Snapshot Transfer`.  In both cases, the node creates a full copy of the database contents, using the same mechanism to associate a :term:`Global Transaction ID` with the database state. Invoking backups through the state snapshot transfer mechanism has the following benefits:
 

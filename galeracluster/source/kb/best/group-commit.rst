@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 =============
 Group Commit
 =============

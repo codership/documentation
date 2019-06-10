@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ============================================
 MariaDB Galera Cluster - Binary Installation
 ============================================
@@ -5,17 +7,19 @@ MariaDB Galera Cluster - Binary Installation
 
 MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster.  Binary installation packages are available for Debian-based and RPM-based distributions of Linux through the MariaDB repository (`MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_).
 
+.. _`mariadb-repo`:
+
 ---------------------------------
 Enabling the MariaDB Repository
 ---------------------------------
-.. _`mariadb-repo`:
 
 In order to install MariaDB Galera Cluster through your package manager, you need to enable the MariaDB repository on your server.  There are two different ways to accomplish this, depending on which Linux distribution you use.
+
+.. _`mariadb-deb`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``apt`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mariadb-deb`:
 
 For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the software properties.  The package names vary depending on your distribution.  For Debian, at the command-line execute the following:
 
@@ -72,10 +76,11 @@ For more information on the MariaDB repository, package names and available mirr
 Packages in the MariaDB repository are now available for installation through ``apt-get``.
 
 
+.. _`mariadb-rpm`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``yum`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mariadb-rpm`:
 
 For RPM-based distributions (e.g., CentOS, Red Hat and Fedora), you can enable the MariaDB repository by creating a text file with ``.repo`` as the file extention to the ``/etc/yum/repos.d/`` directory.
 
@@ -100,10 +105,11 @@ For the value of ``baseurl``, you'll have to adjust the web address:
 For more information on the repository, package names or available mirrors, see the `MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_. It will generate the actual text you will need to put in your repository configuration file. In fact, by clicking through the choices presented, you can just copy the results and paste them into your configuration file without any modification.
 
 
+.. _`mariadb-install`:
+
 ---------------------------------
 Installing MariaDB Galera Cluster
 ---------------------------------
-.. _`mariadb-install`:
 
 There are three packages involved in the installation of MariaDB Galera Cluster: the MariaDB database client, a command-line tool for accessing the database; the MariaDB database server, built to include the :term:`wsrep API` patch; and the :term:`Galera Replication Plugin`.
 

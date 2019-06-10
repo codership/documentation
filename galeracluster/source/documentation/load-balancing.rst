@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ================
  Load Balancing
 ================
@@ -13,7 +15,7 @@ Galera Cluster guarantees node consistency regardless of where and when the quer
 
 - **Galera Load Balancer** inspired by Pen, but is limited to balancing generic TCP connections only.
 
-.. note:: For more information or ideas on where to use load balancers in your infrastructure, see :doc:`deployment-variants`.
+For more information or ideas on where to use load balancers in your infrastructure, see :doc:`deployment-variants`.
 
 .. toctree::
    :maxdepth: 2

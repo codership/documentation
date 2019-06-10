@@ -1,23 +1,27 @@
-=========================
+.. cssclass:: library-document
+
+==============
 Using Jails
-=========================
+==============
 .. _`jails`:
 
 In FreeBSD, jails provides a platform for securely deploying applications within virtual instances.  You may find it useful in portable deployments across numerous machines for testing and security.
 
 Galera Cluster can run from within a jail instance.
 
+.. _`jails-prep-serve`:
+
 --------------------------
 Preparing the Server
 --------------------------
-.. _`jails-prep-serve`:
 
 Jails exist as isolated file systems within, but unaware of, the host server.  In order to grant the node running within the jail network connectivity with the cluster, you need to configure the network interfaces and firewall to redirect from the host into the jail.
+
+.. _`jail-net-config`:
 
 ^^^^^^^^^^^^^^^^^^^^^
 Network Configuration
 ^^^^^^^^^^^^^^^^^^^^^
-.. _`jail-net-config`:
 
 To begin, create a second loopback interface for the jail.  this allows you to isolate jail traffic from ``lo0``, the host loopback interface.
 
@@ -45,11 +49,11 @@ This creates ``lo1``, a new loopback network interface for your jails.  You can 
    $ ifconfig
 
 
+.. _`jails-pf`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^
 Firewall Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
-.. _`jails-pf`:
 
 FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.  For jails, you can route traffic from external ports on the host system to internal ports within the jail's file system.  This allows the node running within the jail to have network access as though it were running on the host system.
 
@@ -111,12 +115,14 @@ To enable PF and create rules for the node, complete the following steps:
 
 The server now uses PF to manage its firewall.  Network traffic directed at the four ports Galera Cluster uses is routed to the comparable ports within the jail.
 
-.. note:: For more information on firewall configurations for FreeBSD, see :doc:`firewall-pf`.
+For more information on firewall configurations for FreeBSD, see :doc:`firewall-pf`.
+
+
+.. _`jail-creation`:
 
 ----------------------
 Creating the Node Jail
 ----------------------
-.. _`jail-creation`:
 
 While FreeBSD does provide a manual interface for creating and managing jails on your server, (``jail(8)``), it can prove cumbersome in the event that you have multiple jails running on a server.
 
@@ -185,10 +191,11 @@ While on the host system, you can access and manipulate files and directories in
 When you enter the jail file system, note that the hostname changes to indicate the transition.
 
 
+.. _`jails-galera-install`:
+
 --------------------------
 Installing Galera Cluster
 --------------------------
-.. _`jails-galera-install`:
 
 Regardless of whether you are on the host system or working from within a jail, currently, there is no binary package or port available to fully install Galera Cluster on FreeBSD.  You must build the database server from source code.
 
@@ -206,10 +213,11 @@ Due to certain Linux dependencies, the :term:`Galera Replication Plugin` cannot 
 This install the wsrep Provider file in ``/usr/local/lib``.  Use this path in the configuration file for the :ref:`wsrep_provider <wsrep_provider>` parameter.
 
 
+.. _`jails-node-config`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^
 Configuration File
 ^^^^^^^^^^^^^^^^^^^^^^^
-.. _`jails-node-config`:
 
 For the most part, the configuration file for a node running in a jail is the same as when the node runs on a standard FreeBSD server.  But, there are some parameters that draw their defaults from the base system.  These you need to set manually, as the jail is unable to access the host file system.
 
@@ -241,10 +249,11 @@ For the most part, the configuration file for a node running in a jail is the sa
 If you are logged into the jail console, place the configuration file at ``/etc/my.cnf``.  If you are on the host system console, place it at ``/usr/jails/galera-node/etc/my.cnf``.  Replace ``galera-node`` in the latter with the name of the node jail.
 
 
+.. _`jails-galera-start`:
+
 ---------------------------
 Starting the Cluster
 ---------------------------
-.. _`jails-galera-start`:
 
 When running the cluster from within jails, you create and manage the cluster in the same manner as you would in the standard deployment of Galera Cluster on FreeBSD.  The exception being that you must obtain console access to the node jail first.
 

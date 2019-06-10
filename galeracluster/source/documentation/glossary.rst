@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ==========
  Glossary
 ==========
@@ -14,7 +16,7 @@
 
       Unlike the main ``mysqld`` process, ``garbd`` doesn't generate replication events of its own and doesn't store replication data. It does, however, acknowledge all replication events.  Furthermore, you can route replication through Galera Arbitrator, such as when generating a consistent application state snapshot for backups.
 
-      .. note:: For more information, see :doc:`arbitrator` and :doc:`backup-cluster`.
+      For more information, see :doc:`arbitrator` and :doc:`backup-cluster`.
 
 
    Galera Replication Plugin
@@ -27,13 +29,13 @@
 
       The GTID consists of a state UUID, which uniquely identifies the state and the sequence of changes it undergoes, and an ordinal sequence number (seqno, a 64-bit signed integer) to denote the position of the change in the sequence.
 
-      .. note:: For more information on Global Transaction ID's, see :ref:`wsrep API <wsrep-api>`.
+      For more information on Global Transaction ID's, see :ref:`wsrep API <wsrep-api>`.
 
 
    Incremental State Transfer
       In an Incremental State Transfer (IST) a node only receives the missing write-sets and catches up with the group by replaying them. See also the definition for State Snapshot Transfer (SST).
 
-      .. note:: For more information on IST's, see :ref:`Incremental State Transfer (IST) <ist>`.
+      For more information on IST's, see :ref:`Incremental State Transfer (IST) <ist>`.
 
    IST
       See :term:`Incremental State Transfer`.
@@ -41,23 +43,23 @@
    Logical State Transfer Method
       This is a type of back-end state transfer method that operates through the database server (e.g., ``mysqldump``).
 
-      .. note:: For more information, see :ref:`Logical State Snapshot <sst-logical>`.
+      For more information, see :ref:`Logical State Snapshot <sst-logical>`.
 
 
    Physical State Transfer Method
       This is another type of back-end state transfer method, but it operates on the physical media in the datadir (e.g., ``rsync`` and ``xtrabackup``).
 
-      .. note:: For more information, see :ref:`Physical State Snapshot <sst-physical>`.
+      For more information, see :ref:`Physical State Snapshot <sst-physical>`.
 
    Primary Component
       In addition to single-node failures, the cluster may be split into several components due to network failure. In such a situation, only one of the components can continue to modify the database state to avoid history divergence. This component is called the Primary Component (PC).
 
-      .. note:: For more information on the Primary Component, see :doc:`weighted-quorum`.
+      For more information on the Primary Component, see :doc:`weighted-quorum`.
 
    Rolling Schema Upgrade
       The rolling schema upgrade is a :abbr:`DDL (Data Definition Language)` processing method in which the :abbr:`DDL (Data Definition Language)` will only be processed locally on the node. The node is desynchronized from the cluster for the duration of the :abbr:`DDL (Data Definition Language)` processing in a way that it doesn't block the other nodes.  When the :abbr:`DDL (Data Definition Language)` processing is complete, the node applies the delayed replication events and synchronizes with the cluster.
 
-      .. note:: For more information, see :ref:`Rolling Schema Upgrade <rsu>`.
+      For more information, see :ref:`Rolling Schema Upgrade <rsu>`.
 
    RSU
       See :term:`Rolling Schema Upgrade`.
@@ -71,7 +73,7 @@
    State Snapshot Transfer
       State Snapshot Transfer refers to a full data copy from one cluster node (i.e., a donor) to the joining node (i.e., a joiner). See also the definition for Incremental State Transfer (IST).
 
-      .. note:: For more information, see :ref:`State Snapshot Transfer (SST) <sst>`.
+      For more information, see :ref:`State Snapshot Transfer (SST) <sst>`.
 
    State UUID
       Unique identifier for the state of a node and the sequence of changes it undergoes.  It's the first component of the :term:`Global Transaction ID`.
@@ -85,13 +87,13 @@
 
       Under normal operation, the node performs all replication and certification operations when the transaction commits. With large transactions this can result in conflicts if smaller transactions are committed first.  With Streaming Replication, the node breaks the transaction into fragments, then certifies and replicates them to all nodes while the transaction is still in progress.  Once certified, a fragment can no longer be aborted by a conflicting transaction.
 
-      .. note:: For more information see :doc:`streaming-replication` and :doc:`using-sr`.
+      For more information see :doc:`streaming-replication` and :doc:`using-sr`.
 
 
    Total Order Isolation
       By default, :abbr:`DDL (Data Definition Language)` statements are processed by using the Total Order Isolation (TOI) method. In TOI, the query is replicated to the nodes in a statement form before executing on the master. The query waits for all preceding transactions to commit and then gets executed in isolation on all nodes, simultaneously.
 
-      .. note:: For more information, see :ref:`Total Order Isolation <toi>`.
+      For more information, see :ref:`Total Order Isolation <toi>`.
 
    TOI
       See :term:`Total Order Isolation`.
@@ -102,7 +104,7 @@
    Write-set Cache
       Galera stores write-sets in a special cache called, Write-set Cache (GCache). GCache is a memory allocator for write-sets. Its primary purpose is to minimize the write set footprint on the RAM.
 
-      .. note:: For more information, see :ref:`Write-set Cache (GCache) <gcache>`.
+      For more information, see :ref:`Write-set Cache (GCache) <gcache>`.
 
    GCache
       See :term:`Write-set Cache`.
@@ -110,4 +112,4 @@
    wsrep API
       The wsrep API is a generic replication plugin interface for databases.  The API defines a set of application callbacks and replication plugin calls.
 
-      .. note:: For more information, see :ref:`wsrep API <wsrep-api>`.
+      For more information, see :ref:`wsrep API <wsrep-api>`.

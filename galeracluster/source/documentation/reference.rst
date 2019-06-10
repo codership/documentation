@@ -1,13 +1,14 @@
+.. cssclass:: library-document
+
 ===========
- Reference
+Reference
 ===========
 .. _`reference`:
 
 In the event that you need more information about particular variables or parameters or status variable or would like a clearer explanation about various terms used in the documentation, these chapters provide general reference material to Galera Cluster configuration and use.
 
-
-.. rubric:: Variable Reference
 .. _`ref-vars`:
+.. rubric:: Variable Reference
 
 Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file.  These chapters provide reference guides to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
 
@@ -28,35 +29,29 @@ Defining persistent configurations in Galera Cluster is done through the underly
   In addition to the standard status variables available through the database server, Galera Cluster also implements several that you can use in determining the status and health of the node and the cluster.  This chapter provides a reference guide to these new status variables in Galera Cluster.
 
 
-
-.. rubric:: Utility Reference
 .. _`ref-utils`:
+.. rubric:: Utility Reference
 
 In some cases your configuration or implementation may require that you work with external utilities in your deployment of Galera Cluster.  These chapters provide reference guides for two such utilities: XtraBackup and Galera Load Balancer.
-
-
-- :doc:`xtrabackup-options`
-
-  When you manage State Snapshot Transfers using Percona XtraBackup, it allows you to set various parameters on the state transfer script the node uses from the ``my.cnf`` configuration file.  This chapter provides a reference guide to options available to XtraBackup.
-
 
 - :doc:`glb-parameters`
 
   In high availability situations or similar cases where nodes are subject to high traffic situations, you may find it beneficial to set up a load balancer between your application servers and the cluster.  This chapter provides a reference guide to the Codership implementation: the Galera Load Balancer.
 
+- :doc:`xtrabackup-options`
+
+  When you manage State Snapshot Transfers using Percona XtraBackup, it allows you to set various parameters on the state transfer script the node uses from the ``my.cnf`` configuration file.  This chapter provides a reference guide to options available to XtraBackup.
+
 - :doc:`system-tables`
 
   This page provides information on the Galera specific system tables.  These were added as of version 4 of Galera.
 
-
-.. rubric:: Miscellaneous References
 .. _`ref-misc`:
-
+.. rubric:: Miscellaneous References
 
 - :doc:`versioning-information`
 
   While the documentation follows a convention of 3.x in speaking of release versions for Galera Cluster, in practice the numbering system is somewhat more complicated: covering releases of the underlying database server, the wsrep Provider and the wsrep API.  This chapter provides a more thorough explanation of versioning with Galera Cluster.
-
 
 - :doc:`legal-notice`
 

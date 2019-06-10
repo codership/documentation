@@ -1,5 +1,7 @@
+.. cssclass:: kb-article
+
 ================================
-Dealing with Large Transactions
+Handling Large Transactions
 ================================
 .. _`kb-best-large-transactions`:
 

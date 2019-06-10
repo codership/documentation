@@ -1,7 +1,13 @@
-=================================
+.. cssclass:: tutorial-article
+
+===================
 Testing a Cluster
-=================================
+===================
 .. _`testing-cluster`:
+
+.. rst-class:: list-stats
+
+   Length:  499 words; Published: October 20, 2014; Topic: General; Level: Beginner
 
 When you have a cluster running, you may want to test certain features to ensure that they are working properly or to prepare yourself for handling actual problems that may arise.
 

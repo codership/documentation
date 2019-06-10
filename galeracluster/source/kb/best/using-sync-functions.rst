@@ -1,5 +1,7 @@
+.. cssclass:: kb-article
+
 =================================
- Using Synchronization Functions
+Using Synchronization Functions
 =================================
 .. _`kb-best-using-sync-functions`:
 

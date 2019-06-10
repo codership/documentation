@@ -1,16 +1,19 @@
-====================================
+.. cssclass:: library-document
+
+======================
 Notification Command
-====================================
+======================
 .. _`notification-cmd`:
 
 While you can use the database client to check the status of your cluster, the individual nodes and the health of replication, you may find it counterproductive to log into the client on each node to run these checks.  Galera Cluster provides a notification script and interface for customization, allowing you to automate the monitoring process for your cluster.
 
 
 
+.. _`notification-cmd-parameters`:
+
 -------------------------------------
 Notification Command Parameters
 -------------------------------------
-.. _`notification-cmd-parameters`:
 
 When the node registers a change in the cluster or itself that triggers the notification command, it passes a number of parameters in calling the script.
 
@@ -24,10 +27,11 @@ When the node registers a change in the cluster or itself that triggers the noti
 .. note:: Only those nodes that in the ``Synced`` state accept connections from the cluster.  For more information on node states, see :ref:`Node State Changes <node-state-changes>`.
 
 
+.. _`node-status`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Node Status Strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`node-status`:
 
 The notification command passes one of six values with the ``--status`` parameter to indicate the current status of the node:
 
@@ -38,10 +42,12 @@ The notification command passes one of six values with the ``--status`` paramete
 - ``Synced`` Indicates a node that is syncrhonized with the cluster.
 - ``Error`` Indicates that an error has occurred.  This status string may provide an error code with more information on what occurred.
 
+
+.. _`member-list-format`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Members List Format
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`member-list-format`:
 
 The notification command passes with the ``--member`` parameter a list containing entries for each node that is connected to the cluster component to which the node belongs.  For each entry in the list the node uses this format:
 
@@ -53,10 +59,12 @@ The notification command passes with the ``--member`` parameter a list containin
 - **Node Name** Refers to the node name, as you define it for the :ref:`wsrep_node_name <wsrep_node_name>` parameter, in the configuration file.
 - **Incoming Address** Refers to the IP address for client connections, as set for the :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>` parameter, in the configuration file.
 
+
+.. _`example-notification-script`:
+
 ----------------------------------------
 Example Notification Script
 ----------------------------------------
-.. _`example-notification-script`:
 
 Nodes can call a notification script when changes happen in the membership of the cluster, that is when nodes join or leave the cluster.  You can specify the name of the script the node calls using the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`.  While you can use whatever script meets the particular needs of your deployment, you may find it helpful to consider the example below as a starting point.
 
@@ -188,11 +196,11 @@ In addition to this, given that the notification command contains your root pass
 This ensures that only the ``mysql`` user executes and can read the notification script, preventing all other users from seeing your root password.
 
 
+.. _`enable-notification-command`:
 
 ----------------------------------
 Enabling the Notification Command
 ----------------------------------
-.. _`enable-notification-command`:
 
 You can enable the  notification command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter in the configuration file.
 
@@ -203,5 +211,3 @@ You can enable the  notification command through the :ref:`wsrep_notify_cmd <wsr
 The node then calls the script for each change in cluster membership and node status.  You can use these status changes in configuring load balancers, raising alerts or scripting for any other situation where you need your infrastructure to respond to changes to the cluster.
 
 Galera Cluster provides a default script, ``wsrep_notify.sh``, for you to use in handling notifications or as a starting point in writing your own custom notification script.
-
-

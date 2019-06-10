@@ -1,17 +1,19 @@
-===========================
+.. cssclass:: library-document
+
+=======================
 Managing Flow Control
-===========================
+=======================
 .. _`managing-fc`:
 
 The cluster replicates changes synchronously through global ordering, but applies these changes asynchronously from the originating node out.  To prevent any one node from falling too far behind the cluster, Galera Cluster implements a feedback mechanism called Flow Control.
 
 Nodes queue the write-sets they receive in the global order and begin to apply and commit them on the database.  In the event that the received queue grows too large, the node initiates Flow Control.  The node pauses replication while it works the received queue.  Once it reduces the received queue to a more manageable size, the node resumes replication.
 
+.. _`monitoring-fc`:
 
 ---------------------------
 Monitoring Flow Control
 ---------------------------
-.. _`monitoring-fc`:
 
 Galera Cluster provides global status variables for use in monitoring Flow Control.  These break down into those status variables that count Flow Control pause events and those that measure the effects of pauses.
 
@@ -41,12 +43,14 @@ For instance, using `myq_gadgets <https://github.com/jayjanssen/myq_gadgets/>`_:
 
 You can find the slave queue under the ``Queue Dn`` column and ``FC pau`` refers to Flow Control pauses.  When the slave queue rises to a certain point, Flow Control changes the pause value to ``1.0``.  The node will hold to this value until the slave queue is worked down to a more manageable size.
 
-.. note:: For more information on status variables that relate to flow control, see :doc:`galera-status-variables`.
+For more information on status variables that relate to flow control, see :doc:`galera-status-variables`.
+
+
+.. _`monitor-pauses`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Monitoring for Flow Control Pauses
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`monitor-pauses`:
 
 When Flow Control engages, it notifies the cluster that it is pausing replication using an ``FC_Pause`` event.  Galera Cluster provides two status variables that monitor for these events.
 
@@ -55,11 +59,11 @@ When Flow Control engages, it notifies the cluster that it is pausing replicatio
 - :ref:`wsrep_flow_control_recv <wsrep_flow_control_recv>` This status variable shows the number of Flow Control pause events on the cluster, both those from other nodes and those sent by the local node, since the last status query.
 
 
+.. _`measure-fc-pauses`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Measuring the Flow Control Pauses
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`measure-fc-pauses`:
 
 In addition to tracking Flow Control pauses, Galera Cluster also allows you to track the amount of time since the last ``FLUSH STATUS`` query during which replication was paused due to Flow Control.
 
@@ -70,20 +74,20 @@ You can find this using one of two status variables:
 - :ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>` Provides the amount of time replication was paused in nanoseconds.
 
 
+.. _`configuring-fc`:
 
 --------------------------
 Configuring Flow Control
 --------------------------
-.. _`configuring-fc`:
 
 Galera Cluster provides two sets of parameters that allow you to manage how nodes handle the replication rate and Flow Control.  The first set controls the write-set cache, the second relates to the points at which the node engages and disengages Flow Control.
 
 
+.. _`managing-gcache-fc`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Managing the Replication Rate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`managing-gcache-fc`:
 
 These three parameters control how nodes respond to changes in the replication rate.  They allow you to manage the write-set cache on an individual node.
 
@@ -106,11 +110,11 @@ These three parameters control how nodes respond to changes in the replication r
 The write-set cache grows semi-logarithmically with time after the :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` and the time needed for a state transfer to complete.
 
 
+.. _`managing-flow-control`:
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Managing Flow Control
 ^^^^^^^^^^^^^^^^^^^^^^
-.. _`managing-flow-control`:
 
 These parameters control the point at which the node triggers Flow Control and the factor used in determining when it should disengage Flow Control and resume replication.
 

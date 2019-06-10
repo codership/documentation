@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ======================
  Database Replication
 ======================
@@ -11,10 +13,11 @@ Database replication refers to the frequent copying of data from one node |---| 
 The database clients, such as web browsers or computer applications, do not see the database replication system, but they benefit from close to native :abbr:`DBMS (Database Management System)` behavior.
 
 
+.. _`masters-slaves`:
+
 ---------------------
  Masters and Slaves
 ---------------------
-.. _`masters-slaves`:
 
 Many :abbr:`Database Management Systems (DBMS)` replicate the database.
 
@@ -35,10 +38,12 @@ Another common replication setup uses mult-master replication, where all nodes f
 
 In a multi-master replication system, you can submit updates to any database node.  These updates then propagate through the network to other database nodes.  All database nodes function as masters.  There are no logs available and the system provides no indicators sent to tell you if the updates were successful.
 
+
+.. _`asynchronous-synchronous-replication`:
+
 ----------------------------------------------
  Asynchronous and Synchronous Replication
 ----------------------------------------------
-.. _`asynchronous-synchronous-replication`:
 
 .. index::
    pair: Eager replication; Descriptions
@@ -54,6 +59,9 @@ In addition to the setup of how different nodes relate to one another, there is 
 - **Synchronous Replication** Uses the approach of eager replication.  Nodes keep all replicas synchronized by updating all replicas in a single transaction.  In other words, when a transaction commits, all nodes have the same value.
 
 - **Asynchronous Replication** Uses the approach of lazy replication.  The master database asynchronously propagates replica updates to other nodes.  After the master node propagates the replica, the transaction commits.  In other words, when a transaction commits, for at least a short time, some nodes hold different values.
+
+
+.. _`advantages-synchronous-replication`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Advantages of Synchronous Replication
@@ -72,6 +80,8 @@ In theory, there are several advantages that synchronous replication has over as
 
 - **Causality across the Cluster** Synchronous replication guarantees causality across the whole cluster.  For example, a ``SELECT`` query issued after a transaction always sees the effects of the transaction, even if it were executed on another node.
 
+.. _`disadvantages-synchronous-replication`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Disadvantages of Synchronous Replication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,12 +98,11 @@ What this means that any increase in the number of nodes leads to an exponential
 For this reason, asynchronous replication remains the dominant replication protocol for database performance, scalability and availability.  Widely adopted open source databases, such as MySQL and PostgreSQL only provide asynchronous replication solutions.
 
 
-
+.. _`solving-issues-synchronous-replication`:
 
 -----------------------------------------------
  Solving the Issues in Synchronous Replication
 -----------------------------------------------
-.. _`solving-issues-synchronous-replication`:
 
 There are several issues with the traditional approach to synchronous replication systems.  Over the past few years, researchers from around the world have begun to suggest alternative approaches to synchronous database replication.
 
@@ -108,8 +117,6 @@ In addition to theory, several prototype implementations have shown much promise
 - **Transaction Reordering** This reorders transactions before the database site commits and broadcasts them to the other database sites.  The implementation increases the number of transactions that successfully pass the certification test.
 
 The certification-based replication system that Galera Cluster uses is built on these approaches.
-
-
 
 
 .. |times|   unicode:: U+00D7 .. MULTIPLICATION SIGN

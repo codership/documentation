@@ -9,6 +9,8 @@
 .. role:: red
 .. role:: green
 
+.. cssclass:: library-document
+
 ==========================
 State Transfers
 ==========================
@@ -16,13 +18,14 @@ State Transfers
 
 The process of replicating data from the cluster to the individual node, bringing the node into sync with the cluster, is known as provisioning.  There are two methods available in Galera Cluster to provision nodes:
 
-- :ref:`State Snapshot Transfers (SST) <sst>` Where a snapshot of the entire node state transfers.
-- :ref:`Incremental State Transfers (IST) <ist>` Where only the missing transactions transfer.
+- :ref:`State Snapshot Transfers (SST) <state-transfer-sst>` Where a snapshot of the entire node state transfers.
+- :ref:`Incremental State Transfers (IST) <state-transfer-ist>` Where only the missing transactions transfer.
+
+.. _`state-transfer-sst`:
 
 ----------------------------------
  State Snapshot Transfer (SST)
 ----------------------------------
-.. _`sst`:
 
 .. index::
    pair: Parameters; wsrep_sst_method
@@ -46,7 +49,7 @@ You can choose from two conceptually different approaches in Galera Cluster to t
   Some of these methods, such as ``xtrabackup`` can be made non-blocking on the donor.  They are supported through a scriptable SST interface.
 
 
-.. note:: For more information on the particular methods available for State Snapshot Transfers, see the :doc:`sst`.
+For more information on the particular methods available for State Snapshot Transfers, see the :doc:`sst`.
 
 You can set which State Snapshot Transfer method a node uses from the confirmation file.  For example:
 
@@ -54,10 +57,13 @@ You can set which State Snapshot Transfer method a node uses from the confirmati
 
    wsrep_sst_method=rsync_wan
 
+
+
+.. _`state-transfer-ist`:
+
 ----------------------------------
  Incremental State Transfer (IST)
 ----------------------------------
-.. _`ist`:
 
 .. index::
    pair: Parameters; wsrep_sst_method
@@ -95,14 +101,12 @@ The advantage of Incremental State Transfers is that they can dramatically speed
    On the other hand, if the write-set cache is much larger than the size of your database state, Incremental State Transfers begun less efficient than sending a state snapshot.
 
 
-
-
-
+.. _`state-transfer-gcache`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Write-set Cache (GCache)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`gcache`:
+
 .. index::
    pair: GCache; Descriptions
 .. index::
@@ -126,8 +130,7 @@ GCache employs three types of storage:
 
   When all other stores are disabled, at least one page file remains present on disk.
 
-
-.. note:: For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :doc:`Galera Parameters <galera-parameters>`.
+For more information on parameters that control write-set caching, see the ``gcache.*`` parameters on :doc:`Galera Parameters <galera-parameters>`.
 
 Galera Cluster uses an allocation algorithm that attempts to store write-sets in the above order.  That is, first it attempts to use permanent in-memory store.  If there is not enough space for the write-set, it attempts to store to the permanent ring-buffer file.  The page store always succeeds, unless the write-set is larger than the available disk space.
 

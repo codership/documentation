@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ===================
  Replication API
 ===================
@@ -26,11 +28,11 @@ The internal architecture of Galera Cluster revolves around four components:
 - **Group Communication Plugins:** There several group communication systems available to Galera Cluster (e.g., *gcomm* and `Spread <http://www.spread.org/>`_).
 
 
+.. _`wsrep-api`:
 
 ---------------
  wsrep API
 ---------------
-.. _`wsrep-api`:
 
 .. index::
    pair: Global Transaction ID; Descriptions
@@ -55,6 +57,9 @@ From a more technical perspective, Galera Cluster handles state changes in the f
 
 For each node in the cluster, the application process occurs by high-priority transactions.
 
+
+.. _`global-transaction-id`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Global Transaction ID
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,11 +79,11 @@ The Global Transaction ID consists of the following components:
 The Global Transaction ID allows you to compare the application state and establish the order of state changes.  You can use it to determine whether or not a change was applied and whether the change is applicable to a given state.
 
 
+.. _`galera-replication-plugin`:
 
 ---------------------------
  Galera Replication Plugin
 ---------------------------
-.. _`galera-replication-plugin`:
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It operates as the wsrep Provider. From a more technical perspective, the Galera Replication Plugin consists of the following components:
 
@@ -89,11 +94,11 @@ The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It oper
 - **Group Communication Framework:** This layer provides a plugin architecture for the various group communication systems that connect to Galera Cluster.
 
 
+.. _`group-communication-plugins`:
 
 ------------------------------
  Group Communication Plugins
 ------------------------------
-.. _`group-communication-plugins`:
 .. index::
    pair: Virtual Synchrony; Descriptions
 

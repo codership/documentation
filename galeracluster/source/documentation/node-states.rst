@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =============
  Flow Control
 =============
@@ -6,11 +8,11 @@
 Galera Cluster manages the replication process using a feedback mechanism, called Flow Control.  Flow Control allows a node to pause and resume replication according to its needs.  This prevents any node from lagging too far behind the others in applying transactions.
 
 
+.. _`how-flow-control-works`:
 
 -----------------------
 How Flow Control Works
 -----------------------
-.. _`how-flow-control-works`:
 
 Galera Cluster achieves synchronous replication by ensuring that transactions copy to all nodes an execute according to a cluster-wide ordering.  That said, the transaction applies and commits occur asynchronously as they replicate through the cluster.
 
@@ -19,10 +21,11 @@ Nodes receive write-sets and organize them into the global ordering.  Transactio
 When the received queue reaches a certain size the node triggers Flow Control.  The node pauses replication, then works through the received queue.  When it reduces the received queue to a more manageable size, the node resumes replication.
 
 
+.. _`node-states`:
+
 --------------------------
 Understanding Node States
 --------------------------
-.. _`node-states`:
 
 .. index::
    pair: Node states; OPEN
@@ -47,19 +50,22 @@ There are four primary kinds of Flow Control:
 - :ref:`Cluster Sync <cluster-sync>`
 
 
+.. _`no-flow-control`:
+
 ^^^^^^^^^^^^^^^^^^^^^^
 No Flow Control
 ^^^^^^^^^^^^^^^^^^^^^^
-.. _`no-flow-control`:
 
 This Flow Control takes effect when nodes are in the ``OPEN`` or ``PRIMARY`` states.
 
 When nodes hold these states, they are not considered part of the cluster.  These nodes are not allowed to replicate, apply or cache any write-sets.
 
+
+.. _`writeset-caching`:
+
 ^^^^^^^^^^^^^^^^^^^^^
 Write-set Caching
 ^^^^^^^^^^^^^^^^^^^^^
-.. _`writeset-caching`:
 
 This Flow Control takes effect when nodes are in the ``JOINER`` and ``DONOR`` states.
 
@@ -71,10 +77,12 @@ It is possible to limit the replication rate, ensuring that the write-set cache 
 - :ref:`gcs.max_throttle <gcs.max_throttle>` Smallest fraction to the normal replication rate the node can tolerate in the cluster.
 - :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` Estimate of the average replication rate for the node.
 
+
+.. _`catching-up`:
+
 ^^^^^^^^^^^^^^^^^
 Catching Up
 ^^^^^^^^^^^^^^^^^
-.. _`catching-up`:
 
 This Flow Control takes effect when nodes are in the ``JOINED`` state.
 
@@ -84,10 +92,12 @@ The one occasion when nodes in the ``JOINED`` state do effect cluster performanc
 
 .. note:: You can significantly speed this up with parallel applying.
 
+
+.. _`cluster-sync`:
+
 ^^^^^^^^^^^^^^
 Cluster Sync
 ^^^^^^^^^^^^^^
-.. _`cluster-sync`:
 
 This Flow Control takes effect when nodes are in the ``SYNCED`` state.
 
@@ -96,10 +106,13 @@ When nodes enter this state Flow Control attempts to keep the slave queue to a m
 - :ref:`gcs.fc_limit <gcs.fc_limit>` Used to determine the point where Flow Control engages.
 - :ref:`gcs.fc_factor <gcs.fc_factor>` Used to determine the point where Flow Control disengages.
 
+
+.. _`node-state-changes`:
+
 ---------------------------
  Changes in the Node State
 ---------------------------
-.. _`node-state-changes`:
+
 .. index::
    pair: Node states; Node state changes
 
@@ -133,9 +146,7 @@ For the sake of legibility, certain transitions were omitted from the above desc
 
 - **Missing Transitions** In the event that the joining node does not require a state transfer, the node state changes from the ``PRIMARY`` state directly to the ``JOINED`` state.
 
-
-
-.. note:: For more information on Flow Control see `Galera Flow Control in Percona XtraDB Cluster <http://www.mysqlperformanceblog.com/2013/05/02/galera-flow-control-in-percona-xtradb-cluster-for-mysql/>`_.
+For more information on Flow Control see `Galera Flow Control in Percona XtraDB Cluster <http://www.mysqlperformanceblog.com/2013/05/02/galera-flow-control-in-percona-xtradb-cluster-for-mysql/>`_.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

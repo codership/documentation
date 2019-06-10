@@ -1,6 +1,8 @@
-=================================
+.. cssclass:: library-document
+
+======================
 Galera Load Balancer
-=================================
+======================
 .. _`glb-doc`:
 
 Galera Load Balancer provides simple TCP connection balancing. It was developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.  It provides several features:
@@ -11,10 +13,12 @@ Galera Load Balancer provides simple TCP connection balancing. It was developed 
 - Support for multithreaded operations.
 - Optional watchdog module to monitor destinations and adjust the routing table.
 
+
+.. _`glb-install`:
+
 ------------------------
 Installation
 ------------------------
-.. _`glb-install`:
 
 Unlike Galera Cluster, there is no binary installation available for Galera Load Balancer.  Installing it on your system will requires you to build it from the source files.  They're available on GitHub at `glb <https://github.com/codership/glb>`_.
 
@@ -48,10 +52,11 @@ Once you've successfully execute everything above, Galera Load Balancer will be 
 In addition to the system daemon, you will also have installed ``libglb``, a shared library for connection balancing with any Linux applications that use the ``connect()`` call from the C Standard Library.
 
 
+.. _`glb-service`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Service Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`glb-service`:
 
 The above installation procedure only installs Galera Load Balancer to be run manually from the command-line.  However, you may find it more useful to run this application as a system service. To do this, you'll need to copy a couple of files to the appropriate directories.
 
@@ -71,11 +76,11 @@ Now, copy the default ``glbd.cfg`` file into the appropriate configuration direc
 
 When you finish this, you will be able to manage Galera Load Balancer through the ``service`` command.  For more information on available commands, see :ref:`Using Galera Load Balancer <glb-use>`.
 
+.. _`glb-config`:
 
 ---------------------
 Configuration
 ---------------------
-.. _`glb-config`:
 
 When you run Galera Load Balancer, you can configure its use through the command-line options. You can get a list of by exeduting ``glb`` with the ``--help`` option.  For servers running Galera Load Balancer as a service, you can manage it through the ``glbd.cfg`` configuration file.
 
@@ -97,10 +102,11 @@ Below is an example of a `glbd.cfg`` configuration file:
 The ``glbd.cfg`` configuration file would be the one you copied into ``/etc`` as mentioned in the previous section.
 
 
+.. _`glb-dest-select`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Destination Selection Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`glb-dest-select`:
 
 Galera Load Balancer--both the system daemon and the shared library--supports five destination selection policies. When you run it from the command-line, you can define these using the command-line arguments. Otherwise, you'll have to add the arguments to the :ref:`OTHER_OPTIONS <glb-other_options>` parameter in the ``glbd.cfg`` configuration file.
 
@@ -115,11 +121,11 @@ Galera Load Balancer--both the system daemon and the shared library--supports fi
 - **Source Tracking**: This will direct connections originating from the same address to the same server.  You can enable it with the :ref:`--source <glb-source>` option.
 
 
+.. _`glb-use`:
 
 ---------------------------
 Using Galera Load Balancer
 ---------------------------
-.. _`glb-use`:
 
 The section on :ref:`Service Installation <glb-service>` explained how to configure a system to run Galera Load Balancer as a service.  If you do that, you can then manage common operations with the ``service`` command. The format for doing this is to enter ``service``, followed by ``glb``, and then an option.
 

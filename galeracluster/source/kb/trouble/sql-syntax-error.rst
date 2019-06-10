@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 ========================
 SQL Syntax Errors
 ========================

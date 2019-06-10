@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ============================================
 Percona XtraDB Cluster - Binary Installation
 ============================================
@@ -5,17 +7,19 @@ Percona XtraDB Cluster - Binary Installation
 
 Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions through the Percona repository.
 
+.. _`xtradb-repo`:
+
 --------------------------------
 Enabling the Percona Repository
 --------------------------------
-.. _`xtradb-repo`:
 
 In order to install Percona XtraDB Cluster through your package manager, you need to first enable the Percona repository on your system.  There are two different ways to accomplish this, depending upon which Linux distribution you use.
+
+.. _`xtradb-apt`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``apt`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`xtradb-apt`:
 
 For Debian and Debian-based Linux distributions, the procedure for adding the Percona repository requires that you first install Software Properties on your system.  The package names vary depending upon which distribution you use.  For Debian, in the terminal run the following command:
 
@@ -66,10 +70,12 @@ For more information on the repository, available packages and mirrors, see the 
 
 Packages in the Percona repository are now available for installation on your server through ``apt-get``.
 
+
+.. _`xtradb-yum`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``yum`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`xtradb-yum`:
 
 For RPM-based distributions, you can enable the Percona repository through ``yum`` using the following command:
 
@@ -81,10 +87,12 @@ For more information on the repository, package names or available mirrors, see 
 
 Packages in the Percona repository are now available for installation on your server through ``yum``.
 
+
+.. _`xtradb-galera-install`:
+
 ---------------------------------
 Installing Percona XtraDB Cluster
 ---------------------------------
-.. _`xtradb-galera-install`:
 
 There are three packages involved in the installation of Percona XtraDB Cluster: the Percona XtraDB client, a command line tool for accessing the database; the percona XtraDB database server, built to include the :term:`wsrep API` patch and the :term:`Galera Replication Plugin`.
 

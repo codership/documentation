@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 ================================
 Commit Failed for Reason 3
 ================================

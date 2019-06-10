@@ -1,7 +1,13 @@
-=============================
+.. cssclass:: tutorial-article
+
+===========================
 Replication Configuration
-=============================
+===========================
 .. _`wsrep-configuration`:
+
+.. rst-class:: list-stats
+
+   Length:  964 words; Published: October 20, 2014; Topic: General; Level: Beginner
 
 In addition to the configuration for the database server, there are some specific options that you need to set to enable write-set replication.  You must apply these changes to the configuration file (i.e., ``my.cnf``) for each node in the cluster.
 
@@ -75,7 +81,7 @@ When setting the IP address in the configuration file using the :ref:`wsrep_clus
 
 The options set in the URL take precedent over parameters set elsewhere.  Parameters you set through the options list are prefixed by ``evs`` (i.e., Extended Virtual Synchrony), ``pc`` (i.e., Primary Component) and ``gmcast``.
 
-.. note:: For more information on the available parameters, see :doc:`Galera Parameters <../../../documentation/galera-parameters>`.
+For more information on the available parameters, see :doc:`Galera Parameters <../../../documentation/galera-parameters>`.
 
 When listing options, start with a question mark after the IP address list. Then provide the options in a ``key=value`` format. Key/value pairs must be separated by an ampersand. Below is an example of how this might look:
 

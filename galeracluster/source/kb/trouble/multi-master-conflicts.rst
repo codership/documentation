@@ -1,13 +1,16 @@
+.. cssclass:: kb-article
+
 ======================================
 Multi-Master Conflicts
 ======================================
 .. _`kb-trouble-multi-master-conflicts`:
 
+These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
 
 .. rubric:: Scenario
    :class: kb
 
-These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.  To understand this better, consider a situation in a multi-master replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
+To understand this better, consider a situation in a multi-master replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
 
 
 .. rubric:: Troubleshooting

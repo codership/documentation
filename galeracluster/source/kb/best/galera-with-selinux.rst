@@ -1,5 +1,7 @@
+.. cssclass:: kb-article
+
 ===================================
- Using Galera Cluster with SELinux
+Using Galera Cluster with SELinux
 ===================================
 .. _`kb-best-galera-with-selinux`:
 

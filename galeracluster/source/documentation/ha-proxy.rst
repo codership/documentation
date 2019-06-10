@@ -1,15 +1,18 @@
-=====================
+.. cssclass:: library-document
+
+===========
  HAProxy
-=====================
+===========
 .. _`ha-proxy`:
 
 High Availability Proxy, or HAProxy is a single-threaded event-driven non-blocking engine that combines a fast I/O layer with a priority-based scheduler.  You can use it to balance  TCP connections between application servers and Galera Cluster.
 
 
+.. _`install-haproxy`:
+
 ---------------------
  Installation
 ---------------------
-.. _`install-haproxy`:
 
 HAProxy is available in the software repositories of most Linux distributions and it's the ports tree of FreeBSD.  You can install it using the appropriate package manager.
 
@@ -39,11 +42,11 @@ HAProxy is available in the software repositories of most Linux distributions an
 
 Whichever method you use, it installs HAProxy on your server.  In the event that the command for your Linux distribution or operating system doesn't work as expected, check  your system's documentation or software repository for the correct procedure to install HAProxy.
 
+.. _`haproxy-config`:
 
 ----------------------
 Configuration
 ----------------------
-.. _`haproxy-config`:
 
 Configuration options for HAProxy are managed through an ``haproxy.cfg`` configuration file.  The above package installations generally put this file in the ``/etc/haproxy/`` directory. However, it may have a different path depending on your operating system distribution.
 
@@ -74,10 +77,11 @@ You will create the proxy for Galera Cluster using the ``listen`` parameter.  Th
 - ``server <server-name> <IP_address> check weight 1`` defines the nodes HAProxy should use in routing connections.
 
 
+.. _`haproxy-destination-selection`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Destination Selection Policies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`haproxy-destination-selection`:
 
 When HAProxy receives a new connection, there are a number of options available to define which algorithm it uses to choose where to route the connection.  This algorithm is its destination selection policy.  It's defined by the ``balance`` parameter.
 
@@ -94,10 +98,11 @@ When HAProxy receives a new connection, there are a number of options available 
 In the above configuration example, HAProxy is configured to use the source selection policy.  For your implementation, choose the policy that works best with your infrastructure and load.
 
 
+.. _`haproxy-mysql-check`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling Database Server Checks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`haproxy-mysql-check`:
 
 In addition to routing TCP connections to Galera Cluster, HAProxy can also perform basic health checks on the database server.  When enabled, HAProxy attempts to establish a connection with the node and parses its response, or any errors, to determine if the node is operational.
 
@@ -110,10 +115,11 @@ For HAProxy, you can enable this through the ``mysql-check`` option.  However, i
 Make the user name the same as given in the ``haproxy.cfg`` configuration file for the ``mysql-check`` option.  Replace the IP address with that of the server that runs HAProxy.
 
 
+.. _`haproxy-use`:
+
 ----------------------
 Using HAProxy
 ----------------------
-.. _`haproxy-use`:
 
 When you finish configuring HAProxy and the nodes to work with HAProxy, you can start it on the server.  For servers that use ``init``, run the following command:
 

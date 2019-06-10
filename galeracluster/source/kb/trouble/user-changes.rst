@@ -1,6 +1,8 @@
-======================================
+.. cssclass:: kb-article
+
+=============================
 User Changes not Replicating
-======================================
+=============================
 .. _`kb-trouble-user-changes`:
 
 Galera replicates only InnoDB tables.  Therefore, databases should not use other storage engines.  However, the system tables contained in the ``mysql`` database use the MyISAM storage engine. This includes the ``user`` table and other tables containing user permissions.  Since these tables are not replicated, you must make changes to them manually on each node.

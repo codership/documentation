@@ -9,6 +9,7 @@
 .. role:: red
 .. role:: green
 
+.. cssclass:: library-document
 
 ===============================
 State Snapshot Transfers
@@ -24,27 +25,22 @@ Group Communication monitors node states for the purposes of flow control, state
 A node can serve as a donor when it is in the ``SYNCED`` state.  The joiner node selects a donor from the available synced nodes.  It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option, or it selects the first in the index.  When a donor node is chosen, its state changes immediately to ``DONOR``. It's no longer available for requests.
 
 
+.. _`sst-methods`:
+
 ----------------------------
 SST Methods
 ----------------------------
-.. _`rsync`:
 
 Galera supports several back-end methods for use in state snapshot transfers.  There are two types: Logical State Snapshots, which interface through the database server and client; and Physical State Snapshots, which directly copy the data files from node to node.
 
-+------------------+------------------+-------------------+--------------------+------------------+-----------------------+
-| Method           | Speed            | Blocks Donor      | Available          | Type             | DB Root Access        |
-|                  |                  |                   | on Live Node       |                  |                       |
-+==================+==================+===================+====================+==================+=======================+
-| :ref:`mysqldump  | :red:`Slow`      | :green:`Blocks`   | :green:`Available` | :ref:`Logical    | Donor and Joiner      |
-| <mysqldump>`     |                  |                   |                    | <sst-logical>`   |                       |
-+------------------+------------------+-------------------+--------------------+------------------+-----------------------+
-| :ref:`rsync      | :green:`Fastest` | :green:`Blocks`   | :red:`Unavailable` | :ref:`Physical   | None                  |
-| <rsync>`         |                  |                   |                    | <sst-physical>`  |                       |
-+------------------+------------------+-------------------+--------------------+------------------+-----------------------+
-| :ref:`xtrabackup | :green:`Fast`    | Briefly           | :red:`Unavailable` | :ref:`Physical   | Donor only            |
-| <xtrabackup>`    |                  |                   |                    | <sst-physical>`  |                       |
-+------------------+------------------+-------------------+--------------------+------------------+-----------------------+
 
+.. csv-table::
+   :class: doc-options
+   :header: "Method", "Speed", "Blocks Donor", "Available on Live Node", "Type", "DB Root Access"
+
+   ":ref:`mysqldump <mysqldump>`", ":red:`Slow`", ":green:`Blocks`", ":green:`Available`", ":ref:`Logical <sst-logical>`", "Donor and Joiner"
+   ":ref:`rsync <sst-physical-rsync>`", ":green:`Fastest`", ":green:`Blocks`", ":red:`Unavailable`", ":ref:`Physical <sst-physical>`", "None"
+   ":ref:`xtrabackup <sst-physical-xtrabackup>`", ":green:`Fast`", "Briefly", ":red:`Unavailable`", ":ref:`Physical <sst-physical>`", "Donor only"
 
 To set the State Snapshot Transfer method, use the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.  In the example below, the method is set to use ``rsync``, along with the default donors:
 

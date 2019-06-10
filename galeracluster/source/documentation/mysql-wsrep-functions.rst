@@ -1,6 +1,8 @@
-===========================================
+.. cssclass:: library-document
+
+=======================
 MySQL wsrep Functions
-===========================================
+=======================
 .. _`mysql-wsrep-functions`:
 
 
@@ -18,8 +20,8 @@ MySQL wsrep Functions
 +-------------------------------------+-------------------------+---------+
 
 
-.. rubric:: ``WSREP_LAST_SEEN_GTID()``
 .. _`WSREP_LAST_SEEN_GTID`:
+.. rubric:: ``WSREP_LAST_SEEN_GTID()``
 .. index::
    pair: Functions; WSREP_LAST_SEE_GTID()
 .. index::
@@ -44,9 +46,8 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
    SELECT WSREP_LAST_SEEN_GTID();
 
 
-
-.. rubric:: ``WSREP_LAST_WRITTEN_GTID()``
 .. _`WSREP_LAST_WRITTEN_GTID`:
+.. rubric:: ``WSREP_LAST_WRITTEN_GTID()``
 .. index::
    pair: Functions; WSREP_LAST_WRITTEN_GTID()
 .. index::
@@ -78,9 +79,8 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
    SELECT WSREP_LAST_WRITTEN_GTID();
 
-
-.. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
 .. _`WSREP_SYNC_WAIT_UPTO_GTID`:
+.. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
 .. index::
    pair: Functions; WSREP_SYNC_WAIT_UPTO_GTID()
 .. index::

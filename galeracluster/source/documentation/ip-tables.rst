@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =========================================
 Firewall Configuration with ``iptables``
 =========================================
@@ -7,18 +9,19 @@ Linux provides packet filtering support at the kernel level.  Using ``iptables``
 
 There are several tables that the kernel uses for packet filtering and within these tables are chains that it match specific kinds of traffic.  In order to open the relevant ports for Galera Cluster, you need to append new rules to the ``INPUT`` chain on the filter table.
 
+.. _`iptables-ports`:
+
 ----------------------------------
 Opening Ports for Galera Cluster
 ----------------------------------
-.. _`iptables-ports`:
 
 Galera Cluster requires four ports for replication.  There are two approaches to configuring the firewall to open these ``iptables``.  The method you use depends on whether you deploy the cluster in a :abbr:`LAN (Local Area Network)` environment, such as an office network, or if you deploy the cluster in a :abbr:`WAN (Wide Area Network)` environment, such as on several cloud servers over the internet.
 
+.. _`iptables-lan-config`:
 
 ^^^^^^^^^^^^^^^^^^
 LAN Configuration
 ^^^^^^^^^^^^^^^^^^
-.. _`iptables-lan-config`:
 
 When configuring packet filtering rules for a :abbr:`LAN (Local Area Network)` environment, such as on an office network, there are four ports that you need to open to :abbr:`TCP (Transmission Control Protocol)` for Galera Cluster and one to :abbr:`UDP (User Datagram Protocol)` transport to enable multicast replication.  This means five commands that you must run on each cluster node:
 
@@ -46,10 +49,11 @@ These commands open the relevant ports to :abbr:`TCP (Transmission Control Proto
 
 Galera Cluster can now pass packets through the firewall to the node, but the configuration reverts to default on reboot.  In order to update the default firewall configuration, see :ref:`Making Firewall Changes Persistent <persistent-config>`.
 
+.. _`iptables-wan-config`:
+
 ^^^^^^^^^^^^^^^^^^^
 WAN Configuration
 ^^^^^^^^^^^^^^^^^^^
-.. _`iptables-wan-config`:
 
 While the configuration shown above for :abbr:`LAN (Local Area Network)` deployments offers the better security, only opening those ports necessary for cluster operation, it does not scale well into :abbr:`WAN (Wide Area Network)` deployments.  The reason is that in a :abbr:`WAN (Wide Area Network)` environment the IP addresses are not in sequence.  The four commands to open the relevant ports to :abbr:`TCP (Transmission Control Protocol)` would grow to four commands per node on each node.  That is, for ten nodes you would need to run four hundred ``iptables`` commands across the cluster in order to set up the firewall on each node.
 
@@ -72,10 +76,11 @@ When these commands are run on each node, they set the node to accept :abbr:`TCP
 Galera Cluster can now pass packets through the firewall to the node, but the configuration reverts to default on reboot.  In order to update the default firewall configuration, see :ref:`Making Firewall Changes Persistent <persistent-config>`.
 
 
+.. _`persistent-config`:
+
 ------------------------------------
 Making Firewall Changes Persistent
 ------------------------------------
-.. _`persistent-config`:
 
 Whether you decide to open ports individually for :abbr:`LAN (Local Area Network)` deployment or in a range between trusted hosts for a :abbr:`WAN (Wide Area Network)` deployment, the tables you configure in the above sections are not persistent.  When the server reboots, the firewall reverts to its default state.
 
@@ -97,7 +102,6 @@ Once you find where your system stores the rules file, use ``iptables-save`` to 
    # iptables-save > /etc/sysconfig/iptables
 
 When your system reboots, it now reads this file as the default packet filtering rules.
-
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

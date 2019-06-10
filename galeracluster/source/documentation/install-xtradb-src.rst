@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ============================================
 Percona XtraDB Cluster - Source Installation
 ============================================
@@ -8,11 +10,11 @@ Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL
 
 .. note:: In the event that you built Percona XtraDB Cluster over an existing standalone instance of Percona XtraDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
+.. _`installxtradb-prep-server`:
 
 ---------------------------
 Preparing the Server
 ---------------------------
-.. _`installxtradb-prep-server`:
 
 When building from source code, ``make`` cannot manage or install dependencies necessary for either Galera Cluster itself or the build process.  You need to install these packages first.
 
@@ -37,10 +39,11 @@ In the event that neither command works for your system or that you use a differ
 Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.
 
 
+.. _`build-percona-xtradb`:
+
 ---------------------------------
 Building Percona XtraDB Cluster
 ---------------------------------
-.. _`build-percona-xtradb`:
 
 The source code for Percona XtraDB Cluster is available through GitHub_.  Using Git you can download the source to build both Percona XtraDB Cluster and the Galera Replication Plugin locally on your system.
 
@@ -72,10 +75,11 @@ In addition to the database server, you also need the wsrep Provider, also known
 
 Once Git finishes downloading the source file,s you can start building the database server and the Galera Replication Plugin.  You now have the source file for the database server in a ``percona-xtradb-cluster/`` and the Galera source files in ``galera/``.
 
+.. _`build-percona`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the Database Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`build-percona`:
 
 The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of Percona XtraDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through  the wsrep API, requires that you enable it through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
@@ -96,10 +100,11 @@ To build the database server, ``cd`` into the ``percona-xtradb-cluster`` directo
 	  This has the same effect as running the above commands with various build options pre-configured.  There are several build scripts available in the ``BUILD/`` directory.  Select the one that best suits your nees.
 
 
+.. _`build-percona-galera`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the wsrep Provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`build-percona-galera`:
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
 
@@ -117,10 +122,12 @@ This process creates the Galera Replication Plugin, (that is, the ``libgalera_sm
 
 	     # pkg install galera
 
+
+.. _`installxtradb-postinstall`:
+
 --------------------------------
 Post-installation Configuration
 --------------------------------
-.. _`installxtradb-postinstall`:
 
 After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configuration process listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
 

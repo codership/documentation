@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ==============================================
 Galera Cluster for MySQL - Binary Installation
 ==============================================
@@ -5,17 +7,20 @@ Galera Cluster for MySQL - Binary Installation
 
 Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Linux distributions using ``apt-get``, ``yum`` and ``zypper`` package managers through the Codership repository.
 
+
+.. _`mysql-repo`:
+
 ----------------------------------
 Enabling the Codership repository
 ----------------------------------
-.. _`mysql-repo`:
 
 In order to install Galera Cluster for MySQL through your package manager, you need to first enable the Codership repository on your system.  There are different ways to accomplish this, depending on which Linux distribution and package manager you use.
+
+.. _`mysql-deb`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``apt`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mysql-deb`:
 
 For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the Software Properties.  The package names vary depending on your distribution.  For Debian, in the terminal run the following command:
 
@@ -82,12 +87,11 @@ Once you have the Software Properties installed, you can enable the Codership re
 Packages in the Codership repository are now available for installation through ``apt-get``.
 
 
+.. _`mysql-yum-repo`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``yum`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mysql-yum-repo`:
-
 
 For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``galera.repo`` file to the ``/etc/yum.repos.d/`` directory.
 
@@ -120,10 +124,11 @@ In the ``baseurl`` field, make the following changes to web address:
 
 Packages in the Codership repository are now available for installation through ``yum``.
 
+.. _`mysql-zypper-repo`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``zypper`` Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mysql-zypper-repo`:
 
 For distributions that use ``zypper`` for package management, such as openSUSE and SUSE Linux Enterprise Server, you can enable the Codership repository by importing the GPG key and then creating a ``galera.repo`` file in the local directory.
 
@@ -171,11 +176,11 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 Packages in the Codership repository are now available for installation through ``zypper``.
 
 
+.. _`mysql-install`:
 
 -----------------------------------
 Installing Galera Cluster for MySQL
 -----------------------------------
-.. _`mysql-install`:
 
 
 There are two packages involved in the installation of Galera Cluster for MySQL: the MySQL database server, built to include the :term:`wsrep API`; and the :term:`Galera Replication Plugin`.
@@ -213,11 +218,11 @@ Galera Cluster for MySQL is now installed on your server.  You need to repeat th
 
 .. note:: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
+.. _`centos-mysql-shared-compt`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 MySQL Shared Compatibility Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`centos-mysql-shared-compt`:
 
 When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check error that blocks the installation.
 

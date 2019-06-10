@@ -1,6 +1,8 @@
-------------------------------
+.. cssclass:: library-document
+
+====================
 Cluster Monitoring
-------------------------------
+====================
 .. _`monitor`:
 
 Occasionally, you may want or need to check on the status of the cluster. For instance, you may want to check the state of nodes. You may want to check for network connectivity problems amongst nodes.

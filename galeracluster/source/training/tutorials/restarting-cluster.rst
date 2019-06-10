@@ -1,7 +1,13 @@
+.. cssclass:: tutorial-article
+
 ================================
 Restarting the Cluster
 ================================
 .. _`restarting-cluster`:
+
+.. rst-class:: list-stats
+
+   Length:  791 words; Published: October 20, 2014; Topic: General; Level: Beginner
 
 Occasionally, you may have to restart an entire Galera Cluster.  This may happen, for example, when there is a power failure in which every node is shut down and you have no ``mysqld`` process.  Restarting a cluster, starting nodes in the wrong order, starting the wrong nodes first, can be devastating and lead to loss of data.
 

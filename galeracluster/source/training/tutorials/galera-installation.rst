@@ -1,7 +1,13 @@
+.. cssclass:: tutorial-article
+
 ==============
 Installation
 ==============
 .. _`galera-installation`:
+
+.. rst-class:: list-stats
+
+   Length: 946 words; Published: October 20, 2014; Topic: General; Level: Beginner
 
 Galera Cluster requires server hardware for a minimum of three nodes.
 
@@ -100,7 +106,7 @@ When you find the relevant file, you can save the rules using the ``iptables-sav
 
 When ``iptables`` starts it now reads the new defaults, with your updates to the firewall.
 
-.. note:: For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`Firewall Settings <../../../documentation/firewall-settings>`.
+For more information on setting up the firewall for Galera Cluster and other programs for configuring packet filtering in Linux and FreeBSD, see :doc:`Firewall Settings <../../../documentation/firewall-settings>`.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

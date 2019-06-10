@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ============================
 Migrating to Galera Cluster
 ============================
@@ -7,12 +9,14 @@ For systems that already have instances of the standalone versions of MySQL or M
 
 When upgrading from a standalone database server, you must take some additional steps in order to subsequently preserve and use your data with Galera Cluster.
 
-.. note:: For more information on installing Galera Cluster, see :doc:`Galera Installation <../training/tutorials/galera-installation>`.
+For more information on installing Galera Cluster, see :doc:`Galera Installation <../training/tutorials/galera-installation>`.
+
+
+.. _`upgrade-system-tables`:
 
 -----------------------------------
 Upgrading System Tables
 -----------------------------------
-.. _`upgrade-system-tables`:
 
 When you finish upgrading a standalone database server to Galera Cluster, but before you initialize your own cluster, you need to update the system tables to take advantage of the new privileges and capabilities.  You can do this with ``mysql_upgrade``.
 
@@ -50,13 +54,14 @@ For servers that use ``systemd``, instead use this command:
 
 Running this command stops database server.  When you are ready to initialize your cluster, choose this server as your starting node.
 
-.. note:: For more information on initializing and adding nodes to a cluster, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
+For more information on initializing and adding nodes to a cluster, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
 
+
+.. _`migrating-mysql-galera`:
 
 ---------------------------------------
 Migrating from MySQL to Galera Cluster
 ---------------------------------------
-.. _`migrating-mysql-galera`:
 
 In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL master-slave replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
 
@@ -69,10 +74,11 @@ There are three types of database servers referred to in this guide:
 For the sake of simplicity, slave servers and cluster nodes are referenced collectively, rather than individually.  In production, you may have several slave servers and must have at least three cluster nodes.
 
 
+.. _`migrate-infrastructure`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Infrastructure Preparation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`migrate-infrastructure`:
 
 For your existing infrastructure, you have a MySQL master server as well as several slave servers that form a master-slave cluster.  Before you can begin migration, you first need to prepare your infrastructure for the change.
 
@@ -100,10 +106,12 @@ To check that it is running properly, log into one of the database clients and r
 
 Galera Cluster is now running in parallel to your MySQL master-slave cluster.  It contains no data and remains unused by your application servers.  You can now begin migrating your data.
 
+
+.. _`migrate-data`:
+
 ^^^^^^^^^^^^^^^^^^^
 Data Migration
 ^^^^^^^^^^^^^^^^^^^
-.. _`migrate-data`:
 
 In order to migrate data from a MySQL master-slave cluster to Galera Cluster, you need to manually transfer it from your existing infrastructure to the new one.
 
@@ -136,10 +144,11 @@ Your application now uses Galera Cluster, instead of your previous MySQL master-
 .. note:: Bear in mind that your application will experience downtime at this stage of the process.  The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the master server, then transfer and upload it onto a cluster node.
 
 
+.. _`migrate-db`:
+
 ^^^^^^^^^^^^^^^^^^^^
 Database Migration
 ^^^^^^^^^^^^^^^^^^^^
-.. _`migrate-db`:
 
 With your application server now using the new cluster nodes, you now need to migrate your master and slave servers from stock MySQL to Galera Cluster.
 
@@ -169,7 +178,7 @@ With your application server now using the new cluster nodes, you now need to mi
 
       # mysql_upgrade
 
-   .. note:: For more information, see :ref:`Upgrading System Tables <upgrade-system-tables>`.
+    For more information, see :ref:`Upgrading System Tables <upgrade-system-tables>`.
 
 #. From one of the running Galera Cluster nodes, copy the ``grastate.dat`` file into the data directory of the former MySQL master server.
 

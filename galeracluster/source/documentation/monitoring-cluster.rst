@@ -1,6 +1,8 @@
-===============================
+.. cssclass:: library-document
+
+========================
 Using Status Variables
-===============================
+========================
 .. _`monitoring-cluster`:
 
 .. index::
@@ -24,10 +26,11 @@ From the database client, you can check the status of write-set replication thro
 .. note:: In addition to checking status variables through the database client, you can also monitor for changes in cluster membership and node status through ``wsrep_notify_cmd.sh``.  For more information on its use, see :doc:`notification-cmd`.
 
 
+.. _`check-cluster-integrity`:
+
 ---------------------------------
  Checking Cluster Integrity
 ---------------------------------
-.. _`check-cluster-integrity`:
 
 .. index::
    pair: Parameters; wsrep_cluster_state_uuid
@@ -104,11 +107,11 @@ When these status variables check out and return the desired results on each nod
 
 
 
+.. _`check-node-status`:
 
 ---------------------------------
  Checking the Node Status
 ---------------------------------
-.. _`check-node-status`:
 
 .. index::
    pair: Parameters; wsrep_cluster_address
@@ -179,11 +182,12 @@ In addition to checking cluster integrity, you can also monitor the status of in
 In the event that each status variable returns the desired values, the node is in working order.  This means that it is receiving write-sets from the cluster and replicating them to tables in the local database.
 
 
+.. _`check-replication-health`:
 
 ---------------------------------
  Checking the Replication Health
 ---------------------------------
-.. _`check-replication-health`:
+
 .. index::
    pair: Parameters; wsrep_flow_control_paused
 .. index::
@@ -251,11 +255,12 @@ You can monitor the local received queue and Flow Control using the following st
 
   This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter, given that there is no reason to assign more slave threads than transactions you can apply in parallel.
 
+.. _`check-network-issues`:
 
 ---------------------------------
  Detecting Slow Network Issues
 ---------------------------------
-.. _`check-network-issues`:
+
 .. index::
    pair: Parameters; wsrep_local_send_queue_avg
 .. index::

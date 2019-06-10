@@ -1,5 +1,7 @@
+.. cssclass:: kb-article
+
 =========================
- Detecting a Slow Node
+Detecting a Slow Node
 =========================
 .. _`kb-best-detecting-slow-node`:
 

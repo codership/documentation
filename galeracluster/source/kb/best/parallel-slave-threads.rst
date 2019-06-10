@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 ===============================
 Setting Parallel Slave Threads
 ===============================

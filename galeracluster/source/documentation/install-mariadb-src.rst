@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ===========================================
 MariaDB Galera Cluster- Source Installation
 ===========================================
@@ -10,11 +12,11 @@ MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL
 
 
 
+.. _`installmariadb-prep-server`:
 
 ---------------------------------
 Preparing the Server
 ---------------------------------
-.. _`installmariadb-prep-server`:
 
 When building from source code, ``make`` cannot manage or install dependencies for either Galera Cluster or the build process itself.  You need to install these packages first.
 
@@ -39,10 +41,11 @@ In the event that neither command works for your system or that you use a differ
 Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.
 
 
+.. _`build-galera-mariadb`:
+
 -----------------------------------------
 Building MariaDB Galera Cluster
 -----------------------------------------
-.. _`build-galera-mariadb`:
 
 The source code for MariaDB Galera Cluster is available through GitHub_. Using Git you can download the source code to build MariaDB and the Galera Replicator Plugin locally on your system.
 
@@ -81,10 +84,11 @@ In addition to the database server, you also need the wsrep Provider, also known
 
 Once Git finishes downloading the source files, you can start building the database server and the Galera Replicator Plugin.  You now have the source files for the database server in a ``server/`` directory and the Galera source files in ``galera/``.
 
+.. _`build-mariadb`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the Database Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`build-mariadb`:
 
 The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MariaDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
@@ -105,10 +109,12 @@ To build the database server, ``cd`` into the ``server/`` directory and run the 
 
 	  This has the same effect as running the above commands with various build options pre-configured.  There are several build scripts available in the directory, select the one that best suits your needs.
 
+
+.. _`build-mariadb-galera`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the wsrep Provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`build-mariadb-galera`:
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
 
@@ -126,10 +132,12 @@ This process creates the Galera Replication Pluigin, (that is, the ``libgalera_s
 
 	     # pkg install galera
 
+
+.. _`installmariadb-postinstall`:
+
 --------------------------------
 Post-installation Configuration
 --------------------------------
-.. _`installmariadb-postinstall`:
 
 After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configuration process listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
 

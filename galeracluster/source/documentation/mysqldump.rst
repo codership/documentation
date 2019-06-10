@@ -1,15 +1,18 @@
-=============================
+.. cssclass:: library-document
+
+=======================
 Enabling ``mysqldump``
-=============================
+=======================
 .. _`mysqldump`:
 
 The :term:`Logical State Transfer Method` ``mysqldump`` works by interfacing through the database server rather than the physical data.  As such, it requires some additional configuration, besides setting the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.
 
 
+.. _`sst-privileges`:
+
 --------------------------------------
 Configuring SST Privileges
 --------------------------------------
-.. _`sst-privileges`:
 
 In order for ``mysqldump`` to interface with the database server, it requires root connections for both the donor and joiner nodes.  You can enable this through the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.
 
@@ -23,10 +26,11 @@ Using a text editor, open the ``wsrep.cnf`` file--it should be in the ``/etc/mys
 You would use your own authentication parameters in place of ``wsrep_sst_user`` and ``password``. This line will provide authentication information that the node will need to establish connections. Use the same values for every node in the cluster.
 
 
+.. _`sst_authorization`:
+
 --------------------------
 Granting SST Privileges
 --------------------------
-.. _`sst_authorization`:
 
 When the database server starts, it will read from the ``wsrep.cnf`` file to get the authentication information it needs to access another database server.  In order for the node to accept connections from the cluster, you must also create and configure the State Snapshot Transfer user through the database client.
 

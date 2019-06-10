@@ -1,6 +1,8 @@
-==========================
+.. cssclass:: library-document
+
+==============
 Using Docker
-==========================
+==============
 .. _`docker`:
 
 Docker provides an open source platform for automatically deploying applications within software containers.
@@ -10,10 +12,11 @@ Galera Cluster can run from within a such a container, within Docker.  You may f
 .. note:: This guide assumes that you are only running one container node per server.  For more information on running multiple nodes per server, see *Getting Started Galera with Docker, `Part I <http://galeracluster.com/2015/05/getting-started-galera-with-docker-part-1/>`_ and `Part II <http://galeracluster.com/2015/05/getting-started-galera-with-docker-part-2-2/>`_.*
 
 
+.. _`configure-container`:
+
 ---------------------------
 Configuring a Container
 ---------------------------
-.. _`configure-container`:
 
 Images are the containers that Docker has available to run.  There are a number of base images available through `Docker Hub <https://registry.hub.docker.com>`_.  You can pull these to your system through the ``docker`` command-line tool.  You can also build new images.
 
@@ -43,10 +46,11 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
 This example follows the installation process for running Galera Cluster from within a Docker container running on Ubuntu.  When you run the build command, Docker pulls down the Ubuntu 14.04 image from Docker Hub, if it's needed. It then runs each command in the ``Dockerfile`` to initialize the image for your use.
 
 
+.. _`docker-my-cnf`:
+
 ^^^^^^^^^^^^^^^^^^^^
 Configuration File
 ^^^^^^^^^^^^^^^^^^^^
-.. _`docker-my-cnf`:
 
 Before you build the container, you need to create the configuration file for the node.  The ``COPY`` command in the ``Dockerfile`` example above copies ``my.cnf``, the MySQL configuration file, from the build directory into the container.
 
@@ -62,10 +66,11 @@ Changes to the ``my.cnf`` file will not propagate into an existing container.  T
 
 
 
+.. _`building-the-container`:
+
 -----------------------------
 Building a Container Image
 -----------------------------
-.. _`building-the-container`:
 
 Building an image simplifies everyting---the node installation, the configuration and the deployment process---by reducing it to a single command.  It will create a server instance where Galera Cluster is already installed, configured and ready to start.
 
@@ -95,11 +100,11 @@ You would then update the container tag to help differentiate between each node 
    [root@node3]# docker build -t ubuntu:galera-node3 ./
 
 
+.. _`deploy-container`:
 
 -------------------------
 Deploying a Container
 -------------------------
-.. _`deploy-container`:
 
 When you finish building an image, you're ready to launch the node container.  For each node, start the container using the Docker command-line tool with the ``run`` argument like so:
 
@@ -117,11 +122,11 @@ You'll notice in the example here there are several ``-p`` options included. Tho
 .. note:: The above command starts a container node meant to be attached to an existing cluster.  If you're starting the first node in a cluster, append the argument ``--wsrep-new-cluster`` to the end of the command.  For more information, see :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`.
 
 
+.. _`docker-firewall`:
 
 ^^^^^^^^^^^^^^^^^^^
 Firewall Settings
 ^^^^^^^^^^^^^^^^^^^
-.. _`docker-firewall`:
 
 When you launch the Docker container (i.e., ``docker run`` as shown above), the series of ``-p`` options connect the ports on the host system to those in the container.  When the container is launched this way, nodes in the container have the same level of access to the network as the node would if it were running on the host system.
 
@@ -130,10 +135,11 @@ Use these settings, though, when you run only one container on the server.  If y
 For more information on configuring the firewall for Galera Cluster, see :doc:`Firewall Settings <firewall-settings>`.
 
 
+.. _`docker-data`:
+
 ^^^^^^^^^^^^^^^^^^
 Persistent Data
 ^^^^^^^^^^^^^^^^^^
-.. _`docker-data`:
 
 Docker containers are not meant to carry persistent data.  When you close a container, the data it carries is lost.  To avoid this problem, you can link volumes in the container to directories on the host file system. This is done with the ``-v`` option when you launch the container.
 

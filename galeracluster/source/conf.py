@@ -41,8 +41,12 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
+import datetime
+copyright = "Copyright 2013 - %s, Codership Oy. All Rights Reserved." % datetime.datetime.now().year
+
 project = 'Galera Cluster'
-copyright = '2013 - 2019, Codership Oy'
+
+rst_epilog = '.. |site-copyright| replace:: %s' % copyright
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

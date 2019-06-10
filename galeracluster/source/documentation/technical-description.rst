@@ -1,12 +1,15 @@
+.. cssclass:: library-document
+
 ======================
- Technical Description
+Technical Description
 ======================
 .. _`tech-description`:
 
 Galera Cluster is a synchronous certification-based replication solution for MySQL, MariaDB and Percona XtraDB.  Cluster nodes are identical and fully representative of the cluster state. They allow for unconstrained transparent client access, acting as a single-distributed database server.  In order to better understand Galera Cluster, this section provides detailed information on how it works and how you can benefit from it.
 
-.. rubric:: Understanding Replication
+
 .. _`understanding-repl`:
+.. rubric:: Understanding Replication
 
 Replication in the context of databases refers to the frequent copying of data from one database server to another.  These sections provide a high-level explanation of replication both in the general sense of how it works, as well as the particulars of how Galera Cluster implements these core concepts.
 
@@ -19,8 +22,8 @@ Replication in the context of databases refers to the frequent copying of data f
   Using group communications and transaction ordering techniques, certification-based replication allows for synchronous replication.
 
 
-.. rubric:: Understanding Galera Cluster
 .. _`understanding-galera`:
+.. rubric:: Understanding Galera Cluster
 
 With a better grasp on how replication works, these pages provide a more detailed explanation of how Galera Cluster implements certification-based replication, including the specific architecture of the nodes, how they communicate with each other, as well as replicate data and manage the replication process.
 

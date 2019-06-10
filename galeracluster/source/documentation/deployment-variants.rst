@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ==============================
  Cluster Deployment Variants
 ==============================
@@ -8,11 +10,11 @@ A Galera Cluster will consist of multiple nodes, preferably three or more.  Each
 Galera Cluster provides synchronous multi-master replication. You can treat the cluster as a single database server that listens through many interfaces.  To appreciate this, consider a typical *n*-tier application and the various benefits that would come from deploying it with Galera Cluster.
 
 
+.. _`no-clustering`:
 
 -------------------
  No Clustering
 -------------------
-.. _`no-clustering`:
 
 In the typical *n*-tier application cluster without database clustering, there's no concern for database replication or synchronization.
 
@@ -31,16 +33,15 @@ For example, if for any reason the :abbr:`DBMS (Database Management System)` ser
 Similarly, this deployment also introduces performance concerns.  While you can start as many instances as you need to meet the demands on your web and application servers, they can only so much load on the :abbr:`DBMS (Database Management System)` server can be handled before the load begins to slow end-user activities.
 
 
+.. _`whole-stack-cluster`:
+
 ----------------------------
  Whole Stack Clustering
 ----------------------------
-.. _`whole-stack-cluster`:
 
 In the typical *n*-tier application cluster you can avoid the performance bottleneck by building a whole stack cluster.
 
 Internet traffic filters down to the application server, which stores data on its own dedicated :abbr:`DBMS (Database Management System)` server.  Galera Cluster then replicates the data through to the cluster, ensuring it remains synchronous.
-
-
 
 .. figure:: ../images/galerausecases1.png
 
@@ -63,10 +64,11 @@ There are, however, certain disadvantages to whole stack clustering that you sho
 Despite the disadvantages, however, this setup can prove very usable for several applications, depending on your needs.
 
 
+.. _`data-tier-cluster`:
+
 -----------------------
 Data Tier Clustering
 -----------------------
-.. _`data-tier-cluster`:
 
 To compensate for the shortcomings in whole stack clusters, you can cluster the data tier separately from your web and application servers.
 
@@ -89,10 +91,11 @@ There are, however, certain disadvantages to consider in data tier clustering:
 - **Scalability**: This setup doesn't scale well over several datacenters.  Attempts to do so may reduce any benefits you gain from resource consolidation, given that each datacenter must include at least two :abbr:`DBMS (Database Management System)` servers.
 
 
+.. _`data-tier-load-balancers`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Data Tier Clustering with Distributed Load Balancing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`data-tier-load-balancers`:
 
 One solution to the limitations of data tier clustering is to deploy them with distributed load balancing.  This method roughly follows the standard data tier cluster method, but includes a dedicated load balancer installed on each application server.
 
@@ -107,10 +110,11 @@ Data tier clustering with distributed load balancing has the following disadvant
 - **Complex Management**: Each application server deployed for an *n*-tier application cluster will require another load balancer that you need to set up, manage and reconfigure whenever you change or otherwise update the database cluster configuring.
 
 
+.. _`aggregated-stack-cluster`:
+
 --------------------------------
 Aggregated Stack Clustering
 --------------------------------
-.. _`aggregated-stack-cluster`:
 
 Besides the deployment methods already mentioned, you could set up a hybrid method that integrates whole stack and data tier clustering by aggregating several application stacks around single :abbr:`DBMS (Database Management System)` servers.
 

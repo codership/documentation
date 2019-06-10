@@ -1,7 +1,8 @@
+.. cssclass:: library-document
 
-===============================
+========================
 Logical State Snapshot
-===============================
+========================
 .. _`sst-logical`:
 
 There is one back-end method available for a Logical State Snapshots: ``mysqldump``.
@@ -23,10 +24,11 @@ The Logical State Transfer Method has the following disadvantages:
 - The receiving server must have a non-corrupted database.
 
 
+.. _`mysqldump`:
+
 --------------------------
 ``mysqldump``
 --------------------------
-.. _`mysqldump`:
 
 The main advantage of ``mysqldump`` is that you can transfer a state snapshot to a working server.  That is, you start the server standalone and then instruct it to join a cluster from within the database client command line.  You can also use it to migrate from an older database format to a newer one.
 
@@ -46,4 +48,4 @@ Because ``mysqldump`` interfaces through the database client, configuring it req
 
    mysqldump
 
-.. note:: For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.
+For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.

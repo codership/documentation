@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =====================
 Database Server Logs
 =====================
@@ -6,10 +8,11 @@ Database Server Logs
 Galera Cluster provides the same database server logging features available to MySQL, MariaDB and Percona XtraDB, depending on which you use.  By default, it writes errors to a ``<hostname>.err`` file in the data directory.  You can change this in the ``my.cnf`` configuration file using the `log_error <https://dev.mysql.com/doc/refman/5.6/en/server-options.html#option_mysqld_log-error>`_ option, or by using the ``--log-error`` parameter.
 
 
+.. _`server-log-parameters`:
+
 ------------------------
 Log Parameters
 ------------------------
-.. _`server-log-parameters`:
 
 Galera Cluster provides parameters and wsrep options that allow you to enable error logging on events that are specific to the replication process.  If you have a script monitoring the logs, these entires can give you information on conflicts occurring in the replication process.
 
@@ -32,11 +35,11 @@ You can enable these through the ``my.cnf`` configuration file.  The excerpt bel
    wsrep_debug=ON
 
 
+.. _`gra.log`:
 
 --------------------------
 Additional Log Files
 --------------------------
-.. _`gra.log`:
 
 Whenever a node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.
 

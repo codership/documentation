@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ===================
 Weighted Quorum
 ===================
@@ -10,11 +12,12 @@ Under normal operations, your Primary Component is the cluster.  When cluster pa
 .. note:: In addition to the individual node, quorum calculations also take into account a separate process called ``garbd``.  For more information on its configuration and use, see :doc:`arbitrator`.
 
 
+.. _`weighted-quorum`:
 
 -------------------
  Weighted Quorum
 -------------------
-.. _`weighted-quorum`:
+
 .. index::
    pair: Weighted Quorum; Descriptions
 .. index::
@@ -49,11 +52,12 @@ In order to enable automatic failovers, you need to use at least three nodes.  B
 
 - Clusters spanning data centers should use a minimum of 3 data centers.
 
-^^^^^^^^^^^^^^^^^^^^^^^
-Split-brain Condition
-^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _`split-brain-condition`:
+
+^^^^^^^^^^^^^^^^^^^^^^^
+Split-Brain Condition
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Cluster failures that result in database nodes operating autonomous of each other are called split-brain conditions.  When this occurs, data can become irreparably corrupted, such as would occur when two database nodes independently update the same row on the same table.  As is the case with any quorum-based system, Galera Cluster is subject to split-brain conditions when the quorum algorithm fails to select a :term:`Primary Component`.
 
@@ -71,15 +75,16 @@ To minimize the risk of this happening in clusters that do have an even number o
 
 In these partitioning examples, it is very difficult for any outage or failure to cause the nodes to split exactly in half.
 
+For more information on configuring and managing the quorum, see :doc:`quorum-reset`.
 
-.. note:: For more information on configuring and managing the quorum, see :doc:`quorum-reset`.
 
 
+.. _`quorum-calculation`:
 
 -------------------
 Quorum Calculation
 -------------------
-.. _`quorum-calculation`:
+
 .. index::
    pair: Parameters; pc.weight
 
@@ -120,18 +125,20 @@ You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter. 
    In other words, there is a corner case where the entire cluster can become non-primary component, if the weight changing message is sent at the moment when partitioning takes place.  Recovering from such a situation should be done either by waiting for a re-merge or by inspecting which partition is most advanced and by bootstrapping it as a new Primary Component.
 
 
+.. _`weighted-quorum-examples`:
+
 ---------------------------------
  Weighted Quorum Examples
 ---------------------------------
-.. _`weighted-quorum-examples`:
 
 Now that you understand how quorum weights work, here are some examples of deployment patterns and how to use them.
 
 
+.. _`wq-three-nodes`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Weighted Quorum for Three Nodes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`wq-three-nodes`:
 
 When configuring quorum weights for three nodes, use the following pattern:
 
@@ -143,10 +150,12 @@ When configuring quorum weights for three nodes, use the following pattern:
 
 Under this pattern, killing ``node2`` and ``node3`` simultaneously preserves the :term:`Primary Component` on ``node1``.  Killing ``node1`` causes ``node2`` and ``node3`` to become non-primary components.
 
+
+.. _`wq-simple-master-slave`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Weighted Quorum for a Simple Master-Slave Scenario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`wq-simple-master-slave`:
 
 When configuring quorum weights for a simple master-slave scenario, use the following pattern:
 
@@ -157,10 +166,12 @@ When configuring quorum weights for a simple master-slave scenario, use the foll
 
 Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary component.  However, in the event that ``node2`` dies, ``node1`` continues as the :term:`Primary Component`.  If the network connection between the nodes fails, ``node1`` continues as the Primary Component while ``node2`` becomes a non-primary component.
 
+
+.. _`wq-master-multi-slave`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Weighted Quorum for a Master and Multiple Slaves Scenario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`wq-master-multi-slave`:
 
 When configuring quorum weights for a master-slave scenario that features multiple slave nodes, use the following pattern:
 
@@ -174,10 +185,12 @@ When configuring quorum weights for a master-slave scenario that features multip
 
 Under this pattern, if ``node1`` dies, all remaining nodes end up as non-primary components.  If any other node dies, the :term:`Primary Component` is preserved.  In the case of network partitioning, ``node1`` always remains as the Primary Component.
 
+
+.. _`wq-primary-secondary-site`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Weighted Quorum for a Primary and Secondary Site Scenario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`wq-primary-secondary-site`:
 
 When configuring quorum weights for primary and secondary sites, use the following pattern:
 
@@ -190,7 +203,6 @@ When configuring quorum weights for primary and secondary sites, use the followi
    Secondary Site:
      node3: pc.weight = 1
      node4: pc.weight = 1
-
 
 Under this pattern, some nodes are located at the primary site while others are at the secondary site.  In the event that the secondary site goes down or if network connectivity is lost between the sites, the nodes at the primary site remain the :term:`Primary Component`.  Additionally, either ``node1`` or ``node2`` can crash without the rest of the nodes becoming non-primary components.
 

@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ==============================================
 Galera Cluster for MySQL - Source Installation
 ==============================================
@@ -9,11 +11,11 @@ Galera Cluster for MySQL is the reference implementation from Codership Oy.  Bin
 .. note:: If you built Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
 
 
+.. _`mysql-build-dep`:
 
 ------------------------------
 Installing Build Dependencies
 ------------------------------
-.. _`mysql-build-dep`:
 
 When building from source code, ``make`` cannot manage or install dependencies for either Galera Cluster or the build process itself.  You need to install these first.  For Debian-based systems, run the following command:
 
@@ -37,11 +39,11 @@ In the event that neither command works on your system or that you use a differe
 Check with the repositories for your distribution or system for the appropriate package names to use during installation.  Bear in mind that different systems may use different names and that some may require additional packages to run.  For instance, to run CMake on Fedora you need both ``cmake`` and ``cmake-fedora``.
 
 
+.. _`build-galera-mysql`:
 
 ---------------------------------
 Building Galera Cluster for MySQL
 ---------------------------------
-.. `build-galera-mysql`:
 
 The source code for Galera Cluster for MySQL is available through GitHub_.  You can download the source code from the website or directly using ``git``.  In order to build Galera Cluster, you need to download both the database server with the wsrep API patch and the :term:`Galera Replication Plugin`.
 
@@ -76,10 +78,12 @@ In addition to the database server, you need the wsrep Provider, also known as t
 
 Once Git finishes downloading the source files, you can start building the database server and the Galera Replication Plugin.  The above procedures created two directories: ``mysql-wsrep/`` for the database server source and for the Galera source ``galera/``
 
+
+.. _`build-mysql`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the Database Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`build-mysql`:
 
 The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MySQL, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through  the wsrep API, requires that you enable it through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
@@ -92,10 +96,11 @@ To build the database server, ``cd`` into the ``mysql-wsrep/`` directory and run
    # make install
 
 
+.. _`build-mysql-galera`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Building the wsrep Provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`build-mysql-galera`:
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
 
@@ -110,11 +115,11 @@ This process creates the Galera Replication Plugin, (that is, the ``libgalera_sm
 .. note:: For FreeBSD users, building the Galera Replicator Plugin from source raises certain Linux compatibility issues.  You can mitigate these by using the ports build at ``/usr/ports/databases/galera``.
 
 
+.. _`installmysql-postinstall`:
 
 ----------------------------------
 Post-installation Configuration
 ----------------------------------
-.. _`installmysql-postinstall`:
 
 After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configurations listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
 

@@ -1,7 +1,13 @@
+.. cssclass:: tutorial-article
+
 ==========================
 System Configuration
 ==========================
 .. _`configuration`:
+
+.. rst-class:: list-stats
+
+   Length:  964 words; Writer: Staff; Published: October 20, 2014; Topic: General; Level: Beginner
 
 After you finish installing Galera Cluster on your server, you're ready to configure the database itself to serve as a node in a cluster.  To do this, you'll need to edit the MySQL configuration file.
 

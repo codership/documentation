@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 =======================
 Two-Node Clusters
 =======================

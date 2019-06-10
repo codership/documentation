@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ==================================
 SSL for State Snapshot Transfers
 ==================================
@@ -10,10 +12,11 @@ The particular method you use to secure the State Snapshot Transfer through SSL 
 .. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you want to enable this feature with an existing cluster you need to restart the entire cluster.
 
 
+.. _`ssl-mysqldump`:
+
 ----------------------------------
 Enabling SSL for ``mysqldump``
 ----------------------------------
-.. _`ssl-mysqldump`:
 
 The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client through SSL.  Given that ``mysqldump`` connects through the database client, you can use the same SSL certificates you created for replication traffic.
 
@@ -92,10 +95,12 @@ With the user now on every node, you can shut the cluster down to enable SSL for
 
 This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`.
 
+
+.. _`ssl-xtrabackup`:
+
 -----------------------------------
 Enabling SSL for ``xtrabackup``
 -----------------------------------
-.. _`ssl-xtrabackup`:
 
 The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  Unlike ``rsync``, ``xtrabackup`` includes support for SSL encryption built in.
 

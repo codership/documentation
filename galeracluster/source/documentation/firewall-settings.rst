@@ -1,6 +1,8 @@
-=============================
+.. cssclass:: library-document
+
+=====================
  Firewall Settings
-=============================
+=====================
 .. _`firewall-settings`:
 .. index::
    pair: iptables; Firewall settings

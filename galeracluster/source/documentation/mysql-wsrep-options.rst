@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ======================
  MySQL wsrep Options
 ======================
@@ -150,30 +152,25 @@ You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as s
 
 The results will vary depending on which version of Galera is running on your server. All of the parameters and variables possible are listed above, but they're listed below with explanations of each.
 
-
-.. rubric:: ``wsrep_auto_increment_control``
 .. _`wsrep_auto_increment_control`:
+.. rubric:: ``wsrep_auto_increment_control``
 .. index::
    pair: Parameters; wsrep_auto_increment_control
 
 
 This parameter enables the automatic adjustment of auto increment system variables with changes in cluster membership.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-auto-increment-control``                     |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_auto_increment_control`` |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                          |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``ON``                           |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-auto-increment-control``"
+   "System Variable", "``wsrep_auto_increment_control``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON`` "
+   "Support", "Introduced in Version 1"
+
 
 The node manages auto-increment values in a table using two variables: ``auto_increment_increment`` and ``auto_increment_offset``.  The first relates to the value auto-increment rows count from the offset. The second relates to the offset it should use in moving to the next position.
 
@@ -192,32 +189,23 @@ It significantly reduces the rate of certification conflicts for ``INSERT`` stat
     +------------------------------+-------+
 
 
-
-.. rubric:: ``wsrep_causal_reads``
 .. _`wsrep_causal_reads`:
+.. rubric:: ``wsrep_causal_reads``
 .. index::
    pair: Parameters; wsrep_causal_reads
 
 This parameter enables the enforcement of strict cluster-wide ``READ COMMITTED`` semantics on non-transactional reads. It results in larger read latencies.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-causal-reads``                               |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_causal_reads``           |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Session                          |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                          |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``OFF``                          |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-|                         +---------------------+----------------------------------+
-|                         | *Deprecated:*       | 3.6                              |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
 
+   "Command-line Format", "``--wsrep-causal-reads``"
+   "System Variable", "``wsrep_causal_reads``"
+   "Variable Scope", "Session"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF`` "
+   "Support", "Introduced in Version 1, Deprecated in Version 3.6"
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
@@ -228,37 +216,24 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 .. warning:: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
 
-
-
-
-
-
-.. rubric:: ``wsrep_certification_rules``
 .. _`wsrep_certification_rules`:
+.. rubric:: ``wsrep_certification_rules``
 .. index::
    pair: Parameters; wsrep_certification_rules
 
 Certification rules to use in the cluster.
 
-+-------------------------+-----------------------------------------------------+
-| **Command-line Format** | ``--wsrep-certification-rules``                     |
-+-------------------------+---------------------+-------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_certification_rules`` |
-|                         +---------------------+-------------------------------+
-|                         | *Variable Scope:*   | Global                        |
-|                         +---------------------+-------------------------------+
-|                         | *Dynamic Variable:* | Yes                           |
-+-------------------------+---------------------+-------------------------------+
-| **Permitted Values**    | *Type:*             | enumeration                   |
-|                         +---------------------+-------------------------------+
-|                         | *Default Value:*    | ``STRICT``                    |
-|                         +---------------------+-------------------------------+
-|                         | *Valid Values:*     | ``OPTIMIZED``                 |
-|                         |                     +-------------------------------+
-|                         |                     | ``STRICT``                    |
-+-------------------------+---------------------+-------------------------------+
-| **Support**             | *Introduced:*       |                               |
-+-------------------------+---------------------+-------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-certification-rules``"
+   "System Variable", "``wsrep_certification_rules``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Enumeration"
+   "Default Value", "``STRICT``"
+   "Valid Value", "``OPTIMIZED``, ``STRICT``"
+   "Support", "Introduced in Version ???"
 
 Controls how certification is done in the cluster, in particular this affects how foreign keys are handled: with the ``STRICT`` option two INSERTs that happen at about the same time on two different nodes in a child table, that insert different (non conflicting rows), but both rows point to the same row in the parent table could result in certification failure. With the ``OPTIMIZED`` option such certification failure is avoided.
 
@@ -275,29 +250,24 @@ Controls how certification is done in the cluster, in particular this affects ho
 .. note:: This is a MySQL wsrep parameter. It was introduced in 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15.
 
 
-
-.. rubric:: ``wsrep_certify_nonPK``
 .. _`wsrep_certify_nonPK`:
+.. rubric:: ``wsrep_certify_nonPK``
 .. index::
    pair: Parameters; wsrep_certify_nonPK
 
 This parameter is used to define whether the node should generate primary keys on rows without them for the purposes of certification.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-certify-nonpk``                              |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_certify_nonpk``          |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                          |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``ON``                           |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-certify-nonpk``"
+   "System Variable", "``wsrep_certify_nonpk``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON`` "
+   "Support", "Introduced in Version 1"
+
 
 Galera Cluster requires primary keys on all tables.  The node uses the primary key in replication to allow for the parallel applying of transactions to a table.  This parameter tells the node that when it encounters a row without a primary key, it should create one for replication purposes.  However, as a rule don't use tables without primary keys.
 
@@ -314,10 +284,8 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +---------------------+-------+
 
 
-
-
-.. rubric:: ``wsrep_cluster_address``
 .. _`wsrep_cluster_address`:
+.. rubric:: ``wsrep_cluster_address``
 .. index::
    pair: Parameters; wsrep_cluster_address
 .. index::
@@ -326,21 +294,16 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 This parameter sets the back-end schema, IP addresses, ports and options the node uses in connecting to the cluster.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-cluster-address``                            |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_cluster_address``        |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | String                           |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-cluster-address``"
+   "System Variable", "``wsrep_cluster_address``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
 
 Galera Cluster uses this parameter to determine the IP addresses for the other nodes in the cluster, the back-end schema to use and additional options it should use in connecting to and communicating with those nodes.  Currently, the only back-end schema supported for production is ``gcomm``.
 
@@ -381,29 +344,23 @@ You can execute the following SQL statement to see how this variable is set:
    +-----------------------+---------------------------------------------+
 
 
-
-.. rubric:: ``wsrep_cluster_name``
 .. _`wsrep_cluster_name`:
+.. rubric:: ``wsrep_cluster_name``
 .. index::
    pair: Parameters; wsrep_cluster_name
 
 This parameter defines the logical cluster name for the node.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-cluster-name``                               |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_cluster_name``           |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | String                           |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``exmaple_cluster``              |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-cluster-name``"
+   "System Variable", "``wsrep_cluster_name``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "``exmaple_cluster``"
+   "Support", "Introduced in Version 1"
 
 This parameter allows you to define the logical name the node uses for the cluster.  When a node attempts to connect to a cluster, it checks the value of this parameter against that of the cluster.  The connection is only made if the names match.  If they don't match, the connection fails.  Because of this, the cluster name must be the same on all nodes.
 
@@ -421,30 +378,25 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +--------------------+-----------------+
 
 
-
-.. rubric:: ``wsrep_convert_lock_to_trx``
 .. _`wsrep_convert_lock_to_trx`:
+.. rubric:: ``wsrep_convert_lock_to_trx``
 .. index::
    pair: Parameters; wsrep_convert_lock_to_trx
 
 
 This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` statements into ``BEGIN/COMMIT`` statements.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-convert-lock-to-trx``                        |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_convert_lock_to_trx``    |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                          |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``OFF``                          |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-convert-lock-to-trx``"
+   "System Variable", "``wsrep_convert_lock_to_trx``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "Introduced in Version 1"
+
 
 This parameter determines how the node handles ``LOCK/UNLOCK TABLES`` statements, specifically whether or not you want it to convert these statements into ``BEGIN/COMMIT`` statements.  It tells the node to convert implicitly locking sessions into transactions within the database server. By itself, this is not the same as support for locking sections, but it does prevent the database from resulting in a logically inconsistent state.
 
@@ -465,27 +417,24 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +---------------------------+-------+
 
 
-
-.. rubric:: ``wsrep_data_home_dir``
 .. _`wsrep_data_home_dir`:
+.. rubric:: ``wsrep_data_home_dir``
 .. index::
    pair: Parameters; wsrep_data_home_dir
 
 Use this parameter to set the directory the wsrep Provider uses for its files.
 
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_data_home_dir``          |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | Directory                        |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | /path/to/mysql_datahome          |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "???"
+   "System Variable", "``wsrep_data_home_dir``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Directory"
+   "Default Value", "/path/mysql_datadir"
+   "Support", "Introduced in Version 1"
+
 
 During operation, the wsrep Provider needs to save various files to disk that record its internal state.  This parameter defines the path to the directory that you want it to use.  If not set, it defaults the MySQL ``datadir`` path.
 
@@ -502,29 +451,23 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +---------------------+----------------+
 
 
-
-.. rubric:: ``wsrep_dbug_option``
 .. _`wsrep_dbug_option`:
+.. rubric:: ``wsrep_dbug_option``
 .. index::
    pair: Parameters; wsrep_dbug_option
 
 You can set debug options to pass to the wsrep Provider with this parameter.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-dbug-option``                                |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_dbug_option``            |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | String                           |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-dbug-option``"
+   "System Variable", "``wsrep_dbug_option``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
 
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set, if its set:
@@ -540,30 +483,23 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +-------------------+-------+
 
 
-
-.. rubric:: ``wsrep_debug``
 .. _`wsrep_debug`:
+.. rubric:: ``wsrep_debug``
 .. index::
    pair: Parameters; wsrep_debug
 
 This parameter enables additional debugging output for the database server error log.
 
+.. csv-table::
+   :class: doc-options
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-debug``                                      |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_debug``                  |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                          |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``OFF``                          |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+   "Command-line Format", "``--wsrep-debug``"
+   "System Variable", "``wsrep_debug``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "Introduced in Version 1"
 
 
 Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
@@ -584,31 +520,27 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +---------------+-------+
 
 
-
-.. rubric:: ``wsrep_desync``
 .. _`wsrep_desync`:
+.. rubric:: ``wsrep_desync``
 .. index::
    pair: Parameters; wsrep_desync
 
 This parameter is used to set whether or not the node participates in Flow Control.
 
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_desync``                 |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                          |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``OFF``                          |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "???"
+   "System Variable", "``wsrep_desync``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "Introduced in Version 1"
 
 When a node receives more write-sets than it can apply, the transactions are placed in a received queue.  In the event that the node falls too far behind, it engages Flow Control.  The node takes itself out of sync with the cluster and works through the received queue until it reaches a more manageable size.
 
-.. note:: For more information on Flow Control and how to configure and manage it in a cluster, see :doc:`node-states` and :doc:`managing-fc`.
+For more information on Flow Control and how to configure and manage it in a cluster, see :doc:`node-states` and :doc:`managing-fc`.
 
 When set to ``ON``, this parameter disables Flow Control for the node.  The node will continue to receive write-sets and fall further behind the cluster.  The cluster doesn't wait for desynced nodes to catch up, even if it reaches the ``fc_limit`` value.
 
@@ -625,28 +557,24 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +---------------+-------+
 
 
-.. rubric:: ``wsrep_dirty_reads``
 .. _`wsrep_dirty_reads`:
+.. rubric:: ``wsrep_dirty_reads``
 .. index::
    pair: Parameters; wsrep_dirty_reads
 
 This parameter defines whether the node accepts read queries when in a non-operational state.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-dirty-reads``                                 |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_dirty_reads``             |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global, Session                   |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``OFF``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       |                                   |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-dirty-reads``"
+   "System Variable", "``wsrep_dirty_reads``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "???"
+
 
 When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it can't keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.
 
@@ -671,29 +599,23 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 .. note:: This is a MySQL wsrep parameter.  It was introduced in version 5.6.29.
 
 
-
-.. rubric:: ``wsrep_drupal_282555_workaround``
 .. _`wsrep_drupal_282555_workaround`:
+.. rubric:: ``wsrep_drupal_282555_workaround``
 .. index::
    pair: Parameters; wsrep_drupal_282555_workaround
 
 This parameter enables workaround for a bug in MySQL InnoDB that affects Drupal installations.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-drupal-282555-workaround``                    |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_drupal_282555_workaround``|
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``ON``                            |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-drupal-282555-workaround``"
+   "System Variable", "``wsrep_drupal_282555_workaround``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON``"
+   "Support", "Introduced in Version 1"
 
 Drupal installations using MySQL are subject to a bug in InnoDB, tracked as `MySQL Bug 41984 <http://bugs.mysql.com/bug.php?id=41984>`_ and `Drupal Issue 282555 <http://drupal.org/node/282555>`_.  Specifically, inserting a `DEFAULT` value into an `AUTO_INCREMENT` column may return duplicate key errors.
 
@@ -712,37 +634,24 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +-------------------------------+-------+
 
 
-
-.. rubric:: ``wsrep_forced_binlog_format``
 .. _`wsrep_forced_binlog_format`:
+.. rubric:: ``wsrep_forced_binlog_format``
 .. index::
    pair: Parameters; wsrep_forced_binlog_format
 
 This parameter defines the binary log format for all transactions.
 
-+-------------------------+--------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-forced-binlog-format``                       |
-+-------------------------+---------------------+----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_forced_binlog_format``   |
-|                         +---------------------+----------------------------------+
-|                         | *Variable Scope:*   | Global                           |
-|                         +---------------------+----------------------------------+
-|                         | *Dynamic Variable:* |                                  |
-+-------------------------+---------------------+----------------------------------+
-| **Permitted Values**    | *Type:*             | enumeration                      |
-|                         +---------------------+----------------------------------+
-|                         | *Default Value:*    | ``NONE``                         |
-|                         +---------------------+----------------------------------+
-|                         | *Valid Values:*     | ``ROW``                          |
-|                         |                     +----------------------------------+
-|                         |                     | ``STATEMENT``                    |
-|                         |                     +----------------------------------+
-|                         |                     | ``MIXED``                        |
-|                         |                     +----------------------------------+
-|                         |                     | ``NONE``                         |
-+-------------------------+---------------------+----------------------------------+
-| **Support**             | *Introduced:*       | 1                                |
-+-------------------------+---------------------+----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-forced-binlog-format``"
+   "System Variable", "``wsrep_forced_binlog_format``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Enumeration"
+   "Default Value", "``NONE``"
+   "Valid Values", "``ROW``, ``STATEMENT``, ``MIXED``, ``NONE``"
+   "Support", "Introduced in Version 1"
 
 The node uses the format given by this parameter regardless of the client session variable `binlog_format <https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html>`_.  Valid choices for this parameter are: ``ROW``, ``STATEMENT``, and ``MIXED``.  Additionally, there is the special value ``NONE``, which means that there is no forced format in effect for the binary logs. When set to a value other than ``NONE``, this parameter forces all transactions to use a given binary log format.
 
@@ -761,28 +670,23 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +----------------------------+-------+
 
 
-.. rubric:: ``wsrep_load_data_splitting``
 .. _`wsrep_load_data_splitting`:
+.. rubric:: ``wsrep_load_data_splitting``
 .. index::
    pair: Parameters; wsrep_load_data_splitting
 
 This parameter defines whether the node splits large ``LOAD DATA`` commands into more manageable units.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-load-data-splitting``                         |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_load_data_splitting``     |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``ON``                            |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-load-data-splitting``"
+   "System Variable", "``wsrep_load_data_splitting``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON``"
+   "Support", "Introduced in Version 1"
 
 When loading huge amounts of data creates problems for Galera Cluster, in that they eventually reach a size that is too large for the node to rollback completely the operation in the event of a conflict and whatever gets committed stays committed.
 
@@ -801,29 +705,24 @@ You can execute the following ``SHOW VARIABLES`` statement to see how this varia
    +---------------------------+-------+
 
 
-
-.. rubric:: ``wsrep_log_conflicts``
 .. _`wsrep_log_conflicts`:
+.. rubric:: ``wsrep_log_conflicts``
 .. index::
    pair: Parameters; wsrep_log_conflicts
 
 This parameter defines whether the node logs additional information about conflicts.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-log-conflicts``                               |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_log_conflicts``           |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | No                                |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``OFF``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-log-conflicts``"
+   "System Variable", "``wsrep_log_conflicts``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "No"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF`` "
+   "Support", "Introduced in Version 1"
+
 
 In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB and Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts. You may find this useful in troubleshooting replication problems. You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
 
@@ -842,30 +741,24 @@ You can execute the following ``SHOW VARIABLES`` statement to see if this featur
    +---------------------+-------+
 
 
-
-.. rubric:: ``wsrep_max_ws_rows``
 .. _`wsrep_max_ws_rows`:
+.. rubric:: ``wsrep_max_ws_rows``
 .. index::
    pair: Parameters; wsrep_max_ws_rows
 
 
 With this parameter you can set the maximum number of rows the node allows in a write-set.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-max-ws-rows``                                 |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_max_ws_rows``             |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``0``                             |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-max-ws-rows``"
+   "System Variable", "``wsrep_max_ws_rows``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "``0``"
+   "Support", "Introduced in Version 1"
 
 If set to a value greater than ``0``, this parameter sets the maximum number of rows that the node allows in a write-set.
 
@@ -882,29 +775,23 @@ You can execute the following ``SHOW VARIABLES`` statement to see the current va
    +-------------------+-------+
 
 
-
-.. rubric:: ``wsrep_max_ws_size``
 .. _`wsrep_max_ws_size`:
+.. rubric:: ``wsrep_max_ws_size``
 .. index::
    pair: Parameters; wsrep_max_ws_size
 
 You can set the maximum size the node allows for write-sets with this parameter.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-max-ws-size``                                 |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_max_ws_size``             |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``2G``                            |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-max-ws-size``"
+   "System Variable", "``wsrep_max_ws_size``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "``2G``"
+   "Support", "Introduced in Version 1"
 
 This parameter sets the maximum size that the node allows for a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.
 
@@ -921,30 +808,24 @@ The maximum allowed write-set size is ``2G``.  You can execute the following ``S
    +-------------------+-------+
 
 
-
-.. rubric:: ``wsrep_node_address``
 .. _`wsrep_node_address`:
+.. rubric:: ``wsrep_node_address``
 .. index::
    pair: Parameters; wsrep_node_address
 
 
 This parameter is used to note the IP address and port of the node.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-node-address``                                |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_node_address``            |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | server IP address, port ``4567``  |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-node-address``"
+   "System Variable", "``wsrep_node_address``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "Server IP Address, Port ``4567``"
+   "Support", "Introduced in Version 1"
 
 The node passes its IP address and port number to the :term:`Galera Replication Plugin`, where it's used as the base address in cluster communications.  By default, the node pulls the address of the first network interface and uses the default port for Galera Cluster.  Typically, this is the address of ``eth0`` or ``enp2s0`` on port ``4567``.
 
@@ -977,28 +858,24 @@ You can execute the ``SHOW VARIABLES`` statement as shown below to get the curre
    +--------------------+-------------+
 
 
-.. rubric:: ``wsrep_node_incoming_address``
 .. _`wsrep_node_incoming_address`:
+.. rubric:: ``wsrep_node_incoming_address``
 .. index::
    pair: Parameters; wsrep_node_incoming_address
 
 This parameter is used to provide the IP address and port from which the node should expect client connections.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-node-incoming-address``                       |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_node_incoming_address``   |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | String                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-node-incoming-address``"
+   "System Variable", "``wsrep_node_incoming_address``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
+
 
 This parameter defines the IP address and port number at which the node should expect to receive client connections.  It's intended for integration with load balancers. For now, it's otherwise unused by the node.
 
@@ -1015,29 +892,23 @@ You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as s
    +-----------------------------+------------------+
 
 
-
-.. rubric:: ``wsrep_node_name``
 .. _`wsrep_node_name`:
+.. rubric:: ``wsrep_node_name``
 .. index::
    pair: Parameters; wsrep_node_name
 
 You can set the logical name that the node uses for itself with this parameter.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-node-name``                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_node_name``               |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | server hostname                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-node-name``"
+   "System Variable", "``wsrep_node_name``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "Server Hostname"
+   "Support", "Introduced in Version 1"
 
 This parameter defines the logical name that the node uses when referring to itself in logs and in the cluster.  It's for convenience, to help you in identifying nodes in the cluster by means other than the node address.
 
@@ -1056,29 +927,24 @@ You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as s
    +-----------------+-------------+
 
 
-
-.. rubric:: ``wsrep_notify_cmd``
 .. _`wsrep_notify_cmd`:
+.. rubric:: ``wsrep_notify_cmd``
 .. index::
    pair: Parameters; wsrep_notify_cmd
 
 Defines the command the node runs whenever cluster membership or the state of the node changes.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-notify-cmd``                                  |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_notify_cmd``              |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-notify-cmd``"
+   "System Variable", "``wsrep_notify_cmd``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
+
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
@@ -1130,28 +996,25 @@ When the node calls the command, it passes one or more arguments that you can us
 
 
 
-
-.. rubric:: ``wsrep_on``
 .. _`wsrep_on`:
+.. rubric:: ``wsrep_on``
 .. index::
    pair: Parameters; wsrep_on
 
 
 Defines whether replication takes place for updates from the current session.
 
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_on``                      |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Session                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``ON``                            |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "???"
+   "System Variable", "``wsrep_on``"
+   "Variable Scope", "Session"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON``"
+   "Support", "Introduced in Version 1"
+
 
 This parameter defines whether or not updates made in the current session replicate to the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
 
@@ -1167,33 +1030,24 @@ This parameter defines whether or not updates made in the current session replic
    +---------------+-------+
 
 
-
-.. rubric:: ``wsrep_OSU_method``
 .. _`wsrep_OSU_method`:
+.. rubric:: ``wsrep_OSU_method``
 .. index::
    pair: Parameters; wsrep_OSU_method
 
 Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (Data Definition Language)` statements.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-OSU-method``                                  |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_OSU_method``              |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global, Session                   |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | enumeration                       |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``TOI``                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Valid Values:*     | ``TOI``                           |
-|                         |                     +-----------------------------------+
-|                         |                     | ``RSU``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | Patch v. 3 (5.5.17-22.3)          |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-OSU-method``"
+   "System Variable", "``wsrep_OSU_method``"
+   "Variable Scope", "Global, Session"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Enumeration"
+   "Default Value", "``TOI``"
+   "Valid Values", "``TOI``, ``RSU``"
+   "Support", "Introduced in Version 3, Patch 5.5.17-22.3"
 
 DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
 
@@ -1202,7 +1056,7 @@ DDL statements are non-transactional and as such don't replicate through write-s
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
 
-.. note:: For more information on DDL statements and OSU methods, see :doc:`schema-upgrades`.
+For more information on DDL statements and OSU methods, see :doc:`schema-upgrades`.
 
 .. code-block:: mysql
 
@@ -1215,28 +1069,23 @@ DDL statements are non-transactional and as such don't replicate through write-s
    +------------------+-------+
 
 
-.. rubric:: ``wsrep_preordered``
 .. _`wsrep_preordered`:
+.. rubric:: ``wsrep_preordered``
 .. index::
    pair: Parameters; wsrep_preordered
 
 Defines whether the node uses transparent handling of preordered replication events.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-preordered``                                  |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_preordered``              |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``OFF``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-preordered``"
+   "System Variable", "``wsrep_preordered``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "Introduced in Version 1"
 
 This parameter enables transparent handling of preordered replication events, such as replication events arriving from traditional asynchronous replication. When this option is ``ON``, such events will be applied locally first before being replicated to the other nodes of the cluster. This could increase the rate at which they can be processed which would be otherwise limited by the latency between the nodes in the cluster.
 
@@ -1253,28 +1102,23 @@ Preordered events should not interfere with events that originate on the local n
    +------------------+-------+
 
 
-.. rubric:: ``wsrep_provider``
 .. _`wsrep_provider`:
+.. rubric:: ``wsrep_provider``
 .. index::
    pair: Parameters; wsrep_provider
 
 Defines the path to the :term:`Galera Replication Plugin`.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-provider``                                    |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_provider``                |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | File                              |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-provider``"
+   "System Variable", "``wsrep_provider``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "File"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
 
 When the node starts, it needs to load the wsrep Provider in order to enable replication functions.  The path defined in this parameter tells it what file it needs to load and where to find it.  In the event that you do not define this path or you give it an invalid value, the node bypasses all calls to the wsrep Provider and behaves as a standard standalone instance of MySQL.
 
@@ -1289,29 +1133,23 @@ When the node starts, it needs to load the wsrep Provider in order to enable rep
    +----------------+----------------------------------+
 
 
-
-.. rubric:: ``wsrep_provider_options``
 .. _`wsrep_provider_options`:
+.. rubric:: ``wsrep_provider_options``
 .. index::
    pair: Parameters; wsrep_provider_options
 
 Defines optional settings the node passes to the wsrep Provider.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-provider-options``                            |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_provider_options``        |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | String                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-provider-options``"
+   "System Variable", "``wsrep_provider_options``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
 
 When the node loads the wsrep Provider, there are several configuration options available that affect how it handles certain events.  These allow you to fine tune how it handles various situations.
 
@@ -1319,7 +1157,7 @@ For example, you can use :ref:`gcache.size <gcache.size>` to define how large a 
 
 .. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
 
-.. note:: For more information on the wsrep Provider options, see :doc:`galera-parameters`.
+For more information on the wsrep Provider options, see :doc:`galera-parameters`.
 
 
 .. code-block:: mysql
@@ -1334,30 +1172,22 @@ For example, you can use :ref:`gcache.size <gcache.size>` to define how large a 
    +------------------------+-----------------------------------------------+
 
 
-.. rubric:: ``wsrep_reject_queries``:
 .. _`wsrep_reject_queries`:
+.. rubric:: ``wsrep_reject_queries``:
 
 Defines whether the node rejects client queries while participating in the cluster.
 
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_reject_queries``          |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | array                             |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``NONE``                          |
-|                         +---------------------+-----------------------------------+
-|                         | *Valid Values:*     | ``NONE``                          |
-|                         |                     +-----------------------------------+
-|                         |                     | ``ALL``                           |
-|                         |                     +-----------------------------------+
-|                         |                     | ``ALL_KILL``                      |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       |                                   |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", ""
+   "System Variable", "``wsrep_reject_queries``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Array"
+   "Default Value", "``NONE``"
+   "Valid Values", "``NONE``, ``ALL``, ``ALL_KILL``"
+   "Support", "Introduced in Version ???"
 
 When in use, this parameter causes the node to reject queries from client connections.  The node continues to participate in the cluster and apply write-sets, but client queries generate ``Unknown command`` errors.  For instance,
 
@@ -1389,28 +1219,23 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 .. note:: This is a MySQL wsrep parameter.  It was introduced in version 5.6.29.
 
 
-.. rubric:: ``wsrep_restart_slave``
 .. _`wsrep_restart_slave`:
+.. rubric:: ``wsrep_restart_slave``
 .. index::
    pair: Parameters; wsrep_restart_slave
 
 Defines whether the replication slave restarts when the node joins the cluster.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-restart-slave``                               |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_restart_slave``           |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``OFF``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       |                                   |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-restart-slave``"
+   "System Variable", "``wsrep_restart_slave``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "Introduced in Version ???"
 
 Enabling this parameter tells the node to restart the replication slave when it joins the cluster.
 
@@ -1426,29 +1251,23 @@ Enabling this parameter tells the node to restart the replication slave when it 
 
 
 
-
-.. rubric:: ``wsrep_retry_autocommit``
 .. _`wsrep_retry_autocommit`:
+.. rubric:: ``wsrep_retry_autocommit``
 .. index::
    pair: Parameters; wsrep_retry_autocommit
 
 Defines the number of retries the node attempts when an autocommit query fails.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-retry-autocommit``                            |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_retry_autocommit``        |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | integer                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``1``                             |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-retry-autocommit``"
+   "System Variable", "``wsrep_retry_autocommit``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Integer"
+   "Default Value", "``1``"
+   "Support", "Introduced in Version 1"
 
 When an autocommit query fails the certification test due to a cluster-wide conflict, the node can retry it without returning an error to the client.  This parameter defines how many times the node retries the query.  It is analogous to rescheduling an autocommit query should it go into deadlock with other transactions in the database lock manager.
 
@@ -1463,28 +1282,24 @@ When an autocommit query fails the certification test due to a cluster-wide conf
    +------------------------+-------+
 
 
-.. rubric:: ``wsrep_slave_FK_checks``
 .. _`wsrep_slave_FK_checks`:
+.. rubric:: ``wsrep_slave_FK_checks``
 .. index::
    pair: Parameters; wsrep_slave_FK_checks
 
 Defines whether the node performs foreign key checking for applier threads.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-slave-FK-checks``                             |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_slave_FK_checks``         |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``ON``                            |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       |                                   |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-slave-FK-checks``"
+   "System Variable", "``wsrep_slave_FK_checks``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON``"
+   "Support", "Introduced in Version 1"
+
 
 This parameter enables foreign key checking on applier threads.
 
@@ -1500,29 +1315,23 @@ This parameter enables foreign key checking on applier threads.
 
 
 
-
-.. rubric:: ``wsrep_slave_threads``
 .. _`wsrep_slave_threads`:
+.. rubric:: ``wsrep_slave_threads``
 .. index::
    pair: Parameters; wsrep_slave_threads
 
 Defines the number of threads to use in applying slave write-sets.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-slave-threads``                               |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_slave_threads``           |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | integer                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``1``                             |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-slave-threads``"
+   "System Variable", "``wsrep_slave_threads``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Integer"
+   "Default Value", "``1``"
+   "Support", "Introduced in Version 1"
 
 This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs.
 
@@ -1545,29 +1354,24 @@ Instead of concrete recommendations, there are some general guidelines that you 
    +---------------------+-------+
 
 
-
-.. rubric:: ``wsrep_slave_UK_checks``
 .. _`wsrep_slave_UK_checks`:
+.. rubric:: ``wsrep_slave_UK_checks``
 .. index::
    pairs: Parameters; wsrep_slave_UK_checks
 
 Defines whether the node performs unique key checking on applier threads.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-slave-UK-checks``                             |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_slave_UK_checks``         |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | boolean                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``OFF``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       |                                   |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-slave-UK-checks``"
+   "System Variable", "``wsrep_slave_UK_checks``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "Introduced in Version ???"
+
 
 This parameter enables unique key checking on applier threads.
 
@@ -1584,31 +1388,23 @@ This parameter enables unique key checking on applier threads.
 
 
 
-
-.. rubric:: ``wsrep_sst_auth``
 .. _`wsrep_sst_auth`:
+.. rubric:: ``wsrep_sst_auth``
 .. index::
    pair: Parameters; wsrep_sst_auth
 
 Defines the authentication information to use in :term:`State Snapshot Transfer`.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-sst-auth``                                    |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_sst_auth``                |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    |                                   |
-|                         +---------------------+-----------------------------------+
-|                         | *Valid Values:*     | username:password                 |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-sst-auth``"
+   "System Variable", "``wsrep_sst_auth``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
 
 When the node attempts a state snapshot transfer using the :term:`Logical State Transfer Method`, the transfer script uses a client connection to the database server in order to obtain the data it needs to send.  This parameter provides the authentication information, (that is, the username and password), that the script uses to access the database servers of both sending and receiving nodes.
 
@@ -1627,29 +1423,24 @@ Format this value to the pattern: ``username:password``.
    +----------------+---------------------------+
 
 
-
-.. rubric:: ``wsrep_sst_donor``
 .. _`wsrep_sst_donor`:
+.. rubric:: ``wsrep_sst_donor``
 .. index::
    pair: Parameters; wsrep_sst_donor
 
 Defines the name of the node that this node uses as a donor in state transfers.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-sst-donor``                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_sst_donor``               |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-sst-donor``"
+   "System Variable", "``wsrep_sst_donor``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version 1"
+
 
 When the node requires a state transfer from the cluster, it looks for the most appropriate one available.  The group communications module monitors the node state for the purposes of Flow Control, state transfers and quorum calculations.  The node can be a donor if it is in the ``SYNCED`` state.  The first node in the ``SYNCED`` state in the index becomes the donor and is made unavailable for requests while serving as such.
 
@@ -1682,9 +1473,8 @@ If the list contains a trailing comma, the remaining nodes in the cluster will a
 
 
 
-
-.. rubric:: ``wsrep_sst_donor_rejects_queries``
 .. _`wsrep_sst_donor_rejects_queries`:
+.. rubric:: ``wsrep_sst_donor_rejects_queries``
 .. index::
    pair: Parameters; wsrep_sst_donor_rejects_queries
 .. index::
@@ -1692,22 +1482,16 @@ If the list contains a trailing comma, the remaining nodes in the cluster will a
 
 Defines whether the node rejects blocking client sessions on a node when it is serving as a donor in a blocking state transfer method, such as ``mysqldump`` and ``rsync``.
 
+.. csv-table::
+   :class: doc-options
 
-+-------------------------+-----------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-sst-donor-rejects-queries``                     |
-+-------------------------+---------------------+-------------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_sst_donor_rejects_queries`` |
-|                         +---------------------+-------------------------------------+
-|                         | *Variable Scope:*   | Global                              |
-|                         +---------------------+-------------------------------------+
-|                         | *Dynamic Variable:* |                                     |
-+-------------------------+---------------------+-------------------------------------+
-| **Permitted Values**    | *Type:*             | Boolean                             |
-|                         +---------------------+-------------------------------------+
-|                         | *Default Value:*    | ``OFF``                             |
-+-------------------------+---------------------+-------------------------------------+
-| **Support**             | *Introduced:*       | 1                                   |
-+-------------------------+---------------------+-------------------------------------+
+   "Command-line Format", "``--wsrep-sst-donor-rejects-queries``"
+   "System Variable", "``wsrep_sst_donor_rejects_queries``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Support", "Introduced in Version 1"
 
 This parameter determines whether the node rejects blocking client sessions while it is sending state transfers using methods that block it as the donor.  In these situations, all queries return the error ``ER_UNKNOWN_COM_ERROR``, that is they respond with ``Unknown command``, just like the joining node does.
 
@@ -1726,31 +1510,23 @@ Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to t
    +---------------------------------+-------+
 
 
-
-
-
-.. rubric:: ``wsrep_sst_method``
 .. _`wsrep_sst_method`:
+.. rubric:: ``wsrep_sst_method``
 .. index::
    pair: Parameters; wsrep_sst_method
 
 Defines the method or script the node uses in a :term:`State Snapshot Transfer`.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-sst-method``                                  |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_sst_method``              |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``rsync``                         |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-sst-method``"
+   "System Variable", "``wsrep_sst_method``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "``rsync``"
+   "Support", "Introduced in Version 1"
 
 When the node makes a state transfer request it calls on an external shell script to establish a connection a with the donor node and transfer the database state onto the local database server.  This parameter allows you to define what script the node uses in requesting state transfers.
 
@@ -1780,7 +1556,7 @@ In addition to the default scripts provided and supported by Galera Cluster, you
 
 Bear in mind, the cluster uses the same script to send and receive state transfers.  If you want to use a custom state transfer script, you need to place it on every node in the cluster.
 
-.. note:: For more information on scripting state snapshot transfers, see :doc:`scriptable-sst`.
+For more information on scripting state snapshot transfers, see :doc:`scriptable-sst`.
 
 .. code-block:: mysql
 
@@ -1794,30 +1570,23 @@ Bear in mind, the cluster uses the same script to send and receive state transfe
 
 
 
-
-.. rubric:: ``wsrep_sst_receive_address``
 .. _`wsrep_sst_receive_address`:
+.. rubric:: ``wsrep_sst_receive_address``
 .. index::
    pair: Parameters; wsrep_sst_receive_address
 
 Defines the address from which the node expects to receive state transfers.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-sst-receive-address``                         |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_sst_receive_address``     |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | :ref:`wsrep_node_address          |
-|                         |                     | <wsrep_node_address>`             |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 1                                 |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-sst-receive-address``"
+   "System Variable", "``wsrep_sst_receive_address``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ":ref:`wsrep_node_address <wsrep_node_address>`"
+   "Support", "Introduced in Version 1"
 
 This parameter defines the address from which the node expects to receive state transfers.  It is dependent on the :term:`State Snapshot Transfer` method the node uses.
 
@@ -1836,32 +1605,27 @@ For example, ``mysqldump`` uses the address and port on which the node listens, 
    +---------------------------+-------------+
 
 
-.. rubric:: ``wsrep_start_position``
 .. _`wsrep_start_position`:
+.. rubric:: ``wsrep_start_position``
 .. index::
    pair: Parameters; wsrep_start_position
 
 Defines the node start position.
 
-+-------------------------+---------------------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-start-position``                                          |
-+-------------------------+---------------------+-----------------------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_start_position``                      |
-|                         +---------------------+-----------------------------------------------+
-|                         | *Variable Scope:*   | Global                                        |
-|                         +---------------------+-----------------------------------------------+
-|                         | *Dynamic Variable:* |                                               |
-+-------------------------+---------------------+-----------------------------------------------+
-| **Permitted Values**    | *Type:*             | string                                        |
-|                         +---------------------+-----------------------------------------------+
-|                         | *Default Value:*    | ``00000000-0000-0000-0000-00000000000000:-1`` |
-+-------------------------+---------------------+-----------------------------------------------+
-| **Support**             | *Introduced:*       | 1                                             |
-+-------------------------+---------------------+-----------------------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-start-position``"
+   "System Variable", "``wsrep_start_position``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "``00000000-0000-0000-0000-00000000000000:-1``"
+   "Support", "Introduced in Version 1"
 
 This parameter defines the node start position.  It exists for the sole purpose of notifying the joining node of the completion of a state transfer.
 
-.. note:: For more information on scripting state snapshot transfers, see :doc:`scriptable-sst`.
+For more information on scripting state snapshot transfers, see :doc:`scriptable-sst`.
 
 .. code-block:: mysql
 
@@ -1874,8 +1638,8 @@ This parameter defines the node start position.  It exists for the sole purpose 
    +----------------------+-----------------------------------------+
 
 
-.. rubric:: ``wsrep_sync_wait``
 .. _`wsrep_sync_wait`:
+.. rubric:: ``wsrep_sync_wait``
 .. index::
   pair: Parameters; wsrep_sync_wait
 .. index::
@@ -1883,21 +1647,17 @@ This parameter defines the node start position.  It exists for the sole purpose 
 
 Defines whether the node enforces strict cluster-wide causality checks.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-sync-wait``                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_sync_wait``               |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Session                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |  Yes                              |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | bitmask                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``0``                             |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 3.6                               |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-sync-wait``"
+   "System Variable", "``wsrep_sync_wait``"
+   "Variable Scope", "Session"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Bitmask"
+   "Default Value", "``0``"
+   "Support", "Introduced in Version 3.6"
+
 
 When you enable this parameter, the node triggers causality checks in response to certain types of queries.  During the check, the node blocks new queries while the database server catches up with all updates made in the cluster to the point where the check was begun.  Once it reaches this point, the node executes the original query.
 
@@ -1905,25 +1665,16 @@ When you enable this parameter, the node triggers causality checks in response t
 
 This value of this parameter is a bitmask, which determines the type of check you want the node to run.
 
-+---------+------------------------------------------------------+
-| Bitmask | Checks                                               |
-+=========+======================================================+
-| ``0``   | Disabled.                                            |
-+---------+------------------------------------------------------+
-| ``1``   | Checks on ``READ`` statements, including ``SELECT``, |
-|         | and ``BEGIN`` / ``START TRANSACTION``.               |
-|         | Checks on ``SHOW`` (up to versions 5.5.54, 5.6.35,   |
-|         | 5.7.17)                                              |
-+---------+------------------------------------------------------+
-| ``2``   | Checks made on ``UPDATE`` and ``DELETE`` statements. |
-+---------+------------------------------------------------------+
-| ``3``   | Checks made on ``READ``, ``UPDATE`` and ``DELETE``   |
-|         | statements.                                          |
-+---------+------------------------------------------------------+
-| ``4``   | Checks made on ``INSERT`` and ``REPLACE`` statements.|
-+---------+------------------------------------------------------+
-| ``8``   | Checks made on ``SHOW`` statements                   |
-+---------+------------------------------------------------------+
+.. csv-table::
+   :class: doc-options
+   :header: "Bitmask", "Checks"
+
+   "``0``", "Disabled."
+   "``1``", "Checks on ``READ`` statements, including ``SELECT``, and ``BEGIN`` / ``START TRANSACTION``. Checks on ``SHOW`` (up to versions 5.5.54, 5.6.35, 5.7.17)"
+   "``2``", "Checks made on ``UPDATE`` and ``DELETE`` statements."
+   "``3``", "Checks made on ``READ``, ``UPDATE`` and ``DELETE`` statements."
+   "``4``", "Checks made on ``INSERT`` and ``REPLACE`` statements."
+   "``8``", "Checks made on ``SHOW`` statements."
 
 For example, say that you have a web application.  At one point in its run, you need it to perform a critical read.  That is, you want the application to access the database server and run a ``SELECT`` query that must return the most up to date information possible.
 
@@ -1950,9 +1701,8 @@ In the example, the application first runs a ``SET`` command to enable :ref:`wsr
    +-----------------+-------+
 
 
-
-.. rubric:: ``wsrep_trx_fragment_size``
 .. _`wsrep_trx_fragment_size`:
+.. rubric:: ``wsrep_trx_fragment_size``
 .. index::
    pair: Parameters; wsrep_trx_fragment_size
 .. index::
@@ -1962,22 +1712,16 @@ In the example, the application first runs a ``SET`` command to enable :ref:`wsr
 
 Defines the number of replication units needed to generate a new fragment in Streaming Replication.
 
+.. csv-table::
+   :class: doc-options
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-trx-fragment-size``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_trx_fragment_size``       |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Session                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | integer                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``0``                             |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 4.0                               |
-+-------------------------+---------------------+-----------------------------------+
+   "Command-line Format", "``--wsrep-trx-fragment-size``"
+   "System Variable", "``wsrep_trx_fragment_size``"
+   "Variable Scope", "Session"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Integer"
+   "Default Value", "``0``"
+   "Support", "Introduced in Version 4.0"
 
 In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the number of replication units to include in a fragment.  To define what these units represent, use :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`. A value of ``0`` indicates that streaming replication will not be used.
 
@@ -1992,8 +1736,8 @@ In :term:`Streaming Replication`, the node breaks transactions down into fragmen
    +-------------------------+-------+
 
 
-.. rubric:: ``wsrep_trx_fragment_unit``
 .. _`wsrep_trx_fragment_unit`:
+.. rubric:: ``wsrep_trx_fragment_unit``
 .. index::
    pair: Parameters; wsrep_trx_fragment_unit
 .. index::
@@ -2003,30 +1747,17 @@ In :term:`Streaming Replication`, the node breaks transactions down into fragmen
 
 Defines the replication unit type to use in Streaming Replication.
 
+.. csv-table::
+   :class: doc-options
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-trx-fragment-unit``                           |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_trx_fragment_unit``       |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Session                           |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* | Yes                               |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    | ``bytes``                         |
-|                         +---------------------+-----------------------------------+
-|                         | *Valid Values:*     | ``bytes``                         |
-|                         |                     +-----------------------------------+
-|                         |                     | ``events``                        |
-|                         |                     +-----------------------------------+
-|                         |                     | ``rows``                          |
-|                         |                     +-----------------------------------+
-|                         |                     | ``statements``                    |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       | 4.0                               |
-+-------------------------+---------------------+-----------------------------------+
+   "Command-line Format", "``--wsrep-trx-fragment-unit``"
+   "System Variable", "``wsrep_trx_fragment_unit``"
+   "Variable Scope", "Session"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "String"
+   "Default Value", "``bytes``"
+   "Valid Values", "``bytes``, ``events``, ``rows``, ``statements``"
+   "Support", "Introduced in Version 4.0"
 
 In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the unit to use in determining the size of the fragment.  To define the number of replication units to use in the fragment, use :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
 
@@ -2052,33 +1783,23 @@ Supported replication units are:
    +-------------------------+--------+
 
 
-
-
-
-.. rubric:: ``wsrep_ws_persistency``
 .. _`wsrep_ws_persistency`:
+.. rubric:: ``wsrep_ws_persistency``
 .. index::
    pair: Parameters; wsrep_ws_persistency
 
 Defines whether the node stores write-sets locally for debugging.
 
-+-------------------------+---------------------------------------------------------+
-| **Command-line Format** | ``--wsrep-ws-persistency``                              |
-+-------------------------+---------------------+-----------------------------------+
-| **System Variable**     | *Name:*             | ``wsrep_ws_persistency``          |
-|                         +---------------------+-----------------------------------+
-|                         | *Variable Scope:*   | Global                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Dynamic Variable:* |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Permitted Values**    | *Type:*             | string                            |
-|                         +---------------------+-----------------------------------+
-|                         | *Default Value:*    |                                   |
-+-------------------------+---------------------+-----------------------------------+
-| **Support**             | *Introduced:*       |                                   |
-|                         +---------------------+-----------------------------------+
-|                         | *Deprecated:*       | 0.8                               |
-+-------------------------+---------------------+-----------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-ws-persistency``"
+   "System Variable", "``wsrep_ws_persistency``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", ""
+   "Support", "Introduced in Version ???, Deprecated in Version 0.8"
 
 This parameter defines whether the node stores write-sets locally for debugging purposes.
 

@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ==================
 SSL Settings
 ==================

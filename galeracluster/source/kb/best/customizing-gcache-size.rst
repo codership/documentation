@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 =====================================
 Customizing the Write-Set Cache Size
 =====================================

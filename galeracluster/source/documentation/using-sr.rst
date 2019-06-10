@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ###########################
 Using Streaming Replication
 ###########################
@@ -12,14 +14,15 @@ This allows you to work with larger data-sets, manage hot records, and help avoi
 .. note:: Streaming Replication is a new feature introduced in version 4.0 of Galera Cluster.  Older versions do not support these operations.
 
 
+.. _`enable-sr`:
+
 ==============================
 Enabling Streaming Replication
 ==============================
-.. _`enable-sr`:
 
 The best practice when working with :term:`Streaming Replication` is to enable it at a session-level for specific transactions, or parts thereof.  The reason is that Streaming Replication increases the load on all nodes when applying and rolling back transactions.  You'll get better performance if you only enable Streaming Replication on those transactions that won't run correctly without it.
 
-.. note:: For more information, see :ref:`When to Use Streaming Replication <when-use-sr>`.
+For more information, see :ref:`When to Use Streaming Replication <when-use-sr>`.
 
 Enabling Streaming Replication requires you to define the replication unit and number of units to use in forming the transaction fragments.  Two parameters control these variables: :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>` and :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
 
@@ -40,10 +43,12 @@ You can choose between a few replication units when forming fragments:
 
 Choose the replication unit and fragment size that best suits the specific operation you want to run.
 
+
+.. _`usr-hot-records`:
+
 ======================================
 Streaming Replication with Hot Records
 ======================================
-.. _`usr-hot-records`:
 
 When your application needs to update frequently the same records from the same table (e.g., implementing a locking scheme, a counter, or a job queue), Streaming Replication allows you to force critical changes to replicate to the entire cluster.
 

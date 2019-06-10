@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 ==============================
 Cluster Stalls on ``ALTER``
 ==============================

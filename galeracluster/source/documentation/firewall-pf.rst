@@ -1,6 +1,8 @@
-====================================
+.. cssclass:: library-document
+
+===============================
 Firewall Configuration with PF
-====================================
+===============================
 .. _`firewall-pf`:
 
 FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.
@@ -8,10 +10,11 @@ FreeBSD provides packet filtering support at the kernel level.  Using PF you can
 .. warning:: Different versions of FreeBSD use different versions of PF.  Examples here are from FreeBSD 10.1, which uses the same version of PF as OpenBSD 4.5.
 
 
+.. _`using-pf`:
+
 -------------------
 Enabling PF
 -------------------
-.. _`using-pf`:
 
 In order to use PF on FreeBSD, you must first set the system up to load its kernel module.  Additionally, you need to set the path to the configuration file for PF.
 
@@ -31,10 +34,12 @@ You may also want to enable logging support for PF and set the path for the log 
 
 FreeBSD now loads the PF kernel module with logging features at boot.
 
+
+.. _`pf-config`:
+
 ---------------------
 Configuring PF Rules
 ---------------------
-.. _`pf-config`:
 
 In the above section, the configuration file for PF was set to ``/etc/pf.conf``.  This file allows you to set up the default firewall configuration that you want to use on your server.  The settings you add to this file are the same for each cluster node.
 
@@ -79,10 +84,11 @@ If there are no syntax errors, ``pfctl`` prints each of the rules it adds to the
 .. warning:: The IP addresses in the example are for demonstration purposes only.  Use the real values from your nodes and netmask in your PF configuration.
 
 
+.. _`pf-start`:
+
 -------------------
 Starting PF
 -------------------
-.. _`pf-start`:
 
 When you finish configuring packet filtering for Galera Cluster and for any other service you may require on your FreeBSD server, you can start the service.  This is done with two commands: one to start the service itself and one to start the logging service.
 

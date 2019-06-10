@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ============================
 Auto-Eviction
 ============================
@@ -6,10 +8,11 @@ Auto-Eviction
 When Galera Cluster notices erratic behavior in a node (e.g., unusually delayed response times), it can initiate a process to remove the node permanently from the cluster.  This process is called *Auto-Eviction*.
 
 
+.. _`config-auto-eviction`:
+
 -----------------------------
 Configuring Auto-Eviction
 -----------------------------
-.. _`config-auto-eviction`:
 
 Each node in a cluster monitors the group communication response times from all other nodes in the cluster.  When a cluster registers delayed responses from a node, it makes an entry about the node to the delayed list.
 
@@ -36,12 +39,11 @@ You can configure the parameters of Auto-Eviction by setting the following optio
   The default value is version ``0``, for backwards compatibility.
 
 
+.. _`eviction-status`:
 
 -------------------------------
 Checking Eviction Status
 -------------------------------
-.. _`eviction-status`:
-
 
 If you suspect a node is becoming delayed, you can check its eviction status through Galera status variables. You can do this by using the ``SHOW STATUS`` statement from the database client.  You would enter something like this:
 
@@ -59,11 +61,11 @@ Below are the Galera status variables available to you:
 - :ref:`wsrep_evs_evict_list <wsrep_evs_evict_list>`: This status variable lists the UUID's of evicted nodes.
 
 
+.. _`upgrade-evs`:
 
 ----------------------------------
 Upgrading from Previous Versions
 ----------------------------------
-.. _`upgrade-evs`:
 
 Releases of Galera Cluster prior to version 3.8 use EVS Protocol version 0, which is not directly compatible with version 1.  As such, when you upgrade Galera Cluster for a node, the node continues to use EVS Protocol version 0.
 
@@ -161,4 +163,4 @@ Repeat the above steps on each node in the cluster to update them.  Once this pr
 These steps will update the EVS Protocol version for one node in a cluster. Repeat the process on each of the remaining nodes so that they all use EVS Protocol version 1.
 
 
-.. note:: For more information on upgrading in general, see :doc:`upgrading`.
+For more information on upgrading in general, see :doc:`upgrading`.

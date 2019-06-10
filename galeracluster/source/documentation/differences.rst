@@ -1,6 +1,8 @@
-====================================================
+.. cssclass:: library-document
+
+============================================
  Differences from a Standalone MySQL Server
-====================================================
+============================================
 .. _`differences`:
 
 .. index::
@@ -8,37 +10,41 @@
 
 Although Galera Cluster is built on providing write-set replication to MySQL and related database systems, there are certain key differences between how it handles and the standard standalone MySQL server.
 
+
+.. _`server-difference`:
+
 ------------------------
 Server Differences
 ------------------------
-.. _`server-difference`:
 
 Using a server with Galera Cluster is not the same as one with MySQL.  Galera Cluster does not support the same range of operating systems as MySQL, and there are differences in how it handles binary logs and character sets.
 
 
+.. _`os-support`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Operating System Support
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`os-support`:
 
 Galera Cluster requires that you use Linux or a similar UNIX-like operating system.  Binary packages are not supplied for FreeBSD, Solaris and Mac OS X.  There is no support available for Microsoft Windows.
 
 
 
+.. _`binlog-support`:
 
 ^^^^^^^^^^^^^^^^^^^
 Binary Log Support
 ^^^^^^^^^^^^^^^^^^^
-.. _`binlog-support`:
 
 Do not use the ``binlog-do-db`` and ``binlog-ignore-db`` options.
 
 These binary log options are only supported for :abbr:`DML (Data Manipulation Language)` statements.  They provide no support for :abbr:`DDL (Data Definition Language)` statements.  This creates a discrepancy in the binary logs and will cause replication to abort.
 
+.. _`unicode-support`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Unsupported Character Sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`unicode-support`:
 
 Do not use the ``character_set_server`` with UTF-16, UTF-32 or UCS-2.
 
@@ -47,17 +53,19 @@ When you use ``rsync`` for :term:`State Snapshot Transfer`, the use of these uns
 .. note:: This is also a problem when you use automatic donor selection in your cluster, as the cluster may choose to use ``rsync`` on its own.
 
 
+.. _`db-config-limitations`:
+
 -------------------------------------
 Differences in Table Configurations
 -------------------------------------
-.. _`db-config-limitations`:
 
 There are certain features and configurations available in MySQL that do not work as expected in Galera Cluster, such as storage engine support, certain queries and the query cache.
+
+.. _`storage-engine-support`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Storage Engine Support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`storage-engine-support`:
 
 Galera Cluster requires the InnoDB storage engine.  Writes made to tables of other types, including the system ``mysql-*`` tables, do not replicate to the cluster.
 
@@ -87,10 +95,12 @@ the changes would not replicate.
 
 .. note:: In general, non-transactional storage engines cannot be supported in multi-master replication.
 
+
+.. _`table-without-pk`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Tables without Primary Keys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`table-without-pk`:
 
 Do not use tables without a primary key.
 
@@ -98,18 +108,21 @@ When tables lack a primary key, rows can appear in different order on different 
 
 .. note:: If you have a table without a primary key, it is always possible to add an ``AUTO_INCREMENT`` column to the table without breaking your application.
 
+
+.. _`unsupported-queries`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Table Locking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`unsupported-queries`:
 
 Galera Cluster does not support table locking, as they conflict with multi-master replication.  As such, the ``LOCK TABLES`` and ``UNLOCK TABLES`` queries are not supported.  This also applies to lock functions, such as ``GET_LOCK()`` and ``RELEASE_LOCK()...`` for the same reason.
 
 
+.. _`query-log-support`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Query Logs
 ^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`query-log-support`:
 
 You cannot direct query logs to a table.  If you would like to enable query logging in Galera Cluster, you must forward the logs to a file.
 
@@ -119,24 +132,27 @@ You cannot direct query logs to a table.  If you would like to enable query logg
 
 Use ``general_log`` and ``general_log_file`` to choose query logging and to set the filename for your log file.
 
+.. _`diff-transactions`:
+
 ----------------------------
 Differences in Transactions
 ----------------------------
-.. _`diff-transactions`:
 
 There are some differences in how Galera Cluster handles transactions from MySQL, such as :abbr:`XA (eXtended Architecture)` transactions and limitations on transaction size.
+
+.. _`xa-transactions`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Distributed Transaction Processing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`xa-transactions`:
 
 The standard MySQL server provides support for distributed transaction processing using the Open Group :abbr:`XA (eXtended Architecture)` standard.  This feature is *not* available for Galera Cluster, given that it can lead to possible rollbacks on commit.
+
+.. _`transaction-size`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Transaction Size
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`transaction-size`:
 
 Although Galera Cluster does not explicitly limit the transaction size, the hardware you run it on does impose a size limitation on your transactions.  Nodes process write-sets in a single memory-resident buffer.  As such, extremely large transactions, such as ``LOAD DATA`` can adversely effect node performance.
 
@@ -145,7 +161,7 @@ You can avoid situations of this kind using the :ref:`wsrep_max_ws_rows <wsrep_m
 If necessary, you can increase these limits.
 
 
-
+.. _`transaction-commits`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Transaction Commits

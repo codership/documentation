@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =================================
 Recovering the Primary Component
 =================================
@@ -10,14 +12,14 @@ Cluster nodes can store the :term:`Primary Component` state to disk.  The node r
 
 In the event that the write-set position differs between the nodes, the recovery process also requires a full state snapshot transfer.
 
-.. note:: For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
+For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
 
 
+.. _`understand-pc-state`:
 
 ------------------------------------------
 Understanding the Primary Component State
 ------------------------------------------
-.. _`understand-pc-state`:
 
 When a node stores the :term:`Primary Component` state to disk, it saves it as the ``gvwstate.dat`` file.  The node creates and updates this file when the cluster forms or changes the Primary Component.  This ensures that the node retains the latest Primary Component state that it was in.  If the node loses connectivity, it has the file to reference.  If the node shuts down gracefully, it deletes the file.
 
@@ -48,11 +50,11 @@ The ``gvwstate.dat`` file breaks into two parts:
   - ``member`` Displays the UUID's of nodes in this primary component.
 
 
+.. _`modifying-pc-state`:
+
 -------------------------------------------
 Modifying the Saved Primary Component State
 -------------------------------------------
-.. _`modifying-pc-state`:
-
 
 In the event that you find yourself in the unusual situation where you need to force certain nodes to join each other specifically, you can do so by manually changing the saved :term:`Primary Component` state.
 

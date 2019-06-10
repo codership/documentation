@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =====================================
 Scriptable State Snapshot Transfers
 =====================================
@@ -5,10 +7,12 @@ Scriptable State Snapshot Transfers
 
 When a node sends and receives a :term:`State Snapshot Transfer`, it manage it through processes that run external to the database server.  In the event that you need more from these processes that the default behavior provides, Galera Cluster provides an interface for custom shell scripts to manage state snapshot transfers on the node.
 
+
+.. _`writing-custom-sst`:
+
 ------------------------------
 Using the Common SST Script
 ------------------------------
-.. _`writing-custom-sst`:
 
 Galera Cluster includes a common script for managing a :term:`State Snapshot Transfer`, which you can use as a starting point in building your own custom script.  The filename is ``wsrep_sst_common.sh``.  For Linux users, the package manager typically installs it for you in ``/usr/bin``.
 
@@ -16,17 +20,21 @@ The common SST script provides ready functions for parsing argument lists, loggi
 
 It assumes that the storage engine initialization on the receiving node takes place only after the state transfer is complete.  Meaning that it copies the contents of the source data directory to the destination data directory (with possible variations).
 
+
+.. _`sst-script-parameters`:
+
 ---------------------------------
 State Transfer Script Parameters
 ---------------------------------
-.. _`sst-script-parameters`:
 
 When Galera Cluster starts an external process for state snapshot transfers, it passes a number of parameters to the script, which you can use in configuring your own state transfer script.
+
+
+.. _`general-sst-script-parameters`:
 
 ^^^^^^^^^^^^^^^^^^^^^
 General Parameters
 ^^^^^^^^^^^^^^^^^^^^^
-.. _`general-sst-script-parameters`:
 
 These parameters are passed to all state transfer scripts, regardless of method or whether the node is sending or receiving:
 
@@ -48,10 +56,11 @@ These parameters are passed to all state transfer scripts, regardless of method 
 The values the node passes to these parameters varies depending on whether the node calls the script to send or receive a state snapshot transfer.  For more information, see :ref:`Calling Conventions <calling-conventions>` below.
 
 
+.. _`donor-sst-script-parameters`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Donor-specific Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`donor-sst-script-parameters`:
 
 These parameters are passed only to state transfer scripts initiated by a node serving as the donor node, regardless of the method being used:
 
@@ -63,11 +72,11 @@ These parameters are passed only to state transfer scripts initiated by a node s
 
 
 
+.. _`mysqldump-sst-parameters`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Logical State Transfer-specific Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`mysqldump-sst-parameters`:
 
 These parameters are passed only to the ``wsrep_sst_mysqldump.sh`` state transfer script by both the sending and receiving nodes:
 
@@ -82,18 +91,20 @@ These parameters are passed only to the ``wsrep_sst_mysqldump.sh`` state transfe
 - ``--local-port`` The node gives to the script the port number to use in sending the state transfer.
 
 
+.. _`calling-conventions`:
 
 ----------------------------
 Calling Conventions
 ----------------------------
-.. _`calling-conventions`:
 
 In writing your own custom script for state snapshot transfers, there are certain conventions that you need to follow in order to accommodate how Galera Cluster calls the script.
+
+
+.. _`call-receiver`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Receiver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`call-receiver`:
 
 When the node calls for a state snapshot transfer as a joiner, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`General Parameters <general-sst-script-parameters>` above.  For your own script you can choose to use or ignore these arguments as suits your needs.
 
@@ -115,10 +126,12 @@ When the joiner node receives the state transfer and finishes applying it, print
 
 Then exit the script with a ``0`` status, to indicate that the state transfer was successful.
 
+
+.. _`call-sender`:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Sender
 ^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`call-sender`:
 
 When the node calls for a state snapshot transfer as a donor, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`General Parameters <general-sst-script-parameters>` above.  For your own script, you can choose to use or ignore these arguments as suits your needs.
 
@@ -137,10 +150,11 @@ In the event of failure, Galera Cluster expects your script to return a code tha
 .. note:: Without the ``continue\n`` signal, your script runs in Total Order Isolation, which guarantees that no further commits occur until the script exits.
 
 
+.. _`enabling-ssst`:
+
 -----------------------------
 Enabling Scriptable SST's
 -----------------------------
-.. _`enabling-ssst`:
 
 Whether you use ``wsrep_sst_common.sh`` directly or decide to write a script of your own from scratch, the process for enabling it remains the same.  The filename must follow the convention of ``wsrep_sst_<name>.sh``, with ``<name>`` being the value that you give for the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter in the configuration file.
 
@@ -156,4 +170,3 @@ When the node starts, it uses your custom script for state snapshot transfers.
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-

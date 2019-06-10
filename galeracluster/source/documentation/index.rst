@@ -1,72 +1,69 @@
 =============================
- Galera Cluster Documentation
+The Codership Documentation
 =============================
 .. index::
    pair: Certification based replication; Descriptions
 .. index::
    pair: Virtual synchrony; Descriptions
 
-Galera Cluster is a synchronous multi-master database cluster, based on synchronous replication and MySQL and InnoDB.  When Galera Cluster is in use, database reads and writes can be directed to any node. Any individual node can be lost without interruption in operations and without using complex failover procedures.
+This is the Codership Documentation. It documents the latest version of Galera Cluster, as well as related Galera tools, such as the Galera Arbitrator. It may include information on features available in upcoming versins of Galera Cluster that haven't been released yet. For such text, the new version number is noted.
 
-At a high level, Galera Cluster consists of a database server |---| that is, MySQL, MariaDB or Percona XtraDB |---| that uses the :term:`Galera Replication Plugin` to manage replication.  To be more specific, the MySQL replication plugin API has been extended to provide all the information and hooks required for true multi-master, synchronous replication.  This extended API is called the Write-Set Replication API, or wsrep API.
+.. csv-table:: :doc:`Configuration <technical-description>`
+   :class: doc-links
 
-Through the wsrep API, Galera Cluster provides certification-based replication.  A transaction for replication, the write-set not only contains the database rows to replicate, but also includes information on all of the locks that were held by the database during the transaction.  Each node then certifies the replicated write-set against other write-sets in the applier queue.  The write-set is then applied |---| if there are no conflicting locks.  At this point, the transaction is considered committed, after which each node continues to apply it to the tablespace.
+   ":doc:`tech-desc-introduction`", ":doc:`node-states`"
+   ":doc:`certification-based-replication`", ":doc:`recovery`"
+   ":doc:`architecture`", ":doc:`weighted-quorum`"
+   ":doc:`isolation-levels`", ":doc:`streaming-replication`"
+   ":doc:`state-transfer`", ""
 
-This approach is also called virtually synchronous replication, given that while it is logically synchronous, the actual writing and committing to the tablespace happens independently, and thus asynchronously on each node.
+.. csv-table:: :doc:`Administration <administration>`
+   :class: doc-links
 
+   ":doc:`node-provisioning`", ":doc:`quorum-reset`"
+   ":doc:`sst`", ":doc:`managing-fc`"
+   ":doc:`scriptable-sst`", ":doc:`auto-eviction`"
+   ":doc:`system-tables`", ":doc:`using-sr`"
+   ":doc:`schema-upgrades`", ":doc:`arbitrator`"
+   ":doc:`upgrading`", ":doc:`backup-cluster`"
+   ":doc:`pc-recovery`", ""
 
-.. rubric:: Benefits of Galera Cluster
-   :class: test
-.. _`Galera Cluster Benefits`:
+.. csv-table:: :doc:`Deployment <deployment>`
+   :class: doc-links
 
-Galera Cluster provides a significant improvement in high-availability for the MySQL system.  The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in trade-offs.
+   ":doc:`migrate`", ":doc:`load-balancing`"
+   ":doc:`deployment-variants`", ":doc:`containers`"
 
-The following features are available through Galera Cluster:
+.. csv-table:: :doc:`Monitoring <monitor>`
+   :class: doc-links
 
-- **True Multi-Master**
-  You can read and write to any node at any time. Changes to data on one node will be replicated on all.
+   ":doc:`monitoring-cluster`", ":doc:`log`"
+   ":doc:`notification-cmd`", ":doc:`security`"
 
-- **Synchronous Replication**
-  There is no slave lag, so no data is lost if a node crashes.
+.. csv-table:: :doc:`Reference <reference>`
+   :class: doc-links
 
-- **Tightly Coupled**
-  All nodes hold the same state. There is no diverged data between nodes.
+   ":doc:`mysql-wsrep-options`", ":doc:`glb-parameters`"
+   ":doc:`mysql-wsrep-functions`", ":doc:`xtrabackup-options`"
+   ":doc:`galera-parameters`", ":doc:`system-tables`"
+   ":doc:`galera-status-variables`", ":doc:`versioning-information`"
 
-- **Multi-Threaded Slave**
-  This allows for better performance and for any workload.
+.. csv-table:: Miscellaneous
+   :class: doc-links
 
-- **No Master-Slave Failover**
-  There is no need for master-slave operations or to use VIP.
+   ":doc:`glossary`", ":doc:`legal-notice`"
+   ":ref:`genindex`", ":ref:`search`"
+   ":doc:`../whats-new`", ""
 
-- **Hot Standby**
-  There is no downtime related to failures or intentionally taking down a node for maintenance since there is no failover.
+For resolving problems you might have with the software, you can also check our :doc:`Knowledge Base <../kb/index>`. There you will find troubleshooting and best practices articles.  You can also post questions on the `Codership Forum <http://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
 
-- **Automatic Node Provisioning**
-  There's no need to backup manually the database and copy it to the new node.
-
-- **Supports InnoDB.**
-  The InnoDB storage engine provides for transactional tables.
-
-- **Transparent to Applications**
-  Generally, you won't have to change an application that will interface with the database as a result of Galera. If you do, it will be minimal changes.
-
-- **No Read and Write Splitting Needed**
-  There is no need to split read and write queries.
-
-
-In summary, Galera Cluster is a high-availability solution that is both robust in terms of data integrity and provides high-performance with instant failovers.
-
-
-.. rubric:: Cloud Implementations with Galera Cluster
-.. _`Galera Cluster Cloud Implementations`:
-
-An additional benefit of Galera Cluster is good cloud support.  Automatic node provisioning makes elastic scale-out and scale-in operations painless.  Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.
-
+If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <http://galeracluster.com/contact-us/#send-us-a-message>`_.
 
 .. toctree::
-   :includehidden:
    :maxdepth: 3
+   :hidden:
 
+   overview
    technical-description
    administration
    deployment
@@ -74,10 +71,6 @@ An additional benefit of Galera Cluster is good cloud support.  Automatic node p
    security
    migrate
    reference
-
-- :ref:`genindex`
-- :ref:`search`
-
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

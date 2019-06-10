@@ -1,3 +1,5 @@
+.. cssclass:: kb-article
+
 =========================================
 Write-Set Caching during State Transfers
 =========================================
@@ -5,9 +7,7 @@ Write-Set Caching during State Transfers
 .. index::
    pair: Performance; gcache
 
-Under normal operations, nodes do not consume much more memory than the regular standalone MySQL database server.  The certification index and uncommitted write-sets do cause some additional usage, but in typical applications this is not usually noticeable.
-
-Write-set caching during state transfers is the exception.
+Under normal operations, nodes do not consume much more memory than the regular standalone MySQL database server.  The certification index and uncommitted write-sets do cause some additional usage, but in typical applications this is not usually noticeable. Write-set caching during state transfers is the exception.
 
 .. rubric:: Scenario
    :class: kb

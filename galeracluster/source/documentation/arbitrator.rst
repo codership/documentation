@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 ===================
  Galera Arbitrator
 ===================
@@ -28,13 +30,14 @@ If one datacenter fails or loses its :abbr:`WAN (Wide Area Network)` connection,
 
 In the event that Galera Arbitrator fails, it won't affect cluster operation.  You can attach a new instance to the cluster at any time and there can be several instances running in the cluster.
 
-.. note:: For more information on using Galera Arbitrator for making backups, see :doc:`backup-cluster`.
+For more information on using Galera Arbitrator for making backups, see :doc:`backup-cluster`.
 
+
+.. _`starting-arbitrator`:
 
 -----------------------------
 Starting Galera Arbitrator
 -----------------------------
-.. _`starting-arbitrator`:
 
 Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``.  This means that you must start it separately from the cluster.  It also means that you cannot configure Galera Arbitrator through the ``my.cnf`` configuration file.
 
@@ -50,12 +53,11 @@ How you configure Galera Arbitrator depends on how you start it.  That is to say
 
 
 
-
+.. _`arbitrator-shell-start`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Starting Galera Arbitrator from the Shell
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`arbitrator-shell-start`:
 
 When starting Galera Arbitrator from the shell, you have two options as to how you may configure it.  You can set the parameters through the command line arguments, as in the example here:
 
@@ -107,13 +109,14 @@ For more information on the options available to Galera Arbitrator through the s
 
 In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, except for those prefixed by ``repl``.  When you start it from the shell, you can set those using the ``--option`` argument.
 
-.. note:: For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.
+For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.
 
+
+.. _`arbitrator-service-start`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Starting Galera Arbitrator as a Service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`arbitrator-service-start`:
 
 When starting Galera Aribtrator as a service, whether using ``init`` or ``systemd``, you would use a different format for the configuration file than you would use when starting it from the shell. Below is an example of the configuration file:
 
@@ -163,4 +166,4 @@ This starts Galera Arbitrator as a service.  It uses the parameters set in the c
 
 In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, excepting those prefixed by ``repl``.  When you start it as a service, you can set those using the ``GALERA_OPTIONS`` parameter.
 
-.. note:: For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.
+For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.

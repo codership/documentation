@@ -1,3 +1,5 @@
+.. cssclass:: library-document
+
 =========================
  Galera Status Variables
 =========================
@@ -194,14 +196,21 @@ This distinction is of importance for developers only.  For convenience, all sta
 
 
 
-
-
-.. rubric:: ``wsrep_apply_oooe``
 .. _`wsrep_apply_oooe`:
+.. rubric:: ``wsrep_apply_oooe``
 .. index::
    pair: Status Variables; wsrep_apply_oooe
 
 How often applier started write-set applying out-of-order (parallelization efficiency).
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.671120``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -214,18 +223,21 @@ How often applier started write-set applying out-of-order (parallelization effic
    +------------------+----------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0.671120``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-.. rubric:: ``wsrep_apply_oool``
 .. _`wsrep_apply_oool`:
+.. rubric:: ``wsrep_apply_oool``
 .. index::
    pair: Status Variables; wsrep_apply_oool
 
 How often write-set was so slow to apply that write-set with higher seqno's were applied earlier. Values closer to 0 refer to a greater gap between slow and fast write-sets.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.195248``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -238,20 +250,21 @@ How often write-set was so slow to apply that write-set with higher seqno's were
    +------------------+----------+
 
 
-
-+-------------------+-----------+------------+------------+
-| Example Value     | Location  | Introduced | Deprecated |
-+===================+===========+============+============+
-| ``0.195248``      | Galera    |            |            |
-+-------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_apply_window``
 .. _`wsrep_apply_window`:
+.. rubric:: ``wsrep_apply_window``
 .. index::
    pair: Status Variables; wsrep_apply_window
 
 Average distance between highest and lowest concurrently applied seqno.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``5.163966``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -264,18 +277,21 @@ Average distance between highest and lowest concurrently applied seqno.
    +--------------------+----------+
 
 
-+-------------------+-----------+------------+------------+
-| Example Value     | Location  | Introduced | Deprecated |
-+===================+===========+============+============+
-| ``5.163966``      | Galera    |            |            |
-+-------------------+-----------+------------+------------+
-
-.. rubric:: ``wsrep_cert_deps_distance``
 .. _`wsrep_cert_deps_distance`:
+.. rubric:: ``wsrep_cert_deps_distance``
 .. index::
    pair: Status Variables; wsrep_cert_deps_distance
 
 Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization).
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``23.888889``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -288,18 +304,21 @@ Average distance between highest and lowest seqno value that can be possibly app
    +--------------------------+----------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``23.888889``      | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-.. rubric:: ``wsrep_cert_index_size``
 .. _`wsrep_cert_index_size`:
+.. rubric:: ``wsrep_cert_index_size``
 .. index::
    pair: Status Variables; wsrep_cert_index_size
 
 The number of entries in the certification index.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``30936``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -312,19 +331,25 @@ The number of entries in the certification index.
    +------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``30936``          | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_cert_interval``
 .. _`wsrep_cert_interval`:
+.. rubric:: ``wsrep_cert_interval``
 .. index::
    pair: Status Variables; wsrep_cert_interval
 
 Average number of transactions received while a transaction replicates.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``1.0``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it.  By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
+
+To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts.  Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -336,24 +361,24 @@ Average number of transactions received while a transaction replicates.
    | wsrep_cert_interval | 1.0   |
    +---------------------+-------+
 
-When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it.  By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
-
-To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts.  Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.
-
 This shows you the number of write-sets concurrently replicating to the cluster. In a fully synchronous cluster, with one write-set replicating at a time, :ref:`wsrep_cert_interval <wsrep_cert_interval>` returns a value of ``1.0``.
 
-+---------------+-----------+------------+------------+
-| Example Value | Location  | Introduced | Deprecated |
-+===============+===========+============+============+
-| ``1.0``       | Galera    |            |            |
-+---------------+-----------+------------+------------+
 
-.. rubric:: ``wsrep_cluster_conf_id``
 .. _`wsrep_cluster_conf_id`:
+.. rubric:: ``wsrep_cluster_conf_id``
 .. index::
    pair: Status Variables; wsrep_cluster_conf_id
 
 Total number of cluster membership changes happened.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``34``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -366,20 +391,21 @@ Total number of cluster membership changes happened.
    +-----------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``34``             | MySQL     |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_cluster_size``
 .. _`wsrep_cluster_size`:
+.. rubric:: ``wsrep_cluster_size``
 .. index::
    pair: Status Variables; wsrep_cluster_size
 
 Current number of members in the cluster.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``3``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -392,20 +418,21 @@ Current number of members in the cluster.
    +--------------------+-------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``3``              | MySQL     |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_cluster_state_uuid``
 .. _`wsrep_cluster_state_uuid`:
+.. rubric:: ``wsrep_cluster_state_uuid``
 .. index::
    pair: Status Variables; wsrep_cluster_state_uuid
 
 Provides the current State UUID.  This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``e2c9a15e-5485-11e00900-6bbb637e7211``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -417,23 +444,24 @@ Provides the current State UUID.  This is a unique identifier for the current st
    | wsrep_cluster_state_uuid | e2c9a15e-5485-11e0-0800-6bbb637e7211 |
    +--------------------------+--------------------------------------+
 
-.. note:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
+For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 
 
-+------------------------+-----------+------------+------------+
-| Example Value          | Location  | Introduced | Deprecated |
-+========================+===========+============+============+
-| ``e2c9a15e-5485-11e0   | MySQL     |            |            |
-| 0900-6bbb637e7211``    |           |            |            |
-+------------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_cluster_status``
 .. _`wsrep_cluster_status`:
+.. rubric:: ``wsrep_cluster_status``
 .. index::
    pair: Status Variables; wsrep_cluster_status
 
 Status of this cluster component.  That is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``Primary``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -446,19 +474,22 @@ Status of this cluster component.  That is, whether the node is part of a ``PRIM
    +----------------------+---------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``Primary``        | MySQL     |            |            |
-+--------------------+-----------+------------+------------+
-
-.. rubric:: ``wsrep_cluster_weight``
 .. _`wsrep_cluster_weight`:
+.. rubric:: ``wsrep_cluster_weight``
 .. index::
    pair: Status Variables; wsrep_cluster_weight
 
 The total weight of the current members in the cluster. The value is counted as a sum of
 of :ref:`pc.weight <pc.weight>` of the nodes in the current :term:`Primary Component`.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``3``"
+   "Location", "Galera"
+   "Introduced", "3.24"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -471,20 +502,21 @@ of :ref:`pc.weight <pc.weight>` of the nodes in the current :term:`Primary Compo
    +----------------------+-------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``3``              | Galera    | 3.24       |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_commit_oooe``
 .. _`wsrep_commit_oooe`:
+.. rubric:: ``wsrep_commit_oooe``
 .. index::
    pair: Status Variables; wsrep_commit_oooe
 
 How often a transaction was committed out of order.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.000000``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -497,20 +529,21 @@ How often a transaction was committed out of order.
    +-------------------+----------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0.000000``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_commit_oool``
 .. _`wsrep_commit_oool`:
+.. rubric:: ``wsrep_commit_oool``
 .. index::
    pair: Status Variables; wsrep_commit_oool
 
 No meaning.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.000000``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -523,19 +556,21 @@ No meaning.
    +-------------------+----------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0.000000``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_commit_window``
 .. _`wsrep_commit_window`:
+.. rubric:: ``wsrep_commit_window``
 .. index::
    pair: Status Variables; wsrep_commit_window
 
 Average distance between highest and lowest concurrently committed seqno.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.000000``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -548,19 +583,21 @@ Average distance between highest and lowest concurrently committed seqno.
    +---------------------+----------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0.000000``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_connected``
 .. _`wsrep_connected`:
+.. rubric:: ``wsrep_connected``
 .. index::
    pair: Status Variables; wsrep_connected
 
 If the value is ``OFF``, the node has not yet connected to any of the cluster components. This may be due to misconfiguration. Check the error log for proper diagnostics.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``ON``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -573,20 +610,23 @@ If the value is ``OFF``, the node has not yet connected to any of the cluster co
    +-----------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``ON``             | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_desync_count``
 .. _`wsrep_desync_count`:
+.. rubric:: ``wsrep_desync_count``
 .. index::
    pair: Status Variables; wsrep_desync_count
 
 Returns the number of operations in progress that require the node to temporarily desync from the cluster.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0``"
+   "Location", "Galera"
+   "Introduced", "3.8"
+
+Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -598,24 +638,22 @@ Returns the number of operations in progress that require the node to temporaril
    | wsrep_desync_count | 1     |
    +--------------------+-------+
 
-Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0``              | Galera    | 3.8        |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_evs_delayed``
 .. _`wsrep_evs_delayed`:
+.. rubric:: ``wsrep_evs_delayed``
 .. index::
    pair: Status Variables; wsrep_evs_delayed
 
 Provides a comma separated list of all the nodes this node has registered on its delayed list.
 
-The node listing format is
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", ""
+   "Location", "Galera"
+   "Introduced", "3.8"
+
+The node listing format is as follows:
 
 .. code-block:: text
 
@@ -624,37 +662,48 @@ The node listing format is
 This refers to the UUID and IP address of the delayed node, with a count of the number of entries it has on the delayed list.
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-|                    | Galera    | 3.8        |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_evs_evict_list``
 .. _`wsrep_evs_evict_list`:
+.. rubric:: ``wsrep_evs_evict_list``
 .. index::
    pair: Status Variables; wsrep_evs_evict_list
 
 Lists the UUID's of all nodes evicted from the cluster.  Evicted nodes cannot rejoin the cluster until you restart their ``mysqld`` processes.
 
+.. csv-table::
+   :class: doc-options
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-|                    | Galera    | 3.8        |            |
-+--------------------+-----------+------------+------------+
+   "Example Value", ""
+   "Location", "Galera"
+   "Introduced", "3.8"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_evs_evict_list';
+
+   +----------------------+-------+
+   | Variable_name        | Value |
+   +----------------------+-------+
+   | wsrep_evs_evict_list |       |
+   +----------------------+-------+
 
 
-
-.. rubric:: ``wsrep_evs_repl_latency``
 .. _`wsrep_evs_repl_latency`:
+.. rubric:: ``wsrep_evs_repl_latency``
 .. index::
    pair: Parameters; wsrep_evs_repl_latency
 
 This status variable provides figures for the replication latency on group communication.  It measures latency from the time point when a message is sent out to the time point when a message is received.  As replication is a group operation, this essentially gives you the slowest ACK and longest RTT in the cluster.
 
-For example,
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.00243433/0.144033/0.581963/0.215724/13``"
+   "Location", "Galera"
+   "Introduced", "3.0"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -675,38 +724,50 @@ The units are in seconds.  The format of the return value is:
 This variable periodically resets.  You can control the reset interval using the :ref:`evs.stats_report_period <evs.stats_report_period>` parameter.  The default value is 1 minute.
 
 
-+-------------------------+-----------+------------+------------+
-| Example Value           | Location  | Introduced | Deprecated |
-+=========================+===========+============+============+
-| ``0.00243433/0.144033/  | Galera    | 3.0        |            |
-| 0.581963/0.215724/13``  |           |            |            |
-+-------------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_evs_state``
 .. _`wsrep_evs_state`:
+.. rubric:: ``wsrep_evs_state``
 .. index::
    pair: Status Variables; wsrep_evs_state
 
 Shows the internal state of the EVS Protocol.
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-|                    | Galera    | 3.8        |            |
-+--------------------+-----------+------------+------------+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", ""
+   "Location", "Galera"
+   "Introduced", "3.8"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_evs_state';
+
+   +-----------------+-------------+
+   | Variable_name   | Value       |
+   +-----------------+-------------+
+   | wsrep_evs_state | OPERATIONAL |
+   +-----------------+-------------+
 
 
-
-.. rubric:: ``wsrep_flow_control_paused``
 .. _`wsrep_flow_control_paused`:
+.. rubric:: ``wsrep_flow_control_paused``
 .. index::
    pair: Status Variables; wsrep_flow_control_paused
 
 The fraction of time since the last ``FLUSH STATUS`` command that replication was paused due to flow control.
 
-In other words, how much the slave lag is slowing down the cluster.
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.174353``"
+   "Location", "Galera"
+   "Introduced", ""
+
+Basically, this is how much the slave lag is slowing down the cluster.
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -719,19 +780,21 @@ In other words, how much the slave lag is slowing down the cluster.
    +---------------------------+----------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0.174353``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_flow_control_paused_ns``
 .. _`wsrep_flow_control_paused_ns`:
+.. rubric:: ``wsrep_flow_control_paused_ns``
 .. index::
    pair: Status Variables; wsrep_flow_control_paused_ns
 
 The total time spent in a paused state measured in nanoseconds.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``20222491180``"
+   "Location", "Galera"
+   "Introduced", ""
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -744,21 +807,21 @@ The total time spent in a paused state measured in nanoseconds.
    +------------------------------+-------------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``20222491180``    | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_flow_control_recv``
 .. _`wsrep_flow_control_recv`:
+.. rubric:: ``wsrep_flow_control_recv``
 .. index::
    pair: Status Variables; wsrep_flow_control_recv
 
 Returns the number of ``FC_PAUSE`` events the node has received, including those the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
 
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``11``"
+   "Location", "Galera"
+   "Introduced", ""
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -771,20 +834,21 @@ Returns the number of ``FC_PAUSE`` events the node has received, including those
    +-------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``11``             | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_flow_control_sent``
 .. _`wsrep_flow_control_sent`:
+.. rubric:: ``wsrep_flow_control_sent``
 .. index::
    pair: Status Variables; wsrep_flow_control_sent
 
 Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``7``"
+   "Location", "Galera"
+   "Introduced", ""
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -797,19 +861,21 @@ Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status
    +-------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``7``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_gcomm_uuid``
 .. _`wsrep_gcomm_uuid`:
+.. rubric:: ``wsrep_gcomm_uuid``
 .. index::
    pair: Status Variables; wsrep_gcomm_uuid
 
 Displays the group communications UUID.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``7e729708-605f-11e5-8ddd-8319a704b8c4``"
+   "Location", "Galera"
+   "Introduced", "1.0"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -821,18 +887,22 @@ Displays the group communications UUID.
    | wsrep_gcomm_uuid | 7e729708-605f-11e5-8ddd-8319a704b8c4 |
    +------------------+--------------------------------------+
 
-+--------------------------------------------+-----------+------------+------------+
-| Example Value                              | Location  | Introduced | Deprecated |
-+============================================+===========+============+============+
-| ``7e729708-605f-11e5-8ddd-8319a704b8c4``   | Galera    | 1          |            |
-+--------------------------------------------+-----------+------------+------------+
 
-.. rubric:: ``wsrep_incoming_addresses``
 .. _`wsrep_incoming_addresses`:
+.. rubric:: ``wsrep_incoming_addresses``
 .. index::
    pair: Status Variables; wsrep_incoming_addresses
 
 Comma-separated list of incoming server addresses in the cluster component.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``10.0.0.1:3306,10.0.0.2:3306,undefined``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -845,23 +915,21 @@ Comma-separated list of incoming server addresses in the cluster component.
    +--------------------------+--------------------------------------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``10.0.0.1:3306,   | Galera    |            |            |
-| 10.0.0.2:3306,     |           |            |            |
-| undefined``        |           |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_last_committed``
 .. _`wsrep_last_committed`:
+.. rubric:: ``wsrep_last_committed``
 .. index::
    pair: Status Variables; wsrep_last_committed
 
 The sequence number, or seqno, of the last committed transaction. See :ref:`wsrep API <wsrep-api>`.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``409745``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -873,23 +941,24 @@ The sequence number, or seqno, of the last committed transaction. See :ref:`wsre
    | wsrep_last_committed | 409745 |
    +----------------------+--------+
 
-.. note:: For more information, see :ref:`wsrep API <wsrep-api>`.
+For more information, see :ref:`wsrep API <wsrep-api>`.
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``409745``         | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_local_bf_aborts``
 .. _`wsrep_local_bf_aborts`:
+.. rubric:: ``wsrep_local_bf_aborts``
 .. index::
    pair: Status Variables; wsrep_local_bf_aborts
 
 Total number of local transactions that were aborted by slave transactions while in execution.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``960``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -902,19 +971,21 @@ Total number of local transactions that were aborted by slave transactions while
    +-----------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``960``            | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_cached_downto``
 .. _`wsrep_local_cached_downto`:
+.. rubric:: ``wsrep_local_cached_downto``
 .. index::
    pair: Status Variables; wsrep_local_cached_downto
 
 The lowest sequence number, or seqno, in the write-set cache (GCache).
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``18446744073709551615``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -927,20 +998,21 @@ The lowest sequence number, or seqno, in the write-set cache (GCache).
    +---------------------------+----------------------+
 
 
-+--------------------------+-----------+------------+------------+
-| Example Value            | Location  | Introduced | Deprecated |
-+==========================+===========+============+============+
-| ``18446744073709551615`` | Galera    |            |            |
-+--------------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_local_cert_failures``
 .. _`wsrep_local_cert_failures`:
+.. rubric:: ``wsrep_local_cert_failures``
 .. index::
    pair: Status Variables; wsrep_local_cert_failures
 
 Total number of local transactions that failed certification test.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``333``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -953,20 +1025,21 @@ Total number of local transactions that failed certification test.
    +---------------------------+-------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``333``            | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_commits``
 .. _`wsrep_local_commits`:
+.. rubric:: ``wsrep_local_commits``
 .. index::
    pair: Status Variables; wsrep_local_commits
 
 Total number of local transactions committed.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``14981``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -979,20 +1052,21 @@ Total number of local transactions committed.
    +---------------------+-------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``14981``          | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_index``
 .. _`wsrep_local_index`:
+.. rubric:: ``wsrep_local_index``
 .. index::
    pair: Status Variables; wsrep_local_index
 
 This node index in the cluster (base 0).
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``1``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1005,19 +1079,21 @@ This node index in the cluster (base 0).
    +-------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``1``              | MySQL     |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_recv_queue``
 .. _`wsrep_local_recv_queue`:
+.. rubric:: ``wsrep_local_recv_queue``
 .. index::
    pair: Status Variables; wsrep_local_recv_queue
 
 Current (instantaneous) length of the recv queue.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1030,20 +1106,21 @@ Current (instantaneous) length of the recv queue.
    +------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_local_recv_queue_avg``
 .. _`wsrep_local_recv_queue_avg`:
+.. rubric:: ``wsrep_local_recv_queue_avg``
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_avg
 
 Recv queue length averaged over interval since the last ``FLUSH STATUS`` command. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``3.348452``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1056,19 +1133,21 @@ Recv queue length averaged over interval since the last ``FLUSH STATUS`` command
    +----------------------------+----------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``3.348452``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_recv_queue_max``
 .. _`wsrep_local_recv_queue_max`:
+.. rubric:: ``wsrep_local_recv_queue_max``
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_max
 
 The maximum length of the recv queue since the last FLUSH STATUS command.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``10``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1081,22 +1160,21 @@ The maximum length of the recv queue since the last FLUSH STATUS command.
    +----------------------------+-------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``10``             | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_recv_queue_min``
-
 .. _`wsrep_local_recv_queue_min`:
-
+.. rubric:: ``wsrep_local_recv_queue_min``
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_min
 
-The minimum length of the recv queue since the last FLUSH STATUS command.
+The minimum length of the recv queue since the last ``FLUSH STATUS`` command.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1109,20 +1187,21 @@ The minimum length of the recv queue since the last FLUSH STATUS command.
    +-----------------------------+-------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_replays``
 .. _`wsrep_local_replays`:
+.. rubric:: ``wsrep_local_replays``
 .. index::
    pair: Status Variables; wsrep_local_replays
 
 Total number of transaction replays due to *asymmetric lock granularity*.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1135,20 +1214,21 @@ Total number of transaction replays due to *asymmetric lock granularity*.
    +---------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_local_send_queue``
 .. _`wsrep_local_send_queue`:
+.. rubric:: ``wsrep_local_send_queue``
 .. index::
    pair: Status Variables; wsrep_local_send_queue
 
 Current (instantaneous) length of the send queue.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``1``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1161,18 +1241,21 @@ Current (instantaneous) length of the send queue.
    +------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``1``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-.. rubric:: ``wsrep_local_send_queue_avg``
 .. _`wsrep_local_send_queue_avg`:
+.. rubric:: ``wsrep_local_send_queue_avg``
 .. index::
    pair: Status Variables; wsrep_local_send_queue_avg
 
 Send queue length averaged over time since the last ``FLUSH STATUS`` command. Values considerably larger than 0.0 indicate replication throttling or network throughput issue.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0.145000``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1185,20 +1268,21 @@ Send queue length averaged over time since the last ``FLUSH STATUS`` command. Va
    +----------------------------+----------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0.145000``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_local_send_queue_max``
 .. _`wsrep_local_send_queue_max`:
+.. rubric:: ``wsrep_local_send_queue_max``
 .. index::
    pair: Status Variables; wsrep_local_send_queue_max
 
 The maximum length of the send queue since the last ``FLUSH STATUS`` command.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``10``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1211,23 +1295,21 @@ The maximum length of the send queue since the last ``FLUSH STATUS`` command.
    +----------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``10``             | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-
-.. rubric:: ``wsrep_local_send_queue_min``
-
 .. _`wsrep_local_send_queue_min`:
-
+.. rubric:: ``wsrep_local_send_queue_min``
 .. index::
    pair: Status Variables; wsrep_local_send_queue_min
 
 The minimum length of the send queue since the last ``FLUSH STATUS`` command.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1240,19 +1322,21 @@ The minimum length of the send queue since the last ``FLUSH STATUS`` command.
    +----------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_state``
 .. _`wsrep_local_state`:
+.. rubric:: ``wsrep_local_state``
 .. index::
    pair: Status Variables; wsrep_local_state
 
 Internal Galera Cluster FSM state number.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``4``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1264,23 +1348,24 @@ Internal Galera Cluster FSM state number.
    | wsrep_local_state | 4     |
    +-------------------+-------+
 
-.. note:: For more information on the possible node states, see :ref:`Node State Changes <node-state-changes>`.
+For more information on the possible node states, see :ref:`Node State Changes <node-state-changes>`.
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``4``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_local_state_comment``
 .. _`wsrep_local_state_comment`:
+.. rubric:: ``wsrep_local_state_comment``
 .. index::
    pair: Status Variables; wsrep_local_state_comment
 
 Human-readable explanation of the state.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``Synced``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1293,20 +1378,21 @@ Human-readable explanation of the state.
    +---------------------------+--------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``Synced``         | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_local_state_uuid``
 .. _`wsrep_local_state_uuid`:
+.. rubric:: ``wsrep_local_state_uuid``
 .. index::
    pair: Status Variables; wsrep_local_state_uuid
 
 The UUID of the state stored on this node.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``e2c9a15e-5385-11e0-0800-6bbb637e7211``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1318,21 +1404,24 @@ The UUID of the state stored on this node.
    | wsrep_local_state_uuid | e2c9a15e-5485-11e0-0800-6bbb637e7211 |
    +------------------------+--------------------------------------+
 
-.. note:: For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
+For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 
-+-----------------------+-----------+------------+------------+
-| Example Value         | Location  | Introduced | Deprecated |
-+=======================+===========+============+============+
-| ``e2c9a15e-5385-11e0- | Galera    |            |            |
-| 0800-6bbb637e7211``   |           |            |            |
-+-----------------------+-----------+------------+------------+
 
-.. rubric:: ``wsrep_open_connections``
 .. _`wsrep_open_connections`:
+.. rubric:: ``wsrep_open_connections``
 .. index::
    pair: Status Variables; wsrep_open_connections
 
 The number of open connection objects inside the wsrep provider.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``1``"
+   "Location", "Galera"
+   "Introduced", "3.24"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1345,21 +1434,21 @@ The number of open connection objects inside the wsrep provider.
    +------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``1``              | Galera    | 3.24       |            |
-+--------------------+-----------+------------+------------+
-
-.. rubric:: ``wsrep_open_transactions``
 .. _`wsrep_open_transactions`:
+.. rubric:: ``wsrep_open_transactions``
 .. index::
    pair: Status Variables; wsrep_open_transactions
 
-The number of locally running transactions which have been registered inside
-the wsrep provider. This means transactions which have made operations
-which have caused write set population to happen. Transactions which are
-read only are not counted.
+The number of locally running transactions which have been registered inside the wsrep provider. This means transactions which have made operations which have caused write set population to happen. Transactions which are read only are not counted.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``6``"
+   "Location", "Galera"
+   "Introduced", "3.24"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1372,19 +1461,21 @@ read only are not counted.
    +-------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``6``              | Galera    | 3.24       |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_protocol_version``
 .. _`wsrep_protocol_version`:
+.. rubric:: ``wsrep_protocol_version``
 .. index::
    pair: Status Variables; wsrep_protocol_version
 
 The version of the wsrep Protocol used.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``4``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1397,19 +1488,21 @@ The version of the wsrep Protocol used.
    +------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``4``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_provider_name``
 .. _`wsrep_provider_name`:
+.. rubric:: ``wsrep_provider_name``
 .. index::
    pair: Status Variables; wsrep_provider_name
 
 The name of the wsrep Provider.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``Galera``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1422,19 +1515,21 @@ The name of the wsrep Provider.
    +---------------------+--------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``Galera``         | MySQL     |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_provider_vendor``
 .. _`wsrep_provider_vendor`:
+.. rubric:: ``wsrep_provider_vendor``
 .. index::
    pair: Status Variables; wsrep_provider_vendor
 
 The name of the wsrep Provider vendor.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``Codership Oy <info@codership.com>``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1447,20 +1542,21 @@ The name of the wsrep Provider vendor.
    +-----------------------+-----------------------------------+
 
 
-+------------------------+-----------+------------+------------+
-| Example Value          | Location  | Introduced | Deprecated |
-+========================+===========+============+============+
-| ``Codership Oy         | MySQL     |            |            |
-| <info@codership.com>`` |           |            |            |
-+------------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_provider_version``
 .. _`wsrep_provider_version`:
+.. rubric:: ``wsrep_provider_version``
 .. index::
    pair: Status Variables; wsrep_provider_version
 
 The name of the wsrep Provider version string.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``25.3.5-wheezy(rXXXX)``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1473,19 +1569,21 @@ The name of the wsrep Provider version string.
    +------------------------+----------------------+
 
 
-+--------------------------+-----------+------------+------------+
-| Example Value            | Location  | Introduced | Deprecated |
-+==========================+===========+============+============+
-| ``25.3.5-wheezy(rXXXX)`` | MySQL     |            |            |
-+--------------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_ready``
 .. _`wsrep_ready`:
+.. rubric:: ``wsrep_ready``
 .. index::
    pair: Status Variables; wsrep_ready
 
 Whether the server is ready to accept queries. If this status is ``OFF``, almost all of the queries will fail with:
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``ON``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: text
 
@@ -1504,20 +1602,21 @@ unless the ``wsrep_on`` session variable is set to ``0``.
    +---------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``ON``             | MySQL     |            |            |
-+--------------------+-----------+------------+------------+
-
-
-
-.. rubric:: ``wsrep_received``
 .. _`wsrep_received`:
+.. rubric:: ``wsrep_received``
 .. index::
    pair: Status Variables; wsrep_received
 
 Total number of write-sets received from other nodes.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``17831``"
+   "Location", "MySQL"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1530,20 +1629,21 @@ Total number of write-sets received from other nodes.
    +----------------+-------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``17831``          | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_received_bytes``
 .. _`wsrep_received_bytes`:
+.. rubric:: ``wsrep_received_bytes``
 .. index::
    pair: Status Variables; wsrep_received_bytes
 
 Total size of write-sets received from other nodes.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``6637093``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1556,20 +1656,21 @@ Total size of write-sets received from other nodes.
    +----------------------+---------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``6637093``        | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_repl_data_bytes``
 .. _`wsrep_repl_data_bytes`:
+.. rubric:: ``wsrep_repl_data_bytes``
 .. index::
    pair: Status Variables; wsrep_repl_data_bytes
 
 Total size of data replicated.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``6526788``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1582,20 +1683,21 @@ Total size of data replicated.
    +-----------------------+---------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``6526788``        | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_repl_keys``
 .. _`wsrep_repl_keys`:
+.. rubric:: ``wsrep_repl_keys``
 .. index::
    pair: Status Variables; wsrep_repl_keys
 
 Total number of keys replicated.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``797399``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-blocK:: mysql
 
@@ -1608,19 +1710,21 @@ Total number of keys replicated.
    +-----------------+--------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``797399``         | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_repl_keys_bytes``
 .. _`wsrep_repl_keys_bytes`:
+.. rubric:: ``wsrep_repl_keys_bytes``
 .. index::
    pair: Status Variables; wsrep_repl_keys_bytes
 
 Total size of keys replicated.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``11203721``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1633,20 +1737,21 @@ Total size of keys replicated.
    +-----------------------+----------+
 
 
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``11203721``       | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_repl_other_bytes``
 .. _`wsrep_repl_other_bytes`:
+.. rubric:: ``wsrep_repl_other_bytes``
 .. index::
    pair: Status Variables; wsrep_repl_other_bytes
 
 Total size of other bits replicated.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``0``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1659,19 +1764,21 @@ Total size of other bits replicated.
    +------------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``0``              | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_replicated``
 .. _`wsrep_replicated`:
+.. rubric:: ``wsrep_replicated``
 .. index::
    pair: Status Variables; wsrep_replicated
 
 Total number of write-sets replicated (sent to other nodes).
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``16109``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1684,19 +1791,21 @@ Total number of write-sets replicated (sent to other nodes).
    +------------------+-------+
 
 
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``16109``          | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
-
-.. rubric:: ``wsrep_replicated_bytes``
 .. _`wsrep_replicated_bytes`:
+.. rubric:: ``wsrep_replicated_bytes``
 .. index::
    pair: Status Variables; wsrep_replicated_bytes
 
 Total size of write-sets replicated.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``6526788``"
+   "Location", "Galera"
+   "Introduced", "???"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1707,14 +1816,6 @@ Total size of write-sets replicated.
    +------------------------+---------+
    | wsrep_replicated_bytes | 6526788 |
    +------------------------+---------+
-
-
-+--------------------+-----------+------------+------------+
-| Example Value      | Location  | Introduced | Deprecated |
-+====================+===========+============+============+
-| ``6526788``        | Galera    |            |            |
-+--------------------+-----------+------------+------------+
-
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

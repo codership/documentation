@@ -1,6 +1,8 @@
-==========================
+.. cssclass:: library-document
+
+=================
  Schema Upgrades
-==========================
+=================
 .. _`schema-upgrades`:
 
 Schema changes are of particular interest related to Galara Cluster. Schema changes are  :abbr:`DDL (Data Definition Language)` statement executed on a database (e.g., ``CREATE TABLE``, ``GRANT``).  These :abbr:`DDL (Data Definition Language)` statements change the database itself and are non-transactional.
@@ -17,11 +19,12 @@ You can set the method for online schema changes by using the ``wsrep_OSU_method
 
 
 
+.. _`toi`:
 
 ---------------------------------
  Total Order Isolation
 ---------------------------------
-.. _`toi`:
+
 .. index::
    pair: Descriptions; Total Order Isolation
 
@@ -41,10 +44,13 @@ The main advantage of Total Order Isolation is its simplicity and predictability
 
 - The cluster replicates the schema change query as a statement before its execution.  There is no way to know whether or not individual nodes succeed in processing the query.  This prevents error checking on schema changes in Total Order Isolation.
 
+
+.. _`rsu`:
+
 ---------------------------------
  Rolling Schema Upgrade
 ---------------------------------
-.. _`rsu`:
+
 .. index::
    pair: Descriptions; Rolling Schema Upgrade
 .. index::

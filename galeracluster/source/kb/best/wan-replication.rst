@@ -1,5 +1,7 @@
+.. cssclass:: kb-article
+
 ==================
- WAN Replication
+WAN Replication
 ==================
 .. _`kb-best-wan-replication`:
 

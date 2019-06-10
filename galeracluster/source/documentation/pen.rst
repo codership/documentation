@@ -1,14 +1,18 @@
-=================================
+.. cssclass:: library-document
+
+===========
 Pen
-=================================
+===========
 .. _`pen`:
 
 Pen is a high-scalability, high-availability, robust load balancer for TCP- and UDP-based protocols.  You can use it to balance connections between application servers and Galera Cluster.
 
+
+.. _`pen-install`:
+
 ---------------
 Installation
 ---------------
-.. _`pen-install`:
 
 Pen is available in the software repositories of most Linux distributions.  You can install it using a package manager.
 
@@ -27,10 +31,11 @@ Pen is available in the software repositories of most Linux distributions.  You 
 Whichever you use, they will install Pen on your system.  In the event that the command for your distribution or operating system does not work as expected, check your system's documentation or software repository for information on the correct procedure to install Pen. For instance, on a RPM-based system, you may have to install the ``yum`` utility.
 
 
+.. _`using-pen`:
+
 ----------------
 Using Pen
 ----------------
-.. _`using-pen`:
 
 Once you've installed Pen on the load balancing server, you can launch it from the command-line by entering something like the following:
 
@@ -43,13 +48,14 @@ Once you've installed Pen on the load balancing server, you can launch it from t
 
 When one of the application servers attempts to connect to the Pen server on port ``3306``, Pen routes that connection to one of the Galera Cluster nodes.
 
-.. note:: For more information on Pen configuration and use, see its manpage.
+For more information on Pen configuration and use, see its manpage.
 
+
+.. _`pen-server-selection`:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Server Selection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _`pen-server-selection`:
 
 When Pen receives a new connection from the application servers, it first checks to see where the application was routed on the last connection and attempts to send traffic there.  In the event that it cannot establish a connection, it falls back on a round-robin selection policy.
 
@@ -64,5 +70,3 @@ There are a number of options you can use to modify this behavior when you launc
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
-
-
