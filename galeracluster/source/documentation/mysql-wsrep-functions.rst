@@ -6,18 +6,14 @@ MySQL wsrep Functions
 .. _`mysql-wsrep-functions`:
 
 
-+-------------------------------------+-------------------------+---------+
-| Function                            | Arguments               | Support |
-+=====================================+=========================+=========+
-| :ref:`WSREP_LAST_SEEN_GTID()        |                         | 4+      |
-| <WSREP_LAST_SEEN_GTID>`             |                         |         |
-+-------------------------------------+-------------------------+---------+
-| :ref:`WSREP_LAST_WRITTEN_GTID()     |                         | 4+      |
-| <WSREP_LAST_WRITTEN_GTID>`          |                         |         |
-+-------------------------------------+-------------------------+---------+
-| :ref:`WSREP_SYNC_WAIT_UPTO_GTID()   | ``gtid`` ``[timeout]``  | 4+      |
-| <WSREP_SYNC_WAIT_UPTO_GTID>`        |                         |         |
-+-------------------------------------+-------------------------+---------+
+.. csv-table::
+   :class: doc-options
+   :header: "Function", "Arguments", "Initial Version"
+   :widths: 40, 40, 20
+
+   ":ref:`WSREP_LAST_SEEN_GTID() <WSREP_LAST_SEEN_GTID>`", "", "4.0"
+   ":ref:`WSREP_LAST_WRITTEN_GTID() <WSREP_LAST_WRITTEN_GTID>`", "", "4.0"
+   ":ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`", "``gtid`` ``[timeout]``", "4.0"
 
 
 .. _`WSREP_LAST_SEEN_GTID`:
@@ -29,19 +25,18 @@ MySQL wsrep Functions
 
 Much like ``LAST_INSERT_ID()`` for getting the identification number of the last row inserted in MySQL, this function returns the :term:`Global Transaction ID` of the last write transaction observed by the client.
 
-+---------------+----------------------------+
-| **Function**  | ``WSREP_LAST_SEEN_GTID()`` |
-+---------------+----------------------------+
-| **Arguments** | None                       |
-+---------------+----------------------------+
-| **Support**   | 4+                         |
-+---------------+----------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Function", "``WSREP_LAST_SEEN_GTID()``"
+   "Arguments", "None"
+   "Initial Version", "Version 4.0"
 
 This function returns the :term:`Global Transaction ID` of the last write transaction observed by the client. It can be useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`. You can use this parameter to identify the transaction upon which it should wait before unblocking the client.
 
 Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function to get the Global Transaction ID of the last write transaction observed:
 
-.. code-block:: console
+.. code-block:: mysql
 
    SELECT WSREP_LAST_SEEN_GTID();
 
@@ -55,20 +50,18 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
 This function returns the :term:`Global Transaction ID` of the last write transaction made by the client.
 
+.. csv-table::
+   :class: doc-options
 
-+---------------+-------------------------------+
-| **Function**  | ``WSREP_LAST_WRITTEN_GTID()`` |
-+---------------+-------------------------------+
-| **Arguments** | None                          |
-+---------------+-------------------------------+
-| **Support**   | 4+                            |
-+---------------+-------------------------------+
+   "Function", "``WSREP_LAST_WRITTEN_GTID()``"
+   "Arguments", "None"
+   "Initial Version", "Version 4.0"
 
 This function returns the Global Transaction ID of the last write transaction made by the client.  This can be useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`. You can use this parameter to identify the transaction upon which it should wait before unblocking the client.
 
 Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function to get the Global Transaction ID of the last write transaction observed:
 
-.. code-block:: console
+.. code-block:: mysql
 
    BEGIN;
 
@@ -79,6 +72,7 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
    SELECT WSREP_LAST_WRITTEN_GTID();
 
+
 .. _`WSREP_SYNC_WAIT_UPTO_GTID`:
 .. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
 .. index::
@@ -88,15 +82,13 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
 This function blocks the client until the node applies and commits the given transaction.
 
-+---------------+----------------------------------------------+
-| **Function**  | ``WSREP_LAST_WRITTEN_GTID()``                |
-+---------------+----------------------+-----------------------+
-| **Arguments** | *Required Arguments* | Global Transaction ID |
-|               +----------------------+-----------------------+
-|               | *Optional Arguments* | timeout               |
-+---------------+----------------------+-----------------------+
-| **Support**   | 4+                                           |
-+---------------+----------------------------------------------+
+.. csv-table::
+   :class: doc-options
+
+   "Function", "``WSREP_LAST_WRITTEN_GTID()``"
+   "Required Arguments", "Global Transaction ID"
+   "Optional Arguments", "timeout"
+   "Initial Version", "Version 4.0"
 
 This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`.  If you don't provide a timeout, it defaults to the value of :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`. It the following return values:
 
@@ -106,10 +98,9 @@ This function blocks the client until the node applies and commits the given :te
 
 - ``ER_WRONG_ARGUMENTS`` Error: The function is given an incorrect Global Transaction ID.
 
-
 Below is an example of how you might use the ``WSREP_SYNC_WAIT_UPTO_GTID()`` function:
 
-.. code-block:: console
+.. code-block:: mysql
 
    $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
    ...

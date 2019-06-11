@@ -11,189 +11,72 @@ These variables are *Galera Cluster* 0.8.x status variables. There are two types
 
 - Variables exported by MySQL. These variables are for the general wsrep provider.
 
-This distinction is of importance for developers only.  For convenience, all status variables are presented as a single list below.  Variables exported by MySQL are indicated by an *M* in superscript.
+This distinction is of importance for developers only.  For convenience, all status variables are presented as a single list below. They're noted as to whether they are exported by Galera or by MySQL.
 
-+---------------------------------------+------------------------------------------+------------+
-| Status Variable                       | Example                                  | Support    |
-+=======================================+==========================================+============+
-| :ref:`wsrep_apply_oooe                | ``0.671120``                             | 1+         |
-| <wsrep_apply_oooe>`                   |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_apply_oool                | ``0.195248``                             | 1+         |
-| <wsrep_apply_oool>`                   |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_apply_window              | ``5.163966``                             | 1+         |
-| <wsrep_apply_window>`                 |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cert_deps_distance        | ``23.88889``                             | 1+         |
-| <wsrep_cert_deps_distance>`           |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cert_index_size           | ``30936``                                | 1+         |
-| <wsrep_cert_index_size>`              |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cert_interval             |                                          | 1+         |
-| <wsrep_cert_interval>`                |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cluster_conf_id           | ``34``                                   | 1+         |
-| <wsrep_cluster_conf_id>` :sup:`M`     |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cluster_size              | ``3``                                    | 1+         |
-| <wsrep_cluster_size>` :sup:`M`        |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cluster_state_uuid        |                                          | 1+         |
-| <wsrep_cluster_state_uuid>` :sup:`M`  |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cluster_status            | ``Primary``                              | 1+         |
-| <wsrep_cluster_status>` :sup:`M`      |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_cluster_weight            | ``3``                                    | 3.24+      |
-| <wsrep_cluster_weight>` :sup:`M`      |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_commit_oooe               | ``0.000000``                             | 1+         |
-| <wsrep_commit_oooe>`                  |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_commit_oool               | ``0.000000``                             | 1+         |
-| <wsrep_commit_oool>`                  |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_commit_window             | ``0.000000``                             | 1+         |
-| <wsrep_commit_window>`                |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_connected                 | ``ON``                                   | 1+         |
-| <wsrep_connected>`                    |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_desync_count              | ``0``                                    | 3+         |
-| <wsrep_desync_count>`                 |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_evs_delayed               |                                          | 3.8+       |
-| <wsrep_evs_delayed>`                  |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_evs_evict_list            |                                          | 3.8+       |
-| <wsrep_evs_evict_list>`               |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_evs_repl_latency          |                                          | 3.0+       |
-| <wsrep_evs_repl_latency>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_evs_state                 |                                          | 3.8+       |
-| <wsrep_evs_state>`                    |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_flow_control_paused       | ``0.184353``                             | 1+         |
-| <wsrep_flow_control_paused>`          |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_flow_control_paused_ns    | ``20222491180``                          | 1+         |
-| <wsrep_flow_control_paused_ns>`       |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_flow_control_recv         | ``11``                                   | 1+         |
-| <wsrep_flow_control_recv>`            |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_flow_control_sent         | ``7``                                    | 1+         |
-| <wsrep_flow_control_sent>`            |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_gcomm_uuid                |                                          | 1+         |
-| <wsrep_gcomm_uuid>`                   |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_incoming_addresses        |                                          | 1+         |
-| <wsrep_incoming_addresses>`           |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_last_committed            | ``409745``                               | 1+         |
-| <wsrep_last_committed>`               |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_bf_aborts           | ``960``                                  | 1+         |
-| <wsrep_local_bf_aborts>`              |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_cached_downto       |                                          | 1+         |
-| <wsrep_local_cached_downto>`          |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_cert_failures       | ``333``                                  | 1+         |
-| <wsrep_local_cert_failures>`          |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_commits             | ``14981``                                | 1+         |
-| <wsrep_local_commits>`                |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_index               | ``1``                                    | 1+         |
-| <wsrep_local_index>`                  |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_recv_queue          | ``0``                                    | 1+         |
-| <wsrep_local_recv_queue>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_recv_queue_avg      | ``3.348452``                             | 1+         |
-| <wsrep_local_recv_queue_avg>`         |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_recv_queue_max      | ``10``                                   | 1+         |
-| <wsrep_local_recv_queue_max>`         |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_recv_queue_min      | ``0``                                    | 1+         |
-| <wsrep_local_recv_queue_min>`         |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_replays             | ``0``                                    | 1+         |
-| <wsrep_local_replays>`                |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_send_queue          | ``1``                                    | 1+         |
-| <wsrep_local_send_queue>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_send_queue_avg      | ``0.145000``                             | 1+         |
-| <wsrep_local_send_queue_avg>`         |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_send_queue_max      | ``10``                                   | 1+         |
-| <wsrep_local_send_queue_max>`         |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_send_queue_min      | ``0``                                    | 1+         |
-| <wsrep_local_send_queue_min>`         |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_state               | ``4``                                    | 1+         |
-| <wsrep_local_state>`                  |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_state_comment       | ``Synced``                               | 1+         |
-| <wsrep_local_state_comment>`          |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_local_state_uuid          |                                          | 1+         |
-| <wsrep_local_state_uuid>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_open_connections          | ``3``                                    | 3.24+      |
-| <wsrep_open_connections>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_open_transactions         | ``25``                                   | 3.24+      |
-| <wsrep_open_transactions>`            |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_protocol_version          | ``4``                                    | 1+         |
-| <wsrep_protocol_version>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_provider_name             | ``Galera``                               | 1+         |
-| <wsrep_provider_name>` :sup:`M`       |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_provider_vendor           |                                          | 1+         |
-| <wsrep_provider_vendor>` :sup:`M`     |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_provider_version          |                                          | 1+         |
-| <wsrep_provider_version>` :sup:`M`    |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_ready                     | ``ON``                                   | 1+         |
-| <wsrep_ready>` :sup:`M`               |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_received                  | ``17831``                                | 1+         |
-| <wsrep_received>`                     |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_received_bytes            | ``6637093``                              | 1+         |
-| <wsrep_received_bytes>`               |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_repl_data_bytes           | ``265035226``                            | 1+         |
-| <wsrep_repl_data_bytes>`              |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_repl_keys                 | ``797399``                               | 1+         |
-| <wsrep_repl_keys>`                    |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_repl_keys_bytes           | ``11203721``                             | 1+         |
-| <wsrep_repl_keys_bytes>`              |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_repl_other_bytes          | ``0``                                    | 1+         |
-| <wsrep_repl_other_bytes>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_replicated                | ``16109``                                | 1+         |
-| <wsrep_replicated>`                   |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
-| :ref:`wsrep_replicated_bytes          | ``6526788``                              | 1+         |
-| <wsrep_replicated_bytes>`             |                                          |            |
-+---------------------------------------+------------------------------------------+------------+
+.. csv-table::
+   :class: doc-options
+   :header: "|br| Status Variable", "|br| Exporter", "Example |br| Value", "Initial |br| Version"
+   :widths: 40, 15, 30, 15
 
+   ":ref:`wsrep_apply_oooe <wsrep_apply_oooe>`", "Galera", "``0.671120``", "1.0"
+   ":ref:`wsrep_apply_oool <wsrep_apply_oool>`", "Galera", "``0.195248``", "1.0"
+   ":ref:`wsrep_apply_window <wsrep_apply_window>`", "Galera", "``5.163966``", "1.0"
+   ":ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`", "Galera", "``23.88889``", "1.0"
+   ":ref:`wsrep_cert_index_size <wsrep_cert_index_size>`", "Galera", "``30936``", "1.0"
+   ":ref:`wsrep_cert_interval  <wsrep_cert_interval>`", "Galera", "", "1.0"
+   ":ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>`", "MySQL", "``34``", "1.0"
+   ":ref:`wsrep_cluster_size <wsrep_cluster_size>`", "MySQL", "", "1.0"
+   ":ref:`wsrep_cluster_state_uuid <wsrep_cluster_state_uuid>`", "MySQL", "", "1.0"
+   ":ref:`wsrep_cluster_status <wsrep_cluster_status>`", "MySQL", "``Primary``", "1.0"
+   ":ref:`wsrep_cluster_weight <wsrep_cluster_weight>`", "MySQL", "``3``", "3.24"
+   ":ref:`wsrep_commit_oooe <wsrep_commit_oooe>`", "Galera", "``0.000000``", "1.0"
+   ":ref:`wsrep_commit_oool <wsrep_commit_oool>`", "Galera", "``0.000000``", "1.0"
+   ":ref:`wsrep_commit_window <wsrep_commit_window>`", "Galera", "``0.000000``", "1.0"
+   ":ref:`wsrep_connected <wsrep_connected>`", "Galera", "``ON``", "1.0"
+   ":ref:`wsrep_desync_count <wsrep_desync_count>`", "Galera", "``0``", "3.0"
+   ":ref:`wsrep_evs_delayed <wsrep_evs_delayed>`", "Galera", "", "3.8"
+   ":ref:`wsrep_evs_evict_list <wsrep_evs_evict_list>`", "Galera", "", "3.0"
+   ":ref:`wsrep_evs_repl_latency <wsrep_evs_repl_latency>`", "Galera", "", "3.0"
+   ":ref:`wsrep_evs_state <wsrep_evs_state>`", "Galera", "", "3.8"
+   ":ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>`", "Galera", "``0.184353``", "1.0"
+   ":ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>`", "Galera", "``20222491180``", "1.0"
+   ":ref:`wsrep_flow_control_recv <wsrep_flow_control_recv>`", "Galera", "``11``", "1.0"
+   ":ref:`wsrep_flow_control_sent <wsrep_flow_control_sent>`", "Galera", "``7`` ", "1.0"
+   ":ref:`wsrep_gcomm_uuid <wsrep_gcomm_uuid>`", "Galera", "", "1.0"
+   ":ref:`wsrep_incoming_addresses <wsrep_incoming_addresses>`", "Galera", "", "1.0"
+   ":ref:`wsrep_last_committed <wsrep_last_committed>`", "Galera", "``409745`` ", "1.0"
+   ":ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>`", "Galera", "``960`` ", "1.0"
+   ":ref:`wsrep_local_cached_downto <wsrep_local_cached_downto>`", "Galera", "", "1.0"
+   ":ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>`", "Galera", "``333`` ", "1.0"
+   ":ref:`wsrep_local_commits <wsrep_local_commits>`", "Galera", "``14981``", "1.0"
+   ":ref:`wsrep_local_index <wsrep_local_index>`", "Galera", "``1`` ", "1.0"
+   ":ref:`wsrep_local_recv_queue <wsrep_local_recv_queue>`", "Galera", "``0`` ", "1.0"
+   ":ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>`", "Galera", "``3.348452``", "1.0"
+   ":ref:`wsrep_local_recv_queue_max <wsrep_local_recv_queue_max>`", "Galera", "``10``", "1.0"
+   ":ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>`", "Galera", "``0``", "1.0"
+   ":ref:`wsrep_local_replays <wsrep_local_replays>`", "Galera", "``0``", "1.0"
+   ":ref:`wsrep_local_send_queue <wsrep_local_send_queue>`", "Galera", "``1`` ", "1.0"
+   ":ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>`", "Galera", "``0.145000``", "1.0"
+   ":ref:`wsrep_local_send_queue_max <wsrep_local_send_queue_max>`", "Galera", "``10``", "1.0"
+   ":ref:`wsrep_local_send_queue_min <wsrep_local_send_queue_min>`", "Galera", "``0``", "1.0"
+   ":ref:`wsrep_local_state <wsrep_local_state>`", "Galera", "``4`` ", "1.0"
+   ":ref:`wsrep_local_state_comment <wsrep_local_state_comment>`", "Galera", "``Synced``", "1.0"
+   ":ref:`wsrep_local_state_uuid <wsrep_local_state_uuid>`", "Galera", "", "1.0"
+   ":ref:`wsrep_open_connections <wsrep_open_connections>`", "Galera", "``3``", "3.24"
+   ":ref:`wsrep_open_transactions <wsrep_open_transactions>`", "Galera", "``25``", "3.24"
+   ":ref:`wsrep_protocol_version <wsrep_protocol_version>`", "Galera", "``4``", "1.0"
+   ":ref:`wsrep_provider_name <wsrep_provider_name>`", "MySQL", "``Galera``", "1.0"
+   ":ref:`wsrep_provider_vendor <wsrep_provider_vendor>`", "MySQL", "", "1.0"
+   ":ref:`wsrep_provider_version <wsrep_provider_version>`", "MySQL", "", "1.0"
+   ":ref:`wsrep_ready <wsrep_ready>`", "MySQL", "``ON``", "1.0"
+   ":ref:`wsrep_received <wsrep_received>`", "Galera", "``17831``", "1.0"
+   ":ref:`wsrep_received_bytes <wsrep_received_bytes>`", "Galera", "``6637093``", "1.0"
+   ":ref:`wsrep_repl_data_bytes <wsrep_repl_data_bytes>`", "Galera", "``265035226``", "1.0"
+   ":ref:`wsrep_repl_keys <wsrep_repl_keys>`", "Galera", "``797399``", "1.0"
+   ":ref:`wsrep_repl_keys_bytes <wsrep_repl_keys_bytes>`", "Galera", "``11203721``", "1.0"
+   ":ref:`wsrep_repl_other_bytes <wsrep_repl_other_bytes>`", "Galera", "``0``", "1.0"
+   ":ref:`wsrep_replicated <wsrep_replicated>`", "Galera", "``16109``", "1.0"
+   ":ref:`wsrep_replicated_bytes <wsrep_replicated_bytes>`", "Galera", "``6526788``", "1.0"
 
 
 .. _`wsrep_apply_oooe`:
@@ -208,7 +91,7 @@ How often applier started write-set applying out-of-order (parallelization effic
 
    "Example Value", "``0.671120``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "1.0"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -235,7 +118,7 @@ How often write-set was so slow to apply that write-set with higher seqno's were
 
    "Example Value", "``0.195248``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "1.0"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -262,7 +145,7 @@ Average distance between highest and lowest concurrently applied seqno.
 
    "Example Value", "``5.163966``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -289,7 +172,7 @@ Average distance between highest and lowest seqno value that can be possibly app
 
    "Example Value", "``23.888889``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -316,7 +199,7 @@ The number of entries in the certification index.
 
    "Example Value", "``30936``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -343,7 +226,7 @@ Average number of transactions received while a transaction replicates.
 
    "Example Value", "``1.0``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it.  By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
 
@@ -376,7 +259,7 @@ Total number of cluster membership changes happened.
 
    "Example Value", "``34``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -403,7 +286,7 @@ Current number of members in the cluster.
 
    "Example Value", "``3``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -430,7 +313,7 @@ Provides the current State UUID.  This is a unique identifier for the current st
 
    "Example Value", "``e2c9a15e-5485-11e00900-6bbb637e7211``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -459,7 +342,7 @@ Status of this cluster component.  That is, whether the node is part of a ``PRIM
 
    "Example Value", "``Primary``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -487,7 +370,7 @@ of :ref:`pc.weight <pc.weight>` of the nodes in the current :term:`Primary Compo
 
    "Example Value", "``3``"
    "Location", "Galera"
-   "Introduced", "3.24"
+   "Initial Version", "3.24"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -514,7 +397,7 @@ How often a transaction was committed out of order.
 
    "Example Value", "``0.000000``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -541,7 +424,7 @@ No meaning.
 
    "Example Value", "``0.000000``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -568,7 +451,7 @@ Average distance between highest and lowest concurrently committed seqno.
 
    "Example Value", "``0.000000``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -595,7 +478,7 @@ If the value is ``OFF``, the node has not yet connected to any of the cluster co
 
    "Example Value", "``ON``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -622,7 +505,7 @@ Returns the number of operations in progress that require the node to temporaril
 
    "Example Value", "``0``"
    "Location", "Galera"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
 
@@ -651,7 +534,7 @@ Provides a comma separated list of all the nodes this node has registered on its
 
    "Example Value", ""
    "Location", "Galera"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 The node listing format is as follows:
 
@@ -674,7 +557,7 @@ Lists the UUID's of all nodes evicted from the cluster.  Evicted nodes cannot re
 
    "Example Value", ""
    "Location", "Galera"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -701,7 +584,7 @@ This status variable provides figures for the replication latency on group commu
 
    "Example Value", "``0.00243433/0.144033/0.581963/0.215724/13``"
    "Location", "Galera"
-   "Introduced", "3.0"
+   "Initial Version", "3.0"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -736,7 +619,7 @@ Shows the internal state of the EVS Protocol.
 
    "Example Value", ""
    "Location", "Galera"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -763,7 +646,7 @@ The fraction of time since the last ``FLUSH STATUS`` command that replication wa
 
    "Example Value", "``0.174353``"
    "Location", "Galera"
-   "Introduced", ""
+   "Initial Version", ""
 
 Basically, this is how much the slave lag is slowing down the cluster.
 
@@ -792,7 +675,7 @@ The total time spent in a paused state measured in nanoseconds.
 
    "Example Value", "``20222491180``"
    "Location", "Galera"
-   "Introduced", ""
+   "Initial Version", ""
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -819,7 +702,7 @@ Returns the number of ``FC_PAUSE`` events the node has received, including those
 
    "Example Value", "``11``"
    "Location", "Galera"
-   "Introduced", ""
+   "Initial Version", ""
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -846,7 +729,7 @@ Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status
 
    "Example Value", "``7``"
    "Location", "Galera"
-   "Introduced", ""
+   "Initial Version", ""
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -873,7 +756,7 @@ Displays the group communications UUID.
 
    "Example Value", "``7e729708-605f-11e5-8ddd-8319a704b8c4``"
    "Location", "Galera"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -900,7 +783,7 @@ Comma-separated list of incoming server addresses in the cluster component.
 
    "Example Value", "``10.0.0.1:3306,10.0.0.2:3306,undefined``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -927,7 +810,7 @@ The sequence number, or seqno, of the last committed transaction. See :ref:`wsre
 
    "Example Value", "``409745``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -956,7 +839,7 @@ Total number of local transactions that were aborted by slave transactions while
 
    "Example Value", "``960``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -983,7 +866,7 @@ The lowest sequence number, or seqno, in the write-set cache (GCache).
 
    "Example Value", "``18446744073709551615``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1010,7 +893,7 @@ Total number of local transactions that failed certification test.
 
    "Example Value", "``333``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1037,7 +920,7 @@ Total number of local transactions committed.
 
    "Example Value", "``14981``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1064,7 +947,7 @@ This node index in the cluster (base 0).
 
    "Example Value", "``1``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1091,7 +974,7 @@ Current (instantaneous) length of the recv queue.
 
    "Example Value", "``0``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1118,7 +1001,7 @@ Recv queue length averaged over interval since the last ``FLUSH STATUS`` command
 
    "Example Value", "``3.348452``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1145,7 +1028,7 @@ The maximum length of the recv queue since the last FLUSH STATUS command.
 
    "Example Value", "``10``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1172,7 +1055,7 @@ The minimum length of the recv queue since the last ``FLUSH STATUS`` command.
 
    "Example Value", "``0``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1199,7 +1082,7 @@ Total number of transaction replays due to *asymmetric lock granularity*.
 
    "Example Value", "``0``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1226,7 +1109,7 @@ Current (instantaneous) length of the send queue.
 
    "Example Value", "``1``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1253,7 +1136,7 @@ Send queue length averaged over time since the last ``FLUSH STATUS`` command. Va
 
    "Example Value", "``0.145000``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1280,7 +1163,7 @@ The maximum length of the send queue since the last ``FLUSH STATUS`` command.
 
    "Example Value", "``10``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1307,7 +1190,7 @@ The minimum length of the send queue since the last ``FLUSH STATUS`` command.
 
    "Example Value", "``0``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1334,7 +1217,7 @@ Internal Galera Cluster FSM state number.
 
    "Example Value", "``4``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1363,7 +1246,7 @@ Human-readable explanation of the state.
 
    "Example Value", "``Synced``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1390,7 +1273,7 @@ The UUID of the state stored on this node.
 
    "Example Value", "``e2c9a15e-5385-11e0-0800-6bbb637e7211``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1419,7 +1302,7 @@ The number of open connection objects inside the wsrep provider.
 
    "Example Value", "``1``"
    "Location", "Galera"
-   "Introduced", "3.24"
+   "Initial Version", "3.24"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1446,7 +1329,7 @@ The number of locally running transactions which have been registered inside the
 
    "Example Value", "``6``"
    "Location", "Galera"
-   "Introduced", "3.24"
+   "Initial Version", "3.24"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1473,7 +1356,7 @@ The version of the wsrep Protocol used.
 
    "Example Value", "``4``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1500,7 +1383,7 @@ The name of the wsrep Provider.
 
    "Example Value", "``Galera``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1527,7 +1410,7 @@ The name of the wsrep Provider vendor.
 
    "Example Value", "``Codership Oy <info@codership.com>``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1554,7 +1437,7 @@ The name of the wsrep Provider version string.
 
    "Example Value", "``25.3.5-wheezy(rXXXX)``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1581,7 +1464,7 @@ Whether the server is ready to accept queries. If this status is ``OFF``, almost
 
    "Example Value", "``ON``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1614,7 +1497,7 @@ Total number of write-sets received from other nodes.
 
    "Example Value", "``17831``"
    "Location", "MySQL"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1641,7 +1524,7 @@ Total size of write-sets received from other nodes.
 
    "Example Value", "``6637093``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1668,7 +1551,7 @@ Total size of data replicated.
 
    "Example Value", "``6526788``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1695,7 +1578,7 @@ Total number of keys replicated.
 
    "Example Value", "``797399``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1722,7 +1605,7 @@ Total size of keys replicated.
 
    "Example Value", "``11203721``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1749,7 +1632,7 @@ Total size of other bits replicated.
 
    "Example Value", "``0``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1776,7 +1659,7 @@ Total number of write-sets replicated (sent to other nodes).
 
    "Example Value", "``16109``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1803,7 +1686,7 @@ Total size of write-sets replicated.
 
    "Example Value", "``6526788``"
    "Location", "Galera"
-   "Introduced", "???"
+   "Initial Version", "???"
 
 To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1820,3 +1703,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
+
+.. |br| raw:: html
+
+   <br />

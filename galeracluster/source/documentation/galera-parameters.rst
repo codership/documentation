@@ -5,267 +5,108 @@
 ==================
 .. _`galera-parameters`:
 
-As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key value pair lists, such as ``key1 = value1; key2 = value2``.  In this way, you can configure an arbitrary number of Galera Cluster parameters in one call. A key consists of parameter group and parameter name::
+As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key value pair lists, such as ``key1 = value1; key2 = value2``.  In this way, you can configure an arbitrary number of Galera Cluster parameters in one call. A key consists of parameter group and parameter name: ``<group>.<name>``, where ``<group>`` corresponds roughly to some Galera module.
 
-  <group>.<name>
+All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
 
-Where ``<group>`` roughly corresponds to some Galera module.
+Below is a list of all of the Galera parameters.  Each is also a link to further down the page where you may find more information.  There are a few things to know about this table:
 
-.. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
+- For numeric values related to memory size, Galera Cluster accepts the numeric modifiers, ``K``, ``M``, ``G``, and ``T`` to represent |210|, |220|, |230| and |240|, respectively.
 
-Table legend:
+- Galera Cluster accepts the following boolean values: ``0``, ``1``, ``YES``, ``NO``, ``TRUE``, ``FALSE``, ``ON``, ``OFF``.
 
-- **Numeric values** Galera Cluster understands the following numeric modifiers:
-  ``K``, ``M``, ``G``, ``T`` standing for |210|, |220|, |230| and |240| respectively.
+- Time periods must be expressed in the ISO8601 format. See some of the examples below.
 
-- **Boolean values** Galera Cluster accepts the following boolean values: ``0``, ``1``, ``YES``, ``NO``, ``TRUE``, ``FALSE``, ``ON``, ``OFF``.
-
-- Time periods must be expressed in the ISO8601 format. See also the examples below.
-
-- **T** indicates parameters that are strictly for use in troubleshooting problems.  You should not implement these in production environments.
+- The parameters that are noted as for debugging only are strictly for use in troubleshooting problems. You should not implement these in production environments.
 
 .. |210| replace:: 2\ :sup:`10`\
 .. |220| replace:: 2\ :sup:`20`\
 .. |230| replace:: 2\ :sup:`30`\
 .. |240| replace:: 2\ :sup:`40`\
 
-+---------------------------------------+-----------------------+------------+----------+
-| Parameter                             | Default               |  Support   | Dynamic  |
-+=======================================+=======================+============+==========+
-| :ref:`base_host                       | detected network      | 1+         |          |
-| <base_host>`                          | address               |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`base_port                       | ``4567``              | 1+         |          |
-| <base_port>`                          |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`cert.log_conflicts              | ``NO``                | 2+         | Yes      |
-| <cert.log_conflicts>`                 |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`cert.optimistic_pa              | ``YES``               | 3.25+      | Yes      |
-| <cert.optimistic_pa>`                 |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`debug                           | ``NO``                | 2+         | Yes      |
-| <debug>`                              |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.auto_evict <evs.auto_evict>`| ``0``                 | 3.8+       | No       |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.causal_keepalive_period     |                       | 1+         | No       |
-| <evs.causal_keepalive_period>`        |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.consensus_timeout           | ``PT30S``             | 1 - 2      | No       |
-| <evs.consensus_timeout>` :sup:`T`     |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.debug_log_mask              | ``0x1``               | 1+         | Yes      |
-| <evs.debug_log_mask>`                 |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.delayed_keep_period         | ``PT30S``             | 3.8+       | No       |
-| <evs.delayed_keep_period>`            |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.delayed_margin              | ``PT1S``              | 3.8+       | No       |
-| <evs.delayed_margin>`                 |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.evict <evs.evict>`          |                       | 3.8        | No       |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.inactive_check_period       | ``PT1S``              | 1+         | No       |
-| <evs.inactive_check_period>`          |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.inactive_timeout            | ``PT15S``             | 1+         | No       |
-| <evs.inactive_timeout>`               |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.info_log_mask               | ``0``                 | 1+         | No       |
-| <evs.info_log_mask>`                  |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.install_timeout             | ``PT15S``             | 1+         | Yes      |
-| <evs.install_timeout>`                |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.join_retrans_period         | ``PT1S``              | 1+         | Yes      |
-| <evs.join_retrans_period>`            |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.keepalive_period            | ``PT1S``              | 1+         | No       |
-| <evs.keepalive_period>`               |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.max_install_timeouts        | ``1``                 | 1+         | No       |
-| <evs.max_install_timeouts>`           |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.send_window                 | ``4``                 | 1+         | Yes      |
-| <evs.send_window>`                    |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.stats_report_period         | ``PT1M``              | 1+         | No       |
-| <evs.stats_report_period>`            |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.suspect_timeout             | ``PT5S``              | 1+         | No       |
-| <evs.suspect_timeout>`                |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.use_aggregate               | ``TRUE``              | 1+         | No       |
-| <evs.use_aggregate>`                  |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.user_send_window            | ``2``                 | 1+         | Yes      |
-| <evs.user_send_window>`               |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.view_forget_timeout         | ``PT5M``              | 1+         | No       |
-| <evs.view_forget_timeout>`            |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`evs.version                     | ``0``                 | 1+         | No       |
-| <evs.version>` :sup:`T`               |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.dir                      | working directory     | 1.0        | No       |
-| <gcache.dir>`                         |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.name                     | ``galera.cache``      | 1+         | No       |
-| <gcache.name>`                        |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.keep_pages_size          | ``0``                 | 1+         | No       |
-| <gcache.keep_pages_size>`             |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.page_size                | ``128Mb``             | 1+         | No       |
-| <gcache.page_size>`                   |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.recover                  | ``no``                | 3.19+      | No       |
-| <gcache.recover>`                     |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcache.size                     | ``128Mb``             | 1+         | No       |
-| <gcache.size>`                        |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcomm.thread_prio               |                       | 3+         | No       |
-| <gcomm.thread_prio>`                  |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.fc_debug                    | ``0``                 | 1+         | No       |
-| <gcs.fc_debug>`                       |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.fc_factor                   | ``1.0``               | 1+         | Yes      |
-| <gcs.fc_factor>`                      |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.fc_limit                    | ``16``                | 1+         | Yes      |
-| <gcs.fc_limit>`                       |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.fc_master_slave             | ``NO``                | 1+         | No       |
-| <gcs.fc_master_slave>`                |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.max_packet_size             | ``32616``             | 1+         | No       |
-| <gcs.max_packet_size>`                |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.max_throttle                | ``0.25``              | 1+         | No       |
-| <gcs.max_throttle>`                   |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.recv_q_hard_limit           | ``LLONG_MAX``         | 1+         | No       |
-| <gcs.recv_q_hard_limit>`              |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.recv_q_soft_limit           | ``0.25``              | 1+         | No       |
-| <gcs.recv_q_soft_limit>`              |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gcs.sync_donor                  | ``NO``                | 1+         | No       |
-| <gcs.sync_donor>`                     |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gmcast.listen_addr              | ``tcp://0.0.0.0:4567``| 1+         | No       |
-| <gmcast.listen_addr>`                 |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gmcast.mcast_addr               |                       | 1+         | No       |
-| <gmcast.mcast_addr>`                  |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gmcast.mcast_ttl                | ``1``                 | 1+         | No       |
-| <gmcast.mcast_ttl>`                   |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gmcast.peer_timeout             | ``PT3S``              | 1+         | No       |
-| <gmcast.peer_timeout>`                |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gmcast.segment                  | ``0``                 | 3+         | No       |
-| <gmcast.segment>`                     |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gmcast.time_wait                | ``PT5S``              | 1+         | No       |
-| <gmcast.time_wait>`                   |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`gmcast.version                  | n/a                   |            |          |
-| <gmcast.version>` :sup:`T`            |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`ist.recv_addr                   |                       | 1+         | No       |
-| <ist.recv_addr>`                      |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`ist.recv_bind                   |                       | 3+         | No       |
-| <ist.recv_bind>`                      |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.recovery                     | ``TRUE``              | 3+         | No       |
-| <pc.recovery>`                        |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.bootstrap                    | n/a                   | 2+         | Yes      |
-| <pc.bootstrap>`                       |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.announce_timeout             | ``PT3S``              | 2+         | No       |
-| <pc.announce_timeout>`                |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.checksum                     | ``FALSE``             | 1+         | No       |
-| <pc.checksum>`                        |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.ignore_sb                    | ``FALSE``             | 1+         | Yes      |
-| <pc.ignore_sb>`                       |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.ignore_quorum                | ``FALSE``             | 1+         | Yes      |
-| <pc.ignore_quorum>`                   |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.linger                       | ``PT2S``              | 1+         | No       |
-| <pc.linger>`                          |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.npvo                         | ``FALSE``             | 1+         | No       |
-| <pc.npvo>`                            |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.wait_prim                    | ``TRUE``              | 1+         | No       |
-| <pc.wait_prim>`                       |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.wait_prim_timeout            | ``PT30S``             | 2+         | No       |
-| <pc.wait_prim_timeout>`               |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.weight                       | ``1``                 | 2.4+       | Yes      |
-| <pc.weight>`                          |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`pc.version                      | n/a                   | 1+         |          |
-| <pc.version>` :sup:`T`                |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`protonet.backend                | ``asio``              | 1+         | No       |
-| <protonet.backend>`                   |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`protonet.version                | n/a                   | 1+         |          |
-| <protonet.version>` :sup:`T`          |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`repl.commit_order               | ``3``                 | 1+         | No       |
-| <repl.commit_order>`                  |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`repl.causal_read_timeout        | ``PT30S``             | 1+         | No       |
-| <repl.causal_read_timeout>`           |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`repl.key_format                 | ``FLAT8``             | 3+         | No       |
-| <repl.key_format>`                    |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`repl.max_ws_size                | ``2147483647``        | 3+         | No       |
-| <repl.max_ws_size>`                   |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`repl.proto_max                  | ``5``                 | 2+         | No       |
-| <repl.proto_max>`                     |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.recv_buf_size            | ``212992``            | 3.17+      | Yes      |
-| <socket.recv_buf_size>`               |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_ca                   |                       | 1+         | No       |
-| <socket.ssl_ca>`                      |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_cert                 |                       | 1+         | No       |
-| <socket.ssl_cert>`                    |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.checksum                 | ``1`` (for version 2) | 2+         | No       |
-| <socket.checksum>`                    |                       |            |          |
-|                                       | ``2`` (for version 3+)|            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_cipher               | ``AES128-SHA`` before | 1+         | No       |
-| <socket.ssl_cipher>`                  | version 3.24, system  |            |          |
-|                                       | default after         |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_compression          | ``YES``               | 1+         | No       |
-| <socket.ssl_compression>`             |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_key                  |                       | 1+         | No       |
-| <socket.ssl_key>`                     |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
-| :ref:`socket.ssl_password_file        |                       | 1+         | No       |
-| <socket.ssl_password_file>`           |                       |            |          |
-+---------------------------------------+-----------------------+------------+----------+
+.. csv-table::
+   :class: doc-options
+   :header: "|br| Parameter", "|br| Default", "|br| Dynamic", "Debug |br| Only", "Initial |br| Version"
+   :widths: 30, 40, 10, 10, 10
+
+   ":ref:`base_host <base_host>`", "detected network address", "", "", "1.0"
+   ":ref:`base_port <base_port>`", "``4567``", "", "", "1.0"
+   ":ref:`cert.log_conflicts <cert.log_conflicts>`", "``NO``", "  Yes", "", "2.0"
+   ":ref:`cert.optimistic_pa <cert.optimistic_pa>`", "``YES``", "  Yes", "", "3.25"
+   ":ref:`debug <debug>`", "``NO``", "  Yes", "", "2.0"
+   ":ref:`evs.auto_evict <evs.auto_evict>`", "``0``", "   No", "", "3.8"
+   ":ref:`evs.causal_keepalive_period <evs.causal_keepalive_period>`", "``0``", "   No", "", "1.0"
+   ":ref:`evs.consensus_timeout <evs.consensus_timeout>`", "``PT30S``", "   No", "Yes", "1.0, 2.0"
+   ":ref:`evs.debug_log_mask <evs.debug_log_mask>`", "``0x1``", "  Yes", "", "1.0"
+   ":ref:`evs.delayed_keep_period <evs.delayed_keep_period>`", "``PT30S``", "   No", "", "3.8"
+   ":ref:`evs.delayed_margin <evs.delayed_margin>`", "``PT1S``", "   No", "", "3.8"
+   ":ref:`evs.evict <evs.evict>`", "", "   No", "", "3.8"
+   ":ref:`evs.inactive_check_period <evs.inactive_check_period>`", "``PT1S``", "   No", "", "1.0"
+   ":ref:`evs.inactive_timeout <evs.inactive_timeout>`", "``PT15S``", "   No", "", "1.0"
+   ":ref:`evs.info_log_mask <evs.info_log_mask>`", "``0``", "   No", "", "1.0"
+   ":ref:`evs.install_timeout <evs.install_timeout>`", "``PT15S``", "  Yes", "", "1.0"
+   ":ref:`evs.join_retrans_period <evs.join_retrans_period>`", "``PT1S``", "  Yes", "", "1.0"
+   ":ref:`evs.keepalive_period <evs.keepalive_period>`", "``PT1S``", "  No", "", "1.0"
+   ":ref:`evs.max_install_timeouts <evs.max_install_timeouts>`", "``1``", "  No", "", "1.0"
+   ":ref:`evs.send_window <evs.send_window>`", "``4``", "  Yes", "", "1.0"
+   ":ref:`evs.stats_report_period <evs.stats_report_period>`", "``PT1M``", "  No", "", "1.0"
+   ":ref:`evs.suspect_timeout <evs.suspect_timeout>`", "``PT5S``", "  No", "", "1.0"
+   ":ref:`evs.use_aggregate <evs.use_aggregate>`", "``TRUE``", "  No", "", "1.0"
+   ":ref:`evs.user_send_window <evs.user_send_window>`", "``2``", "  Yes", "", "1.0"
+   ":ref:`evs.view_forget_timeout <evs.view_forget_timeout>`", "``PT5M``", "  No", "", "1.0"
+   ":ref:`evs.version <evs.version>`", "``0``", "  No", "Yes", "1.0"
+   ":ref:`gcache.dir <gcache.dir>`", "working directory", "  No", "", "1.0"
+   ":ref:`gcache.name <gcache.name>`", "``galera.cache``", "  No", "", "1.0"
+   ":ref:`gcache.keep_pages_size <gcache.keep_pages_size>`", "``0``", "  No", "", "1.0"
+   ":ref:`gcache.page_size <gcache.page_size>`", "``128Mb``", "  No", "", "1.0"
+   ":ref:`gcache.recover <gcache.recover>`", "``no``", "  No", "", "3.19"
+   ":ref:`gcache.size <gcache.size>`", "``128Mb``", "  No", "", "1.0"
+   ":ref:`gcomm.thread_prio <gcomm.thread_prio>`", "", "  No", "", "3.0"
+   ":ref:`gcs.fc_debug <gcs.fc_debug>`", "``0``", "  No", "", "1.0"
+   ":ref:`gcs.fc_factor <gcs.fc_factor>`", "``1.0``", "  No", "", "1.0"
+   ":ref:`gcs.fc_limit <gcs.fc_limit>`", "``16``", "  Yes", "", "1.0"
+   ":ref:`gcs.fc_master_slave <gcs.fc_master_slave>`", "``NO``", "  No", "", "1.0"
+   ":ref:`gcs.max_packet_size <gcs.max_packet_size>`", "``32616``", "  No", "", "1.0"
+   ":ref:`gcs.max_throttle <gcs.max_throttle>`", "``0.25``", "  No", "", "1.0"
+   ":ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>`", "``LLONG_MAX``", "  No", "", "1.0"
+   ":ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`", "``0.25``", "  No", "", "1.0"
+   ":ref:`gcs.sync_donor <gcs.sync_donor>`", "``NO``", "  No", "", "1.0"
+   ":ref:`gmcast.listen_addr <gmcast.listen_addr>`", "``tcp://0.0.0.0:4567``", "  No", "", "1.0"
+   ":ref:`gmcast.mcast_addr <gmcast.mcast_addr>`", "", "  No", "", "1.0"
+   ":ref:`gmcast.mcast_ttl <gmcast.mcast_ttl>`", "``1``", "  No", "", "1.0"
+   ":ref:`gmcast.peer_timeout <gmcast.peer_timeout>`", "``PT3S``", "  No", "", "1.0"
+   ":ref:`gmcast.segment <gmcast.segment>`", "``0``", "  No", "", "3.0"
+   ":ref:`gmcast.time_wait <gmcast.time_wait>`", "``PT5S``", "  No", "", "1.0"
+   ":ref:`gmcast.version <gmcast.version>`", "n/a", "  No", "Yes", "1.0"
+   ":ref:`ist.recv_addr <ist.recv_addr>`", "", "  No", "", "1.0"
+   ":ref:`ist.recv_bind <ist.recv_bind>`", "", "  No", "", "3.0"
+   ":ref:`pc.recovery <pc.recovery>`", "``TRUE``", "  No", "", "3.0"
+   ":ref:`pc.bootstrap <pc.bootstrap>`", "n/a", "  No", "", "2.0"
+   ":ref:`pc.announce_timeout <pc.announce_timeout>`", "``PT3S``", "  No", "", "2.0"
+   ":ref:`pc.checksum <pc.checksum>`", "``FALSE``", "  No", "", "1.0"
+   ":ref:`pc.ignore_sb <pc.ignore_sb>`", "``FALSE``", "  Yes", "", "1.0"
+   ":ref:`pc.ignore_quorum <pc.ignore_quorum>`", "``FALSE``", "  Yes", "", "1.0"
+   ":ref:`pc.linger <pc.linger>`", "``PT2S``", "  No", "", "1.0"
+   ":ref:`pc.npvo <pc.npvo>`", "``FALSE``", "  No", "", "1.0"
+   ":ref:`pc.wait_prim <pc.wait_prim>`", "``TRUE``", "  No", "", "1.0"
+   ":ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>`", "``PT30S``", "  No", "", "2.0"
+   ":ref:`pc.weight <pc.weight>`", "``1``", "  Yes", "", "2.4"
+   ":ref:`pc.version <pc.version>`", "n/a", "No", "Yes", "1.0"
+   ":ref:`protonet.backend <protonet.backend>`", "``asio``", "  No", "", "1.0"
+   ":ref:`protonet.version <protonet.version>`", "n/a", "  No", "Yes", "1.0"
+   ":ref:`repl.commit_order <repl.commit_order>`", "``3``", "  No", "", "1.0"
+   ":ref:`repl.causal_read_timeout <repl.causal_read_timeout>`", "``PT30S``", "  No", "", "1.0"
+   ":ref:`repl.key_format <repl.key_format>`", "``FLAT8``", "  No", "", "3.0"
+   ":ref:`repl.max_ws_size <repl.max_ws_size>`", "``2147483647``", "  No", "", "3.0"
+   ":ref:`repl.proto_max <repl.proto_max>`", "``5``", "  No", "", "2.0"
+   ":ref:`socket.recv_buf_size <socket.recv_buf_size>`", "``212992``", "  Yes", "", "3.17"
+   ":ref:`socket.ssl_ca <socket.ssl_ca>`", "", "  No", "", "1.0"
+   ":ref:`socket.ssl_cert <socket.ssl_cert>`", "", "  No", "", "1.0"
+   ":ref:`socket.checksum <socket.checksum>`", "``1`` (vs. 2); ``2`` (vs. 3)", "  No", "", "2.0"
+   ":ref:`socket.ssl_cipher <socket.ssl_cipher>`", "``AES128-SHA`` (vs. 1); |br| system default (vs. 3.24)", "  No", "", "1.0"
+   ":ref:`socket.ssl_compression <socket.ssl_compression>`", "``YES``", "  No", "", "1.0"
+   ":ref:`socket.ssl_key <socket.ssl_key>`", "", "  No", "", "1.0"
+   ":ref:`socket.ssl_password_file <socket.ssl_password_file>`", "", "  No", "", "1.0"
 
 
 
@@ -281,9 +122,9 @@ Global variable for internal use.
 
    "Default Value", "detected network address"
    "Dynamic", ""
-   "Introduced", "???"
+   "Initial Version", "???"
 
-.. warning:: Do not manually set this variable.
+.. warning:: Since this is for internal use only, don't manually set the ``base_host`` variable.
 
 
 .. _`base_port`:
@@ -298,9 +139,9 @@ Global variable for internal use.
 
    "Default Value", "``4567``"
    "Dynamic", ""
-   "Introduced", "???"
+   "Initial Version", "???"
 
-.. warning:: Do not manually set this variable.
+.. warning:: Since this is for internal use only, don't manually set the ``base_port`` variable.
 
 
 .. _`cert.log_conflicts`:
@@ -315,7 +156,7 @@ Log details of certification failures.
 
    "Default Value", "``NO``"
    "Dynamic", "Yes"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -340,7 +181,7 @@ on the master are committed.
 
    "Default Value", "``YES``"
    "Dynamic", "Yes"
-   "Introduced", "3.25"
+   "Initial Version", "3.25"
 
 .. code-block:: ini
 
@@ -359,7 +200,7 @@ Enable debugging.
 
    "Default Value", "``NO``"
    "Dynamic", "Yes"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 .. code-block:: ini
 
@@ -378,7 +219,7 @@ Defines how many entries the node allows for given a delayed node before it trig
 
    "Default Value", "``0``"
    "Dynamic", "No"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 Each cluster node monitors the group communication response times from all other nodes.  When the cluster registers delayed response from a given node, it adds an entry for that node to its delayed list.  If the majority of the cluster nodes show the node as delayed, the node is permanently evicted from the cluster.
 
@@ -407,7 +248,7 @@ For developer use only. Defaults to ``evs.keepalive_period``.
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 
 .. _`evs.consensus_timeout`:
@@ -422,7 +263,7 @@ Timeout on reaching the consensus about cluster membership.
 
    "Default Value", "``PT30S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
    "Deprecated", "2.0"
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
@@ -448,7 +289,7 @@ Control EVS debug logging, only effective when ``wsrep_debug`` is in use.
 
    "Default Value", "``0x1``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -469,7 +310,7 @@ Defines how long this node requires a delayed node to remain responsive before i
 
    "Default Value", "``PT30S``"
    "Dynamic", "No"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 Each cluster node monitors the group communication response times from all other nodes.  When the cluster registered delayed responses from a given node, it adds an entry for that node to its delayed list.  Nodes that remain on the delayed list can trigger Auto Eviction, which removes them permanently from the cluster.
 
@@ -496,7 +337,7 @@ Defines how long the node allows response times to deviate before adding an entr
 
    "Default Value", "PT1S"
    "Dynamic", "No"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list.  Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.
 
@@ -523,7 +364,7 @@ If set to the gcomm UUID of some node, that node will be evicted from the cluste
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "3.8"
+   "Initial Version", "3.8"
 
 For more information on the eviction and Auto Eviction process, see :doc:`auto-eviction`.
 
@@ -540,7 +381,7 @@ Defines how often you want the node to check for peer inactivity.
 
    "Default Value", "``PT1S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list, which can lead to the delayed node's eviction from the cluster.
 
@@ -565,7 +406,7 @@ Defines a hard limit on node inactivity.
 
    "Default Value", "``PT15S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 Hard limit on the inactivity period, after which the node is pronounced dead.
 
@@ -592,7 +433,7 @@ Defines additional logging options for the EVS Protocol.
 
    "Default Value", "``0``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The EVS Protocol monitors group communication response times and controls the node eviction and auto eviction processes.  This parameter allows you to enable additional logging options, through a bitmask value.
 
@@ -620,7 +461,7 @@ Defines the timeout for install message acknowledgments.
 
    "Default Value", "``PT15S``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 Each cluster node monitors group communication response times from all other nodes, checking whether they are responsive or delayed.  This parameter determines how long you want the node to wait on install message acknowledgments.
 
@@ -645,7 +486,7 @@ Defines how often the node retransmits EVS join messages when forming cluster me
 
    "Default Value", "``PT1S``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -666,7 +507,7 @@ Defines how often the node emits keepalive signals.
 
    "Default Value", "``PT1S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 Each cluster node monitors group communication response times from all other nodes.  When there is no traffic going out for the cluster to monitor, nodes emit keepalive signals so that other nodes have something to measure.  This parameter determines how often the node emits a keepalive signal, absent any other traffic.
 
@@ -689,7 +530,7 @@ Defines the number of membership install rounds to try before giving up.
 
    "Default Value", "``1``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 This parameter determines the maximum number of times that the node tries for a membership install acknowledgment, before it stops trying.  The total number of rounds it tries is this value plus 2.
 
@@ -712,7 +553,7 @@ Defines the maximum number of packets at a time in replication.
 
    "Default Value", "``4``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 This parameter determines the maximum number of packets the node uses at a time in replication.  For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this value considerably higher, (for example, 512), than for clusters implemented over :abbr:`LAN (Local Area Network)`.
 
@@ -737,7 +578,7 @@ Control period of EVS statistics reporting. The node is pronounced dead.
 
    "Default Value", "``PT1M``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -758,7 +599,7 @@ Defines the inactivity period after which a node is *suspected* as dead.
 
    "Default Value", "``PT5S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 Each node in the cluster monitors group communications from all other nodes in the cluster.  This parameter determines the period of inactivity before the node suspects another of being dead.  If all nodes agree on that, the cluster drops the inactive node.
 
@@ -781,7 +622,7 @@ Defines whether the node aggregates small packets into one when possible.
 
    "Default Value", "``TRUE``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -802,7 +643,7 @@ Defines the maximum number of data packets at a time in replication.
 
    "Default Value", "``2``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 This parameter determines the maximum number of data packets the node uses at a time in replication.  For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this to a value considerably higher than cluster implementations over :abbr:`LAN (Local Area Network)`, (for example, 512).
 
@@ -829,7 +670,7 @@ Defines how long the node saves past views from the view history.
 
    "Default Value", "``PT5M``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 Each node maintains a history of past views.  This parameter determines how long you want the node to save past views before dropping them from the table.
 
@@ -852,7 +693,7 @@ Defines the EVS Protocol version.
 
    "Default Value", "``0``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 This parameter determines which version of the EVS Protocol the node uses.  In order to ensure backwards compatibility, the parameter defaults to ``0``.  Certain EVS Protocol features, such as Auto Eviction, require you to upgrade to more recent versions.
 
@@ -877,7 +718,7 @@ Defines the directory where the write-set cache places its files.
 
    "Default Value", "``/path/to/working_dir``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory mapped files to disk.
 
@@ -902,7 +743,7 @@ Total size of the page storage pages to keep for caching purposes. If only page 
 
    "Default Value", "``0``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -923,7 +764,7 @@ Defines the filename for the write-set cache.
 
    "Default Value", "``galera.cache``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
@@ -948,7 +789,7 @@ Size of the page files in page storage. The limit on overall page storage is the
 
    "Default Value", "``128M``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -969,7 +810,7 @@ Determines whether gcache recovery takes place on node startup. If gcache could 
 
    "Default Value", "``no``"
    "Dynamic", "No"
-   "Introduced", "3.19"
+   "Initial Version", "3.19"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -990,7 +831,7 @@ Defines the disk space you want to node to use in caching write-sets.
 
    "Default Value", "``128M``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
@@ -1017,7 +858,7 @@ Defines the policy and priority for the gcomm thread.
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "3.0"
+   "Initial Version", "3.0"
 
 Using this option, you can raise the priority of the gcomm thread to a higher level than it normally uses.  You may find this useful in situations where Galera Cluster threads do not receive sufficient CPU time, due to competition with other MySQL threads.  In these cases, when the thread scheduler for the operating system does not run the Galera threads frequently enough, timeouts may occur, causing the node to drop from the cluster.
 
@@ -1048,7 +889,7 @@ Post debug statistics about replication flow every this number of writesets.
 
    "Default Value", "``0``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1069,7 +910,7 @@ Resume replication after recv queue drops below this fraction of ``gcs.fc_limit`
 
    "Default Value", "``0.5``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1090,7 +931,7 @@ Pause replication if recv queue exceeds this number of  writesets. For master-sl
 
    "Default Value", "``16``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1111,7 +952,7 @@ Defines whether there is only one master node in the group.
 
    "Default Value", "``NO``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1132,7 +973,7 @@ All writesets exceeding that size will be fragmented.
 
    "Default Value", "``32616``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1153,7 +994,7 @@ How much to throttle replication rate during state transfer (to avoid running ou
 
    "Default Value", "``0.25``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1174,7 +1015,7 @@ Maximum allowed size of recv queue. This should normally be half of (RAM + swap)
 
    "Default Value", "``LLONG_MAX``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1195,7 +1036,7 @@ The fraction of :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` after which
 
    "Default Value", "``0.25``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The degree of throttling is a linear function of recv queue size and goes from 1.0 (``full rate``)
 at :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` to :ref:`gcs.max_throttle <gcs.max_throttle>` at :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Note that ``full rate``, as estimated between 0 and :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>` is a very imprecise estimate of a regular replication rate.
@@ -1219,7 +1060,7 @@ Should the rest of the cluster keep in sync with the donor? ``YES`` means that i
 
    "Default Value", "``NO``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 If you choose to use value ``YES``, it is theoretically possible that the donor node cannot keep up with the rest of the cluster due to the extra load from the SST. If the node lags behind, it may send flow control messages stalling the whole cluster. However, you can monitor this using the :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` status variable.
 
@@ -1242,7 +1083,7 @@ Address at which *Galera Cluster* listens to connections from other nodes. By de
 
    "Default Value", "``tcp://0.0.0.0:4567``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1263,7 +1104,7 @@ If set, UDP multicast will be used for replication, for example:
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The value must be the same on all nodes.
 
@@ -1288,7 +1129,7 @@ Time to live value for multicast packets.
 
    "Default Value", "``1``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1309,7 +1150,7 @@ Connection timeout to initiate message relaying.
 
    "Default Value", "``PT3S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1330,7 +1171,7 @@ Define which network segment this node is in. Optimisations on communication are
 
    "Default Value", "``0``"
    "Dynamic", "No"
-   "Introduced", "3.0"
+   "Initial Version", "3.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1351,7 +1192,7 @@ Time to wait until allowing peer declared outside of stable view to reconnect.
 
    "Default Value", "``PT5S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1372,7 +1213,7 @@ This status variable is used to check which gmcast protocol version is used.
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1389,7 +1230,7 @@ Address to listen on for Incremental State Transfer. By default this is the ``<a
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1410,7 +1251,7 @@ Defines the address that the node binds on for receiving an :term:`Incremental S
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "3.16"
+   "Initial Version", "3.16"
 
 This option defines the address to which the node will bind in order to receive Incremental State Transfers.  When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`.  You may find it useful when the node runs behind a NAT or in similar cases where the public and private addresses differ.
 
@@ -1435,7 +1276,7 @@ When set to ``TRUE``, the node stores the Primary Component state to disk, in th
 
    "Default Value", "``TRUE``"
    "Dynamic", "No"
-   "Introduced", "3.0"
+   "Initial Version", "3.0"
 
 This allows for:
 
@@ -1464,7 +1305,7 @@ If you set this value to ``TRUE`` is a signal to turn a ``NON-PRIMARY`` componen
 
    "Default Value", ""
    "Dynamic", "Yes"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1485,7 +1326,7 @@ Cluster joining announcements are sent every :math:`\frac{1}{2}` second for this
 
    "Default Value", "``PT3S``"
    "Dynamic", "No"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1506,7 +1347,7 @@ Checksum replicated messages.
 
    "Default Value", "``FALSE``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1527,7 +1368,7 @@ Should we allow nodes to process updates even in the case of split brain? This i
 
    "Default Value", "``FALSE``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1548,7 +1389,7 @@ Completely ignore quorum calculations. For example if the master splits from sev
 
    "Default Value", "``FALSE``"
    "Dynamic", "Yes"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1569,7 +1410,7 @@ The period for which the PC protocol waits for the EVS termination.
 
    "Default Value", "``PT2S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1590,7 +1431,7 @@ If set to ``TRUE``, the more recent primary component overrides older ones in th
 
    "Default Value", "``FALSE``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1611,7 +1452,7 @@ If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_p
 
    "Default Value", "``TRUE``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1632,7 +1473,7 @@ The period of time to wait for a primary component.
 
    "Default Value", "``PT30S``"
    "Dynamic", "No"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1653,7 +1494,7 @@ As of version 2.4. Node weight for quorum calculation.
 
    "Default Value", "``1``"
    "Dynamic", "Yes"
-   "Introduced", "2.4"
+   "Initial Version", "2.4"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1674,7 +1515,7 @@ This status variable is used to check which pc protocol version is used.
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1691,7 +1532,7 @@ Which transport backend to use. Currently only ASIO is supported.
 
    "Default Value", "``asio``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1712,7 +1553,7 @@ This status variable is used to check which transport backend protocol version i
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1729,7 +1570,7 @@ Whether to allow Out-Of-Order committing (improves parallel applying performance
 
    "Default Value", "``3``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 Possible settings:
 
@@ -1760,7 +1601,7 @@ Sometimes causal reads need to timeout.
 
    "Default Value", "``PT30S``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1781,7 +1622,7 @@ The hash size to use for key formats (in bytes). An ``A`` suffix annotates the v
 
    "Default Value", "``FLAT8``"
    "Dynamic", "No"
-   "Introduced", "3.0"
+   "Initial Version", "3.0"
 
 Possible settings:
 
@@ -1809,7 +1650,7 @@ The maximum size of a write-set in bytes. This is limited to 2G.
 
    "Default Value", "``2147483647``"
    "Dynamic", "No"
-   "Introduced", "3.0"
+   "Initial Version", "3.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1830,7 +1671,7 @@ The maximum protocol version in replication. Changes to this parameter will only
 
    "Default Value", "``5``"
    "Dynamic", "No"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1851,7 +1692,7 @@ The size of the receive buffer that used on the network sockets between nodes. G
 
    "Default Value", "``212992``"
    "Dynamic", "No"
-   "Introduced", "3.17"
+   "Initial Version", "3.17"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1872,7 +1713,7 @@ Defines the path to the SSL Certificate Authority (CA) file.
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The node uses the CA file to verify the signature on the certificate.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
@@ -1897,7 +1738,7 @@ Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate.
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
@@ -1922,7 +1763,7 @@ Checksum to use on socket layer.
 
    "Default Value", "``1`` (before vs. 3), ``2``"
    "Dynamic", "No"
-   "Introduced", "2.0"
+   "Initial Version", "2.0"
 
 Possible Values;
 
@@ -1949,7 +1790,7 @@ Symmetric cipher to use. By default SSL library implementation default cipher is
 
    "Default Value", "``AES128-SHA`` (before vs. 3.24), ``system default``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1970,7 +1811,7 @@ Whether to enable compression on SSL connections.
 
    "Default Value", "``YES``"
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1991,7 +1832,7 @@ Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate key.
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
 
@@ -2016,7 +1857,7 @@ Defines a password file for use in :abbr:`SSL (Secure Socket Layer)` connections
 
    "Default Value", ""
    "Dynamic", "No"
-   "Introduced", "1.0"
+   "Initial Version", "1.0"
 
 In the event that you have your SSL key file encrypted, the node uses the SSL password file to decrypt the key file.
 
@@ -2059,6 +1900,10 @@ To check which parameters are used in Galera Cluster, enter the following query:
 .. code-block:: mysql
 
 	SHOW VARIABLES LIKE 'wsrep_provider_options';
+
+.. |br| raw:: html
+
+   <br />
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

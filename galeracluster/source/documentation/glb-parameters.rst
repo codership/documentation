@@ -23,9 +23,9 @@ When Galera Load Balancer starts as a system service, it reads the ``glbd.cfg`` 
    :header: "Parameter", "Default Configuration"
 
    ":ref:`CONTROL_ADDR <glb-control_addr>`", "``127.0.0.1:8011``"
-   ":ref:`CONTROL_FIFO <glb-control_fifo>", "``/var/run/glbd.fifo``"
+   ":ref:`CONTROL_FIFO <glb-control_fifo>`", "``/var/run/glbd.fifo``"
    ":ref:`DEFAULT_TARGETS <glb-default_targets>`", "``127.0.0.1:80 10.0.1:80 10.0.0.2:80``"
-   ":ref:`LISTEN_ADDR <glb-listen_addr>", "``8010``"
+   ":ref:`LISTEN_ADDR <glb-listen_addr>`", "``8010``"
    ":ref:`MAX_CONN <glb-max_conn-par>`", ""
    ":ref:`OTHER_OPTIONS <glb-other_options>`", ""
    ":ref:`THREADS <glb-threads-par>`", "``2``"
@@ -169,69 +169,31 @@ When Galera Load Balancer starts as a daemon process, through the ``/sbin/glbd``
 
 In the event that you would like to set any of these options when you run Galera Load Balancer as a service, you can define them through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
 
-+----------------------+--------+------------+-------------------------+
-| Long Argument        | Short  | Type       | Parameter               |
-+======================+========+============+=========================+
-| :ref:`--control      | ``-c`` | IP address | :ref:`CONTROL_ADDR      |
-| <glb-control>`       |        |            | <glb-control_addr>`     |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--daemon       | ``-d`` | Boolean    |                         |
-| <glb-daemon>`        |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--defer-accept | ``-a`` | Boolean    |                         |
-| <glb-defer-accept>`  |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--discover     | ``-D`` | Boolean    |                         |
-| <glb-discover>`      |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--extra        | ``-x`` | Decimal    |                         |
-| <glb-extra>`         |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--fifo         | ``-f`` | File Path  | :ref:`CONTROL_FIFO      |
-| <glb-fifo>`          |        |            | <glb-control_fifo>`     |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--interval     | ``-i`` | Decimal    |                         |
-| <glb-interval>`      |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--keepalive    | ``-K`` | Boolean    |                         |
-| <glb-keepalive>`     |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--latency      | ``-L`` | Integer    |                         |
-| <glb-latency>`       |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--linger       | ``-l`` | Boolean    |                         |
-| <glb-linger>`        |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--max_conn     | ``-m`` | Integer    | :ref:`MAX_CONN          |
-| <glb-max_conn-arg>`  |        |            | <glb-max_conn-par>`     |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--nodelay      | ``-n`` | Boolean    |                         |
-| <glb-nodelay>`       |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--random       | ``-r`` | Boolean    |                         |
-| <glb-random>`        |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--round        | ``-b`` | Boolean    |                         |
-| <glb-round>`         |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--single       | ``-S`` | Boolean    |                         |
-| <glb-single>`        |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--source       | ``-s`` | Boolean    |                         |
-| <glb-source>`        |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--threads      | ``-t`` | Integer    | :ref:`THREADS           |
-| <glb-threads-arg>`   |        |            | <glb-threads-par>`      |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--top          | ``-T`` | Boolean    |                         |
-| <glb-top>`           |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--verbose      | ``-v`` | Boolean    |                         |
-| <glb-verbose>`       |        |            |                         |
-+----------------------+--------+------------+-------------------------+
-| :ref:`--watchdog     | ``-w`` | String     |                         |
-| <glb-watchdog>`      |        |            |                         |
-+----------------------+--------+------------+-------------------------+
+.. csv-table::
+   :class: doc-options
+   :header: "Long Argument", "Short", "Type", "Parameter"
+
+   ":ref:`--control <glb-control>`", "``-c``", "IP address", ":ref:`CONTROL_ADDR <glb-control_addr>`"
+   ":ref:`--daemon <glb-daemon>`", "``-d``", "Boolean", ""
+   ":ref:`--defer-accept <glb-defer-accept>`", "``-a``", "Boolean", ""
+   ":ref:`--discover <glb-discover>`", "``-D``", "Boolean", ""
+   ":ref:`--extra <glb-extra>`", "``-x``", "Decimal", ""
+   ":ref:`--fifo <glb-fifo>`", "``-f``", "File Path", ":ref:`CONTROL_FIFO <glb-control_fifo>`"
+   ":ref:`--interval <glb-interval>`", "``-i``", "Decimal", ""
+   ":ref:`--keepalive <glb-keepalive>`", "``-K``", "Boolean", ""
+   ":ref:`--latency <glb-latency>`", "``-L``", "Integer", ""
+   ":ref:`--linger <glb-linger>`", "``-l``", "Boolean", ""
+   ":ref:`--max_conn <glb-max_conn-arg>`", "``-m``", "Integer", ":ref:`MAX_CONN <glb-max_conn-par>`"
+   ":ref:`--nodelay <glb-nodelay>`", "``-n``", "Boolean", ""
+   ":ref:`--random <glb-random>`", "``-r``", "Boolean", ""
+   ":ref:`--round <glb-round>`", "``-b``", "Boolean", ""
+   ":ref:`--single <glb-single>`", "``-S``", "Boolean", ""
+   ":ref:`--source <glb-source>`", "``-s``", "Boolean", ""
+   ":ref:`--threads <glb-threads-arg>`", "``-t``", "Integer", ":ref:`THREADS <glb-threads-par>`"
+   ":ref:`--top <glb-top>`", "``-T``", "Boolean", ""
+   ":ref:`--verbose <glb-verbose>`", "``-v``", "Boolean", ""
+   ":ref:`--watchdog <glb-watchdog>`", "``-w``", "String", ""
+
 
 
 .. _`glb-control`:

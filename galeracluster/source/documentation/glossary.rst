@@ -22,7 +22,7 @@
    Galera Replication Plugin
       Galera Replication Plugin is a general purpose replication plugin for any transactional system. It can be used to create a synchronous multi-master replication solution to achieve high availability and scale-out.
 
-      .. note:: See :ref:`Galera Replication Plugin <galera-replication-plugin>` for more details.
+      See :ref:`Galera Replication Plugin <galera-replication-plugin>` for more details.
 
    Global Transaction ID
       To keep the state identical on all nodes, the :term:`wsrep API` uses global transaction IDs (GTID), which are used to identify the state change and to identify the state itself by the ID of the last state change
@@ -35,7 +35,7 @@
    Incremental State Transfer
       In an Incremental State Transfer (IST) a node only receives the missing write-sets and catches up with the group by replaying them. See also the definition for State Snapshot Transfer (SST).
 
-      For more information on IST's, see :ref:`Incremental State Transfer (IST) <ist>`.
+      For more information on IST's, see :ref:`Incremental State Transfer (IST) <state-transfer-ist>`.
 
    IST
       See :term:`Incremental State Transfer`.
@@ -104,7 +104,7 @@
    Write-set Cache
       Galera stores write-sets in a special cache called, Write-set Cache (GCache). GCache is a memory allocator for write-sets. Its primary purpose is to minimize the write set footprint on the RAM.
 
-      For more information, see :ref:`Write-set Cache (GCache) <gcache>`.
+      For more information, see :ref:`Write-Set Cache (GCache) <state-transfer-gcache>`.
 
    GCache
       See :term:`Write-set Cache`.

@@ -13,135 +13,53 @@
 These are MySQL system variables introduced by wsrep API patch version 0.8. Almost all of the variables are global except for a few. Those are session variables.  If you click on a particular variable in this table, your web browser will scroll down to the entry for it with more details and an explanation.
 
 
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| Option                                | Default                     | Global | Support | Dynamic |
-+=======================================+=============================+========+=========+=========+
-| :ref:`wsrep_auto_increment_control    | ``ON``                      |  Yes   | 1+      |         |
-| <wsrep_auto_increment_control>`       |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_causal_reads              | ``OFF``                     |        | 1 - 3.6 |         |
-| <wsrep_causal_reads>`                 |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_certify_nonPK             | ``ON``                      |  Yes   | 1+      |         |
-| <wsrep_certify_nonPK>`                |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_cluster_address           |                             |  Yes   | 1+      |         |
-| <wsrep_cluster_address>`              |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_cluster_name              | ``example_cluster``         |  Yes   | 1+      |         |
-| <wsrep_cluster_name>`                 |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_convert_LOCK_to_trx       | ``OFF``                     |  Yes   | 1+      |         |
-| <wsrep_convert_LOCK_to_trx>`          |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_data_home_dir             | ``/path/to/data_home``      |  Yes   | 1+      |         |
-| <wsrep_data_home_dir>`                |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_dbug_option               |                             |  Yes   | 1+      |         |
-| <wsrep_dbug_option>`                  |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_debug                     | ``OFF``                     |  Yes   | 1+      |         |
-| <wsrep_debug>`                        |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_desync                    | ``OFF``                     |  Yes   | 1+      |         |
-| <wsrep_desync>`                       |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_dirty_reads               | ``OFF``                     |  Yes   |         | Yes     |
-| <wsrep_dirty_reads>`                  |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_drupal_282555_workaround  | ``ON``                      |  Yes   | 1+      |         |
-| <wsrep_drupal_282555_workaround>`     |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_forced_binlog_format      | ``NONE``                    |  Yes   | 1+      |         |
-| <wsrep_forced_binlog_format>`         |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_load_data_splitting       | ``ON``                      |  Yes   | 1+      |         |
-| <wsrep_load_data_splitting>`          |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_log_conflicts             | ``OFF``                     |  Yes   | 1+      |         |
-| <wsrep_log_conflicts>`                |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_max_ws_rows               | ``0``                       |  Yes   | 1+      |         |
-| <wsrep_max_ws_rows>`                  |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_max_ws_size               | ``1G``                      |  Yes   | 1+      |         |
-| <wsrep_max_ws_size>`                  |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_node_address              | *host address:default port* |  Yes   | 1+      |         |
-| <wsrep_node_address>`                 |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_node_incoming_address     | *host address:mysqld port*  |  Yes   | 1+      |         |
-| <wsrep_node_incoming_address>`        |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_node_name                 | ``<hostname>``              |  Yes   | 1+      |         |
-| <wsrep_node_name>`                    |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_notify_cmd                |                             |  Yes   | 1+      |         |
-| <wsrep_notify_cmd>`                   |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_on                        | ``ON``                      |        | 1+      |         |
-| <wsrep_on>`                           |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_OSU_method                | ``TOI``                     |        | 3+      |         |
-| <wsrep_OSU_method>`                   |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_preordered                | ``OFF``                     |  Yes   | 1+      |         |
-| <wsrep_preordered>`                   |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_provider                  | ``NONE``                    |  Yes   | 1+      |         |
-| <wsrep_provider>`                     |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_provider_options          |                             |  Yes   | 1+      |         |
-| <wsrep_provider_options>`             |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_reject_queries            | ``NONE``                    |  Yes   |         |  Yes    |
-| <wsrep_reject_queries>`               |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_restart_slave             | ``OFF``                     |  Yes   | 1+      | Yes     |
-| <wsrep_restart_slave>`                |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_retry_autocommit          | ``1``                       |  Yes   | 1+      |         |
-| <wsrep_retry_autocommit>`             |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_slave_FK_checks           | ``ON``                      |  Yes   | 1+      | Yes     |
-| <wsrep_slave_FK_checks>`              |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_slave_threads             | ``1``                       |  Yes   | 1+      |         |
-| <wsrep_slave_threads>`                |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_slave_UK_checks           | ``OFF``                     |  Yes   | 1+      | Yes     |
-| <wsrep_slave_UK_checks>`              |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_sst_auth                  |                             |  Yes   | 1+      |         |
-| <wsrep_sst_auth>`                     |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_sst_donor                 |                             |  Yes   | 1+      |         |
-| <wsrep_sst_donor>`                    |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_sst_donor_rejects_queries | ``OFF``                     |  Yes   | 1+      |         |
-| <wsrep_sst_donor_rejects_queries>`    |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_sst_method                | ``mysqldump``               |  Yes   | 1+      |         |
-| <wsrep_sst_method>`                   |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_sst_receive_address       | *node IP address*           |  Yes   | 1+      |         |
-| <wsrep_sst_receive_address>`          |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_start_position            | *see reference entry*       |  Yes   | 1+      |         |
-| <wsrep_start_position>`               |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_sync_wait                 | ``0``                       |  Yes   | 3.6+    | Yes     |
-| <wsrep_sync_wait>`                    |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_trx_fragment_size         | ``0``                       |  Yes   | 4+      | Yes     |
-| <wsrep_trx_fragment_size>`            |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_trx_fragment_unit         | ``bytes``                   |  Yes   | 4+      | Yes     |
-| <wsrep_trx_fragment_unit>`            |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
-| :ref:`wsrep_ws_persistency            |                             |  Yes   | 1       |         |
-| <wsrep_ws_persistency>`               |                             |        |         |         |
-+---------------------------------------+-----------------------------+--------+---------+---------+
+.. csv-table::
+   :class: doc-options tight-header
+   :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
+   :widths: 30, 42, 6, 6, 8, 8
+
+   ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", "", "1.0", "3.6"
+   ":ref:`wsrep_certify_nonPK <wsrep_certify_nonPK>`", "``ON``", "", "Yes", "1.0", ""
+   ":ref:`wsrep_cluster_address <wsrep_cluster_address>`", "``ON``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_cluster_name <wsrep_cluster_name>`", "``example_cluster``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_convert_LOCK_to_trx <wsrep_convert_LOCK_to_trx>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_data_home_dir <wsrep_data_home_dir>`", "``/path/to/datadir``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_dbug_option <wsrep_dbug_option>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_debug <wsrep_debug>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_desync <wsrep_desync>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_dirty_reads <wsrep_dirty_reads>`", "``OFF``", "Yes", "Yes", "1.0", ""
+   ":ref:`wsrep_drupal_282555_workaround <wsrep_drupal_282555_workaround>`", "``ON``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_forced_binlog_format <wsrep_forced_binlog_format>`", "``NONE``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_load_data_splitting <wsrep_load_data_splitting>`", "``ON``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_log_conflicts <wsrep_log_conflicts>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_max_ws_rows <wsrep_max_ws_rows>`", "``0``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_max_ws_size <wsrep_max_ws_size>`", "``1G``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_node_address <wsrep_node_address>`", "*host address:default port*", "Yes", "", "1.0", ""
+   ":ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>`", "*host address:mysqld port*", "Yes", "", "1.0", ""
+   ":ref:`wsrep_node_name <wsrep_node_name>`", "``<hostname>``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_notify_cmd <wsrep_notify_cmd>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_on <wsrep_on>`", "``ON``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", "", "3.0", ""
+   ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_provider_options <wsrep_provider_options>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_reject_queries <wsrep_reject_queries>`", "``NONE``", "Yes", "Yes", "???", ""
+   ":ref:`wsrep_restart_slave <wsrep_restart_slave>`", "``OFF``", "Yes", "Yes", "1.0", ""
+   ":ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`", "``1``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_slave_FK_checks <wsrep_slave_FK_checks>`", "``ON``", "Yes", "Yes", "1.0", ""
+   ":ref:`wsrep_slave_threads <wsrep_slave_threads>`", "``1``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_slave_UK_checks <wsrep_slave_UK_checks>`", "``OFF``", "Yes", "Yes", "1.0", ""
+   ":ref:`wsrep_sst_auth <wsrep_sst_auth>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_sst_donor <wsrep_sst_donor>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_sst_donor_rejects_queries <wsrep_sst_donor_rejects_queries>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_sst_method <wsrep_sst_method>`", "``mysqldump``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", "", "1.0", ""
+   ":ref:`wsrep_start_position <wsrep_start_position>`", "*see reference entry*", "Yes", "", "1.0", ""
+   ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes", "3.6", ""
+   ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes", "4.0", ""
+   ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes", "4.0", ""
+   ":ref:`wsrep_ws_persistency <wsrep_ws_persistency>`", "", "Yes", "", "1.0", ""
 
 
 You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get list of all Galera related variables on your server:
@@ -152,11 +70,11 @@ You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as s
 
 The results will vary depending on which version of Galera is running on your server. All of the parameters and variables possible are listed above, but they're listed below with explanations of each.
 
+
 .. _`wsrep_auto_increment_control`:
 .. rubric:: ``wsrep_auto_increment_control``
 .. index::
    pair: Parameters; wsrep_auto_increment_control
-
 
 This parameter enables the automatic adjustment of auto increment system variables with changes in cluster membership.
 
@@ -169,8 +87,7 @@ This parameter enables the automatic adjustment of auto increment system variabl
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON`` "
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 The node manages auto-increment values in a table using two variables: ``auto_increment_increment`` and ``auto_increment_offset``.  The first relates to the value auto-increment rows count from the offset. The second relates to the offset it should use in moving to the next position.
 
@@ -205,7 +122,7 @@ This parameter enables the enforcement of strict cluster-wide ``READ COMMITTED``
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF`` "
-   "Support", "Introduced in Version 1, Deprecated in Version 3.6"
+   "Initial Version", "Version 1.0, Deprecated in Version 3.6"
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
@@ -213,8 +130,8 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
    SHOW VARIABLES LIKE 'wsrep_causal_reads';
 
+.. warning:: The ``wsrep_causal_reads`` option has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
 
-.. warning:: This feature has been **deprecated**.  It has been replaced by :ref:`wsrep_sync_wait <wsrep_sync_wait>`.
 
 .. _`wsrep_certification_rules`:
 .. rubric:: ``wsrep_certification_rules``
@@ -233,7 +150,7 @@ Certification rules to use in the cluster.
    "Permitted Values", "Enumeration"
    "Default Value", "``STRICT``"
    "Valid Value", "``OPTIMIZED``, ``STRICT``"
-   "Support", "Introduced in Version ???"
+   "Initial Version", "Version ???"
 
 Controls how certification is done in the cluster, in particular this affects how foreign keys are handled: with the ``STRICT`` option two INSERTs that happen at about the same time on two different nodes in a child table, that insert different (non conflicting rows), but both rows point to the same row in the parent table could result in certification failure. With the ``OPTIMIZED`` option such certification failure is avoided.
 
@@ -266,8 +183,7 @@ This parameter is used to define whether the node should generate primary keys o
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON`` "
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 Galera Cluster requires primary keys on all tables.  The node uses the primary key in replication to allow for the parallel applying of transactions to a table.  This parameter tells the node that when it encounters a row without a primary key, it should create one for replication purposes.  However, as a rule don't use tables without primary keys.
 
@@ -291,7 +207,6 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 .. index::
    single: my.cnf
 
-
 This parameter sets the back-end schema, IP addresses, ports and options the node uses in connecting to the cluster.
 
 .. csv-table::
@@ -303,7 +218,7 @@ This parameter sets the back-end schema, IP addresses, ports and options the nod
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 Galera Cluster uses this parameter to determine the IP addresses for the other nodes in the cluster, the back-end schema to use and additional options it should use in connecting to and communicating with those nodes.  Currently, the only back-end schema supported for production is ``gcomm``.
 
@@ -325,11 +240,9 @@ Changing this variable while Galera is running will cause the node to close the 
 
     gcomm://node1:port1,node2:port2,...[?option1=value1&...]
 
-
 Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster--that the other nodes can join to.  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. warning:: Never use an empty ``gcomm://`` string in the ``my.cnf`` configuration file. If a node restarts, that will cause the node not to rejoin the cluster of which it was a member. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
-
+.. warning:: Never use an empty ``gcomm://`` string with the ``wsrep_cluster_address`` option in the configuration file. If a node restarts, it will cause the node not to rejoin the cluster. Instead, it will initialize a new one-node cluster and cause a split brain. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
 
 You can execute the following SQL statement to see how this variable is set:
 
@@ -360,10 +273,9 @@ This parameter defines the logical cluster name for the node.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``exmaple_cluster``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter allows you to define the logical name the node uses for the cluster.  When a node attempts to connect to a cluster, it checks the value of this parameter against that of the cluster.  The connection is only made if the names match.  If they don't match, the connection fails.  Because of this, the cluster name must be the same on all nodes.
-
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
@@ -383,7 +295,6 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 .. index::
    pair: Parameters; wsrep_convert_lock_to_trx
 
-
 This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` statements into ``BEGIN/COMMIT`` statements.
 
 .. csv-table::
@@ -395,8 +306,7 @@ This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` s
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 This parameter determines how the node handles ``LOCK/UNLOCK TABLES`` statements, specifically whether or not you want it to convert these statements into ``BEGIN/COMMIT`` statements.  It tells the node to convert implicitly locking sessions into transactions within the database server. By itself, this is not the same as support for locking sections, but it does prevent the database from resulting in a logically inconsistent state.
 
@@ -433,8 +343,7 @@ Use this parameter to set the directory the wsrep Provider uses for its files.
    "Dynamic Variable", ""
    "Permitted Values", "Directory"
    "Default Value", "/path/mysql_datadir"
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 During operation, the wsrep Provider needs to save various files to disk that record its internal state.  This parameter defines the path to the directory that you want it to use.  If not set, it defaults the MySQL ``datadir`` path.
 
@@ -467,8 +376,7 @@ You can set debug options to pass to the wsrep Provider with this parameter.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set, if its set:
 
@@ -499,13 +407,11 @@ This parameter enables additional debugging output for the database server error
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
 
-
-.. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information (i.e., passwords) to the error logs.  Don't enable it in production environments.
+.. warning:: In addition to useful debugging information, the ``wsrep_debug`` parameter also causes the database server to print authentication information (i.e., passwords) to the error logs.  Don't enable it in production environments.
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
@@ -536,7 +442,7 @@ This parameter is used to set whether or not the node participates in Flow Contr
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 When a node receives more write-sets than it can apply, the transactions are placed in a received queue.  In the event that the node falls too far behind, it engages Flow Control.  The node takes itself out of sync with the cluster and works through the received queue until it reaches a more manageable size.
 
@@ -573,7 +479,7 @@ This parameter defines whether the node accepts read queries when in a non-opera
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "???"
+   "Initial Version", "???"
 
 
 When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it can't keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.
@@ -615,7 +521,7 @@ This parameter enables workaround for a bug in MySQL InnoDB that affects Drupal 
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 Drupal installations using MySQL are subject to a bug in InnoDB, tracked as `MySQL Bug 41984 <http://bugs.mysql.com/bug.php?id=41984>`_ and `Drupal Issue 282555 <http://drupal.org/node/282555>`_.  Specifically, inserting a `DEFAULT` value into an `AUTO_INCREMENT` column may return duplicate key errors.
 
@@ -651,7 +557,7 @@ This parameter defines the binary log format for all transactions.
    "Permitted Values", "Enumeration"
    "Default Value", "``NONE``"
    "Valid Values", "``ROW``, ``STATEMENT``, ``MIXED``, ``NONE``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 The node uses the format given by this parameter regardless of the client session variable `binlog_format <https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html>`_.  Valid choices for this parameter are: ``ROW``, ``STATEMENT``, and ``MIXED``.  Additionally, there is the special value ``NONE``, which means that there is no forced format in effect for the binary logs. When set to a value other than ``NONE``, this parameter forces all transactions to use a given binary log format.
 
@@ -686,7 +592,7 @@ This parameter defines whether the node splits large ``LOAD DATA`` commands into
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 When loading huge amounts of data creates problems for Galera Cluster, in that they eventually reach a size that is too large for the node to rollback completely the operation in the event of a conflict and whatever gets committed stays committed.
 
@@ -721,7 +627,7 @@ This parameter defines whether the node logs additional information about confli
    "Dynamic Variable", "No"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF`` "
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 
 In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB and Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts. You may find this useful in troubleshooting replication problems. You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
@@ -758,7 +664,7 @@ With this parameter you can set the maximum number of rows the node allows in a 
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``0``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 If set to a value greater than ``0``, this parameter sets the maximum number of rows that the node allows in a write-set.
 
@@ -791,7 +697,7 @@ You can set the maximum size the node allows for write-sets with this parameter.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``2G``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter sets the maximum size that the node allows for a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.
 
@@ -825,7 +731,7 @@ This parameter is used to note the IP address and port of the node.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "Server IP Address, Port ``4567``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 The node passes its IP address and port number to the :term:`Galera Replication Plugin`, where it's used as the base address in cluster communications.  By default, the node pulls the address of the first network interface and uses the default port for Galera Cluster.  Typically, this is the address of ``eth0`` or ``enp2s0`` on port ``4567``.
 
@@ -839,7 +745,6 @@ While the default behavior is often sufficient, there are situations in which th
 - Cloud deployments, such as with Amazon EC2 and OpenStack.
 
 In these scenarios, since auto-guess of the IP address does not produce the correct result, you will need to provide an explicit value for this parameter.
-
 
 .. note:: In addition to defining the node address and port, this parameter also provides the default values for the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter and the :ref:`ist.recv_addr <ist.recv_addr>` option.
 
@@ -874,8 +779,7 @@ This parameter is used to provide the IP address and port from which the node sh
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 This parameter defines the IP address and port number at which the node should expect to receive client connections.  It's intended for integration with load balancers. For now, it's otherwise unused by the node.
 
@@ -908,7 +812,7 @@ You can set the logical name that the node uses for itself with this parameter.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "Server Hostname"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter defines the logical name that the node uses when referring to itself in logs and in the cluster.  It's for convenience, to help you in identifying nodes in the cluster by means other than the node address.
 
@@ -943,45 +847,33 @@ Defines the command the node runs whenever cluster membership or the state of th
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
 .. warning:: The node will block and wait until the script completes and returns before it can proceed. If the script performs any potentially blocking or long-running operations, such as network communication, you may wish initiate such operations in the background and have the script return immediately.
 
-.. note:: For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the :doc:`notification-cmd`.
+For an example script that updates two tables on the local node, with changes taking place at the cluster level, see the :doc:`notification-cmd`.
 
-When the node calls the command, it passes one or more arguments that you can use in configuring your custom notification script and how it responds to the change.  The options are:
+When the node calls the command, it passes one or more arguments that you can use in configuring your custom notification script and how it responds to the change.  Below are these options and explanations of each:
 
---status <status str>        The status of this node. The possible statuses are:
+.. csv-table::
+   :class: doc-options
+   :header: "Option", "Purpose", "Possible Values"
+   :widths: 25, 25, 50
 
-                             - ``Undefined`` The node has just started up and is not connected to any :term:`Primary Component`.
-
-                             - ``Joiner`` The node is connected to a primary component and now is receiving state snapshot.
-
-                             - ``Donor`` The node is connected to primary component and now is sending state snapshot.
-
-                             - ``Joined`` The node has a complete state and now is catching up with the cluster.
-
-                             - ``Synced`` The node has synchronized itself with the cluster.
-
-                             - ``Error(<error code if available>)`` The node is in an error state.
-
---uuid <state UUID>          The cluster state UUID.
-
---primary <yes/no>           Whether the current cluster component is primary or not.
-
---members <list>             A comma-separated list of the component member UUIDs.
-                             The members are presented in the following syntax:
-
-                             - ``<node UUID>`` A unique node ID. The wsrep Provider automatically assigns this ID for each node.
-
-                             - ``<node name>`` The node name as it is set in the ``wsrep_node_name`` option.
-
-                             - ``<incoming address>`` The address for client connections as it is set in the ``wsrep_node_incoming_address`` option.
-
---index                      The index of this node in the node list.
+   "``--status <status str>``", "The status of this node.", "``Undefined`` The node has just started up and is not connected to any :term:`Primary Component`."
+   "", "", "``Joiner`` The node is connected to a primary component and now is receiving state snapshot."
+   "", "", "``Donor`` The node is connected to primary component and now is sending state snapshot."
+   "", "", "``Joined`` The node has a complete state and now is catching up with the cluster."
+   "", "", "``Synced`` The node has synchronized itself with the cluster."
+   "", "", "``Error(<error code if available>)`` The node is in an error state."
+   "``--uuid <state UUID>``", "The cluster state UUID.", ""
+   "``--primary <yes/no>``", "Whether the current cluster component is primary or not.", ""
+   "``--members <list>``", "A comma-separated list of the component member UUIDs.", "``<node UUID>``; A unique node ID. The wsrep Provider automatically assigns this ID for each node."
+   "", "", "``<node name>``; The node name as it is set in the ``wsrep_node_name`` option."
+   "", "", "``<incoming address>``; The address for client connections as it is set in the ``wsrep_node_incoming_address`` option."
+   "``--index``", "The index of this node in the node list.", ""
 
 .. code-block:: mysql
 
@@ -994,13 +886,10 @@ When the node calls the command, it passes one or more arguments that you can us
    +------------------+--------------------------+
 
 
-
-
 .. _`wsrep_on`:
 .. rubric:: ``wsrep_on``
 .. index::
    pair: Parameters; wsrep_on
-
 
 Defines whether replication takes place for updates from the current session.
 
@@ -1013,11 +902,9 @@ Defines whether replication takes place for updates from the current session.
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 This parameter defines whether or not updates made in the current session replicate to the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
-
 
 .. code-block:: mysql
 
@@ -1047,14 +934,13 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
    "Permitted Values", "Enumeration"
    "Default Value", "``TOI``"
    "Valid Values", "``TOI``, ``RSU``"
-   "Support", "Introduced in Version 3, Patch 5.5.17-22.3"
+   "Initial Version", "Version 3, Patch 5.5.17-22.3"
 
 DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
 
 - ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress.
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
-
 
 For more information on DDL statements and OSU methods, see :doc:`schema-upgrades`.
 
@@ -1085,7 +971,7 @@ Defines whether the node uses transparent handling of preordered replication eve
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter enables transparent handling of preordered replication events, such as replication events arriving from traditional asynchronous replication. When this option is ``ON``, such events will be applied locally first before being replicated to the other nodes of the cluster. This could increase the rate at which they can be processed which would be otherwise limited by the latency between the nodes in the cluster.
 
@@ -1118,7 +1004,7 @@ Defines the path to the :term:`Galera Replication Plugin`.
    "Dynamic Variable", ""
    "Permitted Values", "File"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 When the node starts, it needs to load the wsrep Provider in order to enable replication functions.  The path defined in this parameter tells it what file it needs to load and where to find it.  In the event that you do not define this path or you give it an invalid value, the node bypasses all calls to the wsrep Provider and behaves as a standard standalone instance of MySQL.
 
@@ -1149,7 +1035,7 @@ Defines optional settings the node passes to the wsrep Provider.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 When the node loads the wsrep Provider, there are several configuration options available that affect how it handles certain events.  These allow you to fine tune how it handles various situations.
 
@@ -1158,7 +1044,6 @@ For example, you can use :ref:`gcache.size <gcache.size>` to define how large a 
 .. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
 
 For more information on the wsrep Provider options, see :doc:`galera-parameters`.
-
 
 .. code-block:: mysql
 
@@ -1187,7 +1072,7 @@ Defines whether the node rejects client queries while participating in the clust
    "Permitted Values", "Array"
    "Default Value", "``NONE``"
    "Valid Values", "``NONE``, ``ALL``, ``ALL_KILL``"
-   "Support", "Introduced in Version ???"
+   "Initial Version", "Version ???"
 
 When in use, this parameter causes the node to reject queries from client connections.  The node continues to participate in the cluster and apply write-sets, but client queries generate ``Unknown command`` errors.  For instance,
 
@@ -1204,7 +1089,6 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 - ``ALL`` The node enables this feature. It rejects all queries, but maintains any existing client connections.
 
 - ``ALL_KILL`` The node enables this feature.  It rejects all queries and kills existing client connections without waiting, including the current connection.
-
 
 .. code-block:: mysql
 
@@ -1235,7 +1119,7 @@ Defines whether the replication slave restarts when the node joins the cluster.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "Introduced in Version ???"
+   "Initial Version", "Version ???"
 
 Enabling this parameter tells the node to restart the replication slave when it joins the cluster.
 
@@ -1248,7 +1132,6 @@ Enabling this parameter tells the node to restart the replication slave when it 
    +---------------------+-------+
    | wsrep_restart_slave | OFF   |
    +---------------------+-------+
-
 
 
 .. _`wsrep_retry_autocommit`:
@@ -1267,7 +1150,7 @@ Defines the number of retries the node attempts when an autocommit query fails.
    "Dynamic Variable", ""
    "Permitted Values", "Integer"
    "Default Value", "``1``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 When an autocommit query fails the certification test due to a cluster-wide conflict, the node can retry it without returning an error to the client.  This parameter defines how many times the node retries the query.  It is analogous to rescheduling an autocommit query should it go into deadlock with other transactions in the database lock manager.
 
@@ -1298,8 +1181,7 @@ Defines whether the node performs foreign key checking for applier threads.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 This parameter enables foreign key checking on applier threads.
 
@@ -1312,7 +1194,6 @@ This parameter enables foreign key checking on applier threads.
    +-----------------------+-------+
    | wsrep_slave_FK_checks | ON    |
    +-----------------------+-------+
-
 
 
 .. _`wsrep_slave_threads`:
@@ -1331,7 +1212,7 @@ Defines the number of threads to use in applying slave write-sets.
    "Dynamic Variable", ""
    "Permitted Values", "Integer"
    "Default Value", "``1``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs.
 
@@ -1370,8 +1251,7 @@ Defines whether the node performs unique key checking on applier threads.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "Introduced in Version ???"
-
+   "Initial Version", "Version ???"
 
 This parameter enables unique key checking on applier threads.
 
@@ -1384,8 +1264,6 @@ This parameter enables unique key checking on applier threads.
    +-----------------------+-------+
    | wsrep_slave_UK_checks | OFF   |
    +-----------------------+-------+
-
-
 
 
 .. _`wsrep_sst_auth`:
@@ -1404,7 +1282,7 @@ Defines the authentication information to use in :term:`State Snapshot Transfer`
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 When the node attempts a state snapshot transfer using the :term:`Logical State Transfer Method`, the transfer script uses a client connection to the database server in order to obtain the data it needs to send.  This parameter provides the authentication information, (that is, the username and password), that the script uses to access the database servers of both sending and receiving nodes.
 
@@ -1439,8 +1317,7 @@ Defines the name of the node that this node uses as a donor in state transfers.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version 1"
-
+   "Initial Version", "Version 1.0"
 
 When the node requires a state transfer from the cluster, it looks for the most appropriate one available.  The group communications module monitors the node state for the purposes of Flow Control, state transfers and quorum calculations.  The node can be a donor if it is in the ``SYNCED`` state.  The first node in the ``SYNCED`` state in the index becomes the donor and is made unavailable for requests while serving as such.
 
@@ -1472,7 +1349,6 @@ If the list contains a trailing comma, the remaining nodes in the cluster will a
    +-----------------+--------------------------------+
 
 
-
 .. _`wsrep_sst_donor_rejects_queries`:
 .. rubric:: ``wsrep_sst_donor_rejects_queries``
 .. index::
@@ -1491,13 +1367,13 @@ Defines whether the node rejects blocking client sessions on a node when it is s
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter determines whether the node rejects blocking client sessions while it is sending state transfers using methods that block it as the donor.  In these situations, all queries return the error ``ER_UNKNOWN_COM_ERROR``, that is they respond with ``Unknown command``, just like the joining node does.
 
 Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to tell whether the requested method is blocking or not.  You may also want to avoid querying the donor even with non-blocking state transfers.  As a result, when this parameter is enabled the donor node rejects queries regardless the state transfer and even if the initial request concerned a blocking-only transfer, (meaning, it also rejects during ``xtrabackup``).
 
-.. warning:: The ``mysqldump`` state transfer method does not work with this setting, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
+.. warning:: The ``mysqldump`` state transfer method does not work with the ``wsrep_sst_donor_rejects_queries`` parameter, given that ``mysqldump`` runs queries on the donor and there is no way to differentiate its session from the regular client session.
 
 .. code-block:: mysql
 
@@ -1526,7 +1402,7 @@ Defines the method or script the node uses in a :term:`State Snapshot Transfer`.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``rsync``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 When the node makes a state transfer request it calls on an external shell script to establish a connection a with the donor node and transfer the database state onto the local database server.  This parameter allows you to define what script the node uses in requesting state transfers.
 
@@ -1569,7 +1445,6 @@ For more information on scripting state snapshot transfers, see :doc:`scriptable
    +------------------+-----------+
 
 
-
 .. _`wsrep_sst_receive_address`:
 .. rubric:: ``wsrep_sst_receive_address``
 .. index::
@@ -1586,7 +1461,7 @@ Defines the address from which the node expects to receive state transfers.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ":ref:`wsrep_node_address <wsrep_node_address>`"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter defines the address from which the node expects to receive state transfers.  It is dependent on the :term:`State Snapshot Transfer` method the node uses.
 
@@ -1621,7 +1496,7 @@ Defines the node start position.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``00000000-0000-0000-0000-00000000000000:-1``"
-   "Support", "Introduced in Version 1"
+   "Initial Version", "Version 1.0"
 
 This parameter defines the node start position.  It exists for the sole purpose of notifying the joining node of the completion of a state transfer.
 
@@ -1656,8 +1531,7 @@ Defines whether the node enforces strict cluster-wide causality checks.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Bitmask"
    "Default Value", "``0``"
-   "Support", "Introduced in Version 3.6"
-
+   "Initial Version", "Version 3.6"
 
 When you enable this parameter, the node triggers causality checks in response to certain types of queries.  During the check, the node blocks new queries while the database server catches up with all updates made in the cluster to the point where the check was begun.  Once it reaches this point, the node executes the original query.
 
@@ -1686,9 +1560,7 @@ For example, say that you have a web application.  At one point in its run, you 
 
 In the example, the application first runs a ``SET`` command to enable :ref:`wsrep_sync_wait <wsrep_sync_wait>` for ``READ`` statements, then it makes a ``SELECT`` query.  Rather than running the query, the node initiates a causality check, blocking incoming queries while it catches up with the cluster.  When the node finishes applying the new transaction, it executes the ``SELECT`` query and returns the results to the application.  The application, having finished the critical read, disables :ref:`wsrep_sync_wait <wsrep_sync_wait>`, returning the node to normal operation.
 
-
 .. note:: Setting :ref:`wsrep_sync_wait <wsrep_sync_wait>` to ``1`` is the same as :ref:`wsrep_causal_reads <wsrep_causal_reads>` to ``ON``.  This deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.
-
 
 .. code-block:: mysql
 
@@ -1721,7 +1593,7 @@ Defines the number of replication units needed to generate a new fragment in Str
    "Dynamic Variable", "Yes"
    "Permitted Values", "Integer"
    "Default Value", "``0``"
-   "Support", "Introduced in Version 4.0"
+   "Initial Version", "Version 4.0"
 
 In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the number of replication units to include in a fragment.  To define what these units represent, use :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`. A value of ``0`` indicates that streaming replication will not be used.
 
@@ -1757,7 +1629,7 @@ Defines the replication unit type to use in Streaming Replication.
    "Permitted Values", "String"
    "Default Value", "``bytes``"
    "Valid Values", "``bytes``, ``events``, ``rows``, ``statements``"
-   "Support", "Introduced in Version 4.0"
+   "Initial Version", "Version 4.0"
 
 In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the unit to use in determining the size of the fragment.  To define the number of replication units to use in the fragment, use :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
 
@@ -1770,7 +1642,6 @@ Supported replication units are:
 - **rows**: Refers to the number of rows updated in the fragment.
 
 - **statements**: Refers to the number of SQL statements in the fragment.
-
 
 .. code-block:: mysql
 
@@ -1799,7 +1670,7 @@ Defines whether the node stores write-sets locally for debugging.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Support", "Introduced in Version ???, Deprecated in Version 0.8"
+   "Initial Version", "Version ???, Deprecated in Version 0.8"
 
 This parameter defines whether the node stores write-sets locally for debugging purposes.
 
@@ -1814,6 +1685,9 @@ This parameter defines whether the node stores write-sets locally for debugging 
    +----------------------+-------+
 
 
-
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
+
+.. |br| raw:: html
+
+   <br />
