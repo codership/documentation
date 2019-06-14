@@ -5,24 +5,47 @@
 ============================
 .. _`kb-faq`:
 
-This page lists a number of frequently asked questions on Galera Cluster and other related matters. They include questions you might have before deciding to use Galera. There are some questions on how to install and migrate to Galera, as well as how to get assistance and learn about Galera.
+This page lists several frequently asked questions on Galera Cluster and related matters. They include questions you might have before deciding to use Galera. There are some questions on how to install and migrate to Galera, as well as how to get assistance and learn about Galera.
+
+The questions are grouped by a few categories:
+
+- :ref:`faq-general-questions`
+- :ref:`faq-learing-questions`
+- :ref:`faq-assistance-questions`
+- :ref:`faq-installation-migration-questions`
+- :ref:`faq-usage-questions`
+- :ref:`faq-potential-problem-questions`
+- :ref:`faq-trivial-questions`
+
+Just below each question is further categorization of the question: the minimum experience level of the person who might be interested |---| if you're new to database clusters, you might want to skip the Intermediate ones; and the type of person who might be interested in such a question (e.g., DBAs, business managers).
+
+
+.. _`faq-general-questions`:
 
 -----------------------------------------------
 General Questions
 -----------------------------------------------
 
-.. rubric:: What is Galera Cluster?
 .. _`faq-what-is-galera-cluster`:
+.. rubric:: What is Galera Cluster?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs; Category: General
 
 .. rst-class:: list-abstract
 
    Galera Cluster is a write-set replication service provider in the form of the *dlopenable* library.  It provides synchronous replication and supports multi-master replication.  Galera Cluster is capable of unconstrained parallel applying (i.e., "parallel replication"), multicast replication and automatic node provisioning.
 
-   The primary focus of Galera Cluster is data consistency.  Transactions are either applied to every node or not at all.  Galera Cluster is not a cluster manager, a load balancer or a cluster monitor.  What it does is keep databases synchronized, provided they were properly configured and synchronized in the beginning.
+   The primary focus of Galera Cluster is data consistency.  Transactions are either applied to every node or not at all.  Galera Cluster is not a cluster manager, a load balancer, or a cluster monitor.  What it does is keep databases synchronized, provided they were properly configured and synchronized in the beginning.
 
 
-.. rubric:: Why use Galera Cluster instead of Basic MySQL Replication?
 .. _`faq-why-galera-over-standard-replication`:
+.. rubric:: Why use Galera Cluster instead of Basic MySQL Replication?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs, Business Managers; Category: General
 
 .. rst-class:: list-abstract
 
@@ -33,8 +56,12 @@ General Questions
    With Galera, if one master fails, the cluster continues and users can continue to write and read on other nodes.  With standard MySQL replication, if the master fails, users cannot write until it's restored or replaced--which can involve manual intervention and take good bit of time.
 
 
-.. rubric:: Can Galera be used with AWS (Amazon Web Services)?
 .. _`faq-galera-on-aws`:
+.. rubric:: Can Galera be used with AWS (Amazon Web Services)?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer, Intermediate; Interested: DBAs, Business Managers; Category: General
 
 .. rst-class:: list-abstract
 
@@ -43,17 +70,60 @@ General Questions
    For more details on installing Galera, see :doc:`Installing Galera <./training/tutorials/galera-installation>`.
 
 
-.. rubric:: Can nodes for a Galera Cluster be installed in containers such as Docker?
-.. _`faq-galera-containers`:
+.. _`faq-galera-cost`:
+.. rubric:: How much does Galera software Cost?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: Business Managers; Category: General
+
+.. rst-class:: list-abstract
+
+   Galera Cluster software is free to download and use, along with MySQL and MariaDB software for the database component of a cluster. There are no licensing fees.
+
+   The only expense might be the cost of personnel who are in charge of managing a cluster. You might also decide to engage Codership to provide support (see :ref:`Question on Support <faq-codership-offers-support>`).
 
 
+.. _`faq-large-galera-organizations`:
+.. rubric:: Which Large Organizations are using Galera Cluster?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: DBAs, Business Managers; Category: General
+
+.. rst-class:: list-abstract
+
+   Since 2009, there are thousands of Galera Cluster users and over 1.5 million downloads. Enterprises choose Galera Cluster because it provides most robust solution against data loss, MySQL and MariaDB high availability and scalability.
+
+   Because of client confidentiality, we can't name the largest organizations that are using Galera, but there are a few that have agreed to endorsing us. Check out our `References <http://galeracluster.com/references/>`_ page for just a few.
+
+
+.. _`faq-try-galera`:
+.. rubric:: How can I Try Galera to see if I Like It?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: DBAs; Category: General
+
+.. rst-class:: list-abstract
+
+   Since the software is free, it costs you only a little bit of time to try the software. To start, you might want to set up three new servers to be part of a cluster. If you have an account with Amazon's AWS, you could create three instances in there system, just for testing Galera. See :ref:`the Question on Using AWS <faq-codership-offers-support>`.
+
+   If you want to see how well it performs, you might copy your existing databases to your test cluster.  See :ref:`Data Migration <migrate-data>` for more details on how you might do that.  You can also use a benchmark tool like, ``sysbench`` (see `How to Benchmark Performance <https://severalnines.com/blog/how-benchmark-performance-mysql-mariadb-using-sysbench>`_) to test Galera.
+
+
+.. _`faq-learing-questions`:
 
 -----------------------------------------------
 Learning & Training Questions
 -----------------------------------------------
 
-.. rubric:: How popular is Galera Cluster?
 .. _`faq-galera-cluster-popularity`:
+.. rubric:: How Popular is Galera Cluster? Will I be able to Find People we Need?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: Business Managers; Category: Training
 
 .. rst-class:: list-abstract
 
@@ -62,8 +132,12 @@ Learning & Training Questions
    Major companies all over the world have implemented Galera to protect their data and secure their application and service availability. Galera Cluster is included in Debian Linux distributions and it's the most used high availability solution for OpenStack Cloud platform, according their survey.
 
 
-.. rubric:: How can I learn to configure and use Galera?
 .. _`faq-learn-galera`:
+.. rubric:: How can I or my Staff Learn to Configure and Use Galera?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: DBAs, Business Managers; Category: Learning
 
 .. rst-class:: list-abstract
 
@@ -72,21 +146,78 @@ Learning & Training Questions
    For comprehensive training courses on Galera and related software (e.g., load balancers), check the web sites of our partners (e.g., MariaDB, FromDual, Severalnines). For a list of all of them, along with links to their sites, see the `Support Partners <http://galeracluster.com/support/#support-partners>`_
 
 
-.. rubric:: Are there articles written about Galera?
+.. _`faq-previous-skills-needed`:
+.. rubric:: What Skills should I or my Staff have Before Learning Galera?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer, Intermediate; Interested: DBAs; Category: Learning
+
+.. rst-class:: list-abstract
+
+   At a minimum, you should know well a relational database system. In particular, advanced knowledge of MySQL or MariaDB would be best.  This is because Galera is an extension of these relational database systems.
+
+   Since Galera uses only the InnoDB tables, knowing how get the most of the InnoDB storage engine will server you well when resolving problems that may occur with transactions and when tweaking a database for better performance.
+
+   Lastly, experience using standard MySQL Replication would make learning Galera Cluster easy. Galera Cluster is similar, but much better.
+
+
+.. _`faq-train-which-staff`:
+.. rubric:: Which of our Staff should be Experts on Galera?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: DBAs, Business Managers; Category: Training
+
+.. rst-class:: list-abstract
+
+   Since end-users won't do anything different from what they already do when adding and changing data in the database, there's nothing new for them to know.  As for database developers, they mostly need to be aware that they can use only InnoDB tables. They can't use other storage engines.  If they don't already, they might want to learn about the features of InnoDB so they can take advantage of them (e.g., transactions).
+
+   Using Galera Cluster will very much be in the purview of DBAs. They need to know how to create a Galera Cluster, how to add and remove nodes from a cluster. Most importantly, they need to be able to restart a cluster properly so data isn't at risk.
+
+   Galera Cluster isn't difficult to maintain, but your DBAs need to know the software well and be confident in their abilities to resolve problems that might occur to be able to ensure high availability of your databases, the consistency and durability of the data. For critical situations, though, you might do well to have a support contract with us at Codership (see :ref:`Question on Support <faq-codership-offers-support>`).
+
+
 .. _`faq-galera-articles`:
+.. rubric:: Are there Tutorial Articles Written about Galera?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer, Intermediate; Interested: DBAs; Category: Learning
 
 .. rst-class:: list-abstract
 
    You can find many articles on Galera and related software on our `blog <http://galeracluster.com/category/blog/>`_. These are mixed in with information on conferences and press releases, so you'll have to scroll through the list of articles.  Some of our partners regularly publish articles on various aspects of Galera: `MariaDB <https://mariadb.com/resources/blog/tag/galera/>`_, `Severalnines <https://severalnines.com/blog/top-mysql-galera-cluster-resources>`_, and `FromDual Articles <https://www.fromdual.com/search/node/galera>`_.
 
 
+.. _`faq-train-developers`:
+.. rubric:: Do Developers and others Users Need to Know Anything about Galera?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: DBAs, Business Managers; Category: Training
+
+.. rst-class:: list-abstract
+
+   In a way, Galera is a behind-the-scene feature.  It's seamless and very much hidden from users. A developer may access any node in a Galera cluster to change table schemata.
+
+   Developers just need to be mindful to use only InnoDB tables. You can guard against this by setting the ``--default-storage-engine option`` and ``enforce_storage_engine`` to InnoDB. Be sure to disable ``enforce_storage_engine``, though, when upgrading the database software.
+
+   Users would insert or change data in a database the same as they would on a stand-alone database server not using Galera or replication. There's no extra login requirements, interfaces, or methods to use a database running on Galera Cluster. Users will be unaware that you're using Galera Cluster |---| other than maybe noticing that your database is much more dependable.
+
+
+.. _`faq-assistance-questions`:
 
 -----------------------------------------------
 Assistance Questions
 -----------------------------------------------
 
-.. rubric:: Does Codership offer Support?
 .. _`faq-codership-offers-support`:
+.. rubric:: Does Codership Offer Support?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: DBAs, Business Managers; Category: Support
 
 .. rst-class:: list-abstract
 
@@ -109,8 +240,12 @@ Assistance Questions
    You can also engage one of our `Support Partners <http://galeracluster.com/support/#support-partners>`_. We are very particular as to who we allow to become one of our Support Partner:  they're well qualified, very responsive, and dependable.
 
 
-.. rubric:: Is it possible to get Codership to assist me in migrating to Galera?
 .. _`faq-codership-offers-consulting`:
+.. rubric:: Is it Possible to get Codership to Assist Us in Migrating to Galera?
+
+.. rst-class:: list-stats
+
+   Level: All; Interested: DBAs, Business Managers; Category: Consulting
 
 .. rst-class:: list-abstract
 
@@ -119,8 +254,12 @@ Assistance Questions
    Consulting is usually done remotely. However, if you require in-person, on-site work, there will be extra charges (e.g., travel and accomodation expenses).
 
 
-.. rubric:: Are there forums for asking for assistance with Galera?
 .. _`faq-galera-forums`:
+.. rubric:: Are there Forums for Asking for Assistance with Galera?
+
+.. rst-class:: list-stats
+
+   Level: Newcomers; Interested: DBAs; Category: Assistance
 
 .. rst-class:: list-abstract
 
@@ -131,13 +270,18 @@ Assistance Questions
    You can also post questions on forums unaffiliated with Codership or our partners:  `Stack Exchange (DBA Section) <https://dba.stackexchange.com/questions/tagged/galera>`_, `Stack Overflow <https://stackoverflow.com/questions/tagged/galera>`_,
 
 
+.. _`faq-installation-migration-questions`:
 
 -----------------------------------------------
 Installation & Migration Questions
 -----------------------------------------------
 
-.. rubric:: If I'm now using MySQL or MariaDB standard replication, will it be easy to start using Galera?
 .. _`faq-easy-migration-standard-to-galera`:
+.. rubric:: If I'm now using MySQL Standard Replication, will it be Easy to Switch to Galera?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs; Category: Installation
 
 .. rst-class:: list-abstract
 
@@ -152,8 +296,12 @@ Installation & Migration Questions
    Basically, if you're already using the latest database software and only InnoDB tables, implementing Galera will be very easy. Otherwise, implementing Galera will require some thought and effort. However, the result will mean a much better cluster:  all servers will be the same for easier maintenance and better performance; they'll be running the latest software, which will provide advantages; and the data will be better protected and will have high availability.
 
 
-.. rubric:: How are Upgrades Made to a Cluster?
 .. _`faq-upgrading-galera`:
+.. rubric:: How are Upgrades Made to a Cluster?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs; Category: Upgrading
 
 .. rst-class:: list-abstract
 
@@ -162,8 +310,27 @@ Installation & Migration Questions
    For more information on upgrade process, see :doc:`Upgrading Galera Cluster <./documentation/upgrading>`.
 
 
-.. rubric:: Is Galera Installed Separately from the Database Software?
+.. _`faq-change-apps`:
+.. rubric:: Do we have to Adjust our Databases or Custom Applications (e.g., PHP Programs)?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs, Developers; Category: Migrating
+
+.. rst-class:: list-abstract
+
+   If you're already using MySQL or MariaDB, along with some custom applications |---| such as programs written in PHP, Perl, Ruby, or another language, that interface with your databases |---| you shouldn't have to make any changes to your software.
+
+   If you're currently using standard MySQL Replication, and your applications connect with specific nodes for writes and others for reads, you probably won't have to do that. Instead, you can write and read to the same nodes. As for load balancing, you could add a load balancer like MaxScale and then direct all traffic to the load balancer and it will direct the traffic for the best performance.
+
+
+
 .. _`faq-galera-installed-serperately`:
+.. rubric:: Is Galera Installed Separately from the Database Software?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs; Category: Installation
 
 .. rst-class:: list-abstract
 
@@ -172,8 +339,12 @@ Installation & Migration Questions
    If you'd prefer to use MySQL, see :doc:`Installing MySQL Galera Cluster <./documentation/install-mysql>` for information on how to install MySQL and Galera software.  Galera is not yet incorporated into MySQL.
 
 
-.. rubric:: What's the Minimum and Maximum number of Servers in a Galera Cluster?
 .. _`faq-min-max-galera-nodes`:
+.. rubric:: What's the Minimum and Maximum Number of Servers in a Galera Cluster?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs; Category: Installation
 
 .. rst-class:: list-abstract
 
@@ -182,13 +353,34 @@ Installation & Migration Questions
    As for the maximum number of nodes, there is none. However, a single cluster in excessive of ten nodes may experience lag from the synchronizing of so many nodes across a network or the internet. This can be mitigated based on your network configuration, but then other factors come into play.
 
 
+.. _`faq-min-galera-equipment`:
+.. rubric:: What Type of Server or Equipment is Recommended for a Galera Cluster?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs; Category: Installation
+
+.. rst-class:: list-abstract
+
+   Galera runs only on Linux and similar Unix-like operating systems. Physically, any server on which Linux can be installed, may be used as a node in a Galera cluster.  Galera and the storage engine, InnoDB make good use of RAM and Swap Space.  So, the more memory you can allocate, the better.  Since a cluster runs across a network, get the fastest, best ethernet cards you can get.
+
+   The best equipment you can afford to buy, the better. If you're using virtual servers like those through Amazon's AWS, you don't need to be concerned about most of these equipment factors. You will just need to allow your servers enough memory and storage space.
+
+   However you build your server nodes, it's best that they be equal in all ways: physical and virtual equipment; operating system configuration; software installation.
+
+
+.. _`faq-usage-questions`:
 
 -----------------------------------------------
 Usage Questions
 -----------------------------------------------
 
-.. rubric:: Does Galera balance loads?
 .. _`faq-galera-load-balancing`:
+.. rubric:: Does Galera Balance Loads?
+
+.. rst-class:: list-stats
+
+   Level: Advanced; Interested: DBAs; Category: Performance
 
 .. rst-class:: list-abstract
 
@@ -197,8 +389,12 @@ Usage Questions
    MaxScale is a database proxy that can extend the high availability, scalability, and security of your database server and cluster.  It also simplifies application development by decoupling it from underlying database infrastructure. It will work with both MariaDB and MySQL.
 
 
-.. rubric:: How are Failovers Managed?
 .. _`faq-how-failovers-managed`:
+.. rubric:: How are Failovers Managed?
+
+.. rst-class:: list-stats
+
+   Level: Advanced; Interested: DBAs; Category: Maintenance
 
 .. rst-class:: list-abstract
 
@@ -211,8 +407,12 @@ Usage Questions
    For more information on connection distribution, see :doc:`Deployment Variants <./documentation/deployment-variants>`.
 
 
-.. rubric:: Are making backups of databases difficult?
 .. _`faq-making-backups`:
+.. rubric:: Are making Back-ups of Databases Difficult?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs; Category: Maintenance
 
 .. rst-class:: list-abstract
 
@@ -223,8 +423,12 @@ Usage Questions
    Including the GTID in a backup requires a different approach. To do this, you can invoke a backup through the state snapshot transfer mechanism. For more information on this method, see :doc:`Backing Up Cluster Data <./documentation/backup-cluster>`.
 
 
-.. rubric:: What InnoDB Isolation Levels does Galera Cluster Support?
 .. _`faq-isolation-levels`:
+.. rubric:: Which InnoDB Isolation Levels does Galera Cluster Support?
+
+.. rst-class:: list-stats
+
+   Level: Advanced; Interested: DBAs; Category: Performance
 
 .. rst-class:: list-abstract
 
@@ -237,8 +441,12 @@ Usage Questions
    For more information, see :doc:`./documentation/isolation-levels`.
 
 
-.. rubric:: How are DDL's Handled by Galera Cluster?
 .. _`faq-ddl-handled-galera`:
+.. rubric:: How are DDL's Handled by Galera?
+
+.. rst-class:: list-stats
+
+   Level: Advanced; Interested: DBAs; Category: Maintenance
 
 .. rst-class:: list-abstract
 
@@ -251,12 +459,16 @@ Usage Questions
    For more information, see :doc:`./documentation/schema-upgrades`.
 
 
-.. rubric:: Is GCache a Binlog?
 .. _`faq-gcache-binlog`:
+.. rubric:: Is GCache a Binary Log?
+
+.. rst-class:: list-stats
+
+   Level: Advanced; Interested: DBAs; Category: Performance
 
 .. rst-class:: list-abstract
 
-   The :term:`Write-set Cache`, which is also called GCache, is a memory allocator for write-sets.  Its primary purpose is to minimize the write-set footprint in RAM.  It is not a log of events, but rather a cache.
+   The :term:`Write-set Cache`, which is also called *GCache*, is a memory allocator for write-sets.  Its primary purpose is to minimize the write-set footprint in RAM.  It is not a log of events, but rather a cache.
 
    - GCache is not persistent.
    - Not every entry in GCache is a write-set.
@@ -267,8 +479,12 @@ Usage Questions
    Nevertheless, it is possible to construct a binlog out of the write-set cache.
 
 
-.. rubric:: Should the binary log be enabled with Galera?
 .. _`faq-enable-binlog`:
+.. rubric:: Should the Binary Log be Enabled with Galera?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs; Category: Maintenance
 
 .. rst-class:: list-abstract
 
@@ -277,12 +493,18 @@ Usage Questions
    You might also want to attach an asynchronous slave to one of your nodes, using standard MySQL replication and set it on a delay.  This can also help with recovering tables and data lost since the last backup was made.
 
 
+.. _`faq-potential-problem-questions`:
+
 -----------------------------------------------
 Questions about Potential Problems
 -----------------------------------------------
 
-.. rubric:: What typically Causes a Cluster to Stop?
 .. _`faq-what-causes-galera-to-stop`:
+.. rubric:: What typically Causes a Cluster to Stop?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs, Business Managers; Category: Maintenance
 
 .. rst-class:: list-abstract
 
@@ -312,8 +534,12 @@ Questions about Potential Problems
    - A bug with Galera software
 
 
-.. rubric:: What are the Limitations to Galera Cluster?
 .. _`faq-what-are-galera-limits`:
+.. rubric:: What are the Limitations of Galera?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs, Business Managers; Category: Maintenance
 
 .. rst-class:: list-abstract
 
@@ -324,8 +550,12 @@ Questions about Potential Problems
    For more details on limitations, see :doc:`./documentation/differences`.
 
 
-.. rubric:: Does the slowest node in a Galera Cluster affect the performance of the other nodes?
 .. _`faq-slow-node`:
+.. rubric:: Does the Slowest Node Affect the Performance of Other Nodes?
+
+.. rst-class:: list-stats
+
+   Level: Intermediate; Interested: DBAs; Category: Performance
 
 .. rst-class:: list-abstract
 
@@ -334,13 +564,18 @@ Questions about Potential Problems
    To alleviate this problem, you would make sure that all of the servers the same physically (i.e., amount of RAM, types of network interfaces), or at least have close the same amount of resources available.  You would also use a load balancer (e.g., MariaDB MaxScale, ProxySQL) to make sure one node is not overloaded with traffic.
 
 
+.. _`faq-trivial-questions`:
 
 -----------------------------------------------
 Galera Trivia Questions
 -----------------------------------------------
 
-.. rubric:: Why is the software called Galera?
 .. _`faq-why-called-is-galera`:
+.. rubric:: Why is the Software Called Galera?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs, Business Managers; Category: Background
 
 .. rst-class:: list-abstract
 
@@ -349,6 +584,45 @@ Galera Trivia Questions
    In order to manage the vessel effectively, rowers had to act synchronously, lest the oars become intertwined and became blocked.  Captains could scale the crew up to hundreds of rowers, making the galleys faster and more maneuverable in combat.
 
    For more information on galleys, see `Wikipedia <http://en.wikipedia.org/wiki/Galley>`_.
+
+
+.. _`faq-galera-license`:
+.. rubric:: How is Galera Licensed and is it Open-Source?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs, Business Managers; Category: Background
+
+.. rst-class:: list-abstract
+
+   The Galera software is licensed under the GNU General Public License, version 2 (see `GPL vs. 2 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html>`_).  It's open-source software, which can be found at GitHub (see `Codership Github <https://github.com/codership>`_).
+
+
+.. _`faq-how-codership-started`:
+.. rubric:: How did Galera Start?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs, Business Managers; Category: Background
+
+.. rst-class:: list-abstract
+
+   Having worked for years with databases and with data clustering environments, the founders all knew each other. Every now and then they would meet and talk about the technology, about their work. In particular, they discussed the shortcomings and pitfalls of the existing solutions available.
+
+   During these discussions, one thing became apparent: They all shared a need to produce something better, something that ”just works”. In May 2007, they released Galera Cluster for MySQL, their new, fast and scalable data replication and clustering solution for open source databases.
+
+
+.. _`faq-who-owns-galera`:
+.. rubric:: Who Owns and Develops Galera Software?
+
+.. rst-class:: list-stats
+
+   Level: Newcomer; Interested: DBAs, Business Managers; Category: Background
+
+.. rst-class:: list-abstract
+
+   Galera Cluster software is the intellectural property of Codership Oy of Finland.  The primary owners of Codership are actively involved in the executive management and development of the software.  For more information on copyrights and other legal aspects, see :doc:`./documentation/legal-notice`.
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

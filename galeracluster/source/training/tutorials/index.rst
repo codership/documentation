@@ -99,6 +99,18 @@ Beginner Level
 Intermediate Level
 -------------------
 
+.. rubric:: :doc:`aws-galera-cluster`
+   :class: list-sub-header
+
+.. rst-class:: list-stats
+
+   Length: 2494 words; Writer: Russell J.T. Dyer; Published: June 15, 2019; Topic: Installation; Level: Intermediate
+
+.. rst-class:: list-abstract
+
+   This tutorial explains how to use Amazon Web Services (AWS) to create virtual servers to be used as a Galera Cluster. It will explain how to create and configure AWS, as well as how to install and configure the database and Galera software on each node. It'll end by showing you how to start the cluster.
+
+
 .. rubric:: :doc:`getting-started-docker-pt1`
    :class: list-sub-header
 
@@ -230,6 +242,7 @@ Intermediate Level
    starting-cluster
    testing-cluster
    restarting-cluster
+   aws-galera-cluster
    getting-started-docker-pt1
    getting-started-docker-pt2
    achieving-read-after-write-semantics

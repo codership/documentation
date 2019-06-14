@@ -1225,16 +1225,24 @@ body div.body p.rubric.list-sub-header {
     padding-bottom: 5px;
     background-color: transparent;
 }
+div.faq-list p.rubric.list-sub-header {
+    border: none;
+    margin-left: 0;
+}
 div.faq-list p.rubric {
-    margin-left: 20px;
     margin-bottom: 0 !important;
+    margin-left: 0;
+    padding-bottom: 5px !important;
     padding-left: 0;
     color: #000000;
     background-color: transparent;
     border: none;
 }
-div.kb-list p.rubric.list-sub-header,
-div.faq-list p.rubric.list-sub-header {
+div.faq-list p.list-abstract {
+    margin-left: 0;
+    line-height: 1.2em;
+}
+div.kb-list p.rubric.list-sub-header {
     border: none;
     margin-left: 20px;
 }
@@ -1246,8 +1254,7 @@ div.training-list p.rubric.list-sub-header {
     color: #4f4f4f;
     text-transform: lowercase;
 }
-div.kb-list p.list-abstract,
-div.faq-list p.list-abstract {
+div.kb-list p.list-abstract {
     margin-left: 20px;
     line-height: 1.2em;
 }
@@ -1292,6 +1299,10 @@ tt.literal {
 .highlight .kp,
 .highlight .kt {
     color: #26466D !important;
+}
+img.tutorial-screenshot {
+    margin: 30px 0;
+    border: 1px solid #666666;
 }
 
 
