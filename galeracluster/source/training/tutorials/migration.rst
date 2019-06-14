@@ -1,15 +1,19 @@
-.. cssclass:: library-document
+.. cssclass:: tutorial-article
 
 ============================
 Migrating to Galera Cluster
 ============================
 .. _`migration`:
 
+.. rst-class:: list-stats
+
+   Length: xxx words; Published: October 20, 2014; Topic: General; Level: Beginner
+
 For systems that already have instances of the standalone versions of MySQL or MariaDB, the Galera Cluster installation replaces the existing database server with a new one that includes the :term:`wsrep API` patch.  This only affects the database server, not the data.
 
 When upgrading from a standalone database server, you must take some additional steps in order to subsequently preserve and use your data with Galera Cluster.
 
-For more information on installing Galera Cluster, see :doc:`Galera Installation <../training/tutorials/galera-installation>`.
+For more information on installing Galera Cluster, see :doc:`Galera Installation <galera-installation>`.
 
 
 .. _`upgrade-system-tables`:
@@ -54,7 +58,7 @@ For servers that use ``systemd``, instead use this command:
 
 Running this command stops database server.  When you are ready to initialize your cluster, choose this server as your starting node.
 
-For more information on initializing and adding nodes to a cluster, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
+For more information on initializing and adding nodes to a cluster, see :doc:`Starting the Cluster <starting-cluster>`.
 
 
 .. _`migrating-mysql-galera`:
@@ -84,13 +88,13 @@ For your existing infrastructure, you have a MySQL master server as well as seve
 
 #. Launch at least three new servers, outside of and unconnected to your existing database infrastructure.
 
-#. On each new server, install Galera Cluster.  For information on how to do this, see :doc:`Galera Installation <../training/tutorials/galera-installation>`.
+#. On each new server, install Galera Cluster.  For information on how to do this, see :doc:`Galera Installation <galera-installation>`.
 
 #. Configure the database server.  In addition to the IP addresses of each node, on the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, include the IP addresses of the MySQL master server and each instance of the slave servers.
 
-For more information on configuring Galera Cluster, see :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
+For more information on configuring Galera Cluster, see :doc:`System Configuration <configuration>` and :doc:`Replication Configuration <wsrep-configuration>`.
 
-#. When you finish the installation and configuration, start the cluster.  For more information on how to start the cluster, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
+#. When you finish the installation and configuration, start the cluster.  For more information on how to start the cluster, see :doc:`Starting the Cluster <starting-cluster>`.
 
 To check that it is running properly, log into one of the database clients and run the :ref:`wsrep_cluster_size <wsrep_cluster_size>` status variable:
 
@@ -152,7 +156,7 @@ Database Migration
 
 With your application server now using the new cluster nodes, you now need to migrate your master and slave servers from stock MySQL to Galera Cluster.
 
-#. Using the same process described in :doc:`Galera Installation <../training/tutorials/galera-installation>`, install and configure Galera Cluster on the server.
+#. Using the same process described in :doc:`Galera Installation <galera-installation>`, install and configure Galera Cluster on the server.
 
 #. Start the node with replication disabled.  For servers that use ``init``, run the following command:
 
@@ -203,9 +207,3 @@ With your application server now using the new cluster nodes, you now need to mi
 #. Resume load on these servers.
 
 When the former MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.
-
-.. toctree::
-   :hidden:
-   :maxdepth: 3
-
-   install

@@ -7,7 +7,7 @@ Galera Cluster Administration
 
 With the basics of how the cluster works and how to install and initialize it covered, this part begins a five part series on the administration and management of Galera Cluster.
 
-The sections in this part relate to the administration of nodes and the cluster.  :doc:`deployment`, covers how to use Galera Cluster in relation to your wider infrastructure, how to configure load balancers to work with the cluster and edge case deployments, such as running nodes in containers.  The pages in :doc:`monitor` show how to keep tabs on the status of the cluster and automate reporting.  :doc:`security` covers configuring Galera Cluster to work with firewalls, SELinux and SSL encryption.  :doc:`migrate` how to transition from a standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster.
+The sections in this part relate to the administration of nodes and the cluster.  :doc:`deployment`, covers how to use Galera Cluster in relation to your wider infrastructure, how to configure load balancers to work with the cluster and edge case deployments, such as running nodes in containers.  The pages in :doc:`monitor` show how to keep tabs on the status of the cluster and automate reporting.  :doc:`security` covers configuring Galera Cluster to work with firewalls, SELinux and SSL encryption.  :doc:`../training/tutorials/migrate` how to transition from a standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster.
 
 .. _`node-admin`:
 .. rubric:: Node Administration

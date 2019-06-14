@@ -1,4 +1,4 @@
-.. cssclass:: library-document
+.. cssclass:: tutorial-article
 
 ============================================
  Differences from a Standalone MySQL Server
@@ -7,6 +7,10 @@
 
 .. index::
    pair: Errors; ER_LOCK_DEADLOCK
+
+.. rst-class:: list-stats
+
+   Length: xxx words; Published: October 20, 2014; Topic: General; Level: Beginner
 
 Although Galera Cluster is built on providing write-set replication to MySQL and related database systems, there are certain key differences between how it handles and the standard standalone MySQL server.
 

@@ -95,6 +95,18 @@ Beginner Level
    You may need occasionally to restart a cluster, perhaps becauser of a major power failure. Whatever the reason, restarting a cluster so that data saved only on one node isn't overwritten by another node which just happened to have rejoined the cluster first can be tricky. This article explains how to determine the most up-to'-date node and then to restart the Primary Component on that one.
 
 
+.. rubric:: :doc:`migrate`
+   :class: list-sub-header
+
+.. rst-class:: list-stats
+
+   Length:  2087 words; Writer: Staff; Published: October 20, 2014; Topic: Migration; Level: Beginner
+
+.. rst-class:: list-abstract
+
+   If you have an existing database, but aren't yet using Galera Cluster, you'll have to migrate your data. This has to be done a particular way. This tutorial article will help you to understand the concepts involved and take you through the steps to migrate a database.
+
+
 -------------------
 Intermediate Level
 -------------------
@@ -243,6 +255,7 @@ Intermediate Level
    testing-cluster
    restarting-cluster
    aws-galera-cluster
+   migrate
    getting-started-docker-pt1
    getting-started-docker-pt2
    achieving-read-after-write-semantics

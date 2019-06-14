@@ -8,14 +8,14 @@ The Codership Documentation
 
 This is the Codership Documentation. It documents the latest version of Galera Cluster, as well as related Galera tools, such as the Galera Arbitrator. It may include information on features available in upcoming versins of Galera Cluster that haven't been released yet. For such text, the new version number is noted.
 
-.. csv-table:: :doc:`Configuration <technical-description>`
+.. csv-table:: :doc:`Installation & Configuration <technical-description>`
    :class: doc-links
 
-   ":doc:`tech-desc-introduction`", ":doc:`node-states`"
-   ":doc:`certification-based-replication`", ":doc:`recovery`"
-   ":doc:`architecture`", ":doc:`weighted-quorum`"
+   ":doc:`tech-desc-introduction`", ":doc:`state-transfer`"
+    ":doc:`architecture`", ":doc:`node-states`"
+   ":doc:`install`", ":doc:`recovery`"
+   ":doc:`certification-based-replication`", ":doc:`weighted-quorum`"
    ":doc:`isolation-levels`", ":doc:`streaming-replication`"
-   ":doc:`state-transfer`", ""
 
 .. csv-table:: :doc:`Administration <administration>`
    :class: doc-links
@@ -31,8 +31,8 @@ This is the Codership Documentation. It documents the latest version of Galera C
 .. csv-table:: :doc:`Deployment <deployment>`
    :class: doc-links
 
-   ":doc:`migrate`", ":doc:`load-balancing`"
-   ":doc:`deployment-variants`", ":doc:`containers`"
+   ":doc:`load-balancing`", ":doc:`deployment-variants`",
+   ":doc:`containers`", ""
 
 .. csv-table:: :doc:`Monitoring <monitor>`
    :class: doc-links
@@ -65,11 +65,11 @@ If you need more immediate and personalized assistance, you can get a Support co
 
    overview
    technical-description
+   install
    administration
    deployment
    monitor
    security
-   migrate
    reference
 
 

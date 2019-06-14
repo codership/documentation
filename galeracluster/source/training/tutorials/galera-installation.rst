@@ -163,7 +163,7 @@ MariaDB Galera Cluster
    ../../documentation/install-mariadb-src
 
 
-.. note:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`Migration <../../../documentation/migration>`.
+.. note:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`Migration <migration>`.
 
 
 
