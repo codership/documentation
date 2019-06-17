@@ -100,7 +100,7 @@ This function blocks the client until the node applies and commits the given :te
 
 Below is an example of how you might use the ``WSREP_SYNC_WAIT_UPTO_GTID()`` function:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
    ...

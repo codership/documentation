@@ -547,7 +547,7 @@ Questions about Potential Problems
 
    First, it runs only on Linux and Unix-like operating systems.  There isn't a Windows version. Within the database server, other than the system tables, which use MyISAM, only InnoDB tables are allowed.  InnoDB is used because it's an excellent transactional storage engine. All tables must have an explicit primary key, either a single or a multi-column index.
 
-   For more details on limitations, see :doc:`./documentation/differences`.
+   For more details on limitations, see :doc:`./training/tutorials/differences`.
 
 
 .. _`faq-slow-node`:
