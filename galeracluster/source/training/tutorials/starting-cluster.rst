@@ -27,7 +27,7 @@ Before you attempt to initialize the cluster, there are a few things you should 
 
 Once you have at least three hosts ready, you can initialize the cluster.
 
-.. note:: When migrating from an existing, stand-alone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there will be some additional steps that you must take.  For more information on what you need to do, see :doc:`Migration <../migration>`.
+.. note:: When migrating from an existing, stand-alone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there will be some additional steps that you must take.  For more information on what you need to do, see :doc:`Migration <./migration>`.
 
 
 -------------------------------------
@@ -39,7 +39,7 @@ By default, a node don't start as part of the :term:`Primary Component`.  Instea
 
 The problem is that there is no Primary Component when a cluster starts, when the first node is initiated.  Therefore, you need explicitly to tell that first node to do so with the ``--wsrep-new-cluster`` argument.  Althought this initiate node is said to be the first node, it can fall behind and leave the cluster without necessarily affecting the Primary Component.
 
-.. note:: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`Migration <../migration>` and :doc:`Quorum Reset <../../../documentation/quorum-reset>`.
+.. note:: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`Migration <./migration>` and :doc:`Quorum Reset <../../../documentation/quorum-reset>`.
 
 To start the first node--which should have MySQL, MariaDB or Percona XtraDB, and Galera installed--you'll have to launch the database server on it with the ``--wsrep-new-cluster`` option.  There are a few ways you might do this, depending on the operating system. For systems that use ``init``, execute the following from the command-line:
 
