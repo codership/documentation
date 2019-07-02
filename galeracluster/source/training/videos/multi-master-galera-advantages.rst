@@ -1,5 +1,5 @@
 .. cssclass:: tutorial-video
-.. _`video-galera-dba-devops`:
+.. _`video-multi-master-galera-advantages`:
 
 ======================================================
 Taking Full Advantage of Multi-Master Galera Cluster
