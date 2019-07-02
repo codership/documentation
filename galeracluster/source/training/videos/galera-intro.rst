@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-video
+.. _`video-galera-intro`:
 
 ================================
 Introduction to Galera Cluster
 ================================
-.. _`galera-intro`:
 
 .. rst-class:: video-stats
 

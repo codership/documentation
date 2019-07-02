@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`glb-parameters`:
 
 ================================
 Galera Load Balancer Parameters
 ================================
-.. _`glb-parameters`:
 
 Galera Load Balancer provides simple TCP connection balancing developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.
 

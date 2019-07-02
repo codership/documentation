@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`legal-notice`:
 
 ============
 Legal Notice
 ============
-.. _`legal-notice`:
 
 Copyright (C) 2013 Codership Oy <info@codership.com>
 

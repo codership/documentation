@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`mysqldump`:
 
 =======================
 Enabling ``mysqldump``
 =======================
-.. _`mysqldump`:
 
 The :term:`Logical State Transfer Method` ``mysqldump`` works by interfacing through the database server rather than the physical data.  As such, it requires some additional configuration, besides setting the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.
 

@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`install-mysql-binary`:
 
 ==============================================
 Galera Cluster for MySQL - Binary Installation
 ==============================================
-.. _`install-mysql-binary`:
 
 Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Linux distributions using ``apt-get``, ``yum`` and ``zypper`` package managers through the Codership repository.
 

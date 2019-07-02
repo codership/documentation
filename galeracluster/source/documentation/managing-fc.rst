@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`managing-fc`:
 
 =======================
 Managing Flow Control
 =======================
-.. _`managing-fc`:
 
 The cluster replicates changes synchronously through global ordering, but applies these changes asynchronously from the originating node out.  To prevent any one node from falling too far behind the cluster, Galera Cluster implements a feedback mechanism called Flow Control.
 

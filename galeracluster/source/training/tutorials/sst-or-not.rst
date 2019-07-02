@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`sst-or-not`:
 
 ==========================
 To SST or Not To SST?
 ==========================
-.. _`sst-or-not`:
 
 .. rst-class:: list-stats
 

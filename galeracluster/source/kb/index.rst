@@ -1,9 +1,9 @@
 .. cssclass:: kb-list
+.. _`kb`:
 
 =============================
 The Codership Knowledge Base
 =============================
-.. _`kb`:
 
 :doc:`The Codership Documentation <../documentation/index>` explains in detail how to deploy and administer a Galera Cluster. This section, the Codership Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster.  Here you'll find troubleshooting articles and best practices articles, and answers to frequently asked questions.
 

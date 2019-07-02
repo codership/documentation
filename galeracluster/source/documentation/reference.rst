@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`reference`:
 
 ===========
 Reference
 ===========
-.. _`reference`:
 
 In the event that you need more information about particular variables or parameters or status variable or would like a clearer explanation about various terms used in the documentation, these chapters provide general reference material to Galera Cluster configuration and use.
 

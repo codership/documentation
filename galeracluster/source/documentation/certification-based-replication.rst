@@ -1,12 +1,9 @@
 .. cssclass:: library-document
+.. _`certification-based-replication`:
 
 ===================================
  Certification-Based Replication
 ===================================
-.. _`certification-based-replication`:
-.. index::
-   pair: Certification Based Replication; Descriptions
-
 
 Certification-based replication uses group communication and transaction ordering techniques to achieve synchronous replication.
 

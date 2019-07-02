@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-trouble-requested-state-transfer-failed`:
 
 ================================
 Requested State Transfer Failed
 ================================
-.. _`kb-trouble-requested-state-transfer-failed`:
 
 When a new node joins a cluster, it will try to synchronize with the cluster by getting a full copy of the databases from one of the other nodes.  Sometimes this will fail.
 

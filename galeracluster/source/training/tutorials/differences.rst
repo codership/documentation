@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`differences`:
 
 ============================================
  Differences from a Standalone MySQL Server
 ============================================
-.. _`differences`:
 
 .. index::
    pair: Errors; ER_LOCK_DEADLOCK

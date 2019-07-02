@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`ha-proxy`:
 
 ===========
  HAProxy
 ===========
-.. _`ha-proxy`:
 
 High Availability Proxy, or HAProxy is a single-threaded event-driven non-blocking engine that combines a fast I/O layer with a priority-based scheduler.  You can use it to balance  TCP connections between application servers and Galera Cluster.
 

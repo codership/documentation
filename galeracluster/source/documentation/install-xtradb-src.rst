@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`install-xtradb-src`:
 
 ============================================
 Percona XtraDB Cluster - Source Installation
 ============================================
-.. _`install-xtradb-src`:
 
 Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based on a different package management system or if it runs on a different unix-like operating system where binary installation packages are unavailable, such as Solaris or FreeBSD, you will need to build Percona XtraDB Cluster from source.
 

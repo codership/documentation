@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-trouble-error-unknown-command`:
 
 =========================================
 Unknown Command Errors
 =========================================
-.. _`kb-trouble-error-unknown-command`:
 
 If a cluster experiences a temporary split--that is to say, a portion of the nodes loses connectivity to the :term:`Primary Component`--when they reconnect, nodes from the former non-operational component drop their client connections.  New connections to the database client will return ``Unknown command`` errors.
 

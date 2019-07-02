@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`supporting-transaction-isolation-levels`:
 
 =========================================
 Support for Transaction Isolation Levels
 =========================================
-.. _`supporting-transaction-isolation-levels`:
 
 .. rst-class:: list-stats
 

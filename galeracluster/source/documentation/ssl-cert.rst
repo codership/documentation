@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`ssl-cert`:
 
 ===================
 SSL Certificates
 ===================
-.. _`ssl-cert`:
 
 
 Before you can enable encryption for your cluster, you first need to generate the relevant certificates for the nodes to use.  This procedure assumes that you are using OpenSSL.

@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-trouble-multi-master-conflicts`:
 
 ======================================
 Multi-Master Conflicts
 ======================================
-.. _`kb-trouble-multi-master-conflicts`:
 
 These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
 

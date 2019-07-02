@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`getting-started-docker-pt1`:
 
 ===========================================
 Getting Started Galera with Docker, Part 1
 ===========================================
-.. _`getting-started-docker-pt1`:
 
 .. rst-class:: list-stats
 

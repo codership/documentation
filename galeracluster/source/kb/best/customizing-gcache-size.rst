@@ -1,9 +1,10 @@
 .. cssclass:: kb-article
+.. _`kb-best-customizing-gcache-size`:
 
 =====================================
 Customizing the Write-Set Cache Size
 =====================================
-.. _`kb-best-customizing-gcache-size`:
+
 .. index::
    pair: Performance; gcache.size
 .. index::

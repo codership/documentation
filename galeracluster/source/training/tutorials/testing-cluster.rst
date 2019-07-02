@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`testing-cluster`:
 
 ===================
 Testing a Cluster
 ===================
-.. _`testing-cluster`:
 
 .. rst-class:: list-stats
 

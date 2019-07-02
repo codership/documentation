@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`database-replication`:
 
 ======================
  Database Replication
 ======================
-.. _`database-replication`:
 
 .. index::
    pair: Database cluster; Descriptions

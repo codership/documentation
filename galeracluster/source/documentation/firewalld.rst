@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`firewalld`:
 
 ======================================
 Firewall Configuration with FirewallD
 ======================================
-.. _`firewalld`:
 
 The firewall daemon, or FirewallD, is an interface for dynamically managing firewalls on Linux operating systems. It allows you to set up, maintain and inspect IPv4 and IPv6 firewall rules.
 

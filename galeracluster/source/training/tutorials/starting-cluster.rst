@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`starting-cluster`:
 
 ========================
 Starting the Cluster
 ========================
-.. _`starting-cluster`:
 
 .. rst-class:: list-stats
 

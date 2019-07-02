@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`deployment`:
 
 =============
 Deployment
 =============
-.. _`deployment`:
 
 When you start Galera Cluster, you have to do so by initializing a series of nodes that are configured to communicate with each other and to replicate each other.  Each node in the cluster is a particular instance of a MySQL, MariaDB, or Percona XtraDB database server.  How your application servers interact with the cluster and how you manage the load and the individual nodes represents your deployment.
 

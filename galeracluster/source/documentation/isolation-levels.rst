@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`isolation-levels`:
 
 ======================
  Isolation Levels
 ======================
-.. _`isolation-levels`:
 
 In a database system, concurrent transactions are processed in "isolation" from each other. The level of isolation determines how transactions can affect each other.
 

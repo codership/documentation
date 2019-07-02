@@ -1,10 +1,9 @@
 .. cssclass:: kb-list
+.. _`kb-best`:
 
 ===================================
 Codership Best Practices Articles
 ===================================
-.. _`kb-best`:
-
 
 Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handling problems with a cluster, this section of the KB provide information and guidance on improving the performance of a cluster and optimizing configuration of the nodes.
 

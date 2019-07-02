@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`restarting-cluster`:
 
 ================================
 Restarting the Cluster
 ================================
-.. _`restarting-cluster`:
 
 .. rst-class:: list-stats
 

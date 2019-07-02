@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`galera-status-variables`:
 
 =========================
  Galera Status Variables
 =========================
-.. _`galera-status-variables`:
 
 These variables are *Galera Cluster* 0.8.x status variables. There are two types of wsrep-related status variables:
 

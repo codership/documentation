@@ -1,9 +1,10 @@
 .. cssclass:: kb-article
+.. _`kb-best-gcache-during-state-transfers`:
 
 =========================================
 Write-Set Caching during State Transfers
 =========================================
-.. _`kb-best-gcache-during-state-transfers`:
+
 .. index::
    pair: Performance; gcache
 

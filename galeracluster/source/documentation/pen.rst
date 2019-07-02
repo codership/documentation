@@ -1,9 +1,9 @@
 .. cssclass:: library-document
-
-===========
-Pen
-===========
 .. _`pen`:
+
+==================
+Pen Load Balancer
+==================
 
 Pen is a high-scalability, high-availability, robust load balancer for TCP- and UDP-based protocols.  You can use it to balance connections between application servers and Galera Cluster.
 

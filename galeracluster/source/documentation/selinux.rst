@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`selinux`:
 
 =======================
 SELinux Configuration
 =======================
-.. _`selinux`:
 
 Security-Enhanced Linux, or SELinux, is a kernel module for improving security of Linux operating systems.  It integrates support for access control security policies, including mandatory access control (MAC), that limit user applications and system daemons access to files and network resources.  Some Linux distributions, such as Fedora, ship with SELinux enabled by default.
 

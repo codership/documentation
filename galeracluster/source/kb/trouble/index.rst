@@ -1,9 +1,9 @@
 .. cssclass:: kb-list
+.. _`kb-trouble`:
 
 ===================================
 Codership Troubleshooting Articles
 ===================================
-.. _`kb-trouble`:
 
 This is the Troubleshooting section of the Galera Knowledge Base (KB). It contains information on resolving problems you might experience with Galera Cluster. It includes articles on how to diagnose and address various performance and replication trouble. For articles related to performance and other ways to improve usage of Galera Cluster, see the :doc:` Best Practices <../best/index>` section of the KB.
 

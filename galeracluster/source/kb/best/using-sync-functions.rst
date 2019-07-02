@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-using-sync-functions`:
 
 =================================
 Using Synchronization Functions
 =================================
-.. _`kb-best-using-sync-functions`:
 
 Occasionally, an application may need to perform a critical read. Critical reads are queries that require that the local database reaches the most up-to-date state possible before the query is executed.
 

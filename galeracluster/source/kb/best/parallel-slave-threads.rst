@@ -1,9 +1,10 @@
 .. cssclass:: kb-article
+.. _`kb-best-parallel-slave-threads`:
 
 ===============================
 Setting Parallel Slave Threads
 ===============================
-.. _`kb-best-parallel-slave-threads`:
+
 .. index::
    pair: Performance; innodb_autoinc_lock_mode
 .. index::

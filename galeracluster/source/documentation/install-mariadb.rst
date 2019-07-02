@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`install-mariadb-binary`:
 
 ============================================
 MariaDB Galera Cluster - Binary Installation
 ============================================
-.. _`install-mariadb-binary`:
 
 MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster.  Binary installation packages are available for Debian-based and RPM-based distributions of Linux through the MariaDB repository (`MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_).
 

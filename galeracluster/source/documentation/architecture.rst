@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`replication-api`:
 
 ===================
  Replication API
 ===================
-.. _`replication-api`:
 
 Synchronous replication systems generally use eager replication.  Nodes in a cluster will synchronize with all of the other nodes by updating the replicas through a single transaction.  This means that when a transaction commits, all of the nodes will have the same value.  This process takes place using *write-set* replication through group communication.
 

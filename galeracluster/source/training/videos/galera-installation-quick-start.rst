@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-video
+.. _`video-galera-installation-quick-start`:
 
 ============================================
 Galera Cluster Installation and Quick Start
 ============================================
-.. _`:`galera-installation-quick-start`:
 
 .. rst-class:: video-stats
 

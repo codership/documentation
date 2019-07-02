@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-trouble-sql-syntax-error`:
 
 ========================
 SQL Syntax Errors
 ========================
-.. _`kb-trouble-sql-syntax-error`:
 
 When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node, known as the joiner. To get this snapshot, some administrators opt to use a :term:`Logical State Transfer Method`, in particular ``mysqldump``. This doesn't always work well.
 

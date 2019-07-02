@@ -1,9 +1,10 @@
 .. cssclass:: library-document
+.. _`quorum-reset`:
 
 ======================
  Resetting the Quorum
 ======================
-.. _`quorum-reset`:
+
 .. index::
    pair: Parameters; wsrep_last_committed
 .. index::

@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`getting-started`:
 
 =================
  Getting Started
 =================
-.. _`getting-started`:
 
 .. rst-class:: list-stats
 

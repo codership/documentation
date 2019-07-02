@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`ip-tables`:
 
 =========================================
 Firewall Configuration with ``iptables``
 =========================================
-.. _`ip-tables`:
 
 Linux provides packet filtering support at the kernel level.  Using ``iptables`` and ``ip6tables`` you can set up, maintain and inspect tables of IPv4 and IPv6 packet filtering rules.
 

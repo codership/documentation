@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`auto-eviction`:
 
 ============================
 Auto-Eviction
 ============================
-.. _`auto-eviction`:
 
 When Galera Cluster notices erratic behavior in a node (e.g., unusually delayed response times), it can initiate a process to remove the node permanently from the cluster.  This process is called *Auto-Eviction*.
 

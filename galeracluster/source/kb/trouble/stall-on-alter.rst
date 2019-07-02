@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-trouble-stall-on-alter`:
 
 ==============================
 Cluster Stalls on ``ALTER``
 ==============================
-.. _`kb-trouble-stall-on-alter`:
 
 There may be times in which a cluster will stall when an ``ALTER`` statement is executed on an unused table.
 

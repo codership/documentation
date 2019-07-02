@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`flow-control`:
 
 =============
  Flow Control
 =============
-.. _`flow-control`:
 
 Galera Cluster manages the replication process using a feedback mechanism, called Flow Control.  Flow Control allows a node to pause and resume replication according to its needs.  This prevents any node from lagging too far behind the others in applying transactions.
 

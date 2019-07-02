@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`log`:
 
 =====================
 Database Server Logs
 =====================
-.. _`log`:
 
 Galera Cluster provides the same database server logging features available to MySQL, MariaDB and Percona XtraDB, depending on which you use.  By default, it writes errors to a ``<hostname>.err`` file in the data directory.  You can change this in the ``my.cnf`` configuration file using the `log_error <https://dev.mysql.com/doc/refman/5.6/en/server-options.html#option_mysqld_log-error>`_ option, or by using the ``--log-error`` parameter.
 

@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`deployment-variants`:
 
 ==============================
  Cluster Deployment Variants
 ==============================
-.. _`deployment-variants`:
 
 A Galera Cluster will consist of multiple nodes, preferably three or more.  Each node is an instance of MySQL, MariaDB or Percona XtraDB that you convert to Galera Cluster, allowing you to use that node as a cluster base.
 

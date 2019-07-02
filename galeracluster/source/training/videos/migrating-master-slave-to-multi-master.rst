@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-video
+.. _`video-migrating-master-slave-to-multi-master`:
 
 =============================================================================
 Migrating from Master-Slave MySQL Replication to Multi-Master Galera Cluster
 =============================================================================
-.. _`migrating-master-slave-to-multi-master`:
 
 .. rst-class:: video-stats
 

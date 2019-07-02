@@ -1,9 +1,10 @@
 .. cssclass:: library-document
-
-################################
-What's New in Galera Cluster 4.x
-################################
 .. _`whats-new`:
+
+=================================
+What's New in Galera Cluster 4.x
+=================================
+
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
 .. index::

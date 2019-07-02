@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-wan-latency`:
 
 ===============
 WAN Latency
 ===============
-.. _`kb-best-wan-latency`:
 
 When using Galera Cluster over a :abbr:`WAN (Wide Area Network)`, remember that WAN links can have exceptionally high latency.  You can check this by taking Round-Trip Time (RTT) measurements between cluster nodes. If there is a latency, you can correct for this by adjusting all of the temporal parameters.
 

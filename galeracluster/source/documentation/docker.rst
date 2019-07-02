@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`docker`:
 
 ==============
 Using Docker
 ==============
-.. _`docker`:
 
 Docker provides an open source platform for automatically deploying applications within software containers.
 

@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-single-master-setup`:
 
 =======================
 Single Master Setup
 =======================
-.. _`kb-best-single-master-setup`:
 
 If a cluster uses only one node as a master, there are certain requirements (e.g., the slave queue size) that can be relaxed.
 

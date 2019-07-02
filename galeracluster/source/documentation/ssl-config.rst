@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`ssl-config`:
 
 ===================
 SSL Configuration
 ===================
-.. _`ssl-config`:
 
 When you finish generating the SSL certificates for your cluster, you need to enable it for each node.  If you have not yet generated the SSL certificates, see :doc:`ssl-cert` for a guide on how to do so.
 

@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-video
+.. _`video-ddl-schema-upgrades`:
 
 =========================
 DDL and Schema Upgrades
 =========================
-.. _`ddl-schema-upgrades`:
 
 .. rst-class:: video-stats
 

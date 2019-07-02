@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-group-commit`:
 
 =============
 Group Commit
 =============
-.. _`kb-best-group-commit`:
 
 After each transaction is committed, InnoDB will typically flush changes to its redo log and the binary log to the disk--it does this typically by calling `fsync()`, `fdatasync()`. This method is used to ensure data changes are stored durably on the disk. Disk flushing, however, can have an effect on performance and the number of transactions-per-second (TPS) that can be committed.
 

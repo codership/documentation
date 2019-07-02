@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`containers`:
 
 =========================
 Container Deployments
 =========================
-.. _`containers`:
 
 In the standard deployment methods for Galera Cluster, a node runs on a server in the same manner as would an individual stand-alone instance of MySQL or MariaDB.  In container deployments, a node runs in a containerized virtual environment on the server.
 

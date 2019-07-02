@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`debugging-transaction-conflicts`:
 
 ====================================================
 Debugging Transaction Conflicts in Galera Cluster
 ====================================================
-.. _`debugging-transaction-conflicts`:
 
 .. rst-class:: list-stats
 

@@ -1,4 +1,5 @@
 .. cssclass:: tutorial-video
+.. _`video-high-availability-galera`:
 
 ======================================
 High Availability with Galera Cluster

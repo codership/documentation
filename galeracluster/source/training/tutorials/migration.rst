@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`migration`:
 
 ============================
 Migrating to Galera Cluster
 ============================
-.. _`migration`:
 
 .. rst-class:: list-stats
 

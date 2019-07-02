@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-video
+.. _`video-galera-dba-devops`:
 
 ======================================================
 Galera Cluster Best Practices for DBAs and DevOps
 ======================================================
-.. _`galera-dba-devops`:
 
 .. rst-class:: video-stats
 

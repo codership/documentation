@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`security`:
 
 ==========
 Security
 ==========
-.. _`security`:
 
 On occasion, you may want or need to enable degrees of security that go beyond the basics of Unix file permissions and secure database management.  For situations such as these,  you can secure both node communications and client connections between the application servers and the cluster.
 

@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`firewall-pf`:
 
 ===============================
 Firewall Configuration with PF
 ===============================
-.. _`firewall-pf`:
 
 FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.
 

@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-detecting-slow-node`:
 
 =========================
 Detecting a Slow Node
 =========================
-.. _`kb-best-detecting-slow-node`:
 
 By design, the performance of a cluster cannot be higher than the performance of the slowest node in the cluster. Even if you have only one node, its performance can be considerably slower when compared with running the same server in a standalone mode (i.e., without a wsrep Provider).
 

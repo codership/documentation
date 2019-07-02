@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-large-transactions`:
 
 ================================
 Handling Large Transactions
 ================================
-.. _`kb-best-large-transactions`:
 
 Large transactions, especially ones deleting removes millions of rows from a table at once, can lead to diminished performance. One reason is that the table may reindexed and rescanned after each row is deleted.
 

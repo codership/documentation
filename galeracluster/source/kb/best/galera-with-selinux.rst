@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-galera-with-selinux`:
 
 ===================================
 Using Galera Cluster with SELinux
 ===================================
-.. _`kb-best-galera-with-selinux`:
 
 .. index::
    pair: Configuration; SELinux

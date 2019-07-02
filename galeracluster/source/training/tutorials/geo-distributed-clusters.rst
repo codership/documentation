@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`geo-distributed-clusters`:
 
 ===============================================
 Geo-Distributed Database Clusters with Galera
 ===============================================
-.. _`geo-distributed-clusters`:
 
 .. rst-class:: list-stats
 

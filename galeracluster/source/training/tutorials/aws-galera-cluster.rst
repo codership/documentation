@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`aws-galera-cluster`:
 
 ===================================
 Setting Up a Galera Cluster on AWS
 ===================================
-.. _`aws-galera-cluster`:
 
 .. rst-class:: list-stats
 

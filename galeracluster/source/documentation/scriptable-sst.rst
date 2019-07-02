@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`scriptable-sst`:
 
 =====================================
 Scriptable State Snapshot Transfers
 =====================================
-.. _`scriptable-sst`:
 
 When a node sends and receives a :term:`State Snapshot Transfer`, it manage it through processes that run external to the database server.  In the event that you need more from these processes that the default behavior provides, Galera Cluster provides an interface for custom shell scripts to manage state snapshot transfers on the node.
 

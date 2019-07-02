@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-video
+.. _`video-geo-distributed-galera-cluster`:
 
 ======================================================
 Using Galera Replication for Geo-Distributed Clusters
 ======================================================
-.. _`geo-distributed-galera-cluster`:
 
 .. rst-class:: video-stats
 

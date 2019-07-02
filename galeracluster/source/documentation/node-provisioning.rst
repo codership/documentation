@@ -10,11 +10,11 @@
 .. role:: green
 
 .. cssclass:: library-document
+.. _`node-provisioning`:
 
 ====================
  Node Provisioning
 ====================
-.. _`node-provisioning`:
 
 .. index::
    pair: Parameters; wsrep_data_dir

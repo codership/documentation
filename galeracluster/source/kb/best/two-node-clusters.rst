@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-two-node-clusters`:
 
 =======================
 Two-Node Clusters
 =======================
-.. _`kb-best-two-node-clusters`:
 
 Although it may seem simple to maintain a cluster of only two nodes, there is an inherent potential problem. In a two-node cluster, when one node fails, it will cause the other to stop.
 

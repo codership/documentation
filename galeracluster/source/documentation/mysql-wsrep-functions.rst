@@ -1,10 +1,9 @@
 .. cssclass:: library-document
+.. _`mysql-wsrep-functions`:
 
 =======================
 MySQL wsrep Functions
 =======================
-.. _`mysql-wsrep-functions`:
-
 
 .. csv-table::
    :class: doc-options

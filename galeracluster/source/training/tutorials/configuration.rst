@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`configuration`:
 
 ==========================
 System Configuration
 ==========================
-.. _`configuration`:
 
 .. rst-class:: list-stats
 

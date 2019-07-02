@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`primary-component`:
 
 =========================================
 The Primary Component in Galera Cluster
 =========================================
-.. _`primary-component`:
 
 .. rst-class:: list-stats
 

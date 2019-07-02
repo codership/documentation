@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`versioning-information`:
 
 =========================
  Versioning Information
 =========================
-.. _`versioning-information`:
 
 Galera Cluster for MySQL is available in binary software packages for several different Linux distributions, as well as in source code for other distributions and other Unix-like operating systems, such as FreeBSD and Solaris.
 

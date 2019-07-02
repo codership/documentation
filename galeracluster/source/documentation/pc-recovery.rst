@@ -1,9 +1,10 @@
 .. cssclass:: library-document
+.. _`pc-recovery`:
 
 =================================
 Recovering the Primary Component
 =================================
-.. _`pc-recovery`:
+
 .. index::
    pair: Configuration; pc.recovery
 

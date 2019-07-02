@@ -1,15 +1,9 @@
 .. cssclass:: library-document
+.. _`firewall-settings`:
 
 =====================
  Firewall Settings
 =====================
-.. _`firewall-settings`:
-.. index::
-   pair: iptables; Firewall settings
-.. index::
-   single: iptables; Ports
-.. index::
-   single: Firewall settings; Ports
 
 Galera Cluster requires a number of ports to maintain network connectivity between the nodes.  Depending on your deployment, you may not require all of these ports, but a cluster might require all of them on each node.  Below is a list of these ports and their purpose:
 

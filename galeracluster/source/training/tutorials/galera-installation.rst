@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`galera-installation`:
 
 ==============
 Installation
 ==============
-.. _`galera-installation`:
 
 .. rst-class:: list-stats
 

@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`ssl-sst`:
 
 ==================================
 SSL for State Snapshot Transfers
 ==================================
-.. _`ssl-sst`:
 
 When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use.  Where :doc:`ssl-config` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
 

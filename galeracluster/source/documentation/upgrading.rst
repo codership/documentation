@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`upgrading`:
 
 ==========================
  Upgrading Galera Cluster
 ==========================
-.. _`upgrading`:
 
 
 You have three methods available in upgrading Galera Cluster:

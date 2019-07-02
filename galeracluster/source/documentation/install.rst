@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`install-galera`:
 
 =============================
 Installing Galera Cluster
 =============================
-.. _`install-galera`:
 
 Galera Cluster may be installed by several methods, using binary or source files.  It may be installed along with MySQL, MariaDB, or XtraDB.
 

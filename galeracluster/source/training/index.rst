@@ -1,9 +1,9 @@
 .. cssclass:: training-list
+.. _`training`:
 
 ==============
 Training
 ==============
-.. _`training`:
 
 This is the training section of the Codership Library. Here you'll find tutorial articles to start.  Our plan is to create a series of articles and videos to help you learn about Galera Cluster and related software--in conjunction with Galera. Soon there will be plenty here; for now, this is just the start.
 

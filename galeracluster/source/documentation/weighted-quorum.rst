@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`primary-component`:
 
 ===================
 Weighted Quorum
 ===================
-.. _`primary-component`:
 
 In addition to single node failures, the cluster may split into several components due to network failure.  A component is a set of nodes that are connected to each other, but not to the nodes that form other components.  In these situations, only one component can continue to modify the database state to avoid history divergence.  This component is called the :term:`Primary Component`.
 

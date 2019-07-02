@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`monitoring-cluster`:
 
 ========================
 Using Status Variables
 ========================
-.. _`monitoring-cluster`:
 
 .. index::
    pair: Parameters; wsrep_notify_cmd

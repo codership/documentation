@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-trouble-node-crash-rsync`:
 
 ==================================================
 Node Crashes during ``rsync`` SST
 ==================================================
-.. _`kb-trouble-node-crash-rsync`:
 
 When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node, known as the joiner.  This should work well, but it doesn't always.
 

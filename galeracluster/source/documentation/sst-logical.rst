@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`sst-logical`:
 
 ========================
 Logical State Snapshot
 ========================
-.. _`sst-logical`:
 
 There is one back-end method available for a Logical State Snapshots: ``mysqldump``.
 
@@ -24,7 +24,7 @@ The Logical State Transfer Method has the following disadvantages:
 - The receiving server must have a non-corrupted database.
 
 
-.. _`mysqldump`:
+.. _`sst-mysqldump`:
 
 --------------------------
 ``mysqldump``

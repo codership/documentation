@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-trouble-node-requested-state-transfer`:
 
 ================================
 Commit Failed for Reason 3
 ================================
-.. _`kb-trouble-node-requested-state-transfer`:
 
 When you have :ref:`wsrep_debug <wsrep_debug>` turned ``ON``, you may occasionally see a message noting that a commit has failed due to reason ``3``.
 

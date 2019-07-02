@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`debug-problems-with-sst`:
 
 =============================
 Debugging Problems with SST
 =============================
-.. _`debug-problems-with-sst`:
 
 .. rst-class:: list-stats
 

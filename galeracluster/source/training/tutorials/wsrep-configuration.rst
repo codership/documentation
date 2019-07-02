@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`wsrep-configuration`:
 
 ===========================
 Replication Configuration
 ===========================
-.. _`wsrep-configuration`:
 
 .. rst-class:: list-stats
 

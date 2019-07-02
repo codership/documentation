@@ -31,7 +31,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 .. csv-table:: :doc:`Deployment <deployment>`
    :class: doc-links
 
-   ":doc:`load-balancing`", ":doc:`deployment-variants`",
+   ":doc:`load-balancing`", ":doc:`deployment-variants`"
    ":doc:`containers`", ""
 
 .. csv-table:: :doc:`Monitoring <monitor>`

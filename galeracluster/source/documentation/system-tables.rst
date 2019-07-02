@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`system-tables`:
 
 =========================
  Galera System Tables
 =========================
-.. _`system-tables`:
 
 .. index::
    pair: Galera Cluster 4.x; System Tables

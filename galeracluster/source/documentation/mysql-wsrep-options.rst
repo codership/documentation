@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`mysql-wsrep-options`:
 
 ======================
  MySQL wsrep Options
 ======================
-.. _`mysql-wsrep-options`:
 .. index::
    single: Drupal
 .. index::

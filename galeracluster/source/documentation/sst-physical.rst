@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`sst-physical`:
 
 ========================
 Physical State Snapshot
 ========================
-.. _`sst-physical`:
 
 
 There are two back-end methods available for Physical State Snapshots: ``rsync`` and ``xtrabackup``.

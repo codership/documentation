@@ -1278,7 +1278,6 @@ ul.list-abstract {
 ul.list-abstract li {
     text-indent: 0;
 }
-
 ul.video-stats {
     margin-left: 0;
     margin-bottom: 20px;
@@ -1287,10 +1286,26 @@ ul.video-stats {
     font-size: .8em;
     list-style-type: none;
 }
-
 .video-stats-line {
     font-size: .8em;
     color: #4f4f4f;
+}
+ul.no-bull {
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding-inline-start: 0;
+    text-indent: 0;
+    list-style-type: none;
+}
+ul.no-bull {
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding-inline-start: 0;
+    text-indent: 0;
+    list-style-type: none;
+}
+ul.no-bull li tt.literal {
+    font-weight: bold;
 }
 tt.literal {
     border-style: none;

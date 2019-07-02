@@ -1,9 +1,10 @@
 .. cssclass:: library-document
+.. _`streaming-replication`:
 
 #####################
 Streaming Replication
 #####################
-.. _`streaming-replication`:
+
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
 

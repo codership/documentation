@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`backup-cluster`:
 
 =========================
  Backing Up Cluster Data
 =========================
-.. _`backup-cluster`:
 
 .. index::
    pair: Logs; mysqld error log

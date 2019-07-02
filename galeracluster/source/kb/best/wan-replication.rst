@@ -1,9 +1,9 @@
 .. cssclass:: kb-article
+.. _`kb-best-wan-replication`:
 
 ==================
 WAN Replication
 ==================
-.. _`kb-best-wan-replication`:
 
 When running the cluster over a :abbr:`WAN (Wide Area Network)`, you may frequently experience transient network connectivity failures.  To prevent this from partitioning the cluster, you may want to increase the *keepalive* timeouts.
 

@@ -1,9 +1,10 @@
 .. cssclass:: library-document
+.. _`ssl-settings`:
 
 ==================
 SSL Settings
 ==================
-.. _`ssl-settings`:
+
 .. index::
    pair: Parameters; socket.ssl_compression
 .. index::

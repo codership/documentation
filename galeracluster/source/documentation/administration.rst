@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`administration`:
 
 ===============================
 Galera Cluster Administration
 ===============================
-.. _`administration`:
 
 With the basics of how the cluster works and how to install and initialize it covered, this part begins a five part series on the administration and management of Galera Cluster.
 

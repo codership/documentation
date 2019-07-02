@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`schema-upgrades`:
 
 =================
  Schema Upgrades
 =================
-.. _`schema-upgrades`:
 
 Schema changes are of particular interest related to Galara Cluster. Schema changes are  :abbr:`DDL (Data Definition Language)` statement executed on a database (e.g., ``CREATE TABLE``, ``GRANT``).  These :abbr:`DDL (Data Definition Language)` statements change the database itself and are non-transactional.
 

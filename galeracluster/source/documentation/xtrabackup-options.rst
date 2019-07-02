@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`xtrabackup-parameters`:
 
 ======================
 XtraBackup Parameters
 ======================
-.. _`xtrabackup-parameters`:
 
 When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you can fine tune how the script operates using the ``[sst]`` unit in the ``my.cnf`` configuration file.
 

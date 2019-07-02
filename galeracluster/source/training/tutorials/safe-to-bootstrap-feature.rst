@@ -1,9 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`safe-to-bootstrap-feature`:
 
 ===============================
 The Safe-To-Bootstrap Feature
 ===============================
-.. _`safe-to-bootstrap-feature`:
 
 .. rst-class:: list-stats
 

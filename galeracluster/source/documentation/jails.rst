@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`jails`:
 
 ==============
 Using Jails
 ==============
-.. _`jails`:
 
 In FreeBSD, jails provides a platform for securely deploying applications within virtual instances.  You may find it useful in portable deployments across numerous machines for testing and security.
 

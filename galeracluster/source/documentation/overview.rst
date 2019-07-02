@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`overview-galera`:
 
 =============================
 Overview of Galera Cluster
 =============================
-.. _`overview-galera`:
 
 Galera Cluster is a synchronous multi-master database cluster, based on synchronous replication and MySQL and InnoDB.  When Galera Cluster is in use, database reads and writes can be directed to any node. Any individual node can be lost without interruption in operations and without using complex failover procedures.
 

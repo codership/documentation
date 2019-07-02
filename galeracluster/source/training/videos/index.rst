@@ -1,9 +1,9 @@
 .. cssclass:: training-list
+.. _`training-videos`:
 
 ===================
 Training Videos
 ===================
-.. _`training-videos`:
 
 This section is for training videos on Galera Cluster and related software. At this point, they're primarily screencasts from presentations given at various conferences. We intend to add more screencasts, but made in a controlled enviroment, focusing on one aspect of Galera Cluster or related software.
 
@@ -92,10 +92,10 @@ This presentation discusses various aspects of using a multi-master topology of 
    :maxdepth: 2
    :hidden:
 
-   high-availability-with-galera-cluster
    ddl-schema-upgrades
    galera-intro
    galera-installation-quick-start
+   high-availability-with-galera-cluster
    migrating-master-slave-to-multi-master
    geo-distributed-galera-cluster
    galera-dba-devops

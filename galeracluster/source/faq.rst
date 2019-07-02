@@ -1,9 +1,9 @@
 .. cssclass:: faq-list
+.. _`kb-faq`:
 
 ============================
  Frequently Asked Questions
 ============================
-.. _`kb-faq`:
 
 This page lists several frequently asked questions on Galera Cluster and related matters. They include questions you might have before deciding to use Galera. There are some questions on how to install and migrate to Galera, as well as how to get assistance and learn about Galera.
 

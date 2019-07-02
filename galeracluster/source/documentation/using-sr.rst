@@ -1,9 +1,10 @@
 .. cssclass:: library-document
-
-###########################
-Using Streaming Replication
-###########################
 .. _`using-sr`:
+
+============================
+Using Streaming Replication
+============================
+
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
 
@@ -16,9 +17,9 @@ This allows you to work with larger data-sets, manage hot records, and help avoi
 
 .. _`enable-sr`:
 
-==============================
+-------------------------------
 Enabling Streaming Replication
-==============================
+-------------------------------
 
 The best practice when working with :term:`Streaming Replication` is to enable it at a session-level for specific transactions, or parts thereof.  The reason is that Streaming Replication increases the load on all nodes when applying and rolling back transactions.  You'll get better performance if you only enable Streaming Replication on those transactions that won't run correctly without it.
 
@@ -46,9 +47,9 @@ Choose the replication unit and fragment size that best suits the specific opera
 
 .. _`usr-hot-records`:
 
-======================================
+---------------------------------------
 Streaming Replication with Hot Records
-======================================
+---------------------------------------
 
 When your application needs to update frequently the same records from the same table (e.g., implementing a locking scheme, a counter, or a job queue), Streaming Replication allows you to force critical changes to replicate to the entire cluster.
 

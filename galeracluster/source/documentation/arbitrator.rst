@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`arbitrator`:
 
 ===================
  Galera Arbitrator
 ===================
-.. _`arbitrator`:
 
 .. index::
    pair: Descriptions; Galera Arbitrator

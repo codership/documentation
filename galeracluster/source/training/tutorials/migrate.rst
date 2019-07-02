@@ -1,10 +1,9 @@
 .. cssclass:: tutorial-article
+.. _`migrate`:
 
 ============
 Migration
 ============
-.. _`migrate`:
-
 
 .. rst-class:: list-stats
 

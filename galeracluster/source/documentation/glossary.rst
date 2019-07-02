@@ -1,9 +1,9 @@
 .. cssclass:: library-document
+.. _`glossary`:
 
 ==========
  Glossary
 ==========
-.. _`glossary`:
 
 .. glossary::
    :sorted:
