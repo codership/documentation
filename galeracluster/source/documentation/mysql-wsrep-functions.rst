@@ -1,3 +1,35 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`mysql-wsrep-functions`:
 
@@ -17,6 +49,8 @@ MySQL wsrep Functions
 
 .. _`WSREP_LAST_SEEN_GTID`:
 .. rubric:: ``WSREP_LAST_SEEN_GTID()``
+   :class: rubric-1
+
 .. index::
    pair: Functions; WSREP_LAST_SEE_GTID()
 .. index::
@@ -42,6 +76,8 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
 .. _`WSREP_LAST_WRITTEN_GTID`:
 .. rubric:: ``WSREP_LAST_WRITTEN_GTID()``
+   :class: rubric-1
+
 .. index::
    pair: Functions; WSREP_LAST_WRITTEN_GTID()
 .. index::
@@ -74,6 +110,8 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
 .. _`WSREP_SYNC_WAIT_UPTO_GTID`:
 .. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
+   :class: rubric-1
+
 .. index::
    pair: Functions; WSREP_SYNC_WAIT_UPTO_GTID()
 .. index::

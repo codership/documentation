@@ -1,3 +1,35 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`../training/tutorials/migration`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`install-mariadb-binary`:
 
@@ -12,19 +44,16 @@ MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster.  Binary 
    :alt: MariaDB Repository Tool
    :class: tutorial-screenshot
 
-.. _`mariadb-repo`:
 
----------------------------------
-Enabling the MariaDB Repository
----------------------------------
+.. _`mariadb-repo`:
+.. rubric:: Enabling the MariaDB Repository
+   :class: rubric-1
 
 In order to install MariaDB Galera Cluster through your package manager, you need to enable the MariaDB repository on your server.  There are two different ways to accomplish this, depending on which Linux distribution you use.
 
 .. _`mariadb-deb`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Enabling the ``apt`` Repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Enabling the ``apt`` Repository
+   :class: rubric-2
 
 For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the software properties.  The package names vary depending on your distribution.  For Debian, at the command-line execute the following:
 
@@ -82,14 +111,12 @@ Packages in the MariaDB repository are now available for installation through ``
 
 
 .. _`mariadb-rpm`:
+.. rubric:: Enabling the ``yum`` Repository
+   :class: rubric-2
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Enabling the ``yum`` Repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For RPM-based distributions (e.g., CentOS, Red Hat and Fedora), you can enable the MariaDB repository by creating a text file with ``.repo`` as the file extension to the ``/etc/yum/repos.d/`` directory.
 
-For RPM-based distributions (e.g., CentOS, Red Hat and Fedora), you can enable the MariaDB repository by creating a text file with ``.repo`` as the file extention to the ``/etc/yum/repos.d/`` directory.
-
-Using a simple text editor, create a new ``.repo`` file containing something like the follwing:
+Using a simple text editor, create a new ``.repo`` file containing something like the following:
 
 .. code-block:: ini
 
@@ -111,10 +138,8 @@ For more information on the repository, package names or available mirrors, see 
 
 
 .. _`mariadb-install`:
-
----------------------------------
-Installing MariaDB Galera Cluster
----------------------------------
+.. rubric:: Installing MariaDB Galera Cluster
+   :class: rubric-1
 
 There are three packages involved in the installation of MariaDB Galera Cluster: the MariaDB database client, a command-line tool for accessing the database; the MariaDB database server, built to include the :term:`wsrep API` patch; and the :term:`Galera Replication Plugin`.
 

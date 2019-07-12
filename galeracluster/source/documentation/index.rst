@@ -1,6 +1,32 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+
+.. cssclass:: library-document
+.. _`documentation`:
+
 =============================
 The Codership Documentation
 =============================
+
 .. index::
    pair: Certification based replication; Descriptions
 .. index::
@@ -58,6 +84,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 For resolving problems you might have with the software, you can also check our :doc:`Knowledge Base <../kb/index>`. There you will find troubleshooting and best practices articles.  You can also post questions on the `Codership Forum <http://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
 
 If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <http://galeracluster.com/contact-us/#send-us-a-message>`_.
+
 
 .. toctree::
    :maxdepth: 3

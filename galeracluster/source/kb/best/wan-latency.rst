@@ -1,3 +1,35 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Best Practices <./index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../../training/tutorials/index>`
+         - :doc:`Training Videos <../../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`evs.join_retrans_period <evs.join_retrans_period>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: kb-article
 .. _`kb-best-wan-latency`:
 

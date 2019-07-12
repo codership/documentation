@@ -1,3 +1,43 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_on <wsrep_on>`
+      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+      - :ref:`Upgrading System Tables <upgrade-system-tables>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+      - :doc:`Galera Installation <galera-installation>`
+      - :doc:`Starting the Cluster <starting-cluster>`
+      - :doc:`System Configuration <configuration>`
+      - :doc:`Replication Configuration <wsrep-configuration>`
+
+
 .. cssclass:: tutorial-article
 .. _`migration`:
 
@@ -17,10 +57,8 @@ For more information on installing Galera Cluster, see :doc:`Galera Installation
 
 
 .. _`upgrade-system-tables`:
-
------------------------------------
-Upgrading System Tables
------------------------------------
+.. rubric:: Upgrading System Tables
+   :class: rubric-1
 
 When you finish upgrading a standalone database server to Galera Cluster, but before you initialize your own cluster, you need to update the system tables to take advantage of the new privileges and capabilities.  You can do this with ``mysql_upgrade``.
 
@@ -62,10 +100,8 @@ For more information on initializing and adding nodes to a cluster, see :doc:`St
 
 
 .. _`migrating-mysql-galera`:
-
----------------------------------------
-Migrating from MySQL to Galera Cluster
----------------------------------------
+.. rubric:: Migrating from MySQL to Galera Cluster
+   :class: rubric-1
 
 In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL master-slave replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
 

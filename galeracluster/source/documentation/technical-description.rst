@@ -1,3 +1,44 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Certification Replication <certification-based-replication>`
+      - :doc:`tech-desc-introduction`
+      - :doc:`node-states`
+      - :doc:`isolation-levels`
+      - :doc:`Node Recovery <recovery>`
+      - :doc:`weighted-quorum`
+      - :doc:`Replication Architecture <architecture>`
+      - :doc:`state-transfer`
+      - :doc:`streaming-replication`
+
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`tech-description`:
 
@@ -10,6 +51,7 @@ Galera Cluster is a synchronous certification-based replication solution for MyS
 
 .. _`understanding-repl`:
 .. rubric:: Understanding Replication
+   :class: rubric-1
 
 Replication in the context of databases refers to the frequent copying of data from one database server to another.  These sections provide a high-level explanation of replication both in the general sense of how it works, as well as the particulars of how Galera Cluster implements these core concepts.
 
@@ -24,6 +66,7 @@ Replication in the context of databases refers to the frequent copying of data f
 
 .. _`understanding-galera`:
 .. rubric:: Understanding Galera Cluster
+   :class: rubric-1
 
 With a better grasp on how replication works, these pages provide a more detailed explanation of how Galera Cluster implements certification-based replication, including the specific architecture of the nodes, how they communicate with each other, as well as replicate data and manage the replication process.
 

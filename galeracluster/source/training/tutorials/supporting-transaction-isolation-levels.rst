@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`supporting-transaction-isolation-levels`:
 

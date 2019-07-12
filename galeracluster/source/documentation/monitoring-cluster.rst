@@ -1,3 +1,52 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`notification-cmd`
+      - :doc:`Reset Quorum <quorum-reset>`
+      - :ref:`checking node status <check-node-status>`
+      - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
+      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+      - :ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>`
+      - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
+      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+      - :ref:`wsrep_cluster_state_uuid <wsrep_cluster_state_uuid>`
+      - :ref:`wsrep_cluster_status <wsrep_cluster_status>`
+      - :ref:`wsrep_connected <wsrep_connected>`
+      - :ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>`
+      - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
+      - :ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>`
+      - :ref:`wsrep_local_recv_queue_max <wsrep_local_recv_queue_max>`
+      - :ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>`
+      - :ref:`wsrep_ready <wsrep_ready>`
+      - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`monitoring-cluster`:
 
@@ -27,10 +76,8 @@ From the database client, you can check the status of write-set replication thro
 
 
 .. _`check-cluster-integrity`:
-
----------------------------------
- Checking Cluster Integrity
----------------------------------
+.. rubric:: Checking Cluster Integrity
+   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_cluster_state_uuid
@@ -108,10 +155,8 @@ When these status variables check out and return the desired results on each nod
 
 
 .. _`check-node-status`:
-
----------------------------------
- Checking the Node Status
----------------------------------
+.. rubric:: Checking the Node Status
+   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_cluster_address
@@ -183,10 +228,8 @@ In the event that each status variable returns the desired values, the node is i
 
 
 .. _`check-replication-health`:
-
----------------------------------
- Checking the Replication Health
----------------------------------
+.. rubric:: Checking the Replication Health
+   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_flow_control_paused
@@ -256,10 +299,8 @@ You can monitor the local received queue and Flow Control using the following st
   This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter, given that there is no reason to assign more slave threads than transactions you can apply in parallel.
 
 .. _`check-network-issues`:
-
----------------------------------
- Detecting Slow Network Issues
----------------------------------
+.. rubric:: Detecting Slow Network Issues
+   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_local_send_queue_avg

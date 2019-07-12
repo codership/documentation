@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`firewalld`:
 
@@ -13,10 +43,8 @@ For more information on FirewallD, see the `Documentation <https://fedoraproject
 
 
 .. _`firewalld-ports`:
-
---------------------------------------
-Opening Ports for Galera Cluster
---------------------------------------
+.. rubric:: Opening Ports for Galera Cluster
+   :class: rubric-1
 
 Galera Cluster requires four open ports for replication over TCP. To use multicast replication, it also requires one for UDP transport.  In order for this to work over FirewallD, you also need to add the database service to the firewall rules.
 
@@ -45,10 +73,8 @@ These commands dynamically configure FirewallD. Your firewall will then permit t
 
 
 .. _`firewalld-persistent`:
-
---------------------------------------
-Making Firewall Changes Persistent
---------------------------------------
+.. rubric:: Making Firewall Changes Persistent
+   :class: rubric-1
 
 The commands given in the above section allow you to configure FirewallD on a running server and update the firewall rules without restarting.  However, these changes are not persistent.  When the server restarts, FirewallD reverts to its default configuration.  To change the default configuration, a somewhat different approach is required:
 

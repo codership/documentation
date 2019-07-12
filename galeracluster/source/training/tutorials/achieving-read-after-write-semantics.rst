@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`achieving-read-after-write-semantics`:
 
@@ -13,27 +43,24 @@ Some applications, particularly those written with a single-node database server
 
 Since Galera allows, for performance reasons, a very small amount of “slave lag”, the node that is processing the read may have not yet applied the write. It can return old data, causing an application that did not expect that to misbehave or produce an error.
 
----------------------------
-The Solution
----------------------------
+.. rubric:: The Solution
+   :class: rubric-1
 
 Through the mechanism of flow control, slave lag is kept to a minimum, but additionally Galera provides the causal wait facility for those queries that must always see the most up-to-date view of the database. It allows achieving truly read-after-write semantics, where a read will always see all writes that were performed prior to it, on any node.
 
 Enabling causal wait causes Galera to wait before a query until all transactions that were started prior to the current transaction have been applied on the node. Transactions committed or updates made on other nodes after the start of the current transaction are not taken into account.
 
 
----------------------------
-Configuring Causal Wait
----------------------------
+.. rubric:: Configuring Causal Wait
+   :class: rubric-1
 
 Causal wait is controlled via the wsrep_sync_wait variable. It is a bitmask that specifies what classes of queries (selects, inserts, updates, or deletes) should wait for complete synchronization. The documentation has a list of allowed values.
 
 wsrep_sync_wait is a session variable, so it can be targeted at the connections, transactions or queries that require it. The remaining application workload, which does not require the extra freshness guarantee can use the default behavior and proceed without any additional waits.
 
 
----------------------------
-A Practical Example
----------------------------
+.. rubric:: A Practical Example
+   :class: rubric-1
 
 Consider the case where you have set up a read/write splitting proxy in front of your application so that your writes go to the master and the reads are serviced by the slaves. Such a setup would work for a wide range of queries and applications and you would like to keep it and its performance characteristics.
 If access to the source code is available, it is possible to surgically cure problematic queries with as little change as possible. You could do the following:

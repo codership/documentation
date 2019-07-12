@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`certification-based-replication`:
 
@@ -10,9 +40,9 @@ Certification-based replication uses group communication and transaction orderin
 Transactions execute optimistically in a single node, or replica, and then at commit time, they run a coordinated certification process to enforce global consistency.  It achieves global coordination with the help of a broadcast service that establishes a global total order among concurrent transactions.
 
 
-----------------------------------------------
-Certification-Based Replication Requirements
-----------------------------------------------
+.. _`cert-repl-requirements`:
+.. rubric:: Certification-Based Replication Requirements
+   :class: rubric-1
 
 It's not possible to implement certification-based replication for all database systems.  It requires certain features of the database in order to work;
 
@@ -23,9 +53,9 @@ It's not possible to implement certification-based replication for all database 
 - **Global Ordering:** Replication events must be ordered globally.  Specifically, they are applied on all instances in the same order.
 
 
-------------------------------------------
-How Certification-Based Replication Works
-------------------------------------------
+.. _`cert-repl-workings`:
+.. rubric:: How Certification-Based Replication Works
+   :class: rubric-1
 
 The main idea in certification-based replication is that a transaction executes conventionally until it reaches the commit point, assuming there is no conflict.  This is called optimistic execution.
 
@@ -39,9 +69,9 @@ The write-set then undergoes a deterministic certification test, using the prima
 
 If the certification test fails, the node drops the write-set and the cluster rolls back the original transaction.  If the test succeeds, though, the transaction commits and the write-set is applied to the rest of the cluster.
 
---------------------------------------------------
-Certification-Based Replication in Galera Cluster
---------------------------------------------------
+.. _`cert-repl-in-galera`:
+.. rubric:: Certification-Based Replication in Galera Cluster
+   :class: rubric-1
 
 The implementation of certification-based replication in Galera Cluster depends on the global ordering of transactions.
 

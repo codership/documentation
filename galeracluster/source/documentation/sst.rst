@@ -1,3 +1,43 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
+      - :ref:`wsrep_sst_method <wsrep_sst_method>`
+      - :ref:`gmcast.segment <gmcast.segment>`
+      - :ref:`mysqldump <mysqldump>`"
+      - :ref:`Logical <sst-logical>`
+      - :ref:`rsync <sst-physical-rsync>`
+      - :ref:`Physical <sst-physical>`
+      - :ref:`xtrabackup <sst-physical-xtrabackup>`
+      - :ref:`Physical <sst-physical>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. raw:: html
 
     <style> .red {color:red} </style>
@@ -8,6 +48,7 @@
 
 .. role:: red
 .. role:: green
+
 
 .. cssclass:: library-document
 .. _`sst`:
@@ -26,10 +67,8 @@ A node can serve as a donor when it is in the ``SYNCED`` state.  The joiner node
 
 
 .. _`sst-methods`:
-
-----------------------------
-SST Methods
-----------------------------
+.. rubric:: SST Methods
+   :class: rubric-1
 
 Galera supports several back-end methods for use in state snapshot transfers.  There are two types: Logical State Snapshots, which interface through the database server and client; and Physical State Snapshots, which directly copy the data files from node to node.
 

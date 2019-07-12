@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`xtrabackup-parameters`:
 
@@ -50,6 +80,7 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
 
 .. _`xtra-compressor`:
 .. rubric:: ``compressor``
+   :class: rubric-1
 
 Defines the compression utility the donor node uses to compress the state transfer.
 
@@ -71,6 +102,7 @@ This parameter defines whether the donor node performs compression on the state 
 
 .. _`xtra-compact`:
 .. rubric:: ``compact``
+   :class: rubric-1
 
 Defines whether the joiner node performs compaction when rebuilding indexes after applying a :term:`State Snapshot Transfer`.
 
@@ -93,6 +125,7 @@ This parameter operates on the joiner node with the :ref:`rebuild <xtra-rebuild>
 
 .. _`xtra-cpat`:
 .. rubric:: ``cpat``
+   :class: rubric-1
 
 Defines what files to clean up from the datadir during state transfers.
 
@@ -114,6 +147,7 @@ When the donor node begins a :term:`State Snapshot Transfer`, it cleans up vario
 
 .. _`xtra-decompressor`:
 .. rubric:: ``decompressor``
+   :class: rubric-1
 
 Defines the decompression utility the joiner node uses to decompress the state transfer.
 
@@ -135,6 +169,7 @@ This parameter defines whether the joiner node performs decompression on the sta
 
 .. _`xtra-encrypt`:
 .. rubric:: ``encrypt``
+   :class: rubric-1
 
 Defines whether the node uses SSL encryption for XtraBackup and what kind of encryption it uses.
 
@@ -170,6 +205,7 @@ This parameter determines the type of SSL encryption the node uses when sending 
 
 .. _`xtra-encrypt-algo`:
 .. rubric:: ``encrypt-algo``
+   :class: rubric-1
 
 Defines the SSL encryption type the node uses for XtraBackup state transfers.
 
@@ -195,6 +231,7 @@ In the event that you need to clarify the meaning, this parameter allows you to 
 
 .. _`xtra-progress`:
 .. rubric:: ``progress``
+   :class: rubric-1
 
 Defines whether where the node reports :term:`State Snapshot Transfer` progress.
 
@@ -220,6 +257,7 @@ When you set this parameter, the node reports progress on XtraBackup progress in
 
 .. _`xtra-rebuild`:
 .. rubric:: ``rebuild``
+   :class: rubric-1
 
 Defines whether the joiner node rebuilds indexes during a :term:`State Snapshot Transfer`.
 
@@ -242,6 +280,7 @@ This parameter operates on the joiner node.  When enabled, the node rebuilds ind
 
 .. _`xtra-rlimit`:
 .. rubric:: ``rlimit``
+   :class: rubric-1
 
 Defines the rate limit for the donor node.
 
@@ -263,6 +302,7 @@ This parameter allows you to definite the rate-limit the donor node.  This allow
 
 .. _`xtra-sst_initial_timeout`:
 .. rubric:: ``sst_initial_timeout``
+   :class: rubric-1
 
 Defines the initial timeout to receive the first state transfer packet.
 
@@ -284,6 +324,7 @@ This parameter determines the initial timeout in seconds for the joiner to recei
 
 .. _`xtra-sst_special_dirs`:
 .. rubric:: ``sst_special_dirs``
+   :class: rubric-1
 
 Defines whether the node uses special InnoDB home and log directories.
 
@@ -311,6 +352,7 @@ This parameter enables support for ``innodb_data_home_dir`` and ``innodb_log_hom
 
 .. _`xtra-sockopt`:
 .. rubric:: ``sockopt``
+   :class: rubric-1
 
 Defines socket options.
 
@@ -328,6 +370,7 @@ This parameter allows you to define one or more socket options for XtraBackup us
 
 .. _`xtra-streamfmt`:
 .. rubric:: ``streamfmt``
+   :class: rubric-1
 
 Defines the stream formatting utility.
 
@@ -353,6 +396,7 @@ The default and recommended utility is ``xbstream`` given that it supports encry
 
 .. _`xtra-tca`:
 .. rubric:: ``tca``
+   :class: rubric-1
 
 Defines the Certificate Authority (CA) to use in SSL encryption.
 
@@ -377,6 +421,7 @@ For more information on using Socat with encryption, see `Securing Traffic betwe
 
 .. _`xtra-tcert`:
 .. rubric:: ``tcert``
+   :class: rubric-1
 
 Defines the certificate to use in SSL encryption.
 
@@ -401,6 +446,7 @@ For more information on using Socat with encryption, see `Securing Traffic betwe
 
 .. _`xtra-time`:
 .. rubric:: ``time``
+   :class: rubric-1
 
 Defines whether XtraBackup instruments key stages in the backup and restore process for state transfers.
 
@@ -421,6 +467,7 @@ This parameter instruments key stages of the backup and restore process for stat
 
 .. _`xtra-transferfmt`:
 .. rubric:: ``transferfmt``
+   :class: rubric-1
 
 Defines the transfer stream utility.
 

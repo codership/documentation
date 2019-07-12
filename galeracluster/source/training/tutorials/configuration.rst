@@ -1,3 +1,32 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
 .. cssclass:: tutorial-article
 .. _`configuration`:
 
@@ -39,10 +68,9 @@ Using a text editor, edit the ``/etc/my.cnf`` file.  You'll need to include entr
 Depending on your system and the location of your installation of MySQL or MariaDB, you will need to adjust the valuables for variables (e.g., the path to the data directory).
 
 
---------------------------------
-Configuring the Database Server
---------------------------------
 .. _`db-config`:
+.. rubric:: Configuring the Database Server
+   :class: rubric-1
 
 In addition to settings for the system, there are other basic configurations that you will need to set in the ``/etc/my.cnf`` file.  Make these changes before starting the database server.
 
@@ -107,10 +135,9 @@ The InnoDB storage engine uses its own memory buffer to cache data and for index
    innodb_buffer_pool_size=122M
 
 
------------------------------------------
-Configuring Swap Space
------------------------------------------
 .. _`swap-config`:
+.. rubric:: Configuring Swap Space
+   :class: rubric-1
 
 Memory requirements for Galera Cluster are difficult to predict with any precision.  The particular amount of memory it uses can vary significantly, depending upon the load the given node receives.  In the event that Galera Cluster attempts to use more memory than the node has available, the ``mysqld`` instance will crash.
 

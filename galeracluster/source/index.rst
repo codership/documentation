@@ -1,3 +1,39 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./documentation/index>`
+      - :doc:`Knowledge Base <./kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <./kb/trouble/index>`
+         - :doc:`Best Practices <./kb/best/index>`
+
+      - :doc:`Training <./training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./training/tutorials/index>`
+         - :doc:`Training Videos <./training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Administration Manual <./documentation/administration>`
+      - :doc:`Getting Started Guide <./training/tutorials/getting-started>`
+      - :doc:`Reference Manual <./documentation/reference>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
+.. cssclass:: library-document
+.. _`the-library`:
+
 =============================
 The Codership Library
 =============================

@@ -1,3 +1,38 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Best Practices <./index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../../training/tutorials/index>`
+         - :doc:`Training Videos <../../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_sync_wait <wsrep_sync_wait>`
+      - :ref:`WSREP_LAST_WRITTEN_GTID() <WSREP_LAST_WRITTEN_GTID>`
+      - :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`
+      - :ref:`wsrep_provider_version <wsrep_provider_version>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: kb-article
 .. _`kb-best-using-sync-functions`:
 

@@ -1,3 +1,36 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_sst_method <wsrep_sst_method>`
+      - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`mysqldump`:
 
@@ -9,10 +42,8 @@ The :term:`Logical State Transfer Method`, ``mysqldump`` works by interfacing th
 
 
 .. _`sst-privileges`:
-
---------------------------------------
-Configuring SST Privileges
---------------------------------------
+.. rubric:: Configuring SST Privileges
+   :class: rubric-1
 
 In order for ``mysqldump`` to interface with the database server, it requires root connections for both the donor and joiner nodes.  You can enable this through the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.
 
@@ -27,10 +58,8 @@ You would use your own authentication parameters in place of ``wsrep_sst_user`` 
 
 
 .. _`sst_authorization`:
-
---------------------------
-Granting SST Privileges
---------------------------
+.. rubric:: Granting SST Privileges
+   :class: rubric-1
 
 When the database server starts, it will read from the ``wsrep.cnf`` file to get the authentication information it needs to access another database server.  In order for the node to accept connections from the cluster, you must also create and configure the State Snapshot Transfer user through the database client.
 

@@ -1,3 +1,37 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Best Practices <./index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../../training/tutorials/index>`
+         - :doc:`Training Videos <../../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
+      - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
+      - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: kb-article
 .. _`kb-best-parallel-slave-threads`:
 

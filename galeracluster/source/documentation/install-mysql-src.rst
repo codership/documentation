@@ -1,3 +1,39 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_provider <wsrep_provider>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+      - :doc:`../training/tutorials/migration`
+      - :doc:`System Configuration <../training/tutorials/configuration>`
+      - :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`
+
+
 .. cssclass:: library-document
 .. _`install-mysql-src`:
 
@@ -12,10 +48,8 @@ Galera Cluster for MySQL is the reference implementation from Codership Oy.  Bin
 
 
 .. _`mysql-build-dep`:
-
-------------------------------
-Installing Build Dependencies
-------------------------------
+.. rubric:: Installing Build Dependencies
+   :class: rubric-1
 
 When building from source code, ``make`` cannot manage or install dependencies for either Galera Cluster or the build process itself.  You need to install these first.  For Debian-based systems, run the following command:
 
@@ -40,10 +74,8 @@ Check with the repositories for your distribution or system for the appropriate 
 
 
 .. _`build-galera-mysql`:
-
----------------------------------
-Building Galera Cluster for MySQL
----------------------------------
+.. rubric:: Building Galera Cluster for MySQL
+   :class: rubric-1
 
 The source code for Galera Cluster for MySQL is available through GitHub_.  You can download the source code from the website or directly using ``git``.  In order to build Galera Cluster, you need to download both the database server with the wsrep API patch and the :term:`Galera Replication Plugin`.
 
@@ -80,10 +112,8 @@ Once Git finishes downloading the source files, you can start building the datab
 
 
 .. _`build-mysql`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Building the Database Server
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Building the Database Server
+   :class: rubric-2
 
 The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MySQL, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through  the wsrep API, requires that you enable it through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
@@ -97,10 +127,8 @@ To build the database server, ``cd`` into the ``mysql-wsrep/`` directory and run
 
 
 .. _`build-mysql-galera`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Building the wsrep Provider
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Building the wsrep Provider
+   :class: rubric-2
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
 
@@ -116,10 +144,8 @@ This process creates the Galera Replication Plugin, (that is, the ``libgalera_sm
 
 
 .. _`installmysql-postinstall`:
-
-----------------------------------
-Post-installation Configuration
-----------------------------------
+.. rubric:: Post-installation Configuration
+   :class: rubric-1
 
 After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configurations listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
 

@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`firewall-pf`:
 
@@ -11,10 +41,8 @@ FreeBSD provides packet filtering support at the kernel level.  Using PF you can
 
 
 .. _`using-pf`:
-
--------------------
-Enabling PF
--------------------
+.. rubric:: Enabling PF
+   :class: rubric-1
 
 In order to use PF on FreeBSD, you must first set the system up to load its kernel module.  Additionally, you need to set the path to the configuration file for PF.
 
@@ -36,10 +64,8 @@ FreeBSD now loads the PF kernel module with logging features at boot.
 
 
 .. _`pf-config`:
-
----------------------
-Configuring PF Rules
----------------------
+.. rubric:: Configuring PF Rules
+   :class: rubric-1
 
 In the above section, the configuration file for PF was set to ``/etc/pf.conf``.  This file allows you to set up the default firewall configuration that you want to use on your server.  The settings you add to this file are the same for each cluster node.
 
@@ -85,10 +111,8 @@ If there are no syntax errors, ``pfctl`` prints each of the rules it adds to the
 
 
 .. _`pf-start`:
-
--------------------
-Starting PF
--------------------
+.. rubric:: Starting PF
+   :class: rubric-1
 
 When you finish configuring packet filtering for Galera Cluster and for any other service you may require on your FreeBSD server, you can start the service.  This is done with two commands: one to start the service itself and one to start the logging service.
 

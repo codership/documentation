@@ -1,3 +1,40 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Migration <./migration>`
+      - :doc:`Migration <./migration>`
+      - :doc:`Quorum Reset <../../../documentation/quorum-reset>`
+      - :ref:`wsrep_provider <wsrep_provider>`
+      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`starting-cluster`:
 
@@ -30,10 +67,9 @@ Once you have at least three hosts ready, you can initialize the cluster.
 .. note:: When migrating from an existing, stand-alone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there will be some additional steps that you must take.  For more information on what you need to do, see :doc:`Migration <./migration>`.
 
 
--------------------------------------
-Starting the First Node
--------------------------------------
 .. _`Starting First Cluster Node`:
+.. rubric:: Starting the First Node
+   :class: rubric-1
 
 By default, a node don't start as part of the :term:`Primary Component`.  Instead, it assumes that the Primary Component is already running and it is merely joining an existing cluster.  For each node it encounters in the cluster, it checks whether or not it's a part of the Primary Component.  When it finds the Primary Component, it requests a state transfer to bring its database into sync with the cluster.  If it can't find the Primary Component, it will remains in a non-operational state.
 
@@ -88,10 +124,9 @@ Once you get the first node started and the Primary Component initialized, don't
 The variable ``safe_to_bootstrap`` is set to 0 on the first node after it's been bootstrapped to protect against you inadvertently bootstrapping again while the cluster is runnning.  You'll have to change the value to 1 to be able to bootstrap anew.
 
 
---------------------------------------
-Adding Nodes to the Cluster
---------------------------------------
 .. _`Add Nodes to Cluster`:
+.. rubric:: Adding Nodes to the Cluster
+   :class: rubric-1
 
 Once you have successfully started the first node and thereby initialized a new cluster, the procedure for adding all the other nodes is even simpler. You just launch ``mysqld`` as you would normally--without the ``--wsrep-new-cluster`` option.  You would enter something like the following from the command-line, depending on your operating system and database system (see above for other methods):
 

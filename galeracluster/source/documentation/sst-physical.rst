@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`sst-physical`:
 
@@ -26,10 +56,8 @@ The Physical State Transfer Method has the following disadvantages:
 
 
 .. _`sst-physical-rsync`:
-
-----------------------------
-``rsync``
-----------------------------
+.. rubric:: ``rsync``
+   :class: rubric-1
 
 The fastest back-end method for State Snapshot Transfers is ``rsync``.  It carries all the advantages and disadvantages of of the Physical Snapshot Transfer.  While it does block the donor node during transfer, ``rsync`` does not require database configuration or root access, which makes it easier to configure.
 
@@ -49,10 +77,8 @@ For more information about ``rsync``, see the `rsync Documentation <http://rsync
 
 
 .. _`sst-physical-xtrabackup`:
-
-----------------------------
-``xtrabackup``
-----------------------------
+.. rubric:: ``xtrabackup``
+   :class: rubric-1
 
 The most popular back-end method for State Snapshot Transfers is ``xtrabackup``.  It carries all the advantages and disadvantages of a Physical State Snapshot, but is virtually non-blocking on the donor node.
 

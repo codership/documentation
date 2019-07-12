@@ -85,9 +85,8 @@ div.bodywrapper
 {
     margin: 0 0 0 230px;
 }
-
-
 div.document.collapsed-sidebar div.bodywrapper { margin-left: 0; }
+div.bodywrapper { margin: 0 0 0 0; }
 
 
 div.body
@@ -236,10 +235,10 @@ div.sphinxsidebar .searchtip
     color: #C0C0C0;
 }
 
+
 /*****************************************************
  * page layout - collapsible sidebar buttons
  *****************************************************/
-
 
 div.sidebartoggle
 {
@@ -362,13 +361,8 @@ div.body h5 { font-size: 110%; }
 div.body h6 { font-size: 100%; }
 
 div.body p.rubric {
-    font-size: 120%;
-    border-bottom: 2px solid #7F7F7F;
-}
-div.body p.rubric {
     margin: 1em -10px 0;
     padding: 8px 8px 8px;
-    clear: both; /* for floating admonitions */
     background-color: transparent;
     border: 1px solid rgba(0,0,0,.125);
     border-width: 0 1px 1px 0;
@@ -1142,7 +1136,53 @@ table.indextable td > dl > dd > dl
 /* Library Additions */
 body {
     font-family: 'Lucida Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
-	background-color:  #f0f0f0 !important;
+	# background-color:  #f0f0f0 !important;
+}
+header#masthead {
+    background-color:  #f0f0f0 !important;
+}
+div.document {
+    width: 100%;
+    margin: 0;
+    background-color: #ffffff;
+    background-image: none;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-position: initial;
+}
+div#left-margin {
+    float: left;
+    clear: left;
+    width: 180px;
+    margin: 0;
+    padding: 0;
+    padding-top: 32px;
+    vertical-align: top;
+    border: none;
+    font-size: .8em;
+}
+div.faq-list,
+div.kb-article,
+div.kb-list,
+div.training-list,
+div.tutorial-article,
+div.library-document {
+    margin-left: 210px;
+}
+div#left-margin p.topic-title,
+div#left-margin p.bull-head {
+    font-weight: bold;
+    margin-top: 12px;
+    color: #696969;
+}
+div#left-margin p.topic-title {
+    margin-top: 0;
+}
+div#left-margin ul.no-bull {
+    margin: 4px 0;
+}
+div#left-margin ul.no-bull-sub {
+    margin: 4px 0 4px 8px;
 }
 div.relbar-top,
 div.relbar-bottom,
@@ -1170,6 +1210,7 @@ div#indices-and-tables h2 {
     text-transform: none;
     border: none;
 }
+div.sphinxsidebar, div.sidebartoggle, div.sidebar-toggle-group { display: none; }
 div.document a,
 div.document a:link,
 div.document h2 {
@@ -1203,22 +1244,32 @@ a em {
 
 /* Formatting for Parameter Entries */
 
+body div.body p.rubric-1 {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+body div.body p.rubric-2 {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+body div.body p.rubric-separated {
+    color: #236B8E; /* steelblue */
+    border-bottom: 1px solid #236B8E; /* steelblue */
+}
 body div.body p.rubric {
     padding-bottom: 10px;
     margin-top: 25px;
-    margin-bottom:12px;
-    font-weight: bold;
-    font-size:110%;
+    margin-bottom: 12px;
     border-right: none;
 }
 body div.body p.rubric tt.literal {
     font-family: monospace;
     background-color: transparent  !important;
     border: 0px;
-    letter-spacing:0.05em;
-    font-size:100%;
-    padding:0px;
-    margin:0px;
+    letter-spacing: 0.05em;
+    font-size: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 body div.body p.rubric.list-sub-header {
     margin-bottom: 5px;
@@ -1268,6 +1319,11 @@ div.formula {
     margin: 20px 0 20px 30px;
     font-style: italic;
 }
+div.faq-list ul,
+div.kb-article ul,
+div.kb-list ul,
+div.training-list ul,
+div.tutorial-article ul,
 div.library-document ul {
     margin-left: 30px;
     padding-left: 10px;
@@ -1289,13 +1345,6 @@ ul.video-stats {
 .video-stats-line {
     font-size: .8em;
     color: #4f4f4f;
-}
-ul.no-bull {
-    margin-left: 0;
-    margin-bottom: 20px;
-    padding-inline-start: 0;
-    text-indent: 0;
-    list-style-type: none;
 }
 ul.no-bull {
     margin-left: 0;

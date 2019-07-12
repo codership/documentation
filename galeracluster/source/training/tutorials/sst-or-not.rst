@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`sst-or-not`:
 
@@ -12,9 +42,9 @@ To SST or Not To SST?
 If a node leaves the cluster and subsequently rejoins, Galera will internally make sure that the node is brought up to speed with the rest of the cluster. It is important for DBAs that this process completes quickly, so ideally SST is avoided altogether and IST is used. However, when looking at the log, SST is still mentioned even if IST is ultimately chosen, which may cause confusion.
 In this article, we will describe the entire process of getting a restarted node back to speed with the rest of the cluster and explain the logic behind the various log messages.
 
---------------------------------
-Basic Principles
---------------------------------
+
+.. rubric:: Basic Principles
+   :class: rubric-1
 
 State transfers in Galera are governed by the following basic principles:
 The cluster will pick a donor node using an algorithm that favors IST and attempts to avoid any transfers over a wide-area network. A specific donor can be explicitly chosen using the wsrep_sst_donor variable.
@@ -25,9 +55,9 @@ If a node is starting from an unknown state (such as empty database or a missing
 If the node was temporarily disconnected from the cluster while the mysqld process remains running, only IST can happen if the SST method is set to xtrabackup, xtrabackup-v2 or rsync. This is because the entire data directory can not be copied over to a running server.
 If both methods are possible, as is the case during a vanilla server restart, it is up to the donor node to decide if it can deliver IST. If needed, the donor has the ability to fall back to SST instead.
 
---------------------------------
-Step-by-Step Walkthrough
---------------------------------
+
+.. rubric:: Step-by-Step Walkthrough
+   :class: rubric-1
 
 This section describes the entire state transfer process during a normal server restart and shows the typical log messages that happen at each phase.
 First, the joining node establishes its current replication position and compares it to the position the rest of the cluster has moved to while the node was disconnected:
@@ -95,9 +125,9 @@ The entire procedure ends when the replication events from the IST have been app
    WSREP: Shifting JOINED -> SYNCED (TO: 17)
    WSREP: Synchronized with group, ready for connections
 
-------------
-Catch-Up
-------------
+
+.. rubric:: Catch-Up
+   :class: rubric-1
 
 After the joiner has received a State Transfer, it must also catch up with any transactions that were issued on the rest of the cluster while the State Transfer was in progress. Those transactions are continuously received by the joiner and stored in the gcache. As soon as the state transfer completes, the donor needs to apply them all.
 

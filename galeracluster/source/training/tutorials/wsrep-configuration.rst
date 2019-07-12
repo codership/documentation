@@ -1,3 +1,40 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Galera Parameters <../../../documentation/galera-parameters>`
+      - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
+      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+      - :ref:`wsrep_node_name <wsrep_node_name>`
+      - :ref:`wsrep_node_address <wsrep_node_address>`
+      - :ref:`wsrep_provider_options <wsrep_provider_options>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`wsrep-configuration`:
 
@@ -31,11 +68,9 @@ In addition to the configuration for the database server, there are some specifi
    wsrep_node_address="192.168.0.1"
 
 
-
-^^^^^^^^^^^^^^^^^^^
-Backend Schema
-^^^^^^^^^^^^^^^^^^^
 .. _`backend-schema`:
+.. rubric:: Backend Schema
+   :class: rubric-1
 
 There are two backend schemata available with Galera Cluster.
 
@@ -44,11 +79,9 @@ There are two backend schemata available with Galera Cluster.
 - ``gcomm``: This provides the group communications back-end for use in production.  It accepts an address and has several settings that may be enabled through the option list, or by using the :ref:`wsrep_provider_options <wsrep_provider_options>` parameter.
 
 
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-Cluster Addresses
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`cluster-addresses`:
+.. rubric:: Cluster Addresses
+   :class: rubric-1
 
 For the cluster address section, you have to provide a comma-separate list of IP addresses for all of the nodes in the cluster.  You would do this using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Cluster addresses are listed in the configuration file using a particular syntax, like so:
 
@@ -69,11 +102,9 @@ The IP addresses given in the configuration file should include any current memb
 If you start a node without proving an IP address for this parameter, the node will assume that it's the first node of a new cluster.  It will initialize the cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option.
 
 
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _`cluster-address-options`:
+.. rubric:: Options
+   :class: rubric-1
 
 When setting the IP address in the configuration file using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, you can also set some options. You can set backend parameters, such as the listen address and timeout values.
 

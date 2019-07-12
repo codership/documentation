@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`differences`:
 
@@ -16,10 +46,8 @@ Although Galera Cluster is built on providing write-set replication to MySQL and
 
 
 .. _`server-difference`:
-
-------------------------
-Server Differences
-------------------------
+.. rubric:: Server Differences
+   :class: rubric-1
 
 Using a server with Galera Cluster is not the same as one with MySQL.  Galera Cluster does not support the same range of operating systems as MySQL, and there are differences in how it handles binary logs and character sets.
 
@@ -136,11 +164,10 @@ You cannot direct query logs to a table.  If you would like to enable query logg
 
 Use ``general_log`` and ``general_log_file`` to choose query logging and to set the filename for your log file.
 
-.. _`diff-transactions`:
 
-----------------------------
-Differences in Transactions
-----------------------------
+.. _`diff-transactions`:
+.. rubric:: Differences in Transactions
+   :class: rubric-1
 
 There are some differences in how Galera Cluster handles transactions from MySQL, such as :abbr:`XA (eXtended Architecture)` transactions and limitations on transaction size.
 

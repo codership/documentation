@@ -1,3 +1,38 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`backup-cluster`
+      - :doc:`galera-parameters`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
+
+
 .. cssclass:: library-document
 .. _`arbitrator`:
 
@@ -12,7 +47,7 @@
 .. index::
    pair: Logs; Galera Arbitrator
 
-It's recommended when deploying a Galera Cluster that you use a minimum of three instances: Three nodes, three datacenters and so on.
+It's recommended when deploying a Galera Cluster that you use a minimum of three instances: Three nodes, three data centers and so on.
 
 If the cost of adding resources (e.g., a third datacenter) is too much, you can use :term:`Galera Arbitrator`.  Galera Arbitrator is a member of a cluster that participates in voting, but not in the actual replication.
 
@@ -34,10 +69,8 @@ For more information on using Galera Arbitrator for making backups, see :doc:`ba
 
 
 .. _`starting-arbitrator`:
-
------------------------------
-Starting Galera Arbitrator
------------------------------
+.. rubric:: Starting Galera Arbitrator
+   :class: rubric-1
 
 Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``.  This means that you must start it separately from the cluster.  It also means that you cannot configure Galera Arbitrator through the ``my.cnf`` configuration file.
 
@@ -54,10 +87,9 @@ How you configure Galera Arbitrator depends on how you start it.  That is to say
 
 
 .. _`arbitrator-shell-start`:
+.. rubric:: Starting Galera Arbitrator from the Shell
+   :class: rubric-1
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Starting Galera Arbitrator from the Shell
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When starting Galera Arbitrator from the shell, you have two options as to how you may configure it.  You can set the parameters through the command line arguments, as in the example here:
 
@@ -113,10 +145,8 @@ For more information on the options available to Galera Arbitrator, see :doc:`ga
 
 
 .. _`arbitrator-service-start`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Starting Galera Arbitrator as a Service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Starting Galera Arbitrator as a Service
+   :class: rubric-1
 
 When starting Galera Aribtrator as a service, whether using ``init`` or ``systemd``, you would use a different format for the configuration file than you would use when starting it from the shell. Below is an example of the configuration file:
 

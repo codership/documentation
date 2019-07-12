@@ -1,3 +1,45 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`upgrading`
+      - :ref:`evs.auto_evict <evs.auto_evict>`
+      - :ref:`evs.delayed_keep_period <evs.delayed_keep_period>`
+      - :ref:`evs.delayed_margin <evs.delayed_margin>`
+      - :ref:`evs.evict <evs.evict>`
+      - :ref:`evs.version <evs.version>`
+      - :ref:`wsrep_evs_delayed <wsrep_evs_delayed>`
+      - :ref:`wsrep_evs_evict_list <wsrep_evs_evict_list>`
+      - :ref:`wsrep_evs_state <wsrep_evs_state>`
+      - :ref:`wsrep_provider_options <wsrep_provider_options>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
+
 .. cssclass:: library-document
 .. _`auto-eviction`:
 
@@ -9,10 +51,8 @@ When Galera Cluster notices erratic behavior in a node (e.g., unusually delayed 
 
 
 .. _`config-auto-eviction`:
-
------------------------------
-Configuring Auto-Eviction
------------------------------
+.. rubric:: Configuring Auto-Eviction
+   :class: rubric-1
 
 Each node in a cluster monitors the group communication response times from all other nodes in the cluster.  When a cluster registers delayed responses from a node, it makes an entry about the node to the delayed list.
 
@@ -40,10 +80,8 @@ You can configure the parameters of Auto-Eviction by setting the following optio
 
 
 .. _`eviction-status`:
-
--------------------------------
-Checking Eviction Status
--------------------------------
+.. rubric:: Checking Eviction Status
+   :class: rubric-1
 
 If you suspect a node is becoming delayed, you can check its eviction status through Galera status variables. You can do this by using the ``SHOW STATUS`` statement from the database client.  You would enter something like this:
 
@@ -62,10 +100,8 @@ Below are the Galera status variables available to you:
 
 
 .. _`upgrade-evs`:
-
-----------------------------------
-Upgrading from Previous Versions
-----------------------------------
+.. rubric:: Upgrading from Previous Versions
+   :class: rubric-1
 
 Releases of Galera Cluster prior to version 3.8 use EVS Protocol version 0, which is not directly compatible with version 1.  As such, when you upgrade Galera Cluster for a node, the node continues to use EVS Protocol version 0.
 

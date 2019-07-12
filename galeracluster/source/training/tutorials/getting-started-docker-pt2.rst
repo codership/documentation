@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`getting-started-docker-pt2`:
 
@@ -32,9 +62,8 @@ Before we start, we need to stop enforcing AppArmor for Docker:
    $ aa-complain /etc/apparmor.d/docker
 
 
-------------------------------------------------------
-Building a Multi-Node Cluster using the Default Ports
-------------------------------------------------------
+.. rubric:: Building a Multi-Node Cluster using the Default Ports
+   :class: rubric-1
 
 Building a multi-node cluster using the default ports is not complicated. Besides mapping the ports 1:1, we also need to set `–wsrep-node-address` to the IP address of the host.
 
@@ -70,9 +99,8 @@ A simple cluster setup would look like this:
 In this example, we used the image from the previous blog post. Docker is going to download the image if it is not already present on the node.
 
 
-------------------------------------------------------
-Building a Multi-Node Cluster using Non-Default Ports
-------------------------------------------------------
+.. rubric:: Building a Multi-Node Cluster using Non-Default Ports
+   :class: rubric-1
 
 In the long run, we may want to start more than one instance of Galera on a host in order to run more than one Galera cluster using the same set of hosts.
 
@@ -117,8 +145,8 @@ The following Galera Cluster configuration options are used to specify each port
    4568 IST port is configured using `–wsrep-provider-options=”ist.recv_addr=”`
    4444 SST port is configured using `–wsrep-sst-receive-address`
 
----------
-Summary
----------
+
+.. rubric:: Summary
+   :class: rubric-1
 
 In this blog post, we described how to run Galera Cluster inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.

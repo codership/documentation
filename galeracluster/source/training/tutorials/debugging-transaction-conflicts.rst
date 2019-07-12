@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`debugging-transaction-conflicts`:
 
@@ -14,9 +44,8 @@ Legacy applications are frequently unable to handle transaction conflicts proper
 
 If the ``wsrep_log_conflicts`` option is set, Galera can output all the information about transaction conflicts that is available to it to the error log. As it is a dynamic option, you can enable it while the server is running, collect some entries for examination, and disable it to avoid filling up the log.
 
-------------------------
-Decoding the Output
-------------------------
+.. rubric:: Decoding the Output
+   :class: rubric-1
 
 The output from ``wsrep_log_conflicts`` may look a bit intimidating at first, but in fact contains a lot of information that can be used to pin-point the offending application, module or SQL operation. The relevant pieces of information have been underlined:
 
@@ -86,9 +115,9 @@ problematic_key_value21 - any string fields will be decoded and visible in the o
 
 seqno: 24 - the binary log ID of the winning transaction.
 
-------------------------------------
-Determining the Winning Transaction
-------------------------------------
+
+.. rubric:: Determining the Winning Transaction
+   :class: rubric-1
 
 All the information from the output above, except for the seqno, pertains to the victim transaction of a conflict. Sometimes it is useful to determine the transaction that won the conflict and was not aborted, and the seqno can be used to obtain that information from the binary log.
 

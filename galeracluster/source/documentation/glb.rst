@@ -1,3 +1,43 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`Using Galera Load Balancer <glb-use>`
+      - :ref:`LISTEN_ADDR <glb-listen_addr>`
+      - :ref:`DEFAULT_TARGETS <glb-default_targets>`
+      - :ref:`OTHER_OPTIONS <glb-other_options>`
+      - :ref:`--round <glb-round>`
+      - :ref:`--single <glb-single>`
+      - :ref:`--random <glb-random>`
+      - :ref:`--source <glb-source>`
+      - :ref:`Service Installation <glb-service>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`glb-doc`:
 
@@ -15,10 +55,8 @@ Galera Load Balancer provides simple TCP connection balancing. It was developed 
 
 
 .. _`glb-install`:
-
-------------------------
-Installation
-------------------------
+.. rubric:: Installation
+   :class: rubric-1
 
 Unlike Galera Cluster, there is no binary installation available for Galera Load Balancer.  Installing it on your system will requires you to build it from the source files.  They're available on GitHub at `glb <https://github.com/codership/glb>`_.
 
@@ -53,10 +91,8 @@ In addition to the system daemon, you will also have installed ``libglb``, a sha
 
 
 .. _`glb-service`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Service Installation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Service Installation
+   :class: rubric-1
 
 The above installation procedure only installs Galera Load Balancer to be run manually from the command-line.  However, you may find it more useful to run this application as a system service. To do this, you'll need to copy a couple of files to the appropriate directories.
 
@@ -76,11 +112,10 @@ Now, copy the default ``glbd.cfg`` file into the appropriate configuration direc
 
 When you finish this, you will be able to manage Galera Load Balancer through the ``service`` command.  For more information on available commands, see :ref:`Using Galera Load Balancer <glb-use>`.
 
-.. _`glb-config`:
 
----------------------
-Configuration
----------------------
+.. _`glb-config`:
+.. rubric:: Configuration
+   :class: rubric-1
 
 When you run Galera Load Balancer, you can configure its use through the command-line options. You can get a list of by exeduting ``glb`` with the ``--help`` option.  For servers running Galera Load Balancer as a service, you can manage it through the ``glbd.cfg`` configuration file.
 
@@ -103,10 +138,8 @@ The ``glbd.cfg`` configuration file would be the one you copied into ``/etc`` as
 
 
 .. _`glb-dest-select`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Destination Selection Policies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Destination Selection Policies
+   :class: rubric-2
 
 Galera Load Balancer--both the system daemon and the shared library--supports five destination selection policies. When you run it from the command-line, you can define these using the command-line arguments. Otherwise, you'll have to add the arguments to the :ref:`OTHER_OPTIONS <glb-other_options>` parameter in the ``glbd.cfg`` configuration file.
 
@@ -122,10 +155,8 @@ Galera Load Balancer--both the system daemon and the shared library--supports fi
 
 
 .. _`glb-use`:
-
----------------------------
-Using Galera Load Balancer
----------------------------
+.. rubric:: Using Galera Load Balancer
+   :class: rubric-1
 
 The section on :ref:`Service Installation <glb-service>` explained how to configure a system to run Galera Load Balancer as a service.  If you do that, you can then manage common operations with the ``service`` command. The format for doing this is to enter ``service``, followed by ``glb``, and then an option.
 

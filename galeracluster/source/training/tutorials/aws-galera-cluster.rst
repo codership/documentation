@@ -1,3 +1,35 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`aws-galera-cluster`:
 
@@ -17,7 +49,7 @@ We're assuming you already have an account with AWS and know the basics of how t
 
 
 .. rubric:: Encryption Key
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 For this article, we'll create three nodes to be used in the cluster. To access these nodes, you'll need an encryption key. You can use an existing key, but we recommend creating a new one specifically for the Galera. There are many tools to do so, such as ``ssh-keygen``. See `Generating an SSH Key <https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_ for instructions on how to do this.
 
@@ -25,7 +57,7 @@ Once you have your encryption key, log into AWS and navigate to the EC2 console.
 
 
 .. rubric:: Creating AWS Instances
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 With an encryption key in place, you're ready to create three instances on AWS. You could create more, but we'll do three, which is the minimum recommended for a healthy cluster. In the EC2 console, click on *Instances* in the left margin. That will show your existing instances in the main pane. Now click on the large blue button at the top labeled, *Launch Instances*.
 
@@ -52,7 +84,7 @@ Now, click on the *Instances* link in the margin again to see state of the insta
 
 
 .. rubric:: Installing Software on Nodes
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 When all three nodes are running, you're ready to install and configure the database and Galera software. Check the details of each instance to get the external IP address. Then use ``ssh`` to log into each node, using your the encryption key.
 
@@ -87,7 +119,7 @@ That will install everything we need, including the Galera software since it's s
 
 
 .. rubric:: Configuring Software on Nodes
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 Before starting MariaDB on each node, you need to configure it. To do this, edit the ``my.cnf`` file |---| or ``/etc/my.cnf.d/server.cnf`` as we did. Add the following lines under the ``[mysqld]`` heading:
 
@@ -134,7 +166,7 @@ That's all that we need to do to configure MariaDB and Galera. However, don't st
 
 
 .. rubric:: Security Settings on Nodes
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 Security is important, but it can be the biggest obstacle for creating a new Galera Cluster. You have to open the lines of communications between the nodes. The two main factors will be SELinux and the firewall. You could disable both, but we recommend using them and enabling what you need.
 
@@ -168,7 +200,7 @@ After these lines have been executed on each node, they're now ready to interact
 
 
 .. rubric:: Security Settings on AWS
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 From the AWS EC2 console, under *Security* in the left margin, click on *Security Groups* and then select the one you created for your Galera cluster. Under the *Actions* pull-down menu, select *Edit Inbound Rules*. This will open a large dialog box like the one in the screenshot below.
 
@@ -185,7 +217,7 @@ Now that you've authorized each Galera node to communicate with the others on th
 
 
 .. rubric:: Starting Galera
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 When first starting a new Galera cluster, you'll have to start one node first. The problem is that if there are no other nodes in the cluster, it will fail |---| unless you start MariaDB on the first node telling it that it's the first. To do this, you would use the ``--wsrep-new-cluster`` option.
 

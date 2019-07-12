@@ -1,3 +1,35 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_sst_method <wsrep_sst_method>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`sst-logical`:
 
@@ -25,10 +57,8 @@ The Logical State Transfer Method has the following disadvantages:
 
 
 .. _`sst-mysqldump`:
-
---------------------------
-``mysqldump``
---------------------------
+.. rubric:: ``mysqldump``
+   :class: rubric-1
 
 The main advantage of ``mysqldump`` is that you can transfer a state snapshot to a working server.  That is, you start the server standalone and then instruct it to join a cluster from within the database client command line.  You can also use it to migrate from an older database format to a newer one.
 
@@ -49,5 +79,5 @@ For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.
 
 .. toctree::
    :hidden:
-   
+
    mysqldump

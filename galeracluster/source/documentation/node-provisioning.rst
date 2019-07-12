@@ -1,3 +1,37 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
+      - :ref:`wsrep_node_name <wsrep_node_name>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
+
 .. raw:: html
 
     <style> .red {color:red} </style>
@@ -35,9 +69,10 @@ In the event that the node crashes while in :term:`Total Order Isolation` mode, 
 
 .. note:: In normal transaction processing, only the seqno part of the GTID remains undefined, (that is, with a value of ``-1``.  The UUID, (that is, the remainder of the node state), remains valid.  In such cases, you can recover the node through an :term:`Incremental State Transfer`.
 
----------------------------
-How Nodes Join the Cluster
----------------------------
+
+.. _`node-provisioning-about-joiners`:
+.. rubric:: How Nodes Join the Cluster
+   :class: rubric-1
 
 When a node joins the cluster, it compares its own :term:`state UUID` to that of the :term:`Primary Component`.  If the state UUID does not match, the joining node requests a state transfer from the cluster.
 
@@ -59,10 +94,8 @@ While there is no guarantee on how soon a node will catch up, when it does the n
 
 
 .. _`node-provisioning-state-transfer`:
-
--------------------
-State Transfers
--------------------
+.. rubric:: State Transfers
+   :class: rubric-1
 
 There are two types of state transfers available to bring the node up to date with the cluster:
 

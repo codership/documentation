@@ -1,3 +1,41 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`firewall-pf`
+      - :doc:`Galera Cluster for MySQL <install-mysql-src>`
+      - :doc:`MariaDB Galera Cluster <install-mariadb-src>`
+      - :ref:`wsrep_node_name <wsrep_node_name>`
+      - :ref:`wsrep_provider <wsrep_provider>`
+      - :ref:`wsrep_node_address <wsrep_node_address>`
+      - :ref:`wsrep_node_name <wsrep_node_name>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`jails`:
 
@@ -10,18 +48,14 @@ In FreeBSD, jails provides a platform for securely deploying applications within
 Galera Cluster can run from within a jail instance.
 
 .. _`jails-prep-serve`:
-
---------------------------
-Preparing the Server
---------------------------
+.. rubric:: Preparing the Server
+   :class: rubric-1
 
 Jails exist as isolated file systems within, but unaware of, the host server.  In order to grant the node running within the jail network connectivity with the cluster, you need to configure the network interfaces and firewall to redirect from the host into the jail.
 
 .. _`jail-net-config`:
-
-^^^^^^^^^^^^^^^^^^^^^
-Network Configuration
-^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Network Configuration
+   :class: rubric-2
 
 To begin, create a second loopback interface for the jail.  this allows you to isolate jail traffic from ``lo0``, the host loopback interface.
 
@@ -50,10 +84,8 @@ This creates ``lo1``, a new loopback network interface for your jails.  You can 
 
 
 .. _`jails-pf`:
-
-^^^^^^^^^^^^^^^^^^^^^^^
-Firewall Configuration
-^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Firewall Configuration
+   :class: rubric-2
 
 FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.  For jails, you can route traffic from external ports on the host system to internal ports within the jail's file system.  This allows the node running within the jail to have network access as though it were running on the host system.
 
@@ -119,10 +151,8 @@ For more information on firewall configurations for FreeBSD, see :doc:`firewall-
 
 
 .. _`jail-creation`:
-
-----------------------
-Creating the Node Jail
-----------------------
+.. rubric:: Creating the Node Jail
+   :class: rubric-1
 
 While FreeBSD does provide a manual interface for creating and managing jails on your server, (``jail(8)``), it can prove cumbersome in the event that you have multiple jails running on a server.
 
@@ -192,10 +222,8 @@ When you enter the jail file system, note that the hostname changes to indicate 
 
 
 .. _`jails-galera-install`:
-
---------------------------
-Installing Galera Cluster
---------------------------
+.. rubric:: Installing Galera Cluster
+   :class: rubric-1
 
 Regardless of whether you are on the host system or working from within a jail, currently, there is no binary package or port available to fully install Galera Cluster on FreeBSD.  You must build the database server from source code.
 
@@ -214,10 +242,8 @@ This install the wsrep Provider file in ``/usr/local/lib``.  Use this path in th
 
 
 .. _`jails-node-config`:
-
-^^^^^^^^^^^^^^^^^^^^^^^
-Configuration File
-^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Configuration File
+   :class: rubric-2
 
 For the most part, the configuration file for a node running in a jail is the same as when the node runs on a standard FreeBSD server.  But, there are some parameters that draw their defaults from the base system.  These you need to set manually, as the jail is unable to access the host file system.
 
@@ -250,10 +276,8 @@ If you are logged into the jail console, place the configuration file at ``/etc/
 
 
 .. _`jails-galera-start`:
-
----------------------------
-Starting the Cluster
----------------------------
+.. rubric:: Starting the Cluster
+   :class: rubric-1
 
 When running the cluster from within jails, you create and manage the cluster in the same manner as you would in the standard deployment of Galera Cluster on FreeBSD.  The exception being that you must obtain console access to the node jail first.
 

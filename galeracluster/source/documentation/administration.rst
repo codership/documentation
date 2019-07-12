@@ -1,3 +1,60 @@
+.. meta::
+   :title: Galera Cluster Administration
+   :description: An explanation of the administration and management of Galera Cluster.
+   :language: en-US
+   :keywords: galera, cluster, mysql, mariadb, dba, admin, node provisioning
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Arbitrator <arbitrator>`
+      - :doc:`auto-eviction`
+      - :doc:`Backups <backup-cluster>`
+      - :doc:`monitor`
+      - :doc:`deployment`
+      - :doc:`Flow Control <managing-fc>`
+      - :doc:`system-tables`
+      - :doc:`node-provisioning`
+      - :doc:`Recover Primary <pc-recovery>`
+      - :doc:`Reset Quorum <quorum-reset>`
+      - :doc:`schema-upgrades`
+      - :doc:`Scriptable SST <scriptable-sst>`
+      - :doc:`security`
+      - :doc:`sst`
+      - :doc:`Streaming Replication <using-sr>`
+      - :doc:`Upgrading Galera <upgrading>`
+
+      .. cssclass:: bull-head
+
+      Related Articles
+
+      - :doc:`../training/tutorials/migrate`
+
+
 .. cssclass:: library-document
 .. _`administration`:
 
@@ -11,6 +68,7 @@ The sections in this part relate to the administration of nodes and the cluster.
 
 .. _`node-admin`:
 .. rubric:: Node Administration
+   :class: rubric-1
 
 Managing and administering nodes in Galera Cluster is similar to the administration and management of the standard standalone MySQL, MariaDB and Percona XtraDB database servers, with some additional features used to manage its interaction with the cluster.  These pages cover the administration of individual nodes, how they handle write-set replication and schema updates, and the procedure for upgrading Galera Cluster software.
 
@@ -30,7 +88,6 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 
   When you install Galera Cluster, it creates a set of system tables in the ``mysql`` database, which it uses to store configuration information.  Similar to how the underlying database server uses the ``performance_schema`` and ``information_schema``, Galera Cluster uses these tables to record information relevant to replication.  This section provides a guide to what you'll find in these tables and how you might query them for useful information about the status of the node and the cluster.
 
-
 - :doc:`schema-upgrades`
 
   Statements that update the database schema, (that is, DDL statements), are non-transactional and as such won't replicate to the cluster through write-sets.  This section covers different methods for online schema upgrades and how to implement them in your deployment.
@@ -40,10 +97,9 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
   In order to upgrade Galera Cluster to a new version or increment of the software, there are a few additional steps you need to take in order to maintain the cluster during the upgrade.  This section provides guides to different methods in handling this process.
 
 
-
-
 .. _`cluster-admin`:
 .. rubric:: Cluster Administration
+   :class: rubric-1
 
 In addition to node administration, Galera Cluster also provides interfaces for managing and administering the cluster.  These sections cover Primary Component recovery, managing Flow Control and Auto Eviction, as well as Galera Arbitrator and how to handle backups.
 
@@ -67,7 +123,6 @@ In addition to node administration, Galera Cluster also provides interfaces for 
 - :doc:`using-sr`
 
   When the node uses Streaming Replication, instead of waiting for the commit to replicate and apply transactions to the cluster, it breaks the transaction down into replication units, transferring and applying these on the slave nodes while the transaction is still open.  This section provides a guide to how to enable, configure and utilize Streaming Replication.
-
 
 - :doc:`arbitrator`
 

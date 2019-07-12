@@ -1,3 +1,40 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Galera Parameters <galera-parameters>`
+      - :ref:`gcache.dir <gcache.dir>`
+      - :ref:`gcache.recover <gcache.recover>`
+      - :ref:`Incremental St. Transfr. <state-transfer-ist>`
+      - :doc:`sst`
+      - :ref:`State Snap. Transfr. <state-transfer-sst>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. raw:: html
 
     <style> .red {color:red} </style>
@@ -21,11 +58,10 @@ The process of replicating data from the cluster to the individual node, bringin
 - :ref:`State Snapshot Transfers (SST) <state-transfer-sst>` Where a snapshot of the entire node state transfers.
 - :ref:`Incremental State Transfers (IST) <state-transfer-ist>` Where only the missing transactions transfer.
 
-.. _`state-transfer-sst`:
 
-----------------------------------
- State Snapshot Transfer (SST)
-----------------------------------
+.. _`state-transfer-sst`:
+.. rubric:: State Snapshot Transfer (SST)
+   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_sst_method
@@ -60,10 +96,8 @@ You can set which State Snapshot Transfer method a node uses from the confirmati
 
 
 .. _`state-transfer-ist`:
-
-----------------------------------
- Incremental State Transfer (IST)
-----------------------------------
+.. rubric:: Incremental State Transfer (IST)
+   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_sst_method
@@ -102,10 +136,8 @@ The advantage of Incremental State Transfers is that they can dramatically speed
 
 
 .. _`state-transfer-gcache`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Write-set Cache (GCache)
-^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Write-set Cache (GCache)
+   :class: rubric-2
 
 .. index::
    pair: GCache; Descriptions

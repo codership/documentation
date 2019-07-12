@@ -1,3 +1,25 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+
 .. cssclass:: training-list
 .. _`training-tutorials`:
 
@@ -7,12 +29,11 @@ Tutorials
 
 These are tutorial articles of the training section of the Codership Library. Here you'll find tutorial articles on how to get started with Galera and other basic tasks related to initially starting a Galera Cluster. There are also some intermediate articles on a few other aspects of Galera and related software.
 
----------------
-Beginner Level
----------------
+.. rubric:: Beginner Level
+   :class: rubric-1
 
 .. rubric:: :doc:`getting-started`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -24,7 +45,7 @@ Beginner Level
 
 
 .. rubric:: :doc:`galera-installation`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -36,7 +57,7 @@ Beginner Level
 
 
 .. rubric:: :doc:`configuration`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -48,7 +69,7 @@ Beginner Level
 
 
 .. rubric:: :doc:`wsrep-configuration`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -60,7 +81,7 @@ Beginner Level
 
 
 .. rubric:: :doc:`starting-cluster`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -72,7 +93,7 @@ Beginner Level
 
 
 .. rubric:: :doc:`testing-cluster`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -84,7 +105,7 @@ Beginner Level
 
 
 .. rubric:: :doc:`restarting-cluster`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -96,7 +117,7 @@ Beginner Level
 
 
 .. rubric:: :doc:`migrate`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -107,12 +128,11 @@ Beginner Level
    If you have an existing database, but aren't yet using Galera Cluster, you'll have to migrate your data. This has to be done a particular way. This tutorial article will help you to understand the concepts involved and take you through the steps to migrate a database.
 
 
--------------------
-Intermediate Level
--------------------
+.. rubric:: Intermediate Level
+   :class: rubric-1
 
 .. rubric:: :doc:`aws-galera-cluster`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -124,7 +144,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`getting-started-docker-pt1`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -136,7 +156,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`getting-started-docker-pt2`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -148,7 +168,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`achieving-read-after-write-semantics`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -160,7 +180,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`debugging-transaction-conflicts`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -172,7 +192,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`debug-problems-with-sst`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -184,7 +204,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`geo-distributed-clusters`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -196,7 +216,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`primary-component`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -208,7 +228,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`supporting-transaction-isolation-levels`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -220,7 +240,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`safe-to-bootstrap-feature`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 
@@ -232,7 +252,7 @@ Intermediate Level
 
 
 .. rubric:: :doc:`sst-or-not`
-   :class: list-sub-header
+   :class: list-sub-header rubric-2
 
 .. rst-class:: list-stats
 

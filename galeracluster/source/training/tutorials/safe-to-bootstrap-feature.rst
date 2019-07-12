@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`safe-to-bootstrap-feature`:
 
@@ -13,9 +43,9 @@ Galera Clusters are generally meant to run non-stop, so shutting down the entire
 
 Galera 3.19 includes two important improvements to whole-cluster restart: the “Safe-to-Bootstrap” protection and Gcache recovery. In this article, we will describe the first feature.
 
---------------------------------
-Whole-Cluster Restart
---------------------------------
+
+.. rubric:: Whole-Cluster Restart
+   :class: rubric-1
 
 First, a few words on cluster restarts in general. Regardless of whether it was an orderly shutdown or a sudden crash of all nodes, restarting the entire cluster is governed by the following principles:
 
@@ -23,9 +53,9 @@ First, a few words on cluster restarts in general. Regardless of whether it was 
 - The first node that is being started must be bootstrapped
 - It is important to select the node that has the last transactions committed as the first node in the new cluster
 
----------------------------------
-The Safe-to-Bootstrap Protection
----------------------------------
+
+.. rubric:: The Safe-to-Bootstrap Protection
+   :class: rubric-1
 
 In an orderly shutdown, the node that was shut down last will be the one that has the last transaction committed and should be chosen as the first node in the new cluster. Selecting another node for that role may cause errors down the road and open an opportunity for those last transactions to be lost.
 
@@ -41,9 +71,9 @@ When bootstrapping the new cluster, Galera will refuse to use as a first node a 
 
 In case of a sudden crash of the entire cluster, all nodes will be considered unsafe to bootstrap from, so operator action will always be required to force the use of a particular node as a bootstrap node.
 
---------------------------------
-Selecting the Right Node
---------------------------------
+
+.. rubric:: Selecting the Right Node
+   :class: rubric-1
 
 The procedure to select the right node to bootstrap from depends on how the cluster terminated: via an orderly shutdown or a crash.
 
@@ -83,8 +113,8 @@ The number after the UUID string on the "Recovered position" line is the one to 
 
 By doing that, you indicate to Galera that you have willfully selected that node and it will allow you to bootstrap from it.
 
---------------------------------
-Practice, Practice, Practice
---------------------------------
+
+.. rubric:: Practice
+   :class: rubric-1
 
 Similar to restoring from backup, restarting the entire cluster is an operation that deserves practice. In addition the data consistency protections provided by Galera, having a proven sequence of steps to perform when the occasion arises will reduce downtime and decrease the chance of accidental data loss. Last but not least, it will lower the stress on the administrator, which is an important goal in its own right!

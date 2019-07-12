@@ -1,3 +1,37 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`cert.log_conflicts <cert.log_conflicts>`
+      - :ref:`wsrep_debug <wsrep_debug>`
+      - :ref:`wsrep_log_conflicts <wsrep_log_conflicts>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`log`:
 
@@ -9,10 +43,8 @@ Galera Cluster provides the same database server logging features available to M
 
 
 .. _`server-log-parameters`:
-
-------------------------
-Log Parameters
-------------------------
+.. rubric:: Log Parameters
+   :class: rubric-1
 
 Galera Cluster provides parameters and wsrep options that allow you to enable error logging on events that are specific to the replication process.  If you have a script monitoring the logs, these entires can give you information on conflicts occurring in the replication process.
 
@@ -36,10 +68,8 @@ You can enable these through the ``my.cnf`` configuration file.  The excerpt bel
 
 
 .. _`gra.log`:
-
---------------------------
-Additional Log Files
---------------------------
+.. rubric:: Additional Log Files
+   :class: rubric-1
 
 Whenever a node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.
 

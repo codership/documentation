@@ -1,3 +1,37 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
+      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+      - :ref:`wsrep_ready <wsrep_ready>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`testing-cluster`:
 
@@ -11,10 +45,10 @@ Testing a Cluster
 
 When you have a cluster running, you may want to test certain features to ensure that they are working properly or to prepare yourself for handling actual problems that may arise.
 
--------------------------------------------
-Replication Testing
--------------------------------------------
+
 .. _`Replication Testing`:
+.. rubric:: Replication Testing
+   :class: rubric-1
 
 There are a few step to do to test that Galera Cluster is working as expected.  First, using the database client, verify that all nodes have connected to each other.  To do this, execute the ``SHOW STATUS`` statement like so:
 
@@ -73,10 +107,9 @@ These statements will create the database ``galeratest`` and the table ``test_ta
 The results returned  from the ``SELECT`` statement indicates that the data entered on ``node1`` was replicated on ``node2``.
 
 
--------------------------------------------
-Split-Brain Testing
--------------------------------------------
 .. _`Split Brain Testing`:
+.. rubric:: Split-Brain Testing
+   :class: rubric-1
 
 There are a few steps to test Galera Cluster for split-brain situations on a two-node cluster.  First, disconnect the network connection between the two nodes. At this point, the quorum will be lost and the nodes won't serve requests.
 
@@ -91,10 +124,9 @@ To reset the quorum, on one of the database clients, execute the following SQL s
 At this point the quorum should be reset and the cluster recovered.
 
 
---------------------
- Failure Simulation
---------------------
 .. _`Failure Simulation`:
+.. rubric:: Failure Simulation
+   :class: rubric-1
 
 You can also test Galera Cluster by simulating various failure situations on three nodes.  To simulate a crash of a single ``mysqld`` process, execute the following from the command-line on one of the nodes:
 

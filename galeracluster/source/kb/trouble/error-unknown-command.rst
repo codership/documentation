@@ -1,3 +1,39 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <./index>`
+         - :doc:`Best Practices <../best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../../training/tutorials/index>`
+         - :doc:`Training Videos <../../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+      - :ref:`wsrep_cluster_status <wsrep_cluster_status>`
+      - :ref:`wsrep_last_committed <wsrep_last_committed>`
+      - :ref:`wsrep_on <wsrep_on>`
+      - :ref:`wsrep_provider <wsrep_provider>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: kb-article
 .. _`kb-trouble-error-unknown-command`:
 

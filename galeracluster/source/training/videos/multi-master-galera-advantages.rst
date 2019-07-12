@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../tutorials/index>`
+         - :doc:`Training Videos <./index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-video
 .. _`video-multi-master-galera-advantages`:
 
@@ -23,7 +53,7 @@ In this part, we will discuss important topics related to multi-master setups:
 
 
 .. rubric:: Additional Information
-   :class: kb
+   :class: kb rubric-1
 
 For more information related to this video, see the following:
 

@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../tutorials/index>`
+         - :doc:`Training Videos <./index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: training-list
 .. _`training-videos`:
 
@@ -9,7 +39,7 @@ This section is for training videos on Galera Cluster and related software. At t
 
 
 .. rubric:: :doc:`high-availability-with-galera-cluster`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -19,7 +49,7 @@ This video is of Colin Charles speaking about the MySQL Server High Availability
 
 
 .. rubric:: :doc:`ddl-schema-upgrades`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -29,7 +59,7 @@ This a presentation by Sakari Keskitalo, C.O.O. of Codership and Philip Stoev sp
 
 
 .. rubric:: :doc:`galera-intro`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -39,7 +69,7 @@ This video presents Galera Cluster:  how it works and the benefits to organizati
 
 
 .. rubric:: :doc:`galera-installation-quick-start`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -49,7 +79,7 @@ This video describes how to get started with Galera Cluster and build a function
 
 
 .. rubric:: :doc:`migrating-master-slave-to-multi-master`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -59,7 +89,7 @@ This video provides the practical aspects of migrating a database setup based on
 
 
 .. rubric:: :doc:`geo-distributed-galera-cluster`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -69,7 +99,7 @@ This video presents the advantages of having a geo-distributed database cluster 
 
 
 .. rubric:: :doc:`galera-dba-devops`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -79,7 +109,7 @@ This video presents the best practices related to Galera Cluster by DBAs and Dev
 
 
 .. rubric:: :doc:`multi-master-galera-advantages`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 

@@ -1,3 +1,37 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`When to Stream <when-use-sr>`
+      - :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`
+      - :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`using-sr`:
 
@@ -16,10 +50,8 @@ This allows you to work with larger data-sets, manage hot records, and help avoi
 
 
 .. _`enable-sr`:
-
--------------------------------
-Enabling Streaming Replication
--------------------------------
+.. rubric:: Enabling Streaming Replication
+   :class: rubric-1
 
 The best practice when working with :term:`Streaming Replication` is to enable it at a session-level for specific transactions, or parts thereof.  The reason is that Streaming Replication increases the load on all nodes when applying and rolling back transactions.  You'll get better performance if you only enable Streaming Replication on those transactions that won't run correctly without it.
 
@@ -46,10 +78,8 @@ Choose the replication unit and fragment size that best suits the specific opera
 
 
 .. _`usr-hot-records`:
-
----------------------------------------
-Streaming Replication with Hot Records
----------------------------------------
+.. rubric:: Streaming Replication with Hot Records
+   :class: rubric-1
 
 When your application needs to update frequently the same records from the same table (e.g., implementing a locking scheme, a counter, or a job queue), Streaming Replication allows you to force critical changes to replicate to the entire cluster.
 

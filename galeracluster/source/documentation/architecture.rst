@@ -1,3 +1,34 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
+
 .. cssclass:: library-document
 .. _`replication-api`:
 
@@ -29,10 +60,8 @@ The internal architecture of Galera Cluster revolves around four components:
 
 
 .. _`wsrep-api`:
-
----------------
- wsrep API
----------------
+.. rubric:: wsrep API
+   :class: rubric-1
 
 .. index::
    pair: Global Transaction ID; Descriptions
@@ -59,10 +88,8 @@ For each node in the cluster, the application process occurs by high-priority tr
 
 
 .. _`global-transaction-id`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Global Transaction ID
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Global Transaction ID
+   :class: rubric-1
 
 In order to keep the state identical across the cluster, the wsrep API uses a :term:`Global Transaction ID`, or GTID.  This allows it to identify state changes and to identify the current state in relation to the last state change. Below is an example of a GTID:
 
@@ -80,10 +107,8 @@ The Global Transaction ID allows you to compare the application state and establ
 
 
 .. _`galera-replication-plugin`:
-
----------------------------
- Galera Replication Plugin
----------------------------
+.. rubric:: Galera Replication Plugin
+   :class: rubric-1
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It operates as the wsrep Provider. From a more technical perspective, the Galera Replication Plugin consists of the following components:
 
@@ -95,10 +120,9 @@ The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It oper
 
 
 .. _`group-communication-plugins`:
+.. rubric:: Group Communication Plugins
+   :class: rubric-1
 
-------------------------------
- Group Communication Plugins
-------------------------------
 .. index::
    pair: Virtual Synchrony; Descriptions
 
@@ -110,7 +134,7 @@ While virtual synchrony guarantees consistency, it does not guarantee temporal s
 
 Group Communication Framework also provides a total ordering of messages from multiple sources.  It uses this to generate :term:`Global Transaction ID`'s in a multi-master cluster.
 
-At the transport level, Galera Cluster is a symmetric undirected graph.  All database nodes connect to each other over a :abbr:`TCP (Transmission Control Protocl)` connection.  By default, :abbr:`TCP (Transmission Control Protocl)` is used for both message replication and the cluster membership services. However, you can also use :abbr:`UDP (User Datagram Protocol)` multicast for replication in a :abbr:`LAN (Local Area Network)`.
+At the transport level, Galera Cluster is a symmetric undirected graph.  All database nodes connect to each other over a :abbr:`TCP (Transmission Control Protocol)` connection.  By default, :abbr:`TCP (Transmission Control Protocol)` is used for both message replication and the cluster membership services. However, you can also use :abbr:`UDP (User Datagram Protocol)` multicast for replication in a :abbr:`LAN (Local Area Network)`.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

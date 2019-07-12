@@ -1,3 +1,36 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Scriptable SST <scriptable-sst>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
+
 .. cssclass:: library-document
 .. _`backup-cluster`:
 
@@ -24,10 +57,8 @@ Getting backups with the associated Global Transaction ID requires a different a
 
 
 .. _`sst-backup`:
-
-----------------------------------
-State Snapshot Transfer as Backup
-----------------------------------
+.. rubric:: State Snapshot Transfer as Backup
+   :class: rubric-1
 
 Taking a full data backup is very similar to node provisioning through a :term:`State Snapshot Transfer`.  In both cases, the node creates a full copy of the database contents, using the same mechanism to associate a :term:`Global Transaction ID` with the database state. Invoking backups through the state snapshot transfer mechanism has the following benefits:
 

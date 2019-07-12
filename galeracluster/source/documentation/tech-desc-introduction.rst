@@ -1,3 +1,43 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Certification Replication <certification-based-replication>`
+      - :doc:`tech-desc-introduction`
+      - :doc:`node-states`
+      - :doc:`isolation-levels`
+      - :doc:`Node Recovery <recovery>`
+      - :doc:`weighted-quorum`
+      - :doc:`Replicaiton Architecture <architecture>`
+      - :doc:`state-transfer`
+      - :doc:`streaming-replication`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`database-replication`:
 
@@ -14,10 +54,8 @@ The database clients, such as web browsers or computer applications, do not see 
 
 
 .. _`masters-slaves`:
-
----------------------
- Masters and Slaves
----------------------
+.. rubric:: Masters and Slaves
+   :class: rubric-1
 
 Many :abbr:`Database Management Systems (DBMS)` replicate the database.
 
@@ -40,10 +78,8 @@ In a multi-master replication system, you can submit updates to any database nod
 
 
 .. _`asynchronous-synchronous-replication`:
-
-----------------------------------------------
- Asynchronous and Synchronous Replication
-----------------------------------------------
+.. rubric:: Asynchronous and Synchronous Replication
+   :class: rubric-1
 
 .. index::
    pair: Eager replication; Descriptions
@@ -62,10 +98,8 @@ In addition to the setup of how different nodes relate to one another, there is 
 
 
 .. _`advantages-synchronous-replication`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Advantages of Synchronous Replication
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Advantages of Synchronous Replication
+   :class: rubric-2
 
 In theory, there are several advantages that synchronous replication has over asynchronous replication.  For instance:
 
@@ -81,10 +115,8 @@ In theory, there are several advantages that synchronous replication has over as
 - **Causality across the Cluster** Synchronous replication guarantees causality across the whole cluster.  For example, a ``SELECT`` query issued after a transaction always sees the effects of the transaction, even if it were executed on another node.
 
 .. _`disadvantages-synchronous-replication`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Disadvantages of Synchronous Replication
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Disadvantages of Synchronous Replication
+   :class: rubric-2
 
 Traditionally, eager replication protocols coordinate nodes one operation at a time.  They use a two phase commit, or distributed locking.  A system with :math:`n` number of nodes due to process :math:`o` operations with a throughput of :math:`t` transactions per second gives you :math:`m` messages per second with:
 
@@ -99,10 +131,8 @@ For this reason, asynchronous replication remains the dominant replication proto
 
 
 .. _`solving-issues-synchronous-replication`:
-
------------------------------------------------
- Solving the Issues in Synchronous Replication
------------------------------------------------
+.. rubric:: Solving the Issues in Synchronous Replication
+   :class: rubric-1
 
 There are several issues with the traditional approach to synchronous replication systems.  Over the past few years, researchers from around the world have begun to suggest alternative approaches to synchronous database replication.
 

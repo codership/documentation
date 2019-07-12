@@ -1,3 +1,38 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`Notification Script <example-notification-script>`
+      - :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>`
+      - :ref:`wsrep_node_name <wsrep_node_name>`
+      - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`notification-cmd`:
 
@@ -11,11 +46,10 @@ As an alternative and better method, Galera Cluster provides a method to call a 
 
 .. note:: For an example of such a custom script and related instructions, see :ref:`Notification Script Example <example-notification-script>`.
 
-.. _`notification-cmd-parameters`:
 
-------------------------
-Notification Parameters
-------------------------
+.. _`notification-cmd-parameters`:
+.. rubric:: Notification Parameters
+   :class: rubric-1
 
 When a node registers a change in itself or the cluster, it will trigger the notification script or command. In so doing, it will pass certain parameters to notification script.  Below is a list of them and their basic meaning:
 
@@ -32,10 +66,8 @@ Only nodes in the ``Synced`` state will accept connections from the cluster.  Fo
 
 
 .. _`node-status`:
-
-^^^^^^^^^^^^^^^^^^^^
-Node Status Strings
-^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Node Status Strings
+   :class: rubric-2
 
 The notification script may pass one of six values for the ``--status`` parameter to indicate the current state of the node:
 
@@ -52,10 +84,8 @@ Again, you will have to prepare your script to capture the value of the ``--stat
 
 
 .. _`member-list-format`:
-
-^^^^^^^^^^^^^^^^^^^^
-Members List Format
-^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Members List Format
+   :class: rubric-2
 
 The notification script will pass with the ``--member`` parameter, a list containing entries for each node connected to the cluster component.  For each entry in the list the node uses this format:
 
@@ -71,10 +101,8 @@ The notification script will pass with the ``--member`` parameter, a list contai
 
 
 .. _`enable-notification-command`:
-
-----------------------------------
-Enabling the Notification Script
-----------------------------------
+.. rubric:: Enabling the Notification Script
+   :class: rubric-1
 
 You can enable your notification script or command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter in the configuration file.  Below is an excerpt from that file showing how it might look:
 

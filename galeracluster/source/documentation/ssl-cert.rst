@@ -1,3 +1,35 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`ssl-config`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`ssl-cert`:
 
@@ -12,10 +44,8 @@ Before you can enable encryption for your cluster, you first need to generate th
 
 
 .. _`gen-certs`:
-
--------------------------
-Generating Certificates
--------------------------
+.. rubric:: Generating Certificates
+   :class: rubric-1
 
 There are three certificates that you need to create in order to secure Galera Cluster: the Certificate Authority (CA) key and cert; the server certificate, to secure ``mysqld`` activity and replication traffic; and the client certificate to secure the database client and ``stunnel`` for state snapshot transfers.
 
@@ -23,10 +53,8 @@ There are three certificates that you need to create in order to secure Galera C
 
 
 .. _`gen-ca`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-CA Certificate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: CA Certificate
+   :class: rubric-2
 
 The node uses the Certificate Authority to verify the signature on the certificates.  As such, you need this key and cert file to generate the server and client certificates.
 
@@ -49,10 +77,8 @@ This creates a key and certificate file for the Certificate Authority.  They are
 
 
 .. _`gen-server-cert`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Server Certificate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Server Certificate
+   :class: rubric-2
 
 The node uses the server certificate to secure both the database server activity and replication traffic from Galera Cluster.
 
@@ -81,10 +107,8 @@ This creates a key and certificate file for the server.  They are in the current
 
 
 .. _`gen-client-cert`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Client Certificate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Client Certificate
+   :class: rubric-2
 
 The node uses the client certificate to secure client-side activity.  In the event that you prefer physical transfer methods for state snapshot transfers, ``rsync`` for instance, the node also uses this key and certificate to secure ``stunnel``.
 
@@ -113,10 +137,8 @@ This creates a key and certificate file for the database client.  They are in th
 
 
 .. _`verify-cert`:
-
----------------------------
-Verifying the Certificates
----------------------------
+.. rubric:: Verifying the Certificates
+   :class: rubric-1
 
 When you finish creating the key and certificate files, use ``openssl`` to verify that they were generated correctly:
 

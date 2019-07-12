@@ -1,3 +1,25 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <./index>`
+         - :doc:`Best Practices <../best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../../training/tutorials/index>`
+         - :doc:`Training Videos <../../training/videos/index>`
+
+
 .. cssclass:: kb-list
 .. _`kb-trouble`:
 
@@ -14,7 +36,6 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 .. rst-class:: list-abstract
 
    There may be times in which a cluster will stall when an ``ALTER`` statement is executed on an unused table.
-
 
 .. rubric:: :doc:`Commit Failed for Reason 3 <commit-failed-reason-3>`
    :class: list-sub-header

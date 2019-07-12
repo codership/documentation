@@ -1,3 +1,39 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <./index>`
+         - :doc:`Best Practices <../best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../../training/tutorials/index>`
+         - :doc:`Training Videos <../../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`Certification Based Replication <../../documentation/certification-based-replication>`
+      - :ref:`cert.log_conflicts <cert.log_conflicts>`
+      - :ref:`wsrep_debug <wsrep_debug>`
+      - :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>`
+      - :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>`
+      - :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
 .. cssclass:: kb-article
 .. _`kb-trouble-multi-master-conflicts`:
 

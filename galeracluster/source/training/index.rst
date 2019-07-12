@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../documentation/index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <./index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./tutorials/index>`
+         - :doc:`Training Videos <./videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: training-list
 .. _`training`:
 
@@ -8,7 +38,7 @@ Training
 This is the training section of the Codership Library. Here you'll find tutorial articles to start.  Our plan is to create a series of articles and videos to help you learn about Galera Cluster and related software--in conjunction with Galera. Soon there will be plenty here; for now, this is just the start.
 
 .. rubric:: :doc:`Tutorial Articles <./tutorials/index>`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -18,7 +48,7 @@ This section contains tutorial articles. To start, there are tutorials on how to
 
 
 .. rubric:: :doc:`Training Videos <./videos/index>`
-   :class: list-sub-header
+   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 

@@ -1,3 +1,35 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`Making Firewall Changes Persistent <persistent-config>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`ip-tables`:
 
@@ -10,18 +42,14 @@ Linux provides packet filtering support at the kernel level.  Using ``iptables``
 There are several tables that the kernel uses for packet filtering and within these tables are chains that it match specific kinds of traffic.  In order to open the relevant ports for Galera Cluster, you need to append new rules to the ``INPUT`` chain on the filter table.
 
 .. _`iptables-ports`:
-
-----------------------------------
-Opening Ports for Galera Cluster
-----------------------------------
+.. rubric:: Opening Ports for Galera Cluster
+   :class: rubric-1
 
 Galera Cluster requires four ports for replication.  There are two approaches to configuring the firewall to open these ``iptables``.  The method you use depends on whether you deploy the cluster in a :abbr:`LAN (Local Area Network)` environment, such as an office network, or if you deploy the cluster in a :abbr:`WAN (Wide Area Network)` environment, such as on several cloud servers over the internet.
 
 .. _`iptables-lan-config`:
-
-^^^^^^^^^^^^^^^^^^
-LAN Configuration
-^^^^^^^^^^^^^^^^^^
+.. rubric:: LAN Configuration
+   :class: rubric-2
 
 When configuring packet filtering rules for a :abbr:`LAN (Local Area Network)` environment, such as on an office network, there are four ports that you need to open to :abbr:`TCP (Transmission Control Protocol)` for Galera Cluster and one to :abbr:`UDP (User Datagram Protocol)` transport to enable multicast replication.  This means five commands that you must run on each cluster node:
 
@@ -50,10 +78,8 @@ These commands open the relevant ports to :abbr:`TCP (Transmission Control Proto
 Galera Cluster can now pass packets through the firewall to the node, but the configuration reverts to default on reboot.  In order to update the default firewall configuration, see :ref:`Making Firewall Changes Persistent <persistent-config>`.
 
 .. _`iptables-wan-config`:
-
-^^^^^^^^^^^^^^^^^^^
-WAN Configuration
-^^^^^^^^^^^^^^^^^^^
+.. rubric:: WAN Configuration
+   :class: rubric-2
 
 While the configuration shown above for :abbr:`LAN (Local Area Network)` deployments offers the better security, only opening those ports necessary for cluster operation, it does not scale well into :abbr:`WAN (Wide Area Network)` deployments.  The reason is that in a :abbr:`WAN (Wide Area Network)` environment the IP addresses are not in sequence.  The four commands to open the relevant ports to :abbr:`TCP (Transmission Control Protocol)` would grow to four commands per node on each node.  That is, for ten nodes you would need to run four hundred ``iptables`` commands across the cluster in order to set up the firewall on each node.
 
@@ -77,10 +103,8 @@ Galera Cluster can now pass packets through the firewall to the node, but the co
 
 
 .. _`persistent-config`:
-
-------------------------------------
-Making Firewall Changes Persistent
-------------------------------------
+.. rubric:: Making Firewall Changes Persistent
+   :class: rubric-1
 
 Whether you decide to open ports individually for :abbr:`LAN (Local Area Network)` deployment or in a range between trusted hosts for a :abbr:`WAN (Wide Area Network)` deployment, the tables you configure in the above sections are not persistent.  When the server reboots, the firewall reverts to its default state.
 

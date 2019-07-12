@@ -1,3 +1,36 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :ref:`Total Order Isolation <toi>`
+      - :ref:`Rolling Schema Upgrade <rsu>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`schema-upgrades`:
 
@@ -18,12 +51,9 @@ You can set the method for online schema changes by using the ``wsrep_OSU_method
 .. note:: If you're using Galera Cluster for Percona XtraDB Cluster, see the the `pt-online-schema-change <http://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html>`_ in the Percona Toolkit.
 
 
-
 .. _`toi`:
-
----------------------------------
- Total Order Isolation
----------------------------------
+.. rubric:: Total Order Isolation
+   :class: rubric-1
 
 .. index::
    pair: Descriptions; Total Order Isolation
@@ -46,10 +76,8 @@ The main advantage of Total Order Isolation is its simplicity and predictability
 
 
 .. _`rsu`:
-
----------------------------------
- Rolling Schema Upgrade
----------------------------------
+.. rubric:: Rolling Schema Upgrade
+   :class: rubric-1
 
 .. index::
    pair: Descriptions; Rolling Schema Upgrade

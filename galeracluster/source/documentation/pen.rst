@@ -1,3 +1,33 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`pen`:
 
@@ -9,10 +39,8 @@ Pen is a high-scalability, high-availability, robust load balancer for TCP- and 
 
 
 .. _`pen-install`:
-
----------------
-Installation
----------------
+.. rubric:: Installation
+   :class: rubric-1
 
 Pen is available in the software repositories of most Linux distributions.  You can install it using a package manager.
 
@@ -32,10 +60,8 @@ Whichever you use, they will install Pen on your system.  In the event that the 
 
 
 .. _`using-pen`:
-
-----------------
-Using Pen
-----------------
+.. rubric:: Using Pen
+   :class: rubric-1
 
 Once you've installed Pen on the load balancing server, you can launch it from the command-line by entering something like the following:
 
@@ -52,10 +78,8 @@ For more information on Pen configuration and use, see its manpage.
 
 
 .. _`pen-server-selection`:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Server Selection
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. rubric:: Server Selection
+   :class: rubric-2
 
 When Pen receives a new connection from the application servers, it first checks to see where the application was routed on the last connection and attempts to send traffic there.  In the event that it cannot establish a connection, it falls back on a round-robin selection policy.
 

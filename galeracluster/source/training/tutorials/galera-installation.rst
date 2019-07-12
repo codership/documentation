@@ -1,3 +1,38 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../../documentation/index>`
+      - :doc:`Knowledge Base <../../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../../kb/trouble/index>`
+         - :doc:`Best Practices <../../kb/best/index>`
+
+      - :doc:`FAQ <../../faq>`
+      - :doc:`Training <../index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Videos <../videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`SELinux <../../../documentation/selinux>`
+      - :doc:`Firewall Settings <../../../documentation/firewall-settings>`
+      - :doc:`Migration <migration>`
+      - :ref:`Configuring Swap Space <swap-config>`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: tutorial-article
 .. _`galera-installation`:
 
@@ -34,10 +69,9 @@ For software, each node in the cluster requires at a minimum the following:
 .. note:: Binary installation packages for Galera Cluster include the database server with the wsrep API patch.  When building from source, though, you must apply this patch manually.
 
 
--------------------------------
-Preparing the Server
--------------------------------
 .. _`system-requirements`:
+.. rubric:: Preparing the Server
+   :class: rubric-1
 
 Before you begin the installation process, there are a few tasks that you need to do to prepare the servers for Galera Cluster.  You must perform the following steps on each node in your cluster.
 
@@ -135,10 +169,9 @@ If instead, your system uses ``systemd``, run the following command instead:
   $ sudo systemctl restart apparmor
 
 
----------------------------
-Installing Galera Cluster
----------------------------
 .. _`galera-install`:
+.. rubric:: Installing Galera Cluster
+   :class: rubric-1
 
 There are two versions of Galera Cluster for MySQL: the original Codership reference implementation and MariaDB Galera Cluster.  For each database server, binary packages are available for Debian- and RPM-based Linux distributions, or you can build them from source.
 

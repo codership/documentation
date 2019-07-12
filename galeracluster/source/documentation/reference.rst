@@ -1,3 +1,42 @@
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <./index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+      .. cssclass:: bull-head
+
+         Related Documents
+
+      - :doc:`galera-parameters`
+      - :doc:`galera-status-variables`
+      - :doc:`system-tables`
+      - :doc:`GLB Parameters <glb-parameters>`
+      - :doc:`mysql-wsrep-options`
+      - :doc:`mysql-wsrep-functions`
+      - :doc:`versioning-information`
+      - :doc:`xtrabackup-options`
+
+      .. cssclass:: bull-head
+
+         Related Articles
+
+
 .. cssclass:: library-document
 .. _`reference`:
 
@@ -9,6 +48,7 @@ In the event that you need more information about particular variables or parame
 
 .. _`ref-vars`:
 .. rubric:: Variable Reference
+   :class: rubric-1
 
 Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file.  These chapters provide reference guides to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
 
@@ -31,6 +71,7 @@ Defining persistent configurations in Galera Cluster is done through the underly
 
 .. _`ref-utils`:
 .. rubric:: Utility Reference
+   :class: rubric-1
 
 In some cases your configuration or implementation may require that you work with external utilities in your deployment of Galera Cluster.  These chapters provide reference guides for two such utilities: XtraBackup and Galera Load Balancer.
 
@@ -48,6 +89,7 @@ In some cases your configuration or implementation may require that you work wit
 
 .. _`ref-misc`:
 .. rubric:: Miscellaneous References
+   :class: rubric-1
 
 - :doc:`versioning-information`
 
