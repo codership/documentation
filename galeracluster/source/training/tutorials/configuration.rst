@@ -69,8 +69,8 @@ Depending on your system and the location of your installation of MySQL or Maria
 
 
 .. _`db-config`:
+.. rst-class:: rubric-1
 .. rubric:: Configuring the Database Server
-   :class: rubric-1
 
 In addition to settings for the system, there are other basic configurations that you will need to set in the ``/etc/my.cnf`` file.  Make these changes before starting the database server.
 
@@ -136,8 +136,8 @@ The InnoDB storage engine uses its own memory buffer to cache data and for index
 
 
 .. _`swap-config`:
+.. rst-class:: rubric-1
 .. rubric:: Configuring Swap Space
-   :class: rubric-1
 
 Memory requirements for Galera Cluster are difficult to predict with any precision.  The particular amount of memory it uses can vary significantly, depending upon the load the given node receives.  In the event that Galera Cluster attempts to use more memory than the node has available, the ``mysqld`` instance will crash.
 

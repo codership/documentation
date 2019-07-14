@@ -46,8 +46,8 @@ Although Galera Cluster is built on providing write-set replication to MySQL and
 
 
 .. _`server-difference`:
+.. rst-class:: rubric-1
 .. rubric:: Server Differences
-   :class: rubric-1
 
 Using a server with Galera Cluster is not the same as one with MySQL.  Galera Cluster does not support the same range of operating systems as MySQL, and there are differences in how it handles binary logs and character sets.
 
@@ -166,8 +166,8 @@ Use ``general_log`` and ``general_log_file`` to choose query logging and to set 
 
 
 .. _`diff-transactions`:
+.. rst-class:: rubric-1
 .. rubric:: Differences in Transactions
-   :class: rubric-1
 
 There are some differences in how Galera Cluster handles transactions from MySQL, such as :abbr:`XA (eXtended Architecture)` transactions and limitations on transaction size.
 

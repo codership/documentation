@@ -47,8 +47,8 @@ When restarting an entire Galera Cluster, you'll need to determine which node ha
 
 
 .. _`Identify Most Advanced Node`:
+.. rst-class:: rubric-1
 .. rubric:: Identifying the Most Advanced Node
-   :class: rubric-1
 
 Identifying the most advanced node state ID is done by comparing the :term:`Global Transaction ID` values on each node in your cluster.  You can find this in the ``grastate.dat`` file, located in the data directory for your database.
 
@@ -73,8 +73,8 @@ This value is the node state ID.  You can use it to update manually the ``grasta
 
 
 .. _`'Safe to Bootstrap' Protection`:
+.. rst-class:: rubric-1
 .. rubric:: 'Safe to Bootstrap' Protection
-   :class: rubric-1
 
 Starting with provider version 3.19, Galera has an additional protection against attempting to boostrap the cluster using a node that may not have been the last node remaining in the cluster prior to cluster shutdown.
 
@@ -101,8 +101,8 @@ To override this protection, edit the ``safe_to_bootstrap`` line in the ``grasta
 In the case when all nodes crashed simultaneously, no node will be considered safe to bootstrap until the ``grastate.dat`` file is edited manually.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Gcache Recovery
-   :class: rubric-1
 
 Starting with provider version 3.19, Galera provides the :ref:`gcache.recover <gcache.recover>` parameter. If set to ``yes``, Galera will attempt to recover the gcache on node startup.
 
@@ -114,8 +114,8 @@ Gcache recovery is a "best effort" operation. If recovery was not successful, th
 
 
 .. _`Identify Crashed Node`:
+.. rst-class:: rubric-1
 .. rubric:: Identifying Crashed Nodes
-   :class: rubric-1
 
 You can easily determine if a node has crashed by looking at the contents of the ``grastate.dat`` file. If it looks like the example below, the node has either crashed during execution of a non-transactional operation (e.g., ``ALTER TABLE``), or the node aborted due to a database inconsistency.
 

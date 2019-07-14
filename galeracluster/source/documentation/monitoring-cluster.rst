@@ -76,8 +76,8 @@ From the database client, you can check the status of write-set replication thro
 
 
 .. _`check-cluster-integrity`:
+.. rst-class:: rubric-1
 .. rubric:: Checking Cluster Integrity
-   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_cluster_state_uuid
@@ -155,8 +155,8 @@ When these status variables check out and return the desired results on each nod
 
 
 .. _`check-node-status`:
+.. rst-class:: rubric-1
 .. rubric:: Checking the Node Status
-   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_cluster_address
@@ -228,8 +228,8 @@ In the event that each status variable returns the desired values, the node is i
 
 
 .. _`check-replication-health`:
+.. rst-class:: rubric-1
 .. rubric:: Checking the Replication Health
-   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_flow_control_paused
@@ -299,8 +299,8 @@ You can monitor the local received queue and Flow Control using the following st
   This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter, given that there is no reason to assign more slave threads than transactions you can apply in parallel.
 
 .. _`check-network-issues`:
+.. rst-class:: rubric-1
 .. rubric:: Detecting Slow Network Issues
-   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_local_send_queue_avg

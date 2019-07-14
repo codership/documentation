@@ -67,8 +67,8 @@ A node can serve as a donor when it is in the ``SYNCED`` state.  The joiner node
 
 
 .. _`sst-methods`:
+.. rst-class:: rubric-1
 .. rubric:: SST Methods
-   :class: rubric-1
 
 Galera supports several back-end methods for use in state snapshot transfers.  There are two types: Logical State Snapshots, which interface through the database server and client; and Physical State Snapshots, which directly copy the data files from node to node.
 

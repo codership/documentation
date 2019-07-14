@@ -38,8 +38,8 @@ Single Master Setup
 If a cluster uses only one node as a master, there are certain requirements (e.g., the slave queue size) that can be relaxed.
 
 
+.. rst-class:: kb
 .. rubric:: Recommendations
-   :class: kb
 
 To relax flow control, you might use the settings below:
 

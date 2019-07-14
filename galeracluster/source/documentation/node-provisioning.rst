@@ -71,8 +71,8 @@ In the event that the node crashes while in :term:`Total Order Isolation` mode, 
 
 
 .. _`node-provisioning-about-joiners`:
+.. rst-class:: rubric-1
 .. rubric:: How Nodes Join the Cluster
-   :class: rubric-1
 
 When a node joins the cluster, it compares its own :term:`state UUID` to that of the :term:`Primary Component`.  If the state UUID does not match, the joining node requests a state transfer from the cluster.
 
@@ -94,8 +94,8 @@ While there is no guarantee on how soon a node will catch up, when it does the n
 
 
 .. _`node-provisioning-state-transfer`:
+.. rst-class:: rubric-1
 .. rubric:: State Transfers
-   :class: rubric-1
 
 There are two types of state transfers available to bring the node up to date with the cluster:
 

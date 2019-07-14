@@ -144,8 +144,8 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
 
 
 .. _`base_host`:
+.. rst-class:: rubric-1
 .. rubric:: ``base_host``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; base_host
@@ -163,8 +163,8 @@ Global variable for internal use.
 
 
 .. _`base_port`:
+.. rst-class:: rubric-1
 .. rubric:: ``base_port``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; base_port
@@ -182,8 +182,8 @@ Global variable for internal use.
 
 
 .. _`cert.log_conflicts`:
+.. rst-class:: rubric-1
 .. rubric:: ``cert.log_conflicts``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; cert.log_conflicts
@@ -205,8 +205,9 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`cert.optimistic_pa`:
+.. rst-class:: rubric-1
 .. rubric:: ``cert.optimistic_pa``
-   :class: rubric-1
+
 .. index::
    pair: wsrep Provider Options; cert.optimistic_pa
 
@@ -229,8 +230,8 @@ on the master are committed.
 
 
 .. _`debug`:
+.. rst-class:: rubric-1
 .. rubric:: ``debug``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; debug
@@ -250,8 +251,8 @@ Enable debugging.
 
 
 .. _`evs.auto_evict`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.auto_evict``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.auto_evict
@@ -281,8 +282,8 @@ For more information on the Auto Eviction process, see :doc:`auto-eviction`.
 
 
 .. _`evs.causal_keepalive_period`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.causal_keepalive_period``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.causal_keepalive_period
@@ -298,8 +299,8 @@ For developer use only. Defaults to ``evs.keepalive_period``.
 
 
 .. _`evs.consensus_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.consensus_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.consensus_timeout
@@ -326,8 +327,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.debug_log_mask`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.debug_log_mask``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.debug_log_mask
@@ -349,8 +350,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.delayed_keep_period`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.delayed_keep_period``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.delayed_keep_period
@@ -378,8 +379,8 @@ For more information on the delayed list and the Auto Eviction process, see :doc
 
 
 .. _`evs.delayed_margin`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.delayed_margin``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.delayed_margin
@@ -407,8 +408,8 @@ For more information on the delayed list and the Auto Eviction process, see :doc
 
 
 .. _`evs.evict`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.evict``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.evict
@@ -426,8 +427,8 @@ For more information on the eviction and Auto Eviction process, see :doc:`auto-e
 
 
 .. _`evs.inactive_check_period`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.inactive_check_period``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.inactive_check_period
@@ -453,8 +454,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.inactive_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.inactive_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.inactive_timeout
@@ -482,8 +483,8 @@ This parameter sets a hard limit for node inactivity.  If a delayed node remains
 
 
 .. _`evs.info_log_mask`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.info_log_mask``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.info_log_mask
@@ -512,8 +513,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.install_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.install_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.install_timeout
@@ -539,8 +540,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.join_retrans_period`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.join_retrans_period``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.join_retrans_period
@@ -562,8 +563,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.keepalive_period`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.keepalive_period``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.keepalive_period
@@ -587,8 +588,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.max_install_timeouts`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.max_install_timeouts``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.max_install_timeouts
@@ -612,8 +613,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.send_window`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.send_window``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.send_window
@@ -639,8 +640,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.stats_report_period`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.stats_report_period``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.stats_report_period
@@ -662,8 +663,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.suspect_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.suspect_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.suspect_timeout
@@ -687,8 +688,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.use_aggregate`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.use_aggregate``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.use_aggregate
@@ -710,8 +711,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.user_send_window`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.user_send_window``
-   :class: rubric-1
 
 .. index::
    pair: Parameters; evs.user_send_window
@@ -739,8 +740,8 @@ For more information, see :ref:`evs.send_window <evs.send_window>`.
 
 
 .. _`evs.view_forget_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.view_forget_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.view_forget_timeout
@@ -764,8 +765,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.version`:
+.. rst-class:: rubric-1
 .. rubric:: ``evs.version``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; evs.version
@@ -791,8 +792,8 @@ For more information on the procedure to upgrade from one version to another, se
 
 
 .. _`gcache.dir`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcache.dir``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcache.dir
@@ -818,8 +819,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.keep_pages_size`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcache.keep_pages_size``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcache.keep_pages_size
@@ -841,8 +842,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.name`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcache.name``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcache.name
@@ -868,8 +869,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.page_size`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcache.page_size``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcache.page_size
@@ -891,8 +892,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.recover`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcache.recover``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcache.recover
@@ -914,8 +915,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.size`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcache.size``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcache.size
@@ -943,8 +944,8 @@ For more information on customizing the write-set cache, see the :doc:`Best Prac
 
 
 .. _`gcomm.thread_prio`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcomm.thread_prio``
-   :class: rubric-1
 
 .. index::
    pair wsrep Provider Options; gcomm.thread_prio
@@ -976,8 +977,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_debug`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.fc_debug``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.fc_debug
@@ -999,8 +1000,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_factor`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.fc_factor``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.fc_factor
@@ -1022,8 +1023,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_limit`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.fc_limit``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.fc_limit
@@ -1045,8 +1046,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_master_slave`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.fc_master_slave``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.fc_master_slave
@@ -1068,8 +1069,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.max_packet_size`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.max_packet_size``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.max_packet_size
@@ -1091,8 +1092,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.max_throttle`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.max_throttle``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.max_throttle
@@ -1114,8 +1115,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.recv_q_hard_limit`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.recv_q_hard_limit``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.recv_q_hard_limit
@@ -1137,8 +1138,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.recv_q_soft_limit`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.recv_q_soft_limit``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.recv_q_soft_limit
@@ -1163,8 +1164,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.sync_donor`:
+.. rst-class:: rubric-1
 .. rubric:: ``gcs.sync_donor``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gcs.sync_donor
@@ -1188,8 +1189,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.listen_addr`:
+.. rst-class:: rubric-1
 .. rubric:: ``gmcast.listen_addr``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gmcast.listen_addr
@@ -1211,8 +1212,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.mcast_addr`:
+.. rst-class:: rubric-1
 .. rubric:: ``gmcast.mcast_addr``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gmcast.mcast_addr
@@ -1238,8 +1239,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.mcast_ttl`:
+.. rst-class:: rubric-1
 .. rubric:: ``gmcast.mcast_ttl``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gmcast.mcast_ttl
@@ -1261,8 +1262,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.peer_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``gmcast.peer_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gmcast.peer_timeout
@@ -1284,8 +1285,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.segment`:
+.. rst-class:: rubric-1
 .. rubric:: ``gmcast.segment``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gmcast.segment
@@ -1307,8 +1308,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.time_wait`:
+.. rst-class:: rubric-1
 .. rubric:: ``gmcast.time_wait``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gmcast.time_wait
@@ -1330,8 +1331,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.version`:
+.. rst-class:: rubric-1
 .. rubric:: ``gmcast.version``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; gmcast.version
@@ -1349,8 +1350,8 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 
 .. _`ist.recv_addr`:
+.. rst-class:: rubric-1
 .. rubric:: ``ist.recv_addr``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; ist.recv_addr
@@ -1372,8 +1373,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`ist.recv_bind`:
+.. rst-class:: rubric-1
 .. rubric:: ``ist.recv_bind``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; ist.recv_bind
@@ -1397,8 +1398,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.recovery`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.recovery``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.recovery
@@ -1430,8 +1431,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.bootstrap`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.bootstrap``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.bootstrap
@@ -1453,8 +1454,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.announce_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.announce_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.announce_timeout
@@ -1476,8 +1477,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.checksum`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.checksum``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.checksum
@@ -1499,8 +1500,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.ignore_sb`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.ignore_sb``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.ignore_sb
@@ -1522,8 +1523,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.ignore_quorum`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.ignore_quorum``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.ignore_quorum
@@ -1545,8 +1546,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.linger`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.linger``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.linger
@@ -1568,8 +1569,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.npvo`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.npvo``
-   :class: rubric-1
 
 .. index::
    pair: Parameters; pc.npvo
@@ -1591,8 +1592,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.wait_prim`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.wait_prim``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.wait_prim
@@ -1614,8 +1615,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.wait_prim_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.wait_prim_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.wait_prim_timeout
@@ -1637,8 +1638,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.weight`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.weight``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.weight
@@ -1660,8 +1661,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.version`:
+.. rst-class:: rubric-1
 .. rubric:: ``pc.version``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; pc.version
@@ -1679,8 +1680,8 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 
 .. _`protonet.backend`:
+.. rst-class:: rubric-1
 .. rubric:: ``protonet.backend``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; protonet.backend
@@ -1702,8 +1703,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`protonet.version`:
+.. rst-class:: rubric-1
 .. rubric:: ``protonet.version``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; protonet.version
@@ -1721,8 +1722,8 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 
 .. _`repl.commit_order`:
+.. rst-class:: rubric-1
 .. rubric:: ``repl.commit_order``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; repl.commit_order
@@ -1754,8 +1755,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.causal_read_timeout`:
+.. rst-class:: rubric-1
 .. rubric:: ``repl.causal_read_timeout``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; repl.causal_read_timeout
@@ -1777,8 +1778,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.key_format`:
+.. rst-class:: rubric-1
 .. rubric:: ``repl.key_format``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; repl.key_format
@@ -1807,8 +1808,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.max_ws_size`:
+.. rst-class:: rubric-1
 .. rubric:: ``repl.max_ws_size``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; repl.max_ws_size
@@ -1830,8 +1831,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.proto_max`:
+.. rst-class:: rubric-1
 .. rubric:: ``repl.proto_max``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; repl.proto_max
@@ -1853,8 +1854,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.recv_buf_size`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.recv_buf_size``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options;  socket.recv_buf_size
@@ -1876,8 +1877,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_ca`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.ssl_ca``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_ca
@@ -1903,8 +1904,8 @@ For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate
 
 
 .. _`socket.ssl_cert`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.ssl_cert``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_cert
@@ -1930,8 +1931,8 @@ For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate
 
 
 .. _`socket.checksum`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.checksum``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; socket.checksum
@@ -1959,8 +1960,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_cipher`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.ssl_cipher``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_cipher
@@ -1982,8 +1983,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_compression`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.ssl_compression``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_compression
@@ -2005,8 +2006,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_key`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.ssl_key``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_key
@@ -2032,8 +2033,8 @@ For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate
 
 
 .. _`socket.ssl_password_file`:
+.. rst-class:: rubric-1
 .. rubric:: ``socket.ssl_password_file``
-   :class: rubric-1
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_password_file

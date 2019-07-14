@@ -43,14 +43,14 @@ Multi-Master Conflicts
 
 These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 To understand this better, consider a situation in a multi-master replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
 
 
+.. rst-class:: kb
 .. rubric:: Troubleshooting
-   :class: kb
 
 There are a few techniques available to log and monitor problems that may indicate multi-master conflicts.  They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log.  You can enable it through the configuration file with a line like so:
 
@@ -113,8 +113,8 @@ These parameters enable different forms of conflict logging on the database serv
    g: 8749172, s: 8749171, d: 8749170, ts: 12637839897662340)
 
 
+.. rst-class:: kb
 .. rubric:: Solution
-   :class: kb
 
 When two transactions are conflicting, the later of the two is rolled back by the cluster.  The client application registers this rollback as a deadlock error.  Ideally, the client application should retry the deadlocked transaction. However, not all client applications have this logic built in.
 
@@ -129,8 +129,8 @@ When a transaction fails the certification test due to a cluster-wide conflict, 
 Retrying only applies to auto-commit transactions, as retrying is not safe for multi-statement transactions.
 
 
+.. rst-class:: kb
 .. rubric:: Work-Around
-   :class: kb
 
 While Galera Cluster resolves multi-master conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.
 
@@ -142,18 +142,6 @@ While Galera Cluster resolves multi-master conflicts automatically, there are st
 
 If you can filter out access to the hot-spot table, it may be enough to treat writes only to the hot-spot table as master-slave.
 
-
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
-- :doc:`Certification Based Replication <../../documentation/certification-based-replication>`
-- :ref:`cert.log_conflicts <cert.log_conflicts>` option
-- :ref:`wsrep_debug <wsrep_debug>` option
-- :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` option
-- :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` option
-- :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

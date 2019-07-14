@@ -68,8 +68,8 @@ Once you have at least three hosts ready, you can initialize the cluster.
 
 
 .. _`Starting First Cluster Node`:
+.. rst-class:: rubric-1
 .. rubric:: Starting the First Node
-   :class: rubric-1
 
 By default, a node don't start as part of the :term:`Primary Component`.  Instead, it assumes that the Primary Component is already running and it is merely joining an existing cluster.  For each node it encounters in the cluster, it checks whether or not it's a part of the Primary Component.  When it finds the Primary Component, it requests a state transfer to bring its database into sync with the cluster.  If it can't find the Primary Component, it will remains in a non-operational state.
 
@@ -125,8 +125,8 @@ The variable ``safe_to_bootstrap`` is set to 0 on the first node after it's been
 
 
 .. _`Add Nodes to Cluster`:
+.. rst-class:: rubric-1
 .. rubric:: Adding Nodes to the Cluster
-   :class: rubric-1
 
 Once you have successfully started the first node and thereby initialized a new cluster, the procedure for adding all the other nodes is even simpler. You just launch ``mysqld`` as you would normally--without the ``--wsrep-new-cluster`` option.  You would enter something like the following from the command-line, depending on your operating system and database system (see above for other methods):
 

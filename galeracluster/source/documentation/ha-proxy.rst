@@ -39,8 +39,8 @@ High Availability Proxy, or HAProxy is a single-threaded event-driven non-blocki
 
 
 .. _`install-haproxy`:
+.. rst-class:: rubric-1
 .. rubric:: Installation
-   :class: rubric-1
 
 HAProxy is available in the software repositories of most Linux distributions and it's the ports tree of FreeBSD.  You can install it using the appropriate package manager.
 
@@ -72,8 +72,8 @@ Whichever method you use, it installs HAProxy on your server.  In the event that
 
 
 .. _`haproxy-config`:
+.. rst-class:: rubric-1
 .. rubric:: Configuration
-   :class: rubric-1
 
 Configuration options for HAProxy are managed through an ``haproxy.cfg`` configuration file.  The above package installations generally put this file in the ``/etc/haproxy/`` directory. However, it may have a different path depending on your operating system distribution.
 
@@ -105,8 +105,8 @@ You will create the proxy for Galera Cluster using the ``listen`` parameter.  Th
 
 
 .. _`haproxy-destination-selection`:
+.. rst-class:: rubric-2
 .. rubric:: Destination Selection Policies
-   :class: rubric-2
 
 When HAProxy receives a new connection, there are a number of options available to define which algorithm it uses to choose where to route the connection.  This algorithm is its destination selection policy.  It's defined by the ``balance`` parameter.
 
@@ -124,8 +124,8 @@ In the above configuration example, HAProxy is configured to use the source sele
 
 
 .. _`haproxy-mysql-check`:
+.. rst-class:: rubric-2
 .. rubric:: Enabling Database Server Checks
-   :class: rubric-2
 
 In addition to routing TCP connections to Galera Cluster, HAProxy can also perform basic health checks on the database server.  When enabled, HAProxy attempts to establish a connection with the node and parses its response, or any errors, to determine if the node is operational.
 
@@ -139,8 +139,8 @@ Make the user name the same as given in the ``haproxy.cfg`` configuration file f
 
 
 .. _`haproxy-use`:
+.. rst-class:: rubric-1
 .. rubric:: Using HAProxy
-   :class: rubric-1
 
 When you finish configuring HAProxy and the nodes to work with HAProxy, you can start it on the server.  For servers that use ``init``, run the following command:
 

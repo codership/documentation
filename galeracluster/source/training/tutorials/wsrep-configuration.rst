@@ -69,8 +69,8 @@ In addition to the configuration for the database server, there are some specifi
 
 
 .. _`backend-schema`:
+.. rst-class:: rubric-1
 .. rubric:: Backend Schema
-   :class: rubric-1
 
 There are two backend schemata available with Galera Cluster.
 
@@ -80,8 +80,8 @@ There are two backend schemata available with Galera Cluster.
 
 
 .. _`cluster-addresses`:
+.. rst-class:: rubric-1
 .. rubric:: Cluster Addresses
-   :class: rubric-1
 
 For the cluster address section, you have to provide a comma-separate list of IP addresses for all of the nodes in the cluster.  You would do this using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Cluster addresses are listed in the configuration file using a particular syntax, like so:
 
@@ -103,8 +103,8 @@ If you start a node without proving an IP address for this parameter, the node w
 
 
 .. _`cluster-address-options`:
+.. rst-class:: rubric-1
 .. rubric:: Options
-   :class: rubric-1
 
 When setting the IP address in the configuration file using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, you can also set some options. You can set backend parameters, such as the listen address and timeout values.
 

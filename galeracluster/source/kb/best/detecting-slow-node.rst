@@ -42,8 +42,8 @@ By design, the performance of a cluster cannot be higher than the performance of
 
 This is particularly true for large transactions---even if they are within transaction size limits. This is why it's important to be able to detect a slow node on a cluster.
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 .. _`finding-slow-nodes`:
 
@@ -68,14 +68,6 @@ The ``wsrep_flow_control_sent`` variable provides the number of times a node sen
 
 Check these status variables on each node in your cluster.  The node that returns the highest value is the slowest node.  Lower values are preferable.
 
-
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
-- :ref:`wsrep_flow_control_sent <wsrep_flow_control_sent>`
-- :ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

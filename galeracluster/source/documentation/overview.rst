@@ -45,8 +45,8 @@ This approach is also called virtually synchronous replication, given that while
 
 
 .. _`benefits-galera`:
+.. rst-class:: rubric-1
 .. rubric:: Benefits of Galera Cluster
-   :class: rubric-1
 
 Galera Cluster provides a significant improvement in high-availability for the MySQL system.  The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in trade-offs.
 
@@ -97,8 +97,8 @@ In summary, Galera Cluster is a high-availability solution that is both robust i
 
 .. _`Galera Cluster Cloud Implementations`:
 
+.. rst-class:: rubric-1
 .. rubric:: Cloud Implementations with Galera Cluster
-   :class: rubric-1
 
 An additional benefit of Galera Cluster is good cloud support.  Automatic node provisioning makes elastic scale-out and scale-in operations painless.  Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.
 

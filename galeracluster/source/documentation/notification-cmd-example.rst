@@ -153,8 +153,8 @@ Nodes can call a notification script when changes happen in the membership of th
 
 
 .. _`notification-cmd-path-permissions`:
+.. rst-class:: rubric-1
 .. rubric:: Path and Permissions
-   :class: rubric-1
 
 After you modify this script to fit your requirements, you need to move it into a directory in the ``$PATH`` or the binaries directory for your system.  On Linux, the binaries directory is typically at ``/usr/bin``, while on FreeBSD it is at ``/usr/local/bin``.
 

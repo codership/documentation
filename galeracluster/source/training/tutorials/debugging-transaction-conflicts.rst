@@ -44,8 +44,8 @@ Legacy applications are frequently unable to handle transaction conflicts proper
 
 If the ``wsrep_log_conflicts`` option is set, Galera can output all the information about transaction conflicts that is available to it to the error log. As it is a dynamic option, you can enable it while the server is running, collect some entries for examination, and disable it to avoid filling up the log.
 
+.. rst-class:: rubric-1
 .. rubric:: Decoding the Output
-   :class: rubric-1
 
 The output from ``wsrep_log_conflicts`` may look a bit intimidating at first, but in fact contains a lot of information that can be used to pin-point the offending application, module or SQL operation. The relevant pieces of information have been underlined:
 
@@ -116,8 +116,8 @@ problematic_key_value21 - any string fields will be decoded and visible in the o
 seqno: 24 - the binary log ID of the winning transaction.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Determining the Winning Transaction
-   :class: rubric-1
 
 All the information from the output above, except for the seqno, pertains to the victim transaction of a conflict. Sometimes it is useful to determine the transaction that won the conflict and was not aborted, and the seqno can be used to obtain that information from the binary log.
 

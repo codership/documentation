@@ -71,8 +71,8 @@ The return value ``Primary`` indicates that it the node is part of the Primary C
 
 
 .. _`finding-most-advanced-node`:
+.. rst-class:: rubric-1
 .. rubric:: Finding the Most Advanced Node
-   :class: rubric-1
 
 Before you can reset the quorum, you need to identify the most advanced node in the cluster.  That is, you must find the node whose local database committed the last transaction.  Regardless of the method you use in resetting the quorum, this node serves as the starting point for the new :term:`Primary Component`.
 
@@ -94,8 +94,8 @@ The return value is the seqno for the last transaction the node committed.  The 
 
 
 .. _`resetting-quorum`:
+.. rst-class:: rubric-1
 .. rubric:: Resetting the Quorum
-   :class: rubric-1
 
 When you reset the quorum what you are doing is bootstrapping the :term:`Primary Component` on the most advanced node you have available.  This node then functions as the new Primary Component, bringing the rest of the cluster into line with its state.
 
@@ -106,8 +106,8 @@ There are two methods available to you in this process: automatic and manual.
 
 
 .. _`automatic-bootstrap`:
+.. rst-class:: rubric-2
 .. rubric:: Automatic Bootstrap
-   :class: rubric-2
 
 Resetting the quorum bootstraps the :term:`Primary Component` onto the most advanced node.  In the automatic method this is done by enabling :ref:`pc.bootstrap <pc.bootstrap>` under :ref:`wsrep_provider_options <wsrep_provider_options>` dynamically through the database client.  This makes the node a new Primary Component.
 
@@ -121,8 +121,8 @@ The node now operates as the starting node in a new Primary Component.  Nodes in
 
 
 .. _`manual-bootstrap`:
+.. rst-class:: rubric-2
 .. rubric:: Manual Bootstrap
-   :class: rubric-2
 
 Resetting the quorum bootstraps the :term:`Primary Component` onto the most advanced node.  In the manual method this is done by shutting down the cluster, then starting it up again beginning with the most advanced node.
 

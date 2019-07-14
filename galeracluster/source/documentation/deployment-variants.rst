@@ -41,8 +41,8 @@ Galera Cluster provides synchronous multi-master replication. You can treat the 
 
 
 .. _`no-clustering`:
+.. rst-class:: rubric-1
 .. rubric:: No Clustering
-   :class: rubric-1
 
 In the typical *n*-tier application cluster without database clustering, there's no concern for database replication or synchronization.
 
@@ -62,8 +62,8 @@ Similarly, this deployment also introduces performance concerns.  While you can 
 
 
 .. _`whole-stack-cluster`:
+.. rst-class:: rubric-1
 .. rubric:: Whole Stack Clustering
-   :class: rubric-1
 
 In the typical *n*-tier application cluster you can avoid the performance bottleneck by building a whole stack cluster.
 
@@ -91,8 +91,8 @@ Despite the disadvantages, however, this setup can prove very usable for several
 
 
 .. _`data-tier-cluster`:
+.. rst-class:: rubric-1
 .. rubric:: Data Tier Clustering
-   :class: rubric-1
 
 To compensate for the shortcomings in whole stack clusters, you can cluster the data tier separately from your web and application servers.
 
@@ -116,8 +116,8 @@ There are, however, certain disadvantages to consider in data tier clustering:
 
 
 .. _`data-tier-load-balancers`:
+.. rst-class:: rubric-2
 .. rubric:: Data Tier Clustering with Distributed Load Balancing
-   :class: rubric-2
 
 One solution to the limitations of data tier clustering is to deploy them with distributed load balancing.  This method roughly follows the standard data tier cluster method, but includes a dedicated load balancer installed on each application server.
 
@@ -133,9 +133,8 @@ Data tier clustering with distributed load balancing has the following disadvant
 
 
 .. _`aggregated-stack-cluster`:
+.. rst-class:: rubric-1
 .. rubric:: Aggregated Stack Clustering
-   :class: rubric-1
-
 
 Besides the deployment methods already mentioned, you could set up a hybrid method that integrates whole stack and data tier clustering by aggregating several application stacks around single :abbr:`DBMS (Database Management System)` servers.
 

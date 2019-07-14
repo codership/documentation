@@ -38,8 +38,8 @@ Training Videos
 This section is for training videos on Galera Cluster and related software. At this point, they're primarily screencasts from presentations given at various conferences. We intend to add more screencasts, but made in a controlled enviroment, focusing on one aspect of Galera Cluster or related software.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`high-availability-with-galera-cluster`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -48,8 +48,8 @@ This section is for training videos on Galera Cluster and related software. At t
 This video is of Colin Charles speaking about the MySQL Server High Availability landscape and how Galera Cluster fits into it.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`ddl-schema-upgrades`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -58,8 +58,8 @@ This video is of Colin Charles speaking about the MySQL Server High Availability
 This a presentation by Sakari Keskitalo, C.O.O. of Codership and Philip Stoev speaking about the best practices for DDL and Schema Upgrades.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`galera-intro`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -68,8 +68,8 @@ This a presentation by Sakari Keskitalo, C.O.O. of Codership and Philip Stoev sp
 This video presents Galera Cluster:  how it works and the benefits to organizations using it.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`galera-installation-quick-start`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -78,8 +78,8 @@ This video presents Galera Cluster:  how it works and the benefits to organizati
 This video describes how to get started with Galera Cluster and build a functional multi-master cluster.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`migrating-master-slave-to-multi-master`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -88,8 +88,8 @@ This video describes how to get started with Galera Cluster and build a function
 This video provides the practical aspects of migrating a database setup based on traditional asynchronous replication to multi-master Galera Cluster.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`geo-distributed-galera-cluster`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -98,8 +98,8 @@ This video provides the practical aspects of migrating a database setup based on
 This video presents the advantages of having a geo-distributed database cluster and how to create one using Galera Cluster for MySQL.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`galera-dba-devops`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -108,8 +108,8 @@ This video presents the advantages of having a geo-distributed database cluster 
 This video presents the best practices related to Galera Cluster by DBAs and Developers.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`multi-master-galera-advantages`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 

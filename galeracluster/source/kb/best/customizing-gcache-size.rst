@@ -45,17 +45,16 @@ Customizing the Write-Set Cache Size
 
 You can define the size of the write-set cache using the :ref:`gcache.size <gcache.size>` parameter.  The set the size to one less than that of the data directory.
 
-
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 If you have storage issues, there are some guidelines to consider in adjusting this issue.  For example, your preferred state snapshot method.  ``rsync`` and ``xtrabackup`` copy the InnoDB log files, while ``mysqldump`` does not.  So, if you use ``mysqldump`` for state snapshot transfers, you can subtract the size of the log files from your calculation of the data directory size.
 
 .. note:: Incremental State Transfers (IST) copies the database five times faster over ``mysqldump`` and about 50% faster than ``xtrabackup``.  Meaning that your cluster can handle relatively large write-set caches.  However, bear in mind that you cannot provision a server with Incremental State Transfers.
 
 
+.. rst-class:: kb
 .. rubric:: Recommendations
-   :class: kb
 
 As a general rule, start with the data directory size, including any possible links, then subtract the size of the ring buffer storage file, which is called ``galera.cache`` by default.
 
@@ -105,14 +104,6 @@ This equation can show how the size of the write-set cache can improve performan
 
 .. note:: Consider these configuration tips as guidelines only. For example, in cases where you must avoid state snapshot transfers as much as possible, you may end up using a much larger write-set cache than suggested above.
 
-
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
-- :ref:`gcache.size <gcache.size>` parameter
-- :ref:`wsrep_received_bytes <wsrep_received_bytes>` status variable
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

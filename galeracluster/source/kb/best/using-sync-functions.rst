@@ -47,8 +47,8 @@ In Galera Cluster prior to 4.x, you could manage critical reads using the :ref:`
 Beginning with Galera Cluster 4.0, though, you can use synchronization functions.  This allows you to tie the synchronization process to specific transactions so that the node waits only until a specific transaction is applied before executing the query.  Here is an example of how this might work:
 
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 Suppose on ``node1``, you begin a transaction, make changes to a table and then commit the transaction like so:
 
@@ -77,8 +77,8 @@ Now, on ``node2``, suppose you set it to wait until it replicates and applies th
 Next, you execute your critical reads.
 
 
+.. rst-class:: kb
 .. rubric:: Recommendations
-   :class: kb
 
 Using the :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>` function, the node waits until it has replicated and applied the given Global Transaction ID before starting a new transaction.
 
@@ -96,14 +96,6 @@ Synchronization Functions were introduced in Galera Cluster 4.  If you have an o
 
 The digits after the second and third decimal places are the version. The results here indicate that Galera Cluster version 3.5 is installed on the server.
 
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
-- :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`
-- :ref:`wsrep_sync_wait <wsrep_sync_wait>`
-- :ref:`wsrep_provider_version <wsrep_provider_version>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

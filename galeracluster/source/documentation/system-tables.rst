@@ -58,8 +58,8 @@ Database administrators and clients with the access to the ``mysql`` database ma
 
 
 .. _`cluster-view`:
+.. rst-class:: rubric-1
 .. rubric:: Cluster View
-   :class: rubric-1
 
 One of the new Galera related system tables is the ``wsrep_cluster`` table. This new table, starting in version 4 of Galera, contains a current view of the cluster. That is to say, it stores the UUID of the cluster and some other identification information, as well as the cluster's capabilities.
 
@@ -102,8 +102,8 @@ In the results here, you can see the cluster UUID. This can also be found by usi
 
 
 .. _`cluster-members`:
+.. rst-class:: rubric-1
 .. rubric:: Cluster Members
-   :class: rubric-1
 
 Another Galera related system tables is the ``wsrep_cluster_members`` table. This system table will provide the current membership of the cluster; it will contain a row for each node in the cluster.  That is to say, each node in the cluster known to the node upon which the table is queried.
 
@@ -154,8 +154,8 @@ In the results of this example you can see that this cluster is composed of thre
 
 
 .. _`cluster-streaming-log`:
+.. rst-class:: rubric-1
 .. rubric:: Cluster Streaming Log
-   :class: rubric-1
 
 The last Galera related system tables is the ``wsrep_streaming_log`` table. This system table contains meta data and row events for ongoing streaming transactions, write set fragment per row.
 

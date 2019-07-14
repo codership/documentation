@@ -48,8 +48,8 @@ Under normal operations, your Primary Component is the cluster.  When cluster pa
 
 
 .. _`weighted-quorum`:
+.. rst-class:: rubric-1
 .. rubric:: Weighted Quorum
-   :class: rubric-1
 
 .. index::
    pair: Weighted Quorum; Descriptions
@@ -87,8 +87,8 @@ In order to enable automatic failovers, you need to use at least three nodes.  B
 
 
 .. _`split-brain-condition`:
+.. rst-class:: rubric-2
 .. rubric:: Split-Brain Condition
-   :class: rubric-2
 
 Cluster failures that result in database nodes operating autonomous of each other are called split-brain conditions.  When this occurs, data can become irreparably corrupted, such as would occur when two database nodes independently update the same row on the same table.  As is the case with any quorum-based system, Galera Cluster is subject to split-brain conditions when the quorum algorithm fails to select a :term:`Primary Component`.
 
@@ -111,8 +111,8 @@ For more information on configuring and managing the quorum, see :doc:`quorum-re
 
 
 .. _`quorum-calculation`:
+.. rst-class:: rubric-1
 .. rubric:: Quorum Calculation
-   :class: rubric-1
 
 .. index::
    pair: Parameters; pc.weight
@@ -155,15 +155,15 @@ You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter. 
 
 
 .. _`weighted-quorum-examples`:
+.. rst-class:: rubric-1
 .. rubric:: Weighted Quorum Examples
-   :class: rubric-1
 
 Now that you understand how quorum weights work, here are some examples of deployment patterns and how to use them.
 
 
 .. _`wq-three-nodes`:
+.. rst-class:: rubric-2
 .. rubric:: Weighted Quorum for Three Nodes
-   :class: rubric-2
 
 When configuring quorum weights for three nodes, use the following pattern:
 
@@ -177,8 +177,8 @@ Under this pattern, killing ``node2`` and ``node3`` simultaneously preserves the
 
 
 .. _`wq-simple-master-slave`:
+.. rst-class:: rubric-2
 .. rubric:: Weighted Quorum for a Simple Master-Slave Scenario
-   :class: rubric-2
 
 When configuring quorum weights for a simple master-slave scenario, use the following pattern:
 
@@ -191,8 +191,8 @@ Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary
 
 
 .. _`wq-master-multi-slave`:
+.. rst-class:: rubric-2
 .. rubric:: Weighted Quorum for a Master and Multiple Slaves Scenario
-   :class: rubric-2
 
 When configuring quorum weights for a master-slave scenario that features multiple slave nodes, use the following pattern:
 
@@ -208,8 +208,8 @@ Under this pattern, if ``node1`` dies, all remaining nodes end up as non-primary
 
 
 .. _`wq-primary-secondary-site`:
+.. rst-class:: rubric-2
 .. rubric:: Weighted Quorum for a Primary and Secondary Site Scenario
-   :class: rubric-2
 
 When configuring quorum weights for primary and secondary sites, use the following pattern:
 

@@ -48,8 +48,8 @@ MySQL wsrep Functions
 
 
 .. _`WSREP_LAST_SEEN_GTID`:
+.. rst-class:: rubric-1
 .. rubric:: ``WSREP_LAST_SEEN_GTID()``
-   :class: rubric-1
 
 .. index::
    pair: Functions; WSREP_LAST_SEE_GTID()
@@ -75,8 +75,8 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
 
 .. _`WSREP_LAST_WRITTEN_GTID`:
+.. rst-class:: rubric-1
 .. rubric:: ``WSREP_LAST_WRITTEN_GTID()``
-   :class: rubric-1
 
 .. index::
    pair: Functions; WSREP_LAST_WRITTEN_GTID()
@@ -109,8 +109,8 @@ Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function
 
 
 .. _`WSREP_SYNC_WAIT_UPTO_GTID`:
+.. rst-class:: rubric-1
 .. rubric:: ``WSREP_SYNC_WAIT_UPTO_GTID()``
-   :class: rubric-1
 
 .. index::
    pair: Functions; WSREP_SYNC_WAIT_UPTO_GTID()

@@ -29,7 +29,7 @@
 
       .. cssclass:: bull-head
 
-         Related Documents
+      Related Documents
 
       - :doc:`Arbitrator <arbitrator>`
       - :doc:`auto-eviction`
@@ -67,8 +67,8 @@ With the basics of how the cluster works and how to install and initialize it co
 The sections in this part relate to the administration of nodes and the cluster.  :doc:`deployment`, covers how to use Galera Cluster in relation to your wider infrastructure, how to configure load balancers to work with the cluster and edge case deployments, such as running nodes in containers.  The pages in :doc:`monitor` show how to keep tabs on the status of the cluster and automate reporting.  :doc:`security` covers configuring Galera Cluster to work with firewalls, SELinux and SSL encryption.  :doc:`../training/tutorials/migrate` how to transition from a standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster.
 
 .. _`node-admin`:
+.. rst-class:: rubric-1
 .. rubric:: Node Administration
-   :class: rubric-1
 
 Managing and administering nodes in Galera Cluster is similar to the administration and management of the standard standalone MySQL, MariaDB and Percona XtraDB database servers, with some additional features used to manage its interaction with the cluster.  These pages cover the administration of individual nodes, how they handle write-set replication and schema updates, and the procedure for upgrading Galera Cluster software.
 
@@ -82,7 +82,7 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 
 - :doc:`scriptable-sst`
 
-  When nodes send and receive State Snapshot Transfers, they manage the process through external scripts that call the standard state transfer methods.  In event that you require additional functionality than what is available by default, you can use scripts to implement your own custom state snapshot transfer methods.
+  When nodes send and receive State Snapshot Transfers, they manage the process through external scripts that call the standard state transfer methods.  If you require additional functionality than what is available by default, you can create a script to implement your own custom state snapshot transfer methods.
 
 - :doc:`system-tables`
 
@@ -99,7 +99,7 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 
 .. _`cluster-admin`:
 .. rubric:: Cluster Administration
-   :class: rubric-1
+.. rst-class:: rubric-1
 
 In addition to node administration, Galera Cluster also provides interfaces for managing and administering the cluster.  These sections cover Primary Component recovery, managing Flow Control and Auto Eviction, as well as Galera Arbitrator and how to handle backups.
 

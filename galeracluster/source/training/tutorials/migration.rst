@@ -57,8 +57,8 @@ For more information on installing Galera Cluster, see :doc:`Galera Installation
 
 
 .. _`upgrade-system-tables`:
+.. rst-class:: rubric-1
 .. rubric:: Upgrading System Tables
-   :class: rubric-1
 
 When you finish upgrading a standalone database server to Galera Cluster, but before you initialize your own cluster, you need to update the system tables to take advantage of the new privileges and capabilities.  You can do this with ``mysql_upgrade``.
 
@@ -100,8 +100,8 @@ For more information on initializing and adding nodes to a cluster, see :doc:`St
 
 
 .. _`migrating-mysql-galera`:
+.. rst-class:: rubric-1
 .. rubric:: Migrating from MySQL to Galera Cluster
-   :class: rubric-1
 
 In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL master-slave replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
 

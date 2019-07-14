@@ -42,8 +42,8 @@ Requested State Transfer Failed
 When a new node joins a cluster, it will try to synchronize with the cluster by getting a full copy of the databases from one of the other nodes.  Sometimes this will fail.
 
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 Suppose a joiner node seeks a donor node to give it a copy of the databases by the :term:`State Snapshot Transfer` (SST) method.  Suppose further that an excessive amount of time passes and it's unsuccessful.
 
@@ -67,8 +67,8 @@ If the joiner node can't find a free node that shows as ``SYNCED``, it will repo
 
 The joiner node will continue to retry the state transfer request.
 
+.. rst-class:: kb
 .. rubric:: Solution
-   :class: kb
 
 To make the process of finding a donor node faster, you could set one or more donor nodes with the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter.  You could do this in the configuration file, or on the fly like so:
 
@@ -77,16 +77,6 @@ To make the process of finding a donor node faster, you could set one or more do
    SET wsrep_sst_donor = 'node1,node2';
 
 This tells the cluster that one of the nodes named ``node1`` and ``node2`` should be used as the donor. This value is set with the :ref:`wsrep_node_name <wsrep_node_name>` parameter in each node's configuration file.
-
-
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
- - :ref:`wsrep_node_name <wsrep_node_name>`
- - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
- - :ref:`gmcast.segment <gmcast.segment>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

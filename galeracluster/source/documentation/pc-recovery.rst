@@ -49,8 +49,8 @@ For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` p
 
 
 .. _`understand-pc-state`:
+.. rst-class:: rubric-1
 .. rubric:: Understanding the Primary Component State
-   :class: rubric-1
 
 When a node stores the :term:`Primary Component` state to disk, it saves it as the ``gvwstate.dat`` file.  The node creates and updates this file when the cluster forms or changes the Primary Component.  This ensures that the node retains the latest Primary Component state that it was in.  If the node loses connectivity, it has the file to reference.  If the node shuts down gracefully, it deletes the file.
 
@@ -82,8 +82,8 @@ The ``gvwstate.dat`` file breaks into two parts:
 
 
 .. _`modifying-pc-state`:
+.. rst-class:: rubric-1
 .. rubric:: Modifying the Saved Primary Component State
-   :class: rubric-1
 
 In the event that you find yourself in the unusual situation where you need to force certain nodes to join each other specifically, you can do so by manually changing the saved :term:`Primary Component` state.
 

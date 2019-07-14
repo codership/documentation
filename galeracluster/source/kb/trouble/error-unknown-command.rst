@@ -44,8 +44,8 @@ Unknown Command Errors
 If a cluster experiences a temporary split--that is to say, a portion of the nodes loses connectivity to the :term:`Primary Component`--when they reconnect, nodes from the former non-operational component drop their client connections.  New connections to the database client will return ``Unknown command`` errors.
 
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 Consider a situation in which you log into a node and try to execute a query using a database client, perhaps the ``mysql`` client.  Regardless of query you enter, each returns the same error message:
 
@@ -62,8 +62,8 @@ This problem occurs when you have explicitly set the wsrep Provider (i.e., the :
 Even after a disconnect node rejoins, when you receive these errors, it's because the node does not yet consider itself a part of the Primary Component.  While it has restored network connectivity, it still has to resynchronize itself with the cluster.  MySQL doesn't have an error code for the node lacking Primary status. So it defaults to an ``Unknown command`` message.
 
 
+.. rst-class:: kb
 .. rubric:: Work-Around
-   :class: kb
 
 Nodes in a non-operational component must regain network connectivity with the Primary Component, process a state transfer, and catch up with the cluster before they can resume normal operation.
 
@@ -76,8 +76,8 @@ Using the :ref:`wsrep_on <wsrep_on>` variable dynamically, you can bypass the ws
 This tells ``mysqld`` to ignore the :ref:`wsrep_provider <wsrep_provider>` setting and behave as a standard stand-alone database server.  Doing this can lead to data inconsistency with the rest of the cluster, but that may be the desired result for modifying the local tables.
 
 
+.. rst-class:: kb
 .. rubric:: Solution
-   :class: kb
 
 If you know or suspect that a cluster doesn't have a :term:`Primary Component`, you need to bootstrap a new one.  There are a couple of queries you'll need to run on each node in the cluster.
 
@@ -114,15 +114,3 @@ If none of the nodes are the Primary Component, you will need to bootstrap a new
    SET GLOBAL wsrep_provider_options='pc.bootstrap=YES';
 
 The node on which you executed this will now operate as the starting point in a new Primary Component.  Nodes that are part of non-operational components and have network connectivity will attempt to initiate a state transfer to bring their own databases up-to-date with this node.  At this point, the cluster will begin accepting SQL requests.
-
-
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
-- :ref:`wsrep_cluster_address <wsrep_cluster_address>`
-- :ref:`wsrep_cluster_status <wsrep_cluster_status>`
-- :ref:`wsrep_last_committed <wsrep_last_committed>`
-- :ref:`wsrep_on <wsrep_on>`
-- :ref:`wsrep_provider <wsrep_provider>`

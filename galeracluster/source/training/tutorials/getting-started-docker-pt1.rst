@@ -49,8 +49,8 @@ This is the first of a series of blog posts about using Galera with Docker. In t
 The instructions have been tested on Ubuntu 14.04 with Docker 1.5.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Build a Basic Docker Image
-   :class: rubric-1
 
 In Docker, Dockerfiles are used to describe the Docker images we are going to use to start our Galera Cluster. We are using the following Dockerfile:
 
@@ -96,14 +96,14 @@ A pre-built image is available from Docker Hub. You can pull it by running:
 (All commands in this article need to run as root.)
 
 
+.. rst-class:: rubric-1
 .. rubric:: Deploy on a Test Cluster on a Local Machine
-   :class: rubric-1
 
 Next, we are going to start a Galera Cluster on the local host. The instructions below are for demonstration purposes only and will not work when deploying on multiple hosts, as networking between containers needs to be set up. Configuring Docker networking across multiple hosts will be described in a following post.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Starting a Cluster
-   :class: rubric-1
 
 There have been a number of blog posts showing how to start Galera Cluster on a single host. This post is going to show the simplest way to do that in Docker by using simple commands, which will not work for a multi-host installation. First, if working on Ubuntu, we need to put AppArmor’s Docker profile in complain mode in advance.
 
@@ -140,8 +140,8 @@ Now we have a running Galera cluster. We can check the number of nodes in the Cl
    +--------------------+-------+
 
 
+.. rst-class:: rubric-1
 .. rubric:: Summary
-   :class: rubric-1
 
 We built a simple Galera Cluster on one host.
 

@@ -42,8 +42,8 @@ Geo-Distributed Database Clusters with Galera
 With Galera you can construct database clusters where each node is located in a different physical or even geographical location. In this blog post we will show some of the benefits from having such a geo-distributed cluster and the specific Galera features that enable practical replication across WAN links.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Benefits from Geo-Distribution
-   :class: rubric-1
 
 Geo-distribution allows database to break out from the single data center, which opens a whole new approach to redundancy and performance.
 
@@ -66,8 +66,8 @@ If all nodes in a cluster share a common power supply or storage infrastructure,
 With geographically-distributed nodes, it is possible to skip flushing every transaction to disk altogether and still have transaction persistency even after a catastrophic failure. As long as at least one node in any datacenter survived the outage, the remaining nodes, upon restart, will fetch from it all the transactions they had missed. The ``innodb_flush_log_at_trx_commit`` InnoDB option can be used to configure flushing behavior.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Galera Features for Geo-Distribution
-   :class: rubric-1
 
 Galera Cluster does not just happen to work well in geo-distributed environments. In fact, the transaction certification and replication approach taken by Galera is uniquely suited for high-latency links. The product also includes various features and enhancements targeted specifically for geo-distribution.
 
@@ -114,7 +114,7 @@ Galera Cluster can be configured to use public IP addresses if individual nodes 
 Galera Cluster also supports traditional MySQL replication and GTIDs. In high-latency situations where complete avoidance of slave lag is not required, asynchronous replication can be set up between two otherwise independent Galera clusters, each running in its own datacenter.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Summary
-   :class: rubric-1
 
 The case for building geo-distributed database clusters is strong. The Galera approach to replication and the specific features in the product make it practical to build Galera clusters that span multiple data centers and multiple users have such clusters already in production.

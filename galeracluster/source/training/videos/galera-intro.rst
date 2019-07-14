@@ -46,11 +46,3 @@ This video presents Galera Cluster:  how it works and the benefits to organizati
 .. raw:: html
 
     <iframe width="560" height="315" src="http://www.youtube.com/embed/n8vM_HVnnfc?rel=0" frameborder="0" allowfullscreen></iframe>
-
-
-.. rubric:: Additional Information
-   :class: kb rubric-1
-
-For more information related to this video, see the following:
-
-- :doc:`Frequently Asked Questions <../../faq>`

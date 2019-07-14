@@ -47,8 +47,8 @@ When you have a cluster running, you may want to test certain features to ensure
 
 
 .. _`Replication Testing`:
+.. rst-class:: rubric-1
 .. rubric:: Replication Testing
-   :class: rubric-1
 
 There are a few step to do to test that Galera Cluster is working as expected.  First, using the database client, verify that all nodes have connected to each other.  To do this, execute the ``SHOW STATUS`` statement like so:
 
@@ -108,8 +108,8 @@ The results returned  from the ``SELECT`` statement indicates that the data ente
 
 
 .. _`Split Brain Testing`:
+.. rst-class:: rubric-1
 .. rubric:: Split-Brain Testing
-   :class: rubric-1
 
 There are a few steps to test Galera Cluster for split-brain situations on a two-node cluster.  First, disconnect the network connection between the two nodes. At this point, the quorum will be lost and the nodes won't serve requests.
 
@@ -125,8 +125,8 @@ At this point the quorum should be reset and the cluster recovered.
 
 
 .. _`Failure Simulation`:
+.. rst-class:: rubric-1
 .. rubric:: Failure Simulation
-   :class: rubric-1
 
 You can also test Galera Cluster by simulating various failure situations on three nodes.  To simulate a crash of a single ``mysqld`` process, execute the following from the command-line on one of the nodes:
 

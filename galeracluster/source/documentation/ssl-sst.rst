@@ -51,8 +51,8 @@ The particular method you use to secure the State Snapshot Transfer through SSL 
 
 
 .. _`ssl-mysqldump`:
+.. rst-class:: rubric-1
 .. rubric:: Enabling SSL for ``mysqldump``
-   :class: rubric-1
 
 The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client through SSL.  Given that ``mysqldump`` connects through the database client, you can use the same SSL certificates you created for replication traffic.
 
@@ -133,8 +133,8 @@ This configures the node to use ``mysqldump`` for state snapshot transfers over 
 
 
 .. _`ssl-xtrabackup`:
+.. rst-class:: rubric-1
 .. rubric:: Enabling SSL for ``xtrabackup``
-   :class: rubric-1
 
 The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  Unlike ``rsync``, ``xtrabackup`` includes support for SSL encryption built in.
 

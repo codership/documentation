@@ -49,8 +49,8 @@ MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL
 
 
 .. _`install-mariadb-prep-server`:
+.. rst-class:: rubric-1
 .. rubric:: Preparing the Server
-   :class: rubric-1
 
 When building from source code, ``make`` cannot manage or install dependencies for either Galera Cluster or the build process itself.  You need to install these packages first.
 
@@ -76,8 +76,8 @@ Check with the repositories for your distribution or system for the appropriate 
 
 
 .. _`build-galera-mariadb`:
+.. rst-class:: rubric-1
 .. rubric:: Building MariaDB Galera Cluster
-   :class: rubric-1
 
 The source code for MariaDB Galera Cluster is available through GitHub_. Using Git you can download the source code to build MariaDB and the Galera Replicator Plugin locally on your system.
 
@@ -117,8 +117,8 @@ In addition to the database server, you also need the wsrep Provider, also known
 Once Git finishes downloading the source files, you can start building the database server and the Galera Replicator Plugin.  You now have the source files for the database server in a ``server/`` directory and the Galera source files in ``galera/``.
 
 .. _`build-mariadb`:
+.. rst-class:: rubric-2
 .. rubric:: Building the Database Server
-   :class: rubric-2
 
 The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MariaDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
 
@@ -141,8 +141,8 @@ To build the database server, ``cd`` into the ``server/`` directory and run the 
 
 
 .. _`build-mariadb-galera`:
+.. rst-class:: rubric-2
 .. rubric:: Building the wsrep Provider
-   :class: rubric-2
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
 
@@ -162,8 +162,8 @@ This process creates the Galera Replication Pluigin, (that is, the ``libgalera_s
 
 
 .. _`installmariadb-postinstall`:
+.. rst-class:: rubric-1
 .. rubric:: Post-installation Configuration
-   :class: rubric-1
 
 After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configuration process listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.
 

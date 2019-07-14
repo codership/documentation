@@ -41,8 +41,8 @@ FreeBSD provides packet filtering support at the kernel level.  Using PF you can
 
 
 .. _`using-pf`:
+.. rst-class:: rubric-1
 .. rubric:: Enabling PF
-   :class: rubric-1
 
 In order to use PF on FreeBSD, you must first set the system up to load its kernel module.  Additionally, you need to set the path to the configuration file for PF.
 
@@ -64,8 +64,8 @@ FreeBSD now loads the PF kernel module with logging features at boot.
 
 
 .. _`pf-config`:
+.. rst-class:: rubric-1
 .. rubric:: Configuring PF Rules
-   :class: rubric-1
 
 In the above section, the configuration file for PF was set to ``/etc/pf.conf``.  This file allows you to set up the default firewall configuration that you want to use on your server.  The settings you add to this file are the same for each cluster node.
 
@@ -111,8 +111,8 @@ If there are no syntax errors, ``pfctl`` prints each of the rules it adds to the
 
 
 .. _`pf-start`:
+.. rst-class:: rubric-1
 .. rubric:: Starting PF
-   :class: rubric-1
 
 When you finish configuring packet filtering for Galera Cluster and for any other service you may require on your FreeBSD server, you can start the service.  This is done with two commands: one to start the service itself and one to start the logging service.
 

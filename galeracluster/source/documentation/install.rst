@@ -37,21 +37,21 @@ Installing Galera Cluster
 
 Galera Cluster may be installed by several methods, using binary or source files.  It may be installed along with MySQL, MariaDB, or XtraDB.
 
+.. rst-class:: rubric-1
 .. rubric:: Installing MySQL Galera Cluster
-   :class: rubric-1
 
 - :doc:`MySQL Binary Installation <./install-mysql>`
 - :doc:`MySQL Source Installation <./install-mysql-src>`
 
 
+.. rst-class:: rubric-1
 .. rubric:: Installing MariaDB Galera Cluster
-   :class: rubric-1
 
 - :doc:`MariaDB Binary Installation <./install-mariadb>`
 - :doc:`MariaDB Source Installation <./install-mariadb-src>`
 
+.. rst-class:: rubric-1
 .. rubric:: Installing XtraDB Galera Cluster
-   :class: rubric-1
 
 - :doc:`XtraDB Binary Installation <./install-xtradb>`
 - :doc:`XtraDB Source Installation <./install-xtradb-src>`

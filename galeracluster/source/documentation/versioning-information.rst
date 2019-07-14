@@ -61,8 +61,8 @@ For more information on the installation process, see :doc:`Galera Installation 
 
 
 .. _`galera-release-number`:
+.. rst-class:: rubric-1
 .. rubric:: Release Numbering Schemes
-   :class: rubric-1
 
 Software packages for Galera Cluster have their own release numbering schemas.  There are two schemas to consider in version numbering:
 

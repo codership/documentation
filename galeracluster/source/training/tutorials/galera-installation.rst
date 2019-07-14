@@ -70,8 +70,8 @@ For software, each node in the cluster requires at a minimum the following:
 
 
 .. _`system-requirements`:
+.. rst-class:: rubric-1
 .. rubric:: Preparing the Server
-   :class: rubric-1
 
 Before you begin the installation process, there are a few tasks that you need to do to prepare the servers for Galera Cluster.  You must perform the following steps on each node in your cluster.
 
@@ -170,8 +170,8 @@ If instead, your system uses ``systemd``, run the following command instead:
 
 
 .. _`galera-install`:
+.. rst-class:: rubric-1
 .. rubric:: Installing Galera Cluster
-   :class: rubric-1
 
 There are two versions of Galera Cluster for MySQL: the original Codership reference implementation and MariaDB Galera Cluster.  For each database server, binary packages are available for Debian- and RPM-based Linux distributions, or you can build them from source.
 

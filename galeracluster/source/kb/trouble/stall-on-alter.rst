@@ -40,8 +40,8 @@ Cluster Stalls on ``ALTER``
 There may be times in which a cluster will stall when an ``ALTER`` statement is executed on an unused table.
 
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 There may be a situation in which you attempt to execute an ``ALTER`` statement on one node, but it takes a long time to execute--longer than expected.  During that period all of the other nodes may stall, leading to performance problems throughout the cluster.
 
@@ -50,8 +50,8 @@ What's happening is a side effect of a multi-master cluster with several applier
 Galera Cluster has a 65K window of tolerance for transactions applied in parallel, but the cluster must wait when ``ALTER`` statements take too long.
 
 
+.. rst-class:: kb
 .. rubric:: Solution
-   :class: kb
 
 Given that stalling due to an ``ALTER`` statement is a consequence of something intrinsic to how replication works in Galera Cluster, there is no direct solution to the problem.  However, you can implement a workaround.
 
@@ -69,15 +69,6 @@ To run an ``ALTER`` statement in this manner, you will need to execute the ``ALT
       SET wsrep_OSU_method='TOI';
 
 The first SQL statement here will change the Schema Upgrade method to *Rolling Schema Upgrade* (i.e., ``RSU``).  The second SQL statement represents an ``ALTER`` statement you want to execute. Once that's finished, the last ``SET`` statement will reset the Schema Upgrade method back to *Total Order Isolation* (i.e., ``TOI``).  After you've done this on each node, the cluster will now run with the desired updates.
-
-
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
-- :doc:`Schema Upgrades <../../documentation/schema-upgrades>`
-- :ref:`wsrep_OSU_method <wsrep_OSU_method>` parameter
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

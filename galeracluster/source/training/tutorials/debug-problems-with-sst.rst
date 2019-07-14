@@ -43,8 +43,8 @@ Galera Cluster has the ability to add new nodes to the cluster by handling inter
 A lot of operations happen during SST and there are various things that could go wrong. This article describes how to configure our server optimally for SST and how to debug any issues that arise.
 
 
+.. rst-class:: rubric-1
 .. rubric:: The Basics
-   :class: rubric-1
 
 Let’s first consider all the items that play a role in the preparation and configuration of SST.
 
@@ -97,8 +97,8 @@ Encrypting the SST is different for each method:
 
 End-to-end encryption via VPN can also be used. Tunnelling individual ports over SSH would be more complicated as more than one TCP port may be used during the process.
 
+.. rst-class:: rubric-1
 .. rubric:: Debugging SST Errors
-   :class: rubric-1
 
 SST is a complex process that internally involves running scripts and calling third-party binaries, so there are various opportunities for a failure.
 The first step when debugging is to examine the MySQL error logs, and you should look at the logs from both the joining node and the donor node in order to figure out what is going on. Both nodes participate equally in the process, so an error could happen on either side.

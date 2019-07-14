@@ -50,8 +50,8 @@ There are advantages and disadvantages to each method.  For instance, while a ro
 
 
 .. _`rolling-upgrade`:
+.. rst-class:: rubric-1
 .. rubric:: Rolling Upgrade
-   :class: rubric-1
 
 When you need the cluster to remain live and do not mind the time it takes to upgrade each node, use rolling upgrades.
 
@@ -95,8 +95,8 @@ Once the node finishes synchronizing with the cluster and completes its catch-up
 
 
 .. _`rolling-upgrade-major-versions`:
+.. rst-class:: rubric-2
 .. rubric:: Rolling Upgrades between Major Versions of Galera Cluster
-   :class: rubric-2
 
 Performing a rolling upgrade between major versions of Galera Cluster, such as from 5.6 to 5.7 has certain additional limitations:
 
@@ -120,8 +120,8 @@ The following procedure is recommended for rolling upgrades between major versio
 
 
 .. _`bulk-upgrade`:
+.. rst-class:: rubric-1
 .. rubric:: Bulk Upgrade
-   :class: rubric-1
 
 When you want to avoid time-consuming state transfers and the slow process of upgrading each node, one at a time, use a bulk upgrade.
 
@@ -151,8 +151,8 @@ To perform a bulk upgrade on Galera Cluster, complete the following steps:
 
 
 .. _`provider-upgrade`:
+.. rst-class:: rubric-1
 .. rubric:: Provider-only Upgrade
-   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_cluster_address
@@ -163,8 +163,8 @@ When you only need to upgrade the Galera provider, you can further optimize the 
 
 
 .. _`upgrade-plugin`:
+.. rst-class:: rubric-2
 .. rubric:: Upgrading Galera Replication Plugin
-   :class: rubric-2
 
 If you installed Galera Cluster for MySQL using the binary package from the Codership repository, you can upgrade the Galera Replication Plugin through your package manager..
 
@@ -185,8 +185,8 @@ When ``apt-get`` or ``yum`` finish, you will have the latest version of the Gale
 
 
 .. _`updating-galera-cluster`:
+.. rst-class:: rubric-2
 .. rubric:: Updating Galera Cluster
-   :class: rubric-2
 
 After you upgrade the Galera Replicator Plugin package on each node in the cluster, you need to run a bulk upgrade to switch the cluster over to the newer version of the plugin.
 

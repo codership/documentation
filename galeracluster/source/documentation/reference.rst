@@ -47,8 +47,8 @@ Reference
 In the event that you need more information about particular variables or parameters or status variable or would like a clearer explanation about various terms used in the documentation, these chapters provide general reference material to Galera Cluster configuration and use.
 
 .. _`ref-vars`:
+.. rst-class:: rubric-1
 .. rubric:: Variable Reference
-   :class: rubric-1
 
 Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file.  These chapters provide reference guides to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
 
@@ -70,8 +70,8 @@ Defining persistent configurations in Galera Cluster is done through the underly
 
 
 .. _`ref-utils`:
+.. rst-class:: rubric-1
 .. rubric:: Utility Reference
-   :class: rubric-1
 
 In some cases your configuration or implementation may require that you work with external utilities in your deployment of Galera Cluster.  These chapters provide reference guides for two such utilities: XtraBackup and Galera Load Balancer.
 
@@ -88,8 +88,8 @@ In some cases your configuration or implementation may require that you work wit
   This page provides information on the Galera specific system tables.  These were added as of version 4 of Galera.
 
 .. _`ref-misc`:
+.. rst-class:: rubric-1
 .. rubric:: Miscellaneous References
-   :class: rubric-1
 
 - :doc:`versioning-information`
 

@@ -39,8 +39,8 @@ Pen is a high-scalability, high-availability, robust load balancer for TCP- and 
 
 
 .. _`pen-install`:
+.. rst-class:: rubric-1
 .. rubric:: Installation
-   :class: rubric-1
 
 Pen is available in the software repositories of most Linux distributions.  You can install it using a package manager.
 
@@ -60,8 +60,8 @@ Whichever you use, they will install Pen on your system.  In the event that the 
 
 
 .. _`using-pen`:
+.. rst-class:: rubric-1
 .. rubric:: Using Pen
-   :class: rubric-1
 
 Once you've installed Pen on the load balancing server, you can launch it from the command-line by entering something like the following:
 
@@ -78,8 +78,8 @@ For more information on Pen configuration and use, see its manpage.
 
 
 .. _`pen-server-selection`:
+.. rst-class:: rubric-2
 .. rubric:: Server Selection
-   :class: rubric-2
 
 When Pen receives a new connection from the application servers, it first checks to see where the application was routed on the last connection and attempts to send traffic there.  In the event that it cannot establish a connection, it falls back on a round-robin selection policy.
 

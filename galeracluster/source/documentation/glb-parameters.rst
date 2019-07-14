@@ -47,8 +47,8 @@ It can be run either through the ``service`` command or the command-line interfa
 
 
 .. _`glb-config-parameters`:
+.. rst-class:: rubric-1
 .. rubric:: Configuration Parameters
-   :class: rubric-1
 
 When Galera Load Balancer starts as a system service, it reads the ``glbd.cfg`` configuration file for default parameters you want to use.  Only the :ref:`LISTEN_ADDR <glb-listen_addr>` parameter is mandatory.
 
@@ -65,8 +65,8 @@ When Galera Load Balancer starts as a system service, it reads the ``glbd.cfg`` 
    ":ref:`THREADS <glb-threads-par>`", "``2``"
 
 .. _`glb-control_addr`:
+.. rst-class:: rubric-1
 .. rubric:: ``CONTROL_ADDR``
-   :class: rubric-1
 
 Defines the IP address and port for controlling connections.
 
@@ -86,8 +86,8 @@ This is an optional parameter.  Use it to define the server used in controlling 
 
 
 .. _`glb-control_fifo`:
+.. rst-class:: rubric-1
 .. rubric:: ``CONTROL_FIFO``
-   :class: rubric-1
 
 Defines the path to the FIFO control file.
 
@@ -106,8 +106,8 @@ This is an optional parameter.  It defines the path to the FIFO control file as 
 
 
 .. _`glb-default_targets`:
+.. rst-class:: rubric-1
 .. rubric:: ``DEFAULT_TARGETS``
-   :class: rubric-1
 
 Defines the IP addresses and ports of the destination servers.
 
@@ -125,8 +125,8 @@ This parameter defines that IP addresses that Galera Load Balancer uses as desti
 
 
 .. _`glb-listen_addr`:
+.. rst-class:: rubric-1
 .. rubric:: ``LISTEN_ADDR``
-   :class: rubric-1
 
 Defines the IP address and port used for client connections.
 
@@ -144,8 +144,8 @@ This parameter defines the IP address and port that Galera Load Balancer listens
 
 
 .. _`glb-max_conn-par`:
+.. rst-class:: rubric-1
 .. rubric:: ``MAX_CONN``
-   :class: rubric-1
 
 Defines the maximum allowed client connections.
 
@@ -165,8 +165,8 @@ This option defines the maximum number of client connections that you want allow
 
 
 .. _`glb-other_options`:
+.. rst-class:: rubric-1
 .. rubric:: ``OTHER_OPTIONS``
-   :class: rubric-1
 
 Defines additional options that you want to pass to Galera Load Balancer.  There is no default configuration and this is not a mandatory parameter.
 
@@ -178,8 +178,8 @@ This parameter defines various additional options that you would like to pass to
 
 
 .. _`glb-threads-par`:
+.. rst-class:: rubric-1
 .. rubric:: ``THREADS``
-   :class: rubric-1
 
 Defines the number of threads you want to use.
 
@@ -197,8 +197,8 @@ This parameter allows you to define the number of threads (that is, connection p
 
 
 .. _`glb-config-options`:
+.. rst-class:: rubric-1
 .. rubric:: Configuration Options
-   :class: rubric-1
 
 When Galera Load Balancer starts as a daemon process, through the ``/sbin/glbd`` command, it allows you to pass a number of command-line arguments to configure how it operates.  It uses the following syntax:
 
@@ -236,8 +236,8 @@ In the event that you would like to set any of these options when you run Galera
 
 
 .. _`glb-control`:
+.. rst-class:: rubric-1
 .. rubric:: ``--control``
-   :class: rubric-1
 
 Defines the IP address and port for control connections.
 
@@ -258,8 +258,8 @@ For more information on defining the controlling connections, see the :ref:`CONT
 
 
 .. _`glb-daemon`:
+.. rst-class:: rubric-1
 .. rubric:: ``--daemon``
-   :class: rubric-1
 
 Defines whether you want Galera Load Balancer to run as a daemon process.
 
@@ -279,8 +279,8 @@ This option defines whether you want to start ``glbd`` as a daemon process.  Tha
 
 
 .. _`glb-defer-accept`:
+.. rst-class:: rubric-1
 .. rubric:: ``--defer-accept``
-   :class: rubric-1
 
 Enables TCP deferred acceptance on the listening socket.
 
@@ -300,8 +300,8 @@ Enabling ``TCP_DEFER_ACCEPT`` allows Galera Load Balancer to awaken only when da
 
 
 .. _`glb-discover`:
+.. rst-class:: rubric-1
 .. rubric:: ``--discover``
-   :class: rubric-1
 
 Defines whether you want to use watchdog results to discover and set new destinations.
 
@@ -321,8 +321,8 @@ When you define the :ref:`--watchdog <glb-watchdog>` option, this option defines
 
 
 .. _`glb-extra`:
+.. rst-class:: rubric-1
 .. rubric:: ``--extra``
-   :class: rubric-1
 
 Defines whether you want to perform an extra destination poll on connection attempts.
 
@@ -342,8 +342,8 @@ This option defines whether and when you want Galera Load Balancer to perform an
 
 
 .. _`glb-fifo`:
+.. rst-class:: rubric-1
 .. rubric:: ``--fifo``
-   :class: rubric-1
 
 Defines the path to the FIFO control file.
 
@@ -364,8 +364,8 @@ For more information on using FIFO control files, see the :ref:`CONTROL_FIFO <gl
 
 
 .. _`glb-interval`:
+.. rst-class:: rubric-1
 .. rubric:: ``--interval``
-   :class: rubric-1
 
 Defines how often to probe destinations for liveliness.
 
@@ -385,8 +385,8 @@ This option defines how often Galera Load Balancer checks destination servers fo
 
 
 .. _`glb-keepalive`:
+.. rst-class:: rubric-1
 .. rubric:: ``--keepalive``
-   :class: rubric-1
 
 Defines whether you want to disable the ``SO_KEEPALIVE`` socket option on server-side sockets.
 
@@ -406,8 +406,8 @@ Linux systems feature the socket option ``SO_KEEPALIVE``, which causes the serve
 
 
 .. _`glb-latency`:
+.. rst-class:: rubric-1
 .. rubric:: ``--latency``
-   :class: rubric-1
 
 Defines the number of samples to take in calculating latency for watchdog.
 
@@ -427,8 +427,8 @@ When the Watchdog module tests a destination server to calculate latency, it sen
 
 
 .. _`glb-linger`:
+.. rst-class:: rubric-1
 .. rubric:: ``--linger``
-   :class: rubric-1
 
 Defines whether Galera Load Balancer disables sockets lingering after they are closed.
 
@@ -448,8 +448,8 @@ When Galera Load Balancer sends the ``close()`` command, occasionally sockets li
 
 
 .. _`glb-max_conn-arg`:
+.. rst-class:: rubric-1
 .. rubric:: ``--max_conn``
-   :class: rubric-1
 
 Defines the maximum allowed client connections.
 
@@ -469,8 +469,8 @@ For more information on defining the maximum client connections, see the :ref:`M
 
 
 .. _`glb-nodelay`:
+.. rst-class:: rubric-1
 .. rubric:: ``--nodelay``
-   :class: rubric-1
 
 Defines whether it disables the TCP no-delay socket option.
 
@@ -490,8 +490,8 @@ Under normal operation, TCP connections automatically concatenate small packets 
 
 
 .. _`glb-random`:
+.. rst-class:: rubric-1
 .. rubric:: ``--random``
-   :class: rubric-1
 
 Defines the destination selection policy as Random.
 
@@ -514,8 +514,8 @@ For more information on other policies, see :ref:`Destination Selection Policies
 
 
 .. _`glb-round`:
+.. rst-class:: rubric-1
 .. rubric:: ``--round``
-   :class: rubric-1
 
 Defines the destination selection policy as Round Robin.
 
@@ -538,8 +538,8 @@ For more information on other policies, see :ref:`Destination Selection Policies
 
 
 .. _`glb-single`:
+.. rst-class:: rubric-1
 .. rubric:: ``--single``
-   :class: rubric-1
 
 Defines the destination selection policy as Single.
 
@@ -561,8 +561,8 @@ When you set the policy to Single, all connections route to the server with the 
 
 
 .. _`glb-source`:
+.. rst-class:: rubric-1
 .. rubric:: ``--source``
-   :class: rubric-1
 
 Defines the destination selection policy as Source Tracking.
 
@@ -586,8 +586,8 @@ For more information on other policies, see :ref:`Destination Selection Policies
 
 
 .. _`glb-threads-arg`:
+.. rst-class:: rubric-1
 .. rubric:: ``--threads``
-   :class: rubric-1
 
 Defines the number of threads that you want to use.
 
@@ -607,8 +607,8 @@ For more information on threading in Galera Load Balancer, see :ref:`THREADS <gl
 
 
 .. _`glb-top`:
+.. rst-class:: rubric-1
 .. rubric:: ``--top``
-   :class: rubric-1
 
 Enables balancing to top weights only.
 
@@ -628,8 +628,8 @@ This option restricts all balancing policies to a subset of destination servers 
 
 
 .. _`glb-verbose`:
+.. rst-class:: rubric-1
 .. rubric:: ``--verbose``
-   :class: rubric-1
 
 Defines whether you want Galera Load Balancer to run as verbose.
 
@@ -649,8 +649,8 @@ This option enables verbose output for Galera Load Balancer, which you may find 
 
 
 .. _`glb-watchdog`:
+.. rst-class:: rubric-1
 .. rubric:: ``--watchdog``
-   :class: rubric-1
 
 Defines specifications for watchdog operations.
 

@@ -60,8 +60,8 @@ The internal architecture of Galera Cluster revolves around four components:
 
 
 .. _`wsrep-api`:
+.. rst-class:: rubric-1
 .. rubric:: wsrep API
-   :class: rubric-1
 
 .. index::
    pair: Global Transaction ID; Descriptions
@@ -88,8 +88,8 @@ For each node in the cluster, the application process occurs by high-priority tr
 
 
 .. _`global-transaction-id`:
+.. rst-class:: rubric-1
 .. rubric:: Global Transaction ID
-   :class: rubric-1
 
 In order to keep the state identical across the cluster, the wsrep API uses a :term:`Global Transaction ID`, or GTID.  This allows it to identify state changes and to identify the current state in relation to the last state change. Below is an example of a GTID:
 
@@ -107,8 +107,8 @@ The Global Transaction ID allows you to compare the application state and establ
 
 
 .. _`galera-replication-plugin`:
+.. rst-class:: rubric-1
 .. rubric:: Galera Replication Plugin
-   :class: rubric-1
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It operates as the wsrep Provider. From a more technical perspective, the Galera Replication Plugin consists of the following components:
 
@@ -120,8 +120,8 @@ The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It oper
 
 
 .. _`group-communication-plugins`:
+.. rst-class:: rubric-1
 .. rubric:: Group Communication Plugins
-   :class: rubric-1
 
 .. index::
    pair: Virtual Synchrony; Descriptions

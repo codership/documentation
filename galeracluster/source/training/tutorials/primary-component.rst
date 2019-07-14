@@ -43,14 +43,14 @@ The Primary Component in Galera Cluster
 In this post, we will describe the Primary Component, a central concept in how Galera ensures that there is no opportunity for database inconsistency or divergence between the nodes in case of a network split.
 
 
+.. rst-class:: rubric-1
 .. rubric:: What is the Primary Component?
-   :class: rubric-1
 
 The Primary Component is that set of Galera nodes that can communicate with each other over the network and contains the majority of the nodes. In case of a network partition, it is those nodes that can safely commit a transaction. A cluster can only have one such set of nodes, as there can only be one majority. No other set of nodes will commit transactions, thus removing the possibility of two parts of the cluster committing different transactions and thus diverging and becoming inconsistent.
 
 
+.. rst-class:: rubric-1
 .. rubric:: The Healthy Cluster
-   :class: rubric-1
 
 In a healthy cluster, all nodes nodes can communicate with each other, so they all belong to the Primary Component and can all receive updates. There are no network partitions and therefore there are no nodes which have become separated. The wsrep_cluster_status status variable reports Primary on all nodes.
 
@@ -82,8 +82,8 @@ On any node that is in the Primary Component, the ``wsrep_cluster_size`` status 
 If you have a need for the data to be replicated to N servers or locations for reliability reasons, configure your monitoring framework to alert you if the value of ``wsrep_cluster_size`` drops below N.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Handling Network Partitions
-   :class: rubric-1
 
 If one or more nodes becomes separated from the Cluster by a network partition, each node in the cluster will decide if it is on the majority (primary) or the minority side of the partition.
 
@@ -96,16 +96,16 @@ Any transactions that were being committed while the network outage was in the p
 The nodes that detect they are in the majority will remain in a state of Primary and will continue to process future transactions. The value of the ``wsrep_cluster_size`` on those nodes will reflect the size of the now reduced primary component of the cluster.
 
 
+.. rst-class:: rubric-1
 .. rubric:: Recovery after a Network Partition
-   :class: rubric-1
 
 As soon as the network partition or the outage is healed, any nodes not in the Primary component that have continued to run will synchronize with the nodes from the Primary component and will rejoin the cluster. The ``wsrep_cluster_size`` will increase accordingly with the number of nodes that have rejoined.
 
 Any nodes where the mysqld processes have terminated will need to be restarted in order to rejoin.
 
 
+.. rst-class:: rubric-1
 .. rubric:: The Split Brain Problem
-   :class: rubric-1
 
 A problem that happens both in theory and in practice is the so called split-brain situation, where the cluster gets split by a network outage into two exactly equal parts. A software system that is not prepared to handle that eventuality could allow conflicting transactions to be executed on the separate parts of the cluster while they are not coordinating. This would cause the databases on each side to diverge without the possibility of an automatic reconciliation later.
 

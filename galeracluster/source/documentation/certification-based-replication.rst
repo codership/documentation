@@ -41,8 +41,8 @@ Transactions execute optimistically in a single node, or replica, and then at co
 
 
 .. _`cert-repl-requirements`:
+.. rst-class:: rubric-1
 .. rubric:: Certification-Based Replication Requirements
-   :class: rubric-1
 
 It's not possible to implement certification-based replication for all database systems.  It requires certain features of the database in order to work;
 
@@ -54,8 +54,8 @@ It's not possible to implement certification-based replication for all database 
 
 
 .. _`cert-repl-workings`:
+.. rst-class:: rubric-1
 .. rubric:: How Certification-Based Replication Works
-   :class: rubric-1
 
 The main idea in certification-based replication is that a transaction executes conventionally until it reaches the commit point, assuming there is no conflict.  This is called optimistic execution.
 
@@ -70,8 +70,8 @@ The write-set then undergoes a deterministic certification test, using the prima
 If the certification test fails, the node drops the write-set and the cluster rolls back the original transaction.  If the test succeeds, though, the transaction commits and the write-set is applied to the rest of the cluster.
 
 .. _`cert-repl-in-galera`:
+.. rst-class:: rubric-1
 .. rubric:: Certification-Based Replication in Galera Cluster
-   :class: rubric-1
 
 The implementation of certification-based replication in Galera Cluster depends on the global ordering of transactions.
 

@@ -44,12 +44,12 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-general-questions`:
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: General Questions
-   :class: rubric-1 rubric-separated
 
 .. _`faq-what-is-galera-cluster`:
+.. rst-class:: rubric-2
 .. rubric:: What is Galera Cluster?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -63,8 +63,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-why-galera-over-standard-replication`:
+.. rst-class:: rubric-2
 .. rubric:: Why use Galera Cluster instead of Basic MySQL Replication?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -80,8 +80,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-galera-on-aws`:
+.. rst-class:: rubric-2
 .. rubric:: Can Galera be used with AWS (Amazon Web Services)?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -95,8 +95,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-galera-cost`:
+.. rst-class:: rubric-2
 .. rubric:: How much does Galera software Cost?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -110,8 +110,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-large-galera-organizations`:
+.. rst-class:: rubric-2
 .. rubric:: Which Large Organizations are using Galera Cluster?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -125,8 +125,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-try-galera`:
+.. rst-class:: rubric-2
 .. rubric:: How can I Try Galera to see if I Like It?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -139,13 +139,14 @@ Just below each question is further categorization of the question: the minimum 
    If you want to see how well it performs, you might copy your existing databases to your test cluster.  See :ref:`Data Migration <migrate-data>` for more details on how you might do that.  You can also use a benchmark tool like, ``sysbench`` (see `How to Benchmark Performance <https://severalnines.com/blog/how-benchmark-performance-mysql-mariadb-using-sysbench>`_) to test Galera.
 
 
+
 .. _`faq-learning-questions`:
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: Learning & Training Questions
-   :class: rubric-1 rubric-separated
 
 .. _`faq-galera-cluster-popularity`:
+.. rst-class:: rubric-2
 .. rubric:: How Popular is Galera Cluster? Will I be able to Find People we Need?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -159,8 +160,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-learn-galera`:
+.. rst-class:: rubric-2
 .. rubric:: How can I or my Staff Learn to Configure and Use Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -174,8 +175,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-previous-skills-needed`:
+.. rst-class:: rubric-2
 .. rubric:: What Skills should I or my Staff have Before Learning Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -191,8 +192,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-train-which-staff`:
+.. rst-class:: rubric-2
 .. rubric:: Which of our Staff should be Experts on Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -208,8 +209,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-galera-articles`:
+.. rst-class:: rubric-2
 .. rubric:: Are there Tutorial Articles Written about Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -221,8 +222,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-train-developers`:
+.. rst-class:: rubric-2
 .. rubric:: Do Developers and others Users Need to Know Anything about Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -237,13 +238,14 @@ Just below each question is further categorization of the question: the minimum 
    Users would insert or change data in a database the same as they would on a stand-alone database server not using Galera or replication. There's no extra login requirements, interfaces, or methods to use a database running on Galera Cluster. Users will be unaware that you're using Galera Cluster |---| other than maybe noticing that your database is much more dependable.
 
 
+
 .. _`faq-assistance-questions`:
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: Assistance Questions
-   :class: rubric-1 rubric-separated
 
 .. _`faq-codership-offers-support`:
+.. rst-class:: rubric-2
 .. rubric:: Does Codership Offer Support?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -271,8 +273,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-codership-offers-consulting`:
+.. rst-class:: rubric-2
 .. rubric:: Is it Possible to get Codership to Assist Us in Migrating to Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -286,8 +288,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-galera-forums`:
+.. rst-class:: rubric-2
 .. rubric:: Are there Forums for Asking for Assistance with Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -302,13 +304,14 @@ Just below each question is further categorization of the question: the minimum 
    You can also post questions on forums unaffiliated with Codership or our partners:  `Stack Exchange (DBA Section) <https://dba.stackexchange.com/questions/tagged/galera>`_, `Stack Overflow <https://stackoverflow.com/questions/tagged/galera>`_,
 
 
+
 .. _`faq-installation-migration-questions`:
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: Installation & Migration Questions
-   :class: rubric-1 rubric-separated
 
 .. _`faq-easy-migration-standard-to-galera`:
+.. rst-class:: rubric-2
 .. rubric:: If I'm now using MySQL Standard Replication, will it be Easy to Switch to Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -328,8 +331,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-upgrading-galera`:
+.. rst-class:: rubric-2
 .. rubric:: How are Upgrades Made to a Cluster?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -343,8 +346,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-change-apps`:
+.. rst-class:: rubric-2
 .. rubric:: Do we have to Adjust our Databases or Custom Applications (e.g., PHP Programs)?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -359,8 +362,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-galera-installed-serperately`:
+.. rst-class:: rubric-2
 .. rubric:: Is Galera Installed Separately from the Database Software?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -374,8 +377,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-min-max-galera-nodes`:
+.. rst-class:: rubric-2
 .. rubric:: What's the Minimum and Maximum Number of Servers in a Galera Cluster?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -389,8 +392,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-min-galera-equipment`:
+.. rst-class:: rubric-2
 .. rubric:: What Type of Server or Equipment is Recommended for a Galera Cluster?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -405,13 +408,14 @@ Just below each question is further categorization of the question: the minimum 
    However you build your server nodes, it's best that they be equal in all ways: physical and virtual equipment; operating system configuration; software installation.
 
 
+
 .. _`faq-usage-questions`:
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: Usage Questions
-   :class: rubric-1 rubric-separated
 
 .. _`faq-galera-load-balancing`:
+.. rst-class:: rubric-2
 .. rubric:: Does Galera Balance Loads?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -425,8 +429,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-how-failovers-managed`:
+.. rst-class:: rubric-2
 .. rubric:: How are Failovers Managed?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -444,8 +448,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-making-backups`:
+.. rst-class:: rubric-2
 .. rubric:: Are making Back-ups of Databases Difficult?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -461,8 +465,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-isolation-levels`:
+.. rst-class:: rubric-2
 .. rubric:: Which InnoDB Isolation Levels does Galera Cluster Support?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -480,8 +484,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-ddl-handled-galera`:
+.. rst-class:: rubric-2
 .. rubric:: How are DDL's Handled by Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -499,8 +503,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-gcache-binlog`:
+.. rst-class:: rubric-2
 .. rubric:: Is GCache a Binary Log?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -520,8 +524,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-enable-binlog`:
+.. rst-class:: rubric-2
 .. rubric:: Should the Binary Log be Enabled with Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -535,12 +539,12 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-potential-problem-questions`:
+.. rst-class:: rubric-2
 .. rubric:: Questions about Potential Problems
-   :class: rubric-1 rubric-separated
 
 .. _`faq-what-causes-galera-to-stop`:
+.. rst-class:: rubric-2
 .. rubric:: What typically Causes a Cluster to Stop?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -575,8 +579,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-what-are-galera-limits`:
+.. rst-class:: rubric-2
 .. rubric:: What are the Limitations of Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -592,8 +596,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-slow-node`:
+.. rst-class:: rubric-2
 .. rubric:: Does the Slowest Node Affect the Performance of Other Nodes?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -606,13 +610,14 @@ Just below each question is further categorization of the question: the minimum 
    To alleviate this problem, you would make sure that all of the servers the same physically (i.e., amount of RAM, types of network interfaces), or at least have close the same amount of resources available.  You would also use a load balancer (e.g., MariaDB MaxScale, ProxySQL) to make sure one node is not overloaded with traffic.
 
 
+
 .. _`faq-trivial-questions`:
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: Galera Trivia Questions
-   :class: rubric-1 rubric-separated
 
 .. _`faq-why-called-is-galera`:
+.. rst-class:: rubric-2
 .. rubric:: Why is the Software Called Galera?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -628,8 +633,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-galera-license`:
+.. rst-class:: rubric-2
 .. rubric:: How is Galera Licensed and is it Open-Source?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -641,8 +646,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-how-codership-started`:
+.. rst-class:: rubric-2
 .. rubric:: How did Galera Start?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 
@@ -656,8 +661,8 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-who-owns-galera`:
+.. rst-class:: rubric-2
 .. rubric:: Who Owns and Develops Galera Software?
-   :class: rubric-2
 
 .. rst-class:: list-stats
 

@@ -57,8 +57,8 @@ The Logical State Transfer Method has the following disadvantages:
 
 
 .. _`sst-mysqldump`:
+.. rst-class:: rubric-1
 .. rubric:: ``mysqldump``
-   :class: rubric-1
 
 The main advantage of ``mysqldump`` is that you can transfer a state snapshot to a working server.  That is, you start the server standalone and then instruct it to join a cluster from within the database client command line.  You can also use it to migrate from an older database format to a newer one.
 

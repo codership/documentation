@@ -48,8 +48,8 @@ Individual nodes fail to operate when they lose touch with the cluster.  This ca
 
 
 .. _`single-node-failure-detection`:
+.. rst-class:: rubric-2
 .. rubric:: Detecting Single Node Failures
-   :class: rubric-2
 
 .. index::
    pair: Parameters; evs.keepalive_period
@@ -90,8 +90,8 @@ The relationship between these option values is:
 
 
 .. _`availability-partition-tolerance`:
+.. rst-class:: rubric-2
 .. rubric:: Cluster Availability vs. Partition Tolerance
-   :class: rubric-2
 
 Within the `CAP theorem <http://en.wikipedia.org/wiki/CAP_theorem>`_, Galera Cluster emphasizes data safety and consistency.  This leads to a trade-off between cluster availability and partition tolerance.  That is, when using unstable networks, such as :abbr:`WAN (Wide Area Network)`, low :ref:`evs.suspect_timeout <evs.suspect_timeout>` and :ref:`evs.inactive_timeout <evs.inactive_timeout>` values may result in false node failure detections, while higher values on these parameters may result in longer availability outages in the event of actual node failures.
 
@@ -99,8 +99,8 @@ Essentially what this means is that the :ref:`evs.suspect_timeout <evs.suspect_t
 
 
 .. _`recovery-single-node-failure`:
+.. rst-class:: rubric-2
 .. rubric:: Recovering from Single Node Failures
-   :class: rubric-2
 
 If one node in the cluster fails, the other nodes continue to operate as usual.  When the failed node comes back online, it automatically synchronizes with the other nodes before it is allowed back into the cluster.
 
@@ -108,8 +108,8 @@ No data is lost in single node failures.
 
 
 .. _`state-transfer-failure`:
+.. rst-class:: rubric-1
 .. rubric::  State Transfer Failure
-   :class: rubric-1
 
 Single node failures can also occur when a :term:`state snapshot transfer` fails.  This failure renders the receiving node unusable, as the receiving node aborts when it detects a state transfer failure.
 

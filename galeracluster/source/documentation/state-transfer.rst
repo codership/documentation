@@ -60,8 +60,8 @@ The process of replicating data from the cluster to the individual node, bringin
 
 
 .. _`state-transfer-sst`:
+.. rst-class:: rubric-1
 .. rubric:: State Snapshot Transfer (SST)
-   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_sst_method
@@ -96,8 +96,8 @@ You can set which State Snapshot Transfer method a node uses from the confirmati
 
 
 .. _`state-transfer-ist`:
+.. rst-class:: rubric-1
 .. rubric:: Incremental State Transfer (IST)
-   :class: rubric-1
 
 .. index::
    pair: Parameters; wsrep_sst_method
@@ -136,8 +136,8 @@ The advantage of Incremental State Transfers is that they can dramatically speed
 
 
 .. _`state-transfer-gcache`:
+.. rst-class:: rubric-2
 .. rubric:: Write-set Cache (GCache)
-   :class: rubric-2
 
 .. index::
    pair: GCache; Descriptions

@@ -23,6 +23,9 @@
 
          Related Documents
 
+      - `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_
+      - `pt-archiver <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
+
       .. cssclass:: bull-head
 
          Related Articles
@@ -38,14 +41,14 @@ Handling Large Transactions
 Large transactions, especially ones deleting removes millions of rows from a table at once, can lead to diminished performance. One reason is that the table may reindexed and rescanned after each row is deleted.
 
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 Suppose you have a node called ``dbhost`` with a database called ``keystone``.  Suppose further that you execute a large transaction, which includes a ``DELETE`` statement that deletes expired tokens from their table in that database and on that host. If this transaction involves millions of rows, it could affect the overall performance of the cluster.
 
 
+.. rst-class:: kb
 .. rubric:: Recommendations
-   :class: kb
 
 This problem might be easily resolved by changing the size of the InnoDB buffer pool. The pool is bytes of the memory area where InnoDB caches table and index data. The larger the pool (i.e., the more RAM is used), the less the disk is  accessed, which is especially important when dealing with the same data in tables multiple times as you might in a large transaction on the same table.
 
@@ -72,14 +75,6 @@ The ``--source`` parameter provides the host, database, and table. Since there i
 
 The ``--primary-key-only`` parameter is efficient when purging rows. It prevents fetching each row in its entirety, when only the primary key column is used in the ``WHERE`` clause for ``DELETE`` statements.
 
-
-.. rubric:: Additional Information
-   :class: kb
-
-For more information related to this KB article, see the following documents:
-
-- `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ variable
-- `pt-archiver <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -68,8 +68,8 @@ Galera Cluster is well suited for LAN, WAN, container and cloud environments.  T
 
 
 .. _`how-galera-works`:
+.. rst-class:: rubric-1
 .. rubric:: How Galera Cluster Works
-   :class: rubric-1
 
 The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.
 
@@ -85,8 +85,8 @@ Certification-based replication is an alternative approach to synchronous databa
 
 
 .. _`node-init`:
+.. rst-class:: rubric-1
 .. rubric:: Node Initialization
-   :class: rubric-1
 
 Individual nodes in Galera Cluster are MySQL, MariaDB or Percona XtraDB.  But, deploying a node is not exactly the same as the standard standalone instance of the database server.  You need to take a few additional steps in order to properly install and configure the software.  The software runs on any unix-like operating system.  These articles provide guides to installing and configuring nodes for Galera Cluster.
 
@@ -112,8 +112,8 @@ Individual nodes in Galera Cluster are MySQL, MariaDB or Percona XtraDB.  But, d
 
 
 .. _`cluster-init`:
+.. rst-class:: rubric-1
 .. rubric:: Cluster Initialization
-   :class: rubric-1
 
 With the software installed on the relevant servers in your your infrastructure, you can now initialize Galera Cluster, by bootstrapping the Primary Component then starting all the other nodes as you would any other database server instance.  These tutorial articles provide guides to starting the cluster, ways of testing that it's operational and, when you need to, how to restart the entire cluster.
 

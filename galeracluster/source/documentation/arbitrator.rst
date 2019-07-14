@@ -69,8 +69,8 @@ For more information on using Galera Arbitrator for making backups, see :doc:`ba
 
 
 .. _`starting-arbitrator`:
+.. rst-class:: rubric-1
 .. rubric:: Starting Galera Arbitrator
-   :class: rubric-1
 
 Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``.  This means that you must start it separately from the cluster.  It also means that you cannot configure Galera Arbitrator through the ``my.cnf`` configuration file.
 
@@ -87,9 +87,8 @@ How you configure Galera Arbitrator depends on how you start it.  That is to say
 
 
 .. _`arbitrator-shell-start`:
+.. rst-class:: rubric-1
 .. rubric:: Starting Galera Arbitrator from the Shell
-   :class: rubric-1
-
 
 When starting Galera Arbitrator from the shell, you have two options as to how you may configure it.  You can set the parameters through the command line arguments, as in the example here:
 
@@ -145,8 +144,8 @@ For more information on the options available to Galera Arbitrator, see :doc:`ga
 
 
 .. _`arbitrator-service-start`:
+.. rst-class:: rubric-1
 .. rubric:: Starting Galera Arbitrator as a Service
-   :class: rubric-1
 
 When starting Galera Aribtrator as a service, whether using ``init`` or ``systemd``, you would use a different format for the configuration file than you would use when starting it from the shell. Below is an example of the configuration file:
 

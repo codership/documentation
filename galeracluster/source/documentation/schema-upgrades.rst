@@ -52,8 +52,8 @@ You can set the method for online schema changes by using the ``wsrep_OSU_method
 
 
 .. _`toi`:
+.. rst-class:: rubric-1
 .. rubric:: Total Order Isolation
-   :class: rubric-1
 
 .. index::
    pair: Descriptions; Total Order Isolation
@@ -76,8 +76,8 @@ The main advantage of Total Order Isolation is its simplicity and predictability
 
 
 .. _`rsu`:
+.. rst-class:: rubric-1
 .. rubric:: Rolling Schema Upgrade
-   :class: rubric-1
 
 .. index::
    pair: Descriptions; Rolling Schema Upgrade

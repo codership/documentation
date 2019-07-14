@@ -41,14 +41,14 @@ Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL
 
 
 .. _`xtradb-repo`:
+.. rst-class:: rubric-1
 .. rubric:: Enabling the Percona Repository
-   :class: rubric-1
 
 In order to install Percona XtraDB Cluster through your package manager, you need to first enable the Percona repository on your system.  There are two different ways to accomplish this, depending upon which Linux distribution you use.
 
 .. _`xtradb-apt`:
+.. rst-class:: rubric-2
 .. rubric:: Enabling the ``apt`` Repository
-   :class: rubric-2
 
 For Debian and Debian-based Linux distributions, the procedure for adding the Percona repository requires that you first install Software Properties on your system.  The package names vary depending upon which distribution you use.  For Debian, in the terminal run the following command:
 
@@ -101,8 +101,8 @@ Packages in the Percona repository are now available for installation on your se
 
 
 .. _`xtradb-yum`:
+.. rst-class:: rubric-2
 .. rubric:: Enabling the ``yum`` Repository
-   :class: rubric-2
 
 For RPM-based distributions, you can enable the Percona repository through ``yum`` using the following command:
 
@@ -116,8 +116,8 @@ Packages in the Percona repository are now available for installation on your se
 
 
 .. _`xtradb-galera-install`:
+.. rst-class:: rubric-1
 .. rubric:: Installing Percona XtraDB Cluster
-   :class: rubric-1
 
 There are three packages involved in the installation of Percona XtraDB Cluster: the Percona XtraDB client, a command line tool for accessing the database; the percona XtraDB database server, built to include the :term:`wsrep API` patch and the :term:`Galera Replication Plugin`.
 

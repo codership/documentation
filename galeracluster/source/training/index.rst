@@ -37,8 +37,8 @@ Training
 
 This is the training section of the Codership Library. Here you'll find tutorial articles to start.  Our plan is to create a series of articles and videos to help you learn about Galera Cluster and related software--in conjunction with Galera. Soon there will be plenty here; for now, this is just the start.
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`Tutorial Articles <./tutorials/index>`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 
@@ -47,8 +47,8 @@ This is the training section of the Codership Library. Here you'll find tutorial
 This section contains tutorial articles. To start, there are tutorials on how to get started with Galera and other basic tasks related to initially starting a Galera Cluster. There are also some intermediate articles on a few other aspects of Galera and related software.
 
 
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`Training Videos <./videos/index>`
-   :class: list-sub-header rubric-1
 
 .. rst-class:: list-stats
 

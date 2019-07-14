@@ -40,8 +40,8 @@ Commit Failed for Reason 3
 When you have :ref:`wsrep_debug <wsrep_debug>` turned ``ON``, you may occasionally see a message noting that a commit has failed due to reason ``3``.
 
 
+.. rst-class:: kb
 .. rubric:: Scenario
-   :class: kb
 
 Suppose you attempt to change locally the data contained in a database and you have  :ref:`wsrep_debug <wsrep_debug>` enabled, and see a message in the error log saying that a commit has failed due to reason ``3``.  Below is an example of an excerpt from a database server's error log showing this:
 
@@ -57,17 +57,10 @@ When attempting to apply a replicated write-set, slave threads occasionally enco
 This is a consequence of optimistic transaction execution.  The database server executes transactions with the expectation that there won't be any row conflicts.  It's an expected issue in a multi-master configuration.
 
 
+.. rst-class:: kb
 .. rubric:: Solution
-   :class: kb
 
 To mitigate such conflicts, there are a couple of things you can do. You could use the cluster in a master-slave configuration: you would direct all writes to a single node.  The other option is to use the same approach as master-slave read/write splitting.
-
-
-.. rubric:: Additional Information
-
-For more information related to this KB article, see the following documents:
-
- - :ref:`wsrep_debug <wsrep_debug>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

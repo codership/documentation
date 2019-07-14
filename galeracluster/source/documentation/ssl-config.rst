@@ -51,8 +51,8 @@ When you finish generating the SSL certificates for your cluster, you need to en
 
 
 .. _`enable-ssl`:
+.. rst-class:: rubric-1
 .. rubric:: Enabling SSL
-   :class: rubric-1
 
 There are three vectors that you can secure through :abbr:`SSL (Secure Socket Layer)`: traffic between the database server and client, replication traffic within Galera Cluster, and the :term:`State Snapshot Transfer`.
 
@@ -60,8 +60,8 @@ There are three vectors that you can secure through :abbr:`SSL (Secure Socket La
 
 
 .. _`securing-database`:
+.. rst-class:: rubric-2
 .. rubric:: Securing the Database
-   :class: rubric-2
 
 For securing database server and client connections, you can use the internal MySQL :abbr:`SSL (Secure Socket Layer)` support.  In the event that you use logical transfer methods for state snapshot transfer, such as ``mysqldump``, this is the only step you need to take in securing your state snapshot transfers.
 
@@ -85,8 +85,8 @@ These parameters tell the database server and client which files to use in encry
 
 
 .. _`securing-replication-traffic`:
+.. rst-class:: rubric-2
 .. rubric:: Securing Replication Traffic
-   :class: rubric-2
 
 In order to enable SSL on the internal node processes, you need to define the paths to the key, certificate and certificate authority files that you want the node to use in encrypting replication traffic.
 
@@ -107,8 +107,8 @@ This tells Galera Cluster which files to use in encrypting and decrypting replic
 
 
 .. _`configuring-ssl`:
+.. rst-class:: rubric-1
 .. rubric:: Configuring SSL
-   :class: rubric-1
 
 In the event that you want or need to further configure how the node uses :abbr:`SSL (Secure Sockets Layer)`, Galera Cluster provides some additional parameters, including defining the cyclic redundancy check and setting the cryptographic cipher algorithm you want to use.
 
@@ -116,8 +116,8 @@ In the event that you want or need to further configure how the node uses :abbr:
 
 
 .. _`configuring-socket-checksum`:
+.. rst-class:: rubric-2
 .. rubric:: Configuring the Socket Checksum
-   :class: rubric-2
 
 Using the :ref:`socket.checksum<socket.checksum>` parameter, you can define whether or which cyclic redundancy check the node uses in detecting errors.  There are three available settings for this parameter, which are defined by an integer:
 
@@ -136,8 +136,8 @@ The default configuration for this parameter is ``1`` or ``2`` depending upon yo
 
 
 .. _`configuring-cipher`:
+.. rst-class:: rubric-2
 .. rubric:: Configuring the Encryption Cipher
-   :class: rubric-2
 
 Using the :ref:`socket.ssl_cipher<socket.ssl_cipher>` parameter, one can override the default :abbr:`SSL (Secure Sockets Layer)` cipher the node uses to encrypt replication traffic.  Galera Cluster uses whatever ciphers are available to the :abbr:`SSL (Secure Sockets Layer)` implementation installed on the nodes. For instance, if you install OpenSSL on your node, Galera Cluster can use any cipher supported by OpenSSL, as well as use filters to ensure that "weak" algorithms are not accepted on connection handshake.
 

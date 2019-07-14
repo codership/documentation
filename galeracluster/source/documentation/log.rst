@@ -43,8 +43,8 @@ Galera Cluster provides the same database server logging features available to M
 
 
 .. _`server-log-parameters`:
+.. rst-class:: rubric-1
 .. rubric:: Log Parameters
-   :class: rubric-1
 
 Galera Cluster provides parameters and wsrep options that allow you to enable error logging on events that are specific to the replication process.  If you have a script monitoring the logs, these entires can give you information on conflicts occurring in the replication process.
 
@@ -68,8 +68,8 @@ You can enable these through the ``my.cnf`` configuration file.  The excerpt bel
 
 
 .. _`gra.log`:
+.. rst-class:: rubric-1
 .. rubric:: Additional Log Files
-   :class: rubric-1
 
 Whenever a node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.
 

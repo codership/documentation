@@ -57,8 +57,8 @@ Getting backups with the associated Global Transaction ID requires a different a
 
 
 .. _`sst-backup`:
+.. rst-class:: rubric-1
 .. rubric:: State Snapshot Transfer as Backup
-   :class: rubric-1
 
 Taking a full data backup is very similar to node provisioning through a :term:`State Snapshot Transfer`.  In both cases, the node creates a full copy of the database contents, using the same mechanism to associate a :term:`Global Transaction ID` with the database state. Invoking backups through the state snapshot transfer mechanism has the following benefits:
 
