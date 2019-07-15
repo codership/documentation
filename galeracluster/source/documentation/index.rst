@@ -89,9 +89,9 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":ref:`genindex`", ":ref:`search`"
    ":doc:`../whats-new`", ""
 
-For resolving problems you might have with the software, you can also check our :doc:`Knowledge Base <../kb/index>`. There you will find troubleshooting and best practices articles.  You can also post questions on the `Codership Forum <http://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
+For resolving problems you might have with the software, you can also check our :doc:`Knowledge Base <../kb/index>`. There you will find troubleshooting and best practices articles.  You can also post questions on the `Codership Forum <https://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
 
-If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <http://galeracluster.com/contact-us/#send-us-a-message>`_.
+If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <https://galeracluster.com/contact-us/#send-us-a-message>`_.
 
 
 .. toctree::

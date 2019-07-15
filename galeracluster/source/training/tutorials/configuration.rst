@@ -116,7 +116,7 @@ Next, ensure the InnoDB locking mode for generating auto-increment values is set
 
 Don't change this value afterwards.  Other modes may cause ``INSERT`` statements to fail on tables with ``AUTO_INCREMENT`` columns.
 
-.. warning:: When `innodb_autoinc_lock_mode <http://dev.mysql.com/doc/refman/5.5/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode (i.e., a value of ``0``) or to consecutive lock mode (i.e., a value of ``1``) it can cause unresolved deadlocks and make the system unresponsive in Galera Cluster.
+.. warning:: When `innodb_autoinc_lock_mode <https://dev.mysql.com/doc/refman/5.5/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode (i.e., a value of ``0``) or to consecutive lock mode (i.e., a value of ``1``) it can cause unresolved deadlocks and make the system unresponsive in Galera Cluster.
 
 
 After all of that, make sure the InnoDB log buffer is written to file once per second, rather than on each commit, to improve performance. To do this, set the ``innodb_flush_log_at_trx_commit`` variable to 0 like so;
@@ -125,7 +125,7 @@ After all of that, make sure the InnoDB log buffer is written to file once per s
 
    innodb_flush_log_at_trx_commit=0
 
-.. warning:: Although setting `innodb_flush_log_at_trx_commit <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit>`_ to a value of ``0`` or ``2`` improves performance, it also introduces potential problems.  Operating system crashes or power outages can erase the last second of transaction.  Although normally you can recover this data from another node, it can still be lost entirely in the event that the cluster goes down at the same time.
+.. warning:: Although setting `innodb_flush_log_at_trx_commit <https://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit>`_ to a value of ``0`` or ``2`` improves performance, it also introduces potential problems.  Operating system crashes or power outages can erase the last second of transaction.  Although normally you can recover this data from another node, it can still be lost entirely in the event that the cluster goes down at the same time.
 
 After you make all of these changes and additions to the configuration file, you're ready to configure the database privileges.
 
@@ -136,7 +136,7 @@ Configuring the InnoDB Buffer Pool
 .. _`config_innodb_buffer_pool_size`:
 
 The InnoDB storage engine uses its own memory buffer to cache data and for indexes of tables. You can configure this memory buffer through the
-`innodb_buffer_pool_size <http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ parameter.  The default value is 128 MB.  To compensate for the increased memory usage of Galera Cluster over a standalone MySQL database server, you should scale your usual value back by five percent.
+`innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ parameter.  The default value is 128 MB.  To compensate for the increased memory usage of Galera Cluster over a standalone MySQL database server, you should scale your usual value back by five percent.
 
 .. code-block:: console
 

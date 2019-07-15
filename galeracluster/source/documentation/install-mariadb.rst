@@ -90,7 +90,7 @@ Next, add the MariaDB repository to your sources list. You can do this by enteri
 
 .. code-block:: console
 
-   # add-apt-repository 'deb http://mirror.jmu.edu/pub/mariadb/repo/version/distro release main'
+   # add-apt-repository 'deb https://mirror.jmu.edu/pub/mariadb/repo/version/distro release main'
 
 You wouldn't enter exactly the line above. You'll have to adjust the repository address:
 
@@ -132,8 +132,8 @@ Using a simple text editor, create a new ``.repo`` file containing something lik
 
    [mariadb]
    name = MariaDB
-   baseurl = http://yum.mariadb.org/version/package
-   gpgkey = https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+   baseurl = https://yum.mariadb.org/version/package
+   gpgkey = httpss://yum.mariadb.org/RPM-GPG-KEY-MariaDB
    gpgcheck = 1
 
 For the value of ``baseurl``, you'll have to adjust the web address:

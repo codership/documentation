@@ -85,7 +85,7 @@ Once you have Software Properties installed, you can enable the Percona reposito
 
    .. code-block:: console
 
-      # add-apt-repository 'deb http://repo.percona.com/apt release main'
+      # add-apt-repository 'deb https://repo.percona.com/apt release main'
 
    For the repository address, make the following changes:
 
@@ -103,7 +103,7 @@ Once you have Software Properties installed, you can enable the Percona reposito
 
       # apt-get update
 
-For more information on the repository, available packages and mirrors, see the `Percona apt Repository <http://www.percona.com/doc/percona-server/5.5/installation/apt_repo.html>`_
+For more information on the repository, available packages and mirrors, see the `Percona apt Repository <https://www.percona.com/doc/percona-server/5.5/installation/apt_repo.html>`_
 
 Packages in the Percona repository are now available for installation on your server through ``apt-get``.
 
@@ -116,9 +116,9 @@ For RPM-based distributions, you can enable the Percona repository through ``yum
 
 .. code-block:: console
 
-   # yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+   # yum install https://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
 
-For more information on the repository, package names or available mirrors, see the `Percona yum Repository <http://www.percona.com/doc/percona-server/5.5/installation/yum_repo.html>`_.
+For more information on the repository, package names or available mirrors, see the `Percona yum Repository <https://www.percona.com/doc/percona-server/5.5/installation/yum_repo.html>`_.
 
 Packages in the Percona repository are now available for installation on your server through ``yum``.
 

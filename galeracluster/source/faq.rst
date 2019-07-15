@@ -129,7 +129,7 @@ Just below each question is further categorization of the question: the minimum 
 
    Since 2009, there are thousands of Galera Cluster users and over 1.5 million downloads. Enterprises choose Galera Cluster because it provides most robust solution against data loss, MySQL and MariaDB high availability and scalability.
 
-   Because of client confidentiality, we can't name the largest organizations that are using Galera, but there are a few that have agreed to endorsing us. Check out our `References <http://galeracluster.com/references/>`_ page for just a few.
+   Because of client confidentiality, we can't name the largest organizations that are using Galera, but there are a few that have agreed to endorsing us. Check out our `References <https://galeracluster.com/references/>`_ page for just a few.
 
 
 .. _`faq-try-galera`:
@@ -179,7 +179,7 @@ Just below each question is further categorization of the question: the minimum 
 
    The :doc:`Galera Cluster Documentation <./documentation/index>` is the best source for detailed information on Galera. It includes a guide for :doc:`Getting Started Guide <./training/tutorials/getting-started>`. Several members of the Galera staff occasionally make presentations at conferences around the globe.
 
-   For comprehensive training courses on Galera and related software (e.g., load balancers), check the web sites of our partners (e.g., MariaDB, FromDual, Severalnines). For a list of all of them, along with links to their sites, see the `Support Partners <http://galeracluster.com/support/#support-partners>`_
+   For comprehensive training courses on Galera and related software (e.g., load balancers), check the web sites of our partners (e.g., MariaDB, FromDual, Severalnines). For a list of all of them, along with links to their sites, see the `Support Partners <https://galeracluster.com/support/#support-partners>`_
 
 
 .. _`faq-previous-skills-needed`:
@@ -226,7 +226,7 @@ Just below each question is further categorization of the question: the minimum 
 
 .. rst-class:: list-abstract
 
-   You can find many articles on Galera and related software on our `blog <http://galeracluster.com/category/blog/>`_. These are mixed in with information on conferences and press releases, so you'll have to scroll through the list of articles.  Some of our partners regularly publish articles on various aspects of Galera: `MariaDB <https://mariadb.com/resources/blog/tag/galera/>`_, `Severalnines <https://severalnines.com/blog/top-mysql-galera-cluster-resources>`_, and `FromDual Articles <https://www.fromdual.com/search/node/galera>`_.
+   You can find many articles on Galera and related software on our `blog <https://galeracluster.com/category/blog/>`_. These are mixed in with information on conferences and press releases, so you'll have to scroll through the list of articles.  Some of our partners regularly publish articles on various aspects of Galera: `MariaDB <https://mariadb.com/resources/blog/tag/galera/>`_, `Severalnines <https://severalnines.com/blog/top-mysql-galera-cluster-resources>`_, and `FromDual Articles <https://www.fromdual.com/search/node/galera>`_.
 
 
 .. _`faq-train-developers`:
@@ -275,9 +275,9 @@ Just below each question is further categorization of the question: the minimum 
    - Zendesk support portal and ticket management; and
    - 8-hour response time for 8/5, 4-hour response time for 24/7
 
-   For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <http://galeracluster.com/contact-us/#send-us-a-message>`_.
+   For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <https://galeracluster.com/contact-us/#send-us-a-message>`_.
 
-   You can also engage one of our `Support Partners <http://galeracluster.com/support/#support-partners>`_. We are very particular as to who we allow to become one of our Support Partner:  they're well qualified, very responsive, and dependable.
+   You can also engage one of our `Support Partners <https://galeracluster.com/support/#support-partners>`_. We are very particular as to who we allow to become one of our Support Partner:  they're well qualified, very responsive, and dependable.
 
 
 .. _`faq-codership-offers-consulting`:
@@ -307,7 +307,7 @@ Just below each question is further categorization of the question: the minimum 
 
    There are a few forums on Galera and related software. On these forums, you can post questions to the community. It may take a little time, but you will usually receive responses to your posts.
 
-   We have a forum in which the community, as well as our staff monitor and post responses:  `Codership Forum <http://galeracluster.com/community/>`_. Some of our partners maintain forums on Galera:  `FromDual Forum <https://www.fromdual.com/forum/513>`_.
+   We have a forum in which the community, as well as our staff monitor and post responses:  `Codership Forum <https://galeracluster.com/community/>`_. Some of our partners maintain forums on Galera:  `FromDual Forum <https://www.fromdual.com/forum/513>`_.
 
    You can also post questions on forums unaffiliated with Codership or our partners:  `Stack Exchange (DBA Section) <https://dba.stackexchange.com/questions/tagged/galera>`_, `Stack Overflow <https://stackoverflow.com/questions/tagged/galera>`_,
 
@@ -638,7 +638,7 @@ Just below each question is further categorization of the question: the minimum 
 
    In order to manage the vessel effectively, rowers had to act synchronously, lest the oars become intertwined and became blocked.  Captains could scale the crew up to hundreds of rowers, making the galleys faster and more maneuverable in combat.
 
-   For more information on galleys, see `Wikipedia <http://en.wikipedia.org/wiki/Galley>`_.
+   For more information on galleys, see `Wikipedia <https://en.wikipedia.org/wiki/Galley>`_.
 
 
 .. _`faq-galera-license`:

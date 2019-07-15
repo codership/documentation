@@ -418,7 +418,7 @@ Defines the Certificate Authority (CA) to use in SSL encryption.
 
 This parameter defines the Certificate Authority (CA) file that the node uses with XtraBackup state transfers.  In order to use SSL encryption with XtraBackup, you must configure  the :ref:`transferfmt <xtra-transferfmt>` parameter to use ``socat``.
 
-For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
+For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <https://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
 
 .. code-block:: ini
 
@@ -443,7 +443,7 @@ Defines the certificate to use in SSL encryption.
 
 This parameter defines the SSL certificate file that the node uses with SSL encryption on XtraBackup state transfers.  In order to use SSL encryption with XtraBackup, you must configure the :ref:`transferfmt <xtra-transferfmt>` parameter to use Socat.
 
-For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
+For more information on using Socat with encryption, see `Securing Traffic between Two Socat Instances using SSL <https://www.dest-unreach.org/socat/doc/socat-openssltunnel.html>`_.
 
 .. code-block:: ini
 
@@ -490,7 +490,7 @@ Defines the transfer stream utility.
 
 This parameter defines the utility that the node uses to format transfers sent from donor to joiner nodes.  There are two methods supported: Socat and ``nc``.  Given that the receiving node needs to know how to interpret the transfer, it is necessary that both nodes use the same values for this parameter.
 
-The default and recommended utility is Socat, given that it allows for socket options, such as transfer buffer size.  For more information, see the `socat Documentation <http://www.dest-unreach.org/socat/doc/socat.html>`_.
+The default and recommended utility is Socat, given that it allows for socket options, such as transfer buffer size.  For more information, see the `socat Documentation <https://www.dest-unreach.org/socat/doc/socat.html>`_.
 
 .. code-block:: ini
 

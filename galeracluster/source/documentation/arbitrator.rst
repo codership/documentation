@@ -167,7 +167,7 @@ When starting Galera Aribtrator as a service, whether using ``init`` or ``system
    GALERA_GROUP="example_wsrep_cluster"
 
    # Optional Galera internal options string (e.g. SSL settings)
-   # see http://galeracluster.com/documentation-webpages/galeraparameters.html
+   # see https://galeracluster.com/documentation-webpages/galeraparameters.html
    GALERA_OPTIONS="socket.ssl_cert=/etc/galera/cert/cert.pem;socket.ssl_key=/$"
 
    # Log file for garbd. Optional, by default logs to syslog

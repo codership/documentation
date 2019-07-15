@@ -101,7 +101,7 @@ The relationship between these option values is:
 .. rst-class:: rubric-2
 .. rubric:: Cluster Availability vs. Partition Tolerance
 
-Within the `CAP theorem <http://en.wikipedia.org/wiki/CAP_theorem>`_, Galera Cluster emphasizes data safety and consistency.  This leads to a trade-off between cluster availability and partition tolerance.  That is, when using unstable networks, such as :abbr:`WAN (Wide Area Network)`, low :ref:`evs.suspect_timeout <evs.suspect_timeout>` and :ref:`evs.inactive_timeout <evs.inactive_timeout>` values may result in false node failure detections, while higher values on these parameters may result in longer availability outages in the event of actual node failures.
+Within the `CAP theorem <https://en.wikipedia.org/wiki/CAP_theorem>`_, Galera Cluster emphasizes data safety and consistency.  This leads to a trade-off between cluster availability and partition tolerance.  That is, when using unstable networks, such as :abbr:`WAN (Wide Area Network)`, low :ref:`evs.suspect_timeout <evs.suspect_timeout>` and :ref:`evs.inactive_timeout <evs.inactive_timeout>` values may result in false node failure detections, while higher values on these parameters may result in longer availability outages in the event of actual node failures.
 
 Essentially what this means is that the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter defines the minimum time needed to detect a failed node.  During this period, the cluster is unavailable due to the consistency constraint.
 

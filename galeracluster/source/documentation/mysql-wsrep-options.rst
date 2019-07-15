@@ -587,7 +587,7 @@ This parameter enables workaround for a bug in MySQL InnoDB that affects Drupal 
    "Default Value", "``ON``"
    "Initial Version", "Version 1.0"
 
-Drupal installations using MySQL are subject to a bug in InnoDB, tracked as `MySQL Bug 41984 <http://bugs.mysql.com/bug.php?id=41984>`_ and `Drupal Issue 282555 <http://drupal.org/node/282555>`_.  Specifically, inserting a `DEFAULT` value into an `AUTO_INCREMENT` column may return duplicate key errors.
+Drupal installations using MySQL are subject to a bug in InnoDB, tracked as `MySQL Bug 41984 <https://bugs.mysql.com/bug.php?id=41984>`_ and `Drupal Issue 282555 <https://drupal.org/node/282555>`_.  Specifically, inserting a `DEFAULT` value into an `AUTO_INCREMENT` column may return duplicate key errors.
 
 This parameter enables a workaround for the bug on Galera Cluster.
 

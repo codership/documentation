@@ -32,7 +32,7 @@
          Related Documents
 
       - `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_
-      - `pt-archiver <http://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
+      - `pt-archiver <https://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
 
       .. cssclass:: bull-head
 

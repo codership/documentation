@@ -82,7 +82,7 @@ The ``mysqldump`` script only runs on the sending node.  The output from the scr
 
 Because ``mysqldump`` interfaces through the database client, configuring it requires several steps beyond setting the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.  For more information on its configuration, see:
 
-For more information on ``mysqldump``, see `mysqldump Documentation <http://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.
+For more information on ``mysqldump``, see `mysqldump Documentation <https://dev.mysql.com/doc/refman/5.6/en/mysqldump.html>`_.
 
 
 .. toctree::

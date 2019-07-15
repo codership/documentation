@@ -64,7 +64,7 @@ The internal architecture of Galera Cluster revolves around four components:
 
 - **Galera Replication Plugin:** This plugin enables write-set replication service functionality.
 
-- **Group Communication Plugins:** There several group communication systems available to Galera Cluster (e.g., *gcomm* and `Spread <http://www.spread.org/>`_).
+- **Group Communication Plugins:** There several group communication systems available to Galera Cluster (e.g., *gcomm* and `Spread <https://www.spread.org/>`_).
 
 
 .. _`wsrep-api`:

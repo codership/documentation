@@ -53,7 +53,7 @@ Docker provides an open source platform for automatically deploying applications
 
 Galera Cluster can run from within a such a container, within Docker.  You may find containers useful in portable deployment across numerous machines, testing applications that depend on Galera Cluster, or scripting the installation and configuration process.
 
-.. note:: This guide assumes that you are only running one container node per server.  For more information on running multiple nodes per server, see *Getting Started Galera with Docker, `Part I <http://galeracluster.com/2015/05/getting-started-galera-with-docker-part-1/>`_ and `Part II <http://galeracluster.com/2015/05/getting-started-galera-with-docker-part-2-2/>`_.*
+.. note:: This guide assumes that you are only running one container node per server.  For more information on running multiple nodes per server, see *Getting Started Galera with Docker, `Part I <https://galeracluster.com/2015/05/getting-started-galera-with-docker-part-1/>`_ and `Part II <https://galeracluster.com/2015/05/getting-started-galera-with-docker-part-2-2/>`_.*
 
 
 .. _`configure-container`:
@@ -75,8 +75,8 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
    RUN apt-get update
    RUN apt-get install -y  software-properties-common
    RUN apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA
-   RUN add-apt-repository 'deb http://releases.galeracluster.com/galera-3/ubuntu trusty main'
-   RUN add-apt-repository 'deb http://releases.galeracluster.com/mysql-wsrep-5.6/ubuntu trusty main'
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/galera-3/ubuntu trusty main'
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/mysql-wsrep-5.6/ubuntu trusty main'
 
 
    RUN apt-get update

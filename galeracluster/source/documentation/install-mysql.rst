@@ -89,8 +89,8 @@ Once you have the Software Properties installed, you can enable the Codership re
    .. code-block:: linux-config
 
       # Codership Repository (Galera Cluster for MySQL)
-      deb http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST RELEASE main
-      deb http://releases.galeracluster.com/galera-3/DIST RELEASE main
+      deb https://releases.galeracluster.com/mysql-wsrep-VERSION/DIST RELEASE main
+      deb https://releases.galeracluster.com/galera-3/DIST RELEASE main
 
    For the repository address, make the following changes:
 
@@ -138,14 +138,14 @@ Using your preferred text editor, create the ``galera.repo`` file.
 
    [galera]
    name = Galera
-   baseurl = http://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
-   gpgkey = http://releases.galeracluster.com/GPG-KEY-galeracluster.com
+   baseurl = https://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
+   gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
    gpgcheck = 1
 
    [mysql-wsrep]
    name = MySQL-wsrep
-   baseurl =  http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
-   gpgkey = http://releases.galeracluster.com/GPG-KEY-galeracluster.com
+   baseurl =  https://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
+   gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
    gpgcheck = 1
 
 
@@ -171,7 +171,7 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 
    .. code-block:: console
 
-      $ sudo rpm --import "http://releases.galeracluster.com/GPG-KEY-galeracluster.com"
+      $ sudo rpm --import "https://releases.galeracluster.com/GPG-KEY-galeracluster.com"
 
 #. Create a ``galera.repo`` file in the local directory.
 
@@ -179,11 +179,11 @@ For distributions that use ``zypper`` for package management, such as openSUSE a
 
       [galera]
       name = Galera
-      baseurl = http://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
+      baseurl = https://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
 
       [MySQL-wsrep]
       name = MySQL-wsrep
-      baseurl = http://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
+      baseurl = https://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
 
    For the ``baseurl`` repository address, make the following changes:
 

@@ -54,9 +54,9 @@ In essence, the Documentation is how to use Galera assuming everything goes acco
    Whereas the Troubleshooting section relates to handling problems with a Galera cluster, this section of the KB provides additional information and guidance on improving performance and optimizing configuration.
 
 
-In addition to this KB, you can also post questions on the `Codership Forum <http://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
+In addition to this KB, you can also post questions on the `Codership Forum <https://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
 
-If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <http://galeracluster.com/contact-us/#send-us-a-message>`_.
+If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <https://galeracluster.com/contact-us/#send-us-a-message>`_.
 
 
 .. toctree::

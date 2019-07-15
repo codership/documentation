@@ -81,7 +81,7 @@ The ``rsync`` script runs on both donor and joining nodes.  On the joiner, it st
 
    wsrep_sst_method = rsync
 
-For more information about ``rsync``, see the `rsync Documentation <http://rsync.samba.org/>`_.
+For more information about ``rsync``, see the `rsync Documentation <https://rsync.samba.org/>`_.
 
 
 .. _`sst-physical-xtrabackup`:
@@ -107,4 +107,4 @@ Given that ``xtrabackup`` copies a large amount of data in the shortest possible
    [client]
    socket = /path/to/socket
 
-For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <http://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.
+For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <https://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.

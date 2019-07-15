@@ -179,7 +179,7 @@ For the sake of legibility, certain transitions were omitted from the above desc
 
 - **Missing Transitions** In the event that the joining node does not require a state transfer, the node state changes from the ``PRIMARY`` state directly to the ``JOINED`` state.
 
-For more information on Flow Control see `Galera Flow Control in Percona XtraDB Cluster <http://www.mysqlperformanceblog.com/2013/05/02/galera-flow-control-in-percona-xtradb-cluster-for-mysql/>`_.
+For more information on Flow Control see `Galera Flow Control in Percona XtraDB Cluster <https://www.mysqlperformanceblog.com/2013/05/02/galera-flow-control-in-percona-xtradb-cluster-for-mysql/>`_.
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
