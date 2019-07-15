@@ -53,4 +53,4 @@ We will show the advantages of having a geo-distributed database cluster and how
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/-UxNUKYh7Vw?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-UxNUKYh7Vw?rel=0" frameborder="0" allowfullscreen></iframe>

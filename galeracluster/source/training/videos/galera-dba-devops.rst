@@ -58,4 +58,4 @@ In the first part of Galera Cluster best practices series, we will discuss the f
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/pm677EIemN0?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/pm677EIemN0?rel=0" frameborder="0" allowfullscreen></iframe>

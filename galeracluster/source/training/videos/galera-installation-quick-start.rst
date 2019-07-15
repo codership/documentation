@@ -31,7 +31,7 @@
 
          Related Documents
 
-      - `PDF Slide Presentation <http://galeracluster.com/library-media/pdf/galera-cluster-installation-quick-start.pdf>`_
+      - `PDF Slide Presentation <https://galeracluster.com/library-media/pdf/galera-cluster-installation-quick-start.pdf>`_
       - :doc:`Getting Started Guide <../tutorials/getting-started>`
 
       .. cssclass:: bull-head
@@ -58,4 +58,4 @@ Once the nodes are up and running we will discuss how to monitor the health of t
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/YX3rn5Z5ToM?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YX3rn5Z5ToM?rel=0" frameborder="0" allowfullscreen></iframe>

@@ -53,4 +53,4 @@ This video provides the practical aspects of migrating a database setup based on
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/u7H7C12vRpU?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/u7H7C12vRpU?rel=0" frameborder="0" allowfullscreen></iframe>

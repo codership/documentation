@@ -53,4 +53,4 @@ The MySQL Server High Availability landscape provides with a slew of tools to he
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/qjquSaWfO4s?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/qjquSaWfO4s?rel=0" frameborder="0" allowfullscreen></iframe>
