@@ -92,7 +92,7 @@ Once you have these defined, you can add the rule to allow cluster packets to pa
    # Galera Cluster TCP Filter Rule
    pass in proto tcp from <wsrep_cluster_address> to any port $wsrep_ports keep state
 
-In the event that you deployed your cluster in a :abbr:`LAN (Local Area Network)` environment, you need to also create on additional rule to open port ``4568`` to :abbr:`UDP (User Datagram Protocol)` transport for mutlicast replication.
+If you deployed a cluster in a :abbr:`LAN (Local Area Network)` environment, you need to also create on additional rule to open port ``4568`` to :abbr:`UDP (User Datagram Protocol)` transport for mutlicast replication.
 
 .. code-block:: console
 

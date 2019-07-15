@@ -83,6 +83,8 @@
 
       For more information, see :ref:`Logical State Snapshot <sst-logical>`.
 
+   PF
+      PF is packet filter used for firewall software, that has been ported to several operating systems. It can be configured for firewall protection of a Galera Cluster.
 
    Physical State Transfer Method
       This is another type of back-end state transfer method, but it operates on the physical media in the datadir (e.g., ``rsync`` and ``xtrabackup``).
