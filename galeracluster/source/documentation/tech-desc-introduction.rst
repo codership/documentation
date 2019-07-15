@@ -1,3 +1,11 @@
+.. meta::
+   :title: Introduction to Database Replication and Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -42,7 +50,7 @@
 .. _`database-replication`:
 
 ======================
- Database Replication
+Database Replication
 ======================
 
 .. index::

@@ -1,3 +1,11 @@
+.. meta::
+   :title: Installing a Galera Cluster on AWS
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -34,7 +42,7 @@
 .. _`aws-galera-cluster`:
 
 ===================================
-Setting Up a Galera Cluster on AWS
+Installing a Galera Cluster on AWS
 ===================================
 
 .. rst-class:: list-stats

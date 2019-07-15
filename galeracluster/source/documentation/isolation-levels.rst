@@ -1,3 +1,11 @@
+.. meta::
+   :title: InnoDB Isolation Levels
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -37,7 +45,7 @@
 .. _`isolation-levels`:
 
 ======================
- Isolation Levels
+Isolation Levels
 ======================
 
 In a database system, concurrent transactions are processed in "isolation" from each other. The level of isolation determines how transactions can affect each other.

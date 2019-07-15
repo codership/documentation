@@ -1,3 +1,11 @@
+.. meta::
+   :title: Training Videos on Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -31,9 +39,9 @@
 .. cssclass:: training-list
 .. _`training-videos`:
 
-===================
-Training Videos
-===================
+===========================
+Codership Training Videos
+===========================
 
 This section is for training videos on Galera Cluster and related software. At this point, they're primarily screencasts from presentations given at various conferences. We intend to add more screencasts, but made in a controlled enviroment, focusing on one aspect of Galera Cluster or related software.
 

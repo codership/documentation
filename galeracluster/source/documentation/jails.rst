@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster within Jail Instances
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -43,7 +51,7 @@
 Using Jails
 ==============
 
-In FreeBSD, jails provides a platform for securely deploying applications within virtual instances.  You may find it useful in portable deployments across numerous machines for testing and security.
+In FreeBSD, ``jails`` provides a platform for securely deploying applications within virtual instances.  You may find it useful in portable deployments across numerous machines for testing and security.
 
 Galera Cluster can run from within a jail instance.
 

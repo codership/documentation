@@ -1,3 +1,11 @@
+.. meta::
+   :title: Factors related to Migrating to Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -36,9 +44,9 @@
 .. cssclass:: tutorial-article
 .. _`migrate`:
 
-============
-Migration
-============
+===============================================
+Factors related to Migrating to Galera Cluster
+===============================================
 
 .. rst-class:: list-stats
 

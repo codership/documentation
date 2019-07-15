@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster Parameters
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -35,7 +43,7 @@
 .. _`galera-parameters`:
 
 ==================
- Galera Parameters
+Galera Parameters
 ==================
 
 As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key value pair lists, such as ``key1 = value1; key2 = value2``.  In this way, you can configure an arbitrary number of Galera Cluster parameters in one call. A key consists of parameter group and parameter name: ``<group>.<name>``, where ``<group>`` corresponds roughly to some Galera module.

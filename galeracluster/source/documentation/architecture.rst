@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster Architecture
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -33,7 +41,7 @@
 .. _`replication-api`:
 
 ===================
- Replication API
+Replication API
 ===================
 
 Synchronous replication systems generally use eager replication.  Nodes in a cluster will synchronize with all of the other nodes by updating the replicas through a single transaction.  This means that when a transaction commits, all of the nodes will have the same value.  This process takes place using *write-set* replication through group communication.
@@ -76,13 +84,13 @@ In a database cluster, all of the nodes always have the same state.  They synchr
 
 From a more technical perspective, Galera Cluster handles state changes in the following way:
 
-1. On one node in the cluster, a state change occurs in the database.
+- On one node in the cluster, a state change occurs in the database.
 
-2. In the database, the wsrep hooks translate the changes to the write-set.
+- In the database, the wsrep hooks translate the changes to the write-set.
 
-3. ``dlopen()`` then makes the wsrep provider functions available to the wsrep hooks.
+- ``dlopen()`` then makes the wsrep provider functions available to the wsrep hooks.
 
-4. The Galera Replication plugin handles write-set certification and replication to the cluster.
+- The Galera Replication plugin handles write-set certification and replication to the cluster.
 
 For each node in the cluster, the application process occurs by high-priority transactions.
 

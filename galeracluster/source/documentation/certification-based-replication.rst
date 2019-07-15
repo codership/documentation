@@ -1,3 +1,11 @@
+.. meta::
+   :title: Certification-Based Replication
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -32,7 +40,7 @@
 .. _`certification-based-replication`:
 
 ===================================
- Certification-Based Replication
+Certification-Based Replication
 ===================================
 
 Certification-based replication uses group communication and transaction ordering techniques to achieve synchronous replication.

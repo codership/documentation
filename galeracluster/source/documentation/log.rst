@@ -1,3 +1,11 @@
+.. meta::
+   :title: Database Server Logs to Troubleshoot Galera Cluster
+   :description: How to use Database Server Logs to Troubleshoot Galera Cluster Problems.
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 

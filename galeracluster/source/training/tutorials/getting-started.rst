@@ -1,3 +1,11 @@
+.. meta::
+   :title: Getting Started with Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -45,9 +53,9 @@
 .. cssclass:: tutorial-article
 .. _`getting-started`:
 
-=================
- Getting Started
-=================
+====================================
+Getting Started with Galera Cluster
+====================================
 
 .. rst-class:: list-stats
 

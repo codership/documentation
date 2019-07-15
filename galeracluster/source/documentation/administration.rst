@@ -1,6 +1,6 @@
 .. meta::
    :title: Galera Cluster Administration
-   :description: An explanation of the administration and management of Galera Cluster.
+   :description: A menu of pages on the administration and management of Galera Cluster.
    :language: en-US
    :keywords: galera, cluster, mysql, mariadb, dba, admin, node provisioning
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.

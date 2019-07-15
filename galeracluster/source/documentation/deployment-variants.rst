@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster - Cluster Deployment Variants
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -32,7 +40,7 @@
 .. _`deployment-variants`:
 
 ==============================
- Cluster Deployment Variants
+Cluster Deployment Variants
 ==============================
 
 A Galera Cluster will consist of multiple nodes, preferably three or more.  Each node is an instance of MySQL, MariaDB or Percona XtraDB that you convert to Galera Cluster, allowing you to use that node as a cluster base.

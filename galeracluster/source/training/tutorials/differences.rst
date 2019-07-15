@@ -1,3 +1,11 @@
+.. meta::
+   :title: Differences between Galera Cluster and a Stand-Alone MySQL Server
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -32,7 +40,7 @@
 .. _`differences`:
 
 ============================================
- Differences from a Standalone MySQL Server
+Differences from a Stand-Alone MySQL Server
 ============================================
 
 .. index::

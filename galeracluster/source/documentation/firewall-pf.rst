@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster with Packet Filtering
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -35,7 +43,7 @@
 Firewall Configuration with PF
 ===============================
 
-FreeBSD provides packet filtering support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.
+FreeBSD provides packet filtering (i.e., :term:`PF`) support at the kernel level.  Using PF you can set up, maintain and inspect the packet filtering rule sets.
 
 .. warning:: Different versions of FreeBSD use different versions of PF.  Examples here are from FreeBSD 10.1, which uses the same version of PF as OpenBSD 4.5.
 

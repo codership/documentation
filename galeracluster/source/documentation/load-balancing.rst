@@ -1,3 +1,11 @@
+.. meta::
+   :title: Load Balancing Galera Cluster Nodes
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -34,7 +42,7 @@
 .. _`load-balancing`:
 
 ================
- Load Balancing
+Load Balancing
 ================
 
 Galera Cluster guarantees node consistency regardless of where and when the query is issued. In other words, you are free to choose a load-balancing approach that best suits your purposes. If you decide to place the load balancing mechanism between the database and the application, you can consider, for example, the following tools:

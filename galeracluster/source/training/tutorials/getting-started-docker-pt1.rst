@@ -1,3 +1,11 @@
+.. meta::
+   :title: Getting Started Galera with Docker, Part 1
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 

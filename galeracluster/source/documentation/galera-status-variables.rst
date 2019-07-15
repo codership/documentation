@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster Status Variables
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -32,7 +40,7 @@
 .. _`galera-status-variables`:
 
 =========================
- Galera Status Variables
+Galera Status Variables
 =========================
 
 These variables are *Galera Cluster* 0.8.x status variables. There are two types of wsrep-related status variables:

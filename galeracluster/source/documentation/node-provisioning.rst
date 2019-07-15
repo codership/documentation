@@ -1,3 +1,11 @@
+.. meta::
+   :title: Provisioning Node for Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -31,23 +39,11 @@
          Related Articles
 
 
-
-.. raw:: html
-
-    <style> .red {color:red} </style>
-
-.. raw:: html
-
-    <style> .green {color:green} </style>
-
-.. role:: red
-.. role:: green
-
 .. cssclass:: library-document
 .. _`node-provisioning`:
 
 ====================
- Node Provisioning
+Node Provisioning
 ====================
 
 .. index::

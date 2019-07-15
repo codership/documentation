@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster Quorum Components
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -141,17 +149,15 @@ What this means is that the quorum is preserved if (and only if) the sum weight 
 
 You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter.  By default, node weight is ``1``, which translates to the traditional node count behavior.
 
-.. note:: You can change node weight in runtime by setting the :ref:`pc.weight <pc.weight>` parameter.
+You can change the node weight during runtime by setting the :ref:`pc.weight <pc.weight>` parameter.
 
    .. code-block:: mysql
 
       SET GLOBAL wsrep_provider_options="pc.weight=3";
 
-   Galera Cluster applies the new weight on the delivery of a message that carries a weight.  At the moment, there is no mechanism to notify the application of a new weight, but will eventually happen when the message is delivered.
+Galera Cluster applies the new weight on the delivery of a message that carries a weight.  At the moment, there is no mechanism to notify the application of a new weight, but will eventually happen when the message is delivered.
 
-.. warning:: If a group partitions at the moment when the weight change message is delivered, all partitioned components that deliver weight change messages in the transitional view will become non-primary components.  Partitions that deliver messages in the regular view will go through quorum computation with the applied weight when the following transitional view is delivered.
-
-   In other words, there is a corner case where the entire cluster can become non-primary component, if the weight changing message is sent at the moment when partitioning takes place.  Recovering from such a situation should be done either by waiting for a re-merge or by inspecting which partition is most advanced and by bootstrapping it as a new Primary Component.
+.. warning:: If a group partitions at the moment when the weight-change message is delivered, all partitioned components that deliver weight-change messages in the transitional view will become non-primary components.  Partitions that deliver messages in the regular view, will go through quorum computation with the applied weight when the subsequential transitional view is delivered. |br| |br| In other words, there is a corner case where the entire cluster can become non-primary component, if the weight changing message is sent at the moment when partitioning takes place.  Recovering from such a situation should be done either by waiting for a re-merge or by inspecting which partition is most advanced and by bootstrapping it as a new Primary Component.
 
 
 .. _`weighted-quorum-examples`:
@@ -228,3 +234,7 @@ Under this pattern, some nodes are located at the primary site while others are 
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
+
+.. |br| raw:: html
+
+  <br/>

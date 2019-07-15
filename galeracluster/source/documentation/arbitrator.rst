@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster Arbitrator
+   :description: Galera Arbitrator serves can function as an odd node to avoid split-brain and can be useful in making back-ups.
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -31,8 +39,6 @@
          Related Articles
 
 
-
-
 .. cssclass:: library-document
 .. _`arbitrator`:
 
@@ -47,9 +53,9 @@
 .. index::
    pair: Logs; Galera Arbitrator
 
-It's recommended when deploying a Galera Cluster that you use a minimum of three instances: Three nodes, three data centers and so on.
+When deploying a Galera Cluster, it's recommended that you use a minimum of three instances: Three nodes, three data centers and so on.
 
-If the cost of adding resources (e.g., a third datacenter) is too much, you can use :term:`Galera Arbitrator`.  Galera Arbitrator is a member of a cluster that participates in voting, but not in the actual replication.
+If the cost of adding resources (e.g., a third data center) is too much, you can use :term:`Galera Arbitrator`.  Galera Arbitrator is a member of a cluster that participates in voting, but not in the actual replication.
 
 .. warning:: While Galera Arbitrator does not participate in replication, it does receive the same data as all other nodes.  You must secure its network connection.
 

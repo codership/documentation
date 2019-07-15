@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster Best Practices for DBAs and DevOps
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 

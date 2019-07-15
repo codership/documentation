@@ -1,3 +1,11 @@
+.. meta::
+   :title: Using mysqldump to Synchronize and Provision Nodes
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 

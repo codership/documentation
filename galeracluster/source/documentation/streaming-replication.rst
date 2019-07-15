@@ -1,3 +1,11 @@
+.. meta::
+   :title: Streaming Replication with Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -34,9 +42,9 @@
 .. cssclass:: library-document
 .. _`streaming-replication`:
 
-#####################
+======================
 Streaming Replication
-#####################
+======================
 
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
@@ -51,10 +59,8 @@ Additionally, Streaming Replication allows the node to process transaction write
 
 
 .. _`when-use-sr`:
-
-============================================
-When to Use Streaming Replication
-============================================
+.. rst-class:: rubric-1
+.. rubric:: When to Use Streaming Replication
 
 In most cases, the normal method Galera Cluster uses in replication is sufficient in transferring data from a node to a cluster.  :term:`Streaming Replication` provides you with an alternative for situations in which this is not the case.  Keep in mind that there are some limitations to its use.  It's recommended that you only enable it at a session-level, and then only on specific transactions that require the feature.
 
@@ -62,7 +68,7 @@ For more information on the limitations to Streaming Replication, see :ref:`Limi
 
 
 .. _`longrun-write-trx`:
-.. rst-class:: rubric-1
+.. rst-class:: rubric-2
 .. rubric:: Long-Running Write Transactions
 
 When using normal replication, you may occasionally encounter issues with long-running write transactions.
@@ -76,7 +82,7 @@ Certification keys are generated from record locks, therefore they don't cover g
 
 
 .. _`large-write-trx`:
-.. rst-class:: rubric-1
+.. rst-class:: rubric-2
 .. rubric:: Large Data Write Transactions
 
 When using normal replication, the node locally processes the transaction and doesn't replicate the data until you commit.  This can create problems when updating a large volume of data, especially on nodes with slower network connections.
@@ -89,7 +95,7 @@ In the case of the slave nodes, after the slave applies a fragment, it's free to
 
 
 .. _`hot-records`:
-.. rst-class:: rubric-1
+.. rst-class:: rubric-2
 .. rubric:: Hot Records
 
 In situations in which an application frequently updates one and the same records from the same table (e.g., when implementing a locking scheme, a counter, or a job queue), you can use :term:`Streaming Replication` to force critical updates to replicate to the entire cluster.
@@ -100,16 +106,14 @@ For more information and an example of how to implement Streaming Replication in
 
 
 .. _`sr-limit`:
-
-===========
-Limitations
-===========
+.. rst-class:: rubric-1
+.. rubric:: Limitations
 
 In deciding whether you want to use :term:`Streaming Replication` with your application, consider the following limitations.
 
 
 .. _`limit-in-trx`:
-.. rst-class:: rubric-1
+.. rst-class:: rubric-2
 .. rubric:: Performance During a Transaction
 
 When you enable :term:`Streaming Replication`, as of version 4 of Galera, each node in the cluster begins recording its write-sets to the ``wsrep_streaming_log`` table in the ``mysql`` database. Nodes do this to ensure the persistence of Streaming Replication updates in the event that they crash.  However, this operation increases the load on the node, which may adversely affect its performance.
@@ -118,7 +122,7 @@ As such, it's recommended that you only enable Streaming Replication at a sessio
 
 
 .. _`limit-rollback`:
-.. rst-class:: rubric-1
+.. rst-class:: rubric-2
 .. rubric:: Performance During Rollbacks
 
 Occasionally, you may encounter situations in which the cluster needs to roll back a transaction while :term:`Streaming Replication` is in use.  In these situations, the rollback operation consumes system resources on all nodes.

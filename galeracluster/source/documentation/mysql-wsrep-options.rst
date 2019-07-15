@@ -1,3 +1,11 @@
+.. meta::
+   :title: MySQL wsrep Options
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -32,7 +40,7 @@
 .. _`mysql-wsrep-options`:
 
 ======================
- MySQL wsrep Options
+MySQL wsrep Options
 ======================
 .. index::
    single: Drupal

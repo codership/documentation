@@ -1,3 +1,11 @@
+.. meta::
+   :title: Resolving Commit Failures (Reason 3)
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 

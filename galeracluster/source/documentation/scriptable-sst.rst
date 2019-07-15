@@ -1,3 +1,11 @@
+.. meta::
+   :title: Scriptable State Snapshot Transfers
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -66,20 +74,21 @@ When Galera Cluster starts an external process for state snapshot transfers, it 
 
 These parameters are passed to all state transfer scripts, regardless of method or whether the node is sending or receiving:
 
-- ``--role`` The script is given a string, either ``donor`` or ``joiner``, to indicate whether the node is using it to send or receive a state snapshot transfer.
+.. rst-class:: verbose-list
 
-- ``--address`` The script is given the IP address of the joiner node.
+   ``--role`` The script is given a string, either ``donor`` or ``joiner``, to indicate whether the node is using it to send or receive a state snapshot transfer.
+
+   ``--address`` The script is given the IP address of the joiner node.
 
    When the script is run by the joiner, the node uses the value of either the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter or a sensible default formatted as ``<ip_address>:<port>``.   When the script is run by the donor, the node uses the value from the state transfer request.
 
-- ``--auth`` The script is given the node authentication information.
+   ``--auth`` The script is given the node authentication information.
 
    When the script is run by the joiner, the node uses the value given to the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.  When the script is run by the donor, it uses the value given by the state transfer request.
 
-- ``--datadir`` The script is given the path to the data directory.  The value is drawn from the ``mysql_real_data_home`` parameter.
+   ``--datadir`` The script is given the path to the data directory.  The value is drawn from the ``mysql_real_data_home`` parameter.
 
-- ``--defaults-file`` The script is given the path to the ``my.cnf`` configuration file.
-
+   ``--defaults-file`` The script is given the path to the ``my.cnf`` configuration file.
 
 The values the node passes to these parameters varies depending on whether the node calls the script to send or receive a state snapshot transfer.  For more information, see :ref:`Calling Conventions <calling-conventions>` below.
 
@@ -90,11 +99,13 @@ The values the node passes to these parameters varies depending on whether the n
 
 These parameters are passed only to state transfer scripts initiated by a node serving as the donor node, regardless of the method being used:
 
-- ``--gtid`` The node gives the :term:`Global Transaction ID`, which it forms from the state UUID and the sequence number, or seqno, of the last committed transaction.
+.. rst-class:: verbose-list
 
-- ``--socket`` The node gives the local server socket for communications, if required.
+   ``--gtid`` The node gives the :term:`Global Transaction ID`, which it forms from the state UUID and the sequence number, or seqno, of the last committed transaction.
 
-- ``--bypass`` The node specifies whether the script should skip the actual data transfer and only pass the Global Transaction ID to the receiving node.  That is, whether the node should initiate an :term:`Incremental State Transfer`.
+   ``--socket`` The node gives the local server socket for communications, if required.
+
+   ``--bypass`` The node specifies whether the script should skip the actual data transfer and only pass the Global Transaction ID to the receiving node.  That is, whether the node should initiate an :term:`Incremental State Transfer`.
 
 
 
@@ -104,15 +115,17 @@ These parameters are passed only to state transfer scripts initiated by a node s
 
 These parameters are passed only to the ``wsrep_sst_mysqldump.sh`` state transfer script by both the sending and receiving nodes:
 
-- ``--user`` The node gives to the script the database user, which the script then uses to connect to both donor and joiner database servers.  Meaning, this user must be the same on both servers, as defined by the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.
+.. rst-class:: verbose-list
 
-- ``--password`` The node gives to the script the password for the database user, as configured by the :ref:`wsrep_sst_auth <wsrep_sst_auth>` paraemter.
+   ``--user`` The node gives to the script the database user, which the script then uses to connect to both donor and joiner database servers.  Meaning, this user must be the same on both servers, as defined by the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.
 
-- ``--host`` The node gives to the script the IP address of the joiner node.
+   ``--password`` The node gives to the script the password for the database user, as configured by the :ref:`wsrep_sst_auth <wsrep_sst_auth>` paraemter.
 
-- ``--port`` The node gives to the script the port number to use with the joiner node.
+   ``--host`` The node gives to the script the IP address of the joiner node.
 
-- ``--local-port`` The node gives to the script the port number to use in sending the state transfer.
+   ``--port`` The node gives to the script the port number to use with the joiner node.
+
+   ``--local-port`` The node gives to the script the port number to use in sending the state transfer.
 
 
 .. _`calling-conventions`:
@@ -155,13 +168,15 @@ When the node calls for a state snapshot transfer as a donor, it begins by passi
 
 While your script runs, Galera Cluster accepts the following signals.  You can trigger them by printing to standard output:
 
-- ``flush tables\n`` Optional signal that asks the database server to run ``FLUSH TABLES``.  When complete, the database server creates a ``tables_flushed`` file in the data directory.
+.. rst-class:: verbose-list
 
-- ``continue\n`` Optional signal that tells the database server that it can continue to commit transactions.
+   ``flush tables\n`` Optional signal that asks the database server to run ``FLUSH TABLES``.  When complete, the database server creates a ``tables_flushed`` file in the data directory.
 
-- ``done\n`` Mandatory signal that tells the database server that the state transfer is complete and successful.
+   ``continue\n`` Optional signal that tells the database server that it can continue to commit transactions.
 
-After your script sends the ``done\n`` signal, exit with a ``0`` return code.
+   ``done\n`` Mandatory signal that tells the database server that the state transfer is complete and successful.
+
+   After your script sends the ``done\n`` signal, exit with a ``0`` return code.
 
 In the event of failure, Galera Cluster expects your script to return a code that corresponds to the error it encountered.  The donor node returns this code to the joiner through group communication.  Given that its data directory now holds an inconsistent state, the joiner node then leaves the cluster and aborts the state transfer.
 

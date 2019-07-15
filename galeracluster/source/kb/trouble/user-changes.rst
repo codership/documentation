@@ -1,3 +1,11 @@
+.. meta::
+   :title: User Changes not Replicating in Galera
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 

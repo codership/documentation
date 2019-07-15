@@ -1,3 +1,11 @@
+.. meta::
+   :title: Node Failure and Recovery in Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -41,7 +49,7 @@
 .. _`recovery`:
 
 ==================================
- Node Failure and Recovery
+Node Failure and Recovery
 ==================================
 
 Individual nodes fail to operate when they lose touch with the cluster.  This can occur due to various reasons.  For instance, in the event of hardware failure or software crash, the loss of network connectivity or the failure of a state transfer.  Anything that prevents the node from communicating with the cluster is generalized behind the concept of node failure.  Understanding how nodes fail will help in planning for their recovery.

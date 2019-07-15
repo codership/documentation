@@ -1,3 +1,11 @@
+.. meta::
+   :title: Configuring SSL with Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -47,7 +55,7 @@ SSL Configuration
 
 When you finish generating the SSL certificates for your cluster, you need to enable it for each node.  If you have not yet generated the SSL certificates, see :doc:`ssl-cert` for a guide on how to do so.
 
-.. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you are enabling this feature with a running cluster you need to restart the entire cluster.
+.. note:: For Galera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you are enabling this feature with a running cluster you need to restart the entire cluster.
 
 
 .. _`enable-ssl`:

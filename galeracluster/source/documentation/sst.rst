@@ -1,3 +1,11 @@
+.. meta::
+   :title: State Snapshot Transfers among Galera Cluster Nodes
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -38,18 +46,6 @@
          Related Articles
 
 
-.. raw:: html
-
-    <style> .red {color:red} </style>
-
-.. raw:: html
-
-    <style> .green {color:green} </style>
-
-.. role:: red
-.. role:: green
-
-
 .. cssclass:: library-document
 .. _`sst`:
 
@@ -75,11 +71,11 @@ Galera supports several back-end methods for use in state snapshot transfers.  T
 
 .. csv-table::
    :class: doc-options
-   :header: "Method", "Speed", "Blocks Donor", "Available on Live Node", "Type", "DB Root Access"
+   :header: "Method", "Speed", "Blocks Donor", "Live Node Availability", "Type", "DB Root Access"
 
-   ":ref:`mysqldump <mysqldump>`", ":red:`Slow`", ":green:`Blocks`", ":green:`Available`", ":ref:`Logical <sst-logical>`", "Donor and Joiner"
-   ":ref:`rsync <sst-physical-rsync>`", ":green:`Fastest`", ":green:`Blocks`", ":red:`Unavailable`", ":ref:`Physical <sst-physical>`", "None"
-   ":ref:`xtrabackup <sst-physical-xtrabackup>`", ":green:`Fast`", "Briefly", ":red:`Unavailable`", ":ref:`Physical <sst-physical>`", "Donor only"
+   ":ref:`mysqldump <mysqldump>`", "Slow", "Blocks", "Available", ":ref:`Logical <sst-logical>`", "Donor and Joiner"
+   ":ref:`rsync <sst-physical-rsync>`", "Fastest", "Blocks", "Unavailable", ":ref:`Physical <sst-physical>`", "None"
+   ":ref:`xtrabackup <sst-physical-xtrabackup>`", "Fast", "Briefly", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
 
 To set the State Snapshot Transfer method, use the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.  In the example below, the method is set to use ``rsync``, along with the default donors:
 

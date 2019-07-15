@@ -1,3 +1,11 @@
+.. meta::
+   :title: Galera Cluster Frequently Asked Questions
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -25,7 +33,7 @@
 .. _`library-faq`:
 
 ============================
- Frequently Asked Questions
+Frequently Asked Questions
 ============================
 
 This page lists several frequently asked questions on Galera Cluster and related matters. They include questions you might have before deciding to use Galera. There are some questions on how to install and migrate to Galera, as well as how to get assistance and learn about Galera.
@@ -37,7 +45,7 @@ The questions are grouped by a few categories:
 - :ref:`Assistance Questions <faq-assistance-questions>`
 - :ref:`Installation & Migration Questions <faq-installation-migration-questions>`
 - :ref:`Usage Questions <faq-usage-questions>`
-- :ref:`Questions about Potential Problems <faq-potential-problem-questions>`
+- :ref:`Administrative Questions <faq-administrative-questions>`
 - :ref:`Galera Trivia Questions <faq-trivial-questions>`
 
 Just below each question is further categorization of the question: the minimum experience level of the person who might be interested |---| if you're new to database clusters, you might want to skip the Intermediate ones; and the type of person who might be interested in such a question (e.g., DBAs, business managers).
@@ -96,7 +104,7 @@ Just below each question is further categorization of the question: the minimum 
 
 .. _`faq-galera-cost`:
 .. rst-class:: rubric-2
-.. rubric:: How much does Galera software Cost?
+.. rubric:: How much does Galera Software Cost?
 
 .. rst-class:: list-stats
 
@@ -538,9 +546,10 @@ Just below each question is further categorization of the question: the minimum 
    You might also want to attach an asynchronous slave to one of your nodes, using standard MySQL replication and set it on a delay.  This can also help with recovering tables and data lost since the last backup was made.
 
 
-.. _`faq-potential-problem-questions`:
-.. rst-class:: rubric-2
-.. rubric:: Questions about Potential Problems
+
+.. _`faq-administrative-questions`:
+.. rst-class:: rubric-1 rubric-separated
+.. rubric:: Administrative Questions
 
 .. _`faq-what-causes-galera-to-stop`:
 .. rst-class:: rubric-2

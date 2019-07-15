@@ -1,3 +1,11 @@
+.. meta::
+   :title: Upgrading a Schema in Galera Cluster
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
 .. topic:: The Library
    :name: left-margin
 
@@ -35,7 +43,7 @@
 .. _`schema-upgrades`:
 
 =================
- Schema Upgrades
+Schema Upgrades
 =================
 
 Schema changes are of particular interest related to Galara Cluster. Schema changes are  :abbr:`DDL (Data Definition Language)` statement executed on a database (e.g., ``CREATE TABLE``, ``GRANT``).  These :abbr:`DDL (Data Definition Language)` statements change the database itself and are non-transactional.
