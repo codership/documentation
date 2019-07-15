@@ -95,7 +95,7 @@ The ``view_id`` corresponds to the status value of the ``wsrep_cluster_conf_id``
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT * FROM mysql.wsrep_cluster \G
 
@@ -137,7 +137,7 @@ The ``node_uuid`` records the UUID of each node in the cluster. The ``cluster_uu
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT * FROM mysql.wsrep_cluster_members ORDER BY node_name \G
 
@@ -189,7 +189,7 @@ To see the names of columns in this table, either use the ``DESCRIBE`` statement
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
 
-.. code-block:: mysql
+.. code-block:: console
 
    SELECT * FROM mysql.wsrep_streaming_log \G
 
