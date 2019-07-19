@@ -28,6 +28,11 @@ Known issues with this release:
 
 * Server cannot be started using 'service' command on Debian Stretch.
 
+End of Life:
+
+* This is the last release for SuSE Linux Enterprise Server 11
+
+
 Reminder: Changes to Repositories Structure
 ===========================================
 

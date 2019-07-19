@@ -20,6 +20,10 @@ by Codership (3.26):
 
 * Fixed GCache page store bus error on NVMFS
 
+End of Life:
+
+* This is the last release for SuSE Linux Enterprise Server 11
+
 Reminder: Changes to Repositories Structure
 ===========================================
 
