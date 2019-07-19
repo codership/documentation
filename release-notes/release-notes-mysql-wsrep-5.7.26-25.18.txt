@@ -24,7 +24,7 @@ Notable bugs fixed in this release:
 * Fixed an applying bug of SET PASSWORD which caused password to be exposed
   as plain text on slave nodes (codership/mysql-wsrep#356)
 
-* Fixed a hutdown bug which caused mysqld process to exit before applier
+* Fixed a shutdown bug which caused mysqld process to exit before applier
   threads were shut down gracefully (codership/mysql-wsrep#353)
 
 * Fixed use-after-delete bug which caused segmentation fault
