@@ -2,7 +2,7 @@
    :title: Galera Cluster Notification Command
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, notification, notify command, trigger, script
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
@@ -105,7 +105,7 @@ The notification script will pass with the ``--member`` parameter, a list contai
 
 - **Node UUID** refers to the unique identifier the node received from the wsrep Provider.
 - **Node Name** refers to the node name, as it's defined with the :ref:`wsrep_node_name <wsrep_node_name>` parameter in the configuration file.
-- **Incoming Address** refers to the IP address for client connections, as set with the :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>` parameter in the configuration file.
+- **Incoming Address** refers to the IP address for client connections, as set with the :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>` parameter in the configuration file. If this is not set, then the default value will be ``AUTO``.
 
 
 .. _`enable-notification-command`:

@@ -2,7 +2,7 @@
    :title: Security Settings related to Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, security, firewall, selinux, ports, ssl
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

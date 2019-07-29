@@ -2,7 +2,7 @@
    :title: Galera Cluster Deployment
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, deployment, containers, load balancing
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

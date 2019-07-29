@@ -2,7 +2,7 @@
    :title: Certification-Based Replication
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, certification based replication
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

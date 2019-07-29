@@ -2,7 +2,7 @@
    :title: Galera Cluster with Packet Filtering
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, firewall pf, packet filtering
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

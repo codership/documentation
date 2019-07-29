@@ -2,7 +2,7 @@
    :title: Resetting a Galera Cluster Quorum
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, quorum, split-brain, recovery
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

@@ -2,7 +2,7 @@
    :title: Galera Cluster Architecture
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, replication api, wsrep api, gtid, galera replication plugin, group communication plugin
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

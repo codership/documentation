@@ -2,7 +2,7 @@
    :title: Galera Cluster Versioning Information
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, versions, versioning information, releases
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

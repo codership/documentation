@@ -2,7 +2,7 @@
    :title: MySQL wsrep Functions
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, mysql wsrep functions, galera functions
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

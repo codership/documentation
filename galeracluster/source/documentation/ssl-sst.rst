@@ -2,7 +2,7 @@
    :title: Using SSL for State Snapshot Transfers
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, ssl, security, ports, sst, state snapshot transfer
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

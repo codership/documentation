@@ -2,7 +2,7 @@
    :title: Install MySQL Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, installation, install, mysql, binaries, apt, yum
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

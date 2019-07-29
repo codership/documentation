@@ -2,7 +2,7 @@
    :title: Back-up a Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, sst backup, state snapshot transfer
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

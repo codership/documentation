@@ -2,7 +2,7 @@
    :title: Upgrading Galera Cluster Software
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, upgrading galera, rolling upgrade
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

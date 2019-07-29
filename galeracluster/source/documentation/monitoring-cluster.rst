@@ -126,7 +126,7 @@ You can check cluster integrity using the following status variables:
      | wsrep_cluster_conf_id | 32    |
      +-----------------------+-------+
 
-  Each node in the cluster should provide the same value.  When a node carries a different, this indicates that the cluster is partitioned.  Once the node reestablish network connectivity, the value aligns itself with the others.
+  Each node in the cluster should provide the same value.  When a node carries a different, this indicates that the cluster is partitioned.  Once the node reestablishes network connectivity, the value aligns itself with the others.
 
 - :ref:`wsrep_cluster_size <wsrep_cluster_size>` shows the number of nodes in the cluster, which you can use to determine if any are missing.
 
@@ -228,7 +228,7 @@ In addition to checking cluster integrity, you can also monitor the status of in
      | wsrep_local_state_comment | Joined |
      +---------------------------+--------+
 
-  When the node is part of the :term:`Primary Component`, the typical return values are ``Joining``, ``Waiting on SST``, ``Joined``, ``Synced`` or ``Donor``.  In the event that the node is part of a nonoperational component, the return value is ``Initialized``.
+  When the node is part of the :term:`Primary Component`, the typical return values are ``Joining``, ``Waiting on SST``, ``Joined``, ``Synced`` or ``Donor``.  If the node is part of a nonoperational component, the return value is ``Initialized``.
 
   .. note:: If the node returns any value other than the one listed here, the state comment is momentary and transient.  Check the status variable again for an update.
 

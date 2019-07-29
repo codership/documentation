@@ -2,7 +2,7 @@
    :title: XtraBackup Parameters
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, xtradb, xtrabackup, parameters
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

@@ -152,6 +152,18 @@ These are tutorial articles of the training section of the Codership Library. He
 
 
 .. rst-class:: rubric-2 list-sub-header
+.. rubric:: :doc:`galera-monitoring`
+
+.. rst-class:: list-stats
+
+   Length: 2535 words; Writer: Russell J.T. Dyer; Published: July 17, 2019; Topic: Installation; Level: Intermediate
+
+.. rst-class:: list-abstract
+
+   This tutorial explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
+
+
+.. rst-class:: rubric-2 list-sub-header
 .. rubric:: :doc:`getting-started-docker-pt1`
 
 .. rst-class:: list-stats
@@ -283,6 +295,7 @@ These are tutorial articles of the training section of the Codership Library. He
    testing-cluster
    restarting-cluster
    aws-galera-cluster
+   galera-monitoring
    migrate
    getting-started-docker-pt1
    getting-started-docker-pt2

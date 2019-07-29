@@ -2,7 +2,7 @@
    :title: Using mysqldump to Synchronize and Provision Nodes
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, mysqldump, backup, sst, synchronizing
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

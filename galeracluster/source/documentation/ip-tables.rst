@@ -2,7 +2,7 @@
    :title: Configuring IP Tables for Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, ip tables, firewall, filtering
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

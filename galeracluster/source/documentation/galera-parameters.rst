@@ -2,7 +2,7 @@
    :title: Galera Cluster Parameters
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, galera parameters, options 
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

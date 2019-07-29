@@ -2,7 +2,7 @@
    :title: Using Docker with Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, containers, docker, container image, firewall
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

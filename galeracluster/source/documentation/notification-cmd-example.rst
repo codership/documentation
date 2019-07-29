@@ -2,7 +2,7 @@
    :title: Example of a Galera Notification Script
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, notification, notify command, trigger, script
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
@@ -52,8 +52,8 @@ Nodes can call a notification script when changes happen in the membership of th
    #!/bin/sh -eu
 
    # This is a simple example of wsrep notification script (wsrep_notify_cmd).
-   # It will create 'wsrep' schema and two tables in it: 'membeship' and 'status'
-   # and fill them on every membership or node status change.
+   # It will create 'wsrep' schema and two tables in it: 'membership' and 'status'
+   # and insert data into them on every membership or node status change.
    #
    # Edit parameters below to specify the address and login to server.
 
@@ -170,7 +170,7 @@ After you modify this script to fit your requirements, you need to move it into 
 
    # mv my-wsrep-notify.sh /usr/bin
 
-In addition to this, given that the notification command contains your root password, change the ownership to the ``mysql`` user and make the script is executable only by that user.
+In addition to this, given that the notification command contains your root password, change the ownership to the ``mysql`` user and make sure the script is executable only by that user.
 
 .. code-block:: console
 

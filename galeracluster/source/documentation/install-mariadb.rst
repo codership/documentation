@@ -2,7 +2,7 @@
    :title: Install MariaDB Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, installation, install, mariadb, binaries, apt, yum
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

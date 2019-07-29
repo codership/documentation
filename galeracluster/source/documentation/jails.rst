@@ -2,7 +2,7 @@
    :title: Galera Cluster within Jail Instances
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, jails, packet filtering, firewall
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

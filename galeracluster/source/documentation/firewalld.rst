@@ -2,7 +2,7 @@
    :title: Configuring FirewallD for Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, firewall, firewalld
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

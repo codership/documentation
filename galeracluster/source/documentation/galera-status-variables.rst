@@ -2,7 +2,7 @@
    :title: Galera Cluster Status Variables
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, status variables, options, monitoring
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

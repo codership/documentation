@@ -2,7 +2,7 @@
    :title: Logical State Snapshots within Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, sst, state snapshot transfer, mysqldump, logical
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

@@ -2,7 +2,7 @@
    :title: Galera Cluster - High Availability Proxy
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, high availability, ha proxy, destination selection
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

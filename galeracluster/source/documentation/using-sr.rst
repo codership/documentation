@@ -2,7 +2,7 @@
    :title: Using Streaming Replication
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, streaming replication
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

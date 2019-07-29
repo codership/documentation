@@ -2,7 +2,7 @@
    :title: Galera Cluster related System Tables
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, system tables, myisam, cluster streaming log
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

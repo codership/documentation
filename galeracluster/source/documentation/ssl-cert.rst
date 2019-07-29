@@ -2,7 +2,7 @@
    :title: SSL Certificates to use with Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, ssl certificate, security, ports
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

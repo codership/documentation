@@ -2,7 +2,7 @@
    :title: Galera Cluster Documentation
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, documentation, docs, mysql, mariadb
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

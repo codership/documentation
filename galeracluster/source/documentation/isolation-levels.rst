@@ -2,7 +2,7 @@
    :title: InnoDB Isolation Levels
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, isolation levels, innodb
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

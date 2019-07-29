@@ -2,7 +2,7 @@
    :title: Methods for Monitoring a Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, monitoring, monitor, high availability
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

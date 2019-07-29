@@ -2,7 +2,7 @@
    :title: Galera Cluster Parameters, Status, and Functions
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, mysql, mariadb, wsrep options, wsrep functions
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

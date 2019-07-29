@@ -2,7 +2,7 @@
    :title: Provisioning Node for Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, node provisioning, joining a cluster
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

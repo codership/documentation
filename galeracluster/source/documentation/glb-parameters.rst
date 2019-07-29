@@ -2,7 +2,7 @@
    :title: Galera Load Balancer (glbd) Parameters
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, load balancing, galera load balancer, glbd, parameters, options
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

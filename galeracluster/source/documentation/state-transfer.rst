@@ -2,7 +2,7 @@
    :title: State Transfers with Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, sst, state snapshot transfer
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

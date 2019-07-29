@@ -2,7 +2,7 @@
    :title: Galera Cluster - Firewall Settings
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, firewall, ports
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

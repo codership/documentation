@@ -2,7 +2,7 @@
    :title: Galera Cluster - Cluster Deployment Variants
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, deployment, whole stack cluster, data tier cluster
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

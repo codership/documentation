@@ -2,7 +2,7 @@
    :title: Pen Load Balancer with Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, load balancer, pen
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

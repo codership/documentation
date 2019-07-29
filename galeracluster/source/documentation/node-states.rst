@@ -2,7 +2,7 @@
    :title: Flow Control with Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, node states, joining, synchronizing
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

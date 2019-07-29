@@ -2,7 +2,7 @@
    :title: Galera Cluster Quorum Components
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, weighted quorum, quorum, split-brain
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

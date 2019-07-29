@@ -2,7 +2,7 @@
    :title: Node Failure and Recovery in Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, split-brain, recovery
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

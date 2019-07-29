@@ -2,7 +2,7 @@
    :title: Introduction to Database Replication and Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, overview, asynchronous replication, synchronous replication
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

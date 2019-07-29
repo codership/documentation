@@ -2,7 +2,7 @@
    :title: Galera Cluster Glossary
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, mysql, mariadb, glossary, terms
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

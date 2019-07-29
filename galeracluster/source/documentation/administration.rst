@@ -2,7 +2,7 @@
    :title: Galera Cluster Administration
    :description: A menu of pages on the administration and management of Galera Cluster.
    :language: en-US
-   :keywords: galera, cluster, mysql, mariadb, dba, admin, node provisioning
+   :keywords: galera cluster, mysql, mariadb, dba, admin, node provisioning
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
@@ -98,8 +98,8 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 
 
 .. _`cluster-admin`:
-.. rubric:: Cluster Administration
 .. rst-class:: rubric-1
+.. rubric:: Cluster Administration
 
 In addition to node administration, Galera Cluster also provides interfaces for managing and administering the cluster.  These sections cover Primary Component recovery, managing Flow Control and Auto Eviction, as well as Galera Arbitrator and how to handle backups.
 

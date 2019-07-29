@@ -2,7 +2,7 @@
    :title: Codership Legal Notice
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, legal, license, rights
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

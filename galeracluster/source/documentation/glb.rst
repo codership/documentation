@@ -2,7 +2,7 @@
    :title: Galera Load Balancer (glbd)
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, load balancing, galera load balancer, glbd
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 

@@ -2,7 +2,7 @@
    :title: Using SELinux with Galera Cluster
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, selinux, security, ports
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
