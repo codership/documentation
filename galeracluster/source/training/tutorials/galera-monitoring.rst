@@ -40,7 +40,7 @@
 
 
 .. cssclass:: tutorial-article
-.. _`aws-galera-cluster`:
+.. _`galera-monitoring`:
 
 ===================================
 Monitoring a Galera Cluster
