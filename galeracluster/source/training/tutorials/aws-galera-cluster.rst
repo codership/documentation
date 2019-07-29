@@ -2,7 +2,7 @@
    :title: Installing a Galera Cluster on AWS
    :description:
    :language: en-US
-   :keywords:
+   :keywords: galera cluster, amazon, aws, installation, setup guide
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
