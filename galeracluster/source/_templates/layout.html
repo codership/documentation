@@ -199,19 +199,7 @@
 
 	<div id="menu-nav-bar" class="nav-menu">
 		<ul class="nav-link">
-			{% if sourcename %}
-
-				<li><a href="https://github.com/codership/documentation/edit/draft/galeracluster/source/{{ sourcename [:-4] }}.rst" title="Edit '{{title}}' on Github">Edit on Github</a></li>
-
-			{% endif %} {{ super() }}
-
-			{% if prev %}
-				<li><a href="{{ prev.link|e }}" title="{{ prev.title|e }}">&lt; Previous</a></li>
-			{% endif %}
-
-			{% if next %}
-				<li><a href="{{ next.link|e }}" title="{{ next.title|e }}">Next &gt;</a></li>
-			{% endif %}
+			<li> </li>
 
 		</ul>
 

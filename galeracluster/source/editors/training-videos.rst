@@ -1,0 +1,77 @@
+.. meta::
+   :title: Codership Editors' Page
+   :description:
+   :language: en-US
+   :keywords:
+   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+
+
+.. topic:: The Library
+   :name: left-margin
+
+   .. cssclass:: no-bull
+
+      - :doc:`Documentation <../documentation/index>`
+      - :doc:`Knowledge Base <../kb/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Troubleshooting <../kb/trouble/index>`
+         - :doc:`Best Practices <../kb/best/index>`
+
+      - :doc:`FAQ <../faq>`
+      - :doc:`Training <../training/index>`
+
+      .. cssclass:: no-bull-sub
+
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
+
+.. role:: raw-html(raw)
+   :format: html
+
+
+.. cssclass:: library-list
+.. _`training-video-plans`:
+
+=============================
+Codership Training Videos
+=============================
+
+Below is a list of training vides planned for the next few months. They cover essential topics and are grouped by skill level, as well as an extra set of articles cover some special topics.
+
+.. rst-class:: rubric-1 rubric-separated
+.. rubric:: Beginner Tutorials
+
+.. csv-table::
+   :class: doc-options library-small
+   :widths: 50, 50
+
+   ":doc:`Introduction to Galera Cluster <../training/videos/galera-intro>` :raw-html:`<small>published 2 march 2016</small>` Overview of Galera and minimal components. Although conceptual, not practical, it doesn't delve deep.", "**Installing Galera Cluster** :raw-html:`<small>scheduled 5 aug. 2019</small>` Shows the basics of how to install the Galera Cluster with three nodes."
+   "**MySQL Replication vs. Galera Cluster** :raw-html:`<small>scheduled 19 aug. 2019</small>` Demonstrates how to configure and use standard replication and compares that to a Galera Cluster.", ""
+
+
+.. rst-class:: rubric-1 rubric-separated
+.. rubric:: Intermediate Tutorials
+
+.. csv-table::
+   :class: doc-options library-small
+   :widths: 50, 50
+
+   "**Back-Ups with Galera** :raw-html:`<small>not yet scheduled</small>` Shows how to remove a node from a cluster to make a proper back-up with GTIDs.", "**Software Upgrades** :raw-html:`<small>not yet scheduled</small>` Planning and conducting upgrades of Galera software on an active cluster."
+   "**Recovering from a Cluster Crash** :raw-html:`<small>not yet scheduled</small>` Goes through the steps to restart a cluster, and to ensure data isn't lost or overwritten.", ""
+
+
+.. rst-class:: rubric-1 rubric-separated
+.. rubric:: Special Topics
+
+.. csv-table::
+   :class: doc-options library-small
+   :widths: 50, 50
+
+   "**Load Balancing a Galera Cluster** :raw-html:`<small>scheduled 15 sept. 2019</small>` How to install and configure a load balancer (e.g., MaxScale) to balance traffic among nodes.", ":doc:`Monitoring a Cluster <../training/videos/galera-monitoring>` :raw-html:`<small>published 5 aug. 2019</small>` Present status variables used for monitoring, including ``wsrep_provider_options`` and a bash simple script."
+
+
+.. |br| raw:: html
+
+   <br />

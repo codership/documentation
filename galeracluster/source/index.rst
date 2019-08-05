@@ -91,6 +91,7 @@ Below is a link to the general index of all of the pages of the documentation an
    faq
    training/index
    whats-new
+   editors/index
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

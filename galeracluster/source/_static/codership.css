@@ -575,6 +575,23 @@ table.doc-options caption a:hover,
 table.doc-links caption a:hover {
     color: #B0171F !important;
 }
+table.library-small {
+    font-size: .9em;
+}
+table.library-small strong,
+table.library-small em {
+    margin-bottom: 0;
+    font-size: 1em;
+}
+table.library-small span.raw-html {
+    display: block;
+    margin-bottom: 0;
+    font-size: 1em;
+}
+table.library-small span.raw-html small {
+    font-size: .8em;
+    color: #A9A9A9;
+}
 
 /*****************************************************
  * document - admonitions
@@ -945,6 +962,7 @@ div#left-margin {
     border: none;
     font-size: .8em;
 }
+div.library-list,
 div.faq-list,
 div.kb-article,
 div.kb-list,
@@ -1071,6 +1089,7 @@ div.faq-list p.rubric.list-sub-header {
     border: none;
     margin-left: 0;
 }
+div.library-list p.rubric,
 div.faq-list p.rubric {
     margin-bottom: 0 !important;
     margin-left: 0;
@@ -1080,9 +1099,16 @@ div.faq-list p.rubric {
     background-color: transparent;
     border: none;
 }
+div.library-list p.list-abstract {
+    margin-left: 20px;
+}
 div.faq-list p.list-abstract {
     margin-left: 0;
     line-height: 1.2em;
+}
+div.library-list p.rubric-2.list-sub-header {
+    border: none;
+    margin-left: 20px;
 }
 div.kb-list p.rubric.list-sub-header {
     border: none;
@@ -1095,6 +1121,13 @@ div.training-list p.rubric.list-sub-header {
     font-size: .7em;
     color: #4f4f4f;
     text-transform: lowercase;
+}
+.library-list .list-stats {
+    margin-left: 20px;
+    text-transform: initial;
+    font-size: .8em;
+    font-variant: small-caps;
+    color: #6E6E6E;
 }
 div.kb-list p.list-abstract {
     margin-left: 20px;
@@ -1110,6 +1143,7 @@ div.formula {
     margin: 20px 0 20px 30px;
     font-style: italic;
 }
+div.library-list ul,
 div.faq-list ul,
 div.kb-article ul,
 div.kb-list ul,
@@ -1158,6 +1192,12 @@ tt.literal {
 img.tutorial-screenshot {
     margin: 30px 0;
     border: 1px solid #666666;
+}
+img.borderless {
+    float: right;
+    clear: right;
+    margin: 20px 0 20px 30px;
+    border: none;
 }
 ul.soft-list {
     display: block;

@@ -47,6 +47,16 @@ This section is for training videos on Galera Cluster and related software. At t
 
 
 .. rst-class:: rubric-1 list-sub-header
+.. rubric:: :doc:`aws-galera-cluster`
+
+.. rst-class:: list-stats
+
+   Length: 52 minutes; Presenter: Russell J.T. Dyer; Date: July 12, 2019
+
+   This training video explains how to use Amazon Web Services (AWS) to create virtual servers to be used as a Galera Cluster. It will explain how to create and configure AWS, as well as how to install and configure the database and Galera software on each node. It'll end by showing you how to start the cluster.
+
+
+.. rst-class:: rubric-1 list-sub-header
 .. rubric:: :doc:`high-availability-with-galera-cluster`
 
 .. rst-class:: list-stats
@@ -130,6 +140,7 @@ This presentation discusses various aspects of using a multi-master topology of 
    :maxdepth: 2
    :hidden:
 
+   aws-galera-cluster
    ddl-schema-upgrades
    galera-intro
    galera-installation-quick-start
@@ -137,6 +148,7 @@ This presentation discusses various aspects of using a multi-master topology of 
    migrating-master-slave-to-multi-master
    geo-distributed-galera-cluster
    galera-dba-devops
+   galera-monitoring
    multi-master-galera-advantages
 
 .. |---|   unicode:: U+2014 .. EM DASH
