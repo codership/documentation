@@ -192,7 +192,7 @@ CSS Classes & IDs
 
 Adding a CSS class or a CSS identification to an HTML tag is tricky with restructuredtext.  One way is to use ``rst-class`` like so:
 
-.. code-block:: css
+.. code-block:: text
 
    .. _`some-link-point`:
    .. rst-class:: my-class
