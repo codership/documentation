@@ -56,7 +56,7 @@ Galera Load Balancer
 Galera Load Balancer provides simple TCP connection balancing. It was developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.  It provides several features:
 
 - Support for configuring back-end servers at runtime.
-- Support for draning servers.
+- Support for draining servers.
 - Support for the epoll API for routing performance.
 - Support for multithreaded operations.
 - Optional watchdog module to monitor destinations and adjust the routing table.
@@ -66,7 +66,7 @@ Galera Load Balancer provides simple TCP connection balancing. It was developed 
 .. rst-class:: rubric-1
 .. rubric:: Installation
 
-Unlike Galera Cluster, there is no binary installation available for Galera Load Balancer.  Installing it on your system will requires you to build it from the source files.  They're available on GitHub at `glb <https://github.com/codership/glb>`_.
+Unlike Galera Cluster, there is no binary installation available for Galera Load Balancer.  Installing it on your system will require you to build it from the source files.  They're available on GitHub at `glb <https://github.com/codership/glb>`_.
 
 To build Galera Load Balancer, you will need to complete a few steps.  First, from a directory convenient for source builds (e.g., ``/opt``), use the ``git`` utility to clone the GitHub repository for Galera Load Balancer. You would do this like so:
 

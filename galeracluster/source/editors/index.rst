@@ -69,7 +69,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-stats
 
-   Content: 69 Documents, 242 Pages, 70,023 Words; Google Traffic, July: 29,900 Impressions, 2,420 Clicks
+   Content: 69 Documents, 242 Pages, 70,023 Words; Google Traffic, August: 156,000 Impressions, 10,500 Clicks
 
 .. rst-class:: list-abstract sub-list-abstract
 
@@ -81,7 +81,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-stats
 
-   Content: 21 Articles, 15 pages, 6,547 Words; Google Traffic, July: 3,300 Impressions, 379 Clicks
+   Content: 21 Articles, 15 pages, 6,547 Words; Google Traffic, August: 9,640 Impressions, 1,110 Clicks
 
 .. rst-class:: list-abstract sub-list-abstract
 
@@ -93,7 +93,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-stats
 
-   Content: 22 Articles, 132 Pages, 59,430 Words; Google Traffic, July: 949 Impressions, 114 Clicks
+   Content: 22 Articles, 132 Pages, 59,430 Words; Google Traffic, August: 9,750 Impressions, 957 Clicks
 
 .. rst-class:: list-abstract sub-list-abstract
 
@@ -105,7 +105,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-stats
 
-   Videos: 10; Google Traffic, July: 292 Impressions, 1 Click
+   Videos: 10; Google Traffic, August: 2,090 Impressions, 8 Click
 
 .. rst-class:: list-abstract sub-list-abstract
 
@@ -117,7 +117,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-stats
 
-   Content: 35 Questions, 4,189 Words; Google Traffic, July: 0 Impressions, 0 Clicks
+   Content: 35 Questions, 4,189 Words; Google Traffic, July: 991 Impressions, 97 Clicks
 
 .. rst-class:: list-abstract sub-list-abstract
 

@@ -46,11 +46,11 @@ Monitoring a Galera Cluster
 .. rst-class:: video-stats
 
 - Speaker:  Russell J.T. Dyer
-- Date:  August 5, 2019
+- Date:  September 15, 2019
 - Length of Video:  52 minutes
 
-This training video explains how to use Amazon Web Services (AWS) to create virtual servers to be used as a Galera Cluster. It will explain how to create and configure AWS, as well as how to install and configure the database and Galera software on each node. It'll end by showing you how to start the cluster.
+This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
 
 .. raw:: html
 
-    <iframe width="820" height="547" src="https://galeracluster.com/library-media/videos/galera-on-aws.mp4" frameborder="0" allowfullscreen></iframe>
+    <iframe width="820" height="547" src="https://galeracluster.com/library-media/videos/galera-monitoring.mp4" frameborder="0" allowfullscreen></iframe>
