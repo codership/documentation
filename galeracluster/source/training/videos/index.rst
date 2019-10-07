@@ -35,6 +35,8 @@
 
          Related Articles
 
+.. role:: raw-html(raw)
+   :format: html
 
 .. cssclass:: training-list
 .. _`training-videos`:
@@ -46,126 +48,40 @@ Codership Training Videos
 This section is for training videos on Galera Cluster and related software. At this point, they're primarily screencasts from presentations given at various conferences. We intend to add more screencasts, but made in a controlled enviroment, focusing on one aspect of Galera Cluster or related software.
 
 
-.. rst-class:: rubric-1
-.. rubric:: Beginner Level
-
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`galera-intro`
-
-.. rst-class:: list-stats
-
-   Date: March 2, 2016; Length:  4 minutes
-
-This video presents Galera Cluster:  how it works and the benefits to organizations using it.
+.. rst-class:: rubric-1 rubric-separated
+.. rubric:: Basic & Entry Level
 
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`aws-galera-cluster`
+.. csv-table::
+   :class: doc-options library-small
+   :widths: 50, 50
 
-.. rst-class:: list-stats
-
-   Length: 52 minutes; Presenter: Russell J.T. Dyer; Date: July 12, 2019
-
-This training video explains how to use Amazon Web Services (AWS) to create virtual servers to be used as a Galera Cluster. It will explain how to create and configure AWS, as well as how to install and configure the database and Galera software on each node. It'll end by showing you how to start the cluster.
+   ":doc:`galera-intro` :raw-html:`<small>published 2 march 2016; length:  4 minutes</small>` This faily non-technical video presents Galera Cluster:  How it works and the benefits to organizations using it.", ":doc:`galera-mysql-installing` :raw-html:`<small>scheduled 25 sept. 2019; length: 32 minutes</small>` Shows the basics of how to install Galera Cluster and MySQL software, and configure them on three nodes."
+   "**MySQL Replication vs. Galera Cluster** :raw-html:`<small>scheduled 15 oct. 2019; length: 30 minutes</small>` Demonstrates how to configure and use standard replication and compares that to a Galera Cluster.", ":doc:`galera-mariadb-installing` :raw-html:`<small>scheduled 27 sept. 2019; length: not yet published</small>` Shows the basics of how to install Galera Cluster and MariaDB software on three nodes |---| and configure the ports for security and other basic items."
 
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`galera-installation-quick-start`
-
-.. rst-class:: list-stats
-
-   Length: 60 minutes; Presenter: Generic; Date: March 10, 2016
-
-This video describes how to get started with Galera Cluster and build a functional multi-master cluster.
-
-
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`galera-dba-devops`
-
-.. rst-class:: list-stats
-
-   Length: 50 minutes; Presenter: Philip Stoev; Date: September 23, 2016
-
-This video presents the best practices related to Galera Cluster by DBAs and Developers.
-
-
-
-.. rst-class:: rubric-1
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: Intermediate Level
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`high-availability-with-galera-cluster`
+.. csv-table::
+   :class: doc-options library-small
+   :widths: 50, 50
 
-.. rst-class:: list-stats
-
-   Length: 60 minutes; Presenter: Colin Charles; Date: April 10, 2019
-
-This video is of Colin Charles speaking about the MySQL Server High Availability landscape and how Galera Cluster fits into it.
+   "**Back-Ups with Galera** :raw-html:`<small>not yet scheduled</small>` Shows how to remove a node from a cluster to make a proper back-up with GTIDs.", "**Software Upgrades** :raw-html:`<small>not yet scheduled</small>` Planning and conducting upgrades of Galera software on an active cluster."
+   "**Recovering from a Cluster Crash** :raw-html:`<small>not yet scheduled</small>` Goes through the steps to restart a cluster, and to ensure data isn't lost or overwritten.",""
 
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`ddl-schema-upgrades`
-
-.. rst-class:: list-stats
-
-   Length: 52 minutes; Presenter: Philip Stoev; Date: February 22, 2017
-
-This a presentation by Sakari Keskitalo, C.O.O. of Codership and Philip Stoev speaking about the best practices for DDL and Schema Upgrades.
-
-
-
-
-.. rst-class:: rubric-1
+.. rst-class:: rubric-1 rubric-separated
 .. rubric:: Special Topics
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`aws-galera-cluster`
+.. csv-table::
+   :class: doc-options library-small
+   :widths: 50, 50
 
-.. rst-class:: list-stats
-
-   Length: 52 minutes; Presenter: Russell J.T. Dyer; Date: July 12, 2019
-
-This training video explains how to use Amazon Web Services (AWS) to create virtual servers to be used as a Galera Cluster. It will explain how to create and configure AWS, as well as how to install and configure the database and Galera software on each node. It'll end by showing you how to start the cluster.
+   ":doc:`aws-galera-cluster` :raw-html:`<small>published 12 july 2019; length: 52 minutes</small>` Shows the basics of how to set up server instances on Amazon's AWS for a Galera Cluster with either MySQL or MariaDB.", ":doc:`galera-monitoring` :raw-html:`<small>published 15 sept. 2019; length: 47 minutes</small>` This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information."
+   "**Load Balancing a Galera Cluster** :raw-html:`<small>scheduled 15 nov. 2019; length: not yet published</small>` How to install and configure a load balancer (e.g., HA Proxy) to balance traffic among nodes in a Galera Cluster.", ":doc:`high-availability-with-galera-cluster` :raw-html:`<small>scheduled 10 april 2019; length: 60 minutes</small>` This video is of Colin Charles speaking about the MySQL Server High Availability landscape and how Galera Cluster fits into it."
 
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`galera-monitoring`
-
-.. rst-class:: list-stats
-
-   Length: 52 minutes; Presenter: Russell J.T. Dyer; Date: September 15, 2019
-
-This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
-
-
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`geo-distributed-galera-cluster`
-
-.. rst-class:: list-stats
-
-   Length: 56 minutes; Presenter: Philip Stoev; Date: June 10, 2016
-
-This video presents the advantages of having a geo-distributed database cluster and how to create one using Galera Cluster for MySQL.
-
-
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`multi-master-galera-advantages`
-
-.. rst-class:: list-stats
-
-   Length: 47 minutes; Presenter: Philip Stoev; Date: December 14, 2016
-
-This presentation discusses various aspects of using a multi-master topology of Galera Cluster.
-
-
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`migrating-master-slave-to-multi-master`
-
-.. rst-class:: list-stats
-
-   Length: 36 minutes; Presenter: Philip Stoev; Date: April 13, 2016
-
-This video provides the practical aspects of migrating a database setup based on traditional asynchronous replication to multi-master Galera Cluster.
 
 
 .. toctree::
@@ -180,6 +96,8 @@ This video provides the practical aspects of migrating a database setup based on
    migrating-master-slave-to-multi-master
    geo-distributed-galera-cluster
    galera-dba-devops
+   galera-mariadb-installing
+   galera-mysql-installing
    galera-monitoring
    multi-master-galera-advantages
 
