@@ -35,8 +35,10 @@
 
          Related Articles
 
+.. role:: raw-html(raw)
+   :format: html
 
-.. cssclass:: tutorial-video
+.. cssclass:: tutorial-article
 .. _`video-high-availability-galera`:
 
 ======================================

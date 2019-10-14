@@ -971,6 +971,18 @@ div.tutorial-article,
 div.library-document {
     margin-left: 210px;
 }
+div.tutorial-article table.doc-options th {
+    font-size: 1.2em;
+}
+div.tutorial-article video-outline small {
+    font-size: .7em;
+    color: #4f4f4f;
+    text-transform: lowercase;
+}
+table.video-outline tr td {
+    border-bottom: 1px dotted #C0C0C0;
+    border-bottom-style: none !important;
+}
 div#left-margin p.topic-title,
 div#left-margin p.bull-head {
     font-weight: bold;

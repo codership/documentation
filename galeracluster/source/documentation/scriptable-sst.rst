@@ -47,16 +47,16 @@
 Scriptable State Snapshot Transfers
 =====================================
 
-When a node sends and receives a :term:`State Snapshot Transfer`, it manage it through processes that run external to the database server.  In the event that you need more from these processes that the default behavior provides, Galera Cluster provides an interface for custom shell scripts to manage state snapshot transfers on the node.
+When a node sends and receives a :term:`State Snapshot Transfer`, it manage it through processes that run external to the database server.  If you need more from these processes than the default behavior provides, Galera Cluster provides an interface for custom shell scripts to manage state snapshot transfers on the node.
 
 
 .. _`writing-custom-sst`:
 .. rst-class:: rubric-1
 .. rubric:: Using the Common SST Script
 
-Galera Cluster includes a common script for managing a :term:`State Snapshot Transfer`, which you can use as a starting point in building your own custom script.  The filename is ``wsrep_sst_common.sh``.  For Linux users, the package manager typically installs it for you in ``/usr/bin``.
+Galera Cluster includes a common script for managing a :term:`State Snapshot Transfer`, which you can use as a starting point in building your own custom script.  The filename is ``wsrep_sst_common``.  For Linux users, the package manager typically installs it for you in ``/usr/bin``.
 
-The common SST script provides ready functions for parsing argument lists, logging errors, and so on.  There are no constraints on the order or number of parameters it takes.  You can add to it new parameters and ignore any of the existing as suits your needs.
+The common SST script provides ready functions for parsing argument lists, logging errors, and so on.  There are no constraints on the order or number of parameters it takes.  You can add new parameters and ignore any of the existing ones as you prefer.
 
 It assumes that the storage engine initialization on the receiving node takes place only after the state transfer is complete.  Meaning that it copies the contents of the source data directory to the destination data directory (with possible variations).
 
@@ -113,7 +113,7 @@ These parameters are passed only to state transfer scripts initiated by a node s
 .. rst-class:: rubric-2
 .. rubric:: Logical State Transfer-specific Parameters
 
-These parameters are passed only to the ``wsrep_sst_mysqldump.sh`` state transfer script by both the sending and receiving nodes:
+These parameters are passed only to the ``wsrep_sst_mysqldump`` state transfer script by both the sending and receiving nodes:
 
 .. rst-class:: verbose-list
 
@@ -141,7 +141,7 @@ In writing your own custom script for state snapshot transfers, there are certai
 
 When the node calls for a state snapshot transfer as a joiner, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`General Parameters <general-sst-script-parameters>` above.  For your own script you can choose to use or ignore these arguments as suits your needs.
 
-After the script receives these arguments, prepare the node to accept a state snapshot transfer.  For example, in the case of ``wsrep_sst_rsync.sh``, the script starts ``rsync`` in server mode.
+After the script receives these arguments, prepare the node to accept a state snapshot transfer.  For example, in the case of ``wsrep_sst_rsync``, the script starts ``rsync`` in server mode.
 
 To signal that the node is ready to receive the state transfer, print the following string to standard output: ``ready <address>:port\n``.  Use the IP address and port at which the node is waiting for the state snapshot.  For example:
 
@@ -187,9 +187,9 @@ In the event of failure, Galera Cluster expects your script to return a code tha
 .. rst-class:: rubric-1
 .. rubric:: Enabling Scriptable SST's
 
-Whether you use ``wsrep_sst_common.sh`` directly or decide to write a script of your own from scratch, the process for enabling it remains the same.  The filename must follow the convention of ``wsrep_sst_<name>.sh``, with ``<name>`` being the value that you give for the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter in the configuration file.
+Whether you use ``wsrep_sst_common`` directly or decide to write a script of your own from scratch, the process for enabling it remains the same.  The filename must follow the convention of ``wsrep_sst_<name>``, with ``<name>`` being the value that you give for the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter in the configuration file.
 
-For example, if you write a script with the filename ``wsrep_sst_galera-sst.sh``, you would add the following line to your ``my.cnf``:
+For example, if you write a script with the filename ``wsrep_sst_galera-sst``, you would add the following line to your ``my.cnf``:
 
 .. code-block:: ini
 
