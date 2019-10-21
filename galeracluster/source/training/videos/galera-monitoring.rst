@@ -31,14 +31,29 @@
 
          Related Documents
 
+         - :doc:`Monitoring Cluster <../../documentation/monitoring-cluster>`
+         - :doc:`Notification Command <../../documentation/notification-cmd>`
+         - :doc:`Notification Script <../../documentation/notification-cmd-example>`
+
       .. cssclass:: bull-head
 
          Related Articles
 
+         - :doc:`Replication Health <../tutorials/galera-monitoring>`
+
+      .. cssclass:: bull-head
+
+         Other Resources
+
+         - `Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
+         - `SCUMM <https://severalnines.com/database-blog/scumm-agent-based-database-monitoring-infrastructure-clustercontrol>`_
+
+
+
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article
+.. cssclass:: tutorial-article video-article
 .. _`video-galera-monitoring`:
 
 ====================================
@@ -47,27 +62,39 @@ Monitoring a Galera Cluster
 
 .. rst-class:: video-stats
 
-- Speaker:  Russell J.T. Dyer
-- Date:  September 15, 2019
-- Length of Video:  52 minutes
+   Speaker: Russell J.T. Dyer; Date: September 15, 2019; Length of Video: 52 minutes
 
 This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
 
-.. rst-class:: rubric-1
-.. rubric:: Outline of Training Video
 
-.. csv-table::
-   :class: doc-options video-outline
-   :widths: 50, 50
+.. container:: banner
 
-   "**1. Galera & Monitoring Overview** :raw-html:`<small>(time index: 2:50)</small>` |br| The values, the point of using replication and clusters of servers","**4. Notification Command** :raw-html:`<small>(time index: 22:35)</small>` |br| The basics |---| concepts and some important terms."
-   "**2. Galera Status Variables** :raw-html:`<small>(time index: 9:52)</small>` |br| An introduction to standard MySQL or MariaDB replication.","**5. Customized Scripts** :raw-html:`<small>(time index: 25:59)</small>` |br| Explanation and demonstration on configuring servers for Galera"
-   "**3. Server Logs** :raw-html:`<small>(time index: 17:57)</small>` |br| The steps for configuring MySQL and MariaDB software for use in standard replication.","**6. Third-Party Software** :raw-html:`<small>(time index: 39:32)</small>` |br| Starting and testing a minimum three-node cluster."
+   .. rst-class:: rubric-1
+   .. rubric:: Outline of Training Video
+
+.. container:: list-col1
+
+   **1. Galera & Monitoring Overview** :raw-html:`<small>(time index: 2:50)</small>` |br| The values, the point of using replication and clusters of servers.
+
+   **2. Galera Status Variables** :raw-html:`<small>(time index: 9:52)</small>` |br| An introduction to standard MySQL or MariaDB replication.
+
+   **3. Server Logs** :raw-html:`<small>(time index: 17:57)</small>` |br| The steps for configuring MySQL and MariaDB software for use in standard replication.
+
+
+.. container:: list-col2
+
+   **4. Notification Command** :raw-html:`<small>(time index: 22:35)</small>` |br| The basics |---| concepts and some important terms.
+
+   **5. Customized Scripts** :raw-html:`<small>(time index: 25:59)</small>` |br| Explanation and demonstration on configuring servers for Galera.
+
+   **6. Third-Party Software** :raw-html:`<small>(time index: 39:32)</small>` |br| Starting and testing a minimum three-node cluster.
+
 
 .. raw:: html
 
-    <iframe width="820" height="547" src="https://galeracluster.com/library-media/videos/galera-monitoring.mp4" frameborder="0" allowfullscreen></iframe>
-
+    <video width="820" height="547" preload="metadata" controls>
+    <source src="https://galeracluster.com/library-media/videos/galera-monitoring.mp4#t=0.5" type="video/mp4">
+    </video>
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

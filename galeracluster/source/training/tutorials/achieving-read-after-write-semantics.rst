@@ -39,9 +39,9 @@
 .. cssclass:: tutorial-article
 .. _`achieving-read-after-write-semantics`:
 
-===================================================
-Achieving Read-After-Write Semantics with Galera
-===================================================
+=======================================
+Read-After-Write Semantics with Galera
+=======================================
 
 .. rst-class:: list-stats
 

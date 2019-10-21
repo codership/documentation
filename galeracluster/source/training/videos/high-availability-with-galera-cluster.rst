@@ -38,7 +38,7 @@
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article
+.. cssclass:: tutorial-article video-article
 .. _`video-high-availability-galera`:
 
 ======================================
@@ -47,12 +47,42 @@ High Availability with Galera Cluster
 
 .. rst-class:: video-stats
 
-- Speaker:  Colin Charles
-- Date:  April 10, 2019
-- Length of Video:  60 minutes
+   Speaker: Colin Charles; Date: April 10, 2019; Length of Video: 60 minutes
 
 The MySQL Server High Availability landscape provides with a slew of tools to help you ensure that your databases keep humming. Such tools are Galera Cluster, however, it is worth looking at semi-synchronous replication with failover tools, and also the usual leader-follower asynchronous replication. Today more workloads are moving to the cloud, and what failover options do you get with Amazon RDS for MySQL or even Aurora? What about the newfangled group replication and InnoDB Cluster? And let us not forget that Galera Cluster has spawned branches too!
 
+.. container:: banner
+
+   .. rst-class:: rubric-1
+   .. rubric:: Outline of Training Video
+
+.. container:: list-col1
+
+   **1. Codership** :raw-html:`<small>(time index: 1:04)</small>` |br| Brief introduction to Codership, the creators and developers of Galera Cluster.
+
+   **2. What is High Availability** :raw-html:`<small>(time index: 2:50)</small>` |br| Discussion of the fundamentals of High Availability |---| the value and goals |---| as well as how it's achieved generally.
+
+   **3. Redundancy Through MySQL Replication** :raw-html:`<small>(time index: 19:22)</small>` |br| Covers briefly how standard replication may be used for maintaining high availability.
+
+   **4. Failover Frameworks** :raw-html:`<small>(time index: 21:55)</small>` |br| Discusses methods by which failed servers, in particular a master, may be replaced |---| including common difficulties one may encounter.
+
+.. container:: list-col2
+
+   **5. Proxies** :raw-html:`<small>(time index: 25:05)</small>` |br| Explains how proxies may be used for directing traffic among multiple servers, and redirecting away from a down server.
+
+   **6. Galera Cluster** :raw-html:`<small>(time index: 27:13)</small>` |br| Introduction to Galera Cluster and how high availability can be achieved so easily with it, as well as an explanation of how Galera works.
+
+   **7.**Cloud-Based Solutions** :raw-html:`<small>(time index: 45:37)</small>` |br| Explains how Galera Cluster may be used on a cloud situation, how a cloud-based cluster can solved problems, as well as how to make use of them.
+
+
 .. raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/qjquSaWfO4s?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="820" height="547" src="https://www.youtube.com/embed/qjquSaWfO4s?rel=0" frameborder="2" allowfullscreen></iframe>
+
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:
+
+.. |br| raw:: html
+
+  <br/>

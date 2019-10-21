@@ -96,7 +96,7 @@ Synchronization Functions were introduced in Galera Cluster 4.  If you have an o
 
     SHOW STATUS LIKE 'wsrep_provider_version';
 
-	+------------------------+----------------------+
+    +------------------------+----------------------+
     | Variable_name          | Value                |
     +------------------------+----------------------+
     | wsrep_provider_version | 25.3.5-wheezy(rXXXX) |

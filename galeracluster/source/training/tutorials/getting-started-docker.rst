@@ -37,24 +37,19 @@
 
 
 .. cssclass:: tutorial-article
-.. _`getting-started-docker-pt1`:
+.. _`getting-started-docker`:
 
-===========================================
-Getting Started Galera with Docker, Part 1
-===========================================
+===================================
+Getting Started Galera with Docker
+===================================
 
 .. rst-class:: list-stats
 
-   Length: 762 words; Writer: Erkan Yanar; Published: May 6, 2015; Topic: Container; Level: Intermediate
+   Length: 1416 words; Writer: Erkan Yanar; Published: May 6, 2015; Topic: Container; Level: Intermediate
 
 Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool, and Docker Hub, a cloud service for sharing applications and automating workflows, Docker enables apps to be quickly assembled from components and eliminates the friction between development, QA, and production environments. As a result, it can ship faster and run the same app, unchanged, on laptops, data center VMs, and any cloud.
 
-This is the first of a series of blog posts about using Galera with Docker. In this post, we are going to get started with Docker and Galera:
-
-* Build a basic Docker Image (which we will extended in later posts)
-* Deploy on a test cluster on a local machine
-
-The instructions have been tested on Ubuntu 14.04 with Docker 1.5.
+let's first look at how to build a basic Docker Image, which we will extend later. Then we'll deploy on a test cluster on a local machine. The examples here have been tested on Ubuntu 14.04 with Docker 1.5.
 
 
 .. rst-class:: rubric-1
@@ -147,15 +142,119 @@ Now we have a running Galera cluster. We can check the number of nodes in the Cl
    | wsrep_cluster_size |     3 |
    +--------------------+-------+
 
+We built a simple Galera Cluster on one host, without using SSH and without the need to configure any IP addresses. This setup does not support restarting the container |---| you should remove the container and recreate it instead.
+
+
+.. rst-class:: rubric-1
+.. rubric:: Deploying Galera on Mutiple Docker Hosts
+
+Now let's discuss how to deploy Galera on multiple Docker hosts. By design, Docker containers are reachable using port-forwarded TCP ports only, even if the containers have IP addresses. So we will set up port forwarding for all TCP ports that are required for Galera to operate.
+
+The following TCP port are used by Galera:
+
+.. code-block:: console
+
+   3306-MySQL port
+   4567-Galera Cluster
+   4568-IST port
+   4444-SST port
+
+Before we start, we need to stop enforcing AppArmor for Docker:
+
+.. code-block:: console
+
+   $ aa-complain /etc/apparmor.d/docker
+
+
+.. rst-class:: rubric-1
+.. rubric:: Building a Multi-Node Cluster using the Default Ports
+
+Building a multi-node cluster using the default ports is not complicated. Besides mapping the ports 1:1, we also need to set `–wsrep-node-address` to the IP address of the host.
+
+We assume following 3 nodes
+
+.. code-block:: console
+
+   nodea 10.10.10.10
+   nodeb 10.10.10.11
+   nodec 10.10.10.12
+
+A simple cluster setup would look like this:
+
+.. code-block:: console
+
+   nodea$ docker run -d -p 3306:3306 -p 4567:4567 -p 4444:4444 -p 4568:4568
+   --name nodea erkules/galera:basic
+   --wsrep-cluster-address=gcomm:// --wsrep-node-address=10.10.10.10
+   nodeb$ docker run -d -p 3306:3306 -p 4567:4567 -p 4444:4444 -p 4568:4568
+   --name nodeb erkules/galera:basic
+   --wsrep-cluster-address=gcomm://10.10.10.10 --wsrep-node-address=10.10.10.11
+   nodec$ docker run -d -p 3306:3306 -p 4567:4567 -p 4444:4444 -p 4568:4568
+   --name nodec erkules/galera:basic
+   --wsrep-cluster-address=gcomm://10.10.10.10 --wsrep-node-address=10.10.10.12
+   nodea$ docker exec -t nodea mysql -e 'show status like "wsrep_cluster_size"'
+
+   +--------------------+-------+
+   | Variable_name      | Value |
+   +--------------------+-------+
+   | wsrep_cluster_size |     3 |
+   +--------------------+-------+
+
+In this example, we used the image from the previous blog post. Docker is going to download the image if it is not already present on the node.
+
+
+.. rst-class:: rubric-1
+.. rubric:: Building a Multi-Node Cluster using Non-Default Ports
+
+In the long run, we may want to start more than one instance of Galera on a host in order to run more than one Galera cluster using the same set of hosts.
+
+For the purpose, we set Galera Cluster to use non-default ports and then map MySQL’s default port to 4306:
+
+.. code-block:: console
+
+   MySQL port 3306 is mapped to 4306
+   Galera Cluster port 4567 is changed to 5567
+   Galera IST port 4568 is changed to 5678
+   Galera SST port 4444 is changed to 5444
+
+The docker command line part is straightforward. Please note the additional command-line options used to configure Galera
+
+.. code-block:: console
+
+   nodea$ docker run -d -p 4306:3306 -p 5567:5567 -p 5444:5444 -p 5568:5568
+   --name nodea erkules/galera:basic --wsrep-cluster-address=gcomm://
+   --wsrep-node-address=10.10.10.10:5567 --wsrep-sst-receive-address=10.10.10.10:5444
+   --wsrep-provider-options="ist.recv_addr=10.10.10.10:5568"
+   nodeb$ docker run -d -p 4306:3306 -p 5567:5567 -p 5444:5444 -p 5568:5568
+   --name nodeb erkules/galera:basic --wsrep-cluster-address=gcomm://10.10.10.10:5567
+   --wsrep-node-address=10.10.10.11:5567 --wsrep-sst-receive-address=10.10.10.11:5444
+   --wsrep-provider-options="ist.recv_addr=10.10.10.11:5568"
+   nodec$ docker run -d -p 4306:3306 -p 5567:5567 -p 5444:5444 -p 5568:5568
+   --name nodec erkules/galera:basic --wsrep-cluster-address=gcomm://10.10.10.10:5567
+   --wsrep-node-address=10.10.10.12:5567 --wsrep-sst-receive-address=10.10.10.12:5444
+   --wsrep-provider-options="ist.recv_addr=10.10.10.12:5568"
+   nodea$ docker exec -t nodea mysql -e 'show status like "wsrep_cluster_size"'
+
+   +--------------------+-------+
+   | Variable_name      | Value |
+   +--------------------+-------+
+   | wsrep_cluster_size |     3 |
+   +--------------------+-------+
+
+The following Galera Cluster configuration options are used to specify each port:
+
+.. code-block:: console
+
+   4567 Galera Cluster is configured using `–wsrep-node-address`
+   4568 IST port is configured using `–wsrep-provider-options=”ist.recv_addr=”`
+   4444 SST port is configured using `–wsrep-sst-receive-address`
+
 
 .. rst-class:: rubric-1
 .. rubric:: Summary
 
-We built a simple Galera Cluster on one host.
+That concludes this tutorial. As you can see, it's easy to run Galera on Docker and inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.
 
-* Without using SSH;
-* Without the need to configure any IP addresses;
 
-Note that this setup does not support restarting the container — you should remove the container and recreate it instead.
-
-In the next blog post we will describe deploying Galera with Docker on multiple hosts.
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

@@ -44,9 +44,9 @@
 .. cssclass:: tutorial-article
 .. _`migrate`:
 
-===============================================
-Factors related to Migrating to Galera Cluster
-===============================================
+=================================
+Galera Cluster Migration Factors
+=================================
 
 .. rst-class:: list-stats
 

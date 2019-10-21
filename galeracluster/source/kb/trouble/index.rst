@@ -37,107 +37,136 @@ Codership Troubleshooting Articles
 
 This is the Troubleshooting section of the Galera Knowledge Base (KB). It contains information on resolving problems you might experience with Galera Cluster. It includes articles on how to diagnose and address various performance and replication trouble. For articles related to performance and other ways to improve usage of Galera Cluster, see the :doc:` Best Practices <../best/index>` section of the KB.
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`Cluster Stalls on ALTER <stall-on-alter>`
 
-.. rst-class:: list-stats
+.. _`kb-trouble-state-transfers`:
+.. container:: banner
 
-   Length: 358 words; Published: ; Topic:
+   .. rst-class:: rubric-1
+   .. rubric:: State Transfers
 
-.. rst-class:: list-abstract
+.. container:: list-col1
 
-   There may be times in which a cluster will stall when an ``ALTER`` statement is executed on an unused table.
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Node Crashes during rsync SST <node-crash-rsync>`
 
+   .. rst-class:: list-stats
 
+      Length: 221 words; Published: ; Topic: State Transfers
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`Commit Failed for Reason 3 <commit-failed-reason-3>`
+   .. rst-class:: list-abstract
 
-.. rst-class:: list-stats
+      When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a State Snapshot Transfer (SST) method to provide a full data copy to the new node, known as the joiner.  This should work well, but it doesn't always.
 
-   Length: 246 words; Published: ; Topic:
+.. container:: list-col2
 
-.. rst-class:: list-abstract
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Requested State Transfer Failed <requested-state-transfer-failed>`
 
-   When you have ``wsrep_debug`` enabled, you may occasionally see a message noting that a commit has failed due to reason ``3``.
+   .. rst-class:: list-stats
 
+      Length: 301 words; Published: ; Topic: State Transfers
 
+   .. rst-class:: list-abstract
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`Multi-Master Conflicts <multi-master-conflicts>`
-
-.. rst-class:: list-stats
-
-   Length: 751 words; Published: ; Topic:
-
-.. rst-class:: list-abstract
-
-   These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
+      When a new node joins a cluster, it will try to synchronize with the cluster by getting a full copy of the databases from one of the other nodes.  Sometimes this will fail.
 
 
+.. _`kb-trouble-sql-syntax`:
+.. container:: banner
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`Node Crashes during rsync SST <node-crash-rsync>`
+   .. rst-class:: rubric-1
+   .. rubric:: SQL & Syntax Errors
 
-.. rst-class:: list-stats
+.. container:: list-col1
 
-   Length: 221 words; Published: ; Topic:
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Cluster Stalls on ALTER <stall-on-alter>`
 
-.. rst-class:: list-abstract
+   .. rst-class:: list-stats
 
-   When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a State Snapshot Transfer (SST) method to provide a full data copy to the new node, known as the joiner.  This should work well, but it doesn't always.
+      Length: 358 words; Published: ; Topic: SQL & Syntax Errors
 
+   .. rst-class:: list-abstract
 
+      There may be times in which a cluster will stall when an ``ALTER`` statement is executed on an unused table.
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`Requested State Transfer Failed <requested-state-transfer-failed>`
+.. container:: list-col2
 
-.. rst-class:: list-stats
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`SQL Syntax Errors <sql-syntax-error>`
 
-   Length: 301 words; Published: ; Topic:
+   .. rst-class:: list-stats
 
-.. rst-class:: list-abstract
+      Length: 159 words; Published: ; Topic: SQL & Syntax Errors
 
-   When a new node joins a cluster, it will try to synchronize with the cluster by getting a full copy of the databases from one of the other nodes.  Sometimes this will fail.
+   .. rst-class:: list-abstract
 
-
-
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`SQL Syntax Errors <sql-syntax-error>`
-
-.. rst-class:: list-stats
-
-   Length: 159 words; Published: ; Topic:
-
-.. rst-class:: list-abstract
-
-   When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a State Snapshot Transfer (SST) method to provide a full data copy to the new node, known as the joiner. To get this snapshot, some administrators opt to use a Logical State Transfer Method, in particular ``mysqldump``. This doesn't always work well.
+      When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a State Snapshot Transfer (SST) method to provide a full data copy to the new node, known as the joiner. To get this snapshot, some administrators opt to use a Logical State Transfer Method, in particular ``mysqldump``. This doesn't always work well.
 
 
+.. _`kb-trouble-splits-topology`:
+.. container:: banner
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`Unknown Command Errors <error-unknown-command>`
+   .. rst-class:: rubric-1
+   .. rubric:: Splits & Topology
 
-.. rst-class:: list-stats
+.. container:: list-col1
 
-   Length: 599 words; Published: ; Topic:
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Multi-Master Conflicts <multi-master-conflicts>`
 
-.. rst-class:: list-abstract
+   .. rst-class:: list-stats
 
-   If a cluster experiences a temporary split--that is to say, a portion of the nodes loses connectivity to the Primary Component--when they reconnect, nodes from the former non-operational component drop their client connections.  New connections to the database client will return ``Unknown command`` errors.
+      Length: 751 words; Published: ; Topic: Splits & Topology
 
+   .. rst-class:: list-abstract
 
+      These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
 
-.. rst-class:: rubric-2 list-sub-header
-.. rubric:: :doc:`User Changes not Replicating <user-changes>`
+.. container:: list-col2
 
-.. rst-class:: list-stats
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Unknown Command Errors <error-unknown-command>`
 
-   Length: 373 words; Published: ; Topic:
+   .. rst-class:: list-stats
 
-.. rst-class:: list-abstract
+      Length: 599 words; Published: ; Topic: Splits & Topology
 
-   Galera replicates only InnoDB tables.  Therefore, databases should not use other storage engines.  However, the system tables contained in the ``mysql`` database use the MyISAM storage engine. This includes the ``user`` table and other tables containing user permissions.  Since these tables are not replicated, you must make changes to them manually on each node.
+   .. rst-class:: list-abstract
+
+      If a cluster experiences a temporary split |---| that is to say, a portion of the nodes loses connectivity to the Primary Component |---| when they reconnect, nodes from the former non-operational component drop their client connections.  New connections to the database client will return ``Unknown command`` errors.
+
+.. _`kb-trouble-other`:
+.. container:: banner
+
+   .. rst-class:: rubric-1
+   .. rubric:: Other
+
+.. container:: list-col1
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`User Changes not Replicating <user-changes>`
+
+   .. rst-class:: list-stats
+
+      Length: 373 words; Published: ; Topic: Security
+
+   .. rst-class:: list-abstract
+
+      Galera replicates only InnoDB tables.  Therefore, databases should not use other storage engines.  However, the system tables contained in the ``mysql`` database use the MyISAM storage engine. This includes the ``user`` table and other tables containing user permissions.  Since these tables are not replicated, you must make changes to them manually on each node.
+
+.. container:: list-col2
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Commit Failed for Reason 3 <commit-failed-reason-3>`
+
+   .. rst-class:: list-stats
+
+      Length: 246 words; Published: ; Topic: Transactions
+
+   .. rst-class:: list-abstract
+
+      When you have ``wsrep_debug`` enabled, you may occasionally see a message noting that a commit has failed due to reason ``3``.
 
 
 .. toctree::

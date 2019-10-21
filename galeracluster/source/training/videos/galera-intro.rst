@@ -35,8 +35,10 @@
 
          Related Articles
 
+.. role:: raw-html(raw)
+   :format: html
 
-.. cssclass:: tutorial-video
+.. cssclass:: tutorial-article video-article
 .. _`video-galera-intro`:
 
 ================================
@@ -45,18 +47,14 @@ Introduction to Galera Cluster
 
 .. rst-class:: video-stats
 
-- Speaker:  Generic
-- Date:  March 2, 2016
-- Length of Video:  4 minutes
+   Speaker: Generic; Date: March 2, 2016; Length of Video: 4 minutes
 
 This video presents Galera Cluster:  how it works and the benefits to organizations using it.
 
-.. rst-class:: rubric-1
-.. rubric:: Outline of Training Video
-
 .. raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/n8vM_HVnnfc?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="820" height="547" src="https://www.youtube.com/embed/n8vM_HVnnfc?rel=0" frameborder="2" allowfullscreen></iframe>
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -952,8 +952,7 @@ div.document {
     background-position: initial;
 }
 div#left-margin {
-    float: left;
-    clear: left;
+    position: absolute;
     width: 180px;
     margin: 0;
     padding: 0;
@@ -971,6 +970,44 @@ div.tutorial-article,
 div.library-document {
     margin-left: 210px;
 }
+div.banner {
+  clear: both;
+  width: 100%;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  background-color: #668E86;
+}
+div.banner p.rubric-1 {
+  margin: 0 0 10px 0 !important;
+  padding: 6px 0 !important;
+  font-variant: small-caps;
+  font-weight: 200 !important;
+  letter-spacing: 2px;
+  color: #ffffff !important;
+}
+div.training-list table.training-top th {
+    text-align: center;
+    color: #ffffff;
+    border-right: 1px dotted #C0C0C0;
+    background-color: #668E86 !important;
+}
+div.training-list table.training-top th a {
+    color: #ffffff !important;
+}
+div.training-list table.training-top td {
+    padding: 0 8px;
+    font-size: .9em;
+    text-align: justify;
+    border-right: 1px dotted #C0C0C0;
+    border-bottom: none;
+}
+div.training-list table.training-top th:last-child,
+div.training-list table.training-top td:last-child {
+    border-right: none;
+}
+div.training-list table.training-top td span.list-stats {
+    display: block;
+}
 div.tutorial-article table.doc-options th {
     font-size: 1.2em;
 }
@@ -982,6 +1019,86 @@ div.tutorial-article video-outline small {
 table.video-outline tr td {
     border-bottom: 1px dotted #C0C0C0;
     border-bottom-style: none !important;
+}
+div.list-col1, div.list-col2 {
+   float: left;
+   width: 50%;
+   margin-bottom: 10px;
+   background-color: #ffffff;
+}
+div.list-cola, div.list-colb {
+   float: left;
+   width: 47%;
+   margin-bottom: 10px;
+   background-color: #ffffff;
+}
+div.list-col1, div.list-cola {
+  clear: left;
+}
+div.list-col2, div.list-colb {
+  clear: right;
+}
+div.list-cola {
+  margin-right: 3%;
+}
+div.list-colb {
+  margin-left: 3%;
+}
+div.banner div.list-cola, div.banner div.list-colb {
+  padding-left: 0;
+}
+div.list-col1 p {
+   padding: 0 20px 0 10px !important;
+}
+div.list-col2 p {
+   padding: 0 10px 0 20px !important;
+}
+div.list-col1 p.rubric-2, div.list-col2 p.rubric-2 {
+  margin-top: 10px !important;
+}
+div.list-col1 p.list-stats, div.list-col2 p.list-stats,
+div.list-cola p.list-stats, div.list-colb p.list-stats {
+   width: 80%;
+   margin: 5px 0 5px 10px;
+   padding: 0 10px 6px 0 !important;
+   font-size: .8em;
+   word-spacing: 2px;
+   border-bottom: 1px #333333 dotted;
+}
+div.list-col2 p.list-stats,
+div.list-colb p.list-stats {
+   margin-left: 20px !important;
+   padding-left: 0;
+}
+div.document div.list-col1 a, div.document div.list-col2 a,
+div.document div.list-col1 a:visited, div.document div.list-col2 a:visited {
+   color: #607C6E !important;
+}
+div.document div.list-col1 a:hover, div.document div.list-col2 a:hover {
+    color: #CD5C5C !important;
+}
+div.list-col1 p.rubric, div.list-col2 p.rubric {
+   margin-top: 0 !important;
+   font-size: 1.1em;
+   font-weight: 600;
+   color: #0F0F0F;
+   border-bottom: none;
+}
+div.list-col1 p, div.list-col2 p,
+div.list-cola p, div.list-colb p  {
+   font-size: .9em;
+   color: #0F0F0F;
+}
+div.list-col1 strong, div.list-col2 strong {
+   font-size: 1em;
+   color: #0F0F0F;
+}
+div.list-col1 em, div.list-col2 em {
+   font-size: 1em;
+}
+div.list-col1 small, div.list-col2 small {
+   font-size: 1em;
+   color: #454545;
 }
 div#left-margin p.topic-title,
 div#left-margin p.bull-head {
@@ -1004,11 +1121,11 @@ p.logo {
     display: none;
 }
 h1 {
-    font-family: 'UniversLT-CondensedBold' !important;
+  font-family: 'UniversLT-CondensedBold' !important;
 	font-weight: normal !important;
 	font-size: 1em;
 	text-align: left !important;
-	color: #004d95 !important;
+	color: #4372AA !important;
 }
 div.tutorial-article h1 {
     margin-bottom: 4px;
@@ -1035,7 +1152,7 @@ div.document h2 {
 	background: none !important;
 }
 div.document a:visited {
-    color: #4973AB !important;
+  color: #4973AB !important;
 	text-decoration: none !important;
 }
 div.document a:hover {
@@ -1093,9 +1210,17 @@ body div.body p.rubric tt.literal {
     margin: 0px;
 }
 body div.body p.rubric.list-sub-header {
-    margin-bottom: 5px;
-    padding-bottom: 5px;
+    margin: 0 !important;
+    padding: 5px 0;
+    font-size: 1em;
+    color: #0F0F0F;
     background-color: transparent;
+}
+div.banner p.rubric.list-sub-header a:visited {
+    color: #ffffff !important;
+}
+div.training-list p.rubric.list-sub-header a:hover {
+    color: #CD5C5C !important;
 }
 div.faq-list p.rubric.list-sub-header {
     border: none;
@@ -1143,7 +1268,7 @@ div.training-list p.rubric.list-sub-header {
 }
 div.kb-list p.list-abstract {
     margin-left: 20px;
-    line-height: 1.2em;
+    line-height: 1.1em;
 }
 div.training-list p.list-abstract {
     font-size: .9em;
@@ -1171,17 +1296,25 @@ ul.list-abstract {
 ul.list-abstract li {
     text-indent: 0;
 }
-ul.video-stats {
+.video-article h1 {
+  border-bottom: 1px #4372AA solid;
+}
+.video-stats {
     margin-left: 0;
     margin-bottom: 20px;
     padding-inline-start: 0;
-    text-indent: 0;
     font-size: .8em;
-    list-style-type: none;
+    color: #454545;
 }
 .video-stats-line {
     font-size: .8em;
     color: #4f4f4f;
+}
+.video-article h4.screen-instructions {
+  margin-bottom:  10px;
+}
+.video-article video {
+  border: 2px #333333 solid;
 }
 ul.no-bull {
     margin-left: 0;
@@ -1204,6 +1337,10 @@ tt.literal {
 img.tutorial-screenshot {
     margin: 30px 0;
     border: 1px solid #666666;
+}
+img.tutorial-screenshot.no-borders {
+    margin: 0;
+    border: none;
 }
 img.borderless {
     float: right;
