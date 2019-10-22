@@ -46,7 +46,7 @@
 Codership Training
 ===================
 
-This is the training section of the Codership Library. Here you'll find tutorial articles to start.  Our plan is to create a series of articles and videos to help you learn about Galera Cluster and related software--in conjunction with Galera. Soon there will be plenty here; for now, this is just the start.
+This is the training section of the Codership Library. Here you'll find tutorial articles, along with a series of training videos to help you learn about Galera Cluster and related software |---| in conjunction with Galera.
 
 .. container:: banner
 
@@ -75,7 +75,7 @@ There's so much to learn about Galera Cluster and related software.  In this sec
 
 .. container:: list-col2
 
-   .. image:: ../images/training/codership-tutorials-collage.png
+   .. image:: ../images/codership-tutorials-collage.png
       :width: 450px
       :alt: Codership Tutorial Articles Collage
       :class: tutorial-screenshot no-borders
@@ -87,25 +87,25 @@ There's so much to learn about Galera Cluster and related software.  In this sec
    .. rst-class:: rubric-1 list-sub-header
    .. rubric:: :doc:`Training Videos <./videos/index>`
 
-Some people prefer to read, while others prefer screencast videos.  We have several in this format on Galera Cluster and related software; we're adding new ones every month. They're professionally made presentations, with an experieced instructor voice-over. Some parts are easy to follow slides, and for some parts there are demonstrations of how to configure and use the software. 
+Some people prefer to read, while others prefer screencast videos.  We have several in this format on Galera Cluster and related software; we're adding new ones every month. They're professionally made presentations, with an experieced instructor voice-over. Some parts are easy to follow slides, and for some parts there are demonstrations of how to configure and use the software.  They're grouped into these three main categories:
 
 .. container:: list-col1
 
-   :ref:`Basic & Entry Level <training-videos-entry>` |br|
+   :ref:`Introduction & Installation <training-videos-intro-install>` |br|
    :raw-html:`<span class='list-stats'>4 videos; length: 2 hours, 0 mins.; avg: 30 minutes</span>` |br|
-   Never used Galera Cluster |---| maybe even new MySQL and MariaDB database administration? These tutorials will help you to get started.
+   Never used Galera Cluster |---| maybe even new MySQL and MariaDB database administration? These training videos will help you to get started installing and configuring Galera Cluster and related software.
 
-   :ref:`Intermediate Level <training-videos-intermediate>` |br|
+   :ref:`Administration & Resolution <training-videos-admin-trouble>` |br|
    :raw-html:`<span class='list-stats'>3 videos; developing</span>` |br|
-   Have some experience in Galera Cluster and you're ready to understand it better? Here you'll be able to learn more.
+   Have some experience in Galera Cluster and you're ready to understand it better? Here you'll be able to learn how to perform essential administrative tasks, as well as how to resolve problems that occur |---| including how to recover from a total cluster crash.
 
-   :ref:`Special Topics <training-videos-special>` |br|
+   :ref:`Performance & High Availability <training-videos-performance-availability>` |br|
    :raw-html:`<span class='list-stats'>4 videos; length: 2 hours, 39 mins.; avg: 53 minutes</span>` |br|
-   Maybe you have some special requirements, want to use specific systems. These articles may be able to help.
+   Galera Cluster can provide enhanced performance and ensure high availability of your databases. These videos will help you to be able to get more out of Galera.
 
 .. container:: list-col2
 
-   .. image:: ../images/training/codership-training-slides-collage.png
+   .. image:: ../images/codership-training-slides-collage.png
       :width: 450px
       :alt: Codership Training Videos Collage
       :class: tutorial-screenshot no-borders

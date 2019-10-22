@@ -90,6 +90,18 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
       There may be times in which a cluster will stall when an ``ALTER`` statement is executed on an unused table.
 
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`auto-increment-multiples`
+
+   .. rst-class:: list-stats
+
+      Length: 876 words; Published: October 22, 2019; Topic: SQL & Syntax Errors
+
+   .. rst-class:: list-abstract
+
+      Tables with key columns that use the AUTO_INCREMENT attribute are incrementing values by more than one.
+
 .. container:: list-col2
 
    .. rst-class:: rubric-2 list-sub-header
@@ -173,6 +185,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
    :hidden:
    :maxdepth: 1
 
+   auto-increment-multiples
    stall-on-alter
    commit-failed-reason-3
    multi-master-conflicts

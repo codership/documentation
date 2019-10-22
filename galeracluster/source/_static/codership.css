@@ -975,6 +975,7 @@ div.banner {
   width: 100%;
   margin-bottom: 6px;
   padding-left: 10px;
+  color: #ffffff !important;
   background-color: #668E86;
 }
 div.banner p.rubric-1 {
@@ -1216,6 +1217,9 @@ body div.body p.rubric.list-sub-header {
     color: #0F0F0F;
     background-color: transparent;
 }
+div.training-list div.banner a, div.training-list div.banner a:visited,
+div.list-cola div.banner p.rubric a, div.list-colb div.banner p.rubric a,
+div.list-cola div.banner p.rubric a:visited, div.list-colb div.banner p.rubric a:visited,
 div.banner p.rubric.list-sub-header a:visited {
     color: #ffffff !important;
 }

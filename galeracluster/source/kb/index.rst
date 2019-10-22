@@ -40,12 +40,12 @@ The Codership Knowledge Base
 In essence, the Documentation is how to use Galera assuming everything goes according to plan; the KB is for when things don't go as expected or when they could be better.
 
 .. container:: list-cola
-
+ 
    .. _`kb-trouble-shooting`:
    .. container:: banner
 
       .. rst-class:: rubric-1 list-sub-header
-      .. rubric:: :doc:` Troubleshooting Articles <./trouble/index>`
+      .. rubric:: :doc:`Troubleshooting Articles <./trouble/index>`
 
    When you experience difficulties with a Galera Cluster deployment, the Troubleshooting section of the KB may be able to provide some assistance. It includes articles to diagnose and address various replication issues.
 
@@ -55,7 +55,7 @@ In essence, the Documentation is how to use Galera assuming everything goes acco
    .. container:: banner
 
       .. rst-class:: rubric-1 list-sub-header
-      .. rubric:: :doc:` Best Practices Articles <./best/index>`
+      .. rubric:: :doc:`Best Practices Articles <./best/index>`
 
    Whereas the Troubleshooting section relates to handling problems with a Galera cluster, this section of the KB provides additional information and guidance on improving performance and optimizing configuration.
 
