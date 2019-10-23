@@ -547,9 +547,12 @@ table.doc-options.tight-header th {
     font-size: .9em;
 }
 table.doc-options tr td {
-    background: none !important;
-    border-bottom: 1px dotted #C0C0C0;
-    border-left-style: none !important;
+  background: none !important;
+  border-bottom: 1px dotted #C0C0C0;
+  border-left-style: none !important;
+}
+table.doc-links td {
+  padding: 4px;
 }
 table.doc-options tr.row-odd td,
 table.doc-links tr.row-odd td {
@@ -962,6 +965,7 @@ div#left-margin {
     font-size: .8em;
 }
 div.library-list,
+div.document-list,
 div.faq-list,
 div.kb-article,
 div.kb-list,
@@ -1061,10 +1065,11 @@ div.list-col1 p.list-stats, div.list-col2 p.list-stats,
 div.list-cola p.list-stats, div.list-colb p.list-stats {
    width: 80%;
    margin: 5px 0 5px 10px;
-   padding: 0 10px 6px 0 !important;
+   padding: 0 10px 2px 0 !important;
    font-size: .8em;
    word-spacing: 2px;
-   border-bottom: 1px #333333 dotted;
+   color: #CDCDCD;
+   border-bottom: 1px #CDCDCD dotted;
 }
 div.list-col2 p.list-stats,
 div.list-colb p.list-stats {
@@ -1073,7 +1078,7 @@ div.list-colb p.list-stats {
 }
 div.document div.list-col1 a, div.document div.list-col2 a,
 div.document div.list-col1 a:visited, div.document div.list-col2 a:visited {
-   color: #607C6E !important;
+   color: #383838 !important;
 }
 div.document div.list-col1 a:hover, div.document div.list-col2 a:hover {
     color: #CD5C5C !important;
@@ -1088,7 +1093,7 @@ div.list-col1 p.rubric, div.list-col2 p.rubric {
 div.list-col1 p, div.list-col2 p,
 div.list-cola p, div.list-colb p  {
    font-size: .9em;
-   color: #0F0F0F;
+   color: #666666;
 }
 div.list-col1 strong, div.list-col2 strong {
    font-size: 1em;
@@ -1211,12 +1216,17 @@ body div.body p.rubric tt.literal {
     margin: 0px;
 }
 body div.body p.rubric.list-sub-header {
-    margin: 0 !important;
+    margin: 20px 0 0 0 !important;
     padding: 5px 0;
     font-size: 1em;
     color: #0F0F0F;
     background-color: transparent;
 }
+body div.body p.rubric.list-sub-header:first-child {
+    margin-top: 5px !important;
+}
+
+div.document-list div.banner a, div.document-list div.banner a:visited,
 div.training-list div.banner a, div.training-list div.banner a:visited,
 div.list-cola div.banner p.rubric a, div.list-colb div.banner p.rubric a,
 div.list-cola div.banner p.rubric a:visited, div.list-colb div.banner p.rubric a:visited,
@@ -1232,20 +1242,18 @@ div.faq-list p.rubric.list-sub-header {
 }
 div.library-list p.rubric,
 div.faq-list p.rubric {
-    margin-bottom: 0 !important;
-    margin-left: 0;
-    padding-bottom: 5px !important;
-    padding-left: 0;
-    color: #000000;
-    background-color: transparent;
-    border: none;
+  margin: 5px 0 0 0 !important;
+  padding-bottom: 5px !important;
+  padding-left: 0;
+  color: #383838;
+  background-color: transparent;
+  border: none;
 }
-div.library-list p.list-abstract {
-    margin-left: 20px;
-}
+div.library-list p.list-abstract,
 div.faq-list p.list-abstract {
     margin-left: 0;
     line-height: 1.2em;
+    color: #666666;
 }
 div.library-list p.rubric-2.list-sub-header {
     border: none;
@@ -1275,7 +1283,8 @@ div.kb-list p.list-abstract {
     line-height: 1.1em;
 }
 div.training-list p.list-abstract {
-    font-size: .9em;
+    font-size: .8em;
+    color: #616161;
 }
 div.admonition {
     text-align: justify;
@@ -1285,6 +1294,7 @@ div.formula {
     font-style: italic;
 }
 div.library-list ul,
+div.document-list ul,
 div.faq-list ul,
 div.kb-article ul,
 div.kb-list ul,

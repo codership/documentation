@@ -58,7 +58,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published 2 march 2016; length:  4 minutes
+      published: march 2016; length: 4 mins
 
    .. rst-class:: list-abstract
 
@@ -70,7 +70,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published 25 sept. 2019; length: 32 minutes
+      published: sep 2019; length: 32 mins
 
    .. rst-class:: list-abstract
 
@@ -82,7 +82,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published 27 sept. 2019; length: 30 minutes
+      published: sep 2019; length: 30 mins
 
    .. rst-class:: list-abstract
 
@@ -96,7 +96,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published 12 jul 2019; length: 52 minutes
+      published: jul 2019; length: 52 mins
 
    .. rst-class:: list-abstract
 
@@ -108,7 +108,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published 15 oct. 2019; length: 54 minutes
+      published: oct 2019; length: 54 mins
 
    .. rst-class:: list-abstract
 
@@ -129,7 +129,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published 15 sept. 2019; length: 47 minutes
+      published: sep 2019; length: 47 mins
 
    .. rst-class:: list-abstract
 
@@ -151,11 +151,11 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 .. container:: list-col2
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: **Back-Ups with Galera**
+   .. rubric:: :doc:`galera-backup`
 
    .. rst-class:: list-stats
 
-      scheduled: 23 October 2019
+      published: oct 2019; length: xx mins
 
    .. rst-class:: list-abstract
 
@@ -188,7 +188,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      scheduled: 15 nov. 2019; length: unknown
+      scheduled: nov 2019; length: unknown
 
    .. rst-class:: list-abstract
 
@@ -202,7 +202,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published 10 april 2019; length: 60 minutes
+      published: april 2019; length: 60 mins
 
    .. rst-class:: list-abstract
 
@@ -215,6 +215,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    aws-galera-cluster
    galera-intro
+   galera-backup
    high-availability-with-galera-cluster
    galera-mariadb-installing
    galera-mysql-installing

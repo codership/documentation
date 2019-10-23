@@ -28,7 +28,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
 
-.. cssclass:: library-document
+.. cssclass:: document-list
 .. _`documentation`:
 
 =============================
@@ -42,7 +42,12 @@ The Codership Documentation
 
 This is the Codership Documentation. It documents the latest version of Galera Cluster, as well as related Galera tools, such as the Galera Arbitrator. It may include information on features available in upcoming versins of Galera Cluster that haven't been released yet. For such text, the new version number is noted.
 
-.. csv-table:: :doc:`Installation & Configuration <technical-description>`
+.. container:: banner
+
+   .. rst-class:: rubric-1 list-sub-header
+   .. rubric:: :doc:`Installation & Configuration <technical-description>`
+
+.. csv-table::
    :class: doc-links
 
    ":doc:`tech-desc-introduction`", ":doc:`state-transfer`"
@@ -51,7 +56,13 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`certification-based-replication`", ":doc:`weighted-quorum`"
    ":doc:`isolation-levels`", ":doc:`streaming-replication`"
 
-.. csv-table:: :doc:`Administration <administration>`
+
+.. container:: banner
+
+   .. rst-class:: rubric-1 list-sub-header
+   .. rubric:: :doc:`Administration <administration>`
+
+.. csv-table::
    :class: doc-links
 
    ":doc:`node-provisioning`", ":doc:`quorum-reset`"
@@ -62,19 +73,37 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`upgrading`", ":doc:`backup-cluster`"
    ":doc:`pc-recovery`", ""
 
-.. csv-table:: :doc:`Deployment <deployment>`
+
+.. container:: banner
+
+   .. rst-class:: rubric-1 list-sub-header
+   .. rubric:: :doc:`Deployment <deployment>`
+
+.. csv-table::
    :class: doc-links
 
    ":doc:`load-balancing`", ":doc:`deployment-variants`"
    ":doc:`containers`", ""
 
-.. csv-table:: :doc:`Monitoring <monitor>`
+
+.. container:: banner
+
+   .. rst-class:: rubric-1 list-sub-header
+   .. rubric:: :doc:`Monitoring <monitor>`
+
+.. csv-table::
    :class: doc-links
 
    ":doc:`monitoring-cluster`", ":doc:`log`"
    ":doc:`notification-cmd`", ":doc:`security`"
 
-.. csv-table:: :doc:`Reference <reference>`
+
+.. container:: banner
+
+   .. rst-class:: rubric-1 list-sub-header
+   .. rubric:: :doc:`Reference <reference>`
+
+.. csv-table::
    :class: doc-links
 
    ":doc:`mysql-wsrep-options`", ":doc:`glb-parameters`"
@@ -82,7 +111,13 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`galera-parameters`", ":doc:`system-tables`"
    ":doc:`galera-status-variables`", ":doc:`versioning-information`"
 
-.. csv-table:: Miscellaneous
+
+.. container:: banner
+
+   .. rst-class:: rubric-1 list-sub-header
+   .. rubric:: Miscellaneous
+
+.. csv-table::
    :class: doc-links
 
    ":doc:`glossary`", ":doc:`legal-notice`"

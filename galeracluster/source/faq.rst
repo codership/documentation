@@ -52,8 +52,11 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-general-questions`:
-.. rst-class:: rubric-1 rubric-separated
-.. rubric:: General Questions
+.. container:: banner
+
+   .. rst-class:: rubric-1 rubric-separated
+   .. rubric:: General Questions
+
 
 .. _`faq-what-is-galera-cluster`:
 .. rst-class:: rubric-2
@@ -149,8 +152,11 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-learning-questions`:
-.. rst-class:: rubric-1 rubric-separated
-.. rubric:: Learning & Training Questions
+.. container:: banner
+
+   .. rst-class:: rubric-1 rubric-separated
+   .. rubric:: Learning & Training Questions
+
 
 .. _`faq-galera-cluster-popularity`:
 .. rst-class:: rubric-2
@@ -248,8 +254,10 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-assistance-questions`:
-.. rst-class:: rubric-1 rubric-separated
-.. rubric:: Assistance Questions
+.. container:: banner
+
+   .. rst-class:: rubric-1 rubric-separated
+   .. rubric:: Assistance Questions
 
 .. _`faq-codership-offers-support`:
 .. rst-class:: rubric-2
@@ -314,8 +322,10 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-installation-migration-questions`:
-.. rst-class:: rubric-1 rubric-separated
-.. rubric:: Installation & Migration Questions
+.. container:: banner
+
+   .. rst-class:: rubric-1 rubric-separated
+   .. rubric:: Installation & Migration Questions
 
 .. _`faq-easy-migration-standard-to-galera`:
 .. rst-class:: rubric-2
@@ -418,8 +428,10 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-usage-questions`:
-.. rst-class:: rubric-1 rubric-separated
-.. rubric:: Usage Questions
+.. container:: banner
+
+   .. rst-class:: rubric-1 rubric-separated
+   .. rubric:: Usage Questions
 
 .. _`faq-galera-load-balancing`:
 .. rst-class:: rubric-2
@@ -548,8 +560,10 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-administrative-questions`:
-.. rst-class:: rubric-1 rubric-separated
-.. rubric:: Administrative Questions
+.. container:: banner
+
+   .. rst-class:: rubric-1 rubric-separated
+   .. rubric:: Administrative Questions
 
 .. _`faq-what-causes-galera-to-stop`:
 .. rst-class:: rubric-2
@@ -621,8 +635,10 @@ Just below each question is further categorization of the question: the minimum 
 
 
 .. _`faq-trivial-questions`:
-.. rst-class:: rubric-1 rubric-separated
-.. rubric:: Galera Trivia Questions
+.. container:: banner
+
+   .. rst-class:: rubric-1 rubric-separated
+   .. rubric:: Galera Trivia Questions
 
 .. _`faq-why-called-is-galera`:
 .. rst-class:: rubric-2
