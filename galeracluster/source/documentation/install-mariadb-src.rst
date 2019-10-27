@@ -31,6 +31,9 @@
 
          Related Documents
 
+      - :doc:`Install Galera <./install>`
+      - :doc:`MariaDB Galera Binaries <./install-mariadb>`
+      - :doc:`Galera MySQL Source <./install-mysql-src>`
       - :ref:`wsrep_provider <wsrep_provider>`
 
       .. cssclass:: bull-head
@@ -49,7 +52,7 @@
 MariaDB Galera Cluster - Source Installation
 =============================================
 
-MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based on a different package management system, or if it runs on a different unix-like operating system where binary installation packages are not available, such as Solaris or FreeBSD, you will need to build MariaDB Galera Cluster from source.
+MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  If your Linux distribution is based on a different package management system, or if it runs on a different unix-like operating system where binary installation packages are not available, such as Solaris or FreeBSD, you will need to build MariaDB Galera Cluster from source.
 
 
 .. note:: If you built MariaDB Galera Cluster over an existing standalone instance of MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`Migration <../training/tutorials/migration>`.

@@ -155,11 +155,11 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published: oct 2019; length: xx mins
+      published: oct 2019; length: 1 hr, 5 mins
 
    .. rst-class:: list-abstract
 
-      Shows how to remove a node from a cluster to make a proper back-up with GTIDs.
+      Explains the basics of back-ups and demonstrates a few methods for making back-ups of databases on a node in a Galera Cluster. Additionally, it covers briefly how to restore back-ups and a cluster.
 
 
    .. rst-class:: rubric-2 list-sub-header

@@ -51,16 +51,22 @@ Recovering Primary Component
 
 Cluster nodes can store the :term:`Primary Component` state to disk.  The node records the state of the Primary Component and the UUID's of the nodes connected to it.  In the event of an outage, once all nodes that were part of the last saved state achieve connectivity, the cluster recovers the Primary Component.
 
-In the event that the write-set position differs between the nodes, the recovery process also requires a full state snapshot transfer.
+If the write-set position differs between the nodes, the recovery process also requires a full state snapshot transfer.
 
-For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it is enabled starting in version 3.6.
+For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it's enabled starting in version 3.6.
 
 
 .. _`understand-pc-state`:
 .. rst-class:: rubric-1
 .. rubric:: Understanding the Primary Component State
 
-When a node stores the :term:`Primary Component` state to disk, it saves it as the ``gvwstate.dat`` file.  The node creates and updates this file when the cluster forms or changes the Primary Component.  This ensures that the node retains the latest Primary Component state that it was in.  If the node loses connectivity, it has the file to reference.  If the node shuts down gracefully, it deletes the file.
+When a node stores the :term:`Primary Component` state to disk, it saves it as the ``gvwstate.dat`` file.  You'll find this file in the database data directory on the server which is acting as the Primary Component.
+
+The node creates and updates this file when the cluster forms or changes the Primary Component.  This ensures that the node retains the latest Primary Component state that it was in.  If the node loses connectivity, it has the file to reference.
+
+If the node shuts down gracefully, it deletes the file. If the cluster continues after the node has shutdown (i.e., there are other nodes that did not shutdown), one of the remaining nodes will become the host to the Primary Component and will create the ``gvwstate.dat`` file on its file system.
+
+Below is an example of the contents of the ``gvwstate.dat`` file:
 
 .. code-block:: text
 
@@ -73,27 +79,18 @@ When a node stores the :term:`Primary Component` state to disk, it saves it as t
    member: d3124bc8-1605-11e4-aa3d-ab44303c044a 1
    #vwend
 
-The ``gvwstate.dat`` file breaks into two parts:
+The ``gvwstate.dat`` file is composed of two parts. **Node Information** provides the node's UUID, in the ``my_uuid`` field. **View Information** provides information on the node's view of the Primary Component, contained between the ``#vwbeg`` and ``#vwend`` tags.
 
-- **Node Information** Provides the node's UUID, in the ``my_uuid`` field.
+The ``view_id`` forms an identifier for the view from three parts: *view_type*, which always gives a value of ``3`` to indicate the primary view; and the *view_uuid* and *view_seq* together form a unique value for the identifier.
 
-- **View Information**  Provides information on the node's view of the Primary Component, contained between the ``#vwbeg`` and ``#vwend`` tags.
-
-  - ``view_id`` Forms an identifier for the view from three parts:
-
-    - *view_type* Always gives a value of ``3`` to indicate the primary view.
-    - *view_uuid* and *view_seq* together form a unique value for the identifier.
-
-  - ``bootstrap`` Displays whether or not the node is bootstrapped, but does not effect the Primary Component recovery process.
-
-  - ``member`` Displays the UUID's of nodes in this primary component.
+The ``bootstrap`` variable indicates whether or not the node is bootstrapped. It doesn't, though, effect the Primary Component recovery process. The ``member`` variables contain the UUID's of nodes connecting to the Primary Component.
 
 
 .. _`modifying-pc-state`:
 .. rst-class:: rubric-1
 .. rubric:: Modifying the Saved Primary Component State
 
-In the event that you find yourself in the unusual situation where you need to force certain nodes to join each other specifically, you can do so by manually changing the saved :term:`Primary Component` state.
+If you find yourself in the unusual situation where you need to force certain nodes to join each other specifically, you can do so by manually changing the saved :term:`Primary Component` state.
 
 .. warning:: Under normal circumstances, for safety reasons, you should entirely avoid editing or otherwise modifying the ``gvwstate.dat`` file.  Doing so may lead to unexpected results.
 

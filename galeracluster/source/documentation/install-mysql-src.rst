@@ -31,6 +31,9 @@
 
          Related Documents
 
+      - :doc:`Install Galera <./install>`
+      - :doc:`Galera MySQL Binaries <./install-mysql>`
+      - :doc:`Galera MariaDB Source <./install-mariadb-src>`
       - :ref:`wsrep_provider <wsrep_provider>`
 
       .. cssclass:: bull-head
@@ -49,7 +52,7 @@
 Galera Cluster for MySQL - Source Installation
 ==============================================
 
-Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  In the event that your Linux distribution is based upon a different package management system, if your server uses a different unix-like operating system, such as Solaris or FreeBSD, you will need to build Galera Cluster for MySQL from source.
+Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Debian- and RPM-based distributions of Linux.  If your Linux distribution is based upon a different package management system, if your server uses a different unix-like operating system, such as Solaris or FreeBSD, you will need to build Galera Cluster for MySQL from source.
 
 
 .. note:: If you built Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`../training/tutorials/migration`.
@@ -72,7 +75,7 @@ For RPM-based distributions, instead run this command:
    # yum-builddep MySQL-server
 
 
-In the event that neither command works on your system or that you use a different Linux distribution or FreeBSD, the following packages are required:
+If neither command works on your system or that you use a different Linux distribution or FreeBSD, the following packages are required:
 
 - **MySQL Database Server with wsrep API**: Git, CMake, GCC and GCC-C++, Automake, Autoconf, and Bison, as well as development releases of libaio and ncurses.
 

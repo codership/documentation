@@ -31,11 +31,22 @@
 
          Related Documents
 
-      - :doc:`../training/tutorials/migration`
+      - :doc:`Install Galera <./install>`
+      - :doc:`MariaDB Galera Source <./install-mariadb-src>`
+      - :doc:`Galera MySQL <./install-mysql>`
 
       .. cssclass:: bull-head
 
          Related Articles
+
+      - :doc:`../training/tutorials/migration`
+
+      .. cssclass:: bull-head
+
+         Other Resources
+
+      - :doc:`Galera AWS (video)  <../../training/videos/aws-galera-cluster>`
+      - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
 
 
 .. cssclass:: library-document

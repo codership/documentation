@@ -40,7 +40,7 @@ The Codership Documentation
 .. index::
    pair: Virtual synchrony; Descriptions
 
-This is the Codership Documentation. It documents the latest version of Galera Cluster, as well as related Galera tools, such as the Galera Arbitrator. It may include information on features available in upcoming versins of Galera Cluster that haven't been released yet. For such text, the new version number is noted.
+This is the Codership Documentation. It documents the latest version of Galera Cluster, as well as related Galera tools, such as the Galera Arbitrator. It also includes, at times, information on features available in upcoming versions of Galera Cluster that haven't been released yet. For such text, the new version number is noted.
 
 .. container:: banner
 
@@ -65,14 +65,13 @@ This is the Codership Documentation. It documents the latest version of Galera C
 .. csv-table::
    :class: doc-links
 
-   ":doc:`node-provisioning`", ":doc:`quorum-reset`"
-   ":doc:`sst`", ":doc:`managing-fc`"
-   ":doc:`scriptable-sst`", ":doc:`auto-eviction`"
-   ":doc:`system-tables`", ":doc:`using-sr`"
-   ":doc:`schema-upgrades`", ":doc:`arbitrator`"
+   ":doc:`node-provisioning`", ":doc:`pc-recovery`"
+   ":doc:`sst`", ":doc:`quorum-reset`"
+   ":doc:`scriptable-sst`", ":doc:`managing-fc`"
+   ":doc:`system-tables`", ":doc:`auto-eviction`"
+   ":doc:`schema-upgrades`", ":doc:`using-sr`"
    ":doc:`upgrading`", ":doc:`backup-cluster`"
-   ":doc:`pc-recovery`", ""
-
+   
 
 .. container:: banner
 
@@ -83,7 +82,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    :class: doc-links
 
    ":doc:`load-balancing`", ":doc:`deployment-variants`"
-   ":doc:`containers`", ""
+   ":doc:`containers`", ":doc:`arbitrator`"
 
 
 .. container:: banner

@@ -31,7 +31,10 @@
 
          Related Documents
 
+      - :doc:`Install Galera <./install>`
+      - :doc:`Galera MySQL Source <./install-mysql-src>`
       - :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`
+      - :doc:`Galera MariaDB Binaries <./install-mariadb>`
 
       .. cssclass:: bull-head
 
@@ -39,13 +42,20 @@
 
       - :doc:`../training/tutorials/migration`
 
+      .. cssclass:: bull-head
+
+         Other Resources
+
+      - :doc:`Galera AWS (video)  <../../training/videos/aws-galera-cluster>`
+      - :doc:`Galera MySQL (video)  <../../training/videos/galera-mysql-installing>`
+
 
 .. cssclass:: library-document
 .. _`install-mysql-binary`:
 
-==============================================
-Galera Cluster for MySQL - Binary Installation
-==============================================
+===================================================
+Galera Cluster for MySQL |---| Binary Installation
+===================================================
 
 Galera Cluster for MySQL is the reference implementation from Codership Oy.  Binary installation packages are available for Linux distributions using ``apt-get``, ``yum`` and ``zypper`` package managers through the Codership repository.
 
@@ -73,7 +83,7 @@ For Ubuntu or a distribution that derives from Ubuntu, instead run this command:
 
    $ sudo apt-get install software-properties-common
 
-In the event that you use a different Debian-based distribution and neither of these commands work, consult your distribution's package listings for the appropriate package name.
+If you use a different Debian-based distribution, and neither of these commands work, consult your distribution's package listings for the appropriate package name.
 
 Once you have the Software Properties installed, you can enable the Codership repository for your system.
 
@@ -100,7 +110,7 @@ Once you have the Software Properties installed, you can enable the Codership re
 
    - ``RELEASE`` Indicates your distribution release.  For example, ``wheezy``.
 
-     In the event that you do not know which release you have installed on your server, you can find out using the following command:
+     If you do not know which release you have installed on your server, you can find out using the following command:
 
      .. code-block:: console
 
@@ -242,13 +252,13 @@ For openSUSE and SUSE Linux Enterprise Server, run this command:
 .. code-block:: console
 
    # zypper install galera-3 \
-		mysql-wsrep-5.6
+		     mysql-wsrep-5.6
 
 Galera Cluster for MySQL is now installed on your server.  You need to repeat this process for each node in your cluster.
 
 .. note:: When deciding which packages to install, the package manager may elect to install a newer major verion of Galera Cluster than the one you intended to install. Before confirming the installation of packages, please make sure that the package manager intends to install the desired Galera Cluster version.
 
-.. note:: In the event that you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`../training/tutorials/migration`.
+.. note:: If you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`../training/tutorials/migration`.
 
 .. _`centos-mysql-shared-compt`:
 .. rst-class:: rubric-2
@@ -287,3 +297,7 @@ For CentOS 7, to install MySQL version 5.5, you also need to disable the 5.6 upg
          -x mysql-wsrep-shared-5.6
 
 When ``yum`` finishes the upgrade, install the MySQL wsrep database server and the Galera Replication Plugin as described above.
+
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:
