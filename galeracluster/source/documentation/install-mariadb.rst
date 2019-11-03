@@ -45,7 +45,7 @@
 
          Other Resources
 
-      - :doc:`Galera AWS (video)  <../../training/videos/aws-galera-cluster>`
+      - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
       - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
 
 

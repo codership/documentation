@@ -27,14 +27,6 @@
          - :doc:`Tutorial Articles <../tutorials/index>`
          - :doc:`Training Videos <./index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
-
 
 .. cssclass:: training-list
 .. _`training-videos`:
@@ -43,7 +35,7 @@
 Codership Training Videos
 ===========================
 
-To help you to learn how to install, configure and use Galera Cluster and related software, we have created a series of traiing videos, screencasts and demonstrations.  They're grouped on three main catagories:  Introduction & Installation; Administration & Resolution; and Performance & High Availability.
+To help you to learn how to install, configure and use Galera Cluster and related software, we have created a series of traiing videos, screencasts and demonstrations.  They're grouped on three main catagories:  Introduction & Installation; Administration & Recovery; and Performance & High Availability.
 
 .. _`training-videos-intro-install`:
 .. container:: banner
@@ -92,7 +84,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 .. container:: list-col2
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`aws-galera-cluster`
+   .. rubric:: :doc:`galera-aws-installing`
 
    .. rst-class:: list-stats
 
@@ -104,7 +96,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`standard-replication-galera`
+   .. rubric:: :doc:`galera-standard-replication`
 
    .. rst-class:: list-stats
 
@@ -120,7 +112,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 .. container:: banner
 
    .. rst-class:: rubric-1
-   .. rubric:: Administration & Resolution
+   .. rubric:: Administration & Recovery
 
 .. container:: list-col1
 
@@ -198,7 +190,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 .. container:: list-col2
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`high-availability-with-galera-cluster`
+   .. rubric:: :doc:`galera-high-availability`
 
    .. rst-class:: list-stats
 
@@ -213,14 +205,14 @@ To help you to learn how to install, configure and use Galera Cluster and relate
    :maxdepth: 2
    :hidden:
 
-   aws-galera-cluster
    galera-intro
-   galera-backup
-   high-availability-with-galera-cluster
-   galera-mariadb-installing
    galera-mysql-installing
+   galera-mariadb-installing
+   galera-aws-installing
+   galera-standard-replication
    galera-monitoring
-   standard-replication-galera
+   galera-backup
+   galera-high-availability
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

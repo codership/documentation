@@ -39,7 +39,7 @@
 
          Related Articles
 
-         - :doc:`Replication Health <../tutorials/galera-monitoring>`
+         - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
 
       .. cssclass:: bull-head
 
@@ -60,11 +60,31 @@
 Monitoring a Galera Cluster
 ====================================
 
-.. rst-class:: video-stats
 
-   Speaker: Russell J.T. Dyer; Date: September 15, 2019; Length of Video: 52 minutes
+.. container:: video-abstract list-col2-3
 
-This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
+   This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
+
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+
+.. container:: list-col1-3
+
+   .. rst-class:: video-stats
+   .. rubric:: Video Specifications
+
+   .. rst-class:: video-stats
+
+      - Speaker: Russell J.T. Dyer
+      - Date: September 15, 2019
+      - Length of Video: 52 minutes
+
+   .. rst-class:: training-video-resources
+   .. rubric:: Student Materials
+
+   .. rst-class:: training-video-resources
+
+      - :doc:`Training Exercises <galera-monitoring-exercises>`
+      - `Slide Presentation </library-media/pdf/galera-monitoring.pdf>`_
 
 
 .. container:: banner
@@ -95,6 +115,13 @@ This training video explains how to monitor a Galera Cluster, utilizing the Gale
     <video width="820" height="547" preload="metadata" controls>
     <source src="https://galeracluster.com/library-media/videos/galera-monitoring.mp4#t=0.5" type="video/mp4">
     </video>
+
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   galera-monitoring-exercises
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

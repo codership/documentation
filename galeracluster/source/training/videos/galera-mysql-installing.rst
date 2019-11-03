@@ -59,11 +59,32 @@
 Installing Galera Cluster with MySQL
 =====================================
 
-.. rst-class:: video-stats
+.. container:: video-abstract list-col2-3
 
-   Speaker: Russell J.T. Dyer; Date: September 24, 2019; Length of Video: 32 minutes
+   This training video explains how to use install MySQL and Galera Cluster software on a server, on three servers, and to use those servers as nodes of a Galera Cluster. It shows how to download and install the software, as well as how to configure MySQL and Galera on each node. The video ends by showing the steps to start a cluster, and some tips on resolving problems when first starting a cluster.
 
-This training video explains how to use install MySQL and Galera Cluster software on a server, on three servers, and to use those servers as nodes of a Galera Cluster. It will show how to download and install the software, as well as how to configure MySQL and Galera on each node. It'll end by showing the steps to start a cluster, and some tips on resolving problems when first starting a cluster.
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+
+.. container:: list-col1-3
+
+   .. rst-class:: video-stats
+   .. rubric:: Video Specifications
+
+   .. rst-class:: video-stats
+
+      - Speaker: Russell J.T. Dyer
+      - Date: September 24, 2019
+      - Length of Video: 32 minutes
+
+   .. rst-class:: training-video-resources
+   .. rubric:: Student Materials
+
+   .. rst-class:: training-video-resources
+
+      - :doc:`Training Exercises <galera-mysql-installing-exercises>`
+      - `Slide Presentation </library-media/pdf/galera-mysql-installing.pdf>`_
+      - :doc:`Example Configuration <galera-mysql-installing-examples>`
+      - `Company Database <https://galeracluster.com/library-media/databases/company.tgz>`_
 
 
 .. container:: banner
@@ -92,6 +113,13 @@ This training video explains how to use install MySQL and Galera Cluster softwar
     <source src="https://galeracluster.com/library-media/videos/galera-mysql-installing.mp4#t=0.5" type="video/mp4">
     </video>
 
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   galera-mysql-installing-exercises
+   galera-mysql-installing-examples
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -39,17 +39,28 @@
    :format: html
 
 .. cssclass:: tutorial-article video-article
-.. _`video-high-availability-galera`:
+.. _`video-galera-high-availability`:
 
 ======================================
 High Availability with Galera Cluster
 ======================================
 
-.. rst-class:: video-stats
 
-   Speaker: Colin Charles; Date: April 10, 2019; Length of Video: 60 minutes
+.. container:: video-abstract list-col2-3
 
-The MySQL Server High Availability landscape provides with a slew of tools to help you ensure that your databases keep humming. Such tools are Galera Cluster, however, it is worth looking at semi-synchronous replication with failover tools, and also the usual leader-follower asynchronous replication. Today more workloads are moving to the cloud, and what failover options do you get with Amazon RDS for MySQL or even Aurora? What about the newfangled group replication and InnoDB Cluster? And let us not forget that Galera Cluster has spawned branches too!
+   The MySQL Server High Availability landscape provides with a slew of tools to help you ensure that your databases keep humming. Such tools are Galera Cluster, however, it is worth looking at semi-synchronous replication with failover tools, and also the usual leader-follower asynchronous replication. Today more workloads are moving to the cloud, and what failover options do you get with Amazon RDS for MySQL or even Aurora? What about the newfangled group replication and InnoDB Cluster? And let us not forget that Galera Cluster has spawned branches too!
+
+.. container:: list-col1-3
+
+   .. rst-class:: video-stats
+   .. rubric:: Video Specifications
+
+   .. rst-class:: video-stats
+
+      - Speaker: Colin Charles
+      - Date: April 10, 2019
+      - Length of Video: 60 minutes
+
 
 .. container:: banner
 
@@ -74,11 +85,11 @@ The MySQL Server High Availability landscape provides with a slew of tools to he
 
    **7.**Cloud-Based Solutions** :raw-html:`<small>(time index: 45:37)</small>` |br| Explains how Galera Cluster may be used on a cloud situation, how a cloud-based cluster can solved problems, as well as how to make use of them.
 
-
 .. raw:: html
 
-    <iframe width="820" height="547" src="https://www.youtube.com/embed/qjquSaWfO4s?rel=0" frameborder="2" allowfullscreen></iframe>
-
+    <video width="820" height="547" preload="metadata" controls>
+    <source src="https://galeracluster.com/library-media/videos/galera-high-availability.mp4#t=0.1" type="video/mp4">
+    </video>
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -38,6 +38,8 @@
 
          Related Articles
 
+         - :doc:`Galera Monitoring (video) <../videos/galera-monitoring>`
+
 
 .. cssclass:: tutorial-article
 .. _`galera-monitoring`:

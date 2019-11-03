@@ -66,17 +66,36 @@
    :format: html
 
 .. cssclass:: tutorial-article video-article
-.. _`video-standard-replication-galera-cluster`:
+.. _`video-galera-standard-replication`:
 
 =======================================
 Standard Replication & Galera Cluster
 =======================================
 
-.. rst-class:: video-stats
+.. container:: video-abstract list-col2-3
 
-   Speaker: Russell J.T. Dyer; Date: October 15, 2019; Length of Video: 54 minutes
+   This training video introduces standard MySQL and MariaDB replication.  It explains and demonstrates how to configure two services |---| one master and one slave |---| for replication.  It also contrasts replication against Galera Cluster; it talks about the advantages of Galera over standard replication. The video also explains and demonstrates how to configure three servers for Galera cluster.
 
-This training video introduces standard MySQL and MariaDB replication.  It explains and demonstrates how to configure two services |---| one master and one slave |---| for replication.  It also contrasts replication against Galera Cluster; it talks about the advantages of Galera over standard replication.  Then explains and demonstrates how to configure three servers for Galera cluster.
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+
+.. container:: list-col1-3
+
+   .. rst-class:: video-stats
+   .. rubric:: Video Specifications
+
+   .. rst-class:: video-stats
+
+      - Speaker: Russell J.T. Dyer
+      - Date: October 15, 2019
+      - Length of Video: 54 minutes
+
+   .. rst-class:: training-video-resources
+   .. rubric:: Student Materials
+
+   .. rst-class:: training-video-resources
+
+      - :doc:`Training Exercises <galera-standard-replication-exercises>`
+      - `Slide Presentation </library-media/pdf/galera-standard-replication.pdf>`_
 
 
 .. container:: banner
@@ -112,7 +131,11 @@ This training video introduces standard MySQL and MariaDB replication.  It expla
     <source src="https://galeracluster.com/library-media/videos/galera-vs-standard-replication.mp4#t=0.1" type="video/mp4">
     </video>
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
 
+   galera-standard-replication-exercises
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

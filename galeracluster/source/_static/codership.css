@@ -1,14 +1,3 @@
-/*****************************************************
- * cloud.css_t
- * ~~~~~~~~~~~
- *
- * stylesheet for "Cloud" theme for Sphinx.
- *
- * :copyright: Copyright 2011-2012 by Assurance Technologies
- * :license: BSD
- *
- *****************************************************/
-
 @import url("basic.css");
 
 /*****************************************************
@@ -20,7 +9,7 @@ body {
     padding: 0;
     background-repeat:repeat;
     color: #000;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
     font-size: 100%;
     line-height: 1em;
 }
@@ -57,161 +46,31 @@ div.related a {
  *****************************************************/
 
 div.document {
-    /* note: relative used by div.sidebartoggle */
     position: relative;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     max-width: 11in;
-    background: #F2F2F2;
+    background-color: #ffffff;
+    background-image: none;
 }
 div.documentwrapper {
     float: left;
     width: 100%;
 }
 div.bodywrapper {
-    margin: 0 0 0 230px;
+  margin: 0 0 0 0;
 }
-div.document.collapsed-sidebar div.bodywrapper { margin-left: 0; }
-div.bodywrapper { margin: 0 0 0 0; }
 div.body {
     min-height: 6in;
-    /* note: this ^ is just a hack to prevent body from being shorter than sidebar */
     background-color: #ffffff;
     border-left: 1px solid #D0D0D0;
     line-height: 140%;
     color: #000000;
     padding: 0 20px 30px 20px;
 }
-
-/*****************************************************
- * page layout - sidebar
- *****************************************************/
-
-div.sphinxsidebar {
-    /* it's nasty sometimes, but looks prettier than letting too-long module names break into document body*/
-    overflow: hidden;
-    width: 230px;
-    font-size: 90%;
-    line-height: 125%;
-}
-div.document.collapsed-sidebar div.sphinxsidebar {
+div.sphinxsidebar, div.sidebartoggle, div.sidebar-toggle-group {
     display: none;
 }
-div.sphinxsidebarwrapper {
-   padding: 1em 0 0 10px;
-}
-div.sphinxsidebar h3,
-div.sphinxsidebar h4 {
-    padding: 0;
-    margin: 24px 16px 0 0;
-    border-bottom: 1px dashed #C0C0C0;
-    font-family: "Noticia Text", serif;
-    font-weight: normal;
-    color: #777777;
-}
-div.sphinxsidebar h3 {
-    font-size: 1.4em;
-}
-div.sphinxsidebar h4 {
-    font-size: 1.3em;
-}
-div.sphinxsidebar h3 a {
-    color: #777777;
-}
-div.sphinxsidebar p {
-    color: #777777;
-}
-div.sphinxsidebar p.topless {
-    margin: 5px 10px 10px 10px;
-}
-div.sphinxsidebar ul {
-    margin: 10px;
-    margin-right: 0;
-    padding: 0;
-    color: #777777;
-}
-div.sphinxsidebar a {
-    color: #B23300;
-    outline: none;
-}
-div.sphinxsidebar a:active {
-    color: #777777;
-}
-div.sphinxlocaltoc a.visible {
-  display: block;
-  background: #FFF8E4;
-  box-shadow: 0 .1em .5em #FFF8E4;
-  -webkit-box-shadow: 0 .1em .5em #FFF8E4;
-  -moz-box-shadow: 0 .1em .5em #FFF8E4;
-}
-div.sphinxsidebar input {
-    border: 1px solid #C0C0C0;
-    font-family: sans-serif;
-    font-size: 1em;
-}
-div#searchbox input[type="submit"] {
-   border-radius: 0 0 .7em 0;
-   -webkit-border-radius: 0 0 .7em 0;
-   -moz-border-radius: 0 0 .7em 0;
-}
-div.sphinxsidebar input[type="submit"]:hover,
-div.sidebartoggle button:hover {
-   background: #FFF8E4;
-   box-shadow: 0 1px 2px rgba(0,0,0,.2);
-   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-}
-div.sphinxsidebar input[type="submit"]:active,
-div.sidebartoggle button:active {
-   box-shadow: none;
-   -webkit-box-shadow: none;
-   -moz-box-shadow: none;
-}
-div.sphinxsidebar p.logo {
-    margin: 1em 0 0 -10px;
-    text-align: center;
-}
-div.sphinxsidebar .searchtip {
-    color: #C0C0C0;
-}
-
-
-/*****************************************************
- * page layout - collapsible sidebar buttons
- *****************************************************/
-
-div.sidebartoggle {
-   position: absolute;
-   width: 230px;
-   top: 0;
-   left: 0;
-}
-div.document.collapsed-sidebar div.sidebartoggle {
- width: auto;
-}
-div.sidebartoggle button {
-   position: absolute;
-   right: -1px;
-   top: 0;
-   margin: 0;
-   padding: 0 6px;
-   background: #F2F2F2;
-   border: 1px solid #C0C0C0;
-   border-top: 0;
-   color: #777777;
-   border-radius: 0 0 0 .7em;
-   -webkit-border-radius: 0 0 0 .7em;
-   -moz-border-radius: 0 0 0 .7em;
-   white-space: nowrap;
-}
-div.document.collapsed-sidebar div.sidebartoggle button {
-  right: auto;
-  left: 0;
-   border-radius: 0 0 .7em 0;
-   -webkit-border-radius: 0 0 .7em 0;
-   -moz-border-radius: 0 0 .7em 0;
-}
-
-
 /*****************************************************
  * page layout - footer
  *****************************************************/
@@ -250,77 +109,72 @@ div.footer + script + div.footer {
  * document - section headers
  *****************************************************/
 
-div.body h1,
-div.body h2,
-div.body p.rubric,
-div.body h3,
-div.body h4,
-div.body h5,
-div.body h6 {
-    margin: 1em 0 -.25em 0;
-    padding: 0;
-    color: #000000;
-    text-transform: none;
-    font-weight: normal;
-    line-height: 1em;
+h1, h2, h3,
+h4, h5, h6 {
+  margin: 1em 0 -.25em 0;
+  padding: 0;
+  color: #000000;
+  text-transform: none !important;
+  font-weight: normal;
+  line-height: 1em;
 }
-div.body h1 {
-    margin: 0 0 .5em 0;
-    padding: 1em 0 0 0;
-    text-align: center;
-    font-size: 200%;
+h1 { font-size: 2em !important; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.4em !important; }
+h4 { font-size: 1.2em !important; }
+h5 { font-size: 1.1em !important; }
+h6 { font-size: 1em !important; }
+h1 {
+  margin: 0 0 .5em 0;
+  padding: 1em 0 0 0;
+  color: #4372AA !important;
 }
-div.body h2 { font-size: 1.4em; }
-div.body h3 { font-size: 140%; }
-div.body h4 { font-size: 120%; }
-div.body h5 { font-size: 110%; }
-div.body h6 { font-size: 100%; }
-div.body p.rubric {
-    margin: 1em -10px 0;
-    padding: 8px 8px 8px;
-    background-color: transparent;
-    border: 1px solid rgba(0,0,0,.125);
-    border-width: 0 1px 1px 0;
-    color: #4973AB;
+h1.bob {
+  font-family: 'UniversLT-CondensedBold' !important;
+	font-weight: normal !important;
+	font-size: 1em;
 }
-div.body h2,
-div.section.emphasized > h3, /* deprecated in favor of below: */
-div.section.emphasize-children > div.section > h3 {
-    margin: 1em -10px 0;
-    padding: 8px 8px 8px;
-    clear: both; /* for floating admonitions */
-    border: 1px solid #5C5C5C;
-    border-width: 0 0 2px 0;
-    color: #5C5C5C;
+h2 {
+  margin: 1em -10px 0;
+  padding: 8px 8px 8px;
+  clear: both;
+  border: 1px solid #5C5C5C;
+  border-width: 0 0 2px 0;
+  color: #5C5C5C;
 }
-div.body h2.highlighted,
-div.section.emphasized > h3.highlighted, /* deprecated in favor of below: */
-div.section.emphasize-children > div.section > h3.highlighted {
-    border: 0.25em solid #7F7F7F;
-}
-div.section.emphasized > h3, /* deprecated in favor of below: */
-div.section.emphasize-children > div.section > h3 {
-    background: #7F7F7F;
-}
-div.section.emphasized > h3, /* deprecated in favor of below: */
-div.section.emphasize-children > div.section > h3 {
-    margin-left: 0;
-    margin-right: 0;
+h2.highlighted {
+  border: 0.25em solid #7F7F7F;
 }
 a.headerlink {
-    color: #003469;
-    font-size: 0.8em;
-    margin: 0 0 0 1px;
-    padding: 0 5px 0 4px;
-    text-decoration: none;
-    border-radius: 5px;
+  color: #003469;
+  font-size: 0.8em;
+  margin: 0 0 0 1px;
+  padding: 0 5px 0 4px;
+  text-decoration: none;
+  border-radius: 5px;
 }
 a.headerlink:hover {
-    background-color: #003469;
-    color: white;
-    box-shadow: 2px 2px 2px rgba(0,0,0,.2);
-    -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,.2);
-    -moz-box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+  background-color: #003469;
+  color: white;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+  -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+}
+
+/*****************************************************
+ * document - rubric headings
+ *****************************************************/
+
+p.rubric {
+  margin: 1em -10px 0;
+  padding: 8px 8px 8px;
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.125);
+  border-width: 0 1px 1px 0;
+  text-transform: none;
+  font-weight: normal;
+  line-height: 1em;
+  color: #4973AB;
 }
 
 
@@ -338,7 +192,6 @@ a.headerlink:hover {
     -moz-box-shadow: 2px 2px 2px #003469;
     -webkit-box-shadow: 2px 2px 2px #003469;
 }
-div.body div.section:not(.emphasize-children) > div.section:not(.emphasized) > h3.html-toggle-button:hover,
 div.body h4.html-toggle-button:hover {
     background: #92BCDE;
     box-shadow: 0 0  2px #003469;
@@ -435,7 +288,8 @@ a:hover {
 a.biglink {
     font-size: 130%;
 }
-a.external:before {
+/**
+ a.external:before {
     content: "\21D7";
     padding-right: .1em;
 }
@@ -445,6 +299,7 @@ a.external.issue:before {
 a.external[href^="mailto:"]:before {
     content: "";
 }
+*/
 em.issue:before {
     content: "\21D7";
     padding-right: .1em;
@@ -619,7 +474,8 @@ div.admonition-todo, p.deprecated, div.caution {
     padding-left: 1em;
 }
 div.note {
-    background-color: #F7F7F7;
+  color: #ffffff;
+  background-color: #DC8909;
 }
 div.seealso {
     background-color: #FFF7E0;
@@ -733,7 +589,8 @@ table.highlighttable div.linenodiv pre {
 }
 tt {
     font-family: "Droid Sans Mono", monospace;
-    font-size: 90%;
+    font-size: 1em;
+    color: #696969;
 }
 tt.literal {
 /*  Removed background color on tt.literal.
@@ -744,6 +601,7 @@ tt.literal {
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+    color: #696969;
 }
 p tt.literal { white-space: nowrap; }
 tt.samp.literal > em {
@@ -760,7 +618,6 @@ h1 tt.literal {
 h1 tt.samp.literal > em {
     font-weight: normal;
 }
-div.sphinxsidebar tt.literal,
 a.reference tt.literal,
 div.related a tt.literal,
 tt.literal.xref {
@@ -863,29 +720,15 @@ table.indextable td > dl > dd > dl {
 {
     body { font-size: 87.5%; }
 
-    /* hide the sidebar */
-    div.sphinxsidebar {
-        display: none;
-    }
-
-
-     /* FIXME: would like to make this work some how, hiding it til it works */
-      div.sidebartoggle { display: none; }
-
-
     div.bodywrapper {
         margin-left: 0;
     }
 
-    /* tweak relbar - emphasize title, hide crumbs */
     div.related > ul > li.right + li:not(.right) { font-weight: bold; }
     div.related > ul > li:not(.right) + li { display: none; }
 
     /* remove spacing on headers and reduce body padding */
-    body div.body h2,
-    body div.body p.rubric, /* deprecated in favor of style below */
-    body div.section.emphasized > h3, /* deprecated in favor of below: */
-    body div.section.emphasize-children > div.section > h3 {
+    h2, p.rubric {
         padding-top: 0.25em;
         padding-bottom: .25em;
     }
@@ -894,11 +737,11 @@ table.indextable td > dl > dd > dl {
     }
 
     /* shrink the headers */
-    div.body h1 { font-size: 160%; }
-    div.body h2, div.body p.rubric { font-size: 140%; }
-    div.body h3 { font-size: 120%; }
-    div.body h4 { font-size: 110%; }
-    div.body h5 { font-size: 100%; }
+h1 { font-size: 160%; }
+h2, p.rubric { font-size: 140%; }
+h3 { font-size: 120%; }
+h4 { font-size: 110%; }
+h5 { font-size: 100%; }
 }
 
 /*------------------------------------
@@ -907,7 +750,6 @@ table.indextable td > dl > dd > dl {
 
 @media print
 {
-    div.sidebartoggle { display: none; }
     div.body { border: 0; }
 
     /* omit "hide section" label */
@@ -924,13 +766,12 @@ table.indextable td > dl > dd > dl {
     }
 
     /* remove styling from headers */
-    div.body h1,
-    div.body h2,
-    div.body p.rubric,
-    div.body h3,
-    div.body h4,
-    div.body h5,
-    div.body h6 {
+    h1, h2, h3,
+    h4, h5, h6 {
+        border: none !important;
+        padding: 0;
+    }
+    p.rubric {
         color: #000000 !important;
         border: none !important;
         padding: 0;
@@ -938,22 +779,11 @@ table.indextable td > dl > dd > dl {
 }
 
 /* Library Additions */
-body {
-    font-family: 'Lucida Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
-	# background-color:  #f0f0f0 !important;
-}
+
 header#masthead {
     background-color:  #f0f0f0 !important;
 }
-div.document {
-    width: 100%;
-    margin: 0;
-    background-color: #ffffff;
-    background-image: none;
-    background-repeat: initial;
-    background-attachment: initial;
-    background-position: initial;
-}
+
 div#left-margin {
     position: absolute;
     width: 180px;
@@ -1037,10 +867,22 @@ div.list-cola, div.list-colb {
    margin-bottom: 10px;
    background-color: #ffffff;
 }
-div.list-col1, div.list-cola {
+div.list-col2-3 {
+  float: left;
+  width: 63%;
+}
+div.list-col1-3 {
+  float: right;
+  width: 33%;
+}
+div.list-col2-3, div.list-col1-3 {
+   margin: 0 0 10px 0;
+   background-color: #ffffff;
+}
+div.list-col1, div.list-col2-3, div.list-cola {
   clear: left;
 }
-div.list-col2, div.list-colb {
+div.list-col2, div.list-col1-3, div.list-colb {
   clear: right;
 }
 div.list-cola {
@@ -1064,12 +906,12 @@ div.list-col1 p.rubric-2, div.list-col2 p.rubric-2 {
 div.list-col1 p.list-stats, div.list-col2 p.list-stats,
 div.list-cola p.list-stats, div.list-colb p.list-stats {
    width: 80%;
-   margin: 5px 0 5px 10px;
+   margin: 0 0 5px 10px;
    padding: 0 10px 2px 0 !important;
    font-size: .8em;
    word-spacing: 2px;
-   color: #CDCDCD;
-   border-bottom: 1px #CDCDCD dotted;
+   color: #8A8A8A;
+   border-bottom: 1px #8A8A8A dotted;
 }
 div.list-col2 p.list-stats,
 div.list-colb p.list-stats {
@@ -1091,6 +933,7 @@ div.list-col1 p.rubric, div.list-col2 p.rubric {
    border-bottom: none;
 }
 div.list-col1 p, div.list-col2 p,
+div.list-col2-3 o, div.list-col1-3 p,
 div.list-cola p, div.list-colb p  {
    font-size: .9em;
    color: #666666;
@@ -1126,13 +969,6 @@ div.relbar-bottom,
 p.logo {
     display: none;
 }
-h1 {
-  font-family: 'UniversLT-CondensedBold' !important;
-	font-weight: normal !important;
-	font-size: 1em;
-	text-align: left !important;
-	color: #4372AA !important;
-}
 div.tutorial-article h1 {
     margin-bottom: 4px;
 }
@@ -1147,13 +983,10 @@ div#indices-and-tables h2 {
     text-transform: none;
     border: none;
 }
-div.sphinxsidebar, div.sidebartoggle, div.sidebar-toggle-group {
-    display: none;
-}
 div.document a,
 div.document a:link,
 div.document h2 {
-    color: #4973AB !important;
+  color: #4973AB !important;
 	text-decoration: none !important;
 	background: none !important;
 }
@@ -1183,30 +1016,30 @@ a em {
 
 /* Formatting for Parameter Entries */
 
-body div.body p.rubric-1 {
+p.rubric-1 {
     font-weight: bold;
     font-size: 1.2em;
 }
-body div.body p.rubric-2 {
+p.rubric-2 {
     font-weight: bold;
     font-size: 1.1em;
 }
-body div.body p.rubric-3 {
+p.rubric-3 {
     font-weight: bold;
     font-size: 1em;
     border-bottom: none;
 }
-body div.body p.rubric-separated {
+p.rubric-separated {
     color: #236B8E; /* steelblue */
     border-bottom: 1px solid #236B8E; /* steelblue */
 }
-body div.body p.rubric {
+p.rubric {
     padding-bottom: 10px;
     margin-top: 25px;
     margin-bottom: 12px;
     border-right: none;
 }
-body div.body p.rubric tt.literal {
+p.rubric tt.literal {
     font-family: monospace;
     background-color: transparent  !important;
     border: 0px;
@@ -1215,14 +1048,14 @@ body div.body p.rubric tt.literal {
     padding: 0px;
     margin: 0px;
 }
-body div.body p.rubric.list-sub-header {
+p.rubric.list-sub-header {
     margin: 20px 0 0 0 !important;
     padding: 5px 0;
     font-size: 1em;
     color: #0F0F0F;
     background-color: transparent;
 }
-body div.body p.rubric.list-sub-header:first-child {
+p.rubric.list-sub-header:first-child {
     margin-top: 5px !important;
 }
 
@@ -1310,13 +1143,44 @@ ul.list-abstract {
 ul.list-abstract li {
     text-indent: 0;
 }
-.video-article h1 {
+div.training-exercises ol.list-exercises {
+  margin-left: 20px;
+  padding-left: 10px;
+  text-indent: 0;
+  list-style-type: decimal;
+}
+div.training-exercises ol.list-exercises li {
+  margin: 4px 0 8px 0;
+}
+div.video-article h1 {
   border-bottom: 1px #4372AA solid;
 }
-.video-stats {
-    margin-left: 0;
+div.video-article.training-exercises h1 {
+  border-bottom: none;
+}
+div.video-article div.video-abstract {
+  margin-top: 10px;
+}
+div.video-article div.video-abstract p {
+  padding: 0 10px;
+  font-size: .9em;
+}
+div.video-article p.video-stats.rubric,
+div.video-article p.training-video-resources.rubric {
+  margin: 10px 0 4px 0 !important;
+  padding: 0 0 0 10px !important;
+  font-size: .9em;
+  font-weight: 600;
+  color: #454545;
+}
+div.video-article ul.video-stats,
+div.video-article ul.training-video-resources {
+    margin-left: 30px;
     margin-bottom: 20px;
+    padding: 0 0 0 10px;
     padding-inline-start: 0;
+    text-indent: -20px;
+    list-style-type: none;
     font-size: .8em;
     color: #454545;
 }
@@ -1324,10 +1188,10 @@ ul.list-abstract li {
     font-size: .8em;
     color: #4f4f4f;
 }
-.video-article h4.screen-instructions {
+div.video-article h4.screen-instructions {
   margin-bottom:  10px;
 }
-.video-article video {
+div.video-article video {
   border: 2px #333333 solid;
 }
 ul.no-bull {

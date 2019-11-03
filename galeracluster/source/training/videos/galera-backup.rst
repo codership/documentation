@@ -41,6 +41,8 @@
 
          Related Articles
 
+         - :doc:`Galera Back-Ups <../tutorials/galera-backup>`
+
       .. cssclass:: bull-head
 
          Other Resources
@@ -63,13 +65,32 @@
 Making Back-Ups with Galera Cluster
 =====================================
 
-.. rst-class:: video-stats
+.. container:: video-abstract list-col2-3
 
-   Speaker: Russell J.T. Dyer; Date: October 25, 2019; Length of Video: 1 hour, 5 minutes
+   A primary responsibility of a database administrator, a DBA, is to make back-ups |---| or to ensure they are made properly and regularly.  It's a key part of ensuring high availability of data. While the average DBA may know well how to perform this essentential administrative task on stand-alone database servers, most aren't so sure how best to do so when the database server is part of a Galera Cluster.
 
-A primary responsibility of a database administrator, a DBA, is to make back-ups |---| or to ensure they are made properly and regularly.  It's a key part of ensuring high availability of data. While the average DBA may know well how to perform this essentential administrative task on stand-alone database servers, most aren't so sure how best to do so when the database server is part of a Galera Cluster.
+   This training video explains in detail how to make back-ups of MySQL and MariaDB databases within a Galera Cluster.  It presents in stages, different methods for removing or pausing a node to make a proper back-up.  Additionally, it presents methods for restoring back-ups |---| recovering single nodes and an entire cluster.
 
-This training video explains in detail how to make back-ups of MySQL and MariaDB databases within a Galera Cluster.  It presents in stages, different methods for removing or pausing a node to make a proper back-up.  Additionally, it presents methods for restoring back-ups |---| recovering single nodes and an entire cluster.
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+
+.. container:: list-col1-3
+
+   .. rst-class:: video-stats
+   .. rubric:: Video Specifications
+
+   .. rst-class:: video-stats
+
+      - Speaker: Russell J.T. Dyer
+      - Date: October 25, 2019
+      - Length of Video: 1 hour, 5 minutes
+
+   .. rst-class:: training-video-resources
+   .. rubric:: Student Materials
+
+   .. rst-class:: training-video-resources
+
+      - :doc:`Training Exercises <galera-backup-exercises>`
+      - `Slide Presentation </library-media/pdf/galera-backup.pdf>`_
 
 
 .. container:: banner
@@ -97,6 +118,11 @@ This training video explains in detail how to make back-ups of MySQL and MariaDB
    <source src="https://galeracluster.com/library-media/videos/galera-backup.mp4#t=0.5" type="video/mp4">
    </video>
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   galera-backup-exercises
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -37,9 +37,11 @@
 
          Related Articles
 
+      - :doc:`Galera on AWS (video) <../videos/galera-aws-installing>`
+
 
 .. cssclass:: tutorial-article
-.. _`aws-galera-cluster`:
+.. _`galera-on-aws`:
 
 ===================================
 Installing a Galera Cluster on AWS

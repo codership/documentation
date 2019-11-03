@@ -58,31 +58,42 @@ There's so much to learn about Galera Cluster and related software.  In this sec
 .. container:: list-col1
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Basic & Entry Level <training-tutorials-entry>`
+   .. rubric:: :ref:`Introduction & Installation <training-tutorials-entry-install>`
 
    .. rst-class:: list-stats
 
-      7 articles; avg: 1176 words
+      8 articles; avg: 1152 words
 
    .. rst-class:: list-abstract
 
-      Never used Galera Cluster |---| maybe even new MySQL and MariaDB database administration? These tutorials will help you to get started.
-
+      These articles are for newcommers.  They're about how Galera Cluster works, and how to install and configure Galera.
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Intermediate Level <training-tutorials-intermediate>`
+   .. rubric:: :ref:`Administration <training-tutorials-admin>`
 
    .. rst-class:: list-stats
 
-      6 articles; avg: 872 words
+      7 articles; avg: 1585 words
 
    .. rst-class:: list-abstract
 
-      Maybe you have some experience in Galera Cluster and you're ready to understand it better. Here you'll be able to learn more.
+      If you're a database administrator and responsible for maintaining your organization's databases, these articles will help you with basic and core DBA tasks.
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Advanced Level <training-tutorials-advanced>`
+   .. rubric:: :ref:`Restarting & Recovery <training-tutorials-restart-recover>`
+
+   .. rst-class:: list-stats
+
+      2 articles; avg: 768 words
+
+   .. rst-class:: list-abstract
+
+      When a cluster goes down, fails, or crashes, there's a certain order for restarting and restoring nodes and a cluster.  These tutorial articles can help.
+
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :ref:`Performance & High Availability <training-tutorials-performance-availability>`
 
    .. rst-class:: list-stats
 
@@ -90,19 +101,7 @@ There's so much to learn about Galera Cluster and related software.  In this sec
 
    .. rst-class:: list-abstract
 
-      Perhaps you've been at Galera for quite a while and have some difficult problems. Or maybe you're trying to get more out your cluster. We can help.
-
-
-   .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Special Topics <training-tutorials-special>`
-
-   .. rst-class:: list-stats
-
-      3 articles; avg: 1999 words
-
-   .. rst-class:: list-abstract
-
-      Or maybe you have some special requirements, want to use specific systems. Our special topics articles may be able to help.
+      Want to get more out of your cluster?  We have articles related to improving performance. Need more stability?  We have articles on high availability.
 
 .. container:: list-col2
 
@@ -127,7 +126,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
 
    .. rst-class:: list-stats
 
-      5 videos; length: 2 hrs, 50 mins.; avg: 34 mins.
+      5 videos; length: 2 hrs, 52 mins; avg: 34 mins.
 
    .. rst-class:: list-abstract
 
@@ -139,7 +138,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
 
    .. rst-class:: list-stats
 
-      1 video; 47mins. (more soon)
+      2 video; 1 hr, 52 mins; avg: 56 mins (more soon)
 
    .. rst-class:: list-abstract
 
@@ -151,7 +150,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
 
    .. rst-class:: list-stats
 
-      2 videos; length: 1 hr, 0 mins.; avg: 60 mins.
+      1 videos; length: 1 hr, 0 mins.; avg: 60 mins.
 
    .. rst-class:: list-abstract
 

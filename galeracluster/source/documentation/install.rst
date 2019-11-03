@@ -36,14 +36,14 @@
          Related Articles
 
          - :doc:`Install Galera <../../training/tutorials/galera-installation>`
-         - :doc:`Install Galera on AWS <../../training/tutorials/aws-galera-cluster>`
+         - :doc:`Install Galera on AWS <../../training/tutorials/galera-on-aws>`
 
 
       .. cssclass:: bull-head
 
          Other Resources
 
-      - :doc:`Galera AWS (video)  <../../training/videos/aws-galera-cluster>`
+      - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
       - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
       - :doc:`Galera MySQL (video)  <../../training/videos/galera-mysql-installing>`
 
