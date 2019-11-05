@@ -6,34 +6,35 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -110,7 +111,7 @@ The results will vary depending on which version of Galera is running on your se
 
 
 .. _`wsrep_auto_increment_control`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_auto_increment_control``
 
 .. index::
@@ -147,7 +148,7 @@ It significantly reduces the rate of certification conflicts for ``INSERT`` stat
 
 
 .. _`wsrep_causal_reads`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_causal_reads``
 
 .. index::
@@ -176,7 +177,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_certification_rules`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_certification_rules``
 
 .. index::
@@ -212,7 +213,7 @@ Controls how certification is done in the cluster, in particular this affects ho
 
 
 .. _`wsrep_certify_nonPK`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_certify_nonPK``
 
 .. index::
@@ -247,7 +248,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_cluster_address`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_cluster_address``
 
 .. index::
@@ -306,7 +307,7 @@ You can execute the following SQL statement to see how this variable is set:
 
 
 .. _`wsrep_cluster_name`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_cluster_name``
 
 .. index::
@@ -341,7 +342,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_convert_lock_to_trx`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_convert_lock_to_trx``
 
 .. index::
@@ -380,7 +381,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_data_home_dir`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_data_home_dir``
 
 .. index::
@@ -415,7 +416,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_dbug_option`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_dbug_option``
 
 .. index::
@@ -448,7 +449,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_debug`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_debug``
 
 .. index::
@@ -485,7 +486,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_desync`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_desync``
 
 .. index::
@@ -524,7 +525,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_dirty_reads`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_dirty_reads``
 
 .. index::
@@ -568,7 +569,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_drupal_282555_workaround`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_drupal_282555_workaround``
 
 .. index::
@@ -605,7 +606,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_forced_binlog_format`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_forced_binlog_format``
 
 .. index::
@@ -643,7 +644,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 
 
 .. _`wsrep_load_data_splitting`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_load_data_splitting``
 
 .. index::
@@ -680,7 +681,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see how this varia
 
 
 .. _`wsrep_log_conflicts`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_log_conflicts``
 
 .. index::
@@ -718,7 +719,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see if this featur
 
 
 .. _`wsrep_max_ws_rows`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_max_ws_rows``
 
 .. index::
@@ -754,7 +755,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see the current va
 
 
 .. _`wsrep_max_ws_size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_max_ws_size``
 
 .. index::
@@ -789,7 +790,7 @@ The maximum allowed write-set size is ``2G``.  You can execute the following ``S
 
 
 .. _`wsrep_node_address`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_node_address``
 
 .. index::
@@ -840,7 +841,7 @@ You can execute the ``SHOW VARIABLES`` statement as shown below to get the curre
 
 
 .. _`wsrep_node_incoming_address`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_node_incoming_address``
 
 .. index::
@@ -875,7 +876,7 @@ You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as s
 
 
 .. _`wsrep_node_name`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_node_name``
 
 .. index::
@@ -912,7 +913,7 @@ You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as s
 
 
 .. _`wsrep_notify_cmd`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_notify_cmd``
 
 .. index::
@@ -969,7 +970,7 @@ When the node calls the command, it passes one or more arguments that you can us
 
 
 .. _`wsrep_on`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_on``
 
 .. index::
@@ -1002,7 +1003,7 @@ This parameter defines whether or not updates made in the current session replic
 
 
 .. _`wsrep_OSU_method`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_OSU_method``
 
 .. index::
@@ -1042,7 +1043,7 @@ For more information on DDL statements and OSU methods, see :doc:`schema-upgrade
 
 
 .. _`wsrep_preordered`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_preordered``
 
 .. index::
@@ -1077,7 +1078,7 @@ Preordered events should not interfere with events that originate on the local n
 
 
 .. _`wsrep_provider`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_provider``
 
 .. index::
@@ -1110,7 +1111,7 @@ When the node starts, it needs to load the wsrep Provider in order to enable rep
 
 
 .. _`wsrep_provider_options`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_provider_options``
 
 .. index::
@@ -1150,7 +1151,7 @@ For more information on the wsrep Provider options, see :doc:`galera-parameters`
 
 
 .. _`wsrep_reject_queries`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_reject_queries``
 
 Defines whether the node rejects client queries while participating in the cluster.
@@ -1197,7 +1198,7 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 
 
 .. _`wsrep_restart_slave`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_restart_slave``
 
 .. index::
@@ -1230,7 +1231,7 @@ Enabling this parameter tells the node to restart the replication slave when it 
 
 
 .. _`wsrep_retry_autocommit`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_retry_autocommit``
 
 .. index::
@@ -1263,7 +1264,7 @@ When an autocommit query fails the certification test due to a cluster-wide conf
 
 
 .. _`wsrep_slave_FK_checks`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_slave_FK_checks``
 
 .. index::
@@ -1296,7 +1297,7 @@ This parameter enables foreign key checking on applier threads.
 
 
 .. _`wsrep_slave_threads`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_slave_threads``
 
 .. index::
@@ -1337,7 +1338,7 @@ Instead of concrete recommendations, there are some general guidelines that you 
 
 
 .. _`wsrep_slave_UK_checks`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_slave_UK_checks``
 
 .. index::
@@ -1370,7 +1371,7 @@ This parameter enables unique key checking on applier threads.
 
 
 .. _`wsrep_sst_auth`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_sst_auth``
 
 .. index::
@@ -1407,7 +1408,7 @@ Format this value to the pattern: ``username:password``.
 
 
 .. _`wsrep_sst_donor`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_sst_donor``
 
 .. index::
@@ -1457,7 +1458,7 @@ If the list contains a trailing comma, the remaining nodes in the cluster will a
 
 
 .. _`wsrep_sst_donor_rejects_queries`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_sst_donor_rejects_queries``
 
 .. index::
@@ -1496,7 +1497,7 @@ Given that a :term:`State Snapshot Transfer` is scriptable, there is no way to t
 
 
 .. _`wsrep_sst_method`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_sst_method``
 
 .. index::
@@ -1557,7 +1558,7 @@ For more information on scripting state snapshot transfers, see :doc:`scriptable
 
 
 .. _`wsrep_sst_receive_address`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_sst_receive_address``
 
 .. index::
@@ -1594,7 +1595,7 @@ For example, ``mysqldump`` uses the address and port on which the node listens, 
 
 
 .. _`wsrep_start_position`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_start_position``
 
 .. index::
@@ -1629,7 +1630,7 @@ For more information on scripting state snapshot transfers, see :doc:`scriptable
 
 
 .. _`wsrep_sync_wait`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_sync_wait``
 
 .. index::
@@ -1691,7 +1692,7 @@ In the example, the application first runs a ``SET`` command to enable :ref:`wsr
 
 
 .. _`wsrep_trx_fragment_size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_trx_fragment_size``
 
 .. index::
@@ -1728,7 +1729,7 @@ In :term:`Streaming Replication`, the node breaks transactions down into fragmen
 
 
 .. _`wsrep_trx_fragment_unit`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_trx_fragment_unit``
 
 .. index::
@@ -1776,7 +1777,7 @@ Supported replication units are:
 
 
 .. _`wsrep_ws_persistency`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``wsrep_ws_persistency``
 
 .. index::

@@ -5,38 +5,38 @@
    :keywords: galera cluster, mysql, mariadb, arbitrator, garbd
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`backup-cluster`
       - :doc:`galera-parameters`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -75,7 +75,7 @@ For more information on using Galera Arbitrator for making backups, see :doc:`ba
 
 
 .. _`starting-arbitrator`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Starting Galera Arbitrator
 
 Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``.  This means that you must start it separately from the cluster.  It also means that you cannot configure Galera Arbitrator through the ``my.cnf`` configuration file.
@@ -93,7 +93,7 @@ How you configure Galera Arbitrator depends on how you start it.  That is to say
 
 
 .. _`arbitrator-shell-start`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Starting Galera Arbitrator from the Shell
 
 When starting Galera Arbitrator from the shell, you have two options as to how you may configure it.  You can set the parameters through the command line arguments, as in the example here:
@@ -150,7 +150,7 @@ For more information on the options available to Galera Arbitrator, see :doc:`ga
 
 
 .. _`arbitrator-service-start`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Starting Galera Arbitrator as a Service
 
 When starting Galera Aribtrator as a service, whether using ``init`` or ``systemd``, you would use a different format for the configuration file than you would use when starting it from the shell. Below is an example of the configuration file:

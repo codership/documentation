@@ -28,7 +28,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`library-kb-plans`:
 
 ============================================
@@ -40,7 +40,7 @@ Development of the Codership Knowledge Base
 To start the KB, we removed pages from the Documentation which were essentially KB articles and put them in the KB. Once there, we changed their structure:  for troubleshooting articles, presenting a scenario and then solutions or work-arounds; for best practice articles, presenting a scenario and then recommendations.  We also included in the left margin, links to related documentation and other articles.
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Editorial Goals
 
 .. rst-class:: list-stats

@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`Catching Up <catching-up>`
       - :ref:`Cluster Sync <cluster-sync>`
@@ -42,9 +45,7 @@
       - :ref:`Write-set Caching <writeset-caching>`
       - :ref:`wsrep_ready <wsrep_ready>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -58,7 +59,7 @@ Galera Cluster manages the replication process using a feedback mechanism, calle
 
 
 .. _`how-flow-control-works`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: How Flow Control Works
 
 Galera Cluster achieves synchronous replication by ensuring that transactions copy to all nodes an execute according to a cluster-wide ordering.  That said, the transaction applies and commits occur asynchronously as they replicate through the cluster.
@@ -69,7 +70,7 @@ When the received queue reaches a certain size the node triggers Flow Control.  
 
 
 .. _`node-states`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Understanding Node States
 
 .. index::
@@ -96,7 +97,7 @@ There are four primary kinds of Flow Control:
 
 
 .. _`no-flow-control`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: No Flow Control
 
 This Flow Control takes effect when nodes are in the ``OPEN`` or ``PRIMARY`` states.
@@ -105,7 +106,7 @@ When nodes hold these states, they are not considered part of the cluster.  Thes
 
 
 .. _`writeset-caching`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Write-set Caching
 
 This Flow Control takes effect when nodes are in the ``JOINER`` and ``DONOR`` states.
@@ -120,7 +121,7 @@ It is possible to limit the replication rate, ensuring that the write-set cache 
 
 
 .. _`catching-up`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Catching Up
 
 This Flow Control takes effect when nodes are in the ``JOINED`` state.
@@ -133,7 +134,7 @@ The one occasion when nodes in the ``JOINED`` state do effect cluster performanc
 
 
 .. _`cluster-sync`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Cluster Sync
 
 This Flow Control takes effect when nodes are in the ``SYNCED`` state.
@@ -145,7 +146,7 @@ When nodes enter this state Flow Control attempts to keep the slave queue to a m
 
 
 .. _`node-state-changes`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Changes in the Node State
 
 .. index::

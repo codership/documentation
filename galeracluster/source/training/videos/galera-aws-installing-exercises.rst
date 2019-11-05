@@ -5,56 +5,54 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-         - :doc:`firewalld <../../documentation/firewalld>`
-         - :doc:`Installing Galera <../../documentation/install>`
-         - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-         - :doc:`SELinux <../../documentation/selinux>`
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+        - :doc:`firewalld <../../documentation/firewalld>`
+        - :doc:`Installing Galera <../../documentation/install>`
+        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+        - :doc:`SELinux <../../documentation/selinux>`
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
-         - `Galera Repository <http://releases.galeracluster.com/>`_
-         - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
+        - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
+        - `Galera Repository <http://releases.galeracluster.com/>`_
+        - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article training-exercises
+.. cssclass:: library-article training-exercises
 .. _`exercises-galera-aws-installing`:
 
 ==========================
@@ -91,13 +89,13 @@ Installing a Galera Cluster on AWS
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Exercises
 
 Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in the training video.  Make notes for yourself, after successfully performing each exercise, for when you have to do these tasks later for yourself.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Creating AWS Instances
 
 Do these exercises after viewing the first three sections of the training video:  *Galera Cluster Overview*, *Encryption Key*, and *Creating AWS Instances*. Don’t install any software or configure the nodes, yet.
@@ -108,7 +106,7 @@ Do these exercises after viewing the first three sections of the training video:
 
 2. Create a security group to use with your instances. Add rules to allow traffic among them, using their internal IP addresses. Open TCP ports 22, 3306, 4444, 4567, and 4568 for each node. Also open UDP port 4567 for each.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Installing Software on Nodes
 
 Do these exercises after viewing *Installing Software on Nodes* on the training video. Don’t configure the nodes until the next section.
@@ -120,7 +118,7 @@ Do these exercises after viewing *Installing Software on Nodes* on the training 
 4. Install MySQL or MariaDB, and Galera on each node.  When finished, start ``mysqld`` on each node |---| don’t bootstrap Galera. For MySQL, grep the MySQL log for root’s temporary password.  For MariaDB, there is no password, initially. Run ``mysql_secure_install`` on each node and change the root password, as well as respond to the other questions it asks.  Then try logging into MySQL or MariaDB with the mysql client as root with the new password.  Exit and shutdown ``mysqld``.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Configuring Nodes & Opening Ports
 
 Do these exercises after viewing the two sections related to this combined title. MySQL or MariaB should be down on each node; don’t start ``mysqld`` again until the next section.
@@ -131,7 +129,7 @@ Do these exercises after viewing the two sections related to this combined title
 
 6. Configure either SELinux or Firewalld or both to open the following ports:  TCP 22, TCP 3306. TCP 4444, TCP & UDP 4567, and TCP 4568. If you want to use only SELinux or only Firewalld, disable the one not used.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Starting Galera
 
 This is the core of the training video. You may encounter problems as you do these exercises. Don’t let it frustrate you, but don’t stop trying to complete them. This is important. Keep at it until you’re able to do them.

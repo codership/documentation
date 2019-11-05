@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`ssl-config`
       - :doc:`schema-upgrades`
@@ -37,9 +40,7 @@
       - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
       - :ref:`wsrep_sst_method <wsrep_sst_method>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
       - :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`
 
@@ -59,7 +60,7 @@ The particular method you use to secure the State Snapshot Transfer through SSL 
 
 
 .. _`ssl-mysqldump`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Enabling SSL for ``mysqldump``
 
 The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client through SSL.  Given that ``mysqldump`` connects through the database client, you can use the same SSL certificates you created for replication traffic.
@@ -141,7 +142,7 @@ This configures the node to use ``mysqldump`` for state snapshot transfers over 
 
 
 .. _`ssl-xtrabackup`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Enabling SSL for ``xtrabackup``
 
 The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  Unlike ``rsync``, ``xtrabackup`` includes support for SSL encryption built in.

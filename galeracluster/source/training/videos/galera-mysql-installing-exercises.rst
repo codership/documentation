@@ -5,56 +5,54 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-         - :doc:`firewalld <../../documentation/firewalld>`
-         - :doc:`Installing Galera <../../documentation/install>`
-         - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-         - :doc:`SELinux <../../documentation/selinux>`
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+        - :doc:`firewalld <../../documentation/firewalld>`
+        - :doc:`Installing Galera <../../documentation/install>`
+        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+        - :doc:`SELinux <../../documentation/selinux>`
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `Galera Repository <http://releases.galeracluster.com/>`_
-         - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
+        - `Galera Repository <http://releases.galeracluster.com/>`_
+        - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
 
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article training-exercises
+.. cssclass:: library-article training-exercises
 .. _`exercises-galera-mysql-installing`:
 
 ==========================
@@ -93,13 +91,13 @@ Installing Galera Cluster with MySQL
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Exercises
 
 Before starting each exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in training video.  Make notes for yourself as you go along, for when you have to do these tasks for your work.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Installing Software on Nodes
 
 Do these exercises after viewing the first two sections of the training video:  *Galera Cluster Overview*, and *Installing Software on Nodes*. Don’t configure the nodes until the next section.
@@ -110,7 +108,7 @@ Do these exercises after viewing the first two sections of the training video:  
 
 2. Install MySQL and Galera on each node.  When finished, start ``mysqld`` on each, then ``grep`` the MySQL log to get root’s temporary passwords.  Run ``mysql_secure_install`` on each and change the root password, as well as respond to the other questions it asks.  Then try logging into MySQL with the mysql client as root with the new password.  Exit MySQL and shutdown ``mysqld``.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Configuring Nodes & Opening Ports
 
 Do these exercises after viewing the section with these same two titles. MySQL should be down on each node; don’t start ``mysqld`` again until the next set of exercises.
@@ -121,7 +119,7 @@ Do these exercises after viewing the section with these same two titles. MySQL s
 
 4. Configure either SELinux or Firewalld or both to open the following ports:  TCP 22, TCP 3306. TCP 4444, TCP & UDP 4567, and TCP 4568. If you intend to use only SELinux or only Firewalld, disable the one not used.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Starting Galera
 
 This is the core of the training video. You may encounter problems as you do these exercises. Don’t let it frustrate you. It’s important.  So don’t stop trying until you’re able to do them.

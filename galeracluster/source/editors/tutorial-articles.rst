@@ -30,7 +30,7 @@
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`tutorial-article-plans`:
 
 =============================
@@ -39,7 +39,7 @@ Tutorial Articles
 
 Below is a list of tutorial articles planned for the next few months. They cover essential topics and are grouped by skill level, as well as an extra set of articles cover some special topics.
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Beginner Tutorials
 
 .. csv-table::
@@ -50,7 +50,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    "**Plain Replication vs. Galera Cluster** :raw-html:`<small>scheduled 19 aug. 2019</small>` Explains standard replication compared to Galera.", "**The Essentials** :raw-html:`<small>scheduled 19 aug. 2019</small>` Which configuration settings are need and recommended."
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Intermediate Tutorials
 
 .. csv-table::
@@ -62,7 +62,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    "**The Lines of Communications** :raw-html:`<small>not yet scheduled</small>` Understanding the point of each port and how nodes communicate with each other.", ""
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Advanced Tutorials
 
 .. csv-table::
@@ -73,7 +73,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    "**Managing Users** :raw-html:`<small>not yet scheduled</small>` some text", "**Recovering from Split Brain** :raw-html:`<small>not yet scheduled</small>` some text"
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Special Topics
 
 .. csv-table::

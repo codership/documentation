@@ -5,51 +5,46 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../index>`
+      - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../trouble/index>`
+
+         .. cssclass:: here
+         
          - :doc:`Best Practices <./index>`
 
-      - :doc:`FAQ <../../faq>`
       - :doc:`Training <../../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../../training/tutorials/index>`
          - :doc:`Training Videos <../../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`gcache.size <gcache.size>`
       - :ref:`wsrep_received_bytes <wsrep_received_bytes>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
-.. cssclass:: kb-article
+.. cssclass:: library-article
 .. _`kb-best-customizing-gcache-size`:
 
 =====================================
 Customizing the Write-Set Cache Size
 =====================================
-
-.. index::
-   pair: Performance; gcache.size
-.. index::
-   pair: Performance; wsrep_received_bytes
 
 You can define the size of the write-set cache using the :ref:`gcache.size <gcache.size>` parameter.  The set the size to one less than that of the data directory.
 

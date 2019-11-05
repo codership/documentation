@@ -5,67 +5,64 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - `Binary Log <https://dev.mysql.com/doc/refman/en/binary-log.html>`_
-         - `CHANGE MASTER <https://dev.mysql.com/doc/refman/5.5/en/change-master-to.html>`_
-         - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-         - :doc:`firewalld <../../documentation/firewalld>`
-         - :doc:`Load Balancer <../../documentation/glb>`
-         - `Master Configuration <https://dev.mysql.com/doc/refman/en/replication-howto-masterbaseconfig.html>`_
-         - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-         - `Replication Threads <https://dev.mysql.com/doc/refman/en/replication-implementation-details.html>`_
-         - :doc:`SELinux <../../documentation/selinux>`
-         - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
-         - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
-         - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../tutorials/wsrep-configuration>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - `Binary Log <https://dev.mysql.com/doc/refman/en/binary-log.html>`_
+        - `CHANGE MASTER <https://dev.mysql.com/doc/refman/5.5/en/change-master-to.html>`_
+        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+        - :doc:`firewalld <../../documentation/firewalld>`
+        - :doc:`Load Balancer <../../documentation/glb>`
+        - `Master Configuration <https://dev.mysql.com/doc/refman/en/replication-howto-masterbaseconfig.html>`_
+        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+        - `Replication Threads <https://dev.mysql.com/doc/refman/en/replication-implementation-details.html>`_
+        - :doc:`SELinux <../../documentation/selinux>`
+        - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
+        - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+        - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../tutorials/wsrep-configuration>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-         - :doc:`Starting Galera <../tutorials/starting-cluster>`
+        - :doc:`Starting Galera <../tutorials/starting-cluster>`
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `MariaDB Replication <https://mariadb.com/kb/en/library/high-availability-performance-tuning-mariadb-replication/>`_
-         - `MySQL Replication <https://dev.mysql.com/doc/refman/en/replication.html>`_
-
+        - `MariaDB Replication <https://mariadb.com/kb/en/library/high-availability-performance-tuning-mariadb-replication/>`_
+        - `MySQL Replication <https://dev.mysql.com/doc/refman/en/replication.html>`_
 
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article
+.. cssclass:: library-article library-video
 .. _`video-galera-standard-replication`:
 
 =======================================
@@ -100,7 +97,7 @@ Standard Replication & Galera Cluster
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Outline of Training Video
 
 .. container:: list-col1

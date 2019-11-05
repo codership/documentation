@@ -5,38 +5,40 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      .. cssclass:: bull-head
+           - :doc:`Training Videos <../videos/index>`
 
-         Related Articles
+        Related Documents
+
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`sst-or-not`:
 
 ==========================
@@ -51,7 +53,7 @@ If a node leaves the cluster and subsequently rejoins, Galera will internally ma
 In this article, we will describe the entire process of getting a restarted node back to speed with the rest of the cluster and explain the logic behind the various log messages.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Basic Principles
 
 State transfers in Galera are governed by the following basic principles:
@@ -64,7 +66,7 @@ If the node was temporarily disconnected from the cluster while the mysqld proce
 If both methods are possible, as is the case during a vanilla server restart, it is up to the donor node to decide if it can deliver IST. If needed, the donor has the ability to fall back to SST instead.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Step-by-Step Walkthrough
 
 This section describes the entire state transfer process during a normal server restart and shows the typical log messages that happen at each phase.
@@ -134,7 +136,7 @@ The entire procedure ends when the replication events from the IST have been app
    WSREP: Synchronized with group, ready for connections
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Catch-Up
 
 After the joiner has received a State Transfer, it must also catch up with any transactions that were issued on the rest of the cluster while the State Transfer was in progress. Those transactions are continuously received by the joiner and stored in the gcache. As soon as the state transfer completes, the donor needs to apply them all.

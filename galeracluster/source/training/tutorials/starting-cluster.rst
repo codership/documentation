@@ -6,44 +6,47 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      - :doc:`Migration <./migration>`
-      - :doc:`Migration <./migration>`
-      - :doc:`Quorum Reset <../../../documentation/quorum-reset>`
-      - :ref:`wsrep_provider <wsrep_provider>`
-      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
-      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+           - :doc:`Training Videos <../videos/index>`
 
-      .. cssclass:: bull-head
+        Related Documents
 
-         Related Articles
+        - :doc:`Migration <./migration>`
+        - :doc:`Migration <./migration>`
+        - :doc:`Quorum Reset <../../../documentation/quorum-reset>`
+        - :ref:`wsrep_provider <wsrep_provider>`
+        - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+        - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`starting-cluster`:
 
 ========================
@@ -76,7 +79,7 @@ Once you have at least three hosts ready, you can initialize the cluster.
 
 
 .. _`Starting First Cluster Node`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Starting the First Node
 
 By default, a node don't start as part of the :term:`Primary Component`.  Instead, it assumes that the Primary Component is already running and it is merely joining an existing cluster.  For each node it encounters in the cluster, it checks whether or not it's a part of the Primary Component.  When it finds the Primary Component, it requests a state transfer to bring its database into sync with the cluster.  If it can't find the Primary Component, it will remains in a non-operational state.
@@ -133,7 +136,7 @@ The variable ``safe_to_bootstrap`` is set to 0 on the first node after it's been
 
 
 .. _`Add Nodes to Cluster`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Adding Nodes to the Cluster
 
 Once you have successfully started the first node and thereby initialized a new cluster, the procedure for adding all the other nodes is even simpler. You just launch ``mysqld`` as you would normally--without the ``--wsrep-new-cluster`` option.  You would enter something like the following from the command-line, depending on your operating system and database system (see above for other methods):

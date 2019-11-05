@@ -31,7 +31,7 @@
    :format: html
 
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`training-video-plans`:
 
 =============================
@@ -40,7 +40,7 @@ Codership Training Videos
 
 Below is a list of training vides planned for the next few months. They cover essential topics and are grouped by skill level, as well as an extra set of articles cover some special topics.
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Beginner Tutorials
 
 .. csv-table::
@@ -51,7 +51,7 @@ Below is a list of training vides planned for the next few months. They cover es
    "**MySQL Replication vs. Galera Cluster** :raw-html:`<small>scheduled 15 oct. 2019</small>` Demonstrates how to configure and use standard replication and compares that to a Galera Cluster.", "**Installing Galera Cluster with MariaDB** :raw-html:`<small>scheduled 25 sept. 2019</small>` Shows the basics of how to install the Galera Cluster with MariaDB on three nodes."
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Intermediate Tutorials
 
 .. csv-table::
@@ -62,7 +62,7 @@ Below is a list of training vides planned for the next few months. They cover es
    "**Recovering from a Cluster Crash** :raw-html:`<small>not yet scheduled</small>` Goes through the steps to restart a cluster, and to ensure data isn't lost or overwritten.", ""
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Special Topics
 
 .. csv-table::

@@ -5,40 +5,37 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <./index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <./documentation/index>`
       - :doc:`Knowledge Base <./kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <./kb/trouble/index>`
          - :doc:`Best Practices <./kb/best/index>`
 
-      - :doc:`FAQ <./faq>`
       - :doc:`Training <./training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <./training/tutorials/index>`
          - :doc:`Training Videos <./training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`./documentation/streaming-replication`
       - :doc:`Synchronization Functions <./documentation/mysql-wsrep-functions>`
       - :doc:`System Tables <./documentation/system-tables>`
       - :doc:`Using Streaming <./documentation/using-sr>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document

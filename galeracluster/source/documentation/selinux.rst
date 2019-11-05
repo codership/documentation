@@ -6,36 +6,37 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -51,14 +52,14 @@ In the context of Galera Cluster, systems with SELinux may block the database se
 
 
 .. _`gen-selinux-policy`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Generating an SELinux Policy
 
 In order to create an SELinux policy for Galera Cluster, you need to first open ports and set SELinux to permissive mode.  Then, after generating various replication events, state transfers and notifications, create a policy from the logs of this activity and reset SELinux from to enforcing mode.
 
 
 .. _`permissive-selinux`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Setting SELinux to Permissive Mode
 
 When SELinux registers a system event, there are three modes that define its response: enforcing, permissive and disabled.  While you can set it to permit all activity on the system, this is not a good security practice.  Instead, set SELinux to permit activity on the relevant ports and to ignore the database server.
@@ -89,7 +90,7 @@ SELinux now permits the database server to function on the server and no longer 
 
 
 .. _`define-selinux-policy`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Defining the SELinux Policy
 
 While SELinux remains in permissive mode, it continues to log activity from the database server.  In order for it to understand normal operation for the database, you need to start the database and generate routine events for SELinux to see.
@@ -120,7 +121,7 @@ When you feel you have generated sufficient events for the log, you can begin wo
 
 
 .. _`enable-selinux`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Enabling an SELinux Policy
 
 Generating an SELinux policy requires that you search log events for the relevant information and pipe it to the ``audit2allow`` utility, creating a ``galera.te`` file to load into SELinux.

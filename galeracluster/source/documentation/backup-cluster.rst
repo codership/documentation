@@ -5,37 +5,37 @@
    :keywords: galera cluster, sst backup, state snapshot transfer
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Scriptable SST <scriptable-sst>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 
@@ -65,7 +65,7 @@ Getting backups with the associated Global Transaction ID requires a different a
 
 
 .. _`sst-backup`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: State Snapshot Transfer as Backup
 
 Taking a full data backup is very similar to node provisioning through a :term:`State Snapshot Transfer`.  In both cases, the node creates a full copy of the database contents, using the same mechanism to associate a :term:`Global Transaction ID` with the database state. Invoking backups through the state snapshot transfer mechanism has the following benefits:

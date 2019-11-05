@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`ssl-cert`
       - :doc:`ssl-sst`
@@ -41,9 +44,7 @@
       - :ref:`socket.checksum<socket.checksum>`
       - :ref:`socket.ssl_cipher<socket.ssl_cipher>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -59,7 +60,7 @@ When you finish generating the SSL certificates for your cluster, you need to en
 
 
 .. _`enable-ssl`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Enabling SSL
 
 There are three vectors that you can secure through :abbr:`SSL (Secure Socket Layer)`: traffic between the database server and client, replication traffic within Galera Cluster, and the :term:`State Snapshot Transfer`.
@@ -68,7 +69,7 @@ There are three vectors that you can secure through :abbr:`SSL (Secure Socket La
 
 
 .. _`securing-database`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Securing the Database
 
 For securing database server and client connections, you can use the internal MySQL :abbr:`SSL (Secure Socket Layer)` support.  In the event that you use logical transfer methods for state snapshot transfer, such as ``mysqldump``, this is the only step you need to take in securing your state snapshot transfers.
@@ -93,7 +94,7 @@ These parameters tell the database server and client which files to use in encry
 
 
 .. _`securing-replication-traffic`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Securing Replication Traffic
 
 In order to enable SSL on the internal node processes, you need to define the paths to the key, certificate and certificate authority files that you want the node to use in encrypting replication traffic.
@@ -115,7 +116,7 @@ This tells Galera Cluster which files to use in encrypting and decrypting replic
 
 
 .. _`configuring-ssl`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Configuring SSL
 
 In the event that you want or need to further configure how the node uses :abbr:`SSL (Secure Sockets Layer)`, Galera Cluster provides some additional parameters, including defining the cyclic redundancy check and setting the cryptographic cipher algorithm you want to use.
@@ -124,7 +125,7 @@ In the event that you want or need to further configure how the node uses :abbr:
 
 
 .. _`configuring-socket-checksum`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Configuring the Socket Checksum
 
 Using the :ref:`socket.checksum<socket.checksum>` parameter, you can define whether or which cyclic redundancy check the node uses in detecting errors.  There are three available settings for this parameter, which are defined by an integer:
@@ -144,7 +145,7 @@ The default configuration for this parameter is ``1`` or ``2`` depending upon yo
 
 
 .. _`configuring-cipher`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Configuring the Encryption Cipher
 
 Using the :ref:`socket.ssl_cipher<socket.ssl_cipher>` parameter, one can override the default :abbr:`SSL (Secure Sockets Layer)` cipher the node uses to encrypt replication traffic.  Galera Cluster uses whatever ciphers are available to the :abbr:`SSL (Secure Sockets Layer)` implementation installed on the nodes. For instance, if you install OpenSSL on your node, Galera Cluster can use any cipher supported by OpenSSL, as well as use filters to ensure that "weak" algorithms are not accepted on connection handshake.

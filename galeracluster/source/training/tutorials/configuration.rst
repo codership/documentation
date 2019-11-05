@@ -5,37 +5,39 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      .. cssclass:: bull-head
+           - :doc:`Training Videos <../videos/index>`
 
-         Related Articles
+        Related Documents
 
-.. cssclass:: tutorial-article
+        Related Articles
+
+.. cssclass:: library-article
 .. _`configuration`:
 
 ==========================
@@ -77,7 +79,7 @@ Depending on your system and the location of your installation of MySQL or Maria
 
 
 .. _`db-config`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Configuring the Database Server
 
 In addition to settings for the system, there are other basic configurations that you will need to set in the ``/etc/my.cnf`` file.  Make these changes before starting the database server.
@@ -144,7 +146,7 @@ The InnoDB storage engine uses its own memory buffer to cache data and for index
 
 
 .. _`swap-config`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Configuring Swap Space
 
 Memory requirements for Galera Cluster are difficult to predict with any precision.  The particular amount of memory it uses can vary significantly, depending upon the load the given node receives.  In the event that Galera Cluster attempts to use more memory than the node has available, the ``mysqld`` instance will crash.

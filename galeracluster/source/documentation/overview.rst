@@ -2,38 +2,39 @@
    :title: Overview of Galera Cluster
    :description:
    :language: en-US
-   :keywords: galera cluster, mysql, mariadb, overview 
+   :keywords: galera cluster, mysql, mariadb, overview
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -53,7 +54,7 @@ This approach is also called virtually synchronous replication, given that while
 
 
 .. _`benefits-galera`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Benefits of Galera Cluster
 
 Galera Cluster provides a significant improvement in high-availability for the MySQL system.  The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in trade-offs.
@@ -105,7 +106,7 @@ In summary, Galera Cluster is a high-availability solution that is both robust i
 
 .. _`Galera Cluster Cloud Implementations`:
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Cloud Implementations with Galera Cluster
 
 An additional benefit of Galera Cluster is good cloud support.  Automatic node provisioning makes elastic scale-out and scale-in operations painless.  Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.

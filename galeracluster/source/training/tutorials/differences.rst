@@ -5,38 +5,39 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      .. cssclass:: bull-head
+           - :doc:`Training Videos <../videos/index>`
 
-         Related Articles
+        Related Documents
 
+        Related Articles
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`differences`:
 
 ============================================
@@ -54,7 +55,7 @@ Although Galera Cluster is built on providing write-set replication to MySQL and
 
 
 .. _`server-difference`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Server Differences
 
 Using a server with Galera Cluster is not the same as one with MySQL.  Galera Cluster does not support the same range of operating systems as MySQL, and there are differences in how it handles binary logs and character sets.
@@ -174,7 +175,7 @@ Use ``general_log`` and ``general_log_file`` to choose query logging and to set 
 
 
 .. _`diff-transactions`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Differences in Transactions
 
 There are some differences in how Galera Cluster handles transactions from MySQL, such as :abbr:`XA (eXtended Architecture)` transactions and limitations on transaction size.

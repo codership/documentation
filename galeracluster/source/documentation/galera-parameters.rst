@@ -2,41 +2,41 @@
    :title: Galera Cluster Parameters
    :description:
    :language: en-US
-   :keywords: galera cluster, galera parameters, options 
+   :keywords: galera cluster, galera parameters, options
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`auto-eviction`
       - :doc:`ssl-cert`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -152,7 +152,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
 
 
 .. _`base_host`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``base_host``
 
 .. index::
@@ -171,7 +171,7 @@ Global variable for internal use.
 
 
 .. _`base_port`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``base_port``
 
 .. index::
@@ -190,7 +190,7 @@ Global variable for internal use.
 
 
 .. _`cert.log_conflicts`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``cert.log_conflicts``
 
 .. index::
@@ -213,7 +213,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`cert.optimistic_pa`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``cert.optimistic_pa``
 
 .. index::
@@ -238,7 +238,7 @@ on the master are committed.
 
 
 .. _`debug`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``debug``
 
 .. index::
@@ -259,7 +259,7 @@ Enable debugging.
 
 
 .. _`evs.auto_evict`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.auto_evict``
 
 .. index::
@@ -290,7 +290,7 @@ For more information on the Auto Eviction process, see :doc:`auto-eviction`.
 
 
 .. _`evs.causal_keepalive_period`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.causal_keepalive_period``
 
 .. index::
@@ -307,7 +307,7 @@ For developer use only. Defaults to ``evs.keepalive_period``.
 
 
 .. _`evs.consensus_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.consensus_timeout``
 
 .. index::
@@ -335,7 +335,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.debug_log_mask`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.debug_log_mask``
 
 .. index::
@@ -358,7 +358,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.delayed_keep_period`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.delayed_keep_period``
 
 .. index::
@@ -387,7 +387,7 @@ For more information on the delayed list and the Auto Eviction process, see :doc
 
 
 .. _`evs.delayed_margin`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.delayed_margin``
 
 .. index::
@@ -416,7 +416,7 @@ For more information on the delayed list and the Auto Eviction process, see :doc
 
 
 .. _`evs.evict`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.evict``
 
 .. index::
@@ -435,7 +435,7 @@ For more information on the eviction and Auto Eviction process, see :doc:`auto-e
 
 
 .. _`evs.inactive_check_period`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.inactive_check_period``
 
 .. index::
@@ -462,7 +462,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.inactive_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.inactive_timeout``
 
 .. index::
@@ -491,7 +491,7 @@ This parameter sets a hard limit for node inactivity.  If a delayed node remains
 
 
 .. _`evs.info_log_mask`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.info_log_mask``
 
 .. index::
@@ -521,7 +521,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.install_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.install_timeout``
 
 .. index::
@@ -548,7 +548,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.join_retrans_period`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.join_retrans_period``
 
 .. index::
@@ -571,7 +571,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.keepalive_period`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.keepalive_period``
 
 .. index::
@@ -596,7 +596,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.max_install_timeouts`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.max_install_timeouts``
 
 .. index::
@@ -621,7 +621,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.send_window`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.send_window``
 
 .. index::
@@ -648,7 +648,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.stats_report_period`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.stats_report_period``
 
 .. index::
@@ -671,7 +671,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.suspect_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.suspect_timeout``
 
 .. index::
@@ -696,7 +696,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.use_aggregate`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.use_aggregate``
 
 .. index::
@@ -719,7 +719,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.user_send_window`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.user_send_window``
 
 .. index::
@@ -748,7 +748,7 @@ For more information, see :ref:`evs.send_window <evs.send_window>`.
 
 
 .. _`evs.view_forget_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.view_forget_timeout``
 
 .. index::
@@ -773,7 +773,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`evs.version`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``evs.version``
 
 .. index::
@@ -800,7 +800,7 @@ For more information on the procedure to upgrade from one version to another, se
 
 
 .. _`gcache.dir`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcache.dir``
 
 .. index::
@@ -827,7 +827,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.keep_pages_size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcache.keep_pages_size``
 
 .. index::
@@ -850,7 +850,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.name`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcache.name``
 
 .. index::
@@ -877,7 +877,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.page_size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcache.page_size``
 
 .. index::
@@ -900,7 +900,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.recover`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcache.recover``
 
 .. index::
@@ -923,7 +923,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcache.size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcache.size``
 
 .. index::
@@ -952,7 +952,7 @@ For more information on customizing the write-set cache, see the :doc:`Best Prac
 
 
 .. _`gcomm.thread_prio`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcomm.thread_prio``
 
 .. index::
@@ -985,7 +985,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_debug`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.fc_debug``
 
 .. index::
@@ -1008,7 +1008,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_factor`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.fc_factor``
 
 .. index::
@@ -1031,7 +1031,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_limit`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.fc_limit``
 
 .. index::
@@ -1054,7 +1054,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.fc_master_slave`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.fc_master_slave``
 
 .. index::
@@ -1077,7 +1077,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.max_packet_size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.max_packet_size``
 
 .. index::
@@ -1100,7 +1100,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.max_throttle`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.max_throttle``
 
 .. index::
@@ -1123,7 +1123,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.recv_q_hard_limit`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.recv_q_hard_limit``
 
 .. index::
@@ -1146,7 +1146,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.recv_q_soft_limit`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.recv_q_soft_limit``
 
 .. index::
@@ -1172,7 +1172,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gcs.sync_donor`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gcs.sync_donor``
 
 .. index::
@@ -1197,7 +1197,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.listen_addr`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gmcast.listen_addr``
 
 .. index::
@@ -1220,7 +1220,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.mcast_addr`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gmcast.mcast_addr``
 
 .. index::
@@ -1247,7 +1247,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.mcast_ttl`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gmcast.mcast_ttl``
 
 .. index::
@@ -1270,7 +1270,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.peer_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gmcast.peer_timeout``
 
 .. index::
@@ -1293,7 +1293,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.segment`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gmcast.segment``
 
 .. index::
@@ -1316,7 +1316,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.time_wait`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gmcast.time_wait``
 
 .. index::
@@ -1339,7 +1339,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`gmcast.version`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``gmcast.version``
 
 .. index::
@@ -1358,7 +1358,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 
 .. _`ist.recv_addr`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``ist.recv_addr``
 
 .. index::
@@ -1381,7 +1381,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`ist.recv_bind`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``ist.recv_bind``
 
 .. index::
@@ -1406,7 +1406,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.recovery`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.recovery``
 
 .. index::
@@ -1439,7 +1439,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.bootstrap`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.bootstrap``
 
 .. index::
@@ -1462,7 +1462,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.announce_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.announce_timeout``
 
 .. index::
@@ -1485,7 +1485,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.checksum`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.checksum``
 
 .. index::
@@ -1508,7 +1508,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.ignore_sb`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.ignore_sb``
 
 .. index::
@@ -1531,7 +1531,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.ignore_quorum`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.ignore_quorum``
 
 .. index::
@@ -1554,7 +1554,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.linger`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.linger``
 
 .. index::
@@ -1577,7 +1577,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.npvo`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.npvo``
 
 .. index::
@@ -1600,7 +1600,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.wait_prim`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.wait_prim``
 
 .. index::
@@ -1623,7 +1623,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.wait_prim_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.wait_prim_timeout``
 
 .. index::
@@ -1646,7 +1646,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.weight`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.weight``
 
 .. index::
@@ -1669,7 +1669,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`pc.version`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``pc.version``
 
 .. index::
@@ -1688,7 +1688,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 
 .. _`protonet.backend`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``protonet.backend``
 
 .. index::
@@ -1711,7 +1711,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`protonet.version`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``protonet.version``
 
 .. index::
@@ -1730,7 +1730,7 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 
 
 .. _`repl.commit_order`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``repl.commit_order``
 
 .. index::
@@ -1763,7 +1763,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.causal_read_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``repl.causal_read_timeout``
 
 .. index::
@@ -1786,7 +1786,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.key_format`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``repl.key_format``
 
 .. index::
@@ -1816,7 +1816,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.max_ws_size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``repl.max_ws_size``
 
 .. index::
@@ -1839,7 +1839,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`repl.proto_max`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``repl.proto_max``
 
 .. index::
@@ -1862,7 +1862,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.recv_buf_size`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.recv_buf_size``
 
 .. index::
@@ -1885,7 +1885,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_ca`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.ssl_ca``
 
 .. index::
@@ -1912,7 +1912,7 @@ For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate
 
 
 .. _`socket.ssl_cert`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.ssl_cert``
 
 .. index::
@@ -1939,7 +1939,7 @@ For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate
 
 
 .. _`socket.checksum`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.checksum``
 
 .. index::
@@ -1968,7 +1968,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_cipher`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.ssl_cipher``
 
 .. index::
@@ -1991,7 +1991,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_compression`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.ssl_compression``
 
 .. index::
@@ -2014,7 +2014,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 
 .. _`socket.ssl_key`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.ssl_key``
 
 .. index::
@@ -2041,7 +2041,7 @@ For more information on generating :abbr:`SSL (Secure Socket Layer)` certificate
 
 
 .. _`socket.ssl_password_file`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``socket.ssl_password_file``
 
 .. index::

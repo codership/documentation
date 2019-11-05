@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`galera-status-variables`
       - :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>`
@@ -42,9 +45,7 @@
       - :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>`
       - :ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -60,7 +61,7 @@ Nodes queue the write-sets they receive in the global order and begin to apply a
 
 
 .. _`monitoring-fc`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Monitoring Flow Control
 
 Galera Cluster provides global status variables for use in monitoring Flow Control.  These break down into those status variables that count Flow Control pause events and those that measure the effects of pauses.
@@ -95,7 +96,7 @@ For more information on status variables that relate to flow control, see :doc:`
 
 
 .. _`monitor-pauses`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Monitoring for Flow Control Pauses
 
 When Flow Control engages, it notifies the cluster that it is pausing replication using an ``FC_Pause`` event.  Galera Cluster provides two status variables that monitor for these events.
@@ -106,7 +107,7 @@ When Flow Control engages, it notifies the cluster that it is pausing replicatio
 
 
 .. _`measure-fc-pauses`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Measuring the Flow Control Pauses
 
 In addition to tracking Flow Control pauses, Galera Cluster also allows you to track the amount of time since the last ``FLUSH STATUS`` query during which replication was paused due to Flow Control.
@@ -119,14 +120,14 @@ You can find this using one of two status variables:
 
 
 .. _`configuring-fc`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Configuring Flow Control
 
 Galera Cluster provides two sets of parameters that allow you to manage how nodes handle the replication rate and Flow Control.  The first set controls the write-set cache, the second relates to the points at which the node engages and disengages Flow Control.
 
 
 .. _`managing-gcache-fc`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Managing the Replication Rate
 
 These three parameters control how nodes respond to changes in the replication rate.  They allow you to manage the write-set cache on an individual node.
@@ -151,7 +152,7 @@ The write-set cache grows semi-logarithmically with time after the :ref:`gcs.rec
 
 
 .. _`managing-flow-control`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Managing Flow Control
 
 These parameters control the point at which the node triggers Flow Control and the factor used in determining when it should disengage Flow Control and resume replication.

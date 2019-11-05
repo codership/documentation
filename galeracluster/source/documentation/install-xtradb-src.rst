@@ -6,36 +6,37 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`wsrep_provider <wsrep_provider>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
       - :doc:`../training/tutorials/migration`
       - :doc:`System Configuration <../training/tutorials/configuration>`
@@ -55,7 +56,7 @@ Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL
 
 
 .. _`installxtradb-prep-server`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Preparing the Server
 
 When building from source code, ``make`` cannot manage or install dependencies necessary for either Galera Cluster itself or the build process.  You need to install these packages first.
@@ -82,7 +83,7 @@ Check with the repositories for your distribution or system for the appropriate 
 
 
 .. _`build-percona-xtradb`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Building Percona XtraDB Cluster
 
 The source code for Percona XtraDB Cluster is available through GitHub_.  Using Git you can download the source to build both Percona XtraDB Cluster and the Galera Replication Plugin locally on your system.
@@ -116,7 +117,7 @@ In addition to the database server, you also need the wsrep Provider, also known
 Once Git finishes downloading the source file,s you can start building the database server and the Galera Replication Plugin.  You now have the source file for the database server in a ``percona-xtradb-cluster/`` and the Galera source files in ``galera/``.
 
 .. _`build-percona`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Building the Database Server
 
 The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of Percona XtraDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through  the wsrep API, requires that you enable it through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
@@ -139,7 +140,7 @@ To build the database server, ``cd`` into the ``percona-xtradb-cluster`` directo
 
 
 .. _`build-percona-galera`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Building the wsrep Provider
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
@@ -160,7 +161,7 @@ This process creates the Galera Replication Plugin, (that is, the ``libgalera_sm
 
 
 .. _`installxtradb-postinstall`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Post-installation Configuration
 
 After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configuration process listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.

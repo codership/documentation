@@ -6,45 +6,44 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Install Galera <./install>`
       - :doc:`Galera MySQL Source <./install-mysql-src>`
       - :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`
       - :doc:`Galera MariaDB Binaries <./install-mariadb>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
       - :doc:`../training/tutorials/migration`
 
-      .. cssclass:: bull-head
-
-         Other Resources
+      Other Resources
 
       - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
       - :doc:`Galera MySQL (video)  <../../training/videos/galera-mysql-installing>`
@@ -61,14 +60,14 @@ Galera Cluster for MySQL is the reference implementation from Codership Oy.  Bin
 
 
 .. _`mysql-repo`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Enabling the Codership repository
 
 In order to install Galera Cluster for MySQL through your package manager, you need to first enable the Codership repository on your system.  There are different ways to accomplish this, depending on which Linux distribution and package manager you use.
 
 
 .. _`mysql-deb`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Enabling the ``apt`` Repository
 
 For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the Software Properties.  The package names vary depending on your distribution.  For Debian, in the terminal run the following command:
@@ -137,7 +136,7 @@ Packages in the Codership repository are now available for installation through 
 
 
 .. _`mysql-yum-repo`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Enabling the ``yum`` Repository
 
 For RPM-based distributions, such as CentOS, Red Hat and Fedora, you can enable the Codership repository by adding a ``galera.repo`` file to the ``/etc/yum.repos.d/`` directory.
@@ -172,7 +171,7 @@ In the ``baseurl`` field, make the following changes to web address:
 Packages in the Codership repository are now available for installation through ``yum``.
 
 .. _`mysql-zypper-repo`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Enabling the ``zypper`` Repository
 
 For distributions that use ``zypper`` for package management, such as openSUSE and SUSE Linux Enterprise Server, you can enable the Codership repository by importing the GPG key and then creating a ``galera.repo`` file in the local directory.
@@ -222,7 +221,7 @@ Packages in the Codership repository are now available for installation through 
 
 
 .. _`mysql-install`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Installing Galera Cluster for MySQL
 
 There are two packages involved in the installation of Galera Cluster for MySQL: the MySQL database server, built to include the :term:`wsrep API`; and the :term:`Galera Replication Plugin`.
@@ -261,7 +260,7 @@ Galera Cluster for MySQL is now installed on your server.  You need to repeat th
 .. note:: If you installed Galera Cluster for MySQL over an existing standalone instance of MySQL, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`../training/tutorials/migration`.
 
 .. _`centos-mysql-shared-compt`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: MySQL Shared Compatibility Libraries
 
 When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check error that blocks the installation.

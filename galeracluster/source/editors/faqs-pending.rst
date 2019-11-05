@@ -28,7 +28,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`library-new-questions`:
 
 ======================================
@@ -40,7 +40,7 @@ This page is where we record ideas for new Frequently Asked Questions (i.e., the
 If you have any suggestions for new FAQs, please email us at library@galeracluster.com.
 
 .. _`faq-general-pending`:
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: General Questions
 
 .. _`faq-pending-1`:
@@ -96,7 +96,7 @@ If you have any suggestions for new FAQs, please email us at library@galeraclust
 
 
 .. _`faq-learning-training-pending`:
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Learning & Training Questions
 
 .. _`faq-pending-4`:
@@ -113,14 +113,14 @@ If you have any suggestions for new FAQs, please email us at library@galeraclust
 
 
 .. _`faq-assistance-pending`:
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Assistance Questions
 
 No new  questions in this category.
 
 
 .. _`faq-install-migrate-pending`:
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Installation & Migration
 
 
@@ -139,7 +139,7 @@ No new  questions in this category.
 
 
 .. _`faq-usage-pending`:
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Usage Questions
 
 .. _`faq-pending-6`:
@@ -210,7 +210,7 @@ No new  questions in this category.
 
 
 .. _`faq-admin-pending`:
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Administrative Questions
 
 .. _`faq-pending-11`:
@@ -295,7 +295,7 @@ No new  questions in this category.
 
 
 .. _`faq-trivia-pending`:
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Galera Trivia
 
 .. _`faq-pending-17`:

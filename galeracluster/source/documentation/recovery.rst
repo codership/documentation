@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`evs.consensus_timeout <evs.consensus_timeout>`
       - :ref:`evs.inactive_check_period <evs.inactive_check_period>`
@@ -40,9 +43,7 @@
       - :doc:`Notification Command <notification-cmd>`
       - :ref:`wsrep_local_state <wsrep_local_state>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -56,7 +57,7 @@ Individual nodes fail to operate when they lose touch with the cluster.  This ca
 
 
 .. _`single-node-failure-detection`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Detecting Single Node Failures
 
 .. index::
@@ -98,7 +99,7 @@ The relationship between these option values is:
 
 
 .. _`availability-partition-tolerance`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Cluster Availability vs. Partition Tolerance
 
 Within the `CAP theorem <https://en.wikipedia.org/wiki/CAP_theorem>`_, Galera Cluster emphasizes data safety and consistency.  This leads to a trade-off between cluster availability and partition tolerance.  That is, when using unstable networks, such as :abbr:`WAN (Wide Area Network)`, low :ref:`evs.suspect_timeout <evs.suspect_timeout>` and :ref:`evs.inactive_timeout <evs.inactive_timeout>` values may result in false node failure detections, while higher values on these parameters may result in longer availability outages in the event of actual node failures.
@@ -107,7 +108,7 @@ Essentially what this means is that the :ref:`evs.suspect_timeout <evs.suspect_t
 
 
 .. _`recovery-single-node-failure`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Recovering from Single Node Failures
 
 If one node in the cluster fails, the other nodes continue to operate as usual.  When the failed node comes back online, it automatically synchronizes with the other nodes before it is allowed back into the cluster.
@@ -116,7 +117,7 @@ No data is lost in single node failures.
 
 
 .. _`state-transfer-failure`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric::  State Transfer Failure
 
 Single node failures can also occur when a :term:`state snapshot transfer` fails.  This failure renders the receiving node unusable, as the receiving node aborts when it detects a state transfer failure.

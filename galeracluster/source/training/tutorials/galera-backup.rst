@@ -7,41 +7,44 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+           - :doc:`Training Videos <../videos/index>`
 
-      .. cssclass:: bull-head
+        Related Documents
 
-         Related Articles
+        - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
 
-         - :doc:`Galera Back-Ups (video) <../videos/galera-backup>`
+        Related Articles
+
+        - :doc:`Galera Back-Ups (video) <../videos/galera-backup>`
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`galera-backup`:
 
 =====================================
@@ -59,7 +62,7 @@ Using Galera Cluster, there are a few ways in which you might make a back-up. In
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Back-Up Basics
 
 Back-ups are important for many reasons:  User errors are inevitable |---| such as tables dropped and rows deleted inadvertently |---| and there’s always the chance that a server crashes or is physically damaged in some other way. As a result, to ensure regular and good back-ups, you should develop some back-up policies.
@@ -70,14 +73,14 @@ Second, don’t rely on making back-ups manually. Instead, automate your back-up
 
 There are two basic types of back-ups that can be made of a database: a physical back-up and logical back-up. We'll consider each in the next two sections. Whatever method you use, occasionally check your back-ups by performing recovery tests.  This has the advantage of helping you to become more proficient at restoring data, which will be useful when under pressure to do so quickly.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Physical Back-Ups
 
 A physical back-up is fast; It’s intuitive and simple:  You just copy the data directory using ``cp`` or ``rsync``. It seems perfect, but there are many inherent problems with this method.
 
 To get a consistent back-up, you have to stop the ``mysqld`` daemon. That means no one can access the data while the back-up is being made. If any of the files are corrupted, you won’t know until you try to restore the back-up.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Logical Backups
 
 Logical back-ups are generally preferred. They're generated with a utility like ``mysqldump`` and produce text files with SQL statements which may be used to rebuild databases.
@@ -86,7 +89,7 @@ One drawbacks to logical back-ups is that the back-up process requires tables or
 
 You’ll have to decide which method works best for you. Let’s see how you might make simple back-ups of a Galera node using both of these methods.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Simple Galera Node Back-Ups
 
 Many DBAs will simply run ``mysqldump`` on one of the nodes without removing it from the cluster. This is definitely not a good idea since they may not get consistent data and it will slow the node and thereby affect the performance of the cluster.
@@ -114,14 +117,14 @@ This simple method of making back-ups of a Galera node works well, but it still 
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Using Standard Replication
 
 Even though Galera is running on a node, it’s possible for it also to be running standard replication and act as a master to another server that’s not part of the cluster, that’s not using Galera software.
 
 With such an arrangement, the replication slave can be used to make back-ups without disturbing the Galera cluster.  When you want to make a back-up, just stop the slave from replicating. Then run whatever back-up utility you prefer. When you’re finished, just start the slave replicating again.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Galera Master Configuration
 
 For a Galera node to be able also to serve as a standard replication master, we will have to add some extra parameters to the configuration file.  Let's look at those settings.  Below is an excerpt from a database configuration file on the node that's to be the master:
@@ -157,7 +160,7 @@ We'll neeed to export the data from the master using a utility like ``mysqldump`
 Now we can configure the slave. Again, the slave is not a node in the Galera cluster.  It’s an extra server that will be replicating the transactions of one of the Galera nodes.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Galera Slave Configuration & Preparation
 
 To attach a server to a Galera node, so that it may act as a slave, we'll need to add a few lines to its configuration file.  Actually, we only need ``server-id`` and ``log-bin``.  You can see them below.  The rest are somewhat optional; They're for choosing the name and path of logs and other files.
@@ -193,7 +196,7 @@ Once we've configured the slave, we'll need to restart it.  Then we have to load
 Once all of this is done, we’ll be ready to start replication and using the slave as a back-up source.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Backing-Up a Slave
 
 With replication working, making back-ups is easy.  We just need to stop the slave from replicating and then start whatever back-up utility we want to use.  We'll also copy the database configuration files.  Here's how that might be done:
@@ -221,7 +224,7 @@ This method works well, but it requires an extra server just for back-ups.  A be
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Using Galera Arbitrator
 
 The primary function of Galera Arbitrator, the daemon called, ``garbd``, is to act as a virtual node.  When there’s a tie vote among nodes about two conflicting transactions, the Arbitrator will cast the deciding vote.  Then all of the nodes will execute the winning transaction and Galera will continue with all nodes in agreement. This is function is portrayed in the diagram here.
@@ -231,7 +234,7 @@ Another function of Galera Arbitrator is to decide whether a joining node is in 
 This second function of Galera Arbitrator can be used in the same way to make back-ups, but with a little bit of coding.  Let’s look at how that might be done.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Back-Ups with Galera Arbitrator
 
 Although you can make a back-up fairly easily with ``mysqldump`` by removing a node from the cluster, and you can also make a back-up with ``rsync`` by shutting down ``mysqld`` on a node, it can be done more gracefully and with minimal interference with the Galera Cluster by using Galera Arbitrator.
@@ -245,7 +248,7 @@ The donor node will then execute the back-up script.  We’ll have to create suc
 Let’s take a look at how to configure Galera Arbitrator. Then we’ll look at how to create a back-up script.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Configure Galera Arbitrator
 
 Galera Arbitrator is included in the Galera Cluster software.  The Galera Arbitrator daemon may be called upon from the command-line for single functions, like making a back-up. To do this, we’ll have to construct a simple script to run whichever tool we prefer, such as ``mysqldump``.
@@ -271,7 +274,7 @@ The ``sst`` option provides the suffix of the back-up script.  It must be in the
 
 Those are all of the settings we need for Galera Arbitrator. We can actually set any or all of them from the command-line, but a configuration file is more convenient.  Now we need a back-up script.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Back-Up Script
 
 Below is a very simple back-up script which uses ``bash`` and ``mysqldump``. However, any scripting language and back-up utility is acceptable.  For some readers, this may be a little complicated.  Don't worry; we'll go through it.  For other readers, this is amateurish. It’s meant to be simple. What’s important is the basic concepts of how a script might be constructed to use Galera Arbitrator to make a back-up of a node.
@@ -333,7 +336,7 @@ That's everything:  it's everything we need.  Below is how we would execute this
 
 This one option, ``--cfg`` is to give the path and name of the Galera Arbitrator configuration file.  The daemon will read it before doing anything.
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Conclusion
 
 Those are the primary ways in which DBAs can make back-ups when using Galera Cluster. There are some third-party software that provide some more advanced methods (e.g., XtraBackup).  But these are the more straightforward and most common methods.

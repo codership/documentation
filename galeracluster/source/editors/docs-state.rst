@@ -28,7 +28,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`library-docs-state`:
 
 ======================================

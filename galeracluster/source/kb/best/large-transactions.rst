@@ -6,40 +6,41 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../index>`
+      - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../trouble/index>`
          - :doc:`Best Practices <./index>`
 
-      - :doc:`FAQ <../../faq>`
       - :doc:`Training <../../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+         - :doc:`Troubleshooting <../trouble/index>`
 
-      .. cssclass:: bull-head
+         .. cssclass:: here
 
-         Related Documents
+         - :doc:`Best Practices <./index>`
+
+      Related Documents
 
       - `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_
       - `pt-archiver <https://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
-.. cssclass:: kb-article
+.. cssclass:: library-article
 .. _`kb-best-large-transactions`:
 
 ================================

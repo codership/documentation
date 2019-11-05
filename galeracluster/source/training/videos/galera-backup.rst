@@ -5,60 +5,58 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Galera Arbitrator <../../documentation/arbitrator>`
-         - :doc:`Node Recovery <../../documentation/recovery>`
-         - :doc:`Scriptable SST  <../../documentation/scriptable-sst>`
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Galera Arbitrator <../../documentation/arbitrator>`
+        - :doc:`Node Recovery <../../documentation/recovery>`
+        - :doc:`Scriptable SST  <../../documentation/scriptable-sst>`
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-         - :doc:`Galera Back-Ups <../tutorials/galera-backup>`
+        - :doc:`Galera Back-Ups <../tutorials/galera-backup>`
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `mysqldump <https://mariadb.com/kb/en/mariadb/mysqldump/>`_
-         - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
-         - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
-         - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
-         - `CHANGE MASTER <https://dev.mysql.com/doc/refman/en/change-master-to.html>`_
-         - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
-         - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
+        - `mysqldump <https://mariadb.com/kb/en/mariadb/mysqldump/>`_
+        - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
+        - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
+        - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
+        - `CHANGE MASTER <https://dev.mysql.com/doc/refman/en/change-master-to.html>`_
+        - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
+        - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article
+.. cssclass:: library-article library-video
 .. _`video-galera-backup`:
 
 =====================================
@@ -95,7 +93,7 @@ Making Back-Ups with Galera Cluster
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Outline of Training Video
 
 .. container:: list-col1

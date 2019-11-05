@@ -6,51 +6,54 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      - :doc:`What's New <../../whats-new>`
-      - :doc:`Installation <galera-installation>`
-      - :doc:`Install MySQL Binary Installation <../../documentation/install-mysql>`
-      - :doc:`Source Build <../../documentation/install-mysql-src>`
-      - :doc:`Install XtraDB Binary Installation <../../documentation/install-xtradb>`
-      - :doc:`Source Build <../../documentation/install-xtradb-src>`
-      - :doc:`Install MariaDB Binary Installation <../../documentation/install-mariadb>`
-      - :doc:`Source Build <../../documentation/install-mariadb-src>`
-      - :doc:`System Configuration <configuration>`
-      - :doc:`Replication Configuration <wsrep-configuration>`
-      - :doc:`Starting the Cluster <starting-cluster>`
-      - :doc:`Testing a Cluster <testing-cluster>`
-      - :doc:`Restarting the Cluster <restarting-cluster>`
+           - :doc:`Training Videos <../videos/index>`
 
-      .. cssclass:: bull-head
+        Related Documents
 
-         Related Articles
+        - :doc:`What's New <../../whats-new>`
+        - :doc:`Installation <galera-installation>`
+        - :doc:`Install MySQL Binary Installation <../../documentation/install-mysql>`
+        - :doc:`Source Build <../../documentation/install-mysql-src>`
+        - :doc:`Install XtraDB Binary Installation <../../documentation/install-xtradb>`
+        - :doc:`Source Build <../../documentation/install-xtradb-src>`
+        - :doc:`Install MariaDB Binary Installation <../../documentation/install-mariadb>`
+        - :doc:`Source Build <../../documentation/install-mariadb-src>`
+        - :doc:`System Configuration <configuration>`
+        - :doc:`Replication Configuration <wsrep-configuration>`
+        - :doc:`Starting the Cluster <starting-cluster>`
+        - :doc:`Testing a Cluster <testing-cluster>`
+        - :doc:`Restarting the Cluster <restarting-cluster>`
+
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`getting-started`:
 
 ====================================
@@ -76,7 +79,7 @@ Galera Cluster is well suited for LAN, WAN, container and cloud environments.  T
 
 
 .. _`how-galera-works`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: How Galera Cluster Works
 
 The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.
@@ -93,7 +96,7 @@ Certification-based replication is an alternative approach to synchronous databa
 
 
 .. _`node-init`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Node Initialization
 
 Individual nodes in Galera Cluster are MySQL, MariaDB or Percona XtraDB.  But, deploying a node is not exactly the same as the standard standalone instance of the database server.  You need to take a few additional steps in order to properly install and configure the software.  The software runs on any unix-like operating system.  These articles provide guides to installing and configuring nodes for Galera Cluster.
@@ -120,7 +123,7 @@ Individual nodes in Galera Cluster are MySQL, MariaDB or Percona XtraDB.  But, d
 
 
 .. _`cluster-init`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Cluster Initialization
 
 With the software installed on the relevant servers in your your infrastructure, you can now initialize Galera Cluster, by bootstrapping the Primary Component then starting all the other nodes as you would any other database server instance.  These tutorial articles provide guides to starting the cluster, ways of testing that it's operational and, when you need to, how to restart the entire cluster.

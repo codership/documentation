@@ -6,37 +6,38 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`wsrep_sst_method <wsrep_sst_method>`
       - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -50,7 +51,7 @@ The :term:`Logical State Transfer Method`, ``mysqldump`` works by interfacing th
 
 
 .. _`sst-privileges`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Configuring SST Privileges
 
 In order for ``mysqldump`` to interface with the database server, it requires root connections for both the donor and joiner nodes.  You can enable this through the :ref:`wsrep_sst_auth <wsrep_sst_auth>` parameter.
@@ -66,7 +67,7 @@ You would use your own authentication parameters in place of ``wsrep_sst_user`` 
 
 
 .. _`sst_authorization`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Granting SST Privileges
 
 When the database server starts, it will read from the ``wsrep.cnf`` file to get the authentication information it needs to access another database server.  In order for the node to accept connections from the cluster, you must also create and configure the State Snapshot Transfer user through the database client.

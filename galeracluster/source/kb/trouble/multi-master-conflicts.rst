@@ -5,31 +5,35 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../index>`
+      - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
+
+         .. cssclass:: here
 
          - :doc:`Troubleshooting <./index>`
+
+      .. cssclass:: sub-links
+
          - :doc:`Best Practices <../best/index>`
 
-      - :doc:`FAQ <../../faq>`
       - :doc:`Training <../../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../../training/tutorials/index>`
          - :doc:`Training Videos <../../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Certification Based Replication <../../documentation/certification-based-replication>`
       - :ref:`cert.log_conflicts <cert.log_conflicts>`
@@ -38,11 +42,9 @@
       - :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>`
       - :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`
 
-      .. cssclass:: bull-head
+      Related Articles
 
-         Related Articles
-
-.. cssclass:: kb-article
+.. cssclass:: library-article
 .. _`kb-trouble-multi-master-conflicts`:
 
 ======================================

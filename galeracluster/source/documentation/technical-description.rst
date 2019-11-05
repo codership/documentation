@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Certification Replication <certification-based-replication>`
       - :doc:`tech-desc-introduction`
@@ -41,10 +44,7 @@
       - :doc:`state-transfer`
       - :doc:`streaming-replication`
 
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -58,7 +58,7 @@ Galera Cluster is a synchronous certification-based replication solution for MyS
 
 
 .. _`understanding-repl`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Understanding Replication
 
 Replication in the context of databases refers to the frequent copying of data from one database server to another.  These sections provide a high-level explanation of replication both in the general sense of how it works, as well as the particulars of how Galera Cluster implements these core concepts.
@@ -73,7 +73,7 @@ Replication in the context of databases refers to the frequent copying of data f
 
 
 .. _`understanding-galera`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Understanding Galera Cluster
 
 With a better grasp on how replication works, these pages provide a more detailed explanation of how Galera Cluster implements certification-based replication, including the specific architecture of the nodes, how they communicate with each other, as well as replicate data and manage the replication process.

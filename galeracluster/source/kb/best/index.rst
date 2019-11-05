@@ -6,29 +6,34 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../index>`
+      - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../trouble/index>`
+
+         .. cssclass:: here
+
          - :doc:`Best Practices <./index>`
 
-      - :doc:`FAQ <../../faq>`
       - :doc:`Training <../../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../../training/tutorials/index>`
          - :doc:`Training Videos <../../training/videos/index>`
 
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`kb-best`:
 
 ===================================
@@ -41,7 +46,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 .. _`kb-best-performance`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Performance
 
 
@@ -52,7 +57,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 322 words; Published: ; Topic: Performance
+      Length: 322 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -64,7 +69,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 443 words; Published: ; Topic: Performance
+      Length: 443 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -76,7 +81,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 366 words; Published: ; Topic: Performance
+      Length: 366 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -88,7 +93,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-   Length: 297 words; Published: ; Topic: Performance
+   Length: 297 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -101,7 +106,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 221 words; Published: ; Topic: Performance
+      Length: 221 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -113,7 +118,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 161 words; Published: ; Topic: Performance
+      Length: 161 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -125,7 +130,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 467 words; Published: ; Topic: Performance
+      Length: 467 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -137,7 +142,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 156 words; Published: ; Topic: Performance
+      Length: 156 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -148,7 +153,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 .. _`kb-best-topology`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Topology
 
 .. container:: list-col1
@@ -158,7 +163,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 55 words; Published: ; Topic: Topology
+      Length: 55 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -170,7 +175,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 81 words; Published: ; Topic: Topology
+      Length: 81 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -184,7 +189,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 399 words; Published: ; Topic: Topology
+      Length: 399 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -195,7 +200,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 .. _`kb-best-security`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Other
 
 .. container:: list-col1
@@ -205,7 +210,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 180 words; Published: ; Topic: Security
+      Length: 180 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -219,7 +224,7 @@ Whereas the :doc:`Troubleshooting <../trouble/index>` section relates to handlin
 
    .. rst-class:: list-stats
 
-      Length: 391 words; Published: ; Topic:
+      Length: 391 words; Published: 
 
    .. rst-class:: list-abstract
 

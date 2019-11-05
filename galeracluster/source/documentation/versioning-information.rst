@@ -6,36 +6,37 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Galera Installation <../training/tutorials/galera-installation>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -69,7 +70,7 @@ For more information on the installation process, see :doc:`Galera Installation 
 
 
 .. _`galera-release-number`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Release Numbering Schemes
 
 Software packages for Galera Cluster have their own release numbering schemas.  There are two schemas to consider in version numbering:
@@ -84,7 +85,7 @@ For instances of Galera Cluster that use the MariaDB database server, consult th
 
 .. _`third-party-galera`:
 .. rubric:: Third-party Implementations of Galera Cluster
-   :class: rubric-1
+   :class: section-heading
 
 In addition to the Galera Cluster for MySQL, the reference implementation from Codership Oy, there is a third-party implementation of Galera Cluster - `MariaDB Galera Cluster <https://mariadb.com>`_ which uses the Galera library for the replication implementation.  To interface with the Galera Replication Plugin, MariaDB has been enhanced to support the replication API definition in the wsrep API project.  Additionally, releases of MariaDB Server starting from version 10.1 on are packaged with Galera Cluster already included.  For more information, see `What is MariaDB Galera Cluster <https://mariadb.com/kb/en/mariadb/what-is-mariadb-galera-cluster/>`_.
 

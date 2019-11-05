@@ -6,29 +6,36 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../index>`
+      - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
+
+         .. cssclass:: here
 
          - :doc:`Troubleshooting <./index>`
+
+      .. cssclass:: sub-links
+
          - :doc:`Best Practices <../best/index>`
 
-      - :doc:`FAQ <../../faq>`
       - :doc:`Training <../../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../../training/tutorials/index>`
          - :doc:`Training Videos <../../training/videos/index>`
 
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`kb-trouble`:
 
 ===================================
@@ -41,7 +48,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 .. _`kb-trouble-state-transfers`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: State Transfers
 
 .. container:: list-col1
@@ -51,7 +58,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 221 words; Published: ; Topic: State Transfers
+      Length: 221 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -64,7 +71,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 301 words; Published: ; Topic: State Transfers
+      Length: 301 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -74,7 +81,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 .. _`kb-trouble-sql-syntax`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: SQL & Syntax Errors
 
 .. container:: list-col1
@@ -84,7 +91,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 358 words; Published: ; Topic: SQL & Syntax Errors
+      Length: 358 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -96,7 +103,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 876 words; Published: October 22, 2019; Topic: SQL & Syntax Errors
+      Length: 876 words; Published: October 22, 2019
 
    .. rst-class:: list-abstract
 
@@ -109,7 +116,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 159 words; Published: ; Topic: SQL & Syntax Errors
+      Length: 159 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -119,7 +126,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 .. _`kb-trouble-splits-topology`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Splits & Topology
 
 .. container:: list-col1
@@ -129,7 +136,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 751 words; Published: ; Topic: Splits & Topology
+      Length: 751 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -142,7 +149,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 599 words; Published: ; Topic: Splits & Topology
+      Length: 599 words; Published:
 
    .. rst-class:: list-abstract
 
@@ -151,7 +158,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 .. _`kb-trouble-other`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Other
 
 .. container:: list-col1
@@ -161,7 +168,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 373 words; Published: ; Topic: Security
+      Length: 373 words; Published: 
 
    .. rst-class:: list-abstract
 
@@ -174,7 +181,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 246 words; Published: ; Topic: Transactions
+      Length: 246 words; Published:
 
    .. rst-class:: list-abstract
 

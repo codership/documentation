@@ -6,41 +6,42 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../index>`
+      - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../trouble/index>`
          - :doc:`Best Practices <./index>`
 
-      - :doc:`FAQ <../../faq>`
       - :doc:`Training <../../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+         - :doc:`Troubleshooting <../trouble/index>`
 
-      .. cssclass:: bull-head
+         .. cssclass:: here
 
-         Related Documents
+         - :doc:`Best Practices <./index>`
+
+      Related Documents
 
       - :ref:`pc.boostrap <pc.bootstrap>`
       - :ref:`pc.ignore_sb <pc.ignore_sb>`
       - :ref:`Arbitrator <arbitrator>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
-.. cssclass:: kb-article
+.. cssclass:: library-article
 .. _`kb-best-two-node-clusters`:
 
 =======================

@@ -6,34 +6,35 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -47,7 +48,7 @@ Pen is a high-scalability, high-availability, robust load balancer for TCP- and 
 
 
 .. _`pen-install`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Installation
 
 Pen is available in the software repositories of most Linux distributions.  You can install it using a package manager.
@@ -68,7 +69,7 @@ Whichever you use, they will install Pen on your system.  In the event that the 
 
 
 .. _`using-pen`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Using Pen
 
 Once you've installed Pen on the load balancing server, you can launch it from the command-line by entering something like the following:
@@ -86,7 +87,7 @@ For more information on Pen configuration and use, see its manpage.
 
 
 .. _`pen-server-selection`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Server Selection
 
 When Pen receives a new connection from the application servers, it first checks to see where the application was routed on the last connection and attempts to send traffic there.  In the event that it cannot establish a connection, it falls back on a round-robin selection policy.

@@ -5,56 +5,54 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-         - :doc:`firewalld <../../documentation/firewalld>`
-         - :doc:`Installing Galera <../../documentation/install>`
-         - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-         - :doc:`SELinux <../../documentation/selinux>`
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+        - :doc:`firewalld <../../documentation/firewalld>`
+        - :doc:`Installing Galera <../../documentation/install>`
+        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+        - :doc:`SELinux <../../documentation/selinux>`
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-         - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
+        - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `Galera Repository <http://releases.galeracluster.com/>`_
+        - `Galera Repository <http://releases.galeracluster.com/>`_
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article training-exercises
+.. cssclass:: library-article training-exercises
 .. _`exercises-galera-monitoring`:
 
 ==========================
@@ -93,13 +91,13 @@ Monitoring a Galera Cluster
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Exercises
 
 Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds generally to the section with the same name in training video.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Galera Status Variables
 
 Do these exercises after viewing the first two sections of the training video:  *Galera Monitoring Overview*, and *Galera Status Variables*.
@@ -112,7 +110,7 @@ Do these exercises after viewing the first two sections of the training video:  
 
 3. Check the replication health by checking the flow control, the ``wsrep_local_recv_%`` and the ``wsrep_local_send_%`` status variables.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Server Logs
 
 Do these exercises after viewing the section of the training video entitled, *Server Logs*. MySQL or MariaDB should running on all nodes.
@@ -123,7 +121,7 @@ Do these exercises after viewing the section of the training video entitled, *Se
 
 5. In the database configuration file for one of the nodes, set Galera to log information about conflicts. Also, enable debugging.  In a separate terminal window, use ``tail`` with the ``-f`` option to monitor entries in the error log.  Then restart the database software and Galera.  Enter some transactions and observe the new entries in the error log.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Notification Command & Customized Scripts
 
 These exercises will take some time to do, but they'll be a good exercise for learning how to develop a notification command of your own.
@@ -138,7 +136,7 @@ These exercises will take some time to do, but they'll be a good exercise for le
 
 9. Modify your script to alert you of a node down.  Use your imagination and skills to use some method that would be fairly dependable.  When you have it done, test it by shutting down a node.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Third-Party Software
 
 This exercise is meant to acquaint you with the third-party software for monitoring Galera, and to get you thinking about using them in production.

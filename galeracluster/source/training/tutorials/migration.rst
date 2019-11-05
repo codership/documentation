@@ -6,47 +6,50 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      - :ref:`wsrep_on <wsrep_on>`
-      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
-      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
-      - :ref:`Upgrading System Tables <upgrade-system-tables>`
+           - :doc:`Training Videos <../videos/index>`
 
-      .. cssclass:: bull-head
+        Related Documents
 
-         Related Articles
+        - :ref:`wsrep_on <wsrep_on>`
+        - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+        - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+        - :ref:`Upgrading System Tables <upgrade-system-tables>`
 
-      - :doc:`Galera Installation <galera-installation>`
-      - :doc:`Starting the Cluster <starting-cluster>`
-      - :doc:`System Configuration <configuration>`
-      - :doc:`Replication Configuration <wsrep-configuration>`
+        Related Articles
+
+        - :doc:`Galera Installation <galera-installation>`
+        - :doc:`Starting the Cluster <starting-cluster>`
+        - :doc:`System Configuration <configuration>`
+        - :doc:`Replication Configuration <wsrep-configuration>`
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`migration`:
 
 ============================
@@ -65,7 +68,7 @@ For more information on installing Galera Cluster, see :doc:`Galera Installation
 
 
 .. _`upgrade-system-tables`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Upgrading System Tables
 
 When you finish upgrading a standalone database server to Galera Cluster, but before you initialize your own cluster, you need to update the system tables to take advantage of the new privileges and capabilities.  You can do this with ``mysql_upgrade``.
@@ -108,7 +111,7 @@ For more information on initializing and adding nodes to a cluster, see :doc:`St
 
 
 .. _`migrating-mysql-galera`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Migrating from MySQL to Galera Cluster
 
 In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL master-slave replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.

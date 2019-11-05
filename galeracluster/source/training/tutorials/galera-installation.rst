@@ -6,42 +6,45 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      - :doc:`SELinux <../../../documentation/selinux>`
-      - :doc:`Firewall Settings <../../../documentation/firewall-settings>`
-      - :doc:`Migration <migration>`
-      - :ref:`Configuring Swap Space <swap-config>`
+           - :doc:`Training Videos <../videos/index>`
 
-      .. cssclass:: bull-head
+        Related Documents
 
-         Related Articles
+        - :doc:`SELinux <../../../documentation/selinux>`
+        - :doc:`Firewall Settings <../../../documentation/firewall-settings>`
+        - :doc:`Migration <migration>`
+        - :ref:`Configuring Swap Space <swap-config>`
+
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`galera-installation`:
 
 ==========================
@@ -78,7 +81,7 @@ For software, each node in the cluster requires at a minimum the following:
 
 
 .. _`system-requirements`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Preparing the Server
 
 Before you begin the installation process, there are a few tasks that you need to do to prepare the servers for Galera Cluster.  You must perform the following steps on each node in your cluster.
@@ -178,7 +181,7 @@ If instead, your system uses ``systemd``, run the following command instead:
 
 
 .. _`galera-install`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Installing Galera Cluster
 
 There are two versions of Galera Cluster for MySQL: the original Codership reference implementation and MariaDB Galera Cluster.  For each database server, binary packages are available for Debian- and RPM-based Linux distributions, or you can build them from source.

@@ -6,41 +6,44 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
-      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
-      - :ref:`wsrep_ready <wsrep_ready>`
+           - :doc:`Training Videos <../videos/index>`
 
-      .. cssclass:: bull-head
+        Related Documents
 
-         Related Articles
+        - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
+        - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+        - :ref:`wsrep_ready <wsrep_ready>`
+
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`testing-cluster`:
 
 ===================
@@ -55,7 +58,7 @@ When you have a cluster running, you may want to test certain features to ensure
 
 
 .. _`Replication Testing`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Replication Testing
 
 There are a few step to do to test that Galera Cluster is working as expected.  First, using the database client, verify that all nodes have connected to each other.  To do this, execute the ``SHOW STATUS`` statement like so:
@@ -116,7 +119,7 @@ The results returned  from the ``SELECT`` statement indicates that the data ente
 
 
 .. _`Split Brain Testing`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Split-Brain Testing
 
 There are a few steps to test Galera Cluster for split-brain situations on a two-node cluster.  First, disconnect the network connection between the two nodes. At this point, the quorum will be lost and the nodes won't serve requests.
@@ -133,7 +136,7 @@ At this point the quorum should be reset and the cluster recovered.
 
 
 .. _`Failure Simulation`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Failure Simulation
 
 You can also test Galera Cluster by simulating various failure situations on three nodes.  To simulate a crash of a single ``mysqld`` process, execute the following from the command-line on one of the nodes:

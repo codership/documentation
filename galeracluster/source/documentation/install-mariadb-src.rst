@@ -5,40 +5,40 @@
    :keywords: galera cluster, installation, install, mariadb, source
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Install Galera <./install>`
       - :doc:`MariaDB Galera Binaries <./install-mariadb>`
       - :doc:`Galera MySQL Source <./install-mysql-src>`
       - :ref:`wsrep_provider <wsrep_provider>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
       - :doc:`Migration <../training/tutorials/migration>`
       - :doc:`System Configuration <../training/tutorials/configuration>`
@@ -60,7 +60,7 @@ MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL
 
 
 .. _`install-mariadb-prep-server`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Preparing the Server
 
 When building from source code, ``make`` cannot manage or install dependencies for either Galera Cluster or the build process itself.  You need to install these packages first.
@@ -87,7 +87,7 @@ Check with the repositories for your distribution or system for the appropriate 
 
 
 .. _`build-galera-mariadb`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Building MariaDB Galera Cluster
 
 The source code for MariaDB Galera Cluster is available through GitHub_. Using Git you can download the source code to build MariaDB and the Galera Replicator Plugin locally on your system.
@@ -128,7 +128,7 @@ In addition to the database server, you also need the wsrep Provider, also known
 Once Git finishes downloading the source files, you can start building the database server and the Galera Replicator Plugin.  You now have the source files for the database server in a ``server/`` directory and the Galera source files in ``galera/``.
 
 .. _`build-mariadb`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Building the Database Server
 
 The database server for Galera Cluster is the same as that of the standard database servers for  standalone instances of MariaDB, with the addition of a patch for the wsrep API, which is packaged in the version downloaded from GitHub_.  You can enable the patch through the ``WITH_WSREP`` and ``WITH_INNODB_DISALLOW_WRITES`` CMake configuration options.
@@ -152,7 +152,7 @@ To build the database server, ``cd`` into the ``server/`` directory and run the 
 
 
 .. _`build-mariadb-galera`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Building the wsrep Provider
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API` and operates as the wsrep Provider for the database server.  What it provides is a certification layer to prepare write-sets and perform certification checks, a replication layer and a group communication framework.
@@ -173,7 +173,7 @@ This process creates the Galera Replication Pluigin, (that is, the ``libgalera_s
 
 
 .. _`installmariadb-postinstall`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Post-installation Configuration
 
 After the build completes, there are some additional steps that you must take in order to finish installing the database server on your system.  This is over and beyond the standard configuration process listed in :doc:`System Configuration <../training/tutorials/configuration>` and :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`.

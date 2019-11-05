@@ -5,39 +5,39 @@
    :keywords: galera cluster, containers, docker, container image, firewall
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Firewall Settings <firewall-settings>`
       - :ref:`wsrep_node_address <wsrep_node_address>`
       - :ref:`wsrep_node_name <wsrep_node_name>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
       - :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`
 
@@ -57,7 +57,7 @@ Galera Cluster can run from within a such a container, within Docker.  You may f
 
 
 .. _`configure-container`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Configuring a Container
 
 Images are the containers that Docker has available to run.  There are a number of base images available through `Docker Hub <https://registry.hub.docker.com>`_.  You can pull these to your system through the ``docker`` command-line tool.  You can also build new images.
@@ -89,7 +89,7 @@ This example follows the installation process for running Galera Cluster from wi
 
 
 .. _`docker-my-cnf`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Configuration File
 
 Before you build the container, you need to create the configuration file for the node.  The ``COPY`` command in the ``Dockerfile`` example above copies ``my.cnf``, the MySQL configuration file, from the build directory into the container.
@@ -107,7 +107,7 @@ Changes to the ``my.cnf`` file will not propagate into an existing container.  T
 
 
 .. _`building-the-container`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Building a Container Image
 
 Building an image simplifies everyting---the node installation, the configuration and the deployment process---by reducing it to a single command.  It will create a server instance where Galera Cluster is already installed, configured and ready to start.
@@ -139,7 +139,7 @@ You would then update the container tag to help differentiate between each node 
 
 
 .. _`deploy-container`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Deploying a Container
 
 When you finish building an image, you're ready to launch the node container.  For each node, start the container using the Docker command-line tool with the ``run`` argument like so:
@@ -159,7 +159,7 @@ You'll notice in the example here there are several ``-p`` options included. Tho
 
 
 .. _`docker-firewall`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Firewall Settings
 
 When you launch the Docker container (i.e., ``docker run`` as shown above), the series of ``-p`` options connect the ports on the host system to those in the container.  When the container is launched this way, nodes in the container have the same level of access to the network as the node would if it were running on the host system.
@@ -170,14 +170,14 @@ For more information on configuring the firewall for Galera Cluster, see :doc:`F
 
 
 .. _`docker-data`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Persistent Data
 
 Docker containers are not meant to carry persistent data.  When you close a container, the data it carries is lost.  To avoid this problem, you can link volumes in the container to directories on the host file system. This is done with the ``-v`` option when you launch the container.
 
 In the launch example above (i.e., the ``docker run`` lines), the ``-v`` argument connects the ``/var/container_data/mysql/`` directory to ``/var/lib/mysql/`` in the container.  This replaces the local datadir inside the container with a symbolic link to a directory on the host system. This ensures that you won't lose data when the container restarts.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Database Client
 
 Once you have a container node running, you can execute additional commands on the container using the ``docker exec`` command with the container name given with the ``--name`` parameter.

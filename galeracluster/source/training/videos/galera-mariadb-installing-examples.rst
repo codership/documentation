@@ -5,57 +5,54 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-         - :doc:`firewalld <../../documentation/firewalld>`
-         - :doc:`Installing Galera <../../documentation/install>`
-         - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-         - :doc:`SELinux <../../documentation/selinux>`
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+        - :doc:`firewalld <../../documentation/firewalld>`
+        - :doc:`Installing Galera <../../documentation/install>`
+        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+        - :doc:`SELinux <../../documentation/selinux>`
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `Galera Repository <http://releases.galeracluster.com/>`_
-         - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
-
+        - `Galera Repository <http://releases.galeracluster.com/>`_
+        - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
 
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article training-exercises
+.. cssclass:: library-article training-exercises
 .. _`examples-galera-mariadb-installing`:
 
 ==========================
@@ -86,13 +83,13 @@ Installing Galera Cluster with MariaDB
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Exercises
 
 Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in training video.  Make notes for yourself as you go along, for when you have to do these tasks for your job or for yourself.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Database Configuration (``/etc/my.cnf``)
 
 Do these exercises after viewing the first two sections of the training video:  *Galera Cluster Overview*, and *Installing Software on Nodes*. Don’t configure the nodes until the next section.
@@ -133,7 +130,7 @@ Do these exercises after viewing the first two sections of the training video:  
    wsrep_sst_method=rsync
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Configuring Nodes & Opening Ports
 
 Do these exercises after viewing the section with the two titles. MariaDB should be down on each node; don’t start ``mysqld`` again until the next section.

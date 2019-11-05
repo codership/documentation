@@ -6,40 +6,36 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../documentation/index>`
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../kb/trouble/index>`
-         - :doc:`Best Practices <../kb/best/index>`
+           - :doc:`Troubleshooting <../kb/trouble/index>`
+           - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
-      - :doc:`Training <./index>`
+        .. cssclass:: here
 
-      .. cssclass:: no-bull-sub
+        - :doc:`Training <./index>`
 
-         - :doc:`Tutorial Articles <./tutorials/index>`
-         - :doc:`Training Videos <./videos/index>`
+        .. cssclass:: sub-links
 
-      .. cssclass:: bull-head
-
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+           - :doc:`Tutorial Articles <./tutorials/index>`
+           - :doc:`Training Videos <./videos/index>`
 
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: training-list
+.. cssclass:: library-index
 .. _`training`:
 
 ===================
@@ -50,7 +46,7 @@ This is the training section of the Codership Library. Here you'll find tutorial
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Tutorial Articles <./tutorials/index>`
 
 There's so much to learn about Galera Cluster and related software.  In this section you'll find several tutorial articles. Some are on how to get started with Galera and other basic tasks related to starting a Galera Cluster. There are also intermediate and more advanced articles, for those who are more experienced in Galera. We're adding new articles every month.
@@ -114,7 +110,7 @@ There's so much to learn about Galera Cluster and related software.  In this sec
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Training Videos <./videos/index>`
 
 Some people prefer to read, while others prefer screencast videos.  We have several in this format on Galera Cluster and related software; we're adding new ones every month. They're professionally made presentations, with an experieced instructor voice-over. Some parts are easy to follow slides, and for some parts there are demonstrations of how to configure and use the software.  They're grouped into these three main categories:
@@ -126,7 +122,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
 
    .. rst-class:: list-stats
 
-      5 videos; length: 2 hrs, 52 mins; avg: 34 mins.
+      5 videos; length: 2 hrs, 52 mins; avg: 34 mins
 
    .. rst-class:: list-abstract
 
@@ -150,7 +146,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
 
    .. rst-class:: list-stats
 
-      1 videos; length: 1 hr, 0 mins.; avg: 60 mins.
+      1 video; length: 60 mins; avg: 60 mins
 
    .. rst-class:: list-abstract
 

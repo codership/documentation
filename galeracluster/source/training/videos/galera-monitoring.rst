@@ -5,55 +5,52 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Monitoring Cluster <../../documentation/monitoring-cluster>`
-         - :doc:`Notification Command <../../documentation/notification-cmd>`
-         - :doc:`Notification Script <../../documentation/notification-cmd-example>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Monitoring Cluster <../../documentation/monitoring-cluster>`
+        - :doc:`Notification Command <../../documentation/notification-cmd>`
+        - :doc:`Notification Script <../../documentation/notification-cmd-example>`
 
-         Related Articles
+        Related Articles
 
-         - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
+        - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
-         - `SCUMM <https://severalnines.com/database-blog/scumm-agent-based-database-monitoring-infrastructure-clustercontrol>`_
-
+        - `Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
+        - `SCUMM <https://severalnines.com/database-blog/scumm-agent-based-database-monitoring-infrastructure-clustercontrol>`_
 
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article
+.. cssclass:: library-article library-video
 .. _`video-galera-monitoring`:
 
 ====================================
@@ -89,7 +86,7 @@ Monitoring a Galera Cluster
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Outline of Training Video
 
 .. container:: list-col1

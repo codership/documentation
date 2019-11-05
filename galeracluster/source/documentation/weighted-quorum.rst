@@ -6,39 +6,40 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`evs.suspect_timeout <evs.suspect_timeout>`
       - :doc:`arbitrator`
       - :ref:`pc.weight <pc.weight>`
       - :doc:`Reset Quorum <quorum-reset>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -56,7 +57,7 @@ Under normal operations, your Primary Component is the cluster.  When cluster pa
 
 
 .. _`weighted-quorum`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Weighted Quorum
 
 .. index::
@@ -95,7 +96,7 @@ In order to enable automatic failovers, you need to use at least three nodes.  B
 
 
 .. _`split-brain-condition`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Split-Brain Condition
 
 Cluster failures that result in database nodes operating autonomous of each other are called split-brain conditions.  When this occurs, data can become irreparably corrupted, such as would occur when two database nodes independently update the same row on the same table.  As is the case with any quorum-based system, Galera Cluster is subject to split-brain conditions when the quorum algorithm fails to select a :term:`Primary Component`.
@@ -119,7 +120,7 @@ For more information on configuring and managing the quorum, see :doc:`quorum-re
 
 
 .. _`quorum-calculation`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Quorum Calculation
 
 .. index::
@@ -161,14 +162,14 @@ Galera Cluster applies the new weight on the delivery of a message that carries 
 
 
 .. _`weighted-quorum-examples`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Weighted Quorum Examples
 
 Now that you understand how quorum weights work, here are some examples of deployment patterns and how to use them.
 
 
 .. _`wq-three-nodes`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Weighted Quorum for Three Nodes
 
 When configuring quorum weights for three nodes, use the following pattern:
@@ -183,7 +184,7 @@ Under this pattern, killing ``node2`` and ``node3`` simultaneously preserves the
 
 
 .. _`wq-simple-master-slave`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Weighted Quorum for a Simple Master-Slave Scenario
 
 When configuring quorum weights for a simple master-slave scenario, use the following pattern:
@@ -197,7 +198,7 @@ Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary
 
 
 .. _`wq-master-multi-slave`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Weighted Quorum for a Master and Multiple Slaves Scenario
 
 When configuring quorum weights for a master-slave scenario that features multiple slave nodes, use the following pattern:
@@ -214,7 +215,7 @@ Under this pattern, if ``node1`` dies, all remaining nodes end up as non-primary
 
 
 .. _`wq-primary-secondary-site`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Weighted Quorum for a Primary and Secondary Site Scenario
 
 When configuring quorum weights for primary and secondary sites, use the following pattern:

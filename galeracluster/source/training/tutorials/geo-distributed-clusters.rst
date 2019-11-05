@@ -6,37 +6,40 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      .. cssclass:: bull-head
+           - :doc:`Training Videos <../videos/index>`
 
-         Related Articles
+        Related Documents
+
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`geo-distributed-clusters`:
 
 ==================================
@@ -50,7 +53,7 @@ Geo-Distributed Database Clusters
 With Galera you can construct database clusters where each node is located in a different physical or even geographical location. In this blog post we will show some of the benefits from having such a geo-distributed cluster and the specific Galera features that enable practical replication across WAN links.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Benefits from Geo-Distribution
 
 Geo-distribution allows database to break out from the single data center, which opens a whole new approach to redundancy and performance.
@@ -74,7 +77,7 @@ If all nodes in a cluster share a common power supply or storage infrastructure,
 With geographically-distributed nodes, it is possible to skip flushing every transaction to disk altogether and still have transaction persistency even after a catastrophic failure. As long as at least one node in any datacenter survived the outage, the remaining nodes, upon restart, will fetch from it all the transactions they had missed. The ``innodb_flush_log_at_trx_commit`` InnoDB option can be used to configure flushing behavior.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Galera Features for Geo-Distribution
 
 Galera Cluster does not just happen to work well in geo-distributed environments. In fact, the transaction certification and replication approach taken by Galera is uniquely suited for high-latency links. The product also includes various features and enhancements targeted specifically for geo-distribution.
@@ -122,7 +125,7 @@ Galera Cluster can be configured to use public IP addresses if individual nodes 
 Galera Cluster also supports traditional MySQL replication and GTIDs. In high-latency situations where complete avoidance of slave lag is not required, asynchronous replication can be set up between two otherwise independent Galera clusters, each running in its own datacenter.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Summary
 
 The case for building geo-distributed database clusters is strong. The Galera approach to replication and the specific features in the product make it practical to build Galera clusters that span multiple data centers and multiple users have such clusters already in production.

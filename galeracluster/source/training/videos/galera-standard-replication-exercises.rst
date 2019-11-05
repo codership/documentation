@@ -5,54 +5,52 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-         - :doc:`firewalld <../../documentation/firewalld>`
-         - :doc:`Installing Galera <../../documentation/install>`
-         - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-         - :doc:`SELinux <../../documentation/selinux>`
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+        - :doc:`firewalld <../../documentation/firewalld>`
+        - :doc:`Installing Galera <../../documentation/install>`
+        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+        - :doc:`SELinux <../../documentation/selinux>`
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - `Galera Repository <http://releases.galeracluster.com/>`_
+        - `Galera Repository <http://releases.galeracluster.com/>`_
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article training-exercises
+.. cssclass:: library-article training-exercises
 .. _`exercises-galera-standard-replication`:
 
 ==========================
@@ -93,13 +91,13 @@ Standard Replication & Galera Cluster
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Exercises
 
 Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in training video.  Make notes for yourself as you go along, for when you have to do these tasks for your job or for yourself.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Standard Replication Exercises
 
 Do these exercises after viewing the three sections on Standard Replication |---| before starting the Galera Cluster half of the training video.
@@ -118,7 +116,7 @@ Do these exercises after viewing the three sections on Standard Replication |---
 
 6. Download the sample database, the ``company`` database to the master server.  There’s one for MySQL and another for MariaDB: use the one that matches your database system. Both were created with mysqldump, so use the ``mysql`` client to load the data onto the master.  When you’re finished, check the slave to see if it has replicated the database and its data.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Galera Cluster Exercises
 
 Do these exercises after completing the previous exercises, and after having viewed the three sections of the training video on Galera Cluster.

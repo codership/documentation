@@ -27,7 +27,7 @@
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-.. cssclass:: kb-list
+.. cssclass:: library-index
 .. _`codership-github`:
 
 =============================

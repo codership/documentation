@@ -5,35 +5,35 @@
    :keywords: galera cluster, firewall, firewalld
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -51,7 +51,7 @@ For more information on FirewallD, see the `Documentation <https://fedoraproject
 
 
 .. _`firewalld-ports`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Opening Ports for Galera Cluster
 
 Galera Cluster requires four open ports for replication over TCP. To use multicast replication, it also requires one for UDP transport.  In order for this to work over FirewallD, you also need to add the database service to the firewall rules.
@@ -81,7 +81,7 @@ These commands dynamically configure FirewallD. Your firewall will then permit t
 
 
 .. _`firewalld-persistent`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Making Firewall Changes Persistent
 
 The commands given in the above section allow you to configure FirewallD on a running server and update the firewall rules without restarting.  However, these changes are not persistent.  When the server restarts, FirewallD reverts to its default configuration.  To change the default configuration, a somewhat different approach is required:

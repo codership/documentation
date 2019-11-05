@@ -5,30 +5,34 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
+
+           .. cssclass:: here
+
+           - :doc:`Training Videos <./index>`
 
 
-.. cssclass:: training-list
+.. cssclass:: library-index
 .. _`training-videos`:
 
 ===========================
@@ -40,12 +44,12 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 .. _`training-videos-intro-install`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Introduction & Installation
 
 .. container:: list-col1
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-intro`
 
    .. rst-class:: list-stats
@@ -57,7 +61,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
       This fairly non-technical video presents Galera Cluster:  How it works and the benefits to organizations using it.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-mysql-installing`
 
    .. rst-class:: list-stats
@@ -69,7 +73,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
       Shows the basics of how to install Galera Cluster and MySQL software, and configure them on three nodes.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-mariadb-installing`
 
    .. rst-class:: list-stats
@@ -83,7 +87,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
 .. container:: list-col2
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-aws-installing`
 
    .. rst-class:: list-stats
@@ -95,7 +99,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
       Shows the basics of how to set up server instances on Amazon's AWS for a Galera Cluster with either MySQL or MariaDB.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-standard-replication`
 
    .. rst-class:: list-stats
@@ -111,12 +115,12 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 .. _`training-videos-admin-trouble`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Administration & Recovery
 
 .. container:: list-col1
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-monitoring`
 
    .. rst-class:: list-stats
@@ -128,7 +132,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
       This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: **Software Upgrades**
 
    .. rst-class:: list-stats
@@ -142,7 +146,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
 .. container:: list-col2
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-backup`
 
    .. rst-class:: list-stats
@@ -154,7 +158,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
       Explains the basics of back-ups and demonstrates a few methods for making back-ups of databases on a node in a Galera Cluster. Additionally, it covers briefly how to restore back-ups and a cluster.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: **Recovering from a Cluster Crash**
 
    .. rst-class:: list-stats
@@ -170,12 +174,12 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 .. _`training-videos-performance-availability`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Performance & High Availability
 
 .. container:: list-col1
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: **Load Balancing a Galera Cluster**
 
    .. rst-class:: list-stats
@@ -189,7 +193,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
 .. container:: list-col2
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-high-availability`
 
    .. rst-class:: list-stats

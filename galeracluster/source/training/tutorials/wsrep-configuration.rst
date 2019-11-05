@@ -6,44 +6,47 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
+        
+           - :doc:`Training Videos <../videos/index>`
 
-      - :doc:`Galera Parameters <../../../documentation/galera-parameters>`
-      - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
-      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
-      - :ref:`wsrep_node_name <wsrep_node_name>`
-      - :ref:`wsrep_node_address <wsrep_node_address>`
-      - :ref:`wsrep_provider_options <wsrep_provider_options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Galera Parameters <../../../documentation/galera-parameters>`
+        - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
+        - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+        - :ref:`wsrep_node_name <wsrep_node_name>`
+        - :ref:`wsrep_node_address <wsrep_node_address>`
+        - :ref:`wsrep_provider_options <wsrep_provider_options>`
 
-         Related Articles
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`wsrep-configuration`:
 
 ===========================
@@ -77,7 +80,7 @@ In addition to the configuration for the database server, there are some specifi
 
 
 .. _`backend-schema`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Backend Schema
 
 There are two backend schemata available with Galera Cluster.
@@ -88,7 +91,7 @@ There are two backend schemata available with Galera Cluster.
 
 
 .. _`cluster-addresses`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Cluster Addresses
 
 For the cluster address section, you have to provide a comma-separate list of IP addresses for all of the nodes in the cluster.  You would do this using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.  Cluster addresses are listed in the configuration file using a particular syntax, like so:
@@ -111,7 +114,7 @@ If you start a node without proving an IP address for this parameter, the node w
 
 
 .. _`cluster-address-options`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Options
 
 When setting the IP address in the configuration file using the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, you can also set some options. You can set backend parameters, such as the listen address and timeout values.

@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`notification-cmd`
       - :doc:`Reset Quorum <quorum-reset>`
@@ -50,9 +53,7 @@
       - :ref:`wsrep_ready <wsrep_ready>`
       - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -84,7 +85,7 @@ From the database client, you can check the status of write-set replication thro
 
 
 .. _`check-cluster-integrity`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Checking Cluster Integrity
 
 .. index::
@@ -163,7 +164,7 @@ When these status variables check out and return the desired results on each nod
 
 
 .. _`check-node-status`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Checking the Node Status
 
 .. index::
@@ -236,7 +237,7 @@ In the event that each status variable returns the desired values, the node is i
 
 
 .. _`check-replication-health`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Checking the Replication Health
 
 .. index::
@@ -307,7 +308,7 @@ You can monitor the local received queue and Flow Control using the following st
   This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_slave_threads <wsrep_slave_threads>` parameter, given that there is no reason to assign more slave threads than transactions you can apply in parallel.
 
 .. _`check-network-issues`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Detecting Slow Network Issues
 
 .. index::

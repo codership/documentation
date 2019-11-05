@@ -5,37 +5,39 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      .. cssclass:: bull-head
+           - :doc:`Training Videos <../videos/index>`
 
-         Related Articles
+        Related Documents
 
-.. cssclass:: tutorial-article
+        Related Articles
+
+.. cssclass:: library-article
 .. _`debug-problems-with-sst`:
 
 =============================
@@ -51,7 +53,7 @@ Galera Cluster has the ability to add new nodes to the cluster by handling inter
 A lot of operations happen during SST and there are various things that could go wrong. This article describes how to configure our server optimally for SST and how to debug any issues that arise.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: The Basics
 
 Let’s first consider all the items that play a role in the preparation and configuration of SST.
@@ -105,7 +107,7 @@ Encrypting the SST is different for each method:
 
 End-to-end encryption via VPN can also be used. Tunnelling individual ports over SSH would be more complicated as more than one TCP port may be used during the process.
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Debugging SST Errors
 
 SST is a complex process that internally involves running scripts and calling third-party binaries, so there are various opportunities for a failure.

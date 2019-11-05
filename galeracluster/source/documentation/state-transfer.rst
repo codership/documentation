@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`Galera Parameters <galera-parameters>`
       - :ref:`gcache.dir <gcache.dir>`
@@ -38,9 +41,7 @@
       - :doc:`sst`
       - :ref:`State Snap. Transfr. <state-transfer-sst>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. raw:: html
@@ -68,7 +69,7 @@ The process of replicating data from the cluster to the individual node, bringin
 
 
 .. _`state-transfer-sst`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: State Snapshot Transfer (SST)
 
 .. index::
@@ -104,7 +105,7 @@ You can set which State Snapshot Transfer method a node uses from the confirmati
 
 
 .. _`state-transfer-ist`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Incremental State Transfer (IST)
 
 .. index::
@@ -144,7 +145,7 @@ The advantage of Incremental State Transfers is that they can dramatically speed
 
 
 .. _`state-transfer-gcache`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Write-set Cache (GCache)
 
 .. index::

@@ -27,7 +27,7 @@
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-.. cssclass:: kb-list
+.. cssclass:: library-index
 .. _`style-guide`:
 
 =============================
@@ -38,7 +38,7 @@ This style guide is a little haphazard at the moment. Rather than dedicate a sig
 
 
 .. _`style-numbers-symbols`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Numbers & Symbols
 
 Ampersands shouldn't be used in sentences, unless they are part of an organization's name (e.g., *Dolce & Gabbana*). They may be used in section and page titles (e.g., the title above this paragraph).
@@ -51,7 +51,7 @@ Here is an example of a sentence that would not be good form based on the above 
 
 
 .. _`style-case`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Case
 
 Page heading and section headings should use title case.  That is to say, the initial letter of each word should be capitalized, unless it's a small word (e.g., an article or a preposition).  Here's an example: *An Administrator's Guide to Galera Cluster*.
@@ -60,7 +60,7 @@ Don't ever use all capitals for emphasis a point. Here's an example, which is un
 
 
 .. _`style-punctuation`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Punctuation
 
 Exclamation points should almost never be used anyway. The documentation is meant to be serious and therefore, not exciting. Related to this, sentences of exclamation should also be avoided:  *That's it! You're done.*  Not only is that unnecessary, it can be irritating the reader wasn't successful while following along.
@@ -75,14 +75,14 @@ In compliance with the Modern Language Association, If a sentence ends with quot
 
 
 .. _`style-abbreviations-acronyms`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Abbreviations & Acronyms
 
 If an abbreviation or an acronym is so familiar (e.g., DBA) that it is used more often than written in full, it may be used. However, assume the reader is unfamiliar with the abbreviation and provide the full text within parentheses (Database Administrators) the first time the abbrieviation is used in a document. For abbreviations that are not so common, write the full version with the abbrieviation in parentheses the first time used in a document, and then use only the abbreviation thereafter:  *A new node will be synchronized using the State Snapshot Transfer (SST) method.*
 
 
 .. _`style-regional-usage`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Regional Usage
 
 Since the U.S. is the dominant country in the software industry, we tend toward American word usage, spelling, and other such choices.  For instance, we would use the word *elevator* instead of *lift*, and spell *organization* with a *z* and not an *s* (i.e., not *organisation*).  However, since Codership is based in Finland and it's an internation organization, we write dates with the day first, followed by the month and year.  So we'll write the first of June as *1 June 2019*, not *June 1, 2019*.
@@ -91,7 +91,7 @@ Try very much to avoid dates with slashes (e.g. *6/1/2019*) since which is the m
 
 
 .. _`style-phrases-expressions`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Unnecessary Phrases & Expressions
 
 Don't use opening or transitional phrases.  For example, don't start a sentence with the phrase, *In the event that*, when you can write simply, *If*.  Don't write rhetorical, unnecessary sentences or phrases.  Here are some examples of the opening phrases:  *Having said that...* isn't necessary since the reader knows what you just said or wrote;  *It goes with out saying...* is pointless since what follows is what doesn't need to be said;  *Not to mention...* is irritating if you're about to mention it |---| instead, delete the whole sentence; don't mention it.

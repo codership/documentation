@@ -5,56 +5,54 @@
    :keywords:
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../tutorials/index>`
-         - :doc:`Training Videos <./index>`
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
-      .. cssclass:: bull-head
+           .. cssclass:: here
 
-         Related Documents
+           - :doc:`Training Videos <./index>`
 
-         - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-         - :doc:`firewalld <../../documentation/firewalld>`
-         - :doc:`Installing Galera <../../documentation/install>`
-         - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-         - :doc:`SELinux <../../documentation/selinux>`
-         - :doc:`State Transfer <../../documentation/state-transfer>`
-         - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+        Related Documents
 
-      .. cssclass:: bull-head
+        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+        - :doc:`firewalld <../../documentation/firewalld>`
+        - :doc:`Installing Galera <../../documentation/install>`
+        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+        - :doc:`SELinux <../../documentation/selinux>`
+        - :doc:`State Transfer <../../documentation/state-transfer>`
+        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-         Related Articles
+        Related Articles
 
-      .. cssclass:: bull-head
+        Other Resources
 
-         Other Resources
-
-         - :doc:`Install MySQL Galera (video) <./galera-mysql-installing>`
-         - :doc:`Install MariaDB Galera (video) <./galera-mariadb-installing>`
-         - `Galera Repository <http://releases.galeracluster.com/>`_
+        - :doc:`Install MySQL Galera (video) <./galera-mysql-installing>`
+        - :doc:`Install MariaDB Galera (video) <./galera-mariadb-installing>`
+        - `Galera Repository <http://releases.galeracluster.com/>`_
 
 .. role:: raw-html(raw)
    :format: html
 
-.. cssclass:: tutorial-article video-article training-exercises
+.. cssclass:: library-article training-exercises
 .. _`exercises-galera-backup`:
 
 ==========================
@@ -94,13 +92,13 @@ Making Back-Ups with Galera Cluster
 
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Exercises
 
 Before starting an exercise, read it fully and carefully. The headings for each set of exercises before correspond to the section with the same name in training video.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Back-Up Basics
 
 Do these exercises after viewing the first two sections of the training video:  *Galera Cluster Overview*, and *Installing Software on Nodes*. Don’t configure the nodes until the next section.
@@ -113,7 +111,7 @@ Do these exercises after viewing the first two sections of the training video:  
 
 3. On one of the Galera nodes, use the ``DROP DATABASE`` statement to drop the ``company`` database.  Check to see that it’s replicated on the other two nodes.  Now shutdown all of the nodes. When they’ve all stopped, use the back-up file to restore the data directory on the node where it’s located.  Then start that node and check if the ``company`` database is back.  After that, start the other two nodes.   Give them a couple of minutes before checking that the ``company`` database has been restored on them.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Using Standard Replication
 
 This set of exercises require all four servers mentioned in the requirements above:  three with MySQL or MariaDB, and Galera installed and running; the fourth server with only MySQL or MariaDB.
@@ -128,7 +126,7 @@ This set of exercises require all four servers mentioned in the requirements abo
 
 7. Make a directory called ``backups``, with a sub-directory within it called ``temp``. Stop the slave and use `mysqldump` to make a back-up on it to a the ``backups``, ``temp`` sub-directory.  Copy the binary log files, as well as the MySQL configuration file to the temporary back-up sub-directory.  Then tar and zip the back-up files. Start the slave again and make sure replication is running.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Using Galera Arbitrator
 
 For the exercises in this section and the remaining sections, you won’t need the replication slave server. You can shut it down. You’ll only use the three servers with Galera installed on them.
@@ -139,7 +137,7 @@ For the exercises in this section and the remaining sections, you won’t need t
 
 9. Write another simple back-up script that will use ``mysqldump`` and execute it. Make sure it gives a different name to the back-up file than in the previous exercise.
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Restoring Nodes and a Cluster
 
 .. rst-class:: list-exercises

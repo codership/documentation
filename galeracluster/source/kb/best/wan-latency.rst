@@ -6,39 +6,40 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../index>`
+      - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../trouble/index>`
+
+         .. cssclass:: here
+
          - :doc:`Best Practices <./index>`
 
-      - :doc:`FAQ <../../faq>`
       - :doc:`Training <../../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../../training/tutorials/index>`
          - :doc:`Training Videos <../../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`evs.join_retrans_period <evs.join_retrans_period>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
-.. cssclass:: kb-article
+.. cssclass:: library-article
 .. _`kb-best-wan-latency`:
 
 ===============

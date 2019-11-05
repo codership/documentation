@@ -6,37 +6,40 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      .. cssclass:: bull-head
+           - :doc:`Training Videos <../videos/index>`
 
-         Related Articles
+        Related Documents
+
+        Related Articles
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`getting-started-docker`:
 
 ===================================
@@ -52,7 +55,7 @@ Docker is an open platform for developers and sysadmins to build, ship, and run 
 let's first look at how to build a basic Docker Image, which we will extend later. Then we'll deploy on a test cluster on a local machine. The examples here have been tested on Ubuntu 14.04 with Docker 1.5.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Build a Basic Docker Image
 
 In Docker, Dockerfiles are used to describe the Docker images we are going to use to start our Galera Cluster. We are using the following Dockerfile:
@@ -99,13 +102,13 @@ A pre-built image is available from Docker Hub. You can pull it by running:
 (All commands in this article need to run as root.)
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Deploy on a Test Cluster on a Local Machine
 
 Next, we are going to start a Galera Cluster on the local host. The instructions below are for demonstration purposes only and will not work when deploying on multiple hosts, as networking between containers needs to be set up. Configuring Docker networking across multiple hosts will be described in a following post.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Starting a Cluster
 
 There have been a number of blog posts showing how to start Galera Cluster on a single host. This post is going to show the simplest way to do that in Docker by using simple commands, which will not work for a multi-host installation. First, if working on Ubuntu, we need to put AppArmor’s Docker profile in complain mode in advance.
@@ -145,7 +148,7 @@ Now we have a running Galera cluster. We can check the number of nodes in the Cl
 We built a simple Galera Cluster on one host, without using SSH and without the need to configure any IP addresses. This setup does not support restarting the container |---| you should remove the container and recreate it instead.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Deploying Galera on Mutiple Docker Hosts
 
 Now let's discuss how to deploy Galera on multiple Docker hosts. By design, Docker containers are reachable using port-forwarded TCP ports only, even if the containers have IP addresses. So we will set up port forwarding for all TCP ports that are required for Galera to operate.
@@ -166,7 +169,7 @@ Before we start, we need to stop enforcing AppArmor for Docker:
    $ aa-complain /etc/apparmor.d/docker
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Building a Multi-Node Cluster using the Default Ports
 
 Building a multi-node cluster using the default ports is not complicated. Besides mapping the ports 1:1, we also need to set `–wsrep-node-address` to the IP address of the host.
@@ -203,7 +206,7 @@ A simple cluster setup would look like this:
 In this example, we used the image from the previous blog post. Docker is going to download the image if it is not already present on the node.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Building a Multi-Node Cluster using Non-Default Ports
 
 In the long run, we may want to start more than one instance of Galera on a host in order to run more than one Galera cluster using the same set of hosts.
@@ -250,7 +253,7 @@ The following Galera Cluster configuration options are used to specify each port
    4444 SST port is configured using `–wsrep-sst-receive-address`
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Summary
 
 That concludes this tutorial. As you can see, it's easy to run Galera on Docker and inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.

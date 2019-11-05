@@ -6,36 +6,37 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`pc.recovery <pc.recovery>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -57,7 +58,7 @@ For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` p
 
 
 .. _`understand-pc-state`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Understanding the Primary Component State
 
 When a node stores the :term:`Primary Component` state to disk, it saves it as the ``gvwstate.dat`` file.  You'll find this file in the database data directory on the server which is acting as the Primary Component.
@@ -87,7 +88,7 @@ The ``bootstrap`` variable indicates whether or not the node is bootstrapped. It
 
 
 .. _`modifying-pc-state`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Modifying the Saved Primary Component State
 
 If you find yourself in the unusual situation where you need to force certain nodes to join each other specifically, you can do so by manually changing the saved :term:`Primary Component` state.

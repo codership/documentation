@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`galera-parameters`
       - :doc:`galera-status-variables`
@@ -40,9 +43,7 @@
       - :doc:`versioning-information`
       - :doc:`xtrabackup-options`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -55,7 +56,7 @@ Reference
 In the event that you need more information about particular variables or parameters or status variable or would like a clearer explanation about various terms used in the documentation, these chapters provide general reference material to Galera Cluster configuration and use.
 
 .. _`ref-vars`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Variable Reference
 
 Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file.  These chapters provide reference guides to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
@@ -78,7 +79,7 @@ Defining persistent configurations in Galera Cluster is done through the underly
 
 
 .. _`ref-utils`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Utility Reference
 
 In some cases your configuration or implementation may require that you work with external utilities in your deployment of Galera Cluster.  These chapters provide reference guides for two such utilities: XtraBackup and Galera Load Balancer.
@@ -96,7 +97,7 @@ In some cases your configuration or implementation may require that you work wit
   This page provides information on the Galera specific system tables.  These were added as of version 4 of Galera.
 
 .. _`ref-misc`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Miscellaneous References
 
 - :doc:`versioning-information`

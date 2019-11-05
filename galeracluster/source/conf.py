@@ -111,7 +111,7 @@ html_title = "Galera Cluster Documentation"
 # of the sidebar.
 html_logo = 'logo.png'
 
-html_style = 'codership.css'
+html_style = 'reset-style.css'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

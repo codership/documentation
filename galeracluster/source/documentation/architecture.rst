@@ -5,35 +5,35 @@
    :keywords: galera cluster, replication api, wsrep api, gtid, galera replication plugin, group communication plugin
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 
@@ -68,7 +68,7 @@ The internal architecture of Galera Cluster revolves around four components:
 
 
 .. _`wsrep-api`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: wsrep API
 
 .. index::
@@ -96,7 +96,7 @@ For each node in the cluster, the application process occurs by high-priority tr
 
 
 .. _`global-transaction-id`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Global Transaction ID
 
 In order to keep the state identical across the cluster, the wsrep API uses a :term:`Global Transaction ID`, or GTID.  This allows it to identify state changes and to identify the current state in relation to the last state change. Below is an example of a GTID:
@@ -115,7 +115,7 @@ The Global Transaction ID allows you to compare the application state and establ
 
 
 .. _`galera-replication-plugin`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Galera Replication Plugin
 
 The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It operates as the wsrep Provider. From a more technical perspective, the Galera Replication Plugin consists of the following components:
@@ -128,7 +128,7 @@ The :term:`Galera Replication Plugin` implements the :term:`wsrep API`.  It oper
 
 
 .. _`group-communication-plugins`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Group Communication Plugins
 
 .. index::

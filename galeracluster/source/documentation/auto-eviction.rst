@@ -6,30 +6,33 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :doc:`upgrading`
       - :ref:`evs.auto_evict <evs.auto_evict>`
@@ -42,9 +45,7 @@
       - :ref:`wsrep_evs_state <wsrep_evs_state>`
       - :ref:`wsrep_provider_options <wsrep_provider_options>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 
@@ -59,7 +60,7 @@ When Galera Cluster notices erratic behavior in a node (e.g., unusually delayed 
 
 
 .. _`config-auto-eviction`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Configuring Auto-Eviction
 
 Each node in a cluster monitors the group communication response times from all other nodes in the cluster.  When a cluster registers delayed responses from a node, it makes an entry about the node to the delayed list.
@@ -88,7 +89,7 @@ You can configure the parameters of Auto-Eviction by setting the following optio
 
 
 .. _`eviction-status`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Checking Eviction Status
 
 If you suspect a node is becoming delayed, you can check its eviction status through Galera status variables. You can do this by using the ``SHOW STATUS`` statement from the database client.  You would enter something like this:
@@ -108,7 +109,7 @@ Below are the Galera status variables available to you:
 
 
 .. _`upgrade-evs`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Upgrading from Previous Versions
 
 Releases of Galera Cluster prior to version 3.8 use EVS Protocol version 0, which is not directly compatible with version 1.  As such, when you upgrade Galera Cluster for a node, the node continues to use EVS Protocol version 0.

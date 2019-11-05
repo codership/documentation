@@ -6,34 +6,35 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -64,7 +65,7 @@ The Physical State Transfer Method has the following disadvantages:
 
 
 .. _`sst-physical-rsync`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``rsync``
 
 The fastest back-end method for State Snapshot Transfers is ``rsync``.  It carries all the advantages and disadvantages of of the Physical Snapshot Transfer.  While it does block the donor node during transfer, ``rsync`` does not require database configuration or root access, which makes it easier to configure.
@@ -85,7 +86,7 @@ For more information about ``rsync``, see the `rsync Documentation <https://rsyn
 
 
 .. _`sst-physical-xtrabackup`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``xtrabackup``
 
 The most popular back-end method for State Snapshot Transfers is ``xtrabackup``.  It carries all the advantages and disadvantages of a Physical State Snapshot, but is virtually non-blocking on the donor node.

@@ -5,40 +5,40 @@
    :keywords: galera cluster, upgrading galera, rolling upgrade
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`Rolling Upgrade <rolling-upgrade>`
       - :ref:`Bulk Upgrade <bulk-upgrade>`
       - :ref:`Provider Upgrade <provider-upgrade>`
       - :ref:`gcache.size <gcache.size>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -62,7 +62,7 @@ There are advantages and disadvantages to each of these methods.  For instance, 
 
 
 .. _`rolling-upgrade`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Rolling Upgrade
 
 When you need the cluster to remain live and do not mind the time it takes to upgrade each node, use rolling upgrades.
@@ -113,7 +113,7 @@ Assuming you've read and considered the above, below are the steps for upgrading
 
 
 .. _`rolling-upgrade-major-versions`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Rolling Upgrades of Major Versions of Galera Cluster
 
 Performing a rolling upgrade between major versions of Galera Cluster (e.g., from 5.6 to 5.7) has certain additional limitations.  Below is a list of them; you should consider these factors.
@@ -147,7 +147,7 @@ Below are the steps of the following procedure for performing rolling upgrades b
 
 
 .. _`bulk-upgrade`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Bulk Upgrade
 
 When you want to avoid time-consuming state transfers and the slow process of upgrading each node, one at a time, use a bulk upgrade.
@@ -178,7 +178,7 @@ To perform a bulk upgrade on Galera Cluster, complete the following steps:
 
 
 .. _`provider-upgrade`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Provider-Only Upgrade
 
 .. index::
@@ -190,7 +190,7 @@ When you only need to upgrade the Galera provider, you can further optimize the 
 
 
 .. _`upgrade-plugin`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Upgrading Galera Replication Plugin
 
 If you installed Galera Cluster for MySQL using the binary package from the Codership repository, you can upgrade the Galera Replication Plugin through your package manager..
@@ -212,7 +212,7 @@ When ``apt-get`` or ``yum`` finish, you will have the latest version of the Gale
 
 
 .. _`updating-galera-cluster`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Updating Galera Cluster
 
 After you upgrade the Galera Replicator Plugin package on each node in the cluster, you need to run a bulk upgrade to switch the cluster over to the newer version of the plugin.

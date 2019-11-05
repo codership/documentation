@@ -7,41 +7,44 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
 
-      .. cssclass:: bull-head
+           - :doc:`Tutorial Articles <./index>`
 
-         Related Documents
+        .. cssclass:: sub-links
 
-      - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+           - :doc:`Training Videos <../videos/index>`
 
-      .. cssclass:: bull-head
+        Related Documents
 
-         Related Articles
+        - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
 
-         - :doc:`Galera Monitoring (video) <../videos/galera-monitoring>`
+        Related Articles
+
+        - :doc:`Galera Monitoring (video) <../videos/galera-monitoring>`
 
 
-.. cssclass:: tutorial-article
+.. cssclass:: library-article
 .. _`galera-monitoring`:
 
 ===================================
@@ -61,7 +64,7 @@ There are three methods available to monitor cluster activity and replication he
 In this article, we'll look closely at the essential status variables for you to consider and ways to log cluster and node status.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Using Status Variables
 
 In addition to the standard status variables in MySQL you may already monitor, Galera Cluster also provides a set of status variables. They will allow you to check node and cluster states, as well as replication health.
@@ -84,7 +87,7 @@ Galera Cluster variables are related to write-set replication and thereby prefix
 If you'd execute this SQL statement on one of your nodes, you'd see that there are over sixty status variables. Some of them may be of no interest to you -- perhaps most -- but there are some you should check regularly.  You could group these into three basic categories:  cluster integrity; node status; and replication health.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: A Cluster's Integrity
 
 A cluster is said to have integrity when each node -- all of the nodes in the cluster -- receive and replicate write-sets from all of the other nodes. The cluster begins to lose integrity when this situation falters. This can be caused by the cluster going down, becoming partitioned, or if there is a split-brain situation.
@@ -92,7 +95,7 @@ A cluster is said to have integrity when each node -- all of the nodes in the cl
 The status variables that will reveal whether there is a loss of cluster integrity are the ``wsrep_cluster_state_uuid``, ``wsrep_cluster_conf_id``, ``wsrep_cluster_size``, and the ``wsrep_cluster_status``.  Let's consider each and how it may indicate a problem.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Compare UUIDs
 
 When all nodes are synchronized with each other, they will have executed all of the same transactions.  Each transaction includes a UUID to identify it.  Therefore, the last UUID on each node should be the same.
@@ -110,7 +113,7 @@ To confirm this, execute the following SQL statement on each node to see if the 
 If the last node has a different result from the others, it may be that a transaction came through while you were in the process of executing the SQL statement. So, check again, maybe in a different order. But if one or more nodes clearly have different UUIDs than the others, the cluster has no integrity. This means more than one cluster has been formed, and the nodes are not all communicating with each other.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Take Attendance
 
 If there may be a problem with network connectivity or if you think the cluster may have split into separate clusters, check the ``wsrep_cluster_size`` on each to see that they agree.  If you have five nodes and some of the nodes say the cluster size contains three, while others say two, you have a problem. Any value that doesn't match the number of nodes you have running suggests there's a network connectivity problem, or maybe MySQL is down on one node.
@@ -118,7 +121,7 @@ If there may be a problem with network connectivity or if you think the cluster 
 However, if only one node is out of sync, you might solve the problem by taking it down, fixing whatever network problem it's having, and then starting it again. When it properly joins the cluster, it will undergo a  State Snapshot Transfer (SST), a full replacement of the databases.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Take a Tally
 
 Another approach to checking cluster integrity is to compare the values of the ``wsrep_cluster_conf_id`` status variable on all nodes. This will show the total number of changes that have occurred in the cluster |---| changes that the node on which it's executed is aware. Basically, comparing this variable will determine whether a node is a part of the Primary Component.
@@ -136,7 +139,7 @@ Another approach to checking cluster integrity is to compare the values of the `
 Each node in the cluster should provide the same value. Otherwise, it indicates that the cluster is partitioned. This is not good. If this value is some outrageously high number (e.g., in excess of a trillion), it may indicate that the nodes are dropping and restarting themselves over and over.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Each Node's Status
 
 In addition to checking cluster integrity, you should also monitor the status of individual nodes |---| as in, not necessarily in relation to the cluster as a whole.
@@ -144,7 +147,7 @@ In addition to checking cluster integrity, you should also monitor the status of
 Basically, you would look to see whether a node received and processed updates from the cluster write-sets. There are a few status variables that will give such insights:  ``wsrep_ready``; ``wsrep_connected``; and ``wsrep_local_state_comment``.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Ready & Connected
 
 The first two status variables are pretty straightforward: they're either ``ON`` or ``OFF``.  If ``wsrep_ready`` returns ``OFF``, it's not ready and almost all queries will fail.  You'll receive error messages like this one:
@@ -158,7 +161,7 @@ When ``wsrep_connected`` returns a value ``OFF``, the node doesn't have a connec
 For instance, the values of the ``wsrep_cluster_address`` and ``wsrep_cluster_name`` parameters may be entered incorrectly in the MySQL configuration file. The error log should provide details to help troubleshoot the problem.  This is usually, ``/var/log/mysqld.log`` |---| or whatever the value is for ``log_error`` variable.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Easily Understood
 
 To make the node status much clearer, you can check the value of the ``wsrep_local_state_comment`` status variable. Its value will be easy to understand.
@@ -178,7 +181,7 @@ That's pretty clear |---| Synced |---| and reassuring.
 When a node is part of the Primary Component, it will return ``Joining``, ``Waiting on SST``, ``Joined``, ``Synced`` or ``Donor``. If you don't like the results you get, try again. It changes quickly and generally won't take long to get to ``Synced``. If a node is part of a non-operational component, though, it will return ``Initialized``. If it stays that way, it might be a problem.
 
 
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Replication Health
 
 Monitoring cluster integrity and node status can show issues that may prevent or otherwise block replication. These status variables will help in identifying performance issues and identifying problem areas so that you can get the most from your cluster.
@@ -188,7 +191,7 @@ So that things don't get too hectic for a node, Galera will trigger a feedback m
 The status variables you'd check for this are ``wsrep_local_recv_queue_avg``, ``wsrep_flow_control_paused``, and ``wsrep_cert_deps_distance``. Unlike the previously mentioned status variables, these are variables reset when the servers are restarted or the ``FLUSH STATUS`` statement is executed.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Bunching of Writes
 
 The ``wsrep_local_recv_queue_avg`` variable shows the average size of the local received queue since the last status query. When this is greater than 0, it indicates that the node can't apply write-sets as fast as it's receiving them.  If you're detecting a problem here, you might also check ``wsrep_local_recv_queue_min`` and ``wsrep_local_recv_queue_max`` to get a range of values, rather than just the average.
@@ -208,7 +211,7 @@ In addition to checking the node's status related to incoming write-sets, it cou
 A value greater than 0 indicates replication throttling or network throughput issues. It could be the physical network cards and cables, or the operating system's configuration. Similar to the received queue above, you can check the ``wsrep_local_send_queue_min`` and ``wsrep_local_send_queue_max`` status parameters to see the range, and not just the average.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Flow Control Paused
 
 If you sense a node is getting overwhelmed, you might execute ``FLUSH STATUS`` on it and then check the value of the ``wsrep_flow_control_paused`` variable |---| after waiting a bit for a better sample.  It will return the percentage of time the node was paused because of Flow Control since you just flushed the status.
@@ -226,7 +229,7 @@ If you sense a node is getting overwhelmed, you might execute ``FLUSH STATUS`` o
 In the results here, it shows that for a little more than 18 percent of the time elapsed, the replication was paused.  A value of 1 would indicate that the node was paused 100% of the time. Anything greater than 0 indicates the node's replication health may be weak. You should closely monitor it |---| flushing occasionally |---| until you start seeing 0 values.  If it doesn't resolve itself, you might increase the number of slave threads (i.e., ``wsrep_slave_threads``).
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Sequentially in Parallel
 
 Last, you might monitor ``wsrep_cert_deps_distance``. It will tell you the average distance between the lowest and highest sequence number, values a node can potentially apply in parallel.
@@ -234,7 +237,7 @@ Last, you might monitor ``wsrep_cert_deps_distance``. It will tell you the avera
 Basically, this is the optimal value to set ``wsrep_slave_threads``, since it's pointless to assign more slave threads than the number of transactions that can be applied in parallel.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Utilizing Server Logs to Troubleshoot
 
 As you can see, the status variables provide you with plenty of information for detecting problems.  However, they don't generally indicate a pattern |---| they're mostly the current state when you happen to look.  Historical information, though, can make it easier to see a problem developing. Additionally, the status variables do little to help you to determine the cause of problems, or provide you with recommendations on how to solve them.
@@ -242,7 +245,7 @@ As you can see, the status variables provide you with plenty of information for 
 For seeing a pattern, you'll have to record the results from querying the status variables at regular intervals, recording them in a database or a log for later review. For consistency of intervals, it should be automated. You could either write your own scripts to do this, or you could use one of the many database monitoring programs (e.g., Monyog).
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Enabling the Error Log & Special Logging
 
 For determining the cause of a problem, the server logs are generally the most helpful. Use ``SHOW VARIABLES`` to check the value of the ``log_error`` variable |---| and determine the path and name of the log file. If it returns nothing, you'll need to enable it by adding ``log-error`` to the MySQL configuration file. It will set the path and file name on its own.
@@ -266,7 +269,7 @@ Below is how these entries would look in the MySQL configuration file:
 There is one more type of log you should check. When a node is unable to complete a transaction or some other event, the database server will create a special binary log file with details of that failure. This file is placed in the data directory and is named something like, ``GRA_*.log``. You should periodically see if these log files are generated.  When they are, review them right away.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Notification Command
 
 Although checking status variables and logs will provide you information you'll need, retrieving and reviewing such information is a manual process. Plus, you may have to examine status variables and logs on each determine and resolve a problem. This is one of the appealing aspects of third-party monitoring software.
@@ -276,7 +279,7 @@ To assist you in monitoring a cluster and its nodes, Galera includes a mechanism
 Galera will call the script and pass a set of values to it whenever a node joins or leaves the cluster, and whenever the cluster or node's status changes.  Your script can then send you an alert, log the data it receives in a table or a log file |---| this is a way to accumulate data for determining a pattern we just mentioned |---| or adjusting traffic flow through a load balancer.
 
 
-.. rst-class:: rubric-3
+.. rst-class:: lower-heading
 .. rubric:: Notification Script Example
 
 When a change occurs in a node or the cluster and triggers the notification script or command, it will pass certain parameters to the script. Of particular interest are the ``--status`` and ``--members`` parameters. The status will be that of the node on which the script is running. It will indicate, among other things, if the node is synchronized or not. See the [Documentation on Notification Status](https://galeracluster.com/library/documentation/notification-cmd.html#node-status) for a list of all values.
@@ -406,7 +409,7 @@ You would have to copy this script to each node and set it to run with the ``wsr
 A better solution would be to have the script connect with the database and insert these log entries into a table.  Remember, entries made on one table are made on all and thereby joined together as part of the replication process. However, Galera seems to trip over itself when the notification command tries to replicate its own writes. It results in the nodes becoming non-operational and out-of-sync. An alternative would be to create a table on each node that doesn't use the InnoDB storage engine (e.g., use a MyISAM table). These tables would be unique to each node and not replicated, but they wouldn't choke Galera.  You could write another script |---| activated instead by ``cron`` |---| that would query the table on each node to produce reports and alerts. You could be alerted by email or some other method. It's a little cumbersome, but it works.
 
 
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Conclusion
 
 With busy and large databases, keeping them running smoothly and consistently can be a little intimidating.  However, Galera provides plenty of information for you to be able to monitor the status of each node and the cluster. You need only develop a habit of checking, or a system to check automatically and with regularity.  Plus, it provides a method of reacting to changes in node and cluster status.

@@ -1,0 +1,66 @@
+div#page {
+width: 100%;
+min-width: 1200px;
+}
+header {
+  font: 16px "Lucida Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+header#masthead {
+    background-color:  #f0f0f0 !important;
+}
+header .top {
+    height: 91px;
+    width: 960px;
+    margin: 0 auto;
+}
+header a.home-link {
+    display: inline;
+    float: left;
+    width: 257px;
+    height: 49px;
+    margin: 23px 0 0;
+    background: url(https://galeracluster.com/wp-content/themes/galeracluster/images/logo.png) no-repeat;
+}
+h1.site-title {
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 2.375em;
+    line-height: 1.05em;
+    color: #FFF;
+}
+h2.site-description {
+    font-weight: normal;
+    color: #004d95;
+    text-transform: uppercase;
+    font-size: 1.30em;
+}
+#site-navigation {
+    padding: 0 0 0;
+    width: 100%;
+    background: #000;
+    margin-bottom: 1px;
+}
+#site-navigation ul {
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+#site-navigation ul li {
+    position: relative;
+    display: inline-block;
+    zoom: 1;
+    font-size: 0.8em;
+    line-height: 1.15em;
+    padding: 5px 18px 3px 12px;
+    font-weight: normal;
+    background: url(https://galeracluster.com/wp-content/themes/galeracluster/images/navi-separator.png) no-repeat right 5px;
+}
+#site-navigation ul li a {
+    font-family: 'FuturaStd-Heavy';
+    text-transform: uppercase;
+    color: #FFF;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}

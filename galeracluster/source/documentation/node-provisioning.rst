@@ -6,37 +6,38 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
       - :ref:`wsrep_node_name <wsrep_node_name>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -67,7 +68,7 @@ In the event that the node crashes while in :term:`Total Order Isolation` mode, 
 
 
 .. _`node-provisioning-about-joiners`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: How Nodes Join the Cluster
 
 When a node joins the cluster, it compares its own :term:`state UUID` to that of the :term:`Primary Component`.  If the state UUID does not match, the joining node requests a state transfer from the cluster.
@@ -90,7 +91,7 @@ While there is no guarantee on how soon a node will catch up, when it does the n
 
 
 .. _`node-provisioning-state-transfer`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: State Transfers
 
 There are two types of state transfers available to bring the node up to date with the cluster:

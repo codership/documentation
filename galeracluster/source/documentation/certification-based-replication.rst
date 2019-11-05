@@ -5,35 +5,35 @@
    :keywords: galera cluster, certification based replication
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
+.. container:: left-margin
 
-.. topic:: The Library
-   :name: left-margin
+   .. container:: left-margin-top
 
-   .. cssclass:: no-bull
+      :doc:`The Library <../index>`
 
-      - :doc:`Documentation <./index>`
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -49,7 +49,7 @@ Transactions execute optimistically in a single node, or replica, and then at co
 
 
 .. _`cert-repl-requirements`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Certification-Based Replication Requirements
 
 It's not possible to implement certification-based replication for all database systems.  It requires certain features of the database in order to work;
@@ -62,7 +62,7 @@ It's not possible to implement certification-based replication for all database 
 
 
 .. _`cert-repl-workings`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: How Certification-Based Replication Works
 
 The main idea in certification-based replication is that a transaction executes conventionally until it reaches the commit point, assuming there is no conflict.  This is called optimistic execution.
@@ -78,7 +78,7 @@ The write-set then undergoes a deterministic certification test, using the prima
 If the certification test fails, the node drops the write-set and the cluster rolls back the original transaction.  If the test succeeds, though, the transaction commits and the write-set is applied to the rest of the cluster.
 
 .. _`cert-repl-in-galera`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Certification-Based Replication in Galera Cluster
 
 The implementation of certification-based replication in Galera Cluster depends on the global ordering of transactions.

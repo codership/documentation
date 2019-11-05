@@ -6,34 +6,35 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -87,7 +88,7 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
 
 
 .. _`xtra-compressor`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``compressor``
 
 Defines the compression utility the donor node uses to compress the state transfer.
@@ -109,7 +110,7 @@ This parameter defines whether the donor node performs compression on the state 
 
 
 .. _`xtra-compact`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``compact``
 
 Defines whether the joiner node performs compaction when rebuilding indexes after applying a :term:`State Snapshot Transfer`.
@@ -132,7 +133,7 @@ This parameter operates on the joiner node with the :ref:`rebuild <xtra-rebuild>
 
 
 .. _`xtra-cpat`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``cpat``
 
 Defines what files to clean up from the datadir during state transfers.
@@ -154,7 +155,7 @@ When the donor node begins a :term:`State Snapshot Transfer`, it cleans up vario
 
 
 .. _`xtra-decompressor`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``decompressor``
 
 Defines the decompression utility the joiner node uses to decompress the state transfer.
@@ -176,7 +177,7 @@ This parameter defines whether the joiner node performs decompression on the sta
 
 
 .. _`xtra-encrypt`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``encrypt``
 
 Defines whether the node uses SSL encryption for XtraBackup and what kind of encryption it uses.
@@ -212,7 +213,7 @@ This parameter determines the type of SSL encryption the node uses when sending 
 
 
 .. _`xtra-encrypt-algo`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``encrypt-algo``
 
 Defines the SSL encryption type the node uses for XtraBackup state transfers.
@@ -238,7 +239,7 @@ In the event that you need to clarify the meaning, this parameter allows you to 
 
 
 .. _`xtra-progress`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``progress``
 
 Defines whether where the node reports :term:`State Snapshot Transfer` progress.
@@ -263,7 +264,7 @@ When you set this parameter, the node reports progress on XtraBackup progress in
 
 
 .. _`xtra-rebuild`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``rebuild``
 
 Defines whether the joiner node rebuilds indexes during a :term:`State Snapshot Transfer`.
@@ -286,7 +287,7 @@ This parameter operates on the joiner node.  When enabled, the node rebuilds ind
 
 
 .. _`xtra-rlimit`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``rlimit``
 
 Defines the rate limit for the donor node.
@@ -308,7 +309,7 @@ This parameter allows you to definite the rate-limit the donor node.  This allow
 
 
 .. _`xtra-sst_initial_timeout`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``sst_initial_timeout``
 
 Defines the initial timeout to receive the first state transfer packet.
@@ -330,7 +331,7 @@ This parameter determines the initial timeout in seconds for the joiner to recei
 
 
 .. _`xtra-sst_special_dirs`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``sst_special_dirs``
 
 Defines whether the node uses special InnoDB home and log directories.
@@ -358,7 +359,7 @@ This parameter enables support for ``innodb_data_home_dir`` and ``innodb_log_hom
 
 
 .. _`xtra-sockopt`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``sockopt``
 
 Defines socket options.
@@ -376,7 +377,7 @@ This parameter allows you to define one or more socket options for XtraBackup us
 
 
 .. _`xtra-streamfmt`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``streamfmt``
 
 Defines the stream formatting utility.
@@ -402,7 +403,7 @@ The default and recommended utility is ``xbstream`` given that it supports encry
 
 
 .. _`xtra-tca`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``tca``
 
 Defines the Certificate Authority (CA) to use in SSL encryption.
@@ -427,7 +428,7 @@ For more information on using Socat with encryption, see `Securing Traffic betwe
 
 
 .. _`xtra-tcert`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``tcert``
 
 Defines the certificate to use in SSL encryption.
@@ -452,7 +453,7 @@ For more information on using Socat with encryption, see `Securing Traffic betwe
 
 
 .. _`xtra-time`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``time``
 
 Defines whether XtraBackup instruments key stages in the backup and restore process for state transfers.
@@ -473,7 +474,7 @@ This parameter instruments key stages of the backup and restore process for stat
    time=ON
 
 .. _`xtra-transferfmt`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: ``transferfmt``
 
 Defines the transfer stream utility.

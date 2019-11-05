@@ -6,47 +6,56 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../../kb/trouble/index>`
-         - :doc:`Best Practices <../../kb/best/index>`
+           - :doc:`Troubleshooting <../../kb/trouble/index>`
+           - :doc:`Best Practices <../../kb/best/index>`
 
-      - :doc:`FAQ <../../faq>`
-      - :doc:`Training <../index>`
+        - :doc:`Training <../index>`
 
-      .. cssclass:: no-bull-sub
+        .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <./index>`
-         - :doc:`Training Videos <../videos/index>`
+           .. cssclass:: here
+
+           - :doc:`Tutorial Articles <./index>`
+
+        .. cssclass:: sub-links
+
+           - :doc:`Training Videos <../videos/index>`
 
 
-.. cssclass:: training-list
+.. cssclass:: library-index
 .. _`training-tutorials`:
 
 ======================================
 Codership Tutorials on Galera Cluster
 ======================================
 
-These are tutorial articles of the training section of the Codership Library. Here you'll find tutorial articles on how to get started with Galera and other basic tasks related to initially starting a Galera Cluster. There are also some intermediate articles on a few other aspects of Galera and related software.
+.. rst-class:: page-abstract
+
+   These are tutorial articles of the training section of the Codership Library. Here you'll find tutorial articles on how to get started with Galera and other basic tasks related to initially starting a Galera Cluster. There are also some intermediate articles on a few other aspects of Galera and related software.
 
 
 .. _`training-tutorials-entry-install`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Introduction & Installation
 
 .. container:: list-col1
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`getting-started`
 
    .. rst-class:: list-stats
@@ -58,7 +67,7 @@ These are tutorial articles of the training section of the Codership Library. He
       This article explains Galera Cluster, how it works. It provides an overview for installing Galera Cluster and initializing nodes in a cluster. It's a jumping off point to several other tutorial articles here.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-installation`
 
    .. rst-class:: list-stats
@@ -70,7 +79,7 @@ These are tutorial articles of the training section of the Codership Library. He
       This tutorial provides instruction to prepare your servers and installing Galera Cluster on each.  When you install Galera Cluster, you must choose between three implementations available.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-on-aws`
 
    .. rst-class:: list-stats
@@ -82,7 +91,7 @@ These are tutorial articles of the training section of the Codership Library. He
       This tutorial explains how to use Amazon Web Services (AWS) to create virtual servers to be used as a Galera Cluster. It will explain how to create and configure AWS, as well as how to install and configure the database and Galera software on each node. It'll end by showing you how to start the cluster.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`configuration`
 
    .. rst-class:: list-stats
@@ -94,7 +103,7 @@ These are tutorial articles of the training section of the Codership Library. He
       After installing Galera Cluster on your servers, you'll need to configure the database itself to serve as a node in a cluster.  This straightforward article provides you a list of parameters to set in each node's database configuration file, as well as setting swap space.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`wsrep-configuration`
 
    .. rst-class:: list-stats
@@ -108,7 +117,7 @@ These are tutorial articles of the training section of the Codership Library. He
 
 .. container:: list-col2
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`starting-cluster`
 
    .. rst-class:: list-stats
@@ -120,7 +129,7 @@ These are tutorial articles of the training section of the Codership Library. He
       A cluster requires at least two nodes, but you have to start the first node somehow. To do this, you'll need to bootstrap the Primary Component. This article explains how to initialize the cluster.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`getting-started-docker`
 
    .. rst-class:: list-stats
@@ -131,7 +140,7 @@ These are tutorial articles of the training section of the Codership Library. He
 
       Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. This first of two articles on using Galera with Docker explains how to build a basic Docker Image and locally deploy it on a test cluster. It also describes how to deploy Galera Cluster over multiple Docker hosts.
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`testing-cluster`
 
    .. rst-class:: list-stats
@@ -147,12 +156,12 @@ These are tutorial articles of the training section of the Codership Library. He
 .. _`training-tutorials-admin`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Administration
 
 .. container:: list-col1
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-monitoring`
 
    .. rst-class:: list-stats
@@ -164,7 +173,7 @@ These are tutorial articles of the training section of the Codership Library. He
       This tutorial explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`galera-backup`
 
    .. rst-class:: list-stats
@@ -176,7 +185,7 @@ These are tutorial articles of the training section of the Codership Library. He
       This tutorial explains how to make back-ups while using Galera Cluster.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`debug-problems-with-sst`
 
    .. rst-class:: list-stats
@@ -188,7 +197,7 @@ These are tutorial articles of the training section of the Codership Library. He
       When new nodes join a cluster, Galera will transfer internally the entire dataset to the joiner. The same procedure, called State Snapshot Transfer (SST), applies to nodes that are rejoining the cluster after being down for a long period of time. This article offers some insights and troubleshooting advice for when there are problems with SST.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`primary-component`
 
    .. rst-class:: list-stats
@@ -202,7 +211,7 @@ These are tutorial articles of the training section of the Codership Library. He
 
 .. container:: list-col2
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`migrate`
 
    .. rst-class:: list-stats
@@ -214,7 +223,7 @@ These are tutorial articles of the training section of the Codership Library. He
       If you have an existing database, but aren't yet using Galera Cluster, you'll have to migrate your data. This has to be done a particular way. This tutorial article will help you to understand the concepts involved and take you through the steps to migrate a database.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`supporting-transaction-isolation-levels`
 
    .. rst-class:: list-stats
@@ -226,7 +235,7 @@ These are tutorial articles of the training section of the Codership Library. He
       Many DBAs and database developers don't understand what MySQL transaction isolation levels Galera CLuster supports and how it does so. This articles tries to answer those uncertainties.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`sst-or-not`
 
    .. rst-class:: list-stats
@@ -242,13 +251,13 @@ These are tutorial articles of the training section of the Codership Library. He
 .. _`training-tutorials-restart-recover`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Restarting & Recovery
 
 
 .. container:: list-col1
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`restarting-cluster`
 
    .. rst-class:: list-stats
@@ -262,7 +271,7 @@ These are tutorial articles of the training section of the Codership Library. He
 
 .. container:: list-col2
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`safe-to-bootstrap-feature`
 
    .. rst-class:: list-stats
@@ -277,12 +286,12 @@ These are tutorial articles of the training section of the Codership Library. He
 .. _`training-tutorials-performance-availability`:
 .. container:: banner
 
-   .. rst-class:: rubric-1
+   .. rst-class:: section-heading
    .. rubric:: Performance & High Availability
 
 .. container:: list-col1
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`achieving-read-after-write-semantics`
 
    .. rst-class:: list-stats
@@ -294,7 +303,7 @@ These are tutorial articles of the training section of the Codership Library. He
       Some applications attempt to read immediately a value just inserted into the database, without making those operations part of a single transaction. A read/write splitting proxy or a connection pool combined with a load-balancer can direct each operation to a different database node.
 
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`geo-distributed-clusters`
 
    .. rst-class:: list-stats
@@ -308,7 +317,7 @@ These are tutorial articles of the training section of the Codership Library. He
 
 .. container:: list-col2
 
-   .. rst-class:: rubric-2 list-sub-header
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`debugging-transaction-conflicts`
 
    .. rst-class:: list-stats

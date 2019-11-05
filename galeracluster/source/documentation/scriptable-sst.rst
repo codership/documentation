@@ -6,38 +6,39 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`
       - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
       - :ref:`wsrep_sst_method <wsrep_sst_method>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -51,7 +52,7 @@ When a node sends and receives a :term:`State Snapshot Transfer`, it manage it t
 
 
 .. _`writing-custom-sst`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Using the Common SST Script
 
 Galera Cluster includes a common script for managing a :term:`State Snapshot Transfer`, which you can use as a starting point in building your own custom script.  The filename is ``wsrep_sst_common``.  For Linux users, the package manager typically installs it for you in ``/usr/bin``.
@@ -62,14 +63,14 @@ It assumes that the storage engine initialization on the receiving node takes pl
 
 
 .. _`sst-script-parameters`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: State Transfer Script Parameters
 
 When Galera Cluster starts an external process for state snapshot transfers, it passes a number of parameters to the script, which you can use in configuring your own state transfer script.
 
 
 .. _`general-sst-script-parameters`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: General Parameters
 
 These parameters are passed to all state transfer scripts, regardless of method or whether the node is sending or receiving:
@@ -94,7 +95,7 @@ The values the node passes to these parameters varies depending on whether the n
 
 
 .. _`donor-sst-script-parameters`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Donor-specific Parameters
 
 These parameters are passed only to state transfer scripts initiated by a node serving as the donor node, regardless of the method being used:
@@ -110,7 +111,7 @@ These parameters are passed only to state transfer scripts initiated by a node s
 
 
 .. _`mysqldump-sst-parameters`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Logical State Transfer-specific Parameters
 
 These parameters are passed only to the ``wsrep_sst_mysqldump`` state transfer script by both the sending and receiving nodes:
@@ -129,14 +130,14 @@ These parameters are passed only to the ``wsrep_sst_mysqldump`` state transfer s
 
 
 .. _`calling-conventions`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Calling Conventions
 
 In writing your own custom script for state snapshot transfers, there are certain conventions that you need to follow in order to accommodate how Galera Cluster calls the script.
 
 
 .. _`call-receiver`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Receiver
 
 When the node calls for a state snapshot transfer as a joiner, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`General Parameters <general-sst-script-parameters>` above.  For your own script you can choose to use or ignore these arguments as suits your needs.
@@ -161,7 +162,7 @@ Then exit the script with a ``0`` status, to indicate that the state transfer wa
 
 
 .. _`call-sender`:
-.. rst-class:: rubric-2
+.. rst-class:: sub-heading
 .. rubric:: Sender
 
 When the node calls for a state snapshot transfer as a donor, it begins by passing a number of arguments to the state transfer script, as defined in :ref:`General Parameters <general-sst-script-parameters>` above.  For your own script, you can choose to use or ignore these arguments as suits your needs.
@@ -184,7 +185,7 @@ In the event of failure, Galera Cluster expects your script to return a code tha
 
 
 .. _`enabling-ssst`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Enabling Scriptable SST's
 
 Whether you use ``wsrep_sst_common`` directly or decide to write a script of your own from scratch, the process for enabling it remains the same.  The filename must follow the convention of ``wsrep_sst_<name>``, with ``<name>`` being the value that you give for the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter in the configuration file.

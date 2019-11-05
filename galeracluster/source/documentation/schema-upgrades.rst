@@ -6,37 +6,38 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
-
-         Related Documents
+      Related Documents
 
       - :ref:`Total Order Isolation <toi>`
       - :ref:`Rolling Schema Upgrade <rsu>`
 
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -60,7 +61,7 @@ You can set the method for online schema changes by using the ``wsrep_OSU_method
 
 
 .. _`toi`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Total Order Isolation
 
 .. index::
@@ -84,7 +85,7 @@ The main advantage of Total Order Isolation is its simplicity and predictability
 
 
 .. _`rsu`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Rolling Schema Upgrade
 
 .. index::

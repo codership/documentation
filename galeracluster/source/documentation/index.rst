@@ -6,29 +6,34 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
 
-.. cssclass:: document-list
+.. cssclass:: library-index
 .. _`documentation`:
 
 =============================
@@ -44,7 +49,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Installation & Configuration <technical-description>`
 
 .. csv-table::
@@ -59,7 +64,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Administration <administration>`
 
 .. csv-table::
@@ -71,11 +76,11 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`system-tables`", ":doc:`auto-eviction`"
    ":doc:`schema-upgrades`", ":doc:`using-sr`"
    ":doc:`upgrading`", ":doc:`backup-cluster`"
-   
+
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Deployment <deployment>`
 
 .. csv-table::
@@ -87,7 +92,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Monitoring <monitor>`
 
 .. csv-table::
@@ -99,7 +104,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Reference <reference>`
 
 .. csv-table::
@@ -113,7 +118,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 
 .. container:: banner
 
-   .. rst-class:: rubric-1 list-sub-header
+   .. rst-class:: section-heading list-sub-header
    .. rubric:: Miscellaneous
 
 .. csv-table::

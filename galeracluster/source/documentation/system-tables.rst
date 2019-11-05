@@ -6,34 +6,35 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
-      .. cssclass:: bull-head
+      Related Documents
 
-         Related Documents
-
-      .. cssclass:: bull-head
-
-         Related Articles
+      Related Articles
 
 
 .. cssclass:: library-document
@@ -66,7 +67,7 @@ Database administrators and clients with the access to the ``mysql`` database ma
 
 
 .. _`cluster-view`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Cluster View
 
 One of the new Galera related system tables is the ``wsrep_cluster`` table. This new table, starting in version 4 of Galera, contains a current view of the cluster. That is to say, it stores the UUID of the cluster and some other identification information, as well as the cluster's capabilities.
@@ -110,7 +111,7 @@ In the results here, you can see the cluster UUID. This can also be found by usi
 
 
 .. _`cluster-members`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Cluster Members
 
 Another Galera related system tables is the ``wsrep_cluster_members`` table. This system table will provide the current membership of the cluster; it will contain a row for each node in the cluster.  That is to say, each node in the cluster known to the node upon which the table is queried.
@@ -162,7 +163,7 @@ In the results of this example you can see that this cluster is composed of thre
 
 
 .. _`cluster-streaming-log`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Cluster Streaming Log
 
 The last Galera related system tables is the ``wsrep_streaming_log`` table. This system table contains meta data and row events for ongoing streaming transactions, write set fragment per row.

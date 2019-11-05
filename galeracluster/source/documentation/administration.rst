@@ -6,28 +6,31 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
 
-      - :doc:`Documentation <./index>`
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
+
+      .. cssclass:: here
+
+         - :doc:`Documentation <./index>`
+
       - :doc:`Knowledge Base <../kb/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Troubleshooting <../kb/trouble/index>`
          - :doc:`Best Practices <../kb/best/index>`
 
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
-
-      .. cssclass:: bull-head
 
       Related Documents
 
@@ -48,8 +51,6 @@
       - :doc:`Streaming Replication <using-sr>`
       - :doc:`Upgrading Galera <upgrading>`
 
-      .. cssclass:: bull-head
-
       Related Articles
 
       - :doc:`../training/tutorials/migrate`
@@ -67,7 +68,7 @@ With the basics of how the cluster works and how to install and initialize it co
 The sections in this part relate to the administration of nodes and the cluster.  :doc:`deployment`, covers how to use Galera Cluster in relation to your wider infrastructure, how to configure load balancers to work with the cluster and edge case deployments, such as running nodes in containers.  The pages in :doc:`monitor` show how to keep tabs on the status of the cluster and automate reporting.  :doc:`security` covers configuring Galera Cluster to work with firewalls, SELinux and SSL encryption.  :doc:`../training/tutorials/migrate` how to transition from a standalone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster.
 
 .. _`node-admin`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Node Administration
 
 Managing and administering nodes in Galera Cluster is similar to the administration and management of the standard standalone MySQL, MariaDB and Percona XtraDB database servers, with some additional features used to manage its interaction with the cluster.  These pages cover the administration of individual nodes, how they handle write-set replication and schema updates, and the procedure for upgrading Galera Cluster software.
@@ -98,7 +99,7 @@ Managing and administering nodes in Galera Cluster is similar to the administrat
 
 
 .. _`cluster-admin`:
-.. rst-class:: rubric-1
+.. rst-class:: section-heading
 .. rubric:: Cluster Administration
 
 In addition to node administration, Galera Cluster also provides interfaces for managing and administering the cluster.  These sections cover Primary Component recovery, managing Flow Control and Auto Eviction, as well as Galera Arbitrator and how to handle backups.

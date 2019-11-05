@@ -28,7 +28,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
 
-.. cssclass:: library-list
+.. cssclass:: library-index
 .. _`editors`:
 
 =============================
@@ -37,13 +37,13 @@ Codership Writers & Editors
 
 :doc:`The Codership Library <../index>` is written by the staff of Codership.  Its editors then edit and organize that text |---| some also write plenty of the text. This section of the Library relates to these activities.  Here you'll find information on how the Library is organized and our plans for its development and maintenance |---| assuming this is some of interest to anyone other than the editors.
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: :doc:`Mission & Goals <./mission-goals>`
 
 The mission of the editorial staff, as well as their goals related to the Codership Library are described on this page |---| click on the title here to get to it. It includes a description and purpose of each section of the Library (e.g., the types of articles contained in the Knowledge Base).
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Editorial Plans & Calendar
 
 .. image:: ../images/editors/library-impressions-pie-chart.png
@@ -125,7 +125,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 
 
-.. rst-class:: rubric-1 rubric-separated
+.. rst-class:: section-heading rubric-separated
 .. rubric:: Library Mechanics
 
 Below are areas related to the mechanics of the Library: documentation processing system, mark-down language, as well as a style guide.
