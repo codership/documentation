@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,16 +28,18 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Migration <./migration>`
-        - :doc:`Migration <./migration>`
-        - :doc:`Quorum Reset <../../../documentation/quorum-reset>`
-        - :ref:`wsrep_provider <wsrep_provider>`
-        - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
-        - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Migration <./migration>`
+      - :doc:`Migration <./migration>`
+      - :doc:`Quorum Reset <../../../documentation/quorum-reset>`
+      - :ref:`wsrep_provider <wsrep_provider>`
+      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -53,7 +49,7 @@
 Starting the Cluster
 ========================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length:  1,097 words; Published: October 20, 2014; Topic: General; Level: Beginner
 

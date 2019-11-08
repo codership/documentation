@@ -18,18 +18,14 @@
          - :doc:`Documentation <./index>`
 
       - :doc:`Knowledge Base <../kb/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Troubleshooting <../kb/trouble/index>`
-         - :doc:`Best Practices <../kb/best/index>`
-
       - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
+
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
@@ -948,7 +944,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
    wsrep_provider_options="gcache.size=128Mb"
 
-For more information on customizing the write-set cache, see the :doc:`Best Practice Articles <../kb/best/index>`.
+For more information on customizing the write-set cache, see the :doc:`Best Practice Articles <../kb/index>`.
 
 
 .. _`gcomm.thread_prio`:

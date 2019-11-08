@@ -9,31 +9,24 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
-
-      Related Documents
-
-      Related Articles
+      - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-article
@@ -42,6 +35,10 @@
 =======================
 Single Master Setup
 =======================
+
+.. rst-class:: article-stats
+
+   Length: 81 words; Published: October 22, 2019; Category: Topology; Type: Best Practices
 
 If a cluster uses only one node as a master, there are certain requirements (e.g., the slave queue size) that can be relaxed.
 

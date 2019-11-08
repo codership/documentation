@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -30,6 +24,8 @@
            .. cssclass:: here
 
            - :doc:`Training Videos <./index>`
+
+      - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-index
@@ -54,11 +50,11 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published: march 2016; length: 4 mins
+      published: mar 2016; length: 4 mins
 
    .. rst-class:: list-abstract
 
-      This fairly non-technical video presents Galera Cluster:  How it works and the benefits to organizations using it.
+      This fairly non-technical video presents Galera Cluster:  How it works and its benefits. It's designed for business managers and executes, to help them to understand Galera.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -70,7 +66,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      Shows the basics of how to install Galera Cluster and MySQL software, and configure them on three nodes.
+      You'll learn the basics  in this video of how to install and configure Galera Cluster and MySQL software. It also demonstrates how to start and test three nodes running Galera.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -82,7 +78,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      Shows the basics of how to install Galera Cluster and MariaDB software on three nodes |---| and configure the ports for security and other basic items.
+      This video presents the basics of how to install Galera Cluster and MariaDB software |---| and configure the ports and other basic items. And it demonstrates how to start a cluster.
 
 
 .. container:: list-col2
@@ -96,7 +92,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      Shows the basics of how to set up server instances on Amazon's AWS for a Galera Cluster with either MySQL or MariaDB.
+      This video presents the basics of how to set up server instances on Amazon's AWS for a Galera Cluster with either MySQL or MariaDB.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -108,7 +104,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      Demonstrates how to configure and use standard MySQL and MariaDB replication and Galera Cluster |---| and compares the two.
+      Understanding standard replication is important to understanding Galera. Plus, it can be useful to combine them. This video covers configuring standard replication with Galera.
 
 
 
@@ -133,7 +129,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
 
    .. rst-class:: sub-heading list-sub-header
-   .. rubric:: **Software Upgrades**
+   .. rubric:: **Software Upgrades** [Not Yet Published]
 
    .. rst-class:: list-stats
 
@@ -141,7 +137,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      Planning and conducting upgrades of Galera software on an active cluster.
+      This upcoming video will explain how to plan and conduct upgrades of Galera software on an active cluster, one node at a time, without loss of service or data.
 
 
 .. container:: list-col2
@@ -155,11 +151,11 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      Explains the basics of back-ups and demonstrates a few methods for making back-ups of databases on a node in a Galera Cluster. Additionally, it covers briefly how to restore back-ups and a cluster.
+      This video explains and demonstrates a few methods for making back-ups of databases on a node in a cluster. It covers briefly how to restore back-ups and a cluster.
 
 
    .. rst-class:: sub-heading list-sub-header
-   .. rubric:: **Recovering from a Cluster Crash**
+   .. rubric:: **Recovering from a Cluster Crash** [Not Yet Published]
 
    .. rst-class:: list-stats
 
@@ -167,8 +163,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      Goes through the steps to restart a cluster, and to ensure data isn't lost or overwritten.
-
+      This upcoming video will go through the steps to restore data from back-ups and to restart a cluster. It'll help you to ensure data isn't lost.
 
 
 .. _`training-videos-performance-availability`:
@@ -188,7 +183,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      How to install and configure a load balancer (e.g., HA Proxy) to balance traffic among nodes in a Galera Cluster.
+      Too much traffic on one node and very little on others is not good. This video shows how to install and configure a load balancer to distribute traffic among nodes in a cluster.
 
 
 .. container:: list-col2
@@ -198,11 +193,11 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-stats
 
-      published: april 2019; length: 60 mins
+      published: apr 2019; length: 60 mins
 
    .. rst-class:: list-abstract
 
-      This video is of Colin Charles speaking about the MySQL Server High Availability landscape and how Galera Cluster fits into it.
+      This video discusses the high availability of MySQL and MariaDB servers, and how Galera Cluster can help to improve the your numbers in this area.
 
 
 .. toctree::

@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -31,20 +25,22 @@
 
            - :doc:`Training Videos <./index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Monitoring Cluster <../../documentation/monitoring-cluster>`
-        - :doc:`Notification Command <../../documentation/notification-cmd>`
-        - :doc:`Notification Script <../../documentation/notification-cmd-example>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Monitoring Cluster <../../documentation/monitoring-cluster>`
+      - :doc:`Notification Command <../../documentation/notification-cmd>`
+      - :doc:`Notification Script <../../documentation/notification-cmd-example>`
 
-        - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
+      Related Articles
 
-        Other Resources
+      - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
 
-        - `Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
-        - `SCUMM <https://severalnines.com/database-blog/scumm-agent-based-database-monitoring-infrastructure-clustercontrol>`_
+      Other Resources
+
+      - `Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
+      - `SCUMM <https://severalnines.com/database-blog/scumm-agent-based-database-monitoring-infrastructure-clustercontrol>`_
 
 
 .. role:: raw-html(raw)

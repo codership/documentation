@@ -1,5 +1,5 @@
 .. meta::
-   :title: Auto_Increment Increasing by Multiples
+   :title: AUTO_INCREMENT Increases by Multiples
    :description:
    :language: en-US
    :keywords:
@@ -9,52 +9,47 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         .. cssclass:: here
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         - :doc:`Troubleshooting <./index>`
+      - :doc:`FAQ <../faq>`
 
-      .. cssclass:: sub-links
-
-         - :doc:`Best Practices <../best/index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
-
-         Related Documents
+      Related Documents
 
       - :ref:`wsrep_debug <wsrep_debug>`
-
-      .. cssclass:: bull-head
-
-         Related Articles
 
 
 .. cssclass:: library-article
 .. _`kb-trouble-auto-increment-multiples`:
 
 =======================================
-Auto_Increment Increasing by Multiples
+AUTO_INCREMENT Increasing by Multiples
 =======================================
+
+.. rst-class:: article-stats
+
+   Length: 995 words; Published: October 22, 2019; Category: Schema & SQL; Type: Troubleshooting
 
 The numeric value of a column which is a key index and uses the ``AUTO_INCREMENT`` attribute, will be increased automatically. Normally, it's increased by a factor of one.  So, for the first row, the key auto_increment column should have a value of 1, the second a value of 2, and the third a value of 3.
 
 However, when using Galera, an auto_increment column will increase by a greater amount.  This isn't a problem, but it's something you need to understand and it's something of which you need to be aware.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Scenario
 
 Suppose we're developing a database for a store which sells many things, including toys.  Related to this, we decide to create a simple table called, ``toys``. Our intention is to store a list of toys that we sell, including how many we have in stock and the prices.
@@ -94,7 +89,7 @@ As you can see, the first column, called ``toy_id``, uses auto_increment.  Let's
 Look at the values for the ``toy_id`` column. Instead of having values of 1, 2, 3, they have values of 3, 6, 9. They're incrementing by a factor of three.  The first time encountering this, it may seem to be a problem, possibly a bug in the software.  It's not.  It's intentional, by design.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Explanation
 
 In a Galera Cluster, all nodes may write data to the tables.  Imagine a situation in which all nodes in the cluster simultaneously try to insert rows in the same table at the same time.  The result could potentially be duplicate values for any columns which use auto_increment.  To avoid such conflicts, Galera increments values for the columns based on the number of nodes in the cluster.
@@ -164,7 +159,7 @@ Let's add three more rows to the table, but this time from the first node:
 .. code-block:: mysql
 
    INSERT INTO toys VALUES(NULL, 'Ping Pong Paddle', 4, 18.95),
-   (NULL, 'Gumby & Pokey', 3, 10.25), (NULL, 'Etch-A.Sketch', 2, 14.25);
+   (NULL, 'Gumby & Pokey', 3, 10.25), (NULL, 'Etch-A-Sketch', 2, 14.25);
 
    SELECT * FROM toys;
 
@@ -176,7 +171,7 @@ Let's add three more rows to the table, but this time from the first node:
    |      9 | Slinky           |        8 |  6.95 |
    |     10 | Ping Pong Paddle |        4 | 18.95 |
    |     13 | Gumby & Pokey    |        3 | 10.25 |
-   |     16 | Etch-A.Sketch    |        2 | 14.25 |
+   |     16 | Etch-A-Sketch    |        2 | 14.25 |
    +--------+------------------+----------+-------+
 
 Notice that the first new row has a ``toy_id`` of 10, which matches the ``AUTO_INCREMENT`` value for the table.  For the next row, it jumps to 13, and then 16.  It doesn't have the symetry of the results of the first ``INSERT`` statement, but it's logical.

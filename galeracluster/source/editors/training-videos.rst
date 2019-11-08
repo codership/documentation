@@ -6,26 +6,24 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../documentation/index>`
       - :doc:`Knowledge Base <../kb/index>`
-
-      .. cssclass:: no-bull-sub
-
-         - :doc:`Troubleshooting <../kb/trouble/index>`
-         - :doc:`Best Practices <../kb/best/index>`
-
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
+
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -40,7 +38,7 @@ Codership Training Videos
 
 Below is a list of training vides planned for the next few months. They cover essential topics and are grouped by skill level, as well as an extra set of articles cover some special topics.
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Beginner Tutorials
 
 .. csv-table::
@@ -51,7 +49,7 @@ Below is a list of training vides planned for the next few months. They cover es
    "**MySQL Replication vs. Galera Cluster** :raw-html:`<small>scheduled 15 oct. 2019</small>` Demonstrates how to configure and use standard replication and compares that to a Galera Cluster.", "**Installing Galera Cluster with MariaDB** :raw-html:`<small>scheduled 25 sept. 2019</small>` Shows the basics of how to install the Galera Cluster with MariaDB on three nodes."
 
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Intermediate Tutorials
 
 .. csv-table::
@@ -62,7 +60,7 @@ Below is a list of training vides planned for the next few months. They cover es
    "**Recovering from a Cluster Crash** :raw-html:`<small>not yet scheduled</small>` Goes through the steps to restart a cluster, and to ensure data isn't lost or overwritten.", ""
 
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Special Topics
 
 .. csv-table::

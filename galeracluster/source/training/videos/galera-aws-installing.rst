@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -31,24 +25,27 @@
 
            - :doc:`Training Videos <./index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-        - :doc:`firewalld <../../documentation/firewalld>`
-        - :doc:`Installing Galera <../../documentation/install>`
-        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-        - :doc:`SELinux <../../documentation/selinux>`
-        - :doc:`State Transfer <../../documentation/state-transfer>`
-        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+      - :doc:`firewalld <../../documentation/firewalld>`
+      - :doc:`Installing Galera <../../documentation/install>`
+      - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+      - :doc:`SELinux <../../documentation/selinux>`
+      - :doc:`State Transfer <../../documentation/state-transfer>`
+      - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-        - :doc:`Install Galera on AWS <../tutorials/galera-on-aws>`
+      Related Articles
 
-        Other Resources
+      - :doc:`Install Galera on AWS <../tutorials/galera-on-aws>`
 
-        - `Galera Repository <http://releases.galeracluster.com/>`_
-        - `MariaDB Repository <https://downloads.mariadb.org/mariadb/repositories/>`_
+      Other Resources
+
+      - `Galera Repository <http://releases.galeracluster.com/>`_
+      - `MariaDB Repository <https://downloads.mariadb.org/mariadb/repositories/>`_
+
 
 .. role:: raw-html(raw)
    :format: html

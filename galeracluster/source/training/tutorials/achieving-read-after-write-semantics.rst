@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -33,9 +27,13 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        Related Articles
+      - :doc:`FAQ <../../faq>`
+
+      Related Documents
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -45,7 +43,7 @@
 Read-After-Write Semantics with Galera
 =======================================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length:  599 words; Writer: Philip Stoev; Published: June 17, 2015; Topic: General; Level: Intermediate
 

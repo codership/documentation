@@ -1,8 +1,8 @@
 .. meta::
    :title: Resetting a Galera Cluster Quorum
-   :description:
+   :description: "Provides an explanation of how determine if a cluster needs to be restarted and how to do it."
    :language: en-US
-   :keywords: galera cluster, quorum, split-brain, recovery
+   :keywords: galera cluster, quorum, split-brain, recovery, primary component, restarting cluster
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
@@ -19,18 +19,14 @@
          - :doc:`Documentation <./index>`
 
       - :doc:`Knowledge Base <../kb/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Troubleshooting <../kb/trouble/index>`
-         - :doc:`Best Practices <../kb/best/index>`
-
       - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
+
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
@@ -60,9 +56,11 @@ Resetting the Quorum
 .. index::
    single: Primary Component; Nominating
 
-Occasionally, you may find your nodes no longer consider themselves part of the :term:`Primary Component`.  For instance, in the event of a network failure, the failure of more than half of the cluster, or a split-brain situation.  In these cases, the node come to suspect that there is another Primary Component, to which they are no longer connected.
+Although it's unlikely, you may find your nodes no longer consider themselves part of the :term:`Primary Component`.  There might have been a network failure; perhaps more than half of the cluster failed; or there is a split-brain situation.  In these cases, the node come to suspect that there is another Primary Component, to which they are no longer connected.
 
-When this occurs, all nodes return an ``Unknown command`` error to all queries.  You can check if this is happening using the :ref:`wsrep_cluster_status <wsrep_cluster_status>` status variable.  Run the following query on each node:
+This loss of integrity can be a problem. When it occurs, the nodes will start to return an ``Unknown command`` error to all of queries they're given to execute: they simply stop performing their duties for fear of making the situation worse by becoming too out-of-sync with their true cluster.
+
+You can see if this is happening by executing the ``SHOW STATUS`` statement and checking the :ref:`wsrep_cluster_status <wsrep_cluster_status>` status variable.  Specifically, this is done by executing the following SQL statement on each node:
 
 .. code-block:: mysql
 
@@ -74,20 +72,18 @@ When this occurs, all nodes return an ``Unknown command`` error to all queries. 
    | wsrep_cluster_status | Primary |
    +----------------------+---------+
 
-The return value ``Primary`` indicates that it the node is part of the Primary Component.  When the query returns any other value it indicates that the node is part of a nonoperational component.  If none of the nodes return the value ``Primary``, it means that you need to reset the quorum.
+The return value ``Primary`` indicates that the node on which it was executed is part of the Primary Component.  When the query returns any other value it indicates that the node is part of a non-operational component.  If none of the nodes return the value ``Primary``, you need to reset the quorum.
 
-.. note:: Bear in mind that situations where none of the nodes show as part of the Primary Component are very rare.  In the event that you do find one or more nodes that return the value ``Primary``, this indicates an issue with network connectivity rather than a need to reset the quorum.  Troubleshoot the connection issue.  Once the nodes regain network connectivity they automatically resynchronize with the Primary Component.
+Situations in which none of the nodes show they are part of the Primary Component are very rare.  If you discover one or more nodes wtih a value ``Primary``, it may indicate a problem with network connectivity, rather than a need to reset the quorum.  Investigate the connection possibility.  Once the nodes regain network connectivity they automatically resynchronize with the Primary Component.
 
 
 .. _`finding-most-advanced-node`:
 .. rst-class:: section-heading
 .. rubric:: Finding the Most Advanced Node
 
-Before you can reset the quorum, you need to identify the most advanced node in the cluster.  That is, you must find the node whose local database committed the last transaction.  Regardless of the method you use in resetting the quorum, this node serves as the starting point for the new :term:`Primary Component`.
+Before you can reset the quorum, you need to identify the most advanced node in the cluster.  That is, you must find the node whose local database committed the last transaction.  Regardless of the method you use in resetting the quorum, this node should serve as the starting point for the new :term:`Primary Component`.
 
-Identifying the most advanced node in the cluster requires that you find the node with the most advanced sequence number, or seqno.  You can determine this using the :ref:`wsrep_last_committed <wsrep_last_committed>` status variable.
-
-From the database client on each node, run the following query:
+Identifying the most advanced node requires that you find the node with the highest sequence number (i.e., seqno).  You can determine this by checking the :ref:`wsrep_last_committed <wsrep_last_committed>` status variable. From the database client on each node, run the following query:
 
 .. code-block:: mysql
 
@@ -99,28 +95,27 @@ From the database client on each node, run the following query:
    | wsrep_last_committed | 409745 |
    +----------------------+--------+
 
-The return value is the seqno for the last transaction the node committed.  The node that provides the highest seqno is the most advanced node in your cluster.  Use it as the starting point in the next section when bootstrapping the new Primary Component.
+The return value is the sequence number for the last transaction the node committed.  If the ``mysqld`` daemon is down, you can restart ``mysqld`` without starting Galera.  If you don't want to restart the databases, you may be able to ascertain the sequence number from the ``grastate.dat`` file, located in the data directory.
+
+Once you've found the sequence numbers of each node, the one with the highest value is the most advanced one in the cluster.  Use that node as the starting point when bootstrapping the new Primary Component. This is explained in the next section here.
 
 
 .. _`resetting-quorum`:
 .. rst-class:: section-heading
 .. rubric:: Resetting the Quorum
 
-When you reset the quorum what you are doing is bootstrapping the :term:`Primary Component` on the most advanced node you have available.  This node then functions as the new Primary Component, bringing the rest of the cluster into line with its state.
+When you reset the quorum, what you're doing is bootstrapping the :term:`Primary Component` on the most advanced node you have available.  This node then functions as the new Primary Component, bringing the rest of the cluster into line with its state.
 
-There are two methods available to you in this process: automatic and manual.
-
-
-.. note:: The preferred method for a quorum reset is the automatic method.  Unlike the manual method, automatic bootstraps preserve the write-set cache, or GCache, on each node.  What this means is that when the new Primary Component starts, some or all of the joining nodes can provision themselves using the :term:`Incremental State Transfer` (IST) method, rather than the much slower :term:`State Snapshot Transfer` (SST) method.
+There are two methods available to you in this process: automatic and manual. The recommended one for a quorum reset is the automatic method.  Unlike the manual method, automatic bootstrapping preserve the write-set cache, or GCache, on each node.  What this means is that when the new Primary Component starts, some or all of the joining nodes can be provisioned quickly using the :term:`Incremental State Transfer` (IST) method, rather than the slower :term:`State Snapshot Transfer` (SST) method.
 
 
 .. _`automatic-bootstrap`:
 .. rst-class:: sub-heading
 .. rubric:: Automatic Bootstrap
 
-Resetting the quorum bootstraps the :term:`Primary Component` onto the most advanced node.  In the automatic method this is done by enabling :ref:`pc.bootstrap <pc.bootstrap>` under :ref:`wsrep_provider_options <wsrep_provider_options>` dynamically through the database client.  This makes the node a new Primary Component.
+Resetting the quorum will bootstrap the :term:`Primary Component` onto the most advanced node.  With the automatic method, this is done by dynamically enabling :ref:`pc.bootstrap <pc.bootstrap>` through the :ref:`wsrep_provider_options <wsrep_provider_options>` through the database client |---| it's not done through the configuration file.  Once you set this option, it will make the node a new Primary Component.
 
-To perform an automatic bootstrap, on the database client of the most advanced node, run the following command:
+To perform an automatic bootstrap, run the following command using the ``mysql`` client of the most advanced node:
 
 .. code-block:: mysql
 
@@ -133,50 +128,65 @@ The node now operates as the starting node in a new Primary Component.  Nodes in
 .. rst-class:: sub-heading
 .. rubric:: Manual Bootstrap
 
-Resetting the quorum bootstraps the :term:`Primary Component` onto the most advanced node.  In the manual method this is done by shutting down the cluster, then starting it up again beginning with the most advanced node.
+Resetting the quorum bootstraps the :term:`Primary Component` onto the most advanced node.  With the manual method, this is done by shutting down the cluster |---| shutting down ``mysqld`` on all of the nodes |---| and then starting ``mysqld`` with Galera on each node, beginning with the most advanced one.
 
-To manually bootstrap your cluster, complete the following steps:
+To bootstrap manually a cluster, first determine the most advanced node by executing the following from the command-line on each node:
 
-#. Shut down all cluster nodes.  For servers that use ``init``, run the following command from the console:
+.. code-block:: mysql
 
-   .. code-block:: console
+   mysql -u root -p -e "SHOW STATUS LIKE 'wsrep_last_committed'"
 
-      # service mysql stop
+Once you've determined which node has the highest sequence number, you can begin shutting down the cluster.  Just shut down ``mysqld`` on all of the nodes in the cluster |---| leaving the most advanced node until last.  For servers that use ``init``, enter the following from the command-line:
 
-   For servers that use ``systemd``, instead run this command:
+.. code-block:: console
 
-   .. code-block:: console
+   service mysql stop
 
-      # systemctl stop mysql
+For servers that use ``systemd``, execute instead this from the command-line:
 
-#. Start the most advanced node with the ``--wsrep-new-cluster`` option.  For servers that use ``init``, run the following command:
+.. code-block:: console
 
-   .. code-block:: console
+   systemctl stop mysql
 
-      # service mysql start --wsrep-new-cluster
+You're now ready to start the cluster again.  Start the most advanced node with the ``--wsrep-new-cluster`` option |---| not the other nodes.  For servers that use ``init``, run the following command:
 
-   For servers that use ``systemd`` and Galera Cluster 5.5 or 5.6, instead run this command:
+.. code-block:: console
 
-   .. code-block:: console
+   service mysql start --wsrep-new-cluster
 
-      # systemctl start mysql --wsrep-new-cluster
+For servers that use ``systemd`` and Galera Cluster 5.5 or 5.6, enter instead the following from the command-line:
 
-   For servers that use ``systemd`` and Galera Cluster 5.7, use the following command:
+.. code-block:: console
 
-   .. code-block:: console
+   systemctl start mysqld --wsrep-new-cluster
 
-      # /usr/bin/mysqld_bootstrap
+For MySQL servers that use ``systemd`` and at least version 5.7 of Galera Cluster, you can execute the following script from the command-line only on the first node:
 
-#. Start every other node in the cluster.  For servers that use ``init``, run the following command:
+.. code-block:: console
 
-   .. code-block:: console
+   mysqld_bootstrap
 
-      # service mysql start
 
-   For servers that use ``systemd``, instead run this command:
+For MariaDB servers that use ``systemd``, you might try to execute the following script from the command-line |---| again, only on the first node:
 
-   .. code-block:: console
+.. code-block:: console
 
-      # systemctl start mysql
+   galera_new_cluster
 
-When the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.
+
+With that first node running and acting as Primary Component, you're not ready to start all of the other nodes in the cluster.  For servers that use ``init``, run the following command:
+
+.. code-block:: console
+
+   service mysql start
+
+For servers that use ``systemd``, instead run this command:
+
+.. code-block:: console
+
+   systemctl start mysqld
+
+Written into all of these scripts is the ``--wsrep-new-cluster`` option, but it's done with a certain finesse.  Whichever method or script you use, when the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start, they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.  In a short amount of time, they all should become synchronized and running smoothly.
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

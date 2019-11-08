@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -31,23 +25,24 @@
 
            - :doc:`Training Videos <./index>`
 
-        Related Documents
+      Related Documents
 
-        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-        - :doc:`firewalld <../../documentation/firewalld>`
-        - :doc:`Installing Galera <../../documentation/install>`
-        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-        - :doc:`SELinux <../../documentation/selinux>`
-        - :doc:`State Transfer <../../documentation/state-transfer>`
-        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+      - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+      - :doc:`firewalld <../../documentation/firewalld>`
+      - :doc:`Installing Galera <../../documentation/install>`
+      - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+      - :doc:`SELinux <../../documentation/selinux>`
+      - :doc:`State Transfer <../../documentation/state-transfer>`
+      - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-        Related Articles
+      Related Articles
 
-        Other Resources
+      Other Resources
 
-        - :doc:`Install MySQL Galera (video) <./galera-mysql-installing>`
-        - :doc:`Install MariaDB Galera (video) <./galera-mariadb-installing>`
-        - `Galera Repository <http://releases.galeracluster.com/>`_
+      - :doc:`Install MySQL Galera (video) <./galera-mysql-installing>`
+      - :doc:`Install MariaDB Galera (video) <./galera-mariadb-installing>`
+      - `Galera Repository <http://releases.galeracluster.com/>`_
+
 
 .. role:: raw-html(raw)
    :format: html

@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,14 +28,16 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`SELinux <../../../documentation/selinux>`
-        - :doc:`Firewall Settings <../../../documentation/firewall-settings>`
-        - :doc:`Migration <migration>`
-        - :ref:`Configuring Swap Space <swap-config>`
+      Related Documents
 
-        Related Articles
+      - :doc:`SELinux <../../../documentation/selinux>`
+      - :doc:`Firewall Settings <../../../documentation/firewall-settings>`
+      - :doc:`Migration <migration>`
+      - :ref:`Configuring Swap Space <swap-config>`
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -51,7 +47,7 @@
 Installing Galera Cluster
 ==========================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length: 946 words; Published: October 20, 2014; Topic: General; Level: Beginner
 

@@ -10,35 +10,30 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
       - :ref:`evs.suspect_timeout <evs.suspect_timeout>`
       - :ref:`evs.inactive_timeout <evs.inactive_timeout>`
       - :ref:`evs.install_timeout <evs.install_timeout>`
-
-      Related Articles
 
 
 .. cssclass:: library-article
@@ -47,6 +42,10 @@
 ==================
 WAN Replication
 ==================
+
+.. rst-class:: article-stats
+
+   Length: 161 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
 
 When running the cluster over a :abbr:`WAN (Wide Area Network)`, you may frequently experience transient network connectivity failures.  To prevent this from partitioning the cluster, you may want to increase the *keepalive* timeouts.
 

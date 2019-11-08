@@ -17,11 +17,6 @@
       - :doc:`Documentation <../documentation/index>`
       - :doc:`Knowledge Base <../kb/index>`
 
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../kb/trouble/index>`
-           - :doc:`Best Practices <../kb/best/index>`
-
         .. cssclass:: here
 
         - :doc:`Training <./index>`
@@ -30,6 +25,8 @@
 
            - :doc:`Tutorial Articles <./tutorials/index>`
            - :doc:`Training Videos <./videos/index>`
+
+        - :doc:`FAQ <../faq>`
 
 
 .. role:: raw-html(raw)

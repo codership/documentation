@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -33,9 +27,11 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        Related Articles
+      Related Documents
+
+      Related Articles
 
 .. cssclass:: library-article
 .. _`debug-problems-with-sst`:
@@ -44,7 +40,7 @@
 Debugging Problems with SST
 =============================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length:  985 words; Writer: Philip Stoev; Published: July 6, 2015; Topic: Troubleshooting; Level: Intermediate
 

@@ -10,27 +10,24 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
@@ -46,6 +43,10 @@
 =========================
 Detecting a Slow Node
 =========================
+
+.. rst-class:: article-stats
+
+   Length: 297 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
 
 By design, the performance of a cluster cannot be higher than the performance of the slowest node in the cluster. Even if you have only one node, its performance can be considerably slower when compared with running the same server in a standalone mode (i.e., without a wsrep Provider).
 

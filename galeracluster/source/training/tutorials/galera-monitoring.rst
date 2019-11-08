@@ -17,13 +17,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -35,13 +29,15 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
 
-        - :doc:`Galera Monitoring (video) <../videos/galera-monitoring>`
+      Related Articles
+
+      - :doc:`Galera Monitoring (video) <../videos/galera-monitoring>`
 
 
 .. cssclass:: library-article
@@ -51,7 +47,7 @@
 Monitoring a Galera Cluster
 ===================================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length: 3100 words; Writer: Russell J.T Dyer: July 17, 2019; Topic: Administration; Level: Intermediate
 

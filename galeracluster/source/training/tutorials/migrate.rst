@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,14 +28,16 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`differences`
-        - :doc:`migration`
+      Related Documents
 
-        Related Articles
+      - :doc:`differences`
+      - :doc:`migration`
 
-        - :doc:`Getting Started Guide <getting-started>`
+      Related Articles
+
+      - :doc:`Getting Started Guide <getting-started>`
 
 
 .. cssclass:: library-article
@@ -51,7 +47,7 @@
 Galera Cluster Migration Factors
 =================================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length: 173 words; Published: October 20, 2014; Topic: Migration; Level: Beginner
 

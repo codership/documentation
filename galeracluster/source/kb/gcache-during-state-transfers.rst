@@ -9,33 +9,29 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
       - :ref:`Configuring Flow Control <configuring-fc>`
 
-      Related Articles
 
 .. cssclass:: library-article
 .. _`kb-best-gcache-during-state-transfers`:
@@ -46,6 +42,10 @@ Write-Set Caching during State Transfers
 
 .. index::
    pair: Performance; gcache
+
+.. rst-class:: article-stats
+
+   Length: 156 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
 
 Under normal operations, nodes do not consume much more memory than the regular standalone MySQL database server.  The certification index and uncommitted write-sets do cause some additional usage, but in typical applications this is not usually noticeable. Write-set caching during state transfers is the exception.
 

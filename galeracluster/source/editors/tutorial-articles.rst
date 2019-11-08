@@ -6,26 +6,23 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../documentation/index>`
       - :doc:`Knowledge Base <../kb/index>`
-
-      .. cssclass:: no-bull-sub
-
-         - :doc:`Troubleshooting <../kb/trouble/index>`
-         - :doc:`Best Practices <../kb/best/index>`
-
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -39,7 +36,7 @@ Tutorial Articles
 
 Below is a list of tutorial articles planned for the next few months. They cover essential topics and are grouped by skill level, as well as an extra set of articles cover some special topics.
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Beginner Tutorials
 
 .. csv-table::
@@ -50,7 +47,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    "**Plain Replication vs. Galera Cluster** :raw-html:`<small>scheduled 19 aug. 2019</small>` Explains standard replication compared to Galera.", "**The Essentials** :raw-html:`<small>scheduled 19 aug. 2019</small>` Which configuration settings are need and recommended."
 
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Intermediate Tutorials
 
 .. csv-table::
@@ -62,7 +59,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    "**The Lines of Communications** :raw-html:`<small>not yet scheduled</small>` Understanding the point of each port and how nodes communicate with each other.", ""
 
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Advanced Tutorials
 
 .. csv-table::
@@ -73,7 +70,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    "**Managing Users** :raw-html:`<small>not yet scheduled</small>` some text", "**Recovering from Split Brain** :raw-html:`<small>not yet scheduled</small>` some text"
 
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Special Topics
 
 .. csv-table::

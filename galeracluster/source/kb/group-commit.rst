@@ -10,27 +10,24 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
@@ -45,6 +42,10 @@
 =============
 Group Commit
 =============
+
+.. rst-class:: article-stats
+
+   Length: 322 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
 
 After each transaction is committed, InnoDB will typically flush changes to its redo log and the binary log to the disk--it does this typically by calling `fsync()`, `fdatasync()`. This method is used to ensure data changes are stored durably on the disk. Disk flushing, however, can have an effect on performance and the number of transactions-per-second (TPS) that can be committed.
 

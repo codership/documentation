@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,13 +28,15 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
-        - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
-        - :ref:`wsrep_ready <wsrep_ready>`
+      Related Documents
 
-        Related Articles
+      - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
+      - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+      - :ref:`wsrep_ready <wsrep_ready>`
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -50,7 +46,7 @@
 Testing a Cluster
 ===================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length:  499 words; Published: October 20, 2014; Topic: General; Level: Beginner
 

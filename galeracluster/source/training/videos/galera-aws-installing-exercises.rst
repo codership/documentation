@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -31,23 +25,25 @@
 
            - :doc:`Training Videos <./index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-        - :doc:`firewalld <../../documentation/firewalld>`
-        - :doc:`Installing Galera <../../documentation/install>`
-        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-        - :doc:`SELinux <../../documentation/selinux>`
-        - :doc:`State Transfer <../../documentation/state-transfer>`
-        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+      - :doc:`firewalld <../../documentation/firewalld>`
+      - :doc:`Installing Galera <../../documentation/install>`
+      - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+      - :doc:`SELinux <../../documentation/selinux>`
+      - :doc:`State Transfer <../../documentation/state-transfer>`
+      - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-        Other Resources
+      Related Articles
 
-        - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
-        - `Galera Repository <http://releases.galeracluster.com/>`_
-        - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
+      Other Resources
+
+      - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
+      - `Galera Repository <http://releases.galeracluster.com/>`_
+      - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
 
 .. role:: raw-html(raw)
    :format: html

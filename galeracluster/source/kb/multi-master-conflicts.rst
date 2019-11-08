@@ -9,29 +9,24 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         .. cssclass:: here
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         - :doc:`Troubleshooting <./index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Best Practices <../best/index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
@@ -42,7 +37,6 @@
       - :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>`
       - :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`
 
-      Related Articles
 
 .. cssclass:: library-article
 .. _`kb-trouble-multi-master-conflicts`:
@@ -51,15 +45,19 @@
 Multi-Master Conflicts
 ======================================
 
+.. rst-class:: article-stats
+
+   Length: 751 words; Updated: October 7, 2019; Category: Splits & Topology; Type: Troubleshooting
+
 These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Scenario
 
 To understand this better, consider a situation in a multi-master replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Troubleshooting
 
 There are a few techniques available to log and monitor problems that may indicate multi-master conflicts.  They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log.  You can enable it through the configuration file with a line like so:
@@ -123,7 +121,7 @@ These parameters enable different forms of conflict logging on the database serv
    g: 8749172, s: 8749171, d: 8749170, ts: 12637839897662340)
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Solution
 
 When two transactions are conflicting, the later of the two is rolled back by the cluster.  The client application registers this rollback as a deadlock error.  Ideally, the client application should retry the deadlocked transaction. However, not all client applications have this logic built in.
@@ -139,7 +137,7 @@ When a transaction fails the certification test due to a cluster-wide conflict, 
 Retrying only applies to auto-commit transactions, as retrying is not safe for multi-statement transactions.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Work-Around
 
 While Galera Cluster resolves multi-master conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.

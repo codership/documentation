@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,13 +28,15 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
 
-        - :doc:`Galera on AWS (video) <../videos/galera-aws-installing>`
+      Related Articles
+
+      - :doc:`Galera on AWS (video) <../videos/galera-aws-installing>`
 
 
 .. cssclass:: library-article

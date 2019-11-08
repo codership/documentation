@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,11 +28,13 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :ref:`gcache.recover <gcache.recover>`
+      Related Documents
 
-        Related Articles
+      - :ref:`gcache.recover <gcache.recover>`
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -48,7 +44,7 @@
 Restarting the Cluster
 ================================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length:  791 words; Published: October 20, 2014; Topic: General; Level: Beginner
 

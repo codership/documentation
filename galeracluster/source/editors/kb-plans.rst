@@ -6,26 +6,23 @@
    :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
 
 
-.. topic:: The Library
-   :name: left-margin
+.. container:: left-margin
 
-   .. cssclass:: no-bull
+   .. container:: left-margin-top
+
+      :doc:`The Library <../index>`
+
+   .. container:: left-margin-content
 
       - :doc:`Documentation <../documentation/index>`
       - :doc:`Knowledge Base <../kb/index>`
-
-      .. cssclass:: no-bull-sub
-
-         - :doc:`Troubleshooting <../kb/trouble/index>`
-         - :doc:`Best Practices <../kb/best/index>`
-
-      - :doc:`FAQ <../faq>`
       - :doc:`Training <../training/index>`
 
-      .. cssclass:: no-bull-sub
+      .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
+
 
 
 .. cssclass:: library-index
@@ -35,12 +32,12 @@
 Development of the Codership Knowledge Base
 ============================================
 
-:doc:`The Codership Knowledge Base <../kb/index>` is composed of :doc:`Troubleshooting <../kb/trouble/index>` and :doc:`Best Practices <../kb/best/index>` articles |---| KB articles are grouped by these two distinctions. This is different from the Documentation, which explains how to configure and administer a Galera Cluster |---| not how to solve problems that occur or how best to use Galera based on particular circumstances.  Previously, the Documentation included what we now define as KB articles. This was a confusing approach:  when reading the Documentation, readers want to know how to install, configure, and administer Galera, not be told how to fix problems they have not yet or may never encouter.
+:doc:`The Codership Knowledge Base <../kb/index>` is composed of :doc:`Troubleshooting <../kb/index>` and :doc:`Best Practices <../kb/index>` articles |---| KB articles are grouped by these two distinctions. This is different from the Documentation, which explains how to configure and administer a Galera Cluster |---| not how to solve problems that occur or how best to use Galera based on particular circumstances.  Previously, the Documentation included what we now define as KB articles. This was a confusing approach:  when reading the Documentation, readers want to know how to install, configure, and administer Galera, not be told how to fix problems they have not yet or may never encouter.
 
 To start the KB, we removed pages from the Documentation which were essentially KB articles and put them in the KB. Once there, we changed their structure:  for troubleshooting articles, presenting a scenario and then solutions or work-arounds; for best practice articles, presenting a scenario and then recommendations.  We also included in the left margin, links to related documentation and other articles.
 
 
-.. rst-class:: section-heading rubric-separated
+.. rst-class:: section-heading
 .. rubric:: Editorial Goals
 
 .. rst-class:: list-stats

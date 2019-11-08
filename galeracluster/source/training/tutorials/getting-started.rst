@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,23 +28,25 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`What's New <../../whats-new>`
-        - :doc:`Installation <galera-installation>`
-        - :doc:`Install MySQL Binary Installation <../../documentation/install-mysql>`
-        - :doc:`Source Build <../../documentation/install-mysql-src>`
-        - :doc:`Install XtraDB Binary Installation <../../documentation/install-xtradb>`
-        - :doc:`Source Build <../../documentation/install-xtradb-src>`
-        - :doc:`Install MariaDB Binary Installation <../../documentation/install-mariadb>`
-        - :doc:`Source Build <../../documentation/install-mariadb-src>`
-        - :doc:`System Configuration <configuration>`
-        - :doc:`Replication Configuration <wsrep-configuration>`
-        - :doc:`Starting the Cluster <starting-cluster>`
-        - :doc:`Testing a Cluster <testing-cluster>`
-        - :doc:`Restarting the Cluster <restarting-cluster>`
+      Related Documents
 
-        Related Articles
+      - :doc:`What's New <../../whats-new>`
+      - :doc:`Installation <galera-installation>`
+      - :doc:`Install MySQL Binary Installation <../../documentation/install-mysql>`
+      - :doc:`Source Build <../../documentation/install-mysql-src>`
+      - :doc:`Install XtraDB Binary Installation <../../documentation/install-xtradb>`
+      - :doc:`Source Build <../../documentation/install-xtradb-src>`
+      - :doc:`Install MariaDB Binary Installation <../../documentation/install-mariadb>`
+      - :doc:`Source Build <../../documentation/install-mariadb-src>`
+      - :doc:`System Configuration <configuration>`
+      - :doc:`Replication Configuration <wsrep-configuration>`
+      - :doc:`Starting the Cluster <starting-cluster>`
+      - :doc:`Testing a Cluster <testing-cluster>`
+      - :doc:`Restarting the Cluster <restarting-cluster>`
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -60,7 +56,7 @@
 Getting Started with Galera Cluster
 ====================================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length: 840 words; Published: October 20, 2014; Topic: General; Level: Beginner
 

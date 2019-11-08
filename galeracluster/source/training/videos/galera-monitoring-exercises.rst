@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -31,23 +25,26 @@
 
            - :doc:`Training Videos <./index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Firewall Settings <../../documentation/firewall-settings>`
-        - :doc:`firewalld <../../documentation/firewalld>`
-        - :doc:`Installing Galera <../../documentation/install>`
-        - :doc:`Node Provisioning <../../documentation/node-provisioning>`
-        - :doc:`SELinux <../../documentation/selinux>`
-        - :doc:`State Transfer <../../documentation/state-transfer>`
-        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+      - :doc:`firewalld <../../documentation/firewalld>`
+      - :doc:`Installing Galera <../../documentation/install>`
+      - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+      - :doc:`SELinux <../../documentation/selinux>`
+      - :doc:`State Transfer <../../documentation/state-transfer>`
+      - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-        - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
+      Related Articles
 
-        Other Resources
+      - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
 
-        - `Galera Repository <http://releases.galeracluster.com/>`_
+      Other Resources
+
+      - `Galera Repository <http://releases.galeracluster.com/>`_
+
 
 .. role:: raw-html(raw)
    :format: html

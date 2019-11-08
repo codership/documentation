@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -33,9 +27,11 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        Related Articles
+      Related Documents
+
+      Related Articles
 
 .. cssclass:: library-article
 .. _`differences`:
@@ -47,7 +43,7 @@ Differences from a Stand-Alone MySQL Server
 .. index::
    pair: Errors; ER_LOCK_DEADLOCK
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length: xxx words; Published: October 20, 2014; Topic: General; Level: Beginner
 

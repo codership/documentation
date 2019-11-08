@@ -181,20 +181,17 @@ p.rubric {
 p.section-heading {
   margin-top: 16px;
   font-size: 1.2em;
-  font-weight: 300;
+  font-weight: 500;
 }
 p.sub-heading {
   border: none;
 }
 div.faq p.sub-heading {
   margin-top: 25px;
+  font-weight: 400;
 }
 p.lower-heading {
     border-bottom: none;
-}
-p.rubric-separated {
-    color: #1E1006;
-    border-bottom: 1px solid #1E1006;
 }
 p.rubric tt.literal {
     font-family: monospace;
@@ -240,6 +237,9 @@ div.library-index p.list-abstract {
   font-size: .8em;
   line-height: 1.2em;
   color: #616161;
+}
+div.library-index.faq p.list-abstract {
+  font-size: 1em;
 }
 div.library-index p.page-abstract {
   font-size: .9em;
@@ -742,6 +742,7 @@ div.list-col1 p.list-stats, div.list-col2 p.list-stats {
    padding: 0 10px 2px 0 !important;
    font-size: .7em;
    word-spacing: 2px;
+   line-height: .9em;
    color: #8A8A8A;
    border-bottom: 1px #8A8A8A dotted;
 }
@@ -838,7 +839,7 @@ div.library-article h1 {
 div.library-article p.article-stats {
   margin-top: 10px;
   text-transform: initial;
-  font-size: .7em;
+  font-size: .75em;
   font-variant: small-caps;
   color: #6E6E6E;
 }
@@ -883,8 +884,8 @@ div.training-exercises h1 {
 
 /* Videos */
 
-div.library-video div.video-abstract {
-  margin-top: 10px;
+div#codership-training-videos p.rubric.list-sub-header {
+    margin-top: 20px;
 }
 div.library-video div.video-abstract p {
   font-size: 1em;

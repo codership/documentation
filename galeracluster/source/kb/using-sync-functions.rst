@@ -10,27 +10,24 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
-
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Tutorial Articles <../../training/tutorials/index>`
-         - :doc:`Training Videos <../../training/videos/index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
@@ -39,8 +36,6 @@
       - :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`
       - :ref:`wsrep_provider_version <wsrep_provider_version>`
 
-      Related Articles
-
 
 .. cssclass:: library-article
 .. _`kb-best-using-sync-functions`:
@@ -48,6 +43,10 @@
 =================================
 Using Synchronization Functions
 =================================
+
+.. rst-class:: article-stats
+
+   Length: 391 words; Published: October 22, 2019; Category: Schema & SQL; Type: Best Practices
 
 Occasionally, an application may need to perform a critical read. Critical reads are queries that require that the local database reaches the most up-to-date state possible before the query is executed.
 

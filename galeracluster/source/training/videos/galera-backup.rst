@@ -15,13 +15,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -31,27 +25,30 @@
 
            - :doc:`Training Videos <./index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Galera Arbitrator <../../documentation/arbitrator>`
-        - :doc:`Node Recovery <../../documentation/recovery>`
-        - :doc:`Scriptable SST  <../../documentation/scriptable-sst>`
-        - :doc:`State Transfer <../../documentation/state-transfer>`
-        - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Galera Arbitrator <../../documentation/arbitrator>`
+      - :doc:`Node Recovery <../../documentation/recovery>`
+      - :doc:`Scriptable SST  <../../documentation/scriptable-sst>`
+      - :doc:`State Transfer <../../documentation/state-transfer>`
+      - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-        - :doc:`Galera Back-Ups <../tutorials/galera-backup>`
+      Related Articles
 
-        Other Resources
+      - :doc:`Galera Back-Ups <../tutorials/galera-backup>`
 
-        - `mysqldump <https://mariadb.com/kb/en/mariadb/mysqldump/>`_
-        - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
-        - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
-        - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
-        - `CHANGE MASTER <https://dev.mysql.com/doc/refman/en/change-master-to.html>`_
-        - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
-        - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
+      Other Resources
+
+      - `mysqldump <https://mariadb.com/kb/en/mariadb/mysqldump/>`_
+      - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
+      - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
+      - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
+      - `CHANGE MASTER <https://dev.mysql.com/doc/refman/en/change-master-to.html>`_
+      - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
+      - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
+
 
 .. role:: raw-html(raw)
    :format: html

@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -31,19 +25,21 @@
            - :doc:`Tutorial Articles <./index>`
 
         .. cssclass:: sub-links
-        
+
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        - :doc:`Galera Parameters <../../../documentation/galera-parameters>`
-        - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
-        - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
-        - :ref:`wsrep_node_name <wsrep_node_name>`
-        - :ref:`wsrep_node_address <wsrep_node_address>`
-        - :ref:`wsrep_provider_options <wsrep_provider_options>`
+      Related Documents
 
-        Related Articles
+      - :doc:`Galera Parameters <../../../documentation/galera-parameters>`
+      - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
+      - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+      - :ref:`wsrep_node_name <wsrep_node_name>`
+      - :ref:`wsrep_node_address <wsrep_node_address>`
+      - :ref:`wsrep_provider_options <wsrep_provider_options>`
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -53,7 +49,7 @@
 Replication Configuration
 ===========================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length:  964 words; Published: October 20, 2014; Topic: General; Level: Beginner
 

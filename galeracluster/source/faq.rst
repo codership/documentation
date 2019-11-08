@@ -15,12 +15,6 @@
 
       - :doc:`Documentation <./documentation/index>`
       - :doc:`Knowledge Base <./kb/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Troubleshooting <./kb/trouble/index>`
-         - :doc:`Best Practices <./kb/best/index>`
-
       - :doc:`Training <./training/index>`
 
       .. cssclass:: sub-links
@@ -28,8 +22,12 @@
          - :doc:`Tutorial Articles <./training/tutorials/index>`
          - :doc:`Training Videos <./training/videos/index>`
 
-.. cssclass:: faq
-.. cssclass:: library-index
+      .. cssclass:: here
+
+         - :doc:`FAQ <./faq>`
+
+
+.. cssclass:: library-index faq
 .. _`library-faq`:
 
 ============================
@@ -54,7 +52,7 @@ Just below each question is further categorization of the question: the minimum 
 .. _`faq-general-questions`:
 .. container:: banner
 
-   .. rst-class:: section-heading rubric-separated
+   .. rst-class:: section-heading
    .. rubric:: General Questions
 
 
@@ -154,7 +152,7 @@ Just below each question is further categorization of the question: the minimum 
 .. _`faq-learning-questions`:
 .. container:: banner
 
-   .. rst-class:: section-heading rubric-separated
+   .. rst-class:: section-heading
    .. rubric:: Learning & Training Questions
 
 
@@ -256,7 +254,7 @@ Just below each question is further categorization of the question: the minimum 
 .. _`faq-assistance-questions`:
 .. container:: banner
 
-   .. rst-class:: section-heading rubric-separated
+   .. rst-class:: section-heading
    .. rubric:: Assistance Questions
 
 .. _`faq-codership-offers-support`:
@@ -324,7 +322,7 @@ Just below each question is further categorization of the question: the minimum 
 .. _`faq-installation-migration-questions`:
 .. container:: banner
 
-   .. rst-class:: section-heading rubric-separated
+   .. rst-class:: section-heading
    .. rubric:: Installation & Migration Questions
 
 .. _`faq-easy-migration-standard-to-galera`:
@@ -404,7 +402,7 @@ Just below each question is further categorization of the question: the minimum 
 
 .. rst-class:: list-abstract
 
-   The minimum number of nodes required for a cluster is two.  However, a minimum of three nodes is recommend. In a two-node cluster, if one node fails or it's taken down for maintenance, the other node will stop since another node is required. There is a work around for two-node cluster issues: see :doc:`Two-Node Clusters <./kb/best/two-node-clusters>`
+   The minimum number of nodes required for a cluster is two.  However, a minimum of three nodes is recommend. In a two-node cluster, if one node fails or it's taken down for maintenance, the other node will stop since another node is required. There is a work around for two-node cluster issues: see :doc:`Two-Node Clusters <./kb/two-node-clusters>`
 
    As for the maximum number of nodes, there is none. However, a single cluster in excessive of ten nodes may experience lag from the synchronizing of so many nodes across a network or the internet. This can be mitigated based on your network configuration, but then other factors come into play.
 
@@ -430,7 +428,7 @@ Just below each question is further categorization of the question: the minimum 
 .. _`faq-usage-questions`:
 .. container:: banner
 
-   .. rst-class:: section-heading rubric-separated
+   .. rst-class:: section-heading
    .. rubric:: Usage Questions
 
 .. _`faq-galera-load-balancing`:
@@ -562,7 +560,7 @@ Just below each question is further categorization of the question: the minimum 
 .. _`faq-administrative-questions`:
 .. container:: banner
 
-   .. rst-class:: section-heading rubric-separated
+   .. rst-class:: section-heading
    .. rubric:: Administrative Questions
 
 .. _`faq-what-causes-galera-to-stop`:
@@ -637,7 +635,7 @@ Just below each question is further categorization of the question: the minimum 
 .. _`faq-trivial-questions`:
 .. container:: banner
 
-   .. rst-class:: section-heading rubric-separated
+   .. rst-class:: section-heading
    .. rubric:: Galera Trivia Questions
 
 .. _`faq-why-called-is-galera`:

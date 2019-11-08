@@ -10,35 +10,30 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
-         - :doc:`Best Practices <./index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Troubleshooting <../trouble/index>`
-
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
       - :ref:`pc.boostrap <pc.bootstrap>`
       - :ref:`pc.ignore_sb <pc.ignore_sb>`
       - :ref:`Arbitrator <arbitrator>`
-
-      Related Articles
 
 
 .. cssclass:: library-article
@@ -47,6 +42,10 @@
 =======================
 Two-Node Clusters
 =======================
+
+.. rst-class:: article-stats
+
+   Length: 399 words; Published: October 22, 2019; Category: Topology; Type: Best Practices
 
 Although it may seem simple to maintain a cluster of only two nodes, there is an inherent potential problem. In a two-node cluster, when one node fails, it will cause the other to stop.
 

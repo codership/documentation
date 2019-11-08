@@ -19,18 +19,14 @@
          - :doc:`Documentation <./index>`
 
       - :doc:`Knowledge Base <../kb/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Troubleshooting <../kb/trouble/index>`
-         - :doc:`Best Practices <../kb/best/index>`
-
       - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
+
+      - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-index

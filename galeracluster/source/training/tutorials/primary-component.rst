@@ -16,13 +16,7 @@
 
       - :doc:`Documentation <../../documentation/index>`
       - :doc:`Knowledge Base <../../kb/index>`
-
-        .. cssclass:: sub-links
-
-           - :doc:`Troubleshooting <../../kb/trouble/index>`
-           - :doc:`Best Practices <../../kb/best/index>`
-
-        - :doc:`Training <../index>`
+      - :doc:`Training <../index>`
 
         .. cssclass:: sub-links
 
@@ -34,9 +28,11 @@
 
            - :doc:`Training Videos <../videos/index>`
 
-        Related Documents
+      - :doc:`FAQ <../../faq>`
 
-        Related Articles
+      Related Documents
+
+      Related Articles
 
 
 .. cssclass:: library-article
@@ -46,7 +42,7 @@
 The Primary Component in Galera Cluster
 =========================================
 
-.. rst-class:: list-stats
+.. rst-class:: article-stats
 
    Length:  782 words; Writer: Philip Stoev; Published: August 25, 2015; Topic: General; Level: Intermediate
 

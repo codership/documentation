@@ -10,27 +10,24 @@
 
    .. container:: left-margin-top
 
-      :doc:`The Library <../../index>`
+      :doc:`The Library <../index>`
 
    .. container:: left-margin-content
 
-      - :doc:`Documentation <../../documentation/index>`
-      - :doc:`Knowledge Base <../../kb/index>`
+      - :doc:`Documentation <../documentation/index>`
+
+      .. cssclass:: here
+
+         - :doc:`Knowledge Base <./index>`
+
+      - :doc:`Training <../training/index>`
 
       .. cssclass:: sub-links
 
-         - :doc:`Troubleshooting <../trouble/index>`
-         - :doc:`Best Practices <./index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Videos <../training/videos/index>`
 
-      - :doc:`Training <../../training/index>`
-
-      .. cssclass:: sub-links
-
-         - :doc:`Troubleshooting <../trouble/index>`
-
-         .. cssclass:: here
-
-         - :doc:`Best Practices <./index>`
+      - :doc:`FAQ <../faq>`
 
       Related Documents
 
@@ -46,6 +43,10 @@
 ================================
 Handling Large Transactions
 ================================
+
+.. rst-class:: article-stats
+
+   Length: 443 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
 
 Large transactions, especially ones deleting removes millions of rows from a table at once, can lead to diminished performance. One reason is that the table may reindexed and rescanned after each row is deleted.
 
