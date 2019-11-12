@@ -342,6 +342,14 @@ a.external[href^="mailto:"]:before {
     content: "";
 }
 */
+div.library-article a.reference.internal {
+    font-family: "Droid Sans Mono", monospace;
+    font-size: 1em;
+    color: #696969;
+}
+div.library-article a.reference.internal:hover {
+    color: #ed7e2e;
+}
 
 em.issue:before {
     content: "\21D7";

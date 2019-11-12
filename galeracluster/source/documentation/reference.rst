@@ -35,7 +35,7 @@
       - :doc:`system-tables`
       - :doc:`GLB Parameters <glb-parameters>`
       - :doc:`mysql-wsrep-options`
-      - :doc:`mysql-wsrep-functions`
+      - :doc:`wsrep-functions`
       - :doc:`versioning-information`
       - :doc:`xtrabackup-options`
 
@@ -61,7 +61,7 @@ Defining persistent configurations in Galera Cluster is done through the underly
 
   In addition to the standard configuration variables available through the database server, Galera Cluster implements several that are unique and specific to fine-tuning database replication.  This chapter provides a reference guide to these new configuration variables in Galera Cluster
 
-- :doc:`mysql-wsrep-functions`
+- :doc:`wsrep-functions`
 
   There are a few Galera specific functions. This page lists and explains them, as well as gives examples of their use.
 
@@ -118,7 +118,7 @@ In some cases your configuration or implementation may require that you work wit
    :hidden:
 
    mysql-wsrep-options
-   mysql-wsrep-functions
+   wsrep-functions
    galera-parameters
    galera-status-variables
    system-tables

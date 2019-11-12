@@ -65,11 +65,11 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 463 words; Updated: November 6, 2019
+      Length: 463 words; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
-      When using ``rsync`` for State Snapshot Transfers, if the donor node crashes in the middle of a state transfer, the joiner node may stall, its databases may be incomplete and inaccessible. This article discusses this situation and how to resolve it.
+      If a donor node crashes while using ``rsync`` for a state transfers, the joiner node may stall with incomplete databases, and be inaccessibe. This article discusses how to resolve this.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -77,11 +77,11 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 789 words; Updated: November 7, 2019
+      Length: 789 words; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
-      When using ``mysqldump`` for State Snapshot Transfers, and a new node joins a cluster, after it requests data from the cluster, it may fail. Looking at the database error log, there may be entries that says there were SQL Syntax errors.
+      When using ``mysqldump`` for state transfers for a new node, it may fail. In the database error log, there may be entries that says there were SQL Syntax errors.
 
 
 .. container:: list-col2
@@ -91,11 +91,11 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 649 words; Updated: November 6, 2019
+      Length: 649 words; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
-      When a new node joins a cluster, it will try to synchronize with the cluster by getting a full copy of the databases from one of the other nodes.  Sometimes its request will be ignored and no node will be selected to be the donor.
+      When a new node joins a cluster, it will try to get a full copy of the databases from one of the other nodes.  Sometimes its request will be ignored and no node is selected to be the donor.
 
 
 .. _`kb-trouble-sql-syntax`:
@@ -111,11 +111,11 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 519 words; Updated: October 30, 2019:
+      Length: 519 words; Updated: Oct 2019:
 
    .. rst-class:: list-abstract
 
-      A cluster will sometimes stall when executing ``ALTER TABLE``. This can happen when changing the schema of a table with several columns and indexes. Depending on the number of rows, it can be a major drain on performance.
+      A cluster will sometimes stall when executing ``ALTER TABLE`` on a table with several columns and indexes. Depending on the number of rows, it can be a major drain on performance.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -123,11 +123,11 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 373 words; Published:
+      Length: 518 words; Updated: Sep 2019
 
    .. rst-class:: list-abstract
 
-      After making changes to the ``mysql`` database (e.g., user name, password, host address), they’re not replicated to the other nodes in the cluster. This can cause problems for users, as well as frustrate the DBA.
+      Changes to the ``mysql`` database (e.g., user name, host address) are not replicated on other nodes. This can cause problems for users, as well as frustrate the DBA.
 
 
 .. container:: list-col2
@@ -137,11 +137,24 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 995 words; Published: October 22, 2019
+      Length: 995 words; Published: Oct 2019
 
    .. rst-class:: list-abstract
 
-      Tables with key columns that use the ``AUTO_INCREMENT`` attribute will increment values by more than one, when using Galera Cluster. This can be confusing and worrisome, but this article explains how this is a good method.
+      Key columns using ``AUTO_INCREMENT`` will increase values by more than one with Galera. This can be confusing and worrisome, but this article explains why this is a good method.
+
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`resolve-commit-failure`
+
+   .. rst-class:: list-stats
+
+      Length: 326 words; Updated: Nov 2019
+
+   .. rst-class:: list-abstract
+
+      When you have ``wsrep_debug`` turned ``ON``, you may occasionally see a message noting that a commit has failed due to reason ``3``.
+
 
 
 .. _`kb-trouble-splits-topology`:
@@ -161,7 +174,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-abstract
 
-      Mmlti-master database environments have certain types of conflicts and typically involve inconsistencies of rows amongst nodes. This article explains the nuances of Galera Cluster and how to handle and prevent them.
+      Multi-master clusters have certain types of conflicts and can involve data inconsistencies among nodes. This article explains the nuances of Galera and how to prevent them.
 
 .. container:: list-col2
 
@@ -170,11 +183,11 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 971 words; Updated: November 6, 2019
+      Length: 971 words; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
-      Although a user entered a valid SQL statement, instead of receiving the expected results, an error message is returned saying, "Unknown Command".  It may not do this on all nodes, but error message returned for all queries on some nodes.
+      Instead of receiving results from a valid SQL statement, an error message is returned saying, "Unknown Command" on one node. This error is returned for all queries on the node.
 
 
 .. _`kb-best`:
@@ -204,7 +217,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      When several transactions try to commit at the same time, ``GROUP COMMIT`` will force them to be flushed to the disk with a single system call, rather than a system call for each commit. This can greatly improves the throughput of TPS.
+      When several transactions try to commit simultaneously, ``GROUP COMMIT`` flushes them to the disk with a single system call, rather than a call for each, greatly improving performance.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -216,7 +229,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      Large transactions, especially ones which delete millions of rows from a table at once, can lead to diminished performance. One reason for this is that the table may be reindexing and rescanning after each row is deleted.
+      Large transactions can lead to diminished performance. One reason for this is that the table may be reindexing and rescanning after each row is deleted.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -228,7 +241,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      There's no rule for how many slave threads are needed. Parallel threads don't ensure better performance, but they don't impair performance and they may in fact speed up the synchronization of new nodes joining a cluster.
+      Parallel threads don't ensure better performance, but they don't impair performance and they may actually increase synchronization of new nodes joining a cluster.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -240,7 +253,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      By design, cluster performance cannot be higher than the performance of the slowest node in the cluster. Even with only one node, its performance can be considerably slower when compared with running the same server in a stand-alone mode.
+      By design, cluster performance won't be higher than the slowest node. Even with only one node, its performance can be considerably slower compared to stand-alone mode.
 
 .. container:: list-col2
 
@@ -253,7 +266,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      When using Galera Cluster over a Wide Area Network, links can have exceptionally high latency. It can be checked by taking Round-Trip Time measurements between nodes. It can be corrected by adjusting all of the temporal parameters.
+      When using Galera over a WAN, links can have exceptionally high latency. Check this by measuring the Round-Trip Time among nodes, and correct it by adjusting temporal parameters.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -265,7 +278,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      When running the cluster over a WAN (Wide Area Network), you may frequently experience transient network connectivity failures. To prevent this from partitioning the cluster, you may want to increase the *keepalive* timeouts.
+      When running a cluster over a WAN, there may be transient network connectivity failures. To prevent this from partitioning the cluster, try increasing the *keep-alive* timeouts.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -277,7 +290,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      The size of the write-set cache can be defined by the ``gcache.size`` parameter. If you have storage issues, there are some guidelines to consider in adjusting this issue. You could change your state snapshot method.
+      If you have storage issues, there are some guidelines to adjust the ``gcache.size`` parameter, properly. You could also change your state snapshot method.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -289,7 +302,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      Normally, nodes don't use much more memory than a stand-alone. The certification index and uncommitted write-sets do drain some. Typically, though, this isn't usually noticeable. Write-set caching during state transfers is the exception.
+      Galera nodes don't use much more memory than a stand-alone. The certification index and uncommitted write-sets drain some. Write-set caching during state transfers is the exception.
 
 
 .. _`kb-best-topology`:
@@ -301,18 +314,6 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 .. container:: list-col1
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Multi-Master Setup <multi-master-setup>`
-
-   .. rst-class:: list-stats
-
-      Length: 55 words; Published:
-
-   .. rst-class:: list-abstract
-
-      A master is a node that can simultaneously process writes from clients. The more masters in a cluster, the higher the probability of certification conflicts.  This can lead to undesirable rollbacks and performance degradation.
-
-
-   .. rst-class:: rubric-2 list-sub-header
    .. rubric:: :doc:`Single Master Setup <single-master-setup>`
 
    .. rst-class:: list-stats
@@ -321,7 +322,18 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      Although Galera is a true multi-master system, it is possible to designate one node to handle all writes, to be the master for all of the other nodes. To do this, there are certain configuratoin requirements, while some aspects that can be relaxed.
+      It's possible to designate one node in a cluster to handle all writes, to be the *master* to the other nodes. To do this, there are certain configuratoin requirements.
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Multi-Master Setup <multi-master-setup>`
+
+   .. rst-class:: list-stats
+
+      Length: 55 words; Published:
+
+   .. rst-class:: list-abstract
+
+      The more *masters* in a cluster, the higher the probability of certification conflicts. This can lead to undesirable rollbacks and performance degradation.
 
 .. container:: list-col2
 
@@ -330,11 +342,11 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 399 words; Published:
+      Length: 880 words; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
-      Although it may seem simple to maintain a cluster of only two nodes, there is an inherent potential problem. In a two-node cluster, when one node fails, it may cause problems, to distrupt some processes. Mostly, high availability is no longer ensured.
+      There are potential problems with two-node clusters: A split-brain situation may occur. When one node fails, the remaining node becomes non-operational.
 
 
 .. _`kb-best-security`:
@@ -350,25 +362,25 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 345 words; Updated: October 20, 2019
+      Length: 345 words; Updated: Oct 2019
 
    .. rst-class:: list-abstract
 
-      When you first enable Galera Cluster on a node that runs SELinux, it will prohibit all cluster activities.  In order to enable replication on the node, you need a policy so that SELinux can recognize cluster activities as legitimate.
+      When you first installing a node, SELinux will prohibit cluster activities. You will need a SELinux policy so it will recognize cluster activities as legitimate.
 
 
 .. container:: list-col2
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Synchronization Functions <using-sync-functions>`
+   .. rubric:: :doc:`Synch a Transaction First <sync-transaction-before-another>`
 
    .. rst-class:: list-stats
 
-      Length: 391 words; Published:
+      Length: 994 words; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
-      An application may need to perform a critical read. Synchronization functions can tie the synchronization process to specific transactions so that the node waits only until a specific transaction is applied before executing the query.
+      When entering a transaction, you may need to ensure a previous transaction has been committed on the current node. Synchronization functions can make this easier to do.
 
 
 .. toctree::
@@ -382,6 +394,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
    stall-on-alter-table
    user-changes
    auto-increment-multiples
+   resolve-commit-failure
 
    multi-master-conflicts
    error-unknown-command
@@ -392,14 +405,15 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
    multi-master-setup
    parallel-slave-threads
    single-master-setup
-   setting-selinux-policy
    detecting-slow-node
-   using-sync-functions
    two-node-clusters
    wan-latency
    wan-replication
    customizing-gcache-size
    gcache-during-state-transfers
+
+   setting-selinux-policy
+   sync-transaction-before-another
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

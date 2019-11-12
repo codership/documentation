@@ -107,7 +107,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    :class: doc-links
 
    ":doc:`mysql-wsrep-options`", ":doc:`glb-parameters`"
-   ":doc:`mysql-wsrep-functions`", ":doc:`xtrabackup-options`"
+   ":doc:`wsrep-functions`", ":doc:`xtrabackup-options`"
    ":doc:`galera-parameters`", ":doc:`system-tables`"
    ":doc:`galera-status-variables`", ":doc:`versioning-information`"
 

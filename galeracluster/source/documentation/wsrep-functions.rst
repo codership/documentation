@@ -1,5 +1,5 @@
 .. meta::
-   :title: MySQL wsrep Functions
+   :title: Galera Functions
    :description:
    :language: en-US
    :keywords: galera cluster, mysql wsrep functions, galera functions
@@ -32,15 +32,15 @@
 
       - :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`
 
-      Related Articles
-
 
 .. cssclass:: library-document
-.. _`mysql-wsrep-functions`:
+.. _`wsrep-functions`:
 
 =======================
-MySQL wsrep Functions
+Galera Functions
 =======================
+
+Starting with version 4 of Galera Cluster, there are several Galera functions available. At this point, the Galera functions related to :term:`Global Transaction ID` (GTID).  They return a GTID or have effect on transactions related to a GTID.
 
 .. csv-table::
    :class: doc-options
@@ -132,7 +132,7 @@ This function blocks the client until the node applies and commits the given tra
    "Optional Arguments", "timeout"
    "Initial Version", "Version 4.0"
 
-This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`.  If you don't provide a timeout, it defaults to the value of :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`. It the following return values:
+This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`.  If you don't provide a timeout, it defaults to the value of :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`. It returns the following values:
 
 - ``1``: The node applied and committed the given Global Transaction ID.
 

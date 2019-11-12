@@ -43,7 +43,7 @@ User Changes not Replicating
 
 .. rst-class:: article-stats
 
-   Length: 506 words; Updated: September 12, 2019; Category: Schema & SQL; Type: Troubleshooting
+   Length: 518 words; Updated: September 12, 2019; Category: Schema & SQL; Type: Troubleshooting
 
 When a DBA make changes to data in the mysql database |---| that's the database that contains user names and privileges |---| if done in a straightforward way (e.g., with an ``UPDATE`` statement), they're not replicated to the other nodes in the cluster. This can cause problems for users, as well as frustrate the DBA.
 
