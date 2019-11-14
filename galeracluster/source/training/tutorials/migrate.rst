@@ -39,6 +39,18 @@
 
       - :doc:`Getting Started Guide <getting-started>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. cssclass:: library-article
 .. _`migrate`:
@@ -75,6 +87,16 @@ In the :doc:`Getting Started Guide <getting-started>`, the installation guides w
 
 For more information on the installation and basic management of Galera Cluster, see the :doc:`Getting Started Guide <getting-started>`.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`differences`
+   - :doc:`migration`
+
+   Related Articles
+
+   - :doc:`Getting Started Guide <getting-started>`
 
 .. toctree::
    :maxdepth: 2

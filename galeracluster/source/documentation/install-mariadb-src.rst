@@ -40,6 +40,22 @@
       - :doc:`System Configuration <../training/tutorials/configuration>`
       - :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-document
 .. _`install-mariadb-src`:
@@ -217,3 +233,19 @@ In addition to this procedure, bear in mind that any further customization varia
 .. note:: This tutorial omits MariaDB authentication options for brevity.
 
 .. _GitHub: https://github.com
+
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Install Galera <./install>`
+   - :doc:`MariaDB Galera Binaries <./install-mariadb>`
+   - :doc:`Galera MySQL Source <./install-mysql-src>`
+   - :ref:`wsrep_provider <wsrep_provider>`
+
+   Related Articles
+
+   - :doc:`Migration <../training/tutorials/migration>`
+   - :doc:`System Configuration <../training/tutorials/configuration>`
+   - :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`

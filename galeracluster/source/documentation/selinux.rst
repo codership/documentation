@@ -32,7 +32,21 @@
 
       - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -66,21 +80,21 @@ To set SELinux to permissive mode, complete the following steps:
 
    .. code-block:: console
 
-      # semanage port -a -t mysqld_port_t -p tcp 4567
-      # semanage port -a -t mysqld_port_t -p tcp 4568
-      # semanage port -a -t mysqld_port_t -p tcp 4444
+      semanage port -a -t mysqld_port_t -p tcp 4567
+      semanage port -a -t mysqld_port_t -p tcp 4568
+      semanage port -a -t mysqld_port_t -p tcp 4444
 
    SELinux already opens the standard MySQL port ``3306``.  In the event that you use UDP in your cluster, you also need to open ``4567`` to those connections.
 
    .. code-block:: console
 
-      # semanage port -a -t mysqld_port_t -p udp 4567
+      semanage port -a -t mysqld_port_t -p udp 4567
 
 #. Set SELinux to permissive mode for the database server.
 
    .. code-block:: console
 
-      # semanage permissive -a mysqld_t
+      semanage permissive -a mysqld_t
 
 SELinux now permits the database server to function on the server and no longer blocks the node from network connectivity with the cluster.
 
@@ -95,13 +109,13 @@ For servers that use ``init``, start the database with the following command:
 
 .. code-block:: console
 
-   # service mysql start
+   service mysql start
 
 For servers that use ``systemd``, instead run this command:
 
 .. code-block:: console
 
-   # systemctl mysql start
+   systemctl mysql start
 
 You can now begin to create events for SELinux to log.  There are many ways to go about this, including:
 
@@ -128,7 +142,7 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      # fgrep "mysqld" /var/log/audit/audit.log | audit2allow -m MySQL_galera -o galera.te
+      fgrep "mysqld" /var/log/audit/audit.log | audit2allow -m MySQL_galera -o galera.te
 
    This creates a ``galera.te`` file in your working directory.
 
@@ -136,7 +150,7 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      # checkmodule -M -m galera.te -o galera.mod
+      checkmodule -M -m galera.te -o galera.mod
 
    This creates a ``galera.mod`` file in your working directory.
 
@@ -144,7 +158,7 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      # semodule_package -m galera.mod -o galera.pp.
+      semodule_package -m galera.mod -o galera.pp.
 
    This creates a ``galera.pp`` file in your working directory.
 
@@ -158,7 +172,12 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      # semanage permissive -d mysql_t
-
+      semanage permissive -d mysql_t
 
 SELinux returns to enforcement mode, now using new policies that work with Galera Cluster.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`

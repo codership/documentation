@@ -36,7 +36,17 @@
       - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
       - :ref:`wsrep_ready <wsrep_ready>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -146,3 +156,11 @@ To simulate a network disconnection, use ``iptables`` or ``netem`` to block all 
 To simulate an entire server crash, run each ``mysqld`` in a virtualized guest, and abrubtly terminate the entire virtual instance.
 
 If you have three or more Galera Cluster nodes, the cluster should be able to survive the simulations.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
+   - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+   - :ref:`wsrep_ready <wsrep_ready>`

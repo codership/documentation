@@ -34,7 +34,21 @@
       - :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`
       - :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -123,3 +137,11 @@ You can now perform whatever additional tasks you need to prepare the work order
       COMMIT;
 
 During the work order transaction, the client initiates Streaming Replication for a single statement, which it uses to set the queue position.  The queue position update then replicates throughout the cluster, which prevents other nodes from coming into conflict with the new work order.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`When to Stream <when-use-sr>`
+   - :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`
+   - :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`

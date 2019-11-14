@@ -36,6 +36,21 @@
       - :doc:`SST Physical <../../documentation/sst-physical>`
       - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-trouble-sst-fails-sql-syntax`:
@@ -46,7 +61,7 @@ SST Fails with SQL Syntax Errors
 
 .. rst-class:: article-stats
 
-   Length: 789 words; Updated: November 7, 2019; Category: State Transfers; Type: Troubleshooting
+   Length: 789 words; Published: April 1, 2014; Updated: November 7, 2019; Category: State Transfers; Type: Troubleshooting
 
 When a new node joins a cluster, since it has no data, it will request data from the cluster.  This node is known as the joiner.  One of the nodes that's already part of the cluster and synchronized, will provide the joiner with a full copy of all of the databases. This node is know as a donor.  It will use the :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node.
 
@@ -113,6 +128,15 @@ To provide a user name and password, you would use the SET statement to store th
 As you can see, the user name and password are obscured.  This ``SET`` statement won't be replicated to the other nodes.  You'll have to set the values for ``wsrep_sst_auth`` on each node.  All of this is a reason why most DBAs prefer to use ``rsync`` for state transfers.
 
 If you're determined to use ``mysqldump``, once you've set the user name and password for using ``mysqldump`` to generate a dump file, as well as restoring one, you should be able to use it without much trouble.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`SST <../../documentation/sst>`
+   - :doc:`SST Logical <../../documentation/sst-logical>`
+   - :doc:`SST Physical <../../documentation/sst-physical>`
+   - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

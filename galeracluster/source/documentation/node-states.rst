@@ -41,7 +41,21 @@
       - :ref:`Write-set Caching <writeset-caching>`
       - :ref:`wsrep_ready <wsrep_ready>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -178,6 +192,20 @@ For the sake of legibility, certain transitions were omitted from the above desc
 
 For more information on Flow Control see `Galera Flow Control in Percona XtraDB Cluster <https://www.mysqlperformanceblog.com/2013/05/02/galera-flow-control-in-percona-xtradb-cluster-for-mysql/>`_.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Catching Up <catching-up>`
+   - :ref:`Cluster Sync <cluster-sync>`
+   - :ref:`gcs.fc_factor <gcs.fc_factor>`
+   - :ref:`gcs.fc_limit <gcs.fc_limit>`
+   - :ref:`gcs.max_throttle <gcs.max_throttle>`
+   - :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>`
+   - :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`
+   - :ref:`No Flow Control <no-flow-control>`
+   - :ref:`Write-set Caching <writeset-caching>`
+   - :ref:`wsrep_ready <wsrep_ready>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

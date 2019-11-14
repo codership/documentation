@@ -37,7 +37,21 @@
       - :doc:`sst`
       - :ref:`State Snap. Transfr. <state-transfer-sst>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. raw:: html
@@ -176,3 +190,15 @@ By default, the write-set cache allocates files in the working directory of the 
 .. note:: Given that all cache files are memory-mapped, the write-set caching process may appear to use more memory than it actually does.
 
 .. note:: If the :ref:`gcache.recover <gcache.recover>` parameter is set to ``yes``, an attempt to recover the gcache will be performed on startup, so that the node may continue to serve IST to other nodes. If set to ``no``, gcache will be invalidated on startup and the node will only be able to serve SST.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Galera Parameters <galera-parameters>`
+   - :ref:`gcache.dir <gcache.dir>`
+   - :ref:`gcache.recover <gcache.recover>`
+   - :ref:`Incremental St. Transfr. <state-transfer-ist>`
+   - :doc:`sst`
+   - :ref:`State Snap. Transfr. <state-transfer-sst>`
+      

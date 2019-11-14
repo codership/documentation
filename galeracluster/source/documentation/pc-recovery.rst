@@ -32,7 +32,21 @@
 
       - :ref:`pc.recovery <pc.recovery>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -148,3 +162,9 @@ And, the same again for ``node3``:
 
 
 Then start all three nodes without the bootstrap flag.  When they start, Galera Cluster reads the ``gvwstate.dat`` file for each.  It pulls its UUID from the file and uses those of the ``member`` field to determine which nodes it should join in order to form a new Primary Component.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`pc.recovery <pc.recovery>`

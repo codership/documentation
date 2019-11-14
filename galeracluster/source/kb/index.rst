@@ -29,12 +29,32 @@
 
       - :doc:`FAQ <../faq>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
+
 .. cssclass:: library-index
 .. _`kb`:
 
 =============================
 The Codership Knowledge Base
 =============================
+
+.. rst-class:: list-stats
+
+   Article Counts: 10 Troubleshooting, 13 Best Practices; Recent Changes: 6 Updated, 2 New Articles
 
 :doc:`The Codership Documentation <../documentation/index>` explains in detail how to deploy and administer a Galera Cluster. This section, the Codership Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster.  Here you'll find troubleshooting articles and best practices articles.
 
@@ -65,7 +85,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 463 words; Updated: Nov 2019
+      Length: 463 words; Pub: Apr 2014; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -77,7 +97,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 789 words; Updated: Nov 2019
+      Length: 789 words; Pub: Apr 2014; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -91,7 +111,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 649 words; Updated: Nov 2019
+      Length: 649 words; Pub: Apr 2014; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -111,7 +131,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 519 words; Updated: Oct 2019:
+      Length: 519 words; Pub: Apr 2014; Updated: Oct 2019:
 
    .. rst-class:: list-abstract
 
@@ -123,25 +143,37 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 518 words; Updated: Sep 2019
+      Length: 518 words; Pub: Apr 2014; Updated: Sep 2019
 
    .. rst-class:: list-abstract
 
       Changes to the ``mysql`` database (e.g., user name, host address) are not replicated on other nodes. This can cause problems for users, as well as frustrate the DBA.
 
 
-.. container:: list-col2
-
    .. rst-class:: rubric-2 list-sub-header
    .. rubric:: :doc:`auto-increment-multiples`
 
    .. rst-class:: list-stats
 
-      Length: 995 words; Published: Oct 2019
+      Length: 995 words; Pub: Oct 2019
 
    .. rst-class:: list-abstract
 
       Key columns using ``AUTO_INCREMENT`` will increase values by more than one with Galera. This can be confusing and worrisome, but this article explains why this is a good method.
+
+
+.. container:: list-col2
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`deadlock-found`
+
+   .. rst-class:: list-stats
+
+      Length: 887 words; Pub: Nov 2019
+
+   .. rst-class:: list-abstract
+
+      After starting a transaction involving an SQL statement that changes data, a deadlock error message will be returned indicating another node has already locked the same rows.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -149,7 +181,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 326 words; Updated: Nov 2019
+      Length: 326 words; Pub: Apr 2014; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -170,7 +202,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 751 words; Published:
+      Length: 751 words; Pub: Apr 2014
 
    .. rst-class:: list-abstract
 
@@ -183,7 +215,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 971 words; Updated: Nov 2019
+      Length: 971 words; Pub: Apr 2014; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -213,7 +245,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 322 words; Published:
+      Length: 322 words; Pub: May 2019; Updated: Oct 2019
 
    .. rst-class:: list-abstract
 
@@ -225,7 +257,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 443 words; Published:
+      Length: 443 words; Pub: Apr 2015
 
    .. rst-class:: list-abstract
 
@@ -237,7 +269,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 366 words; Published:
+      Length: 366 words; Pub: Jun 2015
 
    .. rst-class:: list-abstract
 
@@ -249,7 +281,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-   Length: 297 words; Published:
+   Length: 297 words; Pub: Apr 2014
 
    .. rst-class:: list-abstract
 
@@ -262,7 +294,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 221 words; Published:
+      Length: 221 words; Pub: Jun 2015
 
    .. rst-class:: list-abstract
 
@@ -274,7 +306,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 161 words; Published:
+      Length: 161 words; Pub: Jun 2015
 
    .. rst-class:: list-abstract
 
@@ -286,7 +318,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 467 words; Published:
+      Length: 467 words; Pub: Jun 2015
 
    .. rst-class:: list-abstract
 
@@ -298,7 +330,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 156 words; Published:
+      Length: 156 words; Pub: Jun 2015
 
    .. rst-class:: list-abstract
 
@@ -318,7 +350,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 81 words; Published:
+      Length: 81 words; Pub: Jun 2015
 
    .. rst-class:: list-abstract
 
@@ -329,7 +361,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 55 words; Published:
+      Length: 55 words; Pub: Jun 2015
 
    .. rst-class:: list-abstract
 
@@ -342,7 +374,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 880 words; Updated: Nov 2019
+      Length: 880 words; Pub: Jun 2015; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -362,7 +394,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 345 words; Updated: Oct 2019
+      Length: 345 words; Pub: Jun 2015; Updated: Oct 2019
 
    .. rst-class:: list-abstract
 
@@ -376,7 +408,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 994 words; Updated: Nov 2019
+      Length: 994 words; Pub: May 2019; Updated: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -394,6 +426,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
    stall-on-alter-table
    user-changes
    auto-increment-multiples
+   deadlock-found
    resolve-commit-failure
 
    multi-master-conflicts
@@ -402,15 +435,17 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    group-commit
    large-transactions
-   multi-master-setup
    parallel-slave-threads
-   single-master-setup
    detecting-slow-node
-   two-node-clusters
+
    wan-latency
    wan-replication
    customizing-gcache-size
    gcache-during-state-transfers
+
+   single-master-setup
+   multi-master-setup
+   two-node-clusters
 
    setting-selinux-policy
    sync-transaction-before-another

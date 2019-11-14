@@ -35,6 +35,21 @@
       - :ref:`pc.ignore_sb <pc.ignore_sb>`
       - :ref:`Arbitrator <arbitrator>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-best-two-node-clusters`:
@@ -45,7 +60,7 @@ Two-Node Clusters
 
 .. rst-class:: article-stats
 
-   Length: 880 words; Published: October 22, 2019; Category: Topology; Type: Best Practices
+   Length: 880 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Topology; Type: Best Practices
 
 When using Galera Cluster, it's recommended that the cluster have at least three nodes.  However, some DBAs would prefer to use only two nodes.  This could be because their budget doesn't allow for the cost of a third production node.  Or it could be that they are putting together a cluster for testing updates and want to minimize the effort and expense of testing.
 
@@ -106,6 +121,14 @@ Another solution, but a bad choice, is to configure the ``wsrep_provider_options
    SET GLOBAL wsrep_provider_options='pc.ignore_sb=TRUE';
 
 The node will resume processing updates, even if it suspects a split-brain situation. Enabling :ref:`pc.ignore_sb <pc.ignore_sb>` is dangerous, though, in a multi-master setup due to the risk for split-brain situations.  However, it does simplify things in master-slave clusters |---| especially in situations with only two nodes.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`pc.boostrap <pc.bootstrap>`
+   - :ref:`pc.ignore_sb <pc.ignore_sb>`
+   - :ref:`Arbitrator <arbitrator>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

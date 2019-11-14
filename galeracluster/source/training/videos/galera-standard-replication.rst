@@ -54,6 +54,18 @@
       - `MariaDB Replication <https://mariadb.com/kb/en/library/high-availability-performance-tuning-mariadb-replication/>`_
       - `MySQL Replication <https://dev.mysql.com/doc/refman/en/replication.html>`_
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -123,6 +135,36 @@ Standard Replication & Galera Cluster
     <video width="820" height="547" preload="metadata" controls>
     <source src="https://galeracluster.com/library-media/videos/galera-vs-standard-replication.mp4#t=0.1" type="video/mp4">
     </video>
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - `Binary Log <https://dev.mysql.com/doc/refman/en/binary-log.html>`_
+   - `CHANGE MASTER <https://dev.mysql.com/doc/refman/5.5/en/change-master-to.html>`_
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Load Balancer <../../documentation/glb>`
+   - `Master Configuration <https://dev.mysql.com/doc/refman/en/replication-howto-masterbaseconfig.html>`_
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - `Replication Threads <https://dev.mysql.com/doc/refman/en/replication-implementation-details.html>`_
+   - :doc:`SELinux <../../documentation/selinux>`
+   - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
+   - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+   - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../tutorials/wsrep-configuration>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Related Articles
+
+   - :doc:`Starting Galera <../tutorials/starting-cluster>`
+
+   Other Resources
+
+   - `MariaDB Replication <https://mariadb.com/kb/en/library/high-availability-performance-tuning-mariadb-replication/>`_
+   - `MySQL Replication <https://dev.mysql.com/doc/refman/en/replication.html>`_
+
 
 .. toctree::
    :maxdepth: 2

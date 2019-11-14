@@ -39,6 +39,18 @@
 
       - :doc:`Galera Monitoring (video) <../videos/galera-monitoring>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. cssclass:: library-article
 .. _`galera-monitoring`:
@@ -411,6 +423,16 @@ A better solution would be to have the script connect with the database and inse
 With busy and large databases, keeping them running smoothly and consistently can be a little intimidating.  However, Galera provides plenty of information for you to be able to monitor the status of each node and the cluster. You need only develop a habit of checking, or a system to check automatically and with regularity.  Plus, it provides a method of reacting to changes in node and cluster status.
 
 Yes, you'll need to know how to read the warning signs and know what to do to resolve problems before they affect the entire cluster, but the sooner you are made aware of a situation developing, the better and less stressful it will be for you.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+
+   Related Articles
+
+   - :doc:`Galera Monitoring (video) <../videos/galera-monitoring>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

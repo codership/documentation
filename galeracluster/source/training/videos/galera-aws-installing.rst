@@ -46,6 +46,18 @@
       - `Galera Repository <http://releases.galeracluster.com/>`_
       - `MariaDB Repository <https://downloads.mariadb.org/mariadb/repositories/>`_
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -115,6 +127,28 @@ Installing a Galera Cluster on AWS
     <video width="820" height="547" preload="metadata" controls>
     <source src="https://galeracluster.com/library-media/videos/galera-on-aws.mp4#t=0.5" type="video/mp4">
     </video>
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Installing Galera <../../documentation/install>`
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - :doc:`SELinux <../../documentation/selinux>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Related Articles
+
+   - :doc:`Install Galera on AWS <../tutorials/galera-on-aws>`
+
+   Other Resources
+
+   - `Galera Repository <http://releases.galeracluster.com/>`_
+   - `MariaDB Repository <https://downloads.mariadb.org/mariadb/repositories/>`_
+
 
 .. toctree::
    :maxdepth: 2

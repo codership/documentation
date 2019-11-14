@@ -27,9 +27,21 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+.. container:: top-links
 
-      Related Articles
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document

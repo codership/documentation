@@ -32,6 +32,22 @@
 
       - :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-document
 .. _`wsrep-functions`:
@@ -147,3 +163,10 @@ Below is an example of how you might use the ``WSREP_SYNC_WAIT_UPTO_GTID()`` fun
    $transaction_gtid = SELECT WSREP_LAST_SEEN_GTID();
    ...
    SELECT WSREP_SYNC_WAIT_UPTO_GTID($transaction_gtid);
+
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`

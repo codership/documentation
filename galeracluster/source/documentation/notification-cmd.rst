@@ -35,7 +35,21 @@
       - :ref:`wsrep_node_name <wsrep_node_name>`
       - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -119,6 +133,14 @@ The node will call the script for each change in cluster membership and node sta
 
 Galera Cluster provides a default script, ``wsrep_notify.sh``, for you to use in handling notifications or as a starting point in writing your own custom notification script.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Notification Script <example-notification-script>`
+   - :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`
+   - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

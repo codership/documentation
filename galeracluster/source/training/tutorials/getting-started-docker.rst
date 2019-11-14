@@ -30,9 +30,17 @@
 
       - :doc:`FAQ <../../faq>`
 
-      Related Documents
+.. container:: top-links
 
-      Related Articles
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -253,6 +261,7 @@ The following Galera Cluster configuration options are used to specify each port
 .. rubric:: Summary
 
 That concludes this tutorial. As you can see, it's easy to run Galera on Docker and inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.
+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

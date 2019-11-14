@@ -40,7 +40,21 @@
       - :doc:`state-transfer`
       - :doc:`streaming-replication`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -103,6 +117,21 @@ With a better grasp on how replication works, these pages provide a more detaile
 - :doc:`streaming-replication`
 
   Normally, nodes transfer all replication and certification events on the transaction commit.  With Streaming Replication, the nodes break the transaction into fragments.  Then they certify, replicate and apply these replication fragments onto the slave nodes.  This section describes Streaming Replication, how it works and the limitations of its use.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Certification Replication <certification-based-replication>`
+   - :doc:`tech-desc-introduction`
+   - :doc:`node-states`
+   - :doc:`isolation-levels`
+   - :doc:`Node Recovery <recovery>`
+   - :doc:`weighted-quorum`
+   - :doc:`Replication Architecture <architecture>`
+   - :doc:`state-transfer`
+   - :doc:`streaming-replication`
+
 
 .. toctree::
    :maxdepth: 2

@@ -35,7 +35,21 @@
       - :ref:`OTHER_OPTIONS <glb-other_options>`
       - :ref:`--watchdog <glb-watchdog>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -677,3 +691,14 @@ The Watchdog module implements asynchronous monitoring of destination servers th
 This initializes the ``exec`` back-end to execute external programs.  It runs the ``mysql.sh`` script on each destination server in order to determine it's availability.  You can find the ``mysql.sh`` in the Galera Load Balancer build directory, under ``files/``.
 
 .. note:: The Watchdog module remains a work in progress.  Neither its functionality nor terminology is final.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Configuration Options <glb-config-options>`
+   - :ref:`Destination Policies <glb-dest-select>`
+   - :ref:`LISTEN_ADDR <glb-listen_addr>`
+   - :ref:`OTHER_OPTIONS <glb-other_options>`
+   - :ref:`--watchdog <glb-watchdog>`
+      

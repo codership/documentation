@@ -35,7 +35,21 @@
       - :ref:`pc.weight <pc.weight>`
       - :doc:`Reset Quorum <quorum-reset>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -227,6 +241,15 @@ When configuring quorum weights for primary and secondary sites, use the followi
      node4: pc.weight = 1
 
 Under this pattern, some nodes are located at the primary site while others are at the secondary site.  In the event that the secondary site goes down or if network connectivity is lost between the sites, the nodes at the primary site remain the :term:`Primary Component`.  Additionally, either ``node1`` or ``node2`` can crash without the rest of the nodes becoming non-primary components.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`evs.suspect_timeout <evs.suspect_timeout>`
+   - :doc:`arbitrator`
+   - :ref:`pc.weight <pc.weight>`
+   - :doc:`Reset Quorum <quorum-reset>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

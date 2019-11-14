@@ -35,13 +35,23 @@
       - :doc:`State Transfer <../../documentation/state-transfer>`
       - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-      Related Articles
-
       Other Resources
 
       - :doc:`Install MySQL Galera (video) <./galera-mysql-installing>`
       - :doc:`Install MariaDB Galera (video) <./galera-mariadb-installing>`
       - `Galera Repository <http://releases.galeracluster.com/>`_
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. role:: raw-html(raw)
@@ -148,6 +158,23 @@ For the exercises in this section and the remaining sections, you won’t need t
 
   If you’re unfamiliar with how to install Galera Cluster, watch our training video on installing Galera with MySQL, or MariaDB (see the margin for links) or read the related articles. You’ll need to configure MySQL or MariaDB and Galera Cluster and start them.  There’s a link in the margin for the recommended configuration for certain sections here.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Installing Galera <../../documentation/install>`
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - :doc:`SELinux <../../documentation/selinux>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Other Resources
+
+   - :doc:`Install MySQL Galera (video) <./galera-mysql-installing>`
+   - :doc:`Install MariaDB Galera (video) <./galera-mariadb-installing>`
+   - `Galera Repository <http://releases.galeracluster.com/>`_
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

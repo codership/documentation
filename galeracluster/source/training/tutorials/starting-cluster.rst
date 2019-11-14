@@ -39,7 +39,17 @@
       - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
       - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -88,19 +98,19 @@ To start the first node--which should have MySQL, MariaDB or Percona XtraDB, and
 
 .. code-block:: console
 
-   $ systemctl start mysql --wsrep-new-cluster
+   systemctl start mysql --wsrep-new-cluster
 
 For operating systems that use ``systemd``, you would instead enter the following from the command-line:
 
 .. code-block:: console
 
-   $ /usr/bin/mysqld_bootstrap
+   /usr/bin/mysqld_bootstrap
 
 Both of these start the ``mysqld`` daemon on the node. Starting in MariaDB version 10.4, which includes Galera version 4, you can enter instead the following from the command-line to start MariaDB, Galera, and to establish the Primary Component:
 
 .. code-block:: console
 
-   # galera_new_cluster
+   galera_new_cluster
 
 .. warning:: Use the ``--wsrep-new-cluster`` argument only when initializing the Primary Component.  Don't use it to connect a new node to an existing cluster.
 
@@ -139,7 +149,7 @@ Once you have successfully started the first node and thereby initialized a new 
 
 .. code-block:: console
 
-   # systemctl start mariadb
+   systemctl start mariadb
 
 When the database server initializes as a new node, it will try to connect to the cluster members. It knows where to find these other nodes based on the IP addresses listed in the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter in the configuration file.
 
@@ -156,6 +166,17 @@ You can verify that the node connection was successful checking the :ref:`wsrep_
    +--------------------+-------+
 
 This indicates that the two nodes are now connected to the cluster.  When the nodes in the cluster agree on the membership state, they initiate state exchange.  In state exchange, a new node will check the cluster state.  If the state of a new node differs from the cluster state--which is normally the case--the new node requests a state snapshot transfer (SST) from the cluster and it installs it on its local database.  After this is done, the new node is ready for use.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Migration <./migration>`
+   - :doc:`Migration <./migration>`
+   - :doc:`Quorum Reset <../../../documentation/quorum-reset>`
+   - :ref:`wsrep_provider <wsrep_provider>`
+   - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+   - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

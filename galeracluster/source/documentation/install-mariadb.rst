@@ -43,6 +43,22 @@
       - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
       - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-document
 .. _`install-mariadb-binary`:
@@ -176,3 +192,22 @@ For RPM-based distributions, execute instead from the command line the following
 Once you've done this, MariaDB Galera Cluster will be installed on your server.  You'll need to repeat this process for each node in your cluster.
 
 .. note:: If you installed MariaDB Galera Cluster over an existing stand-alone instance of MariaDB, there are some additional steps that you'll need to take to update your system to the new database server.  For more information on this, see :doc:`../training/tutorials/migration`.
+
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Install Galera <./install>`
+   - :doc:`MariaDB Galera Source <./install-mariadb-src>`
+   - :doc:`Galera MySQL <./install-mysql>`
+
+   Related Articles
+
+   - :doc:`../training/tutorials/migration`
+
+   Other Resources
+
+   - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
+   - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
+      

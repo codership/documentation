@@ -51,6 +51,22 @@
 
       - :doc:`../training/tutorials/migrate`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-document
 .. _`administration`:
@@ -128,6 +144,31 @@ In addition to node administration, Galera Cluster also provides interfaces for 
 - :doc:`backup-cluster`
 
   Standard backup methods available to MySQL database servers fail to preserve Global Transaction ID's used by Galera Cluster.  You can recover data from these backups, but they're insufficient in restoring nodes to a well-defined state.  This section shows how to use state transfers to properly perform backups in Galera Cluster.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Arbitrator <arbitrator>`
+   - :doc:`auto-eviction`
+   - :doc:`Backups <backup-cluster>`
+   - :doc:`monitor`
+   - :doc:`deployment`
+   - :doc:`Flow Control <managing-fc>`
+   - :doc:`system-tables`
+   - :doc:`node-provisioning`
+   - :doc:`Recover Primary <pc-recovery>`
+   - :doc:`Reset Quorum <quorum-reset>`
+   - :doc:`schema-upgrades`
+   - :doc:`Scriptable SST <scriptable-sst>`
+   - :doc:`security`
+   - :doc:`sst`
+   - :doc:`Streaming Replication <using-sr>`
+   - :doc:`Upgrading Galera <upgrading>`
+
+   Related Articles
+
+   - :doc:`../training/tutorials/migrate`
 
 
 .. toctree::

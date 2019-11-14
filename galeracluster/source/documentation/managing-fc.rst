@@ -41,7 +41,21 @@
       - :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>`
       - :ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -168,10 +182,26 @@ Bear in mind that, while it is critical for multi-master operations that you use
 
 .. warning:: Cluster nodes process transactions asynchronously with regards to each other.  Nodes cannot anticipate in any way the amount of replication data.  Because of this, Flow Control is always reactive.  That is, it only comes into affect after the node exceeds certain limits.  It cannot prevent exceeding these limits or, when they are exceeded, it cannot make any guarantee as to the degree they are exceeded.
 
-  Meaning, if you were to configure a node with:
+Meaning, if you were to configure a node with:
 
   .. code-block:: ini
 
     gcs.recv_q_hard_limit=100Mb
 
-  That node can still exceed that limit from a 1Gb write-set.
+That node can still exceed that limit from a 1Gb write-set.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`galera-status-variables`
+   - :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>`
+   - :ref:`gcs.fc_limit <gcs.fc_limit>`
+   - :ref:`gcs.max_throttle <gcs.max_throttle>`
+   - :ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`
+   - :ref:`gcs.fc_factor <gcs.fc_factor>`
+   - :ref:`wsrep_flow_control_sent <wsrep_flow_control_sent>`
+   - :ref:`wsrep_flow_control_recv <wsrep_flow_control_recv>`
+   - :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>`
+   - :ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>`
+      

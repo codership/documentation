@@ -34,7 +34,21 @@
       - :ref:`wsrep_flow_control_sent <wsrep_flow_control_sent>`
       - :ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>`
 
-      Related Articles
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-article
@@ -46,13 +60,13 @@ Detecting a Slow Node
 
 .. rst-class:: article-stats
 
-   Length: 297 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
+   Length: 297 words; Published: April 1, 2014; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
 By design, the performance of a cluster cannot be higher than the performance of the slowest node in the cluster. Even if you have only one node, its performance can be considerably slower when compared with running the same server in a standalone mode (i.e., without a wsrep Provider).
 
 This is particularly true for large transactions---even if they are within transaction size limits. This is why it's important to be able to detect a slow node on a cluster.
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Scenario
 
 .. _`finding-slow-nodes`:
@@ -77,6 +91,13 @@ There are two status variables you can use to find slow nodes in a cluster: :ref
 The ``wsrep_flow_control_sent`` variable provides the number of times a node sent a pause event due to flow control since the last status query. The ``wsrep_local_recv_queue_avg`` varaible returns an average of the received queue length since the last status query. Nodes that return values much higher than ``0.0`` indicate that it cannot apply write-sets as fast as they are received and can generate replication throttling.
 
 Check these status variables on each node in your cluster.  The node that returns the highest value is the slowest node.  Lower values are preferable.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_flow_control_sent <wsrep_flow_control_sent>`
+   - :ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

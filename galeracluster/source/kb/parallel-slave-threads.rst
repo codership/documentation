@@ -35,7 +35,21 @@
       - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
       - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
 
-      Related Articles
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-article
@@ -52,11 +66,11 @@ Setting Parallel Slave Threads
 
 .. rst-class:: article-stats
 
-   Length: 366 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
+   Length: 366 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
 There is no rule about how many slave threads you need for replication.  Parallel threads do not guarantee better performance, but they don't impair regular operation performance and they may in fact speed up the synchronization of new nodes joining a cluster.
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Scenario
 
 Suppose you have a cluster of a few nodes, but occasionally you add a couple of new nodes to the cluster to handle unexpected surges in traffic.  When these surges happen, you want the new nodes to be synchronized rapidly and not be a drain on the performance of the cluster in the process.
@@ -64,7 +78,7 @@ Suppose you have a cluster of a few nodes, but occasionally you add a couple of 
 You may be able to do this, to get new nodes synchronized and handling traffic faster by making changes to a couple of settings.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Recommendations
 
 To make state transfers quicker for new nodes, consider changing the number of slave threads. You should start with four slave threads per CPU core:
@@ -98,6 +112,14 @@ You can use the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` statu
 This value essentially determines the number of write-sets that the node can apply in parallel on average.
 
 .. warning:: Do not use a value for :ref:`wsrep_slave_threads <wsrep_slave_threads>` that is higher than the average given by the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
+   - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
+   - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

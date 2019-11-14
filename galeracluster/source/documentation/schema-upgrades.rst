@@ -33,7 +33,21 @@
       - :ref:`Total Order Isolation <toi>`
       - :ref:`Rolling Schema Upgrade <rsu>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -102,3 +116,10 @@ To change a schema cluster-wide, you must manually execute the query on each nod
 The main advantage of the Rolling Schema Upgrade is that it only blocks one node at a time. The main disadvantage of the Rolling Schema Upgrade is that it is potentially unsafe, and may fail if the new and old schema definitions are incompatible at the replication event level.
 
 .. warning:: To avoid conflicts between new and old schema definitions, execute SQL statements such as ``CREATE TABLE`` and ``DROP TABLE`` using the :ref:`Total Order Isolation <toi>` method.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Total Order Isolation <toi>`
+   - :ref:`Rolling Schema Upgrade <rsu>`

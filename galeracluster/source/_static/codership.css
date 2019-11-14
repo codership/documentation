@@ -73,7 +73,7 @@ div.sphinxsidebar, div.sidebartoggle, div.sidebar-toggle-group {
     display: none;
 }
 /*****************************************************
- * page layout - footer
+ * page layout - Footer
  *****************************************************/
 
 div.footer {
@@ -268,7 +268,7 @@ div.library-index table.training-top td:last-child {
     border-right: none;
 }
 
-/* footnotes */
+/* Footnotes */
 
 a.footnote-reference {
     font-size: 70%;
@@ -311,10 +311,7 @@ div.training-exercises ol.list-exercises li {
   margin: 4px 0 8px 0;
 }
 
-
-/*****************************************************
- * document - links
- *****************************************************/
+/* Links */
 
 a:link {
     color: #1E1006;
@@ -330,18 +327,8 @@ a:hover {
 a.biglink {
     font-size: 130%;
 }
-/**
- a.external:before {
-    content: "\21D7";
-    padding-right: .1em;
-}
-a.external.issue:before {
-    content: "\21D7";
-}
-a.external[href^="mailto:"]:before {
-    content: "";
-}
-*/
+
+
 div.library-article a.reference.internal {
     font-family: "Droid Sans Mono", monospace;
     font-size: 1em;
@@ -737,6 +724,7 @@ div.list-col2-3 o, div.list-col1-3 p {
 div.library-index p.list-stats {
   margin-bottom: 10px;
   margin-left: 20px;
+  margin-left: 0;
   text-transform: initial;
   font-size: .7em;
   font-variant: small-caps;
@@ -832,7 +820,10 @@ div.left-margin-content ul.here li a:after {
   content: "\02190";
   padding-left: 4px;
 }
-
+div.top-links,
+div.bottom-links {
+  display: none;
+}
 
 /* Library Articles */
 
@@ -1008,6 +999,7 @@ p.logo {
 /*------------------------------------
  * adapt for 'minimal' page size
  *------------------------------------*/
+/*
 @media only screen and (max-width: 700px),
        only screen and (max-device-width: 700px),
        handheld
@@ -1022,7 +1014,7 @@ p.logo {
     div.related > ul > li:not(.right) + li { display: none; }
 
     /* remove spacing on headers and reduce body padding */
-    h2, p.rubric {
+/*     h2, p.rubric {
         padding-top: 0.25em;
         padding-bottom: .25em;
     }
@@ -1031,12 +1023,14 @@ p.logo {
     }
 
     /* shrink the headers */
+/*
 h1 { font-size: 160%; }
 h2, p.rubric { font-size: 140%; }
 h3 { font-size: 120%; }
 h4 { font-size: 110%; }
 h5 { font-size: 100%; }
 }
+*/
 
 /*------------------------------------
  * adapt for print media

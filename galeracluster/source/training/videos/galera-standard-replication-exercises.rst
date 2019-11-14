@@ -37,11 +37,21 @@
       - :doc:`State Transfer <../../documentation/state-transfer>`
       - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-      Related Articles
-
       Other Resources
 
       - `Galera Repository <http://releases.galeracluster.com/>`_
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. role:: raw-html(raw)
@@ -128,6 +138,21 @@ Do these exercises after completing the previous exercises, and after having vie
 
 10. On one of the nodes, use the ``mysql`` client to load the dump file made for your database system.  Do this on only one node.  As soon as you’re finished, log into each of the other nodes to confirm the database and its tables have been replicated on them.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Installing Galera <../../documentation/install>`
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - :doc:`SELinux <../../documentation/selinux>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Other Resources
+
+   - `Galera Repository <http://releases.galeracluster.com/>`_
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

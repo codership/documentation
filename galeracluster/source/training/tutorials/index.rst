@@ -30,6 +30,19 @@
 
       - :doc:`FAQ <../../faq>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
+
 .. cssclass:: library-index
 .. _`training-tutorials`:
 
@@ -323,7 +336,6 @@ Codership Tutorials on Galera Cluster
    .. rst-class:: list-abstract
 
       When using Galera in multi-master mode, transaction conflicts may occur if clients try to modify the same row at the same time. This discusses troubleshooting these deadlock errors.
-
 
 
 

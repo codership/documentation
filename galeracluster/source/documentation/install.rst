@@ -28,8 +28,6 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
-
       Related Articles
 
       - :doc:`Install Galera <../../training/tutorials/galera-installation>`
@@ -40,6 +38,22 @@
       - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
       - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
       - :doc:`Galera MySQL (video)  <../../training/videos/galera-mysql-installing>`
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -104,6 +118,21 @@ Binary packages for installing XtraDB with Galera Cluster are available for Debi
 .. rubric:: :doc:`XtraDB Source Installation <./install-xtradb-src>`
 
 You may not be able to use one of the binary installation packages available because of your operating system. If so, you'll have to use our source files. Actually, you may want to use the source files to make minor changes that will become part of the files you'll build.
+
+
+.. container:: bottom-links
+
+   Related Articles
+
+   - :doc:`Install Galera <../../training/tutorials/galera-installation>`
+   - :doc:`Install Galera on AWS <../../training/tutorials/galera-on-aws>`
+
+   Other Resources
+
+   - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
+   - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
+   - :doc:`Galera MySQL (video)  <../../training/videos/galera-mysql-installing>`
+
 
 .. toctree::
    :hidden:

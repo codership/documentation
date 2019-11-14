@@ -37,6 +37,21 @@
       - :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>`
       - :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-trouble-multi-master-conflicts`:
@@ -47,7 +62,7 @@ Multi-Master Conflicts
 
 .. rst-class:: article-stats
 
-   Length: 751 words; Updated: October 7, 2019; Category: Splits & Topology; Type: Troubleshooting
+   Length: 751 words; Published: April 1, 2014; Updated: October 7, 2019; Category: Splits & Topology; Type: Troubleshooting
 
 These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
 
@@ -70,11 +85,15 @@ Once you turn debugging on, you can use monitoring software to watch for row con
 
 .. code-block:: text
 
-   110906 17:45:01 [Note] WSREP: BF kill (1, seqno: 16962377), victim:
-                                 (140588996478720 4) trx: 35525064
-   110906 17:45:01 [Note] WSREP: Aborting query: commit
-   110906 17:45:01 [Note] WSREP: kill trx QUERY_COMMITTING for 35525064
-   110906 17:45:01 [Note] WSREP: commit failed for reason: 3, seqno: -1
+   110906 17:45:01 [Note] WSREP:
+       BF kill (1, seqno: 16962377), victim:
+       (140588996478720 4) trx: 35525064
+   110906 17:45:01 [Note] WSREP:
+       Aborting query: commit
+   110906 17:45:01 [Note] WSREP:
+       kill trx QUERY_COMMITTING for 35525064
+   110906 17:45:01 [Note] WSREP:
+       commit failed for reason: 3, seqno: -1
 
 
 .. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
@@ -149,6 +168,17 @@ While Galera Cluster resolves multi-master conflicts automatically, there are st
 - Last, limit the number of master nodes or switch to a master-slave model.
 
 If you can filter out access to the hot-spot table, it may be enough to treat writes only to the hot-spot table as master-slave.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Certification Based Replication <../../documentation/certification-based-replication>`
+   - :ref:`cert.log_conflicts <cert.log_conflicts>`
+   - :ref:`wsrep_debug <wsrep_debug>`
+   - :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>`
+   - :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>`
+   - :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

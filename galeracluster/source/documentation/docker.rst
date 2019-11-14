@@ -37,6 +37,22 @@
 
       - :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-document
 .. _`docker`:
@@ -185,6 +201,18 @@ Using the example above, if you want access to the database client, you would ru
    # docker exec -ti Node1 /bin/mysql -u root -p
 
 Notice here that ``Node1`` is the name given with the ``--name`` parameter in the example earlier.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <firewall-settings>`
+   - :ref:`wsrep_node_address <wsrep_node_address>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`
+
+   Related Articles
+
+   - :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

@@ -35,7 +35,21 @@
       - :doc:`Firewall Settings <../../documentation/firewall-settings>`
       - :doc:`Firewall Settings <../../documentation/firewalld>`
 
-      Related Articles
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-article
@@ -50,7 +64,7 @@ Setting an SELinux Policy
 
 .. rst-class:: article-stats
 
-   Length: 345 words; Published: October 20, 2019; Category: Security; Type: Best Practices
+   Length: 345 words; Published: June 24, 2015; Updated: October 20, 2019; Category: Security; Type: Best Practices
 
 Security-Enhanced Linux (SELinux) is a security module of the Linux kernel for all distributions.  It supports access control security policies.  When you first install Galera Cluster, unless you disable or configure SELinux properly, it will prevent communications between Galera nodes. In order to enable replication on the node, unless you disable SELinux, you will need a policy for Galera so that SELinux wil recognize cluster activities as legitimate.
 
@@ -79,6 +93,15 @@ A more straightforward method would be to open the ports that Galera needs. TCP 
    semanage permissive -a mysqld_t
 
 Almost all Linux distributions ship with a MySQL or MariaDB policy for SELinux. The last line here enables that policy.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`SELinux with Galera <../../documentation/selinux>`
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`Firewall Settings <../../documentation/firewalld>`
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

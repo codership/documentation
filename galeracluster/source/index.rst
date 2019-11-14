@@ -30,6 +30,18 @@
       - :doc:`Getting Started Guide <./training/tutorials/getting-started>`
       - :doc:`Reference Manual <./documentation/reference>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <./documentation/index>`
+   - :doc:`KB <./kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <./training/index>`
+
+   - :doc:`FAQ <./faq>`
+
 
 .. cssclass:: library-index
 .. _`the-library`:

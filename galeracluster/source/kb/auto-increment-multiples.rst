@@ -33,6 +33,22 @@
       - :ref:`wsrep_debug <wsrep_debug>`
 
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
+
 .. cssclass:: library-article
 .. _`kb-trouble-auto-increment-multiples`:
 
@@ -73,8 +89,10 @@ As you can see, the first column, called ``toy_id``, uses auto_increment.  Let's
 
 .. code-block:: mysql
 
-   INSERT INTO toys VALUES(NULL, 'Baseball', 12, 6.15),
-   (NULL, 'Frisbee', 6, 12.45), (NULL, 'Slinky', 8, 6.95);
+   INSERT INTO toys
+   VALUES(NULL, 'Baseball', 12, 6.15),
+   (NULL, 'Frisbee', 6, 12.45),
+   (NULL, 'Slinky', 8, 6.95);
 
    SELECT * FROM toys;
 
@@ -158,8 +176,10 @@ Let's add three more rows to the table, but this time from the first node:
 
 .. code-block:: mysql
 
-   INSERT INTO toys VALUES(NULL, 'Ping Pong Paddle', 4, 18.95),
-   (NULL, 'Gumby & Pokey', 3, 10.25), (NULL, 'Etch-A-Sketch', 2, 14.25);
+   INSERT INTO toys
+   VALUES(NULL, 'Ping Pong Paddle', 4, 18.95),
+   (NULL, 'Gumby & Pokey', 3, 10.25),
+   (NULL, 'Etch-A-Sketch', 2, 14.25);
 
    SELECT * FROM toys;
 
@@ -180,7 +200,8 @@ Let's insert two more rows, but on the second node:
 
 .. code-block:: mysql
 
-   INSERT INTO toys VALUES(NULL, 'Tonka Dump Truck', 2, 24.95),
+   INSERT INTO toys
+   VALUES(NULL, 'Tonka Dump Truck', 2, 24.95),
    (NULL, 'Airport Playset', 1, 18.95);
 
    SELECT * FROM toys LIMIT 6, 2;
@@ -196,6 +217,12 @@ Let's insert two more rows, but on the second node:
 To save space, we used the ``LIMIT`` clause to select the last two rows, the two new rows inserted.  As you can see, the second node used the next ``toy_id`` in the sequence (i.e., 17) and then just three just in case the other two nodes were inserting rows.
 
 The result of setting the value of ``auto_increment_increment`` to the number of nodes, and the ``auto_increment_offset`` from 1 to the number of nodes, is that there will be no conflicts between the nodes.  Just don't manually change the value of these two variables or use ``ALTER TABLE`` to change the value of AUTO_INCREMENT for any table.  That would cause problems.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_debug <wsrep_debug>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

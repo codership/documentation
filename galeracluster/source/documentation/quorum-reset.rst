@@ -35,7 +35,21 @@
       - :ref:`pc.bootstrap <pc.bootstrap>`
       - :ref:`wsrep_provider_options <wsrep_provider_options>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -187,6 +201,15 @@ For servers that use ``systemd``, instead run this command:
    systemctl start mysqld
 
 Written into all of these scripts is the ``--wsrep-new-cluster`` option, but it's done with a certain finesse.  Whichever method or script you use, when the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start, they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.  In a short amount of time, they all should become synchronized and running smoothly.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_cluster_status <wsrep_cluster_status>`
+   - :ref:`wsrep_last_committed <wsrep_last_committed>`
+   - :ref:`pc.bootstrap <pc.bootstrap>`
+   - :ref:`wsrep_provider_options <wsrep_provider_options>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

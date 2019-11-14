@@ -39,6 +39,18 @@
 
       - :doc:`Galera Back-Ups (video) <../videos/galera-backup>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. cssclass:: library-article
 .. _`galera-backup`:
@@ -336,6 +348,16 @@ This one option, ``--cfg`` is to give the path and name of the Galera Arbitrator
 .. rubric:: Conclusion
 
 Those are the primary ways in which DBAs can make back-ups when using Galera Cluster. There are some third-party software that provide some more advanced methods (e.g., XtraBackup).  But these are the more straightforward and most common methods.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+
+   Related Articles
+
+   - :doc:`Galera Back-Ups (video) <../videos/galera-backup>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

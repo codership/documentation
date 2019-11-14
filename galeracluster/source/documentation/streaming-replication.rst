@@ -33,7 +33,21 @@
       - :ref:`Limitations <sr-limit>`
       - :ref:`Streaming Replication <usr-hot-records>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -125,3 +139,10 @@ As such, it's recommended that you only enable Streaming Replication at a sessio
 Occasionally, you may encounter situations in which the cluster needs to roll back a transaction while :term:`Streaming Replication` is in use.  In these situations, the rollback operation consumes system resources on all nodes.
 
 When long-running write transactions frequently need to be rolled back, this can become a performance problem.  Therefore, it's a good application design policy to use shorter transactions whenever possible.  In the event that your application performs batch processing or scheduled housekeeping tasks, consider splitting these into smaller transactions in addition to using Streaming Replication.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Limitations <sr-limit>`
+   - :ref:`Streaming Replication <usr-hot-records>`

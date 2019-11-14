@@ -32,7 +32,21 @@
 
       - :doc:`Galera Installation <../training/tutorials/galera-installation>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -84,6 +98,13 @@ For instances of Galera Cluster that use the MariaDB database server, consult th
    :class: section-heading
 
 In addition to the Galera Cluster for MySQL, the reference implementation from Codership Oy, there is a third-party implementation of Galera Cluster - `MariaDB Galera Cluster <https://mariadb.com>`_ which uses the Galera library for the replication implementation.  To interface with the Galera Replication Plugin, MariaDB has been enhanced to support the replication API definition in the wsrep API project.  Additionally, releases of MariaDB Server starting from version 10.1 on are packaged with Galera Cluster already included.  For more information, see `What is MariaDB Galera Cluster <https://mariadb.com/kb/en/mariadb/what-is-mariadb-galera-cluster/>`_.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Galera Installation <../training/tutorials/galera-installation>`
+   
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

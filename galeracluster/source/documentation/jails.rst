@@ -38,7 +38,21 @@
       - :ref:`wsrep_node_address <wsrep_node_address>`
       - :ref:`wsrep_node_name <wsrep_node_name>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -301,3 +315,15 @@ To start each additional node, run the following commands:
    # service mysql start
 
 Each node you start after the initial will attempt to establish network connectivity with the :term:`Primary Component` and begin syncing their database states into one another.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`firewall-pf`
+   - :doc:`Galera Cluster for MySQL <install-mysql-src>`
+   - :doc:`MariaDB Galera Cluster <install-mariadb-src>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`
+   - :ref:`wsrep_provider <wsrep_provider>`
+   - :ref:`wsrep_node_address <wsrep_node_address>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`

@@ -1,5 +1,5 @@
 .. meta::
-   :title: Node Failure and Recovery in Galera Cluster
+   :title: Node Failure & Recovery in Galera Cluster
    :description:
    :language: en-US
    :keywords: galera cluster, split-brain, recovery
@@ -39,14 +39,28 @@
       - :doc:`Notification Command <notification-cmd>`
       - :ref:`wsrep_local_state <wsrep_local_state>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
 .. _`recovery`:
 
 ==================================
-Node Failure and Recovery
+Node Failure & Recovery
 ==================================
 
 Individual nodes fail to operate when they lose touch with the cluster.  This can occur due to various reasons.  For instance, in the event of hardware failure or software crash, the loss of network connectivity or the failure of a state transfer.  Anything that prevents the node from communicating with the cluster is generalized behind the concept of node failure.  Understanding how nodes fail will help in planning for their recovery.
@@ -119,6 +133,19 @@ No data is lost in single node failures.
 Single node failures can also occur when a :term:`state snapshot transfer` fails.  This failure renders the receiving node unusable, as the receiving node aborts when it detects a state transfer failure.
 
 When the node fails while using ``mysqldump``, restarting may require you to manually restore the administrative tables.  For the ``rsync`` method in state transfers this is not an issue, given that it does not require the database server to be in an operational state to work.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`evs.consensus_timeout <evs.consensus_timeout>`
+   - :ref:`evs.inactive_check_period <evs.inactive_check_period>`
+   - :ref:`evs.inactive_timeout <evs.inactive_timeout>`
+   - :ref:`evs.keepalive_period <evs.keepalive_period>`
+   - :ref:`evs.suspect_timeout <evs.suspect_timeout>`
+   - :doc:`Monitoring the Cluster <monitoring-cluster>`
+   - :doc:`Notification Command <notification-cmd>`
+   - :ref:`wsrep_local_state <wsrep_local_state>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

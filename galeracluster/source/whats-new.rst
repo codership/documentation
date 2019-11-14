@@ -31,7 +31,17 @@
       - :doc:`System Tables <./documentation/system-tables>`
       - :doc:`Using Streaming <./documentation/using-sr>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <./documentation/index>`
+   - :doc:`KB <./kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <./training/index>`
+
+   - :doc:`FAQ <./faq>`
 
 
 .. cssclass:: library-document
@@ -63,3 +73,12 @@ With the latest release of Galera Cluster in the 4.x branch, there are some new 
 - **Galera System Tables**  In version 4 of Galera, three system tables were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  These tables may be used by database administrators to get a sense the current activity of the nodes in a cluster.
 
   For more information, see :doc:`System Tables <./documentation/system-tables>`.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`./documentation/streaming-replication`
+   - :doc:`Synchronization Functions <./documentation/wsrep-functions>`
+   - :doc:`System Tables <./documentation/system-tables>`
+   - :doc:`Using Streaming <./documentation/using-sr>`

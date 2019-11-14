@@ -31,8 +31,21 @@
 
       - :doc:`Scriptable SST <scriptable-sst>`
 
-      Related Articles
+.. container:: top-links
 
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -83,3 +96,9 @@ This command triggers donor node to invoke a script with the name ``wsrep_sst_ba
 .. note:: In the command, '``?gmcast.listen_addr=tcp://0.0.0.0:4444``' is an arbitrary listen socket address that Galera Arbitrator opens to communicate with the cluster.  You only need to specify this in the event that the default socket address (i.e., ``0.0.0.0:4567`` is busy).
 
 .. note:: You may find it useful to create your backup script using a modified version of the standard state snapshot transfer script.  For information on scripts of this kind, see :doc:`scriptable-sst`.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Scriptable SST <scriptable-sst>`

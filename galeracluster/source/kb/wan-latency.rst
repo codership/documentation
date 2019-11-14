@@ -33,6 +33,21 @@
 
       - :ref:`evs.join_retrans_period <evs.join_retrans_period>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-best-wan-latency`:
@@ -43,11 +58,11 @@ WAN Latency
 
 .. rst-class:: article-stats
 
-   Length: 221 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
+   Length: 221 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
 When using Galera Cluster over a :abbr:`WAN (Wide Area Network)`, remember that WAN links can have exceptionally high latency.  You can check this by taking Round-Trip Time (RTT) measurements between cluster nodes. If there is a latency, you can correct for this by adjusting all of the temporal parameters.
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Recommendations
 
 To take RTT measurements, use ``ping`` on each cluster node to ping the others.  For example, if you were to log into the node at ``192.168.1.1``, you might execute something like the following from the command-line:
@@ -75,3 +90,10 @@ Parameters that relate to periods and timeouts, such as :ref:`evs.join_retrans_p
    wsrep_provider_options="evs.join_retrans_period=PT0.5S"
 
 This allows the cluster to compensate for the latency issues of the :abbr:`WAN (Wide Area Network)` links between the cluster nodes.
+
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`evs.join_retrans_period <evs.join_retrans_period>`

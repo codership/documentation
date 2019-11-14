@@ -34,7 +34,17 @@
 
       - :ref:`gcache.recover <gcache.recover>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -137,3 +147,9 @@ You can easily determine if a node has crashed by looking at the contents of the
 It's possible for you to recover the :term:`Global Transaction ID` of the last committed transaction from InnoDB, as described above. However, the recovery is rather meaningless.  After the crash, the node state is probably corrupted and may not prove functional.
 
 If there are no other nodes in the cluster with a well-defined state, there is no need to preserve the node state ID.  You must perform a thorough database recovery procedure, similar to that used on stand-alone database servers.  Once you recover one node, use it as the first node in a new cluster.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`gcache.recover <gcache.recover>`

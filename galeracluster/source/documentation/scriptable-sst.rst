@@ -34,7 +34,21 @@
       - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
       - :ref:`wsrep_sst_method <wsrep_sst_method>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -194,7 +208,13 @@ For example, if you write a script with the filename ``wsrep_sst_galera-sst``, y
 
 When the node starts, it uses your custom script for state snapshot transfers.
 
+.. container:: bottom-links
 
+   Related Documents
+
+   - :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`
+   - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
+   - :ref:`wsrep_sst_method <wsrep_sst_method>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

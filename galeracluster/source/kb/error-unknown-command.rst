@@ -37,6 +37,21 @@
       - :ref:`wsrep_on <wsrep_on>`
       - :ref:`wsrep_provider <wsrep_provider>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-trouble-error-unknown-command`:
@@ -47,7 +62,7 @@ Unknown Command Errors
 
 .. rst-class:: article-stats
 
-   Length: 971 words; Updated: November 1, 2019; Category: Splits & Topology; Type: Troubleshooting
+   Length: 971 words; Published: April 1, 2014; Updated: November 1, 2019; Category: Splits & Topology; Type: Troubleshooting
 
 A frustrating situation is when you enter a valid SQL statement through the ``mysql`` client on a node, and instead of receiving the results you'd expect, you receive ``Unknown command`` errors |---| in fact,  you receive it for all queries on the node. This is because the node has lost confidence in the cluster and is thereby unwilling to execute any transactions.
 
@@ -142,6 +157,16 @@ On that most advanced node, execute the following ``SET`` statement:
    SET GLOBAL wsrep_provider_options='pc.bootstrap=YES';
 
 This node will now operate as the starting point in a new Primary Component.  Nodes that are part of non-operational components and have network connectivity will attempt to initiate a state transfer to bring their own databases up-to-date with this node.  At that point, the cluster will begin accepting SQL requests again.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+   - :ref:`wsrep_cluster_status <wsrep_cluster_status>`
+   - :ref:`wsrep_last_committed <wsrep_last_committed>`
+   - :ref:`wsrep_on <wsrep_on>`
+   - :ref:`wsrep_provider <wsrep_provider>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

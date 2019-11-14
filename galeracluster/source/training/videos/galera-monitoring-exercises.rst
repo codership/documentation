@@ -45,6 +45,18 @@
 
       - `Galera Repository <http://releases.galeracluster.com/>`_
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -142,6 +154,25 @@ This exercise is meant to acquaint you with the third-party software for monitor
 
 10. Look into one of the third-party software available for monitoring a Galera Cluster.  Familiarize yourself with what's available |---| for free and at a price.  Try to find a free one |---| or one that at least allows for free trials |---| that might work for your situation.  If you're not sure, try the Nagios scripts (see link in margin). Whatever you choose,  download it and try it on your test servers.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Installing Galera <../../documentation/install>`
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - :doc:`SELinux <../../documentation/selinux>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Related Articles
+
+   - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
+
+   Other Resources
+
+   - `Galera Repository <http://releases.galeracluster.com/>`_
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

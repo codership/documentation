@@ -38,6 +38,18 @@
 
       - :doc:`Galera on AWS (video) <../videos/galera-aws-installing>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. cssclass:: library-article
 .. _`galera-on-aws`:
@@ -258,6 +270,15 @@ You can see from the results here that there are three nodes in the cluster. Tha
 
 If you first want to play with the cluster a bit, log into all three nodes with the ``mysql`` client. Create a database on one node and check the other two nodes to see that it's there. Then create a table on another node and insert a row of data into that table on the third node. Then execute a ``SELECT`` statement on each node to see that it's replicating the data across the cluster.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Install MySQL Galera <../../documentation/install-mysql>`
+
+   Related Articles
+
+   - :doc:`Galera on AWS (video) <../videos/galera-aws-installing>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

@@ -35,6 +35,21 @@
       - :ref:`evs.inactive_timeout <evs.inactive_timeout>`
       - :ref:`evs.install_timeout <evs.install_timeout>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-best-wan-replication`:
@@ -45,11 +60,11 @@ WAN Replication
 
 .. rst-class:: article-stats
 
-   Length: 161 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
+   Length: 161 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
 When running the cluster over a :abbr:`WAN (Wide Area Network)`, you may frequently experience transient network connectivity failures.  To prevent this from partitioning the cluster, you may want to increase the *keepalive* timeouts.
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Recommendations
 
 The following parameters can tolerate 30 second connectivity outages:
@@ -70,3 +85,11 @@ In configuring these parameters, consider the following:
 - You must set the :ref:`evs.inactive_timeout <evs.inactive_timeout>` parameter to a value higher than that of the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter.
 
 - You must set the :ref:`evs.install_timeout <evs.install_timeout>` parameter to a value higher than the value of the :ref:`evs.inactive_timeout <evs.inactive_timeout>` parameter.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`evs.suspect_timeout <evs.suspect_timeout>`
+   - :ref:`evs.inactive_timeout <evs.inactive_timeout>`
+   - :ref:`evs.install_timeout <evs.install_timeout>`

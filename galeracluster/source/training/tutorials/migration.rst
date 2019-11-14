@@ -44,6 +44,18 @@
       - :doc:`System Configuration <configuration>`
       - :doc:`Replication Configuration <wsrep-configuration>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. cssclass:: library-article
 .. _`migration`:
@@ -250,3 +262,19 @@ With your application server now using the new cluster nodes, you now need to mi
 #. Resume load on these servers.
 
 When the former MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_on <wsrep_on>`
+   - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+   - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+   - :ref:`Upgrading System Tables <upgrade-system-tables>`
+
+   Related Articles
+
+   - :doc:`Galera Installation <galera-installation>`
+   - :doc:`Starting the Cluster <starting-cluster>`
+   - :doc:`System Configuration <configuration>`
+   - :doc:`Replication Configuration <wsrep-configuration>`

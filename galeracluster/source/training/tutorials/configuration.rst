@@ -29,9 +29,18 @@
 
       - :doc:`FAQ <../../faq>`
 
-      Related Documents
+.. container:: top-links
 
-      Related Articles
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. cssclass:: library-article
 .. _`configuration`:
@@ -165,19 +174,19 @@ First, create an empty file on your disk, set the file size to whatever size you
 
 .. code-block:: console
 
-   # fallocate -l 512M /swapfile
+   fallocate -l 512M /swapfile
 
 Alternatively, you can manage the same using ``dd`` utility like this:
 
 .. code-block:: console
 
-   # dd if=/dev/zero of=/swapfile bs=1M count=512
+   dd if=/dev/zero of=/swapfile bs=1M count=512
 
 Be sure to secure the swap file by changing the permissions on the filesystem with ``chmod`` like this:
 
 .. code-block:: console
 
-   # chmod 600 /swapfile
+   chmod 600 /swapfile
 
    $ ls -a / | grep swapfile
 
@@ -189,8 +198,8 @@ Now you're read to format the swap file.  You can do this with the ``mkswap`` ut
 
 .. code-block:: console
 
-   # mkswap /swapfile
-   # swapon /swapfile
+   mkswap /swapfile
+   swapon /swapfile
 
 Using a text editor, update the ``/etc/fstab`` file to include the swap file by adding the following line to the bottom:
 
@@ -202,9 +211,11 @@ After you save the ``/etc/fstab`` file, you run ``swapon`` again to see the resu
 
 .. code-block:: console
 
-   $ swapon --summary
+   swapon --summary
+   
    Filename        Type        Size     Used    Priority
    /swapfile       file        524284   0       -1
+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

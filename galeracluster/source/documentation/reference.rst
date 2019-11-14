@@ -39,7 +39,21 @@
       - :doc:`versioning-information`
       - :doc:`xtrabackup-options`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -111,6 +125,19 @@ In some cases your configuration or implementation may require that you work wit
 - :ref:`genindex`
 
   In the event that you would like to check these concepts against related terms to find more information in the docs, this chapter provides a general index of the site.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`galera-parameters`
+   - :doc:`galera-status-variables`
+   - :doc:`system-tables`
+   - :doc:`GLB Parameters <glb-parameters>`
+   - :doc:`mysql-wsrep-options`
+   - :doc:`wsrep-functions`
+   - :doc:`versioning-information`
+   - :doc:`xtrabackup-options`
 
 
 .. toctree::

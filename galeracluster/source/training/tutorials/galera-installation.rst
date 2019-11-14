@@ -37,7 +37,17 @@
       - :doc:`Migration <migration>`
       - :ref:`Configuring Swap Space <swap-config>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -205,6 +215,14 @@ MariaDB Galera Cluster
 
 .. note:: In the event that you build or install Galera Cluster over an existing standalone instance of MySQL or MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`Migration <migration>`.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`SELinux <../../../documentation/selinux>`
+   - :doc:`Firewall Settings <../../../documentation/firewall-settings>`
+   - :doc:`Migration <migration>`
+   - :ref:`Configuring Swap Space <swap-config>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

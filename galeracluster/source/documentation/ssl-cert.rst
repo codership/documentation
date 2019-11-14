@@ -32,7 +32,21 @@
 
       - :doc:`ssl-config`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -69,13 +83,13 @@ To create the CA key and cert, complete the following steps:
 
    .. code-block:: console
 
-      # openssl genrsa 2048 > ca-key.pem
+      openssl genrsa 2048 > ca-key.pem
 
 #. Using the CA key, generate the CA certificate.
 
    .. code-block:: console
 
-      # openssl req -new -x509 -nodes -days 365000 \
+      openssl req -new -x509 -nodes -days 365000 \
             -key ca-key.pem -out ca-cert.pem
 
 This creates a key and certificate file for the Certificate Authority.  They are in the current working directory as ``ca-key.pem`` and ``ca-cert.pem``.  You need both to generate the server and client certificates.  Additionally, each node requires ``ca-cert.pem`` to verify certificate signatures.
@@ -91,20 +105,20 @@ The node uses the server certificate to secure both the database server activity
 
    .. code-block:: console
 
-      # openssl req -newkey rsa:2048 -days 365000 \
+      openssl req -newkey rsa:2048 -days 365000 \
             -nodes -keyout server-key.pem -out server-req.pem
 
 #. Process the server RSA key.
 
    .. code-block:: console
 
-      # openssl rsa -in server-key.pem -out server-key.pem
+      openssl rsa -in server-key.pem -out server-key.pem
 
 #. Sign the server certificate.
 
    .. code-block:: console
 
-      # openssl x509 -req -in server-req.pem -days 365000 \
+      openssl x509 -req -in server-req.pem -days 365000 \
             -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
             -out server-cert.pem
 
@@ -121,20 +135,20 @@ The node uses the client certificate to secure client-side activity.  In the eve
 
    .. code-block:: console
 
-      # openssl req -newkey rsa:2048 -days 365000 \
+      openssl req -newkey rsa:2048 -days 365000 \
             -nodes -keyout client-key.pem -out client-req.pem
 
 #. Process client RSA key.
 
    .. code-block:: console
 
-      # openssl rsa -in client-key.pem -out client-key.pem
+      openssl rsa -in client-key.pem -out client-key.pem
 
 #. Sign the client certificate.
 
    .. code-block:: console
 
-      # openssl x509 -req -in client-req.pem -days 365000 \
+      openssl x509 -req -in client-req.pem -days 365000 \
             -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
             -out client-cert.pem
 
@@ -149,7 +163,7 @@ When you finish creating the key and certificate files, use ``openssl`` to verif
 
 .. code-block:: console
 
-   # openssl verify -CAfile ca-cert.pem \
+   openssl verify -CAfile ca-cert.pem \
          server-cert.pem client-cert.pem
 
    server-cert.pem: OK
@@ -164,3 +178,9 @@ Once the certificates pass verification, you can send them out to each node.  Us
 - Client Certificate: ``client-key.pem`` and ``client-cert.pem``.
 
 Place these files in the ``/etc/mysql/certs`` directory of each node, or a similar location where you can find them later in configuring the cluster to use :abbr:`SSL (Secure Socket Layer)`.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`ssl-config`

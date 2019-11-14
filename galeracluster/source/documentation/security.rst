@@ -36,7 +36,21 @@
       - :doc:`selinux`
       - :doc:`ssl`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -61,6 +75,17 @@ On occasion, you may want or need to enable degrees of security that go beyond t
   Without proper configuration, SELinux can either block nodes from communicating or it can block the database server from starting at all.  When it does so, it causes the given process to fail silently, without any notification sent to standard output or error as to why.  While you can configure SELinux to permit all activity from the database server, (as was explained in the :ref:`Installation <disable-selinux>` section, this is not a good long-term solution.
 
   This section provides a guide to creating an SELinux security policy for Galera Cluster.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Configure Firewall <firewall-config>`
+   - :ref:`Disable SELinux <disable-selinux>`
+   - :doc:`firewall-settings`
+   - :doc:`selinux`
+   - :doc:`ssl`
+
 
 .. toctree::
    :hidden:

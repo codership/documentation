@@ -40,6 +40,22 @@
 
       - :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-document
 .. _`ssl-sst`:
@@ -96,7 +112,8 @@ Before you shut down the cluster, you need to create a user for ``mysqldump`` on
 
    .. code-block:: mysql
 
-      SELECT User, Host, ssl_type FROM mysql.user WHERE User='sst_user';
+      SELECT User, Host, ssl_type
+      FROM mysql.user WHERE User='sst_user';
 
       +----------+------+----------+
       | User     | Host | ssl_type |
@@ -157,3 +174,17 @@ Configurations for ``xtrabackup`` are handled through the ``my.cnf`` configurati
 When you finish editing the configuration file, restart the node to apply the changes.  ``xtrabackup`` now sends and receives state snapshot transfers through SSL.
 
 .. note:: In order to use SSL with ``xtrabackup``, you need to set :ref:`wsrep_sst_method <wsrep_sst_method>` to ``xtrabackup-v2``, instead of ``xtrabackup``.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`ssl-config`
+   - :doc:`schema-upgrades`
+   - :ref:`wsrep_OSU_method <wsrep_OSU_method>`
+   - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
+   - :ref:`wsrep_sst_method <wsrep_sst_method>`
+
+   Related Articles
+
+   - :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`

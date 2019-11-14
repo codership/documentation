@@ -23,7 +23,18 @@
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
+.. container:: top-links
 
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+   - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+   
 
 .. cssclass:: library-index
 .. _`codership-github`:

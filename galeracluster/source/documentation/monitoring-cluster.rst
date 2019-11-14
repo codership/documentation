@@ -49,7 +49,21 @@
       - :ref:`wsrep_ready <wsrep_ready>`
       - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -335,3 +349,26 @@ Values much greater than ``0.0`` indicate replication throttling or network thro
 
 
 .. note::  In addition to this status variable, you can also use :ref:`wsrep_local_send_queue_max <wsrep_local_send_queue_max>` and :ref:`wsrep_local_send_queue_min <wsrep_local_send_queue_min>` to see the maximum and minimum sizes the node recorded for the local send queue.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`notification-cmd`
+   - :doc:`Reset Quorum <quorum-reset>`
+   - :ref:`checking node status <check-node-status>`
+   - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
+   - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+   - :ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>`
+   - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
+   - :ref:`wsrep_cluster_size <wsrep_cluster_size>`
+   - :ref:`wsrep_cluster_state_uuid <wsrep_cluster_state_uuid>`
+   - :ref:`wsrep_cluster_status <wsrep_cluster_status>`
+   - :ref:`wsrep_connected <wsrep_connected>`
+   - :ref:`wsrep_local_send_queue_avg <wsrep_local_send_queue_avg>`
+   - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`
+   - :ref:`wsrep_local_recv_queue_avg <wsrep_local_recv_queue_avg>`
+   - :ref:`wsrep_local_recv_queue_max <wsrep_local_recv_queue_max>`
+   - :ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>`
+   - :ref:`wsrep_ready <wsrep_ready>`
+   - :ref:`wsrep_slave_threads <wsrep_slave_threads>`

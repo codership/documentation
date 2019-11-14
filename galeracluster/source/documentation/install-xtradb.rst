@@ -28,11 +28,25 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
-
       Related Articles
 
       - :doc:`../training/tutorials/migration`
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -149,3 +163,9 @@ For RPM-based distributions, instead run this command:
 Percona XtraDB Cluster is now installed on your server.
 
 .. note::  If you installed Percona XtraDB Cluster over an existing standalone instance of Percona XtraDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`../training/tutorials/migration`.
+
+.. container:: bottom-links
+
+   Related Articles
+
+   - :doc:`../training/tutorials/migration`

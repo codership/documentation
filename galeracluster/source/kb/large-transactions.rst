@@ -34,7 +34,21 @@
       - `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_
       - `pt-archiver <https://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
 
-      Related Articles
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-article
@@ -46,18 +60,18 @@ Handling Large Transactions
 
 .. rst-class:: article-stats
 
-   Length: 443 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
+   Length: 443 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
 Large transactions, especially ones deleting removes millions of rows from a table at once, can lead to diminished performance. One reason is that the table may reindexed and rescanned after each row is deleted.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Scenario
 
 Suppose you have a node called ``dbhost`` with a database called ``keystone``.  Suppose further that you execute a large transaction, which includes a ``DELETE`` statement that deletes expired tokens from their table in that database and on that host. If this transaction involves millions of rows, it could affect the overall performance of the cluster.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Recommendations
 
 This problem might be easily resolved by changing the size of the InnoDB buffer pool. The pool is bytes of the memory area where InnoDB caches table and index data. The larger the pool (i.e., the more RAM is used), the less the disk is  accessed, which is especially important when dealing with the same data in tables multiple times as you might in a large transaction on the same table.
@@ -84,6 +98,13 @@ This allows you to delete rows efficiently from the cluster.
 The ``--source`` parameter provides the host, database, and table. Since there is no  ``--destination`` parameter given, it won't move the data to another table for archiving, per the primary function of ``pt-archiver``. The ``--purge`` parameter instructs ``pt-archiver`` to remove the rows from the database. The ``--where`` parameter provides the ``WHERE`` clause of the ``DELETE`` statement.
 
 The ``--primary-key-only`` parameter is efficient when purging rows. It prevents fetching each row in its entirety, when only the primary key column is used in the ``WHERE`` clause for ``DELETE`` statements.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_
+   - `pt-archiver <https://www.percona.com/doc/percona-toolkit/2.1/pt-archiver.html>`_
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

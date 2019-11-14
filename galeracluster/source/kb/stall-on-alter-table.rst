@@ -34,6 +34,21 @@
       - :doc:`Schema Upgrades <../../documentation/schema-upgrades>`
       - :ref:`wsrep_OSU_method <wsrep_OSU_method>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-trouble-stall-on-alter`:
@@ -44,7 +59,7 @@ Cluster Stalls on ``ALTER TABLE``
 
 .. rst-class:: article-stats
 
-   Length: 519 words; Updated: October 30, 2019; Category: Schema & SQL; Type: Troubleshooting
+   Length: 519 words; Published: April 1, 2014; Updated: October 30, 2019; Category: Schema & SQL; Type: Troubleshooting
 
 The ``ALTER TABLE`` statement requires access to the table to be delayed as the changes are applied, the data sorted and re-indexed.  When executing this SQL statement on a node that using Galera Cluster, the entire cluster may be stalled. It can be confusing and inconvenient.
 
@@ -89,6 +104,13 @@ Once you've finished changing the table schema on each node, execute the ``SET``
    SET wsrep_OSU_method='TOI';
 
 You'll have to execute this SQL statement on each node.  After that, the cluster should function normally, without any drain on performance.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Schema Upgrades <../../documentation/schema-upgrades>`
+   - :ref:`wsrep_OSU_method <wsrep_OSU_method>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

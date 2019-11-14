@@ -28,6 +28,21 @@
 
       - :doc:`FAQ <../faq>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-best-multi-master-setup`:
@@ -38,7 +53,7 @@ Multi-Master Setup
 
 .. rst-class:: article-stats
 
-   Length: 55 words; Published: October 22, 2019; Category: Topology; Type: Best Practices
+   Length: 55 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Topology; Type: Best Practices
 
 
 A master is a node that can simultaneously process writes from clients. The more masters in a cluster, the higher the probability of certification conflicts.  This can lead to undesirable rollbacks and performance degradation.

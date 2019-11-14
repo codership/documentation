@@ -32,7 +32,21 @@
 
       - :doc:`Deployment Variants <deployment-variants>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -51,6 +65,13 @@ Galera Cluster guarantees node consistency regardless of where and when the quer
 - **Galera Load Balancer** inspired by Pen, but is limited to balancing generic TCP connections only.
 
 For more information or ideas on where to use load balancers in your infrastructure, see :doc:`deployment-variants`.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Deployment Variants <deployment-variants>`
+
 
 .. toctree::
    :maxdepth: 2

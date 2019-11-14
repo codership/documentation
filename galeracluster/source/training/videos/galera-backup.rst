@@ -49,6 +49,18 @@
       - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
       - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -112,6 +124,31 @@ Making Back-Ups with Galera Cluster
    <video width="820" height="547" preload="metadata" controls>
    <source src="https://galeracluster.com/library-media/videos/galera-backup.mp4#t=0.5" type="video/mp4">
    </video>
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Galera Arbitrator <../../documentation/arbitrator>`
+   - :doc:`Node Recovery <../../documentation/recovery>`
+   - :doc:`Scriptable SST  <../../documentation/scriptable-sst>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Related Articles
+
+   - :doc:`Galera Back-Ups <../tutorials/galera-backup>`
+
+   Other Resources
+
+   - `mysqldump <https://mariadb.com/kb/en/mariadb/mysqldump/>`_
+   - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
+   - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
+   - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
+   - `CHANGE MASTER <https://dev.mysql.com/doc/refman/en/change-master-to.html>`_
+   - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
+   - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
+
 
 .. toctree::
    :maxdepth: 2

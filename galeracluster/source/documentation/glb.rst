@@ -39,7 +39,21 @@
       - :ref:`--source <glb-source>`
       - :ref:`Service Installation <glb-service>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -195,6 +209,21 @@ The ``service`` script supports several operations.  Below is a list of them and
 - ``drain <IP Address>`` will sets the designated server to drain. When doing this, Galera Load Balancer won't send new connections to the given server, but it also won't kill existing connections. Instead, it waits for the connections to the specified server to end gracefully.
 
 When adding an IP address to Galera Load Balancer at runtime, keep in mind that it must follow the convention, ``IP Address:port:weight``.  A hostname may be used instead of an IP address.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Using Galera Load Balancer <glb-use>`
+   - :ref:`LISTEN_ADDR <glb-listen_addr>`
+   - :ref:`DEFAULT_TARGETS <glb-default_targets>`
+   - :ref:`OTHER_OPTIONS <glb-other_options>`
+   - :ref:`--round <glb-round>`
+   - :ref:`--single <glb-single>`
+   - :ref:`--random <glb-random>`
+   - :ref:`--source <glb-source>`
+   - :ref:`Service Installation <glb-service>`
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

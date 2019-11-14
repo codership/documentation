@@ -39,7 +39,17 @@
       - :ref:`wsrep_node_address <wsrep_node_address>`
       - :ref:`wsrep_provider_options <wsrep_provider_options>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -131,6 +141,18 @@ When listing options, start with a question mark after the IP address list. Then
 In this example, the ``segment`` option for ``gcomm`` and the ``max_install_timeouts`` option for ``evs`` are set.
 
 Incidentally, if the listen address and port are not set in the parameter list, ``gcomm`` will listen on all interfaces.  The listen port will be taken from the cluster address.  If it's not specified in the cluster address, the default port is ``4567``.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Galera Parameters <../../../documentation/galera-parameters>`
+   - :ref:`wsrep_cluster_name <wsrep_cluster_name>`
+   - :ref:`wsrep_cluster_address <wsrep_cluster_address>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`
+   - :ref:`wsrep_node_address <wsrep_node_address>`
+   - :ref:`wsrep_provider_options <wsrep_provider_options>`
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

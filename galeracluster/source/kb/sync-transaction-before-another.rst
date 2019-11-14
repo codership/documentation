@@ -35,6 +35,21 @@
       - :ref:`wsrep_provider_version <wsrep_provider_version>`
       - :ref:`wsrep_last_written_gtid() <WSREP_LAST_WRITTEN_GTID>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-best-sync-transaction-first`:
@@ -45,7 +60,7 @@ Synchronizing a Transaction Before Executing Another
 
 .. rst-class:: article-stats
 
-   Length: 391 words; Published: October 22, 2019; Category: Schema & SQL; Type: Best Practices
+   Length: 391 words; Published: May 30, 2019; Updated: October 22, 2019; Category: Schema & SQL; Type: Best Practices
 
 There are times in which a user |---| or an application |---| will perform complex tasks, to add and change data dynamically and contingent upon whatever factors might be important to the user. Along these lines, someone or an application may enter a transaction, but may not want it commited until a previous transaction has been committed.  This can be a bit tricky, especially when a cluster is using a load balancer:  The second transaction may have be sent to a different node than the first.  If that happens, the user will have difficulty being sure that the second node has already replicated the first transaction. Fortunately, there are now some Galera functions that can help.
 
@@ -102,7 +117,8 @@ To make it easier to use, we've saved the results of the ``SELECT`` with the ``W
 
    ALTER TABLE books DISABLE KEYS;
 
-   LOAD DATA LOCAL INFILE 'oup_books.csv' INTO TABLE books
+   LOAD DATA LOCAL INFILE 'oup_books.csv'
+   INTO TABLE books
    FIELDS TERMINATED BY '|'
    ENCLOSED BY '"'
    LINES TERMINATED BY '\r\n'
@@ -114,6 +130,14 @@ To make it easier to use, we've saved the results of the ``SELECT`` with the ``W
    COMMIT;
 
 With this function, :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>` tells the node to wait until the transaction identified by the GTID given within the parentheses (the value of our user variable) is committed before processing this transaction.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Galera Functions <../documentation/wsrep-functions>`
+   - :ref:`wsrep_provider_version <wsrep_provider_version>`
+   - :ref:`wsrep_last_written_gtid() <WSREP_LAST_WRITTEN_GTID>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

@@ -32,7 +32,21 @@
 
       - :ref:`Making Firewall Changes Persistent <persistent-config>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -131,6 +145,12 @@ Once you find where your system stores the rules file, use ``iptables-save`` to 
    # iptables-save > /etc/sysconfig/iptables
 
 When your system reboots, it now reads this file as the default packet filtering rules.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Making Firewall Changes Persistent <persistent-config>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

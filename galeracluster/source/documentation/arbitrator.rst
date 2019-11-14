@@ -32,7 +32,21 @@
       - :doc:`backup-cluster`
       - :doc:`galera-parameters`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -198,3 +212,10 @@ This starts Galera Arbitrator as a service.  It uses the parameters set in the c
 In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, excepting those prefixed by ``repl``.  When you start it as a service, you can set those using the ``GALERA_OPTIONS`` parameter.
 
 For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`backup-cluster`
+   - :doc:`galera-parameters`

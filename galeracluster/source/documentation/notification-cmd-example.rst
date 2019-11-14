@@ -32,7 +32,21 @@
 
       - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -175,3 +189,10 @@ In addition to this, given that the notification command contains your root pass
    # chmod 700 /usr/bin/my-wsrep-notify.sh.
 
 This ensures that only the ``mysql`` user can execute and read the notification script, preventing all other users from seeing the root password.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
+   

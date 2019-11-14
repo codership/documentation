@@ -33,7 +33,21 @@
       - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
       - :ref:`wsrep_node_name <wsrep_node_name>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -106,6 +120,12 @@ When using automatic donor selection, starting in Galera Cluster version 3.6, th
 
 - Where there are several local or remote nodes available that can safely perform an incremental state transfer, the cluster chooses the node with the highest seqno to serve as the donor.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

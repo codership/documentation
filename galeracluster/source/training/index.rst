@@ -28,6 +28,18 @@
 
         - :doc:`FAQ <../faq>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+   - :doc:`KB <..//kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <./index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -101,7 +113,7 @@ There's so much to learn about Galera Cluster and related software.  In this sec
    .. image:: ../images/codership-tutorials-collage.png
       :width: 450px
       :alt: Codership Tutorial Articles Collage
-      :class: tutorial-screenshot no-borders
+      :class: tutorial-screenshot no-borders no-mobile
 
 
 
@@ -154,7 +166,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
    .. image:: ../images/codership-training-slides-collage.png
       :width: 450px
       :alt: Codership Training Videos Collage
-      :class: tutorial-screenshot no-borders
+      :class: tutorial-screenshot no-borders no-mobile
 
 
 .. toctree::

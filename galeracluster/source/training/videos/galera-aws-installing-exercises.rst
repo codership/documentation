@@ -37,13 +37,24 @@
       - :doc:`State Transfer <../../documentation/state-transfer>`
       - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-      Related Articles
-
       Other Resources
 
       - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
       - `Galera Repository <http://releases.galeracluster.com/>`_
       - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -147,6 +158,23 @@ This is the core of the training video. You may encounter problems as you do the
 
   If you struggled at any point in doing these exercises, especially in getting the Galera nodes started, you might want to do them again.  Start with fresh installations of the servers, without MySQL or MariaDB or Galera Cluster.  If you use the same servers, before doing the exercises again, uninstall the database software and Galera, and delete the data directory.  Do the exercises multiple times until you’re able to install, configure, and start a Galera cluster without any problems.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Installing Galera <../../documentation/install>`
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - :doc:`SELinux <../../documentation/selinux>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Other Resources
+
+   - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
+   - `Galera Repository <http://releases.galeracluster.com/>`_
+   - `Configure Repo File <../../documentation/install-mysql.html#mysql-yum-repo>`_
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

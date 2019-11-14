@@ -34,7 +34,21 @@
       - :ref:`Provider Upgrade <provider-upgrade>`
       - :ref:`gcache.size <gcache.size>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -239,6 +253,15 @@ After you upgrade the Galera Replicator Plugin package on each node in the clust
 #. Resume the load on the cluster.
 
 Reloading the provider and connecting it to the cluster typically takes less than ten seconds, so there is virtually no service outage.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`Rolling Upgrade <rolling-upgrade>`
+   - :ref:`Bulk Upgrade <bulk-upgrade>`
+   - :ref:`Provider Upgrade <provider-upgrade>`
+   - :ref:`gcache.size <gcache.size>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

@@ -29,9 +29,18 @@
 
       - :doc:`FAQ <../../faq>`
 
-      Related Documents
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -138,4 +147,5 @@ The entire procedure ends when the replication events from the IST have been app
 After the joiner has received a State Transfer, it must also catch up with any transactions that were issued on the rest of the cluster while the State Transfer was in progress. Those transactions are continuously received by the joiner and stored in the gcache. As soon as the state transfer completes, the donor needs to apply them all.
 
 An attentive reader may ask "What happens if the joining node is never able to catch up because there are too many new transactions? Will flow-control kick in?". The answer is yes, however rather than applying flow control immediately and stopping the entire cluster in its tracks until the catch-up phase is complete, Galera uses a heuristics to determine when throttling is required.
+
 If the node is able to make progress towards catching up, as evidenced by a decreasing length of its receive queue, no flow control will kick in. However, if the node begins to fall further behind and the queue continues to grow, the cluster will be throttled so that the node is given some breathing room. This way the entire procedure for joining a new node is guaranteed to complete even in the presence of continuing load on the database.

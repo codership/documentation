@@ -37,12 +37,23 @@
       - :doc:`State Transfer <../../documentation/state-transfer>`
       - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-      Related Articles
-
       Other Resources
 
       - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
       - `Galera Repository <http://releases.galeracluster.com/>`_
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -108,6 +119,24 @@ Installing Galera Cluster with MariaDB
     <video width="820" height="547" preload="metadata" controls>
     <source src="https://galeracluster.com/library-media/videos/galera-mariadb-installing.mp4#t=0.5" type="video/mp4">
     </video>
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Installing Galera <../../documentation/install>`
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - :doc:`SELinux <../../documentation/selinux>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Other Resources
+
+   - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
+   - `Galera Repository <http://releases.galeracluster.com/>`_
+
 
 .. toctree::
    :maxdepth: 2

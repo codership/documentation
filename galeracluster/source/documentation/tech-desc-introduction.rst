@@ -40,7 +40,21 @@
       - :doc:`state-transfer`
       - :doc:`streaming-replication`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -153,6 +167,20 @@ In addition to theory, several prototype implementations have shown much promise
 
 The certification-based replication system that Galera Cluster uses is built on these approaches.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Certification Replication <certification-based-replication>`
+   - :doc:`tech-desc-introduction`
+   - :doc:`node-states`
+   - :doc:`isolation-levels`
+   - :doc:`Node Recovery <recovery>`
+   - :doc:`weighted-quorum`
+   - :doc:`Replicaiton Architecture <architecture>`
+   - :doc:`state-transfer`
+   - :doc:`streaming-replication`
+   
 
 .. |times|   unicode:: U+00D7 .. MULTIPLICATION SIGN
 

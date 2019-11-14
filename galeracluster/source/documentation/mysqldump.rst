@@ -33,7 +33,21 @@
       - :ref:`wsrep_sst_method <wsrep_sst_method>`
       - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -97,13 +111,21 @@ If you have not yet created the cluster, you can stop the database server while 
 
 .. code-block:: console
 
-   # service mysql stop
+   service mysql stop
 
 For servers that use ``systemd``, you would execute the following from the command-line to shutdown MySQL:
 
 .. code-block:: console
 
-   # systemctl stop mysql
+   systemctl stop mysql
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_sst_method <wsrep_sst_method>`
+   - :ref:`wsrep_sst_auth <wsrep_sst_auth>`
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -46,7 +46,17 @@
       - :doc:`Testing a Cluster <testing-cluster>`
       - :doc:`Restarting the Cluster <restarting-cluster>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -148,6 +158,23 @@ With the software installed on the relevant servers in your your infrastructure,
    testing-cluster
    restarting-cluster
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`What's New <../../whats-new>`
+   - :doc:`Installation <galera-installation>`
+   - :doc:`Install MySQL Binary Installation <../../documentation/install-mysql>`
+   - :doc:`Source Build <../../documentation/install-mysql-src>`
+   - :doc:`Install XtraDB Binary Installation <../../documentation/install-xtradb>`
+   - :doc:`Source Build <../../documentation/install-xtradb-src>`
+   - :doc:`Install MariaDB Binary Installation <../../documentation/install-mariadb>`
+   - :doc:`Source Build <../../documentation/install-mariadb-src>`
+   - :doc:`System Configuration <configuration>`
+   - :doc:`Replication Configuration <wsrep-configuration>`
+   - :doc:`Starting the Cluster <starting-cluster>`
+   - :doc:`Testing a Cluster <testing-cluster>`
+   - :doc:`Restarting the Cluster <restarting-cluster>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

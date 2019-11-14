@@ -34,7 +34,21 @@
       - :doc:`Deployment Variants <deployment-variants>`
       - :doc:`load-balancing`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -63,6 +77,13 @@ When using the standard deployment methods of Galera Cluster, nodes run directly
 
 This section provides guides to installing, configuring and deploying Galera Cluster nodes in container instances using FreeBSD Jails and Docker.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`containers`
+   - :doc:`Deployment Variants <deployment-variants>`
+   - :doc:`load-balancing`
 
 
 .. toctree::
@@ -72,7 +93,6 @@ This section provides guides to installing, configuring and deploying Galera Clu
    deployment-variants
    load-balancing
    containers
-
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

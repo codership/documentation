@@ -30,9 +30,18 @@
 
       - :doc:`FAQ <../../faq>`
 
-      Related Documents
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -124,4 +133,4 @@ By doing that, you indicate to Galera that you have willfully selected that node
 .. rst-class:: section-heading
 .. rubric:: Practice
 
-Similar to restoring from backup, restarting the entire cluster is an operation that deserves practice. In addition the data consistency protections provided by Galera, having a proven sequence of steps to perform when the occasion arises will reduce downtime and decrease the chance of accidental data loss. Last but not least, it will lower the stress on the administrator, which is an important goal in its own right!
+Similar to restoring from backup, restarting the entire cluster is an operation that deserves practice. In addition the data consistency protections provided by Galera, having a proven sequence of steps to perform when the occasion arises will reduce downtime and decrease the chance of accidental data loss. Last but not least, it will lower the stress on the administrator, which is an important goal in its own right.

@@ -37,12 +37,22 @@
       - :doc:`State Transfer <../../documentation/state-transfer>`
       - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
 
-      Related Articles
-
       Other Resources
 
       - `Galera Repository <http://releases.galeracluster.com/>`_
       - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
+
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. role:: raw-html(raw)
@@ -131,14 +141,26 @@ Do these exercises after viewing the first two sections of the training video:  
 
 Do these exercises after viewing the section with the two titles. MariaDB should be down on each node; don’t start ``mysqld`` again until the next section.
 
-
-
-
-
 .. note::
 
   If you struggled at any point in doing these exercises, especially in getting the Galera nodes started, you might want to do them again.  Start with fresh installations of the servers, without MariaDB or Galera Cluster.  If you use the same servers, before doing the exercises again, uninstall MariaDB and Galera, and delete MariaDB’s data directory.  Do the exercises multiple times, until you’re able to install, configure, and start a Galera cluster without any problems.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Firewall Settings <../../documentation/firewall-settings>`
+   - :doc:`firewalld <../../documentation/firewalld>`
+   - :doc:`Installing Galera <../../documentation/install>`
+   - :doc:`Node Provisioning <../../documentation/node-provisioning>`
+   - :doc:`SELinux <../../documentation/selinux>`
+   - :doc:`State Transfer <../../documentation/state-transfer>`
+   - :doc:`wsrep Options <../../documentation/mysql-wsrep-options>`
+
+   Other Resources
+
+   - `Galera Repository <http://releases.galeracluster.com/>`_
+   - `MariaDB Repo. Generator <https://downloads.mariadb.org/mariadb/repositories/>`_
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

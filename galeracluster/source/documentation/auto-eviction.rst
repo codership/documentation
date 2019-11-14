@@ -41,8 +41,21 @@
       - :ref:`wsrep_evs_state <wsrep_evs_state>`
       - :ref:`wsrep_provider_options <wsrep_provider_options>`
 
-      Related Articles
+.. container:: top-links
 
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -205,3 +218,19 @@ These steps will update the EVS Protocol version for one node in a cluster. Repe
 
 
 For more information on upgrading in general, see :doc:`upgrading`.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`upgrading`
+   - :ref:`evs.auto_evict <evs.auto_evict>`
+   - :ref:`evs.delayed_keep_period <evs.delayed_keep_period>`
+   - :ref:`evs.delayed_margin <evs.delayed_margin>`
+   - :ref:`evs.evict <evs.evict>`
+   - :ref:`evs.version <evs.version>`
+   - :ref:`wsrep_evs_delayed <wsrep_evs_delayed>`
+   - :ref:`wsrep_evs_evict_list <wsrep_evs_evict_list>`
+   - :ref:`wsrep_evs_state <wsrep_evs_state>`
+   - :ref:`wsrep_provider_options <wsrep_provider_options>`
+   

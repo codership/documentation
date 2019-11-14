@@ -33,7 +33,21 @@
       - :ref:`wsrep_node_address <wsrep_node_address>`
       - :ref:`wsrep_node_name <wsrep_node_name>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 
@@ -56,6 +70,14 @@ The configuration for a node running in a containerized environment remains prim
 - :ref:`wsrep_node_name <wsrep_node_name>`: The node determines the default name from the system hostname. Jails have their own hostnames, distinct from that of the host system.
 
 Bear in mind that the configuration file must be placed within the container ``/etc`` directory, not that of the host system.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`wsrep_node_address <wsrep_node_address>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`
+
 
 .. toctree::
 

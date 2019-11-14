@@ -34,7 +34,21 @@
       - :ref:`wsrep_debug <wsrep_debug>`
       - :ref:`wsrep_log_conflicts <wsrep_log_conflicts>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -77,6 +91,14 @@ You can enable these through the ``my.cnf`` configuration file.  The excerpt bel
 .. rubric:: Additional Log Files
 
 Whenever a node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`cert.log_conflicts <cert.log_conflicts>`
+   - :ref:`wsrep_debug <wsrep_debug>`
+   - :ref:`wsrep_log_conflicts <wsrep_log_conflicts>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

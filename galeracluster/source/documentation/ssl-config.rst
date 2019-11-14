@@ -40,7 +40,21 @@
       - :ref:`socket.checksum<socket.checksum>`
       - :ref:`socket.ssl_cipher<socket.ssl_cipher>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -149,3 +163,18 @@ Using the :ref:`socket.ssl_cipher<socket.ssl_cipher>` parameter, one can overrid
 .. code-block:: ini
 
    wsrep_provider_options = "socket.ssl_cipher=ALL:!EXP:!NULL:!ADH:!LOW:!SSLv2:!SSLv3:!MD5:!RC4:!RSA"
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`ssl-cert`
+   - :doc:`ssl-sst`
+   - :doc:`galera-parameters`
+   - :ref:`socket.ssl_key <socket.ssl_key>`
+   - :ref:`socket.ssl_cert <socket.ssl_cert>`
+   - :ref:`socket.ssl_ca <socket.ssl_ca>`
+   - :ref:`wsrep_provider_options <wsrep_provider_options>`
+   - :ref:`socket.checksum<socket.checksum>`
+   - :ref:`socket.ssl_cipher<socket.ssl_cipher>`
+   

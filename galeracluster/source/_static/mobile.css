@@ -1,0 +1,254 @@
+/*
+Codership's Style Sheet for Mobile Devices - mobile.css
+*/
+
+body {
+  width: 100%;
+  font-size: 12pt;
+  line-height: 1.2em;
+}
+header .top {
+  width: 100%;
+}
+header a.home-link {
+  margin-left: 20px;
+}
+div#page {
+min-width: initial;
+}
+
+
+/* --- navigator styles --- */
+
+div#navbar {
+  display: none;
+}
+#site-navigation ul {
+  width: 100%;
+}
+div.left-margin {
+  display: none;
+}
+div.top-links {
+  display: block;
+  width: 100%;
+  height: 30px;
+  clear: both;
+  margin: 10px 0 0 0;
+  padding: 0;
+  border-bottom: 2px #cccccc dotted;
+}
+div.top-links ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-type: none;
+}
+div.top-links ul li {
+  width: 17%;
+  height: 20px;
+  float: left;
+  margin-top: 0;
+  padding: 10px 2px 0 2px;
+  list-style-type: none;
+  list-style-image: none;
+  font-size: .7em;
+  text-transform: lowercase;
+  text-align: center;
+  letter-spacing: 4px;
+  border-left: 1px #cccccc dotted;
+}
+div.top-links ul:first-child li:first-child {
+  border-left: none;
+}
+div.top-links ul.nav-wider li {
+  width: 24%;
+}
+div.top-links ul a {
+  color: #1E1006;
+}
+div.bottom-links {
+  display: block;
+  width: 100%;
+  clear: both;
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  border-top: 2px #cccccc dotted;
+}
+div.bottom-links ul {
+  margin: 4px 0;
+  padding-inline-start: 0;
+  text-indent: 4px;
+  list-style-type: none;
+}
+div.bottom-links ul li a {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+}
+
+
+/* Headers */
+
+h1 {
+  font-size: 1.3em;
+}
+h2 {
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 1.1em;
+}
+h3 {
+  font-size: 1em;
+}
+p.rubric {
+  font-size: 1.1em;
+}
+p.section-heading {
+  font-size: 1.1em;
+}
+p.sub-heading {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/* Banner Heading */
+
+div.banner {
+  padding-left: 0;
+}
+
+/* Columns */
+
+div.list-col1, div.list-col2 {
+   width: 100%;
+   clear: both;
+   margin-bottom: 0;
+}
+div.list-col2 {
+  clear: left;
+}
+div.list-col1 p, div.list-col2 p {
+  padding: 0 0 0 0 !important;
+  font-size: 1em;
+}
+div.list-col1 p.list-stats, div.list-col2 p.list-stats {
+   margin-left: 0 !important;
+   padding-left: 0 !important;
+   word-spacing: 1px;
+}
+div.list-col2-3 {
+  width: 100%;
+}
+div.list-col1-3 {
+  float: left;
+  width: 100%;
+}
+div.list-col1-3 .video-stats {
+  display: none;
+}
+div.library-video ul.video-stats, div.library-video ul.training-video-resources,
+div.library-video p.training-video-resources.rubric {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-indent: 0;
+}
+
+/* Links */
+
+a:any-link {
+  font-weight: 300;
+  color: #65909A;
+}
+a:hover {
+    color: #ed7e2e;
+}
+
+/* Images */
+
+img {
+  max-width: 100% !important;
+  padding: 0;
+}
+img.no-mobile {
+  display: none;
+}
+
+
+/* Library Index Pages */
+
+div.library-index p.list-abstract {
+  font-size: .9em;
+}
+div.library-index {
+  width: 100%;
+  clear: both;
+  margin-left: 0;
+  border-collapse: collapse;
+}
+div.library-index p.list-stats {
+  display: none;
+}
+
+/* Library Documents & Articles */
+
+div.library-document,
+div.library-article {
+  width: 100%;
+  clear: both;
+  margin-left: 0;
+  border-collapse: collapse;
+}
+div.library-article p.article-stats {
+  display: none;
+}
+
+
+/* Videos */
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+
+/* Footer */
+
+footer div.top {
+  padding-top: 10px;
+}
+footer div.top div.powered-by {
+  width: 100%;
+  display: none;
+}
+div.footnote h2 {
+  width: 100%;
+  margin-left: 20px;
+  font-size: .9em;
+  text-transform: capitalize;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+}
+footer#colophon, div.footer-bar p.copyright,
+footer ul.nav-menu > li > a {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+  background: #b4b4b4;
+}
+div.footer-menu {
+  width: 100%;
+  max-width: initial;
+  margin-left: 20px;
+}
+div.footer-menu ul.nav-menu li {
+  margin-right: 4px;
+}
+div.footer-menu ul.nav-menu li a {
+  text-transform: uppercase;
+  font-size: .65em;
+}
+div.footer-bar {
+  width: 100%;
+  margin-left: 20px;
+  padding: 0;
+}
+div.footer-bar p.copyright {
+  font-size: .7em;
+}

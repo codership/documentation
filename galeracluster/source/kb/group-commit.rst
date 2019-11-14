@@ -29,11 +29,21 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
 
-      .. cssclass:: bull-head
+.. container:: top-links
 
-      Related Articles
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-article
@@ -45,7 +55,7 @@ Group Commit
 
 .. rst-class:: article-stats
 
-   Length: 322 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
+   Length: 322 words; Published: May 30, 2019; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
 After each transaction is committed, InnoDB will typically flush changes to its redo log and the binary log to the disk--it does this typically by calling `fsync()`, `fdatasync()`. This method is used to ensure data changes are stored durably on the disk. Disk flushing, however, can have an effect on performance and the number of transactions-per-second (TPS) that can be committed.
 

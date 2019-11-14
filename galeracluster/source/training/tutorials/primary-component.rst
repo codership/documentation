@@ -30,9 +30,17 @@
 
       - :doc:`FAQ <../../faq>`
 
-      Related Documents
+.. container:: top-links
 
-      Related Articles
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
 
 
 .. cssclass:: library-article
@@ -63,7 +71,7 @@ In a healthy cluster, all nodes nodes can communicate with each other, so they a
 
 .. code-block:: console
 
-   MySQL [test]> show status like 'wsrep_cluster_status';
+   SHOW STATUS LIKE 'wsrep_cluster_status';
 
    +----------------------+---------+
    | Variable_name        | Value   |
@@ -77,7 +85,7 @@ On any node that is in the Primary Component, the ``wsrep_cluster_size`` status 
 
 .. code-block:: console
 
-   MySQL [test]> show status like 'wsrep_cluster_size';
+   SHOW STATUS LIKE 'wsrep_cluster_size';
 
    +--------------------+-------+
    | Variable_name      | Value |

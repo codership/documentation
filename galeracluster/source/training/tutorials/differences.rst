@@ -29,9 +29,18 @@
 
       - :doc:`FAQ <../../faq>`
 
-      Related Documents
+.. container:: top-links
 
-      Related Articles
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. cssclass:: library-article
 .. _`differences`:
@@ -214,6 +223,7 @@ When aborts occur at the cluster level, Galera Cluster gives a deadlock error.
    code (Error: 1213 SQLSTATE: 40001 (ER_LOCK_DEADLOCK)
 
 If you receive this error, restart the failing transaction.  It will then issue on its own, without another to put it into conflict.
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

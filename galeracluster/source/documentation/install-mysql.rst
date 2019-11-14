@@ -44,6 +44,22 @@
       - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
       - :doc:`Galera MySQL (video)  <../../training/videos/galera-mysql-installing>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-document
 .. _`install-mysql-binary`:
@@ -292,6 +308,24 @@ For CentOS 7, to install MySQL version 5.5, you also need to disable the 5.6 upg
          -x mysql-wsrep-shared-5.6
 
 When ``yum`` finishes the upgrade, install the MySQL wsrep database server and the Galera Replication Plugin as described above.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Install Galera <./install>`
+   - :doc:`Galera MySQL Source <./install-mysql-src>`
+   - :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`
+   - :doc:`Galera MariaDB Binaries <./install-mariadb>`
+
+   Related Articles
+
+   - :doc:`../training/tutorials/migration`
+
+   Other Resources
+
+   - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
+   - :doc:`Galera MySQL (video)  <../../training/videos/galera-mysql-installing>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

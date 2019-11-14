@@ -35,7 +35,21 @@
       - :ref:`REPEATABLE-READ <repeatable-read>`
       - :ref:`SERIALIZABLE <serializable>`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -105,6 +119,16 @@ The snapshot remains in use throughout the entire transaction for the ``SELECT``
 Here all records accessed within a transaction are locked.  The resource locks in a way that also prevents you from appending records to the table the transaction operates upon.
 
 ``SERIALIZABLE`` prevents a phenomenon known as a phantom read.  Phantom reads occur when, within a transaction, two identical queries execute, and the rows the second query returns differ from the first.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`READ-COMMITTED <read-committed>`
+   - :ref:`READ-UNCOMMITTED <read-uncommitted>`
+   - :ref:`REPEATABLE-READ <repeatable-read>`
+   - :ref:`SERIALIZABLE <serializable>`
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

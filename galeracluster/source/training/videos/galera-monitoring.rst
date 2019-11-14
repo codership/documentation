@@ -42,6 +42,18 @@
       - `Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
       - `SCUMM <https://severalnines.com/database-blog/scumm-agent-based-database-monitoring-infrastructure-clustercontrol>`_
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../../documentation/index>`
+   - :doc:`KB <../../kb/index>`
+
+   .. cssclass:: here nav-wider
+
+      - :doc:`Training <../index>`
+
+   - :doc:`FAQ <../../faq>`
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -108,6 +120,23 @@ Monitoring a Galera Cluster
     <video width="820" height="547" preload="metadata" controls>
     <source src="https://galeracluster.com/library-media/videos/galera-monitoring.mp4#t=0.5" type="video/mp4">
     </video>
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`Monitoring Cluster <../../documentation/monitoring-cluster>`
+   - :doc:`Notification Command <../../documentation/notification-cmd>`
+   - :doc:`Notification Script <../../documentation/notification-cmd-example>`
+
+   Related Articles
+
+   - :doc:`Galera Monitoring <../tutorials/galera-monitoring>`
+
+   Other Resources
+
+   - `Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
+   - `SCUMM <https://severalnines.com/database-blog/scumm-agent-based-database-monitoring-infrastructure-clustercontrol>`_
 
 
 .. toctree::

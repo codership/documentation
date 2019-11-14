@@ -37,6 +37,21 @@
       - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
       - :ref:`gmcast.segment <gmcast.segment>`
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
 
 .. cssclass:: library-article
 .. _`kb-trouble-requested-state-transfer-failed`:
@@ -47,7 +62,7 @@ Requested State Transfer Failed
 
 .. rst-class:: article-stats
 
-   Length: 649 words; Updated: November 6, 2019; Category: State Transfers; Type: Troubleshooting
+   Length: 649 words; Published: April 1, 2014; Updated: November 6, 2019; Category: State Transfers; Type: Troubleshooting
 
 When a new node joins a cluster, it will try to synchronize with the cluster by getting a full copy of the databases from one of the other nodes.  This is known as a :doc:`State Transfer <../../documentation/sst>`.  It will use a tool like ``rsync`` or ``mysqldump``, depending on how the :ref:`wsrep_sst_method <wsrep_sst_method>` option was set. Although this usually works well, sometimes it will fail.  This KB article discusses such a situation.
 
@@ -136,6 +151,15 @@ This informs the cluster that one of the nodes named (i.e., ``galera-2`` and ``g
 
 Once you've nominated nodes to be donors, assuming the joiner has in fact joined the cluster, initiating state transfer should happen immediately and without any further problem.  If it doesn't, confirm that there aren't any problems with your network connection. Also, confirm that the needed ports aren't being blocked by SELinux or a firewall. In particular, make sure port 4568 is open: it's used for State Snapshot Transfers.
 
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`State Transfers <../../documentation/sst>`
+   - :doc:`TCP/UDP Ports </../../documentation/firewall-settings>`
+   - :ref:`wsrep_node_name <wsrep_node_name>`
+   - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
+   - :ref:`gmcast.segment <gmcast.segment>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

@@ -32,7 +32,21 @@
       - :doc:`auto-eviction`
       - :doc:`ssl-cert`
 
-      Related Articles
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+
+   .. cssclass:: here
+
+      - :doc:`Docs <./index>`
+
+   - :doc:`KB <../kb/index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
 
 
 .. cssclass:: library-document
@@ -2093,6 +2107,15 @@ To check which parameters are used in Galera Cluster, enter the following query:
 .. code-block:: mysql
 
 	SHOW VARIABLES LIKE 'wsrep_provider_options';
+
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :doc:`auto-eviction`
+   - :doc:`ssl-cert`
+
 
 .. |br| raw:: html
 

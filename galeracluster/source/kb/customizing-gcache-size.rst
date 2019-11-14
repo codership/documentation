@@ -34,6 +34,22 @@
       - :ref:`wsrep_received_bytes <wsrep_received_bytes>`
 
 
+.. container:: top-links
+
+   - `Home <https://galeracluster.com>`_
+   - :doc:`Docs <../documentation/index>`
+
+   .. cssclass:: here
+
+      - :doc:`KB <./index>`
+
+   .. cssclass:: nav-wider
+
+      - :doc:`Training <../training/index>`
+
+   - :doc:`FAQ <../faq>`
+
+
 .. cssclass:: library-article
 .. _`kb-best-customizing-gcache-size`:
 
@@ -43,11 +59,11 @@ Customizing the Write-Set Cache Size
 
 .. rst-class:: article-stats
 
-   Length: 467 words; Published: October 22, 2019; Category: Performance; Type: Best Practices
+   Length: 467 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
 You can define the size of the write-set cache using the :ref:`gcache.size <gcache.size>` parameter.  The set the size to one less than that of the data directory.
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Scenario
 
 If you have storage issues, there are some guidelines to consider in adjusting this issue.  For example, your preferred state snapshot method.  ``rsync`` and ``xtrabackup`` copy the InnoDB log files, while ``mysqldump`` does not.  So, if you use ``mysqldump`` for state snapshot transfers, you can subtract the size of the log files from your calculation of the data directory size.
@@ -55,7 +71,7 @@ If you have storage issues, there are some guidelines to consider in adjusting t
 .. note:: Incremental State Transfers (IST) copies the database five times faster over ``mysqldump`` and about 50% faster than ``xtrabackup``.  Meaning that your cluster can handle relatively large write-set caches.  However, bear in mind that you cannot provision a server with Incremental State Transfers.
 
 
-.. rst-class:: kb
+.. rst-class:: section-heading
 .. rubric:: Recommendations
 
 As a general rule, start with the data directory size, including any possible links, then subtract the size of the ring buffer storage file, which is called ``galera.cache`` by default.
@@ -105,6 +121,13 @@ Conversely, if you already know the period in which you want the write-set cache
 This equation can show how the size of the write-set cache can improve performance.  For instance, say you find that cluster nodes frequently request state snapshot transfers.  Increasing the :ref:`gcache.size <gcache.size>` parameter extends the period in which the write-set remains valid, allowing the nodes to update instead through incremental state transfers.
 
 .. note:: Consider these configuration tips as guidelines only. For example, in cases where you must avoid state snapshot transfers as much as possible, you may end up using a much larger write-set cache than suggested above.
+
+.. container:: bottom-links
+
+   Related Documents
+
+   - :ref:`gcache.size <gcache.size>`
+   - :ref:`wsrep_received_bytes <wsrep_received_bytes>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
