@@ -2,7 +2,8 @@
 Codership's Style Sheet for Mobile Devices - mobile.css
 */
 
-body {
+body,
+body.document {
   width: 100%;
   font-size: 12pt;
   line-height: 1.2em;
