@@ -60,8 +60,6 @@ Upgrading Galera Cluster
 
 Since high-availability is a priority for many Galera Cluster administrators, how to go about upgrading the nodes is important. Doing so with the least amount of downtime is tricky.  There are three methods for upgrading Galera Cluster, the Galera software on the individual nodes:
 
-.. rst-class:: soft-list
-
    - :ref:`Rolling Upgrade <rolling-upgrade>` permits you to upgrade one node  at a time, without taking down the cluster |---| and newly upgraded nodes can join the cluster without problems.
 
    - :ref:`Bulk Upgrade <bulk-upgrade>` is the method by which you take down the cluster and upgrade all of the nodes together.
@@ -109,8 +107,6 @@ Some of the disadvantages to consider in rolling upgrades are:
 
 Assuming you've read and considered the above, below are the steps for upgrading each node in a cluster |---| one at a time. This procedure, though, is for minor upgrades, not major upgrades.  For those, see the next section.
 
-.. rst-class:: slight-list
-
    - First, transfer all client connections from the node you're about to upgrade to the other nodes.
 
    - When there are no more client connections trying to access the node, shut down the database software (i.e., ``mysqld``). This will remove the node from the cluster.
@@ -142,8 +138,6 @@ Performing a rolling upgrade between major versions of Galera Cluster (e.g., fro
 .. rubric:: Rolling Major Upgrade Procedure
 
 Below are the steps of the following procedure for performing rolling upgrades between major versions of Galera Cluster.
-
-.. rst-class:: slight-list
 
    - Choose one node to upgrade and make sure that all client connections are directed elsewhere.  Once it's free of its cluster obligations, shut down the database daemon (e.g., ``mysqld``).
 

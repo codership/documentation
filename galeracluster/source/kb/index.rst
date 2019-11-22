@@ -54,7 +54,7 @@ The Codership Knowledge Base
 
 .. rst-class:: list-stats
 
-   Article Counts: 10 Troubleshooting, 13 Best Practices; Recent Changes: 6 Updated, 2 New Articles
+   Article Counts: 10 Troubleshooting, 13 Best Practices; Recent Changes: 6 Revised, 2 New Articles
 
 :doc:`The Codership Documentation <../documentation/index>` explains in detail how to deploy and administer a Galera Cluster. This section, the Codership Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster.  Here you'll find troubleshooting articles and best practices articles.
 
@@ -85,7 +85,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 463 words; Pub: Apr 2014; Updated: Nov 2019
+      Length: 463 words; Pub: Apr 2014; Revised: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -97,7 +97,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 789 words; Pub: Apr 2014; Updated: Nov 2019
+      Length: 789 words; Pub: Apr 2014; Revised: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -111,7 +111,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 649 words; Pub: Apr 2014; Updated: Nov 2019
+      Length: 649 words; Pub: Apr 2014; Revised: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -131,7 +131,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 519 words; Pub: Apr 2014; Updated: Oct 2019:
+      Length: 519 words; Pub: Apr 2014; Revised: Oct 2019:
 
    .. rst-class:: list-abstract
 
@@ -143,7 +143,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 518 words; Pub: Apr 2014; Updated: Sep 2019
+      Length: 518 words; Pub: Apr 2014; Revised: Sep 2019
 
    .. rst-class:: list-abstract
 
@@ -181,7 +181,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 326 words; Pub: Apr 2014; Updated: Nov 2019
+      Length: 326 words; Pub: Apr 2014; Revised: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -215,7 +215,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-stats
 
-      Length: 971 words; Pub: Apr 2014; Updated: Nov 2019
+      Length: 971 words; Pub: Apr 2014; Revised: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -245,7 +245,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 322 words; Pub: May 2019; Updated: Oct 2019
+      Length: 322 words; Pub: May 2019; Revised: Oct 2019
 
    .. rst-class:: list-abstract
 
@@ -374,7 +374,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 880 words; Pub: Jun 2015; Updated: Nov 2019
+      Length: 880 words; Pub: Jun 2015; Revised: Nov 2019
 
    .. rst-class:: list-abstract
 
@@ -394,7 +394,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 345 words; Pub: Jun 2015; Updated: Oct 2019
+      Length: 345 words; Pub: Jun 2015; Revised: Oct 2019
 
    .. rst-class:: list-abstract
 
@@ -408,7 +408,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-stats
 
-      Length: 994 words; Pub: May 2019; Updated: Nov 2019
+      Length: 994 words; Pub: May 2019; Revised: Nov 2019
 
    .. rst-class:: list-abstract
 

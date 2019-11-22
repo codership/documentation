@@ -50,6 +50,10 @@
 Codership Tutorials on Galera Cluster
 ======================================
 
+.. rst-class:: list-stats
+
+   Article Counts: 20 Tutorials; Recent Changes: 2 Revised, 3 New Articles
+
 .. rst-class:: page-abstract
 
    These are tutorial articles of the training section of the Codership Library. Here you'll find tutorial articles on how to get started with Galera and other basic tasks related to initially starting a Galera Cluster. There are also some intermediate articles on a few other aspects of Galera and related software.
