@@ -33,7 +33,7 @@
       - :doc:`upgrading`
       - :ref:`evs.auto_evict <evs.auto_evict>`
       - :ref:`evs.delayed_keep_period <evs.delayed_keep_period>`
-      - :ref:`evs.delayed_margin <evs.delayed_margin>`
+      - :ref:`evs.delay_margin <evs.delay_margin>`
       - :ref:`evs.evict <evs.evict>`
       - :ref:`evs.version <evs.version>`
       - :ref:`wsrep_evs_delayed <wsrep_evs_delayed>`
@@ -78,7 +78,7 @@ If the delayed node becomes responsive again for a fixed period, entries for tha
 
 You can configure the parameters of Auto-Eviction by setting the following options through  :ref:`wsrep_provider_options <wsrep_provider_options>`:
 
-- :ref:`evs.delayed_margin <evs.delayed_margin>`: This sets the time period that a node can delay its response from expectations until the cluster adds it to the delayed list. You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
+- :ref:`evs.delay_margin <evs.delay_margin>`: This sets the time period that a node can delay its response from expectations until the cluster adds it to the delayed list. You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
 
   The default value is ``PT1S``.
 
@@ -226,7 +226,7 @@ For more information on upgrading in general, see :doc:`upgrading`.
    - :doc:`upgrading`
    - :ref:`evs.auto_evict <evs.auto_evict>`
    - :ref:`evs.delayed_keep_period <evs.delayed_keep_period>`
-   - :ref:`evs.delayed_margin <evs.delayed_margin>`
+   - :ref:`evs.delay_margin <evs.delay_margin>`
    - :ref:`evs.evict <evs.evict>`
    - :ref:`evs.version <evs.version>`
    - :ref:`wsrep_evs_delayed <wsrep_evs_delayed>`

@@ -90,7 +90,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`evs.consensus_timeout <evs.consensus_timeout>`", "``PT30S``", "   No", "Yes", "1.0, 2.0"
    ":ref:`evs.debug_log_mask <evs.debug_log_mask>`", "``0x1``", "  Yes", "", "1.0"
    ":ref:`evs.delayed_keep_period <evs.delayed_keep_period>`", "``PT30S``", "   No", "", "3.8"
-   ":ref:`evs.delayed_margin <evs.delayed_margin>`", "``PT1S``", "   No", "", "3.8"
+   ":ref:`evs.delay_margin <evs.delay_margin>`", "``PT1S``", "   No", "", "3.8"
    ":ref:`evs.evict <evs.evict>`", "", "   No", "", "3.8"
    ":ref:`evs.inactive_check_period <evs.inactive_check_period>`", "``PT1S``", "   No", "", "1.0"
    ":ref:`evs.inactive_timeout <evs.inactive_timeout>`", "``PT15S``", "   No", "", "1.0"
@@ -398,12 +398,12 @@ The excerpt below is an example of how this Galera parameter might look in the c
 For more information on the delayed list and the Auto Eviction process, see :doc:`auto-eviction`.
 
 
-.. _`evs.delayed_margin`:
+.. _`evs.delay_margin`:
 .. rst-class:: section-heading
-.. rubric:: ``evs.delayed_margin``
+.. rubric:: ``evs.delay_margin``
 
 .. index::
-   pair: wsrep Provider Options; evs.delayed_margin
+   pair: wsrep Provider Options; evs.delay_margin
 
 Defines how long the node allows response times to deviate before adding an entry to the delayed list.
 
@@ -422,7 +422,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="evs.delayed_margin=PT5S"
+   wsrep_provider_options="evs.delay_margin=PT5S"
 
 For more information on the delayed list and the Auto Eviction process, see :doc:`auto-eviction`.
 
