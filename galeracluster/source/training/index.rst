@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -23,8 +23,9 @@
 
         .. cssclass:: sub-links
 
-           - :doc:`Tutorial Articles <./tutorials/index>`
+           - :doc:`Training Courses <./courses/index>`
            - :doc:`Training Videos <./videos/index>`
+           - :doc:`Tutorial Articles <./tutorials/index>`
 
         - :doc:`FAQ <../faq>`
 
@@ -51,7 +52,115 @@
 Codership Training
 ===================
 
-This is the training section of the Codership Library. Here you'll find tutorial articles, along with a series of training videos to help you learn about Galera Cluster and related software |---| in conjunction with Galera.
+Codership is pleased to offer a comprehensive training program related to Codership products, as well as key related software.  These products includes training courses on Galera Cluster, Galera Arbirator, and Galera Load Balancer.  Key related software includes MySQL and MariaDB database systems and tools commonly used by DBA (e.g., ``mysqldump``).  Topics include installing, configuring, monitoring, and administering all of this software, in particular as it relates to Galera Cluster.
+
+In this Training section, you'll find information on upcoming training courses that are conducted by the staff at Codership, with some taught by the original developers of Galera Cluster.  For those who prefer a self-paced training, we have a set of training videos to help you learn about Galera Cluster and related software. For those who learn best from reading, we also have many tutorial articles on the same topics.
+
+.. container:: banner
+
+   .. rst-class:: section-heading list-sub-header
+   .. rubric:: :doc:`Training Courses <./courses/index>`
+
+Using video communcation conferencing systems such Zoom, Codership is able to offer live virtual classes. From your office, home, or virtually anywhere, you may attend courses conducted by the Codership staff. Each month we will offer courses on Galera Cluster and related software.
+
+.. container:: list-col1
+
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: Introduction & Installation to Galera Cluster
+
+   .. rst-class:: list-stats
+
+      Length: 3 days, 4 hours per day
+
+   .. rst-class:: list-abstract
+
+      This course is for those who are new to Galera Cluster, but have experience as an administering MySQL or MariaDB databases. It explains how Galera Cluster works and  how to install and configure Galera Cluster software and set up a cluster.
+
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: Database Administration with Galera Cluster
+
+   .. rst-class:: list-stats
+
+      Length: 3 days, 4 hours per day
+
+   .. rst-class:: list-abstract
+
+      If you're a new database administrator and been made recently responsible for maintaining your organization's databases, this course will teach you about basic and core DBA tasks.
+
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: Advanced and Special Galera Topics
+
+   .. rst-class:: list-stats
+
+      Length: 1 to 2 days, 2 to 4 hours per day
+
+   .. rst-class:: list-abstract
+
+      In addition to the general Galera Cluster and DBA courses, which will be offered regularly, Codership will offer several advanced courses on various advanced topics such a performance tuning, as well as short seminars on new features.
+
+
+.. container:: list-col2
+
+   .. image:: ../images/codership-training-course-example.png
+      :width: 450px
+      :alt: Codership Training Courses
+      :class: tutorial-screenshot no-mobile
+
+
+.. container:: banner
+
+   .. rst-class:: section-heading list-sub-header
+   .. rubric:: :doc:`Training Videos <./videos/index>`
+
+Some people prefer to read, while others prefer screencast videos.  We have several in this format on Galera Cluster and related software; we're adding new ones every month. They're professionally made presentations, with an experieced instructor voice-over. Some parts are easy to follow slides, and for some parts there are demonstrations of how to configure and use the software.  They're grouped into these three main categories:
+
+.. container:: list-col1
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :ref:`Introduction & Installation <training-videos-intro-install>`
+
+   .. rst-class:: list-stats
+
+      5 videos; length: 2 hrs, 52 mins; avg: 34 mins
+
+   .. rst-class:: list-abstract
+
+      Never used Galera Cluster |---| maybe even new MySQL and MariaDB database administration? These training videos will help you to get started installing and configuring Galera Cluster and related software.
+
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :ref:`Administration & Resolution <training-videos-admin-trouble>`
+
+   .. rst-class:: list-stats
+
+      2 video; 1 hr, 52 mins; avg: 56 mins (more soon)
+
+   .. rst-class:: list-abstract
+
+      Have some experience in Galera Cluster and you're ready to understand it better? Here you'll be able to learn how to perform essential administrative tasks, as well as how to resolve problems that occur |---| including how to recover from a total cluster crash.
+
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :ref:`Performance & High Availability <training-videos-performance-availability>`
+
+   .. rst-class:: list-stats
+
+      1 video; length: 60 mins; avg: 60 mins
+
+   .. rst-class:: list-abstract
+
+      Galera Cluster can provide enhanced performance and ensure high availability of your databases. These videos will help you to be able to get more out of Galera.
+
+.. container:: list-col2
+
+   .. image:: ../images/codership-training-slides-collage.png
+      :width: 450px
+      :alt: Codership Training Videos Collage
+      :class: tutorial-screenshot no-borders no-mobile
+
 
 .. container:: banner
 
@@ -116,63 +225,11 @@ There's so much to learn about Galera Cluster and related software.  In this sec
       :class: tutorial-screenshot no-borders no-mobile
 
 
-
-.. container:: banner
-
-   .. rst-class:: section-heading list-sub-header
-   .. rubric:: :doc:`Training Videos <./videos/index>`
-
-Some people prefer to read, while others prefer screencast videos.  We have several in this format on Galera Cluster and related software; we're adding new ones every month. They're professionally made presentations, with an experieced instructor voice-over. Some parts are easy to follow slides, and for some parts there are demonstrations of how to configure and use the software.  They're grouped into these three main categories:
-
-.. container:: list-col1
-
-   .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Introduction & Installation <training-videos-intro-install>`
-
-   .. rst-class:: list-stats
-
-      5 videos; length: 2 hrs, 52 mins; avg: 34 mins
-
-   .. rst-class:: list-abstract
-
-      Never used Galera Cluster |---| maybe even new MySQL and MariaDB database administration? These training videos will help you to get started installing and configuring Galera Cluster and related software.
-
-
-   .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Administration & Resolution <training-videos-admin-trouble>`
-
-   .. rst-class:: list-stats
-
-      2 video; 1 hr, 52 mins; avg: 56 mins (more soon)
-
-   .. rst-class:: list-abstract
-
-      Have some experience in Galera Cluster and you're ready to understand it better? Here you'll be able to learn how to perform essential administrative tasks, as well as how to resolve problems that occur |---| including how to recover from a total cluster crash.
-
-
-   .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Performance & High Availability <training-videos-performance-availability>`
-
-   .. rst-class:: list-stats
-
-      1 video; length: 60 mins; avg: 60 mins
-
-   .. rst-class:: list-abstract
-
-      Galera Cluster can provide enhanced performance and ensure high availability of your databases. These videos will help you to be able to get more out of Galera.
-
-.. container:: list-col2
-
-   .. image:: ../images/codership-training-slides-collage.png
-      :width: 450px
-      :alt: Codership Training Videos Collage
-      :class: tutorial-screenshot no-borders no-mobile
-
-
 .. toctree::
    :maxdepth: 2
    :hidden:
 
+   courses/index
    tutorials/index
    videos/index
 

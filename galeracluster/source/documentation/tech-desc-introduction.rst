@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, overview, asynchronous replication, synchronous replication
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -180,7 +180,7 @@ The certification-based replication system that Galera Cluster uses is built on 
    - :doc:`Replicaiton Architecture <architecture>`
    - :doc:`state-transfer`
    - :doc:`streaming-replication`
-   
+
 
 .. |times|   unicode:: U+00D7 .. MULTIPLICATION SIGN
 

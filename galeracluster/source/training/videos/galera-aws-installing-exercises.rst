@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -19,11 +19,15 @@
 
         .. cssclass:: sub-links
 
-           - :doc:`Tutorial Articles <../tutorials/index>`
+           - :doc:`Training Courses <../courses/index>`
 
            .. cssclass:: here
 
            - :doc:`Training Videos <./index>`
+
+        .. cssclass:: sub-links
+
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
       - :doc:`FAQ <../../faq>`
 
@@ -90,7 +94,7 @@ Installing a Galera Cluster on AWS
 
    .. rst-class:: training-video-resources
 
-      - :doc:`Example Configuration <galera-mariadb-installing-examples>`
+      - `Example Configuration <galera-mariadb-installing-examples.html>`_
       - `Company Database <https://galeracluster.com/library-media/databases/company.tgz>`_
 
 

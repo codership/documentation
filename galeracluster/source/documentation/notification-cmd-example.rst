@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, notification, notify command, trigger, script
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -195,4 +195,3 @@ This ensures that only the ``mysql`` user can execute and read the notification 
    Related Documents
 
    - :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`
-   

@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -18,19 +18,21 @@
       - :doc:`Knowledge Base <../../kb/index>`
       - :doc:`Training <../index>`
 
-        .. cssclass:: sub-links
+      .. cssclass:: sub-links
 
-           .. cssclass:: here
+         - :doc:`Training Courses <../courses/index>`
+         - :doc:`Training Videos <../videos/index>`
 
-           - :doc:`Tutorial Articles <./index>`
+      .. cssclass:: sub-links
 
-        .. cssclass:: sub-links
+         .. cssclass:: here
 
-           - :doc:`Training Videos <../videos/index>`
+         - :doc:`Tutorial Articles <./index>`
 
       - :doc:`FAQ <../../faq>`
 
-      Related Documents
+      .. rst-class:: left-margin-heading
+      .. rubric:: Related Documents
 
       - :doc:`What's New <../../whats-new>`
       - :doc:`Installation <galera-installation>`

@@ -35,7 +35,7 @@
 
    - :doc:`FAQ <../faq>`
 
-   
+
 .. cssclass:: library-index
 .. _`editors`:
 

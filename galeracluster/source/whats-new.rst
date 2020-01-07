@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -48,8 +48,25 @@
 .. _`whats-new`:
 
 =================================
-What's New in Galera Cluster 4.x
+What's New
 =================================
+
+At Codership, we're constantly improving our products, in particular Galera Cluster |---| striving to make it the high performing, most stable and secure database cluster system available. We're also always expanding and improving the Codership Library by updating the Documentation for changes to the software and seeking to make the text clearer. In the Library we're working on adding articles to our Knowledge Base to help you quickly solve problems you might encounter, as well publishing more tutorials in our Training section.
+
+On this web page, you can learn what's new in all of these areas, about changes to our software and to our Library.  So check this page every month or so for updates.
+
+---------------------------------
+What's New in the Library
+---------------------------------
+
+In the past few months we've added a :doc:`Training section <./training/index>`, which includes :doc:`Tutorial Articles <./training/tutorials/index>` and :doc:`Training Videos <./training/videos/index>`.  For now, the Training section is free and wide open. In the future, we will at least require you to register to access them.
+
+Along these lines, we intend to start offering :doc:`Live Virtual Classes <./training/tutorials/index>`, which will be taught by our staff |---| some of whom are the developers of Galera Cluster |---| using a video communcation conferencing systems such Zoom. This will allow you to attend useful and professionally taught training classes from your office or home.
+
+
+---------------------------------
+What's New in Galera Cluster 4.x
+---------------------------------
 
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
@@ -82,3 +99,7 @@ With the latest release of Galera Cluster in the 4.x branch, there are some new 
    - :doc:`Synchronization Functions <./documentation/wsrep-functions>`
    - :doc:`System Tables <./documentation/system-tables>`
    - :doc:`Using Streaming <./documentation/using-sr>`
+
+
+.. |---|   unicode:: U+2014 .. EM DASH
+   :trim:

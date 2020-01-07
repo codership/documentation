@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, versions, versioning information, releases
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -104,7 +104,7 @@ In addition to the Galera Cluster for MySQL, the reference implementation from C
    Related Documents
 
    - :doc:`Galera Installation <../training/tutorials/galera-installation>`
-   
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

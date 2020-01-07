@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, documentation, docs, mysql, mariadb
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -43,7 +43,7 @@
       - :doc:`Training <../training/index>`
 
    - :doc:`FAQ <../faq>`
-   
+
 
 .. cssclass:: library-index
 .. _`documentation`:

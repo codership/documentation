@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -19,11 +19,15 @@
 
         .. cssclass:: sub-links
 
-           - :doc:`Tutorial Articles <../tutorials/index>`
+           - :doc:`Training Courses <../courses/index>`
 
            .. cssclass:: here
 
            - :doc:`Training Videos <./index>`
+
+        .. cssclass:: sub-links
+
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
       - :doc:`FAQ <../../faq>`
 
@@ -133,7 +137,7 @@ Standard Replication & Galera Cluster
 .. raw:: html
 
     <video width="820" height="547" preload="metadata" controls>
-    <source src="https://galeracluster.com/library-media/videos/galera-vs-standard-replication.mp4#t=0.1" type="video/mp4">
+    <source src="https://galeracluster.com/library-media/videos/galera-standard-replication.mp4#t=0.1" type="video/mp4">
     </video>
 
 .. container:: bottom-links

@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, flow control
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -204,4 +204,3 @@ That node can still exceed that limit from a 1Gb write-set.
    - :ref:`wsrep_flow_control_recv <wsrep_flow_control_recv>`
    - :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>`
    - :ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>`
-      

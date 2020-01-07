@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, auto-eviction, evs state, provider options
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -233,4 +233,3 @@ For more information on upgrading in general, see :doc:`upgrading`.
    - :ref:`wsrep_evs_evict_list <wsrep_evs_evict_list>`
    - :ref:`wsrep_evs_state <wsrep_evs_state>`
    - :ref:`wsrep_provider_options <wsrep_provider_options>`
-   

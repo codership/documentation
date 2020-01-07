@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, sst, state snapshot transfer
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -201,4 +201,3 @@ By default, the write-set cache allocates files in the working directory of the 
    - :ref:`Incremental St. Transfr. <state-transfer-ist>`
    - :doc:`sst`
    - :ref:`State Snap. Transfr. <state-transfer-sst>`
-      

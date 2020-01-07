@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, installation, install, mariadb, binaries, apt, yum
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -210,4 +210,3 @@ Once you've done this, MariaDB Galera Cluster will be installed on your server. 
 
    - :doc:`Galera AWS (video)  <../../training/videos/galera-aws-installing>`
    - :doc:`Galera MariaDB (video)  <../../training/videos/galera-mariadb-installing>`
-      

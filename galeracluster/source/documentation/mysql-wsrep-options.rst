@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, mysql wsrep options, galera options
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin

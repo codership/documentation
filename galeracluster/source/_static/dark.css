@@ -1,0 +1,79 @@
+/*
+Codership's Style Sheet for Browsers using Dark Mode - dark.css
+*/
+
+body {
+  background-color: #3D3D3D !important; /* gray24 */
+  color: #f5f5f5 !important;  /* whitesmoke */
+}
+
+/* header */
+
+header#masthead {
+  background-color: #3d3d3d !important; /* gray24 */
+}
+#navbar, .navbar,
+#site-navigation {
+  background-color: #525252; /* gray32 */
+}
+header#masthead #navbar a,
+header#masthead #site-navigation a {
+  color: #ffffff !important;
+}
+
+
+div.body, div.document {
+  background-color: #3D3D3D; /* gray24 */
+  color: #f5f5f5;  /* whitesmoke */
+}
+h2 {
+  color: #f5deb3;  /* wheat */
+}
+a:link, a:visited, a:any-link {
+  color: #c3e4ed !important;
+}
+.rubric, .rubric a:link,
+.rubric a:visited, .rubric a:any-link {
+  color: #f5deb3 !important;  /* wheat */
+}
+.rubric.left-margin-heading {
+  color: #c3e4ed !important; /* robin's egg */
+}
+div.library-index div.banner a,
+div.library-index div.banner a:visited,
+div.banner p.rubric.list-sub-header a:visited {
+  color: #f5deb3 !important;  /* wheat */
+}
+div.library-index p.page-abstract {
+  color: #f5f5f5 !important;  /* whitesmoke */
+}
+div.library-index p.list-abstract,
+.video-abstract, .video-stats,
+div.list-col1 p, div.list-col2 p {
+  color: #f5f5f5 !important;  /* whitesmoke */
+}
+div.library-video video {
+  border-color: #c3e4ed; /* robin's egg */
+}
+.list-stats, .article-stats, .video-stats {
+  color: #e5e5e5 !important;  /* gray90 */
+}
+div.list-col1 strong, div.list-col2 strong {
+  color: #c3e4ed !important; /* robin's egg */
+}
+span.pre {
+  color: #60affe; /*  */
+}
+
+
+/* footer */
+footer, footer div.top {
+  background-color: #525252; /* gray32 */
+}
+#menu-nav-bar {
+  background-color: #f5f5f5; /* whitesmoke */
+}
+div.footnote {
+  background-color: #4D4D4D; /* gray30 */
+  border-top: 1px #f5f5f5 solid; /* whitesmoke */
+}

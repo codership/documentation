@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, load balancing, galera load balancer, glbd, parameters, options
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -701,4 +701,3 @@ This initializes the ``exec`` back-end to execute external programs.  It runs th
    - :ref:`LISTEN_ADDR <glb-listen_addr>`
    - :ref:`OTHER_OPTIONS <glb-other_options>`
    - :ref:`--watchdog <glb-watchdog>`
-      

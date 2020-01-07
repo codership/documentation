@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, configure, ssl certificate, security, ports
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -177,4 +177,3 @@ Using the :ref:`socket.ssl_cipher<socket.ssl_cipher>` parameter, one can overrid
    - :ref:`wsrep_provider_options <wsrep_provider_options>`
    - :ref:`socket.checksum<socket.checksum>`
    - :ref:`socket.ssl_cipher<socket.ssl_cipher>`
-   

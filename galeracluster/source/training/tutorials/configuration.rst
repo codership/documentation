@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -17,15 +17,16 @@
       - :doc:`Knowledge Base <../../kb/index>`
       - :doc:`Training <../index>`
 
-        .. cssclass:: sub-links
+      .. cssclass:: sub-links
 
-           .. cssclass:: here
+         - :doc:`Training Courses <../courses/index>`
+         - :doc:`Training Videos <../videos/index>`
 
-           - :doc:`Tutorial Articles <./index>`
+      .. cssclass:: sub-links
 
-        .. cssclass:: sub-links
+         .. cssclass:: here
 
-           - :doc:`Training Videos <../videos/index>`
+         - :doc:`Tutorial Articles <./index>`
 
       - :doc:`FAQ <../../faq>`
 
@@ -212,7 +213,7 @@ After you save the ``/etc/fstab`` file, you run ``swapon`` again to see the resu
 .. code-block:: console
 
    swapon --summary
-   
+
    Filename        Type        Size     Used    Priority
    /swapfile       file        524284   0       -1
 

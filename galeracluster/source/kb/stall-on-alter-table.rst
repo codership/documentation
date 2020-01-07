@@ -3,7 +3,7 @@
    :description: "For huge tables, an ALTER TABLE statement can cause a Galera Cluster to stall. There is a work-around, though."
    :language: en-US
    :keywords: cluster stalls, alter table, performance drain
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 
 .. container:: left-margin

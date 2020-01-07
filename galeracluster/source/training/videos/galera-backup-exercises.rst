@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -19,11 +19,15 @@
 
         .. cssclass:: sub-links
 
-           - :doc:`Tutorial Articles <../tutorials/index>`
+           - :doc:`Training Courses <../courses/index>`
 
            .. cssclass:: here
 
            - :doc:`Training Videos <./index>`
+
+        .. cssclass:: sub-links
+
+           - :doc:`Tutorial Articles <../tutorials/index>`
 
       Related Documents
 

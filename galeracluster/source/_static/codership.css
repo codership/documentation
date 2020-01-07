@@ -68,6 +68,13 @@ div.left-margin-content {
   margin-top: 6px;
   font-size: .8em;
 }
+div.left-margin-heading {
+  margin: 4px 0 4px 8px;
+  padding: 0 0 0 8px;
+  text-indent: 12px;
+  padding-inline-start: 0;
+  list-style-type: none; color: red;
+}
 div.left-margin-content p {
   font-weight: bold;
   margin: 8px 0 0 0;
@@ -599,7 +606,6 @@ div.list-col1, div.list-col2 {
    float: left;
    width: 50%;
    margin-bottom: 10px;
-   background-color: #ffffff;
 }
 div.list-col1 {
   clear: left;
@@ -671,7 +677,6 @@ div.list-col1-3 {
 }
 div.list-col2-3, div.list-col1-3 {
    margin: 0 0 10px 0;
-   background-color: #ffffff;
 }
 div.list-col2-3 {
   clear: left;
