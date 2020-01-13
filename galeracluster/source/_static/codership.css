@@ -635,7 +635,7 @@ div.list-col1 em, div.list-col2 em {
    font-size: 1em;
 }
 div.list-col1 small, div.list-col2 small {
-   font-size: 1em;
+   font-size: .9em;
    color: #454545;
 }
 
@@ -895,13 +895,18 @@ tt.literal {
 }
 
 /* Images */
-img.tutorial-screenshot {
+img.tutorial-screenshot,
+img.course-screenshot {
     margin: 30px 0;
     border: 1px solid #666666;
 }
-img.tutorial-screenshot.no-borders {
+img.tutorial-screenshot.no-borders,
+img.course-screenshot.no-borders {
     margin: 0;
     border: none;
+}
+img.course-screenshot {
+    margin-left: 20px;
 }
 img.borderless {
     float: right;

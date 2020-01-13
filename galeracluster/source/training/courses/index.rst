@@ -135,7 +135,7 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
 
    .. rst-class:: list-abstract
 
-      This upcoming video will explain how to plan and conduct upgrades of Galera software on an active cluster, one node at a time, without loss of service or data.
+      This training course will explain how to plan and conduct upgrades of Galera software on an active cluster, one node at a time, without loss of service or data.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -147,7 +147,7 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
 
    .. rst-class:: list-abstract
 
-      This training video explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
+      This training course explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
 
 
 
