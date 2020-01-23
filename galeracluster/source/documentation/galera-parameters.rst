@@ -150,7 +150,9 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`repl.key_format <repl.key_format>`", "``FLAT8``", "  No", "", "3.0"
    ":ref:`repl.max_ws_size <repl.max_ws_size>`", "``2147483647``", "  No", "", "3.0"
    ":ref:`repl.proto_max <repl.proto_max>`", "``5``", "  No", "", "2.0"
-   ":ref:`socket.recv_buf_size <socket.recv_buf_size>`", "``212992``", "  Yes", "", "3.17"
+   ":ref:`socket.recv_buf_size <socket.recv_buf_size>`", "``auto``", "  Yes", "", "3.17"
+   ":ref:`socket.send_buf_size <socket.send_buf_size>`", "``auto``", "  Yes", "", "3.29"
+
    ":ref:`socket.ssl_ca <socket.ssl_ca>`", "", "  No", "", "1.0"
    ":ref:`socket.ssl_cert <socket.ssl_cert>`", "", "  No", "", "1.0"
    ":ref:`socket.checksum <socket.checksum>`", "``1`` (vs. 2); ``2`` (vs. 3)", "  No", "", "2.0"
@@ -1878,12 +1880,12 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options;  socket.recv_buf_size
 
-The size of the receive buffer that used on the network sockets between nodes. Galera passes the value to the kernel via the ``SO_RCVBUF`` socket option.
+The size of the receive buffer that used on the network sockets between nodes. Galera passes the value to the kernel via the ``SO_RCVBUF`` socket option. The value is either numeric value in bytes or ``auto`` which allows the kernel to autotune the receive buffer. The default was changed from ``212992`` to ``auto`` in 3.29.
 
 .. csv-table::
    :class: doc-options
 
-   "Default Value", "``212992``"
+   "Default Value", "``auto``"
    "Dynamic", "No"
    "Initial Version", "3.17"
 
@@ -1893,6 +1895,27 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
    wsrep_provider_options="socket.recv_buf_size=212992"
 
+   .. _`socket.send_buf_size`:
+.. rst-class:: section-heading
+.. rubric:: ``socket.send_buf_size``
+
+.. index::
+   pair: wsrep Provider Options;  socket.send_buf_size
+
+The size of the send buffer that used on the network sockets between nodes. Galera passes the value to the kernel via the ``SO_SNDBUF`` socket option. The value is either numeric value in bytes or ``auto`` which allows the kernel to autotune the send buffer.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "``auto``"
+   "Dynamic", "No"
+   "Initial Version", "3.29"
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file:
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.send_buf_size=212992"
 
 .. _`socket.ssl_ca`:
 .. rst-class:: section-heading
