@@ -1510,6 +1510,18 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
    | wsrep_protocol_version | 4     |
    +------------------------+-------+
 
+The following table summarizes protocol versions and the galera version in which they were introduced:
+
+.. csv-table::
+   :class: doc-options
+   :header: "|br| Protocol version", "|br| Galera version"
+
+   "10", "``26.4.1``"
+   "9",  "``25.3.24``"
+   "8",  "``25.3.23``"
+   "7",  "``25.3.9``"
+   "6",  "``25.3.6``"
+   "5",  "``25.3.5``"
 
 .. _`wsrep_provider_name`:
 .. rst-class:: section-heading
