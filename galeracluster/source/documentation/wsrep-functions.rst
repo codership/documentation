@@ -143,12 +143,13 @@ This function blocks the client until the node applies and commits the given tra
 .. csv-table::
    :class: doc-options
 
-   "Function", "``WSREP_LAST_WRITTEN_GTID()``"
+   "Function", "``WSREP_SYNC_WAIT_UPTO_GTID()``"
    "Required Arguments", "Global Transaction ID"
-   "Optional Arguments", "timeout"
+   "Optional Arguments", "timeout" 
    "Initial Version", "Version 4.0"
 
-This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`.  If you don't provide a timeout, it defaults to the value of :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`. It returns the following values:
+This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`. Optional argument accepts timeout in seconds.
+If you don't provide a timeout, it will continue to block indefinitely. It returns the following values:
 
 - ``1``: The node applied and committed the given Global Transaction ID.
 
@@ -166,7 +167,3 @@ Below is an example of how you might use the ``WSREP_SYNC_WAIT_UPTO_GTID()`` fun
 
 
 .. container:: bottom-links
-
-   Related Documents
-
-   - :ref:`repl.causal_read_timeout <repl.causal_read_timeout>`
