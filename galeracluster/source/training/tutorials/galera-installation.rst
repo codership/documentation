@@ -172,7 +172,7 @@ To disable AppArmor, run the following commands:
 
 .. code-block:: console
 
-   $ sudo ln -s /etc/apparmor.d/usr /etc/apparmor.d/disable/.sbin.mysqld
+   $ sudo ln -s /etc/apparmor.d/usr.sbin.mysqld /etc/apparmor.d/disable/usr.sbin.mysqld
 
 You will then need to restart AppArmor.  If your system uses init scripts, run the following command:
 
