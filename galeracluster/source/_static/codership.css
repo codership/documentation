@@ -219,11 +219,13 @@ p.rubric {
   color: #1E1006;
 }
 p.section-heading {
-  margin-top: 16px;
+  margin-top: 1.2em;
   font-size: 1.2em;
   font-weight: 500;
 }
 p.sub-heading {
+  margin-top: 1em;
+  font-weight: 500;
   border: none;
 }
 div.faq p.sub-heading {
