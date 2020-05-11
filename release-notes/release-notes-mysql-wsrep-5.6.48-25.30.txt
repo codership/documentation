@@ -20,29 +20,27 @@ https://github.com/codership/mysql-wsrep.
 Notable fixes in MySQL-wsrep since the last binary release by Codership
 (5.6.47-25.29).
 
-* Crash recovery was improved to more consistent recovery from crash
+- Crash recovery was improved to more consistent recovery from crash
   when binlogs are enabled.
-
-* A segmentation fault during SSL initialization was fixed.
-
-* Error handling of cluster wide conflicts was improved for a cluster
+- A segmentation fault during SSL initialization was fixed.
+- Error handling of cluster wide conflicts was improved for a cluster
   which is acting as asynchronous slave for native MySQL master.
 
 Packaging:
 
-* Support for CentOS 8 and RHEL 8 was added in this release. In order to
+- Support for CentOS 8 and RHEL 8 was added in this release. In order to
   install MySQL-wsrep package on CentOS 8 or RHEL 8, MySQL and MariaDB modules
   need to be disabled first with `dnf -y module disable mysql mariadb`.
 
 Known issues with this release:
 
-* If using the Ubuntu 16.04 Xenial package, the server can not be bootstrapped
+- If using the Ubuntu 16.04 Xenial package, the server can not be bootstrapped
   using systemd. Please use the SysV init script with the 'bootstap' option to
   bootstrap the node. Note that a server that has been started that way can not
   be controlled via systemd and must be stopped using the SysV script. Normal
   server startup and shutdown is possible via systemd.
 
-* Server cannot be started using 'service' command on Debian Stretch.
+- Server cannot be started using 'service' command on Debian Stretch.
 
 Reminder: Changes to Repositories Structure
 ===========================================

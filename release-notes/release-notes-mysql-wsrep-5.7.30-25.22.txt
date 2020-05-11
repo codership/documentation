@@ -19,30 +19,25 @@ https://github.com/codership/mysql-wsrep.
 Notable fixes in MySQL-wsrep since the last binary release by Codership
 (5.7.29-25.21).
 
-* Crash recovery was improved to more consistent recovery from crash
+- Crash recovery was improved to more consistent recovery from crash
   when binlogs are enabled.
-
-* A segmentation fault during SSL initialization was fixed.
-
-* Error handling of cluster wide conflicts was improved for a cluster
+- A segmentation fault during SSL initialization was fixed.
+- Error handling of cluster wide conflicts was improved for a cluster
   which is acting as asynchronous slave for native MySQL master.
 
 Packaging:
 
-* Support for CentOS 8 and RHEL 8 was added in this release. In order to
+- Support for CentOS 8 and RHEL 8 was added in this release. In order to
   install MySQL-wsrep package on CentOS 8 or RHEL 8, MySQL and MariaDB modules
   need to be disabled first with `dnf -y module disable mysql mariadb`.
 
 Known issues with this release:
 
-* Server cannot be started using 'service' command on Debian Stretch.
-
-* SST between 5.6 and 5.7 nodes is not supported
-
-* InnoDB tablespaces outside of the data directory are not supported, as they
+- Server cannot be started using 'service' command on Debian Stretch.
+- SST between 5.6 and 5.7 nodes is not supported
+- InnoDB tablespaces outside of the data directory are not supported, as they
   may not be copied over during SST
-
-* Compilation with DTrace enabled may fail, so -DENABLE_DTRACE=:BOOL=OFF
+- Compilation with DTrace enabled may fail, so -DENABLE_DTRACE=:BOOL=OFF
   may be given to cmake to disable DTrace
 
 Changes to Repositories Structure
