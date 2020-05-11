@@ -27,6 +27,13 @@ Notable fixes in MySQL-wsrep since latest release candidate (8.0.19-26.3-rc)
 
 - Server crash on START TRANSACTION after INSERT IGNORE was fixed.
 
+Deprecated features:
+
+- System variable wsrep_preordered has been deprecated and will be
+  removed in a future release.
+- System variable wsrep_mysql_replication_bundle was deprecated
+  and will be removed in a future release.
+
 The packages are available for the following operating systems:
 
 - CentOS 7

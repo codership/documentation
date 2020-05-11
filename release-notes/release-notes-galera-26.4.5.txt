@@ -27,9 +27,7 @@ Notable fixes in Galera replication since latest release candidate (4.5-rc):
 
 - Error handling during frequent cluster configuration changes
   was improved.
-
-- TODO Segmentation fault with multicast was fixed?
-
+- A segmentation fault with multicast was fixed.
 - TODO Certificate file load fix?
 
 The packages are available for the following operating systems:

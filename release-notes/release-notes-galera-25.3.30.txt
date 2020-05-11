@@ -15,23 +15,19 @@ Ports Collection.
 Notable fixes in Galera replication since last binary release
 by Codership (3.29):
 
-* GCache recovery was fixed to reclaim all available space in
+- GCache recovery was fixed to reclaim all available space in
   ring buffer.
-
-* Error handling during frequent cluster configuration changes
+- Error handling during frequent cluster configuration changes
   was improved.
-
-* TODO Segmentation fault with multicast was fixed?
-
-* TODO Certificate file load fix?
+- A segmentation fault with multicast was fixed.
+- TODO Certificate file load fix?
 
 Packaging:
 
-* Support for CentOS 8 and RHEL 8 was added in this release. In order to
+- Support for CentOS 8 and RHEL 8 was added in this release. In order to
   install Galera package on CentOS 8 or RHEL 8, MySQL and MariaDB modules
   need to be disabled first with `dnf -y module disable mysql mariadb`.
-
-* A binary tarball containing Galera library was added in this
+- A binary tarball containing Galera library was added in this
   release.
 
 
