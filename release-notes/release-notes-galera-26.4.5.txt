@@ -28,13 +28,16 @@ Notable fixes in Galera replication since latest release candidate (4.5-rc):
 - Error handling during frequent cluster configuration changes
   was improved.
 - A segmentation fault with multicast was fixed.
-- TODO Certificate file load fix?
 
-The packages are available for the following operating systems:
 
-- CentOS 7
-- CentOS 8
-- Ubuntu 18.04
+The packages are available from https://releases.galeracluster.com/ for
+the following operating systems:
+
+- CentOS 7 and 8
+- Debian 10
+- OpenSUSE 15.1
+- SLES 15 SP 1
+- Ubuntu 18.04 and 20.04
 
 Known issues with this release:
 
