@@ -35,7 +35,7 @@ the following operating systems:
 
 - CentOS 7 and 8
 - Debian 10
-- OpenSUSE 15.1
+- OpenSUSE 15
 - SLES 15 SP 1
 - Ubuntu 18.04 and 20.04
 
