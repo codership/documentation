@@ -48,3 +48,12 @@ Known issues with this release:
 - When installing software on CentOS 8, dnf modules mysql and mariadb must
   be disabled before installing Galera Cluster software. This can be done
   by running `dnf module disable mysql mariadb`.
+- When installing software in Ubuntu 20.04, in order to select
+  correct versions of mysql-common and mysql-client packages, the
+  following must be run before installing mysql-wsrep-8.0 package
+
+   common_version=$(apt-cache policy mysql-common | \
+                    grep Candidate | \
+                    awk -F ':' '{print $2}' | \
+                    tr -d ' ' | grep 8.0)
+   apt-get install -y mysql-common=${common_version} mysql-client=${common_version}
