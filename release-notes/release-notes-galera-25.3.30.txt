@@ -20,7 +20,6 @@ by Codership (3.29):
 - Error handling during frequent cluster configuration changes
   was improved.
 - A segmentation fault with multicast was fixed.
-- TODO Certificate file load fix?
 
 Packaging:
 
