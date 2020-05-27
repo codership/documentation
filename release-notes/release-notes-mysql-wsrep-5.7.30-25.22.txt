@@ -25,6 +25,10 @@ Notable fixes in MySQL-wsrep since the last binary release by Codership
 - Error handling of cluster wide conflicts was improved for a cluster
   which is acting as asynchronous slave for native MySQL master.
 
+New features:
+
+- Audit log plugin was added.
+
 Packaging:
 
 - Support for CentOS 8 and RHEL 8 was added in this release. In order to
