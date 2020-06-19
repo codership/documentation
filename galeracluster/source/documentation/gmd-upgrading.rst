@@ -28,21 +28,21 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+      Galera Manager Documents
 
-      - :doc:`Galera Manager <./galera-manager>`
-      - :doc:`Install GM <./gmd-install>`
-      - :doc:`GM Ports <./galera-manager-ports>`
+      - :doc:`Getting Started <./galera-manager>`
+      - :doc:`Installing <./gmd-install>`
+      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
-      - :doc:`Deploying Nodes <./galera-manager-adding-nodes>`
+      - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
       - :doc:`Adding Users <./galera-manager-adding-users>`
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
 
       .. cssclass:: here
 
-         - :doc:`Upgrading GM <./gmd-upgrading>`
+         - :doc:`Upgrading <./gmd-upgrading>`
 
 .. container:: top-links
 
@@ -116,6 +116,21 @@ You would do this only on the server running Galera Manager, not on the hosts us
 
 Once the upgrades are finished, ``gmd`` will be restarted automatically.  You might refresh your web browser, though, if you're logged into Galera Manager at the time.  All of your settings, as well as your cluster and nodes should remain |---| including the databases and their data.
 
+
+.. container:: bottom-links
+
+   Galera Manager Documents
+
+   - :doc:`Getting Started <./galera-manager>`
+   - :doc:`Installing <./gmd-install>`
+   - :doc:`AWS Ports <./galera-manager-ports>`
+   - :doc:`gmd Daemon <./gmd>`
+   - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
+   - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
+   - :doc:`Adding Users <./galera-manager-adding-users>`
+   - :doc:`Loading Data <./galera-manager-initializing-data>`
+   - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+   - :doc:`Upgrading <./gmd-upgrading>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

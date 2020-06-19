@@ -28,18 +28,18 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+      Galera Manager Documents
 
-      - :doc:`Galera Manager <./galera-manager>`
-      - :doc:`Install GM <./gmd-install>`
-      - :doc:`GM Ports <./galera-manager-ports>`
+      - :doc:`Getting Started <./galera-manager>`
+      - :doc:`Installing <./gmd-install>`
+      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
-      - :doc:`Deploying Nodes <./galera-manager-adding-nodes>`
+      - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
       - :doc:`Adding Users <./galera-manager-adding-users>`
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
-      - :doc:`Upgrading GM <./gmd-upgrading>`
+      - :doc:`Upgrading <./gmd-upgrading>`
 
 .. container:: top-links
 
@@ -82,6 +82,23 @@ IF YOU DO NOT AGREE TO BE BOUND BY THESE TERMS, OR THE PERSON OR ENTITY INSTALLI
    3. Limitation of Liability.  THE PRODUCT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT. FURTHER, THE COMPANY DOESNOT WARRANT RESULTS OF USE OR THAT THE PRODUCT IS BUG FREE OR THAT THEIR USE WILL BE UNINTERRUPTED. THE COMPANY FURTHER SHALL NOT BE RESPONSIBLE FOR ANY COST OF PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES OR RIGHTS, FOR ANY INCIDENTAL OR CONSEQUENTIAL DAMAGES, FOR INTERRUPTION OF USE OR LOSS OR CORRUPTION OF DATA.
 
    4. Miscellaneous. Neither this Agreement nor the licenses granted hereunder are assignable or transferable by the Customer without the prior written consent of the Company and any attempt to do so shall be void. No failure or delay in exercising any right hereunder will operate as a waiver thereof, nor will any partial exercise of any right or power hereunder preclude further exercise. If any provision of this Agreement shall be adjudged by any court of competent jurisdiction to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that this Agreement shall otherwise remain in full force and effect and enforceable. This Agreement shall be construed pursuant to the laws of Finland without regard to the United Nations Convention on the International Sale of Goods. This Agreement is the complete and exclusive statement of the mutual understanding of the parties and supersedes and cancels all previous written and oral agreements and communications relating to the subject matter of this Agreement. In any action to enforce this Agreement, the Company will be entitled to recover its attorney's fees and costs in connection with such action.
+
+
+.. container:: bottom-links
+
+   Galera Manager Documents
+
+   - :doc:`Getting Started <./galera-manager>`
+   - :doc:`Installing <./gmd-install>`
+   - :doc:`AWS Ports <./galera-manager-ports>`
+   - :doc:`gmd Daemon <./gmd>`
+   - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
+   - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
+   - :doc:`Adding Users <./galera-manager-adding-users>`
+   - :doc:`Loading Data <./galera-manager-initializing-data>`
+   - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+   - :doc:`Upgrading <./gmd-upgrading>`
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

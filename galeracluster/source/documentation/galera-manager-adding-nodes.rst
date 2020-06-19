@@ -29,22 +29,22 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+      Galera Manager Documents
 
-      - :doc:`Galera Manager <./galera-manager>`
-      - :doc:`Install GM <./gmd-install>`
-      - :doc:`GM Ports <./galera-manager-ports>`
+      - :doc:`Getting Started <./galera-manager>`
+      - :doc:`Installing <./gmd-install>`
+      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
 
       .. cssclass:: here
 
-        - :doc:`Deploying Nodes <./galera-manager-adding-nodes>`
+         - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
 
       - :doc:`Adding Users <./galera-manager-adding-users>`
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
-      - :doc:`Upgrading GM <./gmd-upgrading>`
+      - :doc:`Upgrading <./gmd-upgrading>`
 
 .. container:: top-links
 
@@ -191,6 +191,20 @@ When you click on a node in the left margin of Galera Manager, you'll see charts
 At this point, the charts are meaningless.  However, as you start to add data, which is covered in :doc:`galera-manager-initializing-data` page of the documentation, you'll start to see some activity. You can learn more about how to use these charts, as well as how to add other charts to track other metrics than these initial few, by reading the :doc:`galera-manager-monitoring-clusters` page. You may also want to add other users to Galera Manager who can monitor and add clusters and nodes. This is covered on the :doc:`galera-manager-adding-users` page.
 
 
+.. container:: bottom-links
+
+   Galera Manager Documents
+
+   - :doc:`Getting Started <./galera-manager>`
+   - :doc:`Installing <./gmd-install>`
+   - :doc:`AWS Ports <./galera-manager-ports>`
+   - :doc:`gmd Daemon <./gmd>`
+   - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
+   - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
+   - :doc:`Adding Users <./galera-manager-adding-users>`
+   - :doc:`Loading Data <./galera-manager-initializing-data>`
+   - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+   - :doc:`Upgrading <./gmd-upgrading>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

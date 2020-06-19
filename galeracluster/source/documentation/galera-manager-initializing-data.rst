@@ -28,14 +28,14 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+      Galera Manager Documents
 
-      - :doc:`Galera Manager <./galera-manager>`
-      - :doc:`Install GM <./gmd-install>`
-      - :doc:`GM Ports <./galera-manager-ports>`
+      - :doc:`Getting Started <./galera-manager>`
+      - :doc:`Installing <./gmd-install>`
+      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
-      - :doc:`Deploying Nodes <./galera-manager-adding-nodes>`
+      - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
       - :doc:`Adding Users <./galera-manager-adding-users>`
 
       .. cssclass:: here
@@ -43,6 +43,7 @@
          - :doc:`Loading Data <./galera-manager-initializing-data>`
 
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+      - :doc:`Upgrading <./gmd-upgrading>`
 
       Related Articles
 
@@ -204,6 +205,27 @@ When you click on *Stop*, only ``mysqld`` will be stopped.  You would extract th
 
 When you're finished, go back to Galera Manager and start the node.  As soon as ``mysqld`` starts, the other nodes should synchronize the data you've restored.  You could execute a few SQL statements on one of the other nodes to see if they have the data, as shown in Example 2.
 
+
+.. container:: bottom-links
+
+   Galera Manager Documents
+
+   - :doc:`Getting Started <./galera-manager>`
+   - :doc:`Installing <./gmd-install>`
+   - :doc:`AWS Ports <./galera-manager-ports>`
+   - :doc:`gmd Daemon <./gmd>`
+   - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
+   - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
+   - :doc:`Adding Users <./galera-manager-adding-users>`
+   - :doc:`Loading Data <./galera-manager-initializing-data>`
+   - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+   - :doc:`Upgrading <./gmd-upgrading>`
+
+   Related Articles
+
+   - :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>`
+   - :doc:`Migrating to Galera Cluster <../training/tutorials/migration>`
+   - :doc:`Upgrading GM <./gmd-upgrading>`
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

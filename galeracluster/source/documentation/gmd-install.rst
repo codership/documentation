@@ -28,22 +28,22 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+      Galera Manager Documents
 
-      - :doc:`Galera Manager <./galera-manager>`
+      - :doc:`Getting Started <./galera-manager>`
 
       .. cssclass:: here
 
-         - :doc:`Install GM <./gmd-install>`
+         - :doc:`Installing <./gmd-install>`
 
-      - :doc:`GM Ports <./galera-manager-ports>`
+      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
-      - :doc:`Deploying Nodes <./galera-manager-adding-nodes>`
+      - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
       - :doc:`Adding Users <./galera-manager-adding-users>`
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
-      - :doc:`Upgrading GM <./gmd-upgrading>`
+      - :doc:`Upgrading <./gmd-upgrading>`
 
 .. container:: top-links
 
@@ -294,6 +294,22 @@ At the start, after you log into Galera Manager for the first time, you'll see o
 
 To create a cluster,  you would click on the plus-sign icon, or the text below the box where it says, *Create New Cluster*. The process for adding a cluster and nodes is covered on the :doc:`galera-manager-adding-clusters` documentation page.  For information on upgrading Galera Manager, see the :doc:`gmd-upgrading` page.
 
+
+.. container:: bottom-links
+
+   Galera Manager Documents
+
+   - :doc:`Getting Started <./galera-manager>`
+   - :doc:`Installing <./gmd-install>`
+   - :doc:`AWS Ports <./galera-manager-ports>`
+   - :doc:`gmd Daemon <./gmd>`
+   - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
+   - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
+   - :doc:`Adding Users <./galera-manager-adding-users>`
+   - :doc:`Loading Data <./galera-manager-initializing-data>`
+   - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+   - :doc:`Upgrading <./gmd-upgrading>`
+   
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

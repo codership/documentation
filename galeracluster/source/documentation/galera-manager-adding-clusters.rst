@@ -28,22 +28,22 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+      Galera Manager Documents
 
-      - :doc:`Galera Manager <./galera-manager>`
-      - :doc:`Install GM <./gmd-install>`
-      - :doc:`GM Ports <./galera-manager-ports>`
+      - :doc:`Getting Started <./galera-manager>`
+      - :doc:`Installing <./gmd-install>`
+      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
 
       .. cssclass:: here
 
          - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
 
-      - :doc:`Deploying Nodes <./galera-manager-adding-nodes>`
+      - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
       - :doc:`Adding Users <./galera-manager-adding-users>`
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
-      - :doc:`Upgrading GM <./gmd-upgrading>`
+      - :doc:`Upgrading <./gmd-upgrading>`
 
 .. container:: top-links
 
@@ -275,6 +275,21 @@ When you finish with all of your settings for the new cluster, click on the text
 
 There's not much to this because you haven't yet added nodes to the cluster.  To learn about how to add nodes to a cluster, read the :doc:`galera-manager-adding-nodes` documentation page. Check the :doc:`galera-manager-adding-users` page on adding users, the :doc:`galera-manager-initializing-data` on adding data, and the :doc:`galera-manager-monitoring-clusters` page on configuring the metrics to track.
 
+
+.. container:: bottom-links
+
+   Galera Manager Documents
+
+   - :doc:`Getting Started <./galera-manager>`
+   - :doc:`Installing <./gmd-install>`
+   - :doc:`AWS Ports <./galera-manager-ports>`
+   - :doc:`gmd Daemon <./gmd>`
+   - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
+   - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
+   - :doc:`Adding Users <./galera-manager-adding-users>`
+   - :doc:`Loading Data <./galera-manager-initializing-data>`
+   - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+   - :doc:`Upgrading <./gmd-upgrading>`
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

@@ -28,21 +28,21 @@
 
       - :doc:`FAQ <../faq>`
 
-      Related Documents
+      Galera Manager Documents
 
       .. cssclass:: here
 
-         - :doc:`Galera Manager <./galera-manager>`
+         - :doc:`Getting Started <./galera-manager>`
 
-      - :doc:`Install GM <./gmd-install>`
-      - :doc:`GM Ports <./galera-manager-ports>`
+      - :doc:`Installing <./gmd-install>`
+      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
-      - :doc:`Deploying Nodes <./galera-manager-adding-nodes>`
+      - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
       - :doc:`Adding Users <./galera-manager-adding-users>`
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
-      - :doc:`Upgrading GM <./gmd-upgrading>`
+      - :doc:`Upgrading <./gmd-upgrading>`
 
 
 .. container:: top-links
@@ -168,6 +168,23 @@ With a Galera Cluster and nodes in place, including the data loaded and accessib
    By default, there are a few charts configured for commonly watched metrics.  However, there are over one-thousand metrics that you may track.  Click on the cluster in Galera Manager and you'll see the default charts. You may click the *X* at the top right of any chart to remove it.  To add a chart, click the vertical ellipsis to access a pull-down menu where you can select *Add Chart*. A dialog box will appear for you to choose the metric you want to monitor.
 
 For more information on adding charts and related information, see the :doc:`galera-manager-monitoring-clusters` documentation page.
+
+
+.. container:: bottom-links
+
+   Galera Manager Documents
+
+   - :doc:`Getting Started <./galera-manager>`
+   - :doc:`Installing <./gmd-install>`
+   - :doc:`AWS Ports <./galera-manager-ports>`
+   - :doc:`gmd Daemon <./gmd>`
+   - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
+   - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
+   - :doc:`Adding Users <./galera-manager-adding-users>`
+   - :doc:`Loading Data <./galera-manager-initializing-data>`
+   - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
+   - :doc:`Upgrading <./gmd-upgrading>`
+
 
 .. toctree::
    :hidden:
