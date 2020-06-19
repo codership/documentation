@@ -45,6 +45,12 @@
    - :doc:`FAQ <../faq>`
 
 
+.. raw:: html
+
+    <style> .red {color:red} </style>
+
+.. role:: red
+
 .. cssclass:: library-index
 .. _`documentation`:
 
@@ -68,7 +74,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    :class: doc-links
 
    ":doc:`tech-desc-introduction`", ":doc:`state-transfer`"
-    ":doc:`architecture`", ":doc:`node-states`"
+   ":doc:`architecture`", ":doc:`node-states`"
    ":doc:`install`", ":doc:`recovery`"
    ":doc:`certification-based-replication`", ":doc:`weighted-quorum`"
    ":doc:`isolation-levels`", ":doc:`streaming-replication`"
@@ -111,7 +117,8 @@ This is the Codership Documentation. It documents the latest version of Galera C
    :class: doc-links
 
    ":doc:`monitoring-cluster`", ":doc:`log`"
-   ":doc:`notification-cmd`", ":doc:`security`"
+   ":doc:`galera-manager`", ":doc:`security`"
+   ":doc:`notification-cmd`", ""
 
 
 .. container:: banner

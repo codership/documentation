@@ -225,8 +225,11 @@ p.section-heading {
 }
 p.sub-heading {
   margin-top: 1em;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
+}
+p.sub-heading.indented {
+  font-weight: 500;
 }
 div.faq p.sub-heading {
   margin-top: 25px;
@@ -289,7 +292,6 @@ div.training-exercises ol.list-exercises li {
 }
 
 
-
 /* Links */
 
 a:link {
@@ -317,8 +319,16 @@ div.library-article a.reference.internal:hover {
 a em {
     font-style: normal;
 }
-
-
+a:link.reference.internal,
+a:visited.reference.internal {
+    color: #50A6C2;
+}
+.section-heading a:link.reference.internal,
+.section-heading  a:visited.reference.internal,
+.sub-heading a:link.reference.internal,
+.sub-heading  a:visited.reference.internal {
+    color: #1E1006;
+}
 
 /* document - admonitions */
 
@@ -387,6 +397,16 @@ p.admonition-title + ul { margin-top: 0; }
 code {
     color: #5C5C5C;
 }
+div.code-block-caption {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1em;
+  font-size: .7em;
+  color: #595959;
+}
+
+caption-text
+
 div.highlight {
     background: none;
 }
@@ -748,7 +768,8 @@ div.library-index table.training-top td:last-child {
 /* Library Articles, Documents, & Exercises */
 
 div.library-article,
-div.library-document {
+div.library-document,
+div.library-license {
   margin-left: 210px;
 }
 div.library-article h1 {
@@ -776,6 +797,18 @@ div.library-article ul,
 div.library-document ul {
   margin-left: 30px;
   padding-left: 10px;
+}
+div.library-license ol  {
+  margin-top: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+div.library-license ol li  {
+  margin-top: 6px;
+}
+div.library-license ol.lowerroman  {
+  margin-top: 10px;
+  margin-left: 40px;
 }
 div.library-article table.doc-options th {
   font-size: 1.2em;
@@ -897,15 +930,21 @@ tt.literal {
 }
 
 /* Images */
+
+img.document-screenshot,
 img.tutorial-screenshot,
 img.course-screenshot {
     margin: 30px 0;
     border: 1px solid #666666;
 }
+img.document-screenshot.no-borders,
 img.tutorial-screenshot.no-borders,
 img.course-screenshot.no-borders {
     margin: 0;
     border: none;
+}
+img.document-screenshot {
+    margin: 10px 0 4px 0;
 }
 img.course-screenshot {
     margin-left: 20px;
@@ -916,8 +955,17 @@ img.borderless {
     margin: 20px 0 20px 30px;
     border: none;
 }
-
-
+div.figure img.tutorial-screenshot {
+  margin-bottom: 6px;
+}
+div.figure .caption {
+  margin-top: 0;
+}
+div.figure .caption-text {
+  line-height: 1em;
+  font-size: .7em;
+  color: #595959;
+}
 
 /* Unknown -- Possibly Delete */
 .verbose-list {
