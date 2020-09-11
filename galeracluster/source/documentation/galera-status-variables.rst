@@ -84,11 +84,14 @@ This distinction is of importance for developers only.  For convenience, all sta
    ":ref:`wsrep_evs_evict_list <wsrep_evs_evict_list>`", "Galera", "", "3.0"
    ":ref:`wsrep_evs_repl_latency <wsrep_evs_repl_latency>`", "Galera", "", "3.0"
    ":ref:`wsrep_evs_state <wsrep_evs_state>`", "Galera", "", "3.8"
+   ":ref:`wsrep_flow_control_active <wsrep_flow_control_active>`", "Galera", "``false``", "3.31"
    ":ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>`", "Galera", "``0.184353``", "1.0"
    ":ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>`", "Galera", "``20222491180``", "1.0"
    ":ref:`wsrep_flow_control_recv <wsrep_flow_control_recv>`", "Galera", "``11``", "1.0"
+   ":ref:`wsrep_flow_control_requested <wsrep_flow_control_requested>`", "Galera", "``false``", "3.31"
    ":ref:`wsrep_flow_control_sent <wsrep_flow_control_sent>`", "Galera", "``7`` ", "1.0"
    ":ref:`wsrep_gcomm_uuid <wsrep_gcomm_uuid>`", "Galera", "", "1.0"
+   ":ref:`wsrep_gmcast_seqment <wsrep_gmcast_segment>`", "Galera", "2", "3.31"
    ":ref:`wsrep_incoming_addresses <wsrep_incoming_addresses>`", "Galera", "", "1.0"
    ":ref:`wsrep_last_committed <wsrep_last_committed>`", "Galera", "``409745`` ", "1.0"
    ":ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>`", "Galera", "``960`` ", "1.0"
@@ -720,6 +723,35 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
    +-----------------+-------------+
 
 
+.. _`wsrep_flow_control_active`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_flow_control_active``
+
+.. index::
+   pair: Status Variables; wsrep_flow_control_active
+
+Whether flow cotrol is currently active (replication paused) in the cluster.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``false``"
+   "Location", "Galera"
+   "Initial Version", "3.31"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_flow_control_paused';
+
+   +---------------------------+----------+
+   | Variable_name             | Value    |
+   +---------------------------+----------+
+   | wsrep_flow_control_active | true     |
+   +---------------------------+----------+
+
+
 .. _`wsrep_flow_control_paused`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_flow_control_paused``
@@ -809,6 +841,35 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
    +-------------------------+-------+
 
 
+.. _`wsrep_flow_control_requested`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_flow_control_requested``
+
+.. index::
+   pair: Status Variables; wsrep_flow_control_requested
+
+Whether the node has requested replication pause (received events queue too long)
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``false``"
+   "Location", "Galera"
+   "Initial Version", "3.31"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_flow_control_requested';
+
+   +------------------------------+-------+
+   | Variable_name                | Value |
+   +------------------------------+-------+
+   | wsrep_flow_control_requested | true  |
+   +------------------------------+-------+
+
+
 .. _`wsrep_flow_control_sent`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_flow_control_sent``
@@ -836,6 +897,35 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
    +-------------------------+-------+
    | wsrep_flow_control_sent | 7     |
    +-------------------------+-------+
+
+
+.. _`wsrep_gmcast_segment`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_gmcast_segment``
+
+.. index::
+   pair: Status Variables; wsrep_gmcast_segment
+
+Returns cluster segment the node belongs to.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``3``"
+   "Location", "Galera"
+   "Initial Version", "3.31"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_gmcast_segment';
+
+   +----------------------+-------+
+   | Variable_name        | Value |
+   +----------------------+-------+
+   | wsrep_gmcast_segment | 0     |
+   +----------------------+-------+
 
 
 .. _`wsrep_gcomm_uuid`:
