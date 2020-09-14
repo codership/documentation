@@ -1895,7 +1895,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
    wsrep_provider_options="socket.recv_buf_size=212992"
 
-   .. _`socket.send_buf_size`:
+.. _`socket.send_buf_size`:
 .. rst-class:: section-heading
 .. rubric:: ``socket.send_buf_size``
 

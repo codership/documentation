@@ -165,5 +165,5 @@ Below is an example of how you might use the ``WSREP_SYNC_WAIT_UPTO_GTID()`` fun
    ...
    SELECT WSREP_SYNC_WAIT_UPTO_GTID($transaction_gtid);
 
-
-.. container:: bottom-links
+..
+  .. container:: bottom-links
