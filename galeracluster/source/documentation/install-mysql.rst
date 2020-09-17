@@ -240,7 +240,16 @@ If you want to install version 4 of Galera Cluster using ``yum``, you would inst
 
 .. code-block:: console
 
-   yum install galera-4 and mysql-wsrep-8.0
+   yum install galera-4 mysql-wsrep-8.0
+
+Please note that on CentOS 8 and RedHat 8, you need to disable MySQL and
+MariaDB modules before installing Galera Cluster from a repository under
+https://releases.galeracluster.com/. In order to do this, execute the
+following from the command-line:
+
+.. code-block:: console
+
+   dnf module disable mysql mariadb
 
 If you're using the ``zypper`` utility, which would be used with openSUSE and SUSE Linux Enterprise Server, you would execute the following from the command-line:
 
