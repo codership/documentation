@@ -109,8 +109,8 @@ The ``gmd`` configuration file will look something like this:
    ARGS="--rsa-private-key=/var/lib/gmd/jwt-rsa.key"
    GMD_CONFIG_DIR=/var/lib/gmd
    GMD_LOGS_DIR=/var/log/gmd
-   INFLUXDB_URL=https://gmd:8hCh2GeYv9@34.217.207.40:9091
-   PROMETHEUS_URL=https://34.217.207.40:9092
+   INFLUXDB_URL=https://gmd:8hCh2GeYv9@34.217.207.40:8091
+   PROMETHEUS_URL=https://34.217.207.40:8092
 
 There are few settings here.  You can change the values with a simple text editor. Just remember to restart ``gmd`` for the changes to take effect.  See above for how to restart the daemon.
 

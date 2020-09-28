@@ -80,7 +80,7 @@ Below are more details on these steps to download and run the *Installer*.  The 
 .. rst-class:: section-heading
 .. rubric:: Download the *Installer*
 
-To install Galera Manager, you'll need to download the *Installer* to a server or *Instance* which is using the Linux distribution Ubuntu or Amazon Linux 2 |---| the latter being available only on AWS. Eventually, the *Installer* will be made available for other distributions.
+To install Galera Manager, you'll need to download the *Installer* to a server or *Instance* which is using Amazon Linux 2, which is available only on AWS. Eventually, the *Installer* will be made available for other distributions.
 
 Galera Manager is still in beta mode. When a stable release is available, you'll be able to find a link to the *Installer* on `Codership's Download page <https://galeracluster.com/downloads/>`_.  Until then, you can download it with an FTP program or with a tool like ``wget``, directly from the Codership repository.  In the example below, you can see the download address:
 
@@ -201,10 +201,10 @@ After you finish answering all of the questions presented to you by the *Install
    Also, if the browser warns about security risk when connecting
    to service for the first time, you should choose to "continue".
 
-   INFO[0213] Logs DB url: https://34.217.114.37:9091
-   Metrics DB url: https://34.217.114.37:9092
+   INFO[0213] Logs DB url: https://34.217.114.37:8091
+   Metrics DB url: https://34.217.114.37:8092
 
-   Please make sure you have TCP ports 80, 443, 9091, 9092 open in the server firewall.
+   Please make sure you have TCP ports 80, 443, 8091, 8092 open in the server firewall.
 
    INFO[0213] Below you can see Logs DB credentials (if once asked):
    DB name: gmd
@@ -213,13 +213,13 @@ After you finish answering all of the questions presented to you by the *Install
 
    Complete installation log can be found at /tmp/gm-installer.log
 
-There's the URL for accessing Galera Manager, in the second sentence where it says, "Direct your browser..."  There are two other URLs that include the port numbers (i.e., 9091 or 9092). Those are for accessing logs and metrics databases.  The Galera Manager is accessed on port 80 or 443.
+There's the URL for accessing Galera Manager, in the second sentence where it says, "Direct your browser..."  There are two other URLs that include the port numbers (i.e., 8091 or 8092). Those are for accessing logs and metrics databases.  The Galera Manager is accessed on port 80 or 443.
 
 .. _`galera-manager-installer-ports`:
 .. rst-class:: sub-heading
 .. rubric:: TCP Ports
 
-Regarding ports, notice the line in the example above about TCP ports 80, 443, 9091, 9092.  You'll need to make sure those are accessible on AWS.  Go to the EC2 console in AWS, and click on *Security Groups* in the left margin.  Then look for the security group for the server on which you installed Galera Manager. Edit the *Inbound Rules* for that group to open those ports (see the screenshot below).
+Regarding ports, notice the line in the example above about TCP ports 80, 443, 8091, 8092.  You'll need to make sure those are accessible on AWS.  Go to the EC2 console in AWS, and click on *Security Groups* in the left margin.  Then look for the security group for the server on which you installed Galera Manager. Edit the *Inbound Rules* for that group to open those ports (see the screenshot below).
 
 .. figure:: ../images/galera-manager-aws-inbound-rules-gmd.png
    :width: 800px
@@ -309,7 +309,7 @@ To create a cluster,  you would click on the plus-sign icon, or the text below t
    - :doc:`Loading Data <./galera-manager-initializing-data>`
    - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
    - :doc:`Upgrading <./gmd-upgrading>`
-   
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
