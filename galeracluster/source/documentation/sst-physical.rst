@@ -54,6 +54,7 @@ Physical State Snapshot
 
 
 There are two back-end methods available for Physical State Snapshots: ``rsync`` and ``xtrabackup``.
+Starting with version 8.0.22 also ``clone`` method is available for Galera Cluster for MySQL
 
 The :term:`Physical State Transfer Method` has the following advantages:
 
@@ -63,7 +64,7 @@ The :term:`Physical State Transfer Method` has the following advantages:
 
 - These transfers are faster.
 
-The Physical State Transfer Method has the following disadvantages:
+The :term:'Physical State Transfer Method' has the following disadvantages:
 
 - These transfers require the joining node to have the same data directory layout and the same storage engine configuration as the donor node.  For example, you must use the same file-per-table, compression, log file size and similar settings for InnoDB.
 
@@ -117,3 +118,30 @@ Given that ``xtrabackup`` copies a large amount of data in the shortest possible
    socket = /path/to/socket
 
 For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <https://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.
+
+
+.. _`sst-physical-clone`:
+.. rst-class:: section-heading
+.. rubric:: ``clone``
+
+Starting with version 8.0.22 ``clone`` SST method is available for Galera
+CLuster for MySQL. It is based on the native MySQL clone plugin. It
+proved to be much faster than ``xtrabackup``, however it will block Donor
+node on DDL execution if that happens during the transfer.
+
+Basic configuraition for ``clone`` SST on Joiner:
+
+.. code-block:: ini
+
+    [mysqld] 
+    wsrep_sst_method=clone
+
+Basic configuraition for ``clone`` SST on Donor:
+
+.. code-block:: ini
+
+    [mysqld]
+    wsrep_sst_auth=<admin user>:<admin password>
+
+Optionally `plugin_dir` variable needs to be configured if MySQL plugins
+are not in the default location.

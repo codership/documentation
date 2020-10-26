@@ -33,11 +33,11 @@
       - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
       - :ref:`wsrep_sst_method <wsrep_sst_method>`
       - :ref:`gmcast.segment <gmcast.segment>`
-      - :ref:`mysqldump <mysqldump>`"
-      - :ref:`Logical <sst-logical>`
+      - :ref:`mysqldump <mysqldump>`
       - :ref:`rsync <sst-physical-rsync>`
-      - :ref:`Physical <sst-physical>`
+      - :ref:`clone <sst-physical-clone>`
       - :ref:`xtrabackup <sst-physical-xtrabackup>`
+      - :ref:`Logical <sst-logical>`
       - :ref:`Physical <sst-physical>`
 
 .. container:: top-links
@@ -85,7 +85,8 @@ Galera supports several back-end methods for use in state snapshot transfers.  T
    :header: "Method", "Speed", "Blocks Donor", "Live Node Availability", "Type", "DB Root Access"
 
    ":ref:`mysqldump <mysqldump>`", "Slow", "Blocks", "Available", ":ref:`Logical <sst-logical>`", "Donor and Joiner"
-   ":ref:`rsync <sst-physical-rsync>`", "Fastest", "Blocks", "Unavailable", ":ref:`Physical <sst-physical>`", "None"
+   ":ref:`rsync <sst-physical-rsync>`", "Faster", "Blocks", "Unavailable", ":ref:`Physical <sst-physical>`", "None"
+   ":ref:`clone <sst-physical-clone>`", "Fastest", "On DDLs", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
    ":ref:`xtrabackup <sst-physical-xtrabackup>`", "Fast", "Briefly", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
 
 To set the State Snapshot Transfer method, use the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.  In the example below, the method is set to use ``rsync``, along with the default donors:
@@ -104,11 +105,11 @@ There is no single best method for State Snapshot Transfers.  You must decide wh
    - :ref:`wsrep_sst_donor <wsrep_sst_donor>`
    - :ref:`wsrep_sst_method <wsrep_sst_method>`
    - :ref:`gmcast.segment <gmcast.segment>`
-   - :ref:`mysqldump <mysqldump>`"
-   - :ref:`Logical <sst-logical>`
+   - :ref:`mysqldump <mysqldump>`
    - :ref:`rsync <sst-physical-rsync>`
-   - :ref:`Physical <sst-physical>`
+   - :ref:`clone <sst-physical-clone>`
    - :ref:`xtrabackup <sst-physical-xtrabackup>`
+   - :ref:`Logical <sst-logical>`
    - :ref:`Physical <sst-physical>`
 
 

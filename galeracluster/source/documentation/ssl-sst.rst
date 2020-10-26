@@ -66,7 +66,7 @@ SSL for State Snapshot Transfers
 
 When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use.  Where :doc:`ssl-config` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
 
-The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump`` or ``xtrabackup``.
+The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump``, ``clone`` or ``xtrabackup``.
 
 .. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you want to enable this feature with an existing cluster you need to restart the entire cluster.
 
@@ -174,6 +174,39 @@ Configurations for ``xtrabackup`` are handled through the ``my.cnf`` configurati
 When you finish editing the configuration file, restart the node to apply the changes.  ``xtrabackup`` now sends and receives state snapshot transfers through SSL.
 
 .. note:: In order to use SSL with ``xtrabackup``, you need to set :ref:`wsrep_sst_method <wsrep_sst_method>` to ``xtrabackup-v2``, instead of ``xtrabackup``.
+
+
+.. _`ssl-clone`:
+.. rst-class:: section-heading
+.. rubric:: Enabling SSL for ``clone``
+
+Configurations for ``clone`` are handled through the ``my.cnf`` configuration file, in the same as the database server and client.  Use the ``[sst]`` unit to configure SSL for the script.  You can use the same SSL certificate files as the node uses on the database server, client and with replication traffic.
+
+.. code-block:: ini
+
+    # clone Configuration
+    [mysqld]
+    ssl-cert= /path/to/server-cert.pem
+    ssl-key= /path/to/server-key.pem
+    ssl-ca= /path/to/ca.pem
+
+    [client] # or [sst]
+    ssl-cert= /path/to/client-cert.pem
+    ssl-key= /path/to/client-key.pem
+    ssl-ca= /path/to/ca.pem
+    ssl-mode= VERIFY_CA
+
+Client SSL configuration on Donor node must match server SSL configuration
+on Joiner. (That means: mysql client using client SSL configuration from
+Joiner should be able to connect to server on Donor) Client SSL configuration
+on Joiner must match CLONE SSL configuration on donor. If CLONE plugin on
+Donor is not loaded, or if CLONE SSL configuration is empty then server SSL
+configuration on Donor is used.
+
+If for some reason general client SSL configuration is undesirable, client
+SSL configuration for ``clone`` SST can be put into the `[sst]` section of
+the configuration file. It will be used first.
+
 
 .. container:: bottom-links
 
