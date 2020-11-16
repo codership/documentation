@@ -107,6 +107,7 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
    ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes", "4.0", ""
    ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes", "4.0", ""
    ":ref:`wsrep_ws_persistency <wsrep_ws_persistency>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_mode value[,value...],`", "``ON``", "Yes", "", "4.0", ""
 
 
 You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get list of all Galera related variables on your server:
@@ -1823,3 +1824,42 @@ This parameter defines whether the node stores write-sets locally for debugging 
 .. |br| raw:: html
 
    <br />
+
+
+.. _`wsrep_mode`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_mode``
+
+.. index::
+   pair: Parameters; wsrep_mode
+
+   Extends node behaviour with provided values.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep_mode``"
+   "System Variable", "``wsrep_mode``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Set"
+   "Default Value", ""
+   "Initial Version", "Version 4.0"
+
+.. csv-table::
+   :class: doc-options
+   :header: "Value", "Behaviour"
+
+   "``IGNORE_NATIVE_REPLICATION_FILTER_RULES``", "Ignore replication filter rules for cluster events."
+
+.. code-block:: mysql
+
+   SET GLOBAL wsrep_mode = IGNORE_NATIVE_REPLICATION_FILTER_RULES;
+
+   SHOW VARIABLES LIKE 'wsrep_mode';
+
+   +---------------+----------------------------------------+
+   | Variable_name | Value                                  |
+   +---------------+----------------------------------------+
+   | wsrep_mode    | IGNORE_NATIVE_REPLICATION_FILTER_RULES |
+   +---------------+----------------------------------------+
