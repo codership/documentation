@@ -90,7 +90,7 @@ There are two variables that you need to define for Galera Cluster in the PF con
 .. code-block:: console
 
    # Galera Cluster Macros
-   wsrep_ports="{ 3306, 4567, 4568,4444}"
+   wsrep_ports="{ 3306, 4567, 4568, 4444}"
    table <wsrep_cluster_address> persist {192.168.1.1 192.168.1.2 192.168.1.3}"
 
 Once you have these defined, you can add the rule to allow cluster packets to pass through the firewall.
@@ -100,12 +100,12 @@ Once you have these defined, you can add the rule to allow cluster packets to pa
    # Galera Cluster TCP Filter Rule
    pass in proto tcp from <wsrep_cluster_address> to any port $wsrep_ports keep state
 
-If you deployed a cluster in a :abbr:`LAN (Local Area Network)` environment, you need to also create on additional rule to open port ``4568`` to :abbr:`UDP (User Datagram Protocol)` transport for mutlicast replication.
+If you deployed a cluster in a :abbr:`LAN (Local Area Network)` environment, you need to also create on additional rule to open port ``4567`` to :abbr:`UDP (User Datagram Protocol)` transport for mutlicast replication.
 
 .. code-block:: console
 
    # Galera Cluster UDP Filter Rule
-   pass in proto udp from <wsrep_cluster_address> to any port 4568 keep state
+   pass in proto udp from <wsrep_cluster_address> to any port 4567 keep state
 
 This defines the packet filtering rules that Galera Cluster requires.  You can test the new rules for syntax errors using ``pfctl``, with the ``-n`` options to prevent it from trying to load the changes.
 
@@ -119,7 +119,7 @@ This defines the packet filtering rules that Galera Cluster requires.  You can t
    pass in proto tcp from <wsrep_cluster_address> to any port = 4567 flags S/SA keep state
    pass in proto tcp from <wsrep_cluster_address> to any port = 4568 flags S/SA keep state
    pass in proto tcp from <wsrep_cluster_address> to any port = krb524 falgs S/SA keep state
-   pass in proto udp from <wsrep_cluster_address> to any port = 4568 keep state
+   pass in proto udp from <wsrep_cluster_address> to any port = 4567 keep state
 
 If there are no syntax errors, ``pfctl`` prints each of the rules it adds to the firewall, (expanded, as in the example above).  If there are syntax errors, it notes the line near where the errors occur.
 
