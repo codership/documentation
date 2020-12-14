@@ -52,7 +52,9 @@
 Database Administration with Galera Cluster
 ============================================
 
-If you're a new database administrator and been made recently responsible for maintaining your organization's databases, this course will teach you about basic and core DBA tasks. There will be a particular focus on these DBA tasks as they relate to Galera Cluster.
+The Database Administrator with Galera Cluster training teaches you how to install and configure in real-time a Galera Cluster for your application use cases. You will participate in interactive hands-on labs. Our expert instructors will teach you how to design and maintain your Galera Cluster for High Availability and scalability.
+
+This course not only covers Galera Cluster from Codership (upstream Galera Cluster) but also Percona XtraDB Cluster (PXC) and MariaDB Galera Cluster administration. The course contents will cover the newly released Galera 4 library, but also the commonly used Galera 3 library. You can start off never having used Galera Cluster to finish the training as an advanced and effective Galera Cluster user and administrator.
 
 .. _`galera-intro-course-details`:
 .. container:: banner
@@ -62,17 +64,65 @@ If you're a new database administrator and been made recently responsible for ma
 
 .. container:: list-col1
 
-   .. rst-class:: sub-heading list-sub-header
-   .. rubric:: **Hours**
-
-   The typical schedule for this course is four hours a day for three consecutive days.  There will be five to ten minute breaks each hour.  The scheduling is generally suited for either the U.S. or for Europe.
-
-   So classes may begin around 8:30 a.m. San Francisco time, ending around 12:30 p.m. each day.  That allows for students on the U.S. East coast to take the course from 12:30 to 4:30 p.m., New York time.  To accomodate European students, courses are offered occasionally starting at 8:30 a.m., London time.
 
    .. rst-class:: sub-heading list-sub-header
-   .. rubric:: **Pre-Requisites**
+   .. rubric:: **Course Dates**
 
-   There are no courses that are pre-requisite to this one.  However, students should have a basic knowledge of MySQL, MariaDB or a similar SQL database system.
+   - EMEA: January 2021, 13th and 14th, starting 10 AM CET
+
+   - USA: January 2021, 20th and 21st, starting 9 AM PST
+
+
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: **Course Duration**
+
+   - 2 days.
+
+   - The breakdown is 3 hours, with a half hour lunch break, and another 3 hours per day. There will be bio-breaks. The total contact time with the trainer is 12 hours over a span of 2 days.
+
+
+
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: **Content Breakdown**
+
+   - An overview of MySQL High Availability solutions including coverage of Disaster Recovery options
+
+   - What is Galera Cluster and why it is the right solution for you
+
+   - Design simple and advanced Galera Cluster topologies
+
+   - Installation of Galera Cluster
+
+   - Configuring your Galera Cluster optimally
+
+   - How do you backup and restore your Galera Cluster?
+
+   - How do you handle load balancing with Galera Cluster and associated proxies?
+
+   - Make Galera Cluster perform optimally — performance optimization is key
+
+   - Security of your Galera Cluster nodes and data, including the transport layer with SSL
+
+   - Scalability with Galera Cluster
+
+   - How do you monitor your entire Galera Cluster topology?
+
+   - How to have a mix of Galera Cluster with standard MySQL replication
+
+   - Migrating to Galera Cluster
+
+   - Upgrading your Galera Cluster
+
+   - Performing schema upgrades in your Galera Cluster
+
+   - Troubleshoot common Galera Cluster problems (understanding diagnostics from the error log, debugging State Snapshot Transfer (SST) errors, are nodes finding it hard to rejoin due to network issues, figuring out how to fix the schema based on frequent transaction rollbacks, and so on)
+
+   - How to do you administer a MariaDB Galera Cluster and Percona XtraDB Cluster (PXC) differently from upstream Galera Cluster that you get from Codership
+
+
+
 
 .. container:: list-col2
 
@@ -82,21 +132,44 @@ If you're a new database administrator and been made recently responsible for ma
       :class: course-screenshot no-mobile
 
 
-   .. rst-class:: sub-heading list-sub-header
-   .. rubric:: **Student Equipment Requirements**
+      .. rst-class:: sub-heading list-sub-header
+      .. rubric:: **Requirements**
 
-   Below are the equipment and software required in advance for each student who plans to participate in this course:
+      - You need to be able to use Zoom the platform we will be using
 
-   Laptop or Desktop Computer
+      - You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3 remote servers.
 
-      64-bit Operating System :raw-html:`<small>(Linux, Mac OS X, or Windows)</small>`
+      - Some basic understanding of Linux (e.g. package management) as well as MySQL
 
-   Three Virtual Machines
 
-      1gb ram, 10gb disk space; |br|
-      Root or Administrator Privileges; |br|
-      Network Access to Codership yum Repositories and Others; |br|
-      Don't Install MySQL or MariaDB Database Software.
+
+      .. rst-class:: sub-heading list-sub-header
+      .. rubric:: **Audience**
+
+      - Database administrators (DBAs)
+
+      - MySQL DBAs or application developers who want to delve into Galera Cluster administration
+
+      - Systems administrators with database management responsibilities
+
+      - DevOps professionals who need to manage the database as well
+
+
+
+      .. rst-class:: sub-heading list-sub-header
+      .. rubric:: **Cost**
+
+      - The cost of training is 1800€/2100 USD for 2 days.
+
+      - Early bird price before 31.12.2020 1500/1750 for 2 days.
+
+      - Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
+
+      - `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
+
+
+
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

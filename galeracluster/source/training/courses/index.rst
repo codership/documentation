@@ -50,7 +50,7 @@
 Codership Training Courses
 ===========================
 
-Using video communcation conferencing systems such Zoom, Codership is able to offer live virtual classes. From your office, home, or virtually anywhere, you may attend courses conducted by the Codership staff. Each month we will offer courses on Galera Cluster and related software.
+Using video communication conferencing systems such Zoom, Codership is able to offer live virtual classes. From your office, home, or virtually anywhere, you may attend courses conducted by the Codership staff. Each month we will offer courses on Galera Cluster and related software.
 
 .. _`training-course-list`:
 .. container:: banner
@@ -60,18 +60,6 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
 
 
 .. container:: list-col1
-
-
-   .. rst-class:: sub-heading list-sub-header
-   .. rubric:: :doc:`galera-intro-course`
-
-   .. rst-class:: list-stats
-
-      Length: 3 days, 4 hours per day
-
-   .. rst-class:: list-abstract
-
-      This course is for those who are new to Galera Cluster, but have experience as an administering MySQL or MariaDB databases. It explains how Galera Cluster works and  how to install and configure Galera Cluster software and set up a cluster.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -87,22 +75,6 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
 
 
 
-.. container:: list-col2
-
-   .. rst-class:: sub-heading list-sub-header
-   .. rubric:: :doc:`galera-advanced-special-courses`
-
-   .. rst-class:: list-stats
-
-      Length: 1 to 2 days, 2 to 4 hours per day
-
-   .. rst-class:: list-abstract
-
-      In addition to the general Galera Cluster and DBA courses, which will be offered regularly, Codership will offer several advanced courses on various advanced topics such a performance tuning, as well as short seminars on new features.
-
-
-
-
 .. _`training-courses-quarter-schedule`:
 .. container:: banner
 
@@ -112,42 +84,19 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
 .. container:: list-col1
 
    .. rst-class:: sub-heading list-sub-header
-   .. rubric:: DBA with Galera (27 - 29 January 2020)
+   .. rubric:: DBA with Galera
 
    .. rst-class:: list-stats
 
-      Length: 3 days, 4 hours per day
-      Times: 12:30 - 4:30 p.m., U.S. Eastern Time; 8:30 a.m. - 12:30 p.m., U.S. Pacific Time
+      Course dates:
+      - EMEA: January 2021, 13th and 14th, starting 10 a.m. CET
+      - USA: January 2021, 20th and 21st, starting 9 a.m. PST
+      Length: 2 days, 6 hours per day
 
    .. rst-class:: list-abstract
 
-      This training course will be taught four hours each day, for three consecutive days.
+      This training course will be taught six hours each day, for two consecutive days.
 
-
-.. container:: list-col2
-
-   .. rst-class:: sub-heading list-sub-header
-   .. rubric:: Intro. to Galera Cluster (10 - 12 February 2020)
-
-   .. rst-class:: list-stats
-
-      Length: 3 days, 4 hours per day
-
-   .. rst-class:: list-abstract
-
-      This training course will explain how to plan and conduct upgrades of Galera software on an active cluster, one node at a time, without loss of service or data.
-
-
-   .. rst-class:: sub-heading list-sub-header
-   .. rubric:: DBA with Galera (19 - 21 Februrary 2020)
-
-   .. rst-class:: list-stats
-
-      Length: 3 days, 4 hours per day
-
-   .. rst-class:: list-abstract
-
-      This training course explains how to monitor a Galera Cluster, utilizing the Galera specific status variables, as well as employing scripts for logging status information.
 
 
 
@@ -155,9 +104,8 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
    :maxdepth: 2
    :hidden:
 
-   galera-intro-course
    galera-dba-course
-   galera-advanced-special-courses
+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
