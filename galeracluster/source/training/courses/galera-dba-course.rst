@@ -62,9 +62,6 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
    .. rst-class:: section-heading
    .. rubric:: Course Details
 
-.. container:: list-col1
-
-
    .. rst-class:: sub-heading list-sub-header
    .. rubric:: **Course Dates**
 
@@ -124,48 +121,46 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
 
 
 
-.. container:: list-col2
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: **Requirements**
+
+   - You need to be able to use Zoom the platform we will be using
+
+   - You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3 remote servers.
+
+   - Some basic understanding of Linux (e.g. package management) as well as MySQL
+
+
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: **Audience**
+
+   - Database administrators (DBAs)
+
+   - MySQL DBAs or application developers who want to delve into Galera Cluster administration
+
+   - Systems administrators with database management responsibilities
+
+   - DevOps professionals who need to manage the database as well
+
+
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: **Cost**
+
+   - The cost of training is 1800€/2100 USD for 2 days.
+
+   - Early bird price before 31.12.2020 1500/1750 USD for 2 days.
+
+   - Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
+
+   - `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
+
 
    .. image:: ../../images/galera-dba-course-screenshot.png
-      :width: 350px
-      :alt: Codership Training Courses
-      :class: course-screenshot no-mobile
-
-
-      .. rst-class:: sub-heading list-sub-header
-      .. rubric:: **Requirements**
-
-      - You need to be able to use Zoom the platform we will be using
-
-      - You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3 remote servers.
-
-      - Some basic understanding of Linux (e.g. package management) as well as MySQL
-
-
-
-      .. rst-class:: sub-heading list-sub-header
-      .. rubric:: **Audience**
-
-      - Database administrators (DBAs)
-
-      - MySQL DBAs or application developers who want to delve into Galera Cluster administration
-
-      - Systems administrators with database management responsibilities
-
-      - DevOps professionals who need to manage the database as well
-
-
-
-      .. rst-class:: sub-heading list-sub-header
-      .. rubric:: **Cost**
-
-      - The cost of training is 1800€/2100 USD for 2 days.
-
-      - Early bird price before 31.12.2020 1500/1750 USD for 2 days.
-
-      - Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
-
-      - `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
+         :width: 350px
+         :alt: Codership Training Courses
+         :class: course-screenshot no-mobile
 
 
 

@@ -67,7 +67,7 @@ Using video communication conferencing systems such Zoom, Codership is able to o
 
    .. rst-class:: list-stats
 
-      Length: 3 days, 4 hours per day
+      Length: 2 days, 6 hours per day
 
    .. rst-class:: list-abstract
 
@@ -91,7 +91,6 @@ Using video communication conferencing systems such Zoom, Codership is able to o
       Course dates:
       - EMEA: January 2021, 13th and 14th, starting 10 a.m. CET
       - USA: January 2021, 20th and 21st, starting 9 a.m. PST
-      Length: 2 days, 6 hours per day
 
    .. rst-class:: list-abstract
 
