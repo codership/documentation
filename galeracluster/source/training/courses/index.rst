@@ -154,9 +154,9 @@ Using video communication conferencing systems such Zoom, Codership is able to o
       .. rst-class:: sub-heading list-sub-header
       .. rubric:: **Cost**
 
-      - The cost of training is 1800€/2100 USD for 2 days.
+      - The cost of training is 1800 € / 2100 USD for 2 days.
 
-      - Early bird price before 31.12.2020 1500/1750 USD for 2 days.
+      - Early bird price before 31.12.2020 1500 € / 1750 USD for 2 days.
 
       - Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
 

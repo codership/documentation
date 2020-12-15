@@ -71,7 +71,12 @@ This section is the FAQ for Galera Cluster. It lists a number of frequently aske
 .. rst-class:: section-heading list-sub-header
 .. rubric:: :doc:`Training <./training/index>`
 
-This is our training section. It contains a :doc:`Getting Started Guide <./training/tutorials/getting-started>` , as well as articles using Galera for specific uses.  Soon there will also be videos of training seminars and other presentations.
+This is our training section. In addition to articles using Galera for specific uses, it contains:
+
+- :doc:`Training Courses <./training/courses/index>`
+- :doc:`Tutorial Articles <./training/tutorials/index>`
+- :doc:`Training Videos <./training/videos/index>`
+- :doc:`Getting Started Guide <./training/tutorials/getting-started>`
 
 .. rst-class:: section-heading list-sub-header
 .. rubric:: Additional Resources
