@@ -67,18 +67,6 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: Introduction & Installation to Galera Cluster
-
-   .. rst-class:: list-stats
-
-      Length: 3 days, 4 hours per day
-
-   .. rst-class:: list-abstract
-
-      This course is for those who are new to Galera Cluster, but have experience as an administering MySQL or MariaDB databases. It explains how Galera Cluster works and  how to install and configure Galera Cluster software and set up a cluster.
-
-
-   .. rst-class:: rubric-2 list-sub-header
    .. rubric:: Database Administration with Galera Cluster
 
    .. rst-class:: list-stats
@@ -89,17 +77,6 @@ Using video communcation conferencing systems such Zoom, Codership is able to of
 
       If you're a new database administrator and been made recently responsible for maintaining your organization's databases, this course will teach you about basic and core DBA tasks.
 
-
-   .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: Advanced and Special Galera Topics
-
-   .. rst-class:: list-stats
-
-      Length: 1 to 2 days, 2 to 4 hours per day
-
-   .. rst-class:: list-abstract
-
-      In addition to the general Galera Cluster and DBA courses, which will be offered regularly, Codership will offer several advanced courses on various advanced topics such a performance tuning, as well as short seminars on new features.
 
 
 .. container:: list-col2
