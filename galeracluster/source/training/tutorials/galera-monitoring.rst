@@ -4,7 +4,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2020. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2021. All Rights Reserved.
 
 
 .. container:: left-margin

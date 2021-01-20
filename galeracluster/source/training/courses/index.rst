@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2020. All Rights Reserved.
+   :copyright: Codership Oy, 2021. All Rights Reserved.
 
 .. container:: left-margin
 

@@ -3,7 +3,7 @@
    :description: Instructions and examples on using Restructured Text mark-up.
    :language: en-US
    :keywords: sphinx, restructured text, restructuredtext
-   :copyright: Codership Oy, 2014 - 2019. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2021. All Rights Reserved.
 
 
 .. container:: left-margin
