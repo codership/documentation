@@ -39,6 +39,7 @@
    .. cssclass:: here
 
       - :doc:`FAQ <./faq>`
+      - :ref:`search`
 
 
 .. cssclass:: library-index faq

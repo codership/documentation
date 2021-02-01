@@ -56,6 +56,7 @@
       - :doc:`Training <../index>`
 
    - :doc:`FAQ <../../faq>`
+   - :ref:`search`
 
 
 .. role:: raw-html(raw)
