@@ -27,6 +27,8 @@
          - :doc:`Training Videos <../training/videos/index>`
 
       - :doc:`FAQ <../faq>`
+	  
+	  - :ref:`search`
 
 .. container:: top-links
 
@@ -144,8 +146,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    :class: doc-links
 
    ":doc:`glossary`", ":doc:`legal-notice`"
-   ":ref:`genindex`", ":ref:`search`"
-   ":doc:`../whats-new`", ""
+   ":ref:`genindex`", ":doc:`../whats-new`"
 
 For resolving problems you might have with the software, you can also check our :doc:`Knowledge Base <../kb/index>`. There you will find troubleshooting and best practices articles.  You can also post questions on the `Codership Forum <https://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
 
