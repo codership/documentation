@@ -25,6 +25,7 @@
       .. cssclass:: here
 
          - :doc:`FAQ <./faq>`
+         - :ref:`search`
 
 .. container:: top-links
 
@@ -39,7 +40,6 @@
    .. cssclass:: here
 
       - :doc:`FAQ <./faq>`
-      - :ref:`search`
 
 
 .. cssclass:: library-index faq
