@@ -331,15 +331,15 @@ a:visited.reference.internal {
 }
 
 a.reference.internal > span.std-term {
- color: #d05656;
+ color: #d05656 !important;
  }
 
 a.reference.internal:visited > span.std-term {
- color: #b18b8b;
+ color: #b18b8b !important;
  }
 
 a.reference.internal:hover > span.std-term {
- color: #710f0f;
+ color: #710f0f !important;
  }
 
 
