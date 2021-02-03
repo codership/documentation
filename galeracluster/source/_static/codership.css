@@ -330,6 +330,19 @@ a:visited.reference.internal {
     color: #1E1006;
 }
 
+a.reference.internal > span.std-term {
+ color: #d05656;
+ }
+
+a.reference.internal:visited > span.std-term {
+ color: #b18b8b;
+ }
+
+a.reference.internal:hover > span.std-term {
+ color: #710f0f;
+ }
+
+
 /* document - admonitions */
 
 div.admonition, p.deprecated {
