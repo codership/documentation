@@ -42,6 +42,7 @@
       - :doc:`Training <./training/index>`
 
    - :doc:`FAQ <./faq>`
+   - :ref:`search`
 
 
 .. cssclass:: library-document

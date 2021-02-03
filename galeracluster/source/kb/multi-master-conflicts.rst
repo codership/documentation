@@ -27,6 +27,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
       - :doc:`FAQ <../faq>`
+      - :ref:`search`
 
       Related Documents
 

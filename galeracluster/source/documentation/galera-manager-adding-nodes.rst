@@ -28,6 +28,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
       - :doc:`FAQ <../faq>`
+      - :ref:`search`
 
       Galera Manager Documents
 

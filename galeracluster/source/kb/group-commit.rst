@@ -28,6 +28,7 @@
          - :doc:`Training Videos <../training/videos/index>`
 
       - :doc:`FAQ <../faq>`
+      - :ref:`search`
 
 
 .. container:: top-links

@@ -30,6 +30,7 @@
          - :doc:`Tutorial Articles <./index>`
 
       - :doc:`FAQ <../../faq>`
+      - :ref:`search`
 
       .. rst-class:: left-margin-heading
       .. rubric:: Related Documents

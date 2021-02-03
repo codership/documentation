@@ -23,6 +23,9 @@
          - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
+      - :doc:`FAQ <../faq>`
+      - :ref:`search`
+
 .. container:: top-links
 
    - `Home <https://galeracluster.com>`_

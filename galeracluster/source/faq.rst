@@ -25,6 +25,7 @@
       .. cssclass:: here
 
          - :doc:`FAQ <./faq>`
+         - :ref:`search`
 
 .. container:: top-links
 

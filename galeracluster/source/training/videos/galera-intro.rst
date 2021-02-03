@@ -30,6 +30,7 @@
            - :doc:`Tutorial Articles <../tutorials/index>`
 
       - :doc:`FAQ <../../faq>`
+      - :ref:`search`
 
 .. container:: top-links
 

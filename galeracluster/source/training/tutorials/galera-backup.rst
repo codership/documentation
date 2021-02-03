@@ -31,6 +31,7 @@
          - :doc:`Tutorial Articles <./index>`
 
       - :doc:`FAQ <../../faq>`
+      - :ref:`search`
 
       Related Documents
 
