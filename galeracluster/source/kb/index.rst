@@ -416,6 +416,52 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
       When entering a transaction, you may need to ensure a previous transaction has been committed on the current node. Synchronization functions can make this easier to do.
 
 
+.. _`kb-best-use-cases`:
+.. container:: banner
+
+   .. rst-class:: section-heading
+   .. rubric:: Use Cases
+
+.. container:: list-col1
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: Read Master
+
+   .. rst-class:: list-abstract
+
+      Traditional MySQL master-slave topology, but with Galera all “slave” nodes are capable masters at all times, it is just the application who treats them as slaves. Galera replication can guarantee 0 slave lag for such installations and due to parallel slave applying, much better throughput for the cluster.
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: Disaster Recovery
+
+   .. rst-class:: list-abstract
+
+      Disaster recovery is a sub-class of WAN replication. Here one data center is passive and only receives replication events, but does not process any client transactions. Such a remote data center will be up to date at all times and no data loss can happen. During recovery, the spare site is just nominated as primary and application can continue as normal with a minimal fail over delay.
+	  
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: Write scalability
+
+   .. rst-class:: list-abstract
+
+      Distributing writes across the cluster will harness the CPU power in slave nodes for better use to process client write transactions. Due to the row based replication method, only changes made during a client transaction will be replicated and applying such a transaction in slave applier is much faster than the processing of the original transaction. Therefore the cluster can distribute the heavy client transaction processing across many master nodes and this yields in better write transaction throughput overall.
+
+.. container:: list-col2
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: Latency Eraser
+
+   .. rst-class:: list-abstract
+
+      With WAN replication topology, cluster nodes can be located close to cilents.Therefore all read & write operations will be super fast with the local node connection. The RTT related delay will be experienced only at commit time, and even then it can be generally accepted by end user, usually the kill-joy for end user experiences is the slow browsing response time, and read operations are as fast as they possibly can be.
+	  
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: WAN Clustering
+
+   .. rst-class:: list-abstract
+
+      Synchronous replication works fine over the WAN network. There will be a delay, which is proportional to the network round trip time (RTT), but it only affects the commit operation.
+
+
 .. toctree::
    :maxdepth: 2
    :hidden:
