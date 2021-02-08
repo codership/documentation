@@ -70,7 +70,7 @@
 Deploying a Cluster in Galera Manager
 ===================================================
 
-With Galera Manager installed on your server or an *AWS Instance*, you're ready to deploy a Galera Cluster. This page of the Codership documentation describes how to connect to Galera Manager, create a cluster and how to add nodes to a cluster. If you haven't already installed Galera Manager, go to the :doc:`gmd-install` documentation page to do that first.
+With Galera Manager installed, you're ready to create a Galera Cluster or start monitoring an existing cluster. This page of the Codership documentation describes how to connect to Galera Manager, create a cluster and how to add nodes to a cluster. If you haven't already installed Galera Manager, go to the :doc:`gmd-install` documentation page to do that first.
 
 Without Galera Manager, to create a Galera Cluster, you have to set up multiple servers or AWS Instances, and then install MySQL or MariaDB and Galera software on each.  You also have to configure each server or node.  It's a fairly detailed process.  Instead, you can use the Galera Manager to make the process of creating a cluster and adding nodes simple and quick.
 
@@ -90,10 +90,9 @@ To create a cluster in Galera Manager, click on *Create New Cluster*.  You'll th
 
 Looking at the screenshot here, in the first section labeled *Cluster Configuration*, you can see that you have to provide a name for your cluster. In this example, the name *testeroo* was given, but you should enter something more meaningful to your organization or system |---| especially if you will be creating more than one cluster.
 
-That's all there is, per se, to the cluster configuration. A Galera Cluster is an association of nodes working together as equals, with all of the settings on the nodes. So the rest of the questions are related to the node and host levels.  The choices available for them are described in the next section.
+.. That's all there is, per se, to the cluster configuration. A Galera Cluster is an association of nodes working together as equals, with all of the settings on the nodes. So the rest of the questions are related to the node and host levels.  The choices available for them are described in the next section.
 
-Before proceeding, it's worth taking a moment to be clear as to the difference between a node and a host in a Galera Cluster. A node is essentially the MySQL or MariaDB server (i.e., the ``mysqld`` daemon) interacting with the other nodes to replicate data changes among them. The host is the physical or virtual computer upon which the node is running.  This is why you will only see the names of hosts in the list of *Instances* on the AWS console, and only the names of nodes in the Galera and database logs. Galera Manager's role is to facilitate the creating of *AWS Instances* for hosts, the assembling of nodes for a cluster, the installation of all of the needed software, and to track metrics in the cluster.  Basically, it does much of the mundane work usually performed by an administrator and makes monitoring clusters easier.
-
+.. Before proceeding, it's worth taking a moment to be clear as to the difference between a node and a host in a Galera Cluster. A node is essentially the MySQL or MariaDB server (i.e., the ``mysqld`` daemon) interacting with the other nodes to replicate data changes among them. The host is the physical or virtual computer upon which the node is running.  This is why you will only see the names of hosts in the list of *Instances* on the AWS console, and only the names of nodes in the Galera and database logs. Galera Manager's role is to facilitate the creating of *AWS Instances* for hosts, the assembling of nodes for a cluster, the installation of all of the needed software, and to track metrics in the cluster.  Basically, it does much of the mundane work usually performed by an administrator and makes monitoring clusters easier.
 
 
 .. _`galera-manager-node-configuration`:
@@ -104,19 +103,19 @@ In the next section of the box shown in Figure 1, the section labeled *Node Conf
 
 .. figure:: ../images/galera-manager-create-cluster-node-defaults.png
    :width: 800px
-   :alt: Create Cluster - Host Defaults
+   :alt: Create Cluster - Node Defaults
    :class: document-screenshot
 
    Host Defaults Section of Create Cluster Dialog Box (Figure 2)
 
-The first field in this section asks you to specify whether you want to use MySQL or MariaDB, and the version of which one you choose. You're asked to set the default database system for your nodes of the cluster because the nodes should all use the same version of the same database system.  You shouldn't have one node in a cluster using MySQL and another MariaDB, or even have them all using MySQL, but different versions. If you create another cluster, however, it may use a different database system and version.
+The first field in this section asks you to specify which version of MySQL or MariaDB you want to use. It is not a default but a final choice, because the nodes should all use the same version of the same database system.  You shouldn't have one node in a cluster using MySQL and another MariaDB, or even have them all using MySQL, but different versions. If you create another cluster, however, it may use a different database system and version.
 
 
 .. _`galera-manager-default-node-db-configuration`:
 .. rst-class:: sub-heading
 .. rubric:: Database Engine Configuration
 
-Next, to the right in Figure 2, you may provide some special settings for MySQL or Galera, extra entries you want to make to the configuration files on all of the node.  You would click on the icon of a cogwheel, where is says *Custom DB Engine Configuration*, to add those options or variable names with the values you want. Before doing this, though, you should be aware of what will be set by default by Galera Manager.
+Next, to the right in Figure 2, you may provide default custom configuration for your nodes, for example ``innodb_buffer_pool_size`` or ``wsrep_provider_options``. This should be given in the same format you'd use in ``my.cnf``. You would click on the icon of a cogwheel, where is says *Custom DB Engine Configuration*, to add those options or variable names with the values you want. Galera Manager manages configuration pertaining to its functionality (e.g. ``wsrep_cluster_address``), so those variables managed by Galera Manager will be overridden.
 
 In Example 1 below is the contents of ``/etc/mysql/mysql.conf.d/mysqld.cnf`` on one of the nodes which is running Ubuntu |---| it's the same for each node:
 
@@ -130,7 +129,7 @@ In Example 1 below is the contents of ``/etc/mysql/mysql.conf.d/mysqld.cnf`` on 
    datadir = /var/lib/mysql
    log-error = /var/log/mysql/error.log
 
-These are minimal settings for MySQL.  For Galera Cluster, there is an additional configuration file. These are the settings in ``/etc/mysql/wsrep/conf.d/00.galera.cnf``, for the same node running Ubuntu:
+These are minimal settings for MySQL.  For Galera Cluster, there is an additional configuration file. These are the settings in ``/etc/mysql/wsrep/conf.d/99.galera.cnf``, for the same node running Ubuntu:
 
 .. code-block:: ini
    :caption: Galera Configuration File (Example 2)
@@ -166,7 +165,7 @@ Again, if you want to add some other settings, perhaps setting values for InnoDB
 
    Node Default Database Custom Configuration (Figure 3)
 
-Notice that you have to include the ``[mysqld]`` heading. When you're finished, click on *Set* to save.  At this time, you won't be able to make changes to these settings once you finish creating the cluster. So be sure you have everything you want before clicking *Create*.  Otherwise, you'll have to log into each node to make changes manually to the configuration files. In a future release, you will be able to edit these default settings from within Galera Manager.
+Notice that you have to include the ``[mysqld]`` heading. When you're finished, click on *Set* to save.  At this time, you won't be able to make changes to these settings once you finish creating the cluster. So be sure you have everything you want before clicking *Create*.  Otherwise, you'll have to log into each node to make changes manually to the configuration files and restart the nodes. However, when adding a new node to the cluster you'll be able to provide an alternative configuration. In a future release, you will be able to edit these default settings from within Galera Manager.
 
 
 
@@ -185,16 +184,19 @@ To make it easier to discuss, below is the screenshot from Figure 1, but this ti
 
    Host Defaults Section of Create Cluster Dialog Box (Figure 4)
 
-The first field allows you to chose the host type: *locallxd* or *ec2*. Choosing *locallxd* will instruct Galera Manager to generate Linux Containers, using the ``lxd`` daemon, to create hosts when you add nodes later.  They'll all run on the same server where you have Galera Manager.  This option is primarily for testing purposes and shouldn't generally be used.
+The first field allows you to chose the host type: *locallxd*, *ec2* or *unmanaged*. Choosing *locallxd* will instruct Galera Manager to generate Linux Containers, using the ``lxd`` daemon, to create hosts when you add nodes later.  They'll all run on the same server where you have Galera Manager.  This option is primarily for testing purposes and shouldn't generally be used.
 
 Choosing *ec2* will use Amazon's EC2 service to create separate *AWS Instances* for each host needed for each node you add to the cluster. When you choose this, there will be fields allowing you to choose which AWS region to use for hosts, and which type of *Instance* |---| these relate to the size and speed of the server.
 
+Choosing *unmanaged* will mean that you already have a manually managed running cluster. In that case Galera Manager will attempt only to install and configure monitoring software on the nodes and will perform only cluster monitoring but not management.
+
+In a future release, Galera Manager will add more host types an support more cloud providers.
 
 .. _`galera-manager-default-host-aws-keys`:
 .. rst-class:: sub-heading
 .. rubric:: AWS Access Keys
 
-You will also be asked to provide your *Access Key* information so that Galera Manager may interface with AWS on your behalf. This information is secure and not shared with Codership: it's confined to your installation of Galera Manager. Even if you already have a copy of the ID and the password, you may want create another key for use only by Galera Manager. You would do this on AWS's site. To get to this page, log into the EC2 console. Then click where the name for your account is show. A pull-down menu will appear, as you see in the screenshot below:
+In case you chose *ec2* host type, you will also be asked to provide your *Access Key* information so that Galera Manager may interface with AWS on your behalf. This information is secure and not shared with Codership: it's confined to your installation of Galera Manager. Even if you already have a copy of the ID and the password, you may want create another key for use only by Galera Manager. You would do this on AWS's site. To get to this page, log into the EC2 console. Then click where the name for your account is show. A pull-down menu will appear, as you see in the screenshot below:
 
 .. figure:: ../images/galera-manager-ec2-account-menu.png
    :width: 150px
@@ -238,11 +240,11 @@ The last two fields of the *Default Host Configuration* section are related to `
 
    SSH Keys for Default Host Configuration (Figure 8)
 
-These encryption keys are used to access the AWS Instances, the hosts that are generated by AWS using ``ssh``.  Without them, you can't log into the server and make changes at the command-line.
+These encryption keys are used to access the hosts via SSH.
 
-The private key is entered in a box that appears when you click on *SSH Private Key*. It's saved by AWS and attached to the host in its system.  With it, Galera Manager will generate a public key for it to be able to access the host. You can enter your own private key, but its not necessary. AWS will generate one for you behind-the-scenes. You won't be able to download it through Galera Manager or on AWS.  So you may as well let AWS handle that part.
+You should provide the private key in case you want Galera Manager to use a specific key to access the hosts, for example if you have set up corresponding public keys on the hosts. You need to supply the key if you have chosen *unmanaged* host type, otherwise it is not required: Galera Manager will generate its own key pair.
 
-For you as administrator to access the host with ``ssh``, you will need to provide a public key that matches the format of the private key. Click on the icon of a key on the right, where it says, *Authorized Keys*.  A box will appear like the one below in Figure 9 for you to paste in your public key from your own private key:
+For you as administrator to access the host with ``ssh``, you will need to provide one of your own public keys. Click on the icon of a key on the right, where it says, *Authorized Keys*.  A box will appear like the one below in Figure 9 for you to paste in your public key from your own private key:
 
 .. figure:: ../images/galera-manager-add-ssh-public-key.png
    :width: 500px
@@ -251,7 +253,7 @@ For you as administrator to access the host with ``ssh``, you will need to provi
 
    Add Authorized Public SSH Keys (Figure 9)
 
-After pasting in the public key, click on the plus-sign icon to store it.  The field will become empty again so that you may paste in another public key. You may want to paste in a public key for each person for whom you want to provide command-line access. Incidentally, if the public key includes the user's email address, this will be included in the list of users (see Figure 10 below).
+After pasting in the public key, click on the plus-sign icon to store it.  The field will become empty again so that you may paste in another public key. You may want to paste in a public key for each person for whom you want to provide command-line superuser access to the hosts.
 
 .. figure:: ../images/galera-manager-ssh-public-keys.png
    :width: 500px

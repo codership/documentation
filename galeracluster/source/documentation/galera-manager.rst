@@ -36,7 +36,6 @@
          - :doc:`Getting Started <./galera-manager>`
 
       - :doc:`Installing <./gmd-install>`
-      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
       - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
@@ -44,6 +43,7 @@
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
       - :doc:`Upgrading <./gmd-upgrading>`
+..      - :doc:`AWS Ports <./galera-manager-ports>` //outdated
 
 
 .. container:: top-links
@@ -70,7 +70,7 @@
 The Galera Manager
 ===================================================
 
-The Galera Manager is a graphical user interface for creating and provisioning Galera Clusters on Amazon Web Services (AWS). It allows an administrator to add nodes easily, and without having to configure each node, manually. Perhaps more useful is that Galera Manager provides charts for monitoring host and database metrics to ensure the proper and efficient functioning of a Galera Cluster.  There are over a thousand metrics from which to choose.  You may use any standard web browser for accessing Galera Manager, to administer and monitor clusters.
+The Galera Manager is a graphical user interface for provisioning and monitoring Galera Clusters in various environments, like Amazon Web Services (AWS) or on-premises hardware. It allows an administrator to add nodes easily, and without having to configure each node, manually. Perhaps more useful is that Galera Manager provides charts for monitoring host and database metrics to ensure the proper and efficient functioning of a Galera Cluster. There are over a thousand metrics from which to choose. You may use any standard web browser for accessing Galera Manager, to administer and monitor clusters.
 
 This section of the Codership documentation provides detailed information and instructions on how to install and configure Galera Manager.  Below is a brief summary of each aspects of the process to start using Galera Manager, with each heading linked to the related page for much more information |---| there are also links in the margin to all pages of the Galera Manager documentation. However, if you're an advanced administrator and are confident in your abilities, this page will provide you a summary of what you need to install and start using Galera Manager.
 
@@ -78,51 +78,66 @@ This section of the Codership documentation provides detailed information and in
 .. rst-class:: section-heading
 .. rubric:: :doc:`Install Galera Manager <./gmd-install>`
 
-The *Galera Manager Installer* is used to install Galera Manager.  There are a few steps to installing with the *Installer*.  This section is only a brief summary of those steps.  Some of this text contain links to other pages where you'll find more detailed information on each step.
+The *Galera Manager Installer* is provided to make installation and configuration of Galera Manager as simple as possible.  This section is only a brief summary of the procedure.  Some of this text contains links to other pages where you'll find more detailed information on each step.
 
    .. rst-class:: sub-heading indented
-   .. rubric:: Choose or Create an *Installer Host*
+   .. rubric:: Choose or Create a *Galera Manager Host*
 
-   You will need a server or other computer on which to download the *Installer* and then to run it to install the Gallera Manager.  You may use a local computer (e.g., a desktop or laptop computer), but most administrators use an existing *AWS Instance* since Galera Manager was built to be used with AWS.
+   Galera Manager is a server program (it serves client requests from both the cluster nodes and graphical frontend) so it should be installed on a host (server or other computer) which can be connected to from both the prospective cluster nodes and a computer running the graphical client.  A laptop behind a WiFi NAT is a poor choice.  You may use a local computer (e.g., a desktop or laptop computer), but most administrators would want to use a computer in the same network as the cluster nodes. E.g. if the cluster is in EC2, you'd want to use an EC2 instance, if it is on premises, then you'd use a host in the on-premises network.  It is also possible to use one of the cluster nodes, but it is recommended to have a dedicated *Galera Manager Host*.
 
-   Incidentally, at this point, Galera Manager runs either Ubuntu or Amazon Linux 2. Future releases of Galera Manager may allow for other distributions of Linux. For now, it's recommended you use one of these two distributions for the *Installer Host*. Galera Manager will, however, generate hosts that will use either Ubuntu or CentOS and nodes that will run on MySQL or MariaDB.
+   At this point Galera Manager Installer supports the following x86_64 Linux distributions: Ubuntu 18.04 and 20.04, CentOS 7 and 8, Debian 10 ("buster")
 
+   Future releases of Galera Manager Installer may support other platforms. For now, it's recommended you use one of these distributions for *Galera Manager Host*. The Galera Manager itself will, however, manage or monitor clusters that may run on a different platform and nodes that will run either MySQL or MariaDB.
 
    .. rst-class:: sub-heading indented
    .. rubric:: Download the *Installer*
 
-   After you've prepared a server to be the *Installer Host*, you'll need to download the *Installer* from Codership's site.  Currently, only the beta version of Galera Manager is available. Eventually, you'll be able to find a link to it on `Codership's Download page <https://galeracluster.com/downloads/>`_.  Until then, log onto your server and use an FTP program, or a utility like ``wget`` to download the installation package for the *Installer* at this address:
+   After you've decided on and prepared the *Galera Manager Host*, you'll need to download the *Installer* from Codership's site at this address:
 
       `https://galeracluster.com/galera-manager/gm-installer <https://galeracluster.com/galera-manager/gm-installer>`_.
 
    .. rst-class:: sub-heading indented
    .. rubric:: Run the *Installer*
 
-   Once the *Installer* has been downloaded, you can run it to install Galera Manager. You’ll have to provide some basic information: an administrative password, as well as a domain name and a site certificate, if you have these and want to use them.
+   Once the *Installer* has been downloaded, run it with superuser privileges to install Galera Manager. It will ask you some basic information: an administrative password, as well as a domain name and a site certificate, if you have these and want to use them.
 
-   When you're finished, the `gmd` daemon will be running on the *Installer Host*. Then you may use this server to deploy a Galera Cluster.
+   .. code-block:: console
 
-Check the :doc:`gmd-install` documentation page for much more details on using the *Installer* and explanatons of the questions you'll be asked, as well as suggestions on how to respond to them. You might also read the :doc:`gmd` page.
+      chmod a+x gm-installer && sudo ./gm-installer install
+
+   When the Installer is finished, the `gmd` daemon will be running on the *Galera Manager Host*. The *Installer* will print out some bookkeeping information that you may want to save for future reference and also the address at which you can connect to `gmd` from your browser and start using it:
+
+   .. code-block:: console
+
+      INFO[0223] Galera Manager installation finished. Enter http://10.0.3.73 in a web browser to access.
+
+   Check the :doc:`gmd-install` documentation page for more details on using the *Installer* and explanations of the questions you'll be asked, as well as suggestions on how to respond to them. You might also read the :doc:`gmd` page.
 
 
 .. _`galera-manager-deploying-steps`:
 .. rst-class:: section-heading
 .. rubric:: :doc:`Deploying a Cluster <./galera-manager-adding-clusters>`
 
-Having installed Galera Manager, you're now ready to use it to deploy a Galera Cluster, including adding hosts and configuring nodes.
+Having installed Galera Manager, you're now ready to use it to deploy a Galera cluster, including adding and configuring nodes.
 
    .. rst-class:: sub-heading
    .. rubric:: Access Galera Manager
 
-   In the address field of your web browser, enter the address of your *Installer Host*, prefixed with ``https://``.  The address you would enter, though, would be either a domain name or an IP address, depending on what you designated when you installed Galera Manager.
+   In the address field of your web browser, enter the address provided in the *Installer* output.
 
    If you didn't provide a certificate, your web browser may try to protect you from accessing the address. Push past those warnings until you reach the login screen. Then enter the administrative user name and password you gave when installing.
 
    .. rst-class:: sub-heading
    .. rubric:: Create a Cluster & Add Nodes
 
-   After you log into Galera Manager, you may create a cluster, and then add hosts and nodes |---| hosts being *AWS Instances*, and nodes being MySQL or MariaDB servers (i.e., ``mysqld``).  Typically, one would start with three nodes |---| you can add more nodes later, or delete some if you added too many. Remember, AWS may charge your AWS account based on the number of *Instances* you have running, as well as usage on each host.  When you create a cluster, be sure to provide an public encryption key.
+   After you log into Galera Manager, you may create a cluster, and then nodes to it.  Typically, one would start with three nodes |---| you can add more nodes later, or delete some if you added too many.  You will be able to choose between several node host types (``locallxd``, ``unmanaged``, ``ec2``), host OS variants and database flavors.  When you create a cluster, be sure to provide an public encryption key to facilitate manual troubleshooting via SSH connection.
 
+   .. rst-class:: sub-heading
+   .. rubric:: Log in to cluster
+
+   If you created a cluster from scratch, you'll need to get the login credentials (i.e., user name, host address, password) to access one of the nodes with a MySQL client. This can be found by clicking on one of the nodes in Galera Manager, then its Configuration tab.  There you'll find the *DB Address* and the *DB Root Password* for accessing the database system.
+
+.. [MOVE TO A MORE APPROPRIATE SECTION]
    .. rst-class:: sub-heading
    .. rubric:: :doc:`Secure the Ports <./galera-manager-ports>`
 
@@ -131,16 +146,12 @@ Having installed Galera Manager, you're now ready to use it to deploy a Galera C
 You can find more details on deploying a cluster on the :doc:`galera-manager-adding-clusters` and the :doc:`galera-manager-adding-nodes` documentation pages. You may also find the :doc:`galera-manager-adding-users` page helpful at some point.
 
 
-.. _`galera-manager-loading-cluster`:
-.. rst-class:: section-heading
-.. rubric:: :doc:`Load Initial Data <./galera-manager-initializing-data>`
+.. [DOES NOT SEEM TO BE USEFUL OR BELONG HERE]
+   .. _`galera-manager-loading-cluster`:
+   .. rst-class:: section-heading
+   .. rubric:: :doc:`Load Initial Data <./galera-manager-initializing-data>`
 
-After installing and setting up your first Galera Cluster, you'll need to load your data into the cluster.  There are a few ways by which you can do this. Two of the most common methods are highlighted below.
-
-   .. rst-class:: sub-heading
-   .. rubric:: Get Login Details
-
-   To load the initial data, you'll need to get the login creditials (i.e., user name, host address, password) for accessing one of the nodes with a MySQL client. This can be found by clicking on one of the nodes in Galera Manager, then its Configuration tab.  There you'll find the *DB Address* and the *DB Root Password* for accessing the database system.
+   After installing and setting up your first Galera Cluster, you'll need to load your data into the cluster.  There are a few ways by which you can do this. Two of the most common methods are highlighted below.
 
    .. rst-class:: sub-heading
    .. rubric:: Back-Up & Load Data
@@ -154,7 +165,7 @@ After installing and setting up your first Galera Cluster, you'll need to load y
 
    After the initial data has finished loading, you may access and change data in MySQL with any MySQL client.  You may also access the data using any application you would normally use (e.g., PHP scripts accessed by end-users through a web browser).
 
-For more details on how to use the methods mentioned above for loading data, see the :doc:`galera-manager-initializing-data` documentation page.
+   For more details on how to use the methods mentioned above for loading data, see the :doc:`galera-manager-initializing-data` documentation page.
 
 
 .. _`galera-manager-managing-cluster`:
@@ -177,7 +188,6 @@ For more information on adding charts and related information, see the :doc:`gal
 
    - :doc:`Getting Started <./galera-manager>`
    - :doc:`Installing <./gmd-install>`
-   - :doc:`AWS Ports <./galera-manager-ports>`
    - :doc:`gmd Daemon <./gmd>`
    - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
    - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
@@ -185,6 +195,7 @@ For more information on adding charts and related information, see the :doc:`gal
    - :doc:`Loading Data <./galera-manager-initializing-data>`
    - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
    - :doc:`Upgrading <./gmd-upgrading>`
+..   - :doc:`Managing Ports <./galera-manager-ports>` //outdated
 
 
 .. toctree::

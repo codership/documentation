@@ -37,7 +37,6 @@
 
          - :doc:`Installing <./gmd-install>`
 
-      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
       - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
@@ -45,6 +44,7 @@
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
       - :doc:`Upgrading <./gmd-upgrading>`
+..      - :doc:`AWS Ports <./galera-manager-ports>` //outdated
 
 .. container:: top-links
 
@@ -70,27 +70,32 @@
 Installing Galera Manager
 ===================================================
 
-To use Galera Manager, you may install it on a local computer, but it's more typically installed on an AWS (Amazon Web Services) *Instance*.  Whatever you decide to use, you'll need to download the *Galera Manager Installer* to it.
+.. _`galera-manager-installer-requirements`:
+.. rst-class:: section-heading
+.. rubric:: Galera Manager host requirements.
 
-The *Installer* is an easy installation program for installing Galera Manager. When you run it, you will be asked a series of questions about configuring Galera Manager. When it's finished, the ``gmd`` daemon will be started on the *Installer Host*, allowing you to use this server to deploy a Galera Cluster and add nodes to other *AWS Instances*, as well as monitor the cluster.
+To use Galera Manager, you need to install it on a computer that
+  a) can be accessed from the cluster nodes you want to manage or monitor;
+  b) can be accessed from the computer where you'd want to display the GUI.
 
-Below are more details on these steps to download and run the *Installer*.  The questions you'll be presented when installing are fairly self-explanitory.  However, you may want to read this page before beginning, in case there are questions about which you want to know more before starting the installation.
+Normally that would be a computer in the same network as the prospective cluster nodes. Additionally you may want to consider providing sufficient disk space for the  logging and metrics data. Technically Galera Manager can run on one of the cluster nodes, but it is recommended to use a dedicated machine.
+
+Galera manager can use SSL encryption for all communications. However this requires the host to be accessible via a domain name, not just an IP address. Externally resolvable domain name is required to utilize external Certificate Authority.
 
 
 .. _`galera-manager-installer-download`:
 .. rst-class:: section-heading
 .. rubric:: Download the *Installer*
 
-To install Galera Manager, you'll need to download the *Installer* to a server or *Instance* which is using Amazon Linux 2, which is available only on AWS. Eventually, the *Installer* will be made available for other distributions.
+The *Installer* is a simple installation program for installing Galera Manager. When you run it, you will be asked a series of questions about configuring Galera Manager. After that it will download, install and configure required software packages. When it's finished, the ``gmd`` daemon will be started on the *Installer Host*, allowing you to use this server to deploy new Galera clusters in different environments, as well as monitor already existing clusters.
 
-Galera Manager is still in beta mode. When a stable release is available, you'll be able to find a link to the *Installer* on `Codership's Download page <https://galeracluster.com/downloads/>`_.  Until then, you can download it with an FTP program or with a tool like ``wget``, directly from the Codership repository.  In the example below, you can see the download address:
+Below are more details on these steps to download and run the *Installer*.  The questions you'll be presented when installing are fairly self-explanatory.  However, you may want to read this page before beginning, in case there are questions about which you want to know more before starting the installation.
 
-.. code-block:: console
-   :caption: Downloading *Galera Manager Installer* (Example 1)
+To install Galera Manager, you'll need to download the *Installer* to the computer chosen as the Galera Manager host. Currently *Installer* runs on the following x86_64 Linux distributions: Ubuntu 18.04 and 20.04, CentOS 7 and 8, Debian 10 ("buster"). Eventually, the *Installer* will be made available for other distributions.
 
-   wget https://galeracluster.com/galera-manager/gm-installer
+After you've decided on and prepared the *Galera Manager Host*, you'll need to download the *Installer* from Codership's site at this address:
 
-After you've downloaded the *Installer*, you may have to set the permissions for the installation file to make it executable. You would do that by entering something like this from the command-line:
+      `https://galeracluster.com/galera-manager/gm-installer <https://galeracluster.com/galera-manager/gm-installer>`_.
 
 .. code-block:: console
    :caption: Making *Galera Manager Installer* Executable (Example 2)
@@ -104,14 +109,16 @@ Having downloaded the installation program and made it executable, you're ready 
 .. rst-class:: section-heading
 .. rubric:: Start the Installer
 
-There are two options available at this time when starting the *Installer*: ``install`` and ``certificates``.  The ``install`` option is necessary to install Galera Manager.  The ``certificates`` option is used to generate your own, self-signed certifcates for encryption.  Both options may be given together.
+There are two options available at this time when starting the *Installer*: ``install`` and ``certificates``.  The ``install`` option is necessary to install Galera Manager.  The ``certificates`` option is used to generate your own, self-signed SSL certificates for encryption.  Both options may be given together.
 
-Below is how you would start the *Installer* with only the ``install`` option. You'll have to run it as root or with another administrator user account. Otherwise, you'll receive an error early in the installation process saying, *permission denied*.
+Note that to safely use SSL encryption Galera Manager host needs to be accessible through a valid DNS name (domain names given by Amazon EC2 don't count). The *Installer* will refuse to configure SSL encryption if the host has only an IP address. Galera Manager will retain full functionality working via unencrypted links.
+
+Below is how you would start the *Installer* with only the ``install`` option. You'll have to run it with superuser privileges:
 
 .. code-block:: console
    :caption: Starting Installation of *Galera Manager Installer* (Example 3)
 
-   ./gm-installer install
+   sudo ./gm-installer install
 
 After starting the *Installer*, you will first be asked to accept the Galera Manager End-User Licensing Agreement (EULA).  Below is how this question will be presented |---| although it might change slightly in future releases:
 
@@ -128,17 +135,18 @@ If you're willing to accept the agreement, enter ``a``.  If you'd like to read t
 .. rst-class:: section-heading
 .. rubric:: User Names & Passwords
 
-Next you'll be asked to enter some user names and passwords, for accessing the Galera Manager repository and for the initial administrator of Galera Manager.  You may want to ensure you have answers to the following questions:
+Next you'll be asked for Galera Manager repository address. If you've been given a link to a private repository, you'll have to enter your user name and password for the repository. Then you'll be asked for the login and password of the initial administrator of Galera Manager.  You may want to ensure you have answers to the following questions:
 
 .. code-block:: console
    :caption: Installation Credential Questions from the *Installer* (Example 5)
 
+   GMD Package Repository URL (blank for default):
    GMD Package Repository User:
    GMD Package Repository Password:
    GMD Admin User Login [admin]:
    GMD Admin Password:
 
-If you've been given a link to a private repository, you'll have to enter your user name and password.  Otherwise, you would leave the repository user name and password blank.  Next you can provide the administrator's user name and password that you'd like to use when accessing Galera Manager.  The default user name is *admin*.  Enter whatever password you'd like to use for the administrator.  You'll be able to remove this user later and add a replacement administrator later, as well as add other users with lesser privileges. This is covered on the :doc:`galera-manager-adding-users` page.
+The default user name is *admin*.  Enter whatever password you'd like to use for the administrator.  You'll be able to remove this user later and add a replacement administrator later, as well as add other users with lesser privileges. This is covered on the :doc:`galera-manager-adding-users` page.
 
 
 .. _`galera-manager-installer-domains`:
@@ -156,33 +164,40 @@ You'll next need to provide either an IP address or a domain name for Galera Man
    certificates for SSL if encryption is required):
    Enter your domain name or IP of the server:
 
-An IP address works well, but you won't be able to utilize an external certification authority.  As a result, when later accessing Galera Manager, your web browser will be suspicious of the site and may try to block you from accessing it.  Still, you should be able to get through the objections the first time you visit Galera Manager and be able to set it as a trusted URL.
+An IP address works well, but you won't be able to utilize an external certification authority, neither you'll be able to use self-signed certificates.
 
 .. code-block:: console
    :caption: *Installer* Warning using an IP Address (Example 7)
 
-   You have chosen to use IP address, therefore LetsEncrypt service will not be available.
+   Since you entered an IP address, SSL won't be available.
 
-As this notification implies, if you would use a domain name, LetsEncrypt would be used for generating a certificate related to encrypted communications with Galera Manager. Based on this, you may want to consider obtaining and using a domain name or sub-domain for your installation of Galera Manager. Even if you don't do this, you will still be able to encrypt the traffic by answering *Yes* to this next question:
+As this notification implies, SSL won't be available if Galera Manager host does not have a domain name.
+
+If you chose to provide a resolvable domain name for Galera Manager host, you will have several options to set up SSL encryption (HTTPS protocol) to protect all Galera Manager connections (from both the GUI client and cluster nodes):
 
 .. code-block:: console
    :caption: *Installer* Asking to Use a Secure Protocol (Example 8)
 
+   Enter your domain name or IP of the server: gm.example.com
    Enable https? [Y/n]
+   Use LetsEncrypt Certbot to autogenerate the certificates [Y/n]:
 
-This will require you to preface the URL you enter in your web browser with ``https``.  It will also encrypt the traffic using Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
-
-If you choose not to enable ``https``, you'll see a message at the end of the installation saying your connections will be prone to several types of security issues and that you should therefore always use only trusted networks when connecting to Galera Manager.
-
-As just mentioned, the *Installer* will generate a certificate for you using LetsEncrypt |---| if you chose to provide a domain name instead of an IP address.  However, if you already have a certificate from a certificate authority (i.e., an SSL CA) you can give the *Installer* information related to it. Or you may provide your own SSL certificate.  These are the questions you'll be presented related to all of this:
+Answering *Yes* to the above question will set up automatic certificates generation and renewal using LetsEncrypt site as a Certificate Authority.  *NOTE:* not all domain names are accepted by LetsEncrypt, e.g. domain names autogenerated by AWS EC2 are not.  If you want to set up your own Certificate Authority and/or use your own certificates, answer *No* and you will be offered to provide them:
 
 .. code-block:: console
-   :caption: *Installer* Questions about SSL (Example 9)
+   :caption: *Installer* Questions about SSL credentials (Example 9)
 
-   Do you want to provide your own SSL CA? [y/N]
-   Do you want to use your own SSL certificate?
-   (otherwise the installer will generate them for you) [y/N]:
+   Use LetsEncrypt Certbot to autogenerate the certificates [Y/n]: n
+   Do you want to provide your own SSL CA? [y/N] y
+   Use your own SSL certificate (y), or let installer generate one (n)? [y/N] y
+   SSL CA Certificate [ca.crt]:
+   SSL CA Certificate Key [ca.key]:
+   SSL Host Certificate [ssl.crt]:
+   SSL Host Certificate Key [ssl.key]:
 
+NOTE: if you want to specify your own Certificate Authority, you need to make sure that it is known to your GUI frontend as well, otherwise it won't be able to confirm the validity of the Galera Manager certificate and most likely will refuse to connect with the warning about security risk.
+
+Also you will be responsible to re-generate your own SSL certificate after it expires.
 
 .. _`galera-manager-installer-closing-messages`:
 .. rst-class:: section-heading
@@ -192,35 +207,27 @@ After you finish answering all of the questions presented to you by the *Install
 
 .. code-block:: console
    :caption: Final Messages after Successfully Installing Galera Manager (Example 10)
-   :emphasize-lines: 2, 12, 19
+   :emphasize-lines: 1, 4, 9
 
-   INFO[0213] Galera Manager installation complete.
-   Direct your browser to https://34.217.114.37 to use it.
-   Since there was no publicly resolvable domain name provided,
-   we'll be using self-signed SSL certificate.
-   You will be responsible to re-generate it after it expires.
-   Also, if the browser warns about security risk when connecting
-   to service for the first time, you should choose to "continue".
-
-   INFO[0213] Logs DB url: https://34.217.114.37:8091
-   Metrics DB url: https://34.217.114.37:8092
-
-   Please make sure you have TCP ports 80, 443, 8091, 8092 open in the server firewall.
-
-   INFO[0213] Below you can see Logs DB credentials (if once asked):
+   INFO[0223] Galera Manager installation finished. Enter http://10.0.3.73 in a web browser to access. Please note, you chose to use an unencrypted http protocol, such connections are prone to several types of security issues. Always use only trusted networks when connecting to the service.
+   INFO[0223] Logs DB url: http://10.0.3.73:8081
+   Metrics DB url: http://10.0.3.73:8082
+   IMPORTANT: ensure TCP ports 80, 8081, 8082 are open in firewall.
+   INFO[0223] Below you can see Logs DB credentials (if once asked):
    DB name: gmd
    DB user: gmd
-   DB password: Art1Pvq139
+   DB password: yAl4p84vR8
+   The installation log is located at /tmp/gm-installer.log
 
-   Complete installation log can be found at /tmp/gm-installer.log
-
-There's the URL for accessing Galera Manager, in the second sentence where it says, "Direct your browser..."  There are two other URLs that include the port numbers (i.e., 8091 or 8092). Those are for accessing logs and metrics databases.  The Galera Manager is accessed on port 80 or 443.
+Note the ports that need to be opened on Galera Manager host.
 
 .. _`galera-manager-installer-ports`:
 .. rst-class:: sub-heading
 .. rubric:: TCP Ports
 
-Regarding ports, notice the line in the example above about TCP ports 80, 443, 8091, 8092.  You'll need to make sure those are accessible on AWS.  Go to the EC2 console in AWS, and click on *Security Groups* in the left margin.  Then look for the security group for the server on which you installed Galera Manager. Edit the *Inbound Rules* for that group to open those ports (see the screenshot below).
+Regarding ports, notice the line in the example above about TCP ports 80, 8081, 8082. You'll need to make sure ports 8081, 8082 are accessible from the prospective nodes, and port 80 - from the GUI client.
+
+If you deploy Galera Manager on AWS, those ports are closed by default.  Go to the EC2 console in AWS, and click on *Security Groups* in the left margin.  Then look for the security group for the server on which you installed Galera Manager. Edit the *Inbound Rules* for that group to open those ports (see the screenshot below).
 
 .. figure:: ../images/galera-manager-aws-inbound-rules-gmd.png
    :width: 800px
@@ -268,7 +275,7 @@ After you've finished installing, you may log into Galera Manager with a standar
    :emphasize-lines: 2
 
    INFO[0213] Galera Manager installation complete.
-   Direct your browser to https://34.217.114.37 to use it.
+   Direct your browser to http://34.217.114.37 to use it.
    ...
 
 In the example here, a domain name wasn't used during the installation, so the URL has an IP address. If you provided a domain name, though, you would enter that domain name in your browser:  ``https://my-domain.com``.
@@ -302,7 +309,6 @@ To create a cluster,  you would click on the plus-sign icon, or the text below t
 
    - :doc:`Getting Started <./galera-manager>`
    - :doc:`Installing <./gmd-install>`
-   - :doc:`AWS Ports <./galera-manager-ports>`
    - :doc:`gmd Daemon <./gmd>`
    - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
    - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
@@ -310,6 +316,7 @@ To create a cluster,  you would click on the plus-sign icon, or the text below t
    - :doc:`Loading Data <./galera-manager-initializing-data>`
    - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
    - :doc:`Upgrading <./gmd-upgrading>`
+..   - :doc:`Managing Ports <./galera-manager-ports>` //outdated
 
 
 .. |---|   unicode:: U+2014 .. EM DASH

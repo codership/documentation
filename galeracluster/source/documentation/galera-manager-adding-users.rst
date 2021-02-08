@@ -33,7 +33,6 @@
 
       - :doc:`Getting Started <./galera-manager>`
       - :doc:`Installing <./gmd-install>`
-      - :doc:`AWS Ports <./galera-manager-ports>`
       - :doc:`gmd Daemon <./gmd>`
       - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
       - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
@@ -45,6 +44,7 @@
       - :doc:`Loading Data <./galera-manager-initializing-data>`
       - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
       - :doc:`Upgrading <./gmd-upgrading>`
+..      - :doc:`AWS Ports <./galera-manager-ports>` //outdated
 
 .. container:: top-links
 
@@ -88,7 +88,7 @@ When you installed Galera Manager with the *Installer*, you were asked to specif
 
    Galera Manager Menu (Figure 1)
 
-As you can see, there are three choices: *Management*, which brings you back to the primary screen for managing and monitoring Galera Clusters; *Users*, which is where you'll add and remove users for Galera Manager; and *Logout*, which is to log out of Galera Manaager.  If you click on *Users*, you'll see a box similar to the screenshot in Figure 2 below:
+As you can see, there are three choices: *Management*, which brings you back to the primary screen for managing and monitoring Galera Clusters; *Users*, which is where you'll add and remove users for Galera Manager; and *Logout*, which is to log out of Galera Manager.  If you click on *Users*, you'll see a box similar to the screenshot in Figure 2 below:
 
 .. figure:: ../images/galera-manager-new-user.png
    :width: 500px
@@ -97,9 +97,9 @@ As you can see, there are three choices: *Management*, which brings you back to 
 
    Dialog Box for Adding Users (Figure 2)
 
-In the example in the screenshot above, a user name of *bob* was entered, along with a password. The other choice is to set the user's privileges: *None*, *Observer*, *Manager*, and *Administrator*.  At this time, the only fully implemented user type is Administrator.  However, in soon to be released updates to Galera Manager the other user types will take on meaning.
+In the example in the screenshot above, a user name of *bob* was entered, along with a password. The other choice is to set the user's privileges: *None*, *Observer*, *Manager*, and *Administrator*.
 
-The setting of *None* will create a user who may log in, but has no access, can see nothing. A user designated as an *Observer* will be allowed to log in and monitor clusters and nodes, but not make any changes. A *Manager* will have all of the privileges of an *Observer*, but will also be allowed to add and delete clusters and nodes, as well as add and remove metrics to monitor.  The *Administrator* can do everything now, including adding and removing users.
+The setting of *None* will create a user who may log in, but has no access, can see nothing. In the future it can be used to temporary block the user, but currently the users can only be created and deleted. A user designated as an *Observer* will be allowed to log in and monitor clusters and nodes, but not make any changes. A *Manager* will have all of the privileges of an *Observer*, but will also be allowed to add and delete clusters and nodes, as well as add and remove metrics to monitor.  The *Administrator* can do everything, including adding and removing users.
 
 
 .. _`galera-manager-changing-users`:
@@ -125,9 +125,7 @@ You can, of course, add more users. Should you decide to delete a Galera Manager
 
    Galera Manager User Information (Figure 4)
 
-Although it would be convenient to be able to change a user's name, password, or role here, it's not yet possible to do so in Galera Manager. In future releases, though, you will be able to change a user's password.  At this time, if you want to change a user's password or their name, you'll have to delete that user and then add them back with the new name or password.
-
-Just click the vertical ellipsis at the top right of the panel for the user. Your only choice there will be to delete the user, so click it. To put the user back, click on the text below the list of users where it says, *Create New User* to add them again with new choices or values.
+Click the vertical ellipsis at the top right of the panel for the user. Your only choice there will be to delete the user, so click it. To put the user back, click on the text below the list of users where it says, *Create New User* to add them again with new choices or values.
 
 
 .. container:: bottom-links
@@ -136,7 +134,6 @@ Just click the vertical ellipsis at the top right of the panel for the user. You
 
    - :doc:`Getting Started <./galera-manager>`
    - :doc:`Installing <./gmd-install>`
-   - :doc:`AWS Ports <./galera-manager-ports>`
    - :doc:`gmd Daemon <./gmd>`
    - :doc:`Deploying Clusters <./galera-manager-adding-clusters>`
    - :doc:`Adding Nodes <./galera-manager-adding-nodes>`
@@ -144,6 +141,7 @@ Just click the vertical ellipsis at the top right of the panel for the user. You
    - :doc:`Loading Data <./galera-manager-initializing-data>`
    - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
    - :doc:`Upgrading <./gmd-upgrading>`
-   
+..   - :doc:`AWS Ports <./galera-manager-ports>`//outdated
+
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

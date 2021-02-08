@@ -70,14 +70,14 @@
 Galera Manager Daemon (``gmd``)
 ===================================================
 
-The Galera Manager is driven by the ``gmd`` daemon running on the server to be used to create clusters, the one used to add and remove nodes, and especially to monitor the Galera Cluster.  For information on installing ``gmd``, see the documentation page, :doc:`gmd-install`.
+The Galera Manager is driven by the ``gmd`` daemon program that can create clusters,  add and remove nodes, and gather monitoring data from the Galera Cluster.  For information on installing ``gmd``, see the documentation page, :doc:`gmd-install`.
 
 
 .. _`gmd-process`:
 .. rst-class:: section-heading
 .. rubric:: ``gmd`` Process
 
-If Galera Manager was installed on a server or an *AWS Instance*, you can enter something like the following from the command-line to check that it's running:
+If Galera Manager was installed on a host, you can enter something like the following from the command-line to check that it's running:
 
 .. code-block:: console
    :caption: Checking if Galera Manager Daemon is Running (Example 1)
