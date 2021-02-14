@@ -69,8 +69,6 @@
 Upgrading Galera Manager (``gmd``)
 ===================================================
 
-To use Galera Manager, you may install it on a local computer, but it's more typically installed on an AWS (Amazon Web Services) *Instance*.  Whatever you decide to use, you'll need to download the *Galera Manager Installer* to it.
-
 
 .. _`gmd-version-release`:
 .. rst-class:: section-heading
@@ -94,7 +92,7 @@ In this example screenshot, you can see in the subdued text at the bottom that t
 .. rst-class:: section-heading
 .. rubric:: Updating Galera Manager
 
-You wouldn't run the *Galera Manager Installer* again to upgrade |---| reinstalling is not permitted by the *Installer*. Nor would you uninstall Galera Manager and reinstall it |---| there's no easy way to uninstall.  Instead, you would use whatever package management utility (i.e., ``apt-get`` or ``yum``) you used when you first installed Galera Manager.
+You wouldn't run the *Galera Manager Installer* again to upgrade |---| reinstalling is not permitted by the *Installer*.  Instead, you would use whatever package management utility (i.e., ``apt-get`` or ``yum``) is used in Galera Manager host operating system.
 
 When running updates of your server, Galera Manager software will be included.  However, if you want to upgrade specifically the Galera Manager software, you can do so like this on a server using the ``yum`` package management utility:
 
@@ -115,7 +113,7 @@ Here's how you would upgrade Galera Manager on a server using ``apt-get``:
 
 You would do this only on the server running Galera Manager, not on the hosts used for the Galera Cluster nodes.
 
-Once the upgrades are finished, ``gmd`` will be restarted automatically.  You might refresh your web browser, though, if you're logged into Galera Manager at the time.  All of your settings, as well as your cluster and nodes should remain |---| including the databases and their data.
+Once the upgrades are finished, ``gmd`` will be restarted automatically.  You might need to refresh your web browser, though, if you're logged into Galera Manager at the time.  All of your settings, as well as your cluster and nodes should remain |---| including the databases and their data. Your Galera Clusters operation is not affected by ``gmd`` upgrade or failure.
 
 
 .. container:: bottom-links

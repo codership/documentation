@@ -79,7 +79,7 @@ This page of the Codership documentation describes how to add users to Galera Ma
 .. rst-class:: section-heading
 .. rubric:: Adding Users
 
-When you installed Galera Manager with the *Installer*, you were asked to specify a user name and password for the administrator.  You were only allowed one user during installation.  Now that Galera Manager is installed, you may add users.  Click on the menu icon, the three horizontal strips at the top left.  It will reveal what you see in the screenshot of Figure 1 below:
+When you installed Galera Manager with the *Installer*, you were asked to specify a user name and password for the administrator.  You were only allowed one user during installation.  Now that Galera Manager is installed, you may add more users.  Click on the menu icon, the three horizontal strips at the top left.  It will reveal what you see in the screenshot of Figure 1 below:
 
 .. figure:: ../images/galera-manager-margin-menu.png
    :width: 300px
