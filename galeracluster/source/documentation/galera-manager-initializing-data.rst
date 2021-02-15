@@ -82,11 +82,20 @@ To load the initial data in a new Galera Cluster created within Galera Manager, 
 
 If you're unfamiliar with how to make a back-up on an existing Galera Cluster, you could read the :doc:`Backup Cluster Data <./backup-cluster>` documentation page first. There are also links in the margin to tutorials on making back-ups and loading back-ups to a node of a new cluster |---| regardless of whether Galera Manager was used to create the cluster.
 
-.. _`galera-manager-node-credentials`:
-.. rst-class:: section-heading
-.. rubric:: Node Credentials
 
-After you first create a new cluster using Galera Manager, and have added a few nodes, you will need to log into one of the nodes to load the initial data.  This will require you to get the IP address and password for one of the nodes. Just select a node in Galera Manager and then click on the *Configuration* tab for the node.  You can see an example of this in the screenshot in Figure 1 below:
+.. _`galera-manager-loading-data-methods`:
+.. rst-class:: section-heading
+.. rubric:: Methods to Load Initial Data
+
+There are two common methods of loading data into MySQL or MariaDB: restoring from a logical or a physical back-up.
+
+.. _`galera-manager-loading-logical`:
+.. rst-class:: sub-heading
+.. rubric:: Loading Logically
+
+Logical back-ups are generated with a utility like ``mysqldump`` and produce text files (i.e., dump files) or streams containing SQL statements which may be used to rebuild databases. See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on how to use ``mysqldump`` to make a back-up. ``mysqldump`` creates a "dump" file or stream from a source MySQL server which then can be loaded to a new MySQL server using MySQL client utility (``mysql``).
+
+If you will be restoring data by way of a MySQL client, you'll need the node's IP address and the root password for the database. To get this information select a node in Galera Manager and then click on the *Configuration* tab for the node.  You can see an example of this in the screenshot in Figure 1 below:
 
 .. figure:: ../images/galera-manager-node-configuration.png
    :width: 800px
@@ -95,22 +104,7 @@ After you first create a new cluster using Galera Manager, and have added a few 
 
    Node Configuration (Figure 1)
 
-If you will be restoring data by way of a MySQL client (e.g., using ``mysql`` to restore a dump file), you'll need the node's IP address. In the main panel shown here, near the top left of the *Configuration* tab, is the external IP address of the node. It's contained in the *DB Address* field: it's ``52.41.73.124`` in this example. You'll also need the MySQL or MariaDB root password. Incidentally, since it's a new installation of MySQL or MariaDB, there's only the root user.  To get the *DB Root Password* |---| as it's labeled here |---| click on the icon of an eye to reveal it, or click the icon of two sheets of paper to copy the password to your clipboard.
-
-If you prefer using ``rsync``, or similar utilities for making physical back-ups, will need the *SSH Address*, which is at this point the same as the *DB Address*, as well as the private encryption key associated with the public encryption key you gave when creating the nodes. If you didn't provide one, you cannot add one to any existing nodes. However, you can add new node and give it a public key for which you have the private key.  Then you can load the initial data to that node and delete the node after the other nodes have synchronized with it.
-
-
-.. _`galera-manager-loading-data-methods`:
-.. rst-class:: section-heading
-.. rubric:: Methods to Load Initial Data
-
-With the correct IP address and either the database password or the private encryption key, you're ready to load the initial data to one of the nodes.  There are two common methods of loading data into MySQL or MariaDB: restoring from a logical or a physical back-up.
-
-.. _`galera-manager-loading-logical`:
-.. rst-class:: sub-heading
-.. rubric:: Loading Logically
-
-Logical back-ups are generated with a utility like ``mysqldump`` and produce text files (i.e., dump files) containing SQL statements which may be used to rebuild databases. See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on how to use ``mysqldump`` to make a back-up.
+In the main panel shown here, near the top left of the *Configuration* tab, is the external IP address of the node. It's contained in the *DB Address* field: it's ``52.41.73.124`` in this example. You'll also need the MySQL or MariaDB root password. Incidentally, since it's a new installation of MySQL or MariaDB, there's only the root user.  To get the *DB Root Password* |---| as it's labeled here |---| click on the icon of an eye to reveal it, or click the icon of two sheets of paper to copy the password to your clipboard.
 
 With the node's IP address and the password for root in the database, you can use a MySQL client to load data from a dump file. The example below shows how to restore a dump file made with ``mysqldump``:
 
@@ -166,29 +160,11 @@ Notice the first chart at the top left for the cluster has no activity and then 
 .. rst-class:: sub-heading
 .. rubric:: Loading Physcially
 
-The other common method of making back-ups is to use physical back-ups.  This is fairly simple:  it's mostly just a copy of MySQL's data directory.  Typically, administrators use ``rsynch`` to make a back-up copy of the data directory and othere relavent files.  Then they use ``tar`` and ``gzip`` to make a compressed archive file.  See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on this process.
+The other common method of making back-ups is to use physical back-ups.  This is fairly simple: it's mostly just a copy of MySQL's data directory.  Typically, administrators use ``rsync``, ``xtrabackup`` or ``mariabackup`` to make a back-up copy of the data directory and othere relavent files.  Then they use ``tar`` and ``gzip`` to make a compressed archive file.  See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on this process.
 
-To restore a physical back-up, you'll need to copy the back-up file to one of the nodes in the new cluster you created with Galera Manager. This is where you'll need the node's IP address and private encryption key mentioned the :ref:`galera-manager-node-credentials` section of this documentation page.
+Copying and restoring the data from physical backups is normally much faster than using logical backup, the bigger the volume the bigger the difference. However restoring data from physical backup to Galera Cluster is quite tricky. The problem is that it can't be done on a running node, and as a consequence it goes without cluster being aware of it. The easiest way to initialize Galera cluster from a physical backup is start with a single node cluster and after restoring the node from physical backup, add other nodes at will.
 
-To copy the back-up file to the node, you can use an FTP program.  You might also use ``scp`` to make a secure copy from the old server where the back-up is located, to the new node. First, you may want to log into the host for the new node. You could do that by entering something like the following from the command-line of a local computer:
-
-.. code-block:: shell
-   :caption: Logging into a Node to Prepare to Load Data (Example 3)
-
-   ssh -i ~/.ssh/galera-manager root@52.41.73.124
-
-The name of your private key and your node's IP address will be different. Notice it requires you use the user name, root.  That's the only user since this is a new node.
-
-If your old server requires a encryption key, you'll have to copy it to the node |---| be sure to delete the key when you're finished. If your old server requires only a user name and password, you might ``scp`` like so:
-
-.. code-block:: shell
-   :caption: Copying Back-Up Data from Remote Server (Example 4)
-
-   scp -p admin@35.161.145.71:/backups/galera-rsync-backup-20200607.tgz .
-
-This line uses ``scp`` to copy the back-up file from another Ubuntu server to the new node, to the current directory.
-
-After the back-up file has been copied, you'll need to stop ``mysqld`` on the node before you can overwrite the databases's data directory. Although you can do this from the command-line, you should stop the node from Galera Manager: click on the node and then the vertical ellipsis at the top right. This will open a dialog box like the one below:
+First, create a cluster and add a single node to it. Make sure to supply your public SSH key in the *Authorized Keys* section. You will need your private SSH key counterpart when accessing the host. When the node reaches ``SYNCED`` state, stop the node from Galera Manager: click on the node and then the vertical ellipsis at the top right. This will open a dialog box like the one below:
 
 .. figure:: ../images/galera-manager-stop-start-node.png
    :width: 400px
@@ -197,14 +173,33 @@ After the back-up file has been copied, you'll need to stop ``mysqld`` on the no
 
    Stopping a Node in Galera Manager (Figure 3)
 
-When you click on *Stop*, only ``mysqld`` will be stopped.  You would extract the back-up file's contents and copy the files to the MySQL data directory:
+When you click on *Stop*, the node process (``mysqld``) will be stopped, but the host will remain online.
+
+To restore from a physical back-up, you'll need to copy the back-up data to the host frist. This is where you'll need the node's IP address from the node configuration tab mentioned the :ref:`galera-manager-loading-logical` section of this page, and a private SSH key that corresponds to the public key you supplied in the node creation box.
+
+To copy the back-up file to the node, you can use ``scp`` to make a secure copy from the old server where the back-up is located, to the new node. First, you may want to log into the host. You could do that by entering something like the following from the command-line of a local computer:
+
+.. code-block:: shell
+   :caption: Logging into a Node to Prepare to Load Data (Example 3)
+
+   ssh -i ~/.ssh/galera-manager root@52.41.73.124
+
+The name of your private key and your node's IP address will be different. Notice it requires you use the user name, root.  That's the only user since this is a new host.
+
+.. code-block:: shell
+   :caption: Copying Back-Up Data from Remote Server (Example 4)
+
+   scp -i ~/.ssh/galera-manager /backups/backup-20200607.tgz root@52.41.73.124:/tmp/
+
+This line uses ``scp`` to copy the back-up file from another Ubuntu server to the new node, to the ``/tmp`` directory. Now you can restore MySQL data directory from that backup. Details depend on how you created the backup. Please refer to the documentation on how to use that particular backup method to recover the data directory. In the most trivial case of backup being simply a tarball of the data directory:
 
 .. code-block:: shell
    :caption: Unzipping and Extracting Back-Up Data (Example 5)
 
-   tar -xvzf galera-rsync-backup-20200607.tgz
+   tar -xvzf /tmp/backup-20200607.tgz -C /var/lib/mysql
+   chown -R mysql /var/lib/mysql
 
-When you're finished, go back to Galera Manager and start the node.  As soon as ``mysqld`` starts, the other nodes should synchronize the data you've restored.  You could execute a few SQL statements on one of the other nodes to see if they have the data, as shown in Example 2.
+When you're finished, go back to Galera Manager and start the node.  As soon as ``mysqld`` starts and shows ``SYNCED`` state, you can add more nodes, they will automatically copy data from the first one.  You could execute a few SQL statements on one of the other nodes to see if they have the data, as shown in Example 2.
 
 
 .. container:: bottom-links

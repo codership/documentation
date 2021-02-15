@@ -91,19 +91,20 @@ As a starting point,six charts are configured for new installations.  You may re
 
 - **load_node_1** records the CPU load average. It's a standard metric commonly displayed by most load monitors in Linux. Essentially, it tells you how loaded the system is with tasks, tasks competing for CPU usage.
 - **node_memory_MemAvailble_bytes** stores how much memory is available for each node.
-- **mysql_global_status_wsrep_replicated** indicates the number of write-sets replicated.
+- **mysql_global_status_wsrep_replicated** indicates the number of write-sets replicated from that node.
 - **mysql_global_status_wsrep_received** is the number of write-sets received. Together with the number replicated, this would equal the total transaction rate on the node.
 - **mysql_global_status_wsrep_flow_control_sent** provides the number of flow control events emitted by the node.
-- **mysql_global_status_wsrep_flow_control_paused** records how much time replication on the node was paused in nano-seconds per second. A value of 1,000,000,000 would mean it was completely paused. This metric and the previous one are very important to troubleshoot replication perfromance concerns.
+- **mysql_global_status_wsrep_flow_control_paused** records how much time replication on the node was paused in nano-seconds per second. A value of 1,000,000,000 would mean it was completely paused. This metric and the previous one are very important to troubleshoot replication performance concerns.
+
 
 .. rst-class:: sub-heading
 .. rubric:: Metric Names & Associations
 
-There is a pattern to the names of metrics.  Ones containing the word, *node* (e.g., ``load_node_1``), typically come from the Prometheus database system that tracks host status |---| they're not tracking node status since that's basically ``mysqld`` activity; in this context, it's a misnomer.
+The metrics come from the InfuxDB database and have a pattern to the names of metrics.  Ones containing the word, *node* (e.g., ``load_node_1``), track the host metrics; in this context, it's a misnomer.
 
 As for metrics with *mysql_global_status_* as the prefix, the stem is the name of the MySQL or MariaDB global status variable's name. For example, *mysql_global_status_wsrep_replicated* is from the MySQL global status variable, ``wsrep_replicated``.
 
-If for some reason you want to verify a global status variable's value, you can check in a node's database. You would go to the *Configuration* tab for one of the nodes to get the IP address and password for the database system.  Then you would enter something like the following from the command-line of a computer on which the ``mysql`` client is installed:
+If for some reason you want to access MySQL database directly you would go to the *Configuration* tab for one of the nodes to get the IP address and password for the database system.  Then you would enter something like the following from the command-line of a computer on which the ``mysql`` client is installed:
 
 .. code-block:: console
    :caption: Checking a MySQL Global Status Variable (Example 1)
@@ -134,13 +135,13 @@ To add a chart to the monitor in a cluster, click on the cluster in the left mar
 
    Adding a Chart (Figure 2)
 
-Click on *Add Chart* and a box will appear like the one in Figure 3 below.  There you will find all of the metrics you may track.  Most are global status variables from MySQL.  There are several at the bottom of the list that come from an external system called Prometheus that stores data on the status of the nodes.  The data is loaded into Prometheus on each node from the ``mysqld_exporter`` daemon running on each host.
+Click on *Add Chart* and a box will appear like the one in Figure 3 below.  There you will find all of the metrics you may track.  Most are global status variables from MySQL, others are different host performance metrics |---| there are several at the bottom of the list. The data come from the ``mysqld_exporter`` daemon running on each host and gets aggregated locally on Galera Manager host for quick access.
 
 
 .. rst-class:: sub-heading
 .. rubric:: Choosing a Metric
 
-In the screenshot below, you can see the dialog box for choosing metrics to chart.  Notice that metrics with the icon of a stack of disks are from MySQL or MariaDB.  Metrics using Prometheus are represented by the icon of a stack of servers.
+In the screenshot below, you can see the dialog box for choosing metrics to chart.  Notice that metrics with the icon of a stack of disks are from the database engine (MySQL or MariaDB).  Metrics tracking host performance are represented by the icon of a stack of servers.
 
 .. figure:: ../images/galera-manager-cluster-add-chart.png
    :width: 600px
@@ -235,7 +236,7 @@ Click on *Download Dashboard Configuration* and Galera Manager will generate a d
 
 This file excerpt has been reformatted with hard-returns and spaces to make it easier to view and follow |---| plus, most of it has been removed and replaced with ellipsis for brevity. But you can get a sense of how the information is stored |---| especially if you're familiar with json file structures.
 
-This is a nice feature, being able to download the configuration file.  However, at this point, the ability to upload a json configuration file is not yet available: Galera Manager is still in its early days.  The configuration settings for a dashboard are stored in Prometheus and there's no easy way to load it. In a future release, though, you should be able to do this from Galera Manager.
+This is a nice feature, being able to download the configuration file.  However, at this point, the ability to upload a json configuration file is not yet available: Galera Manager is still in its early days.  In a future release, though, you should be able to do this from Galera Manager.
 
 
 .. rst-class:: section-heading
@@ -262,7 +263,7 @@ When you encounter a problem with a Galera Cluster, besides reading Codership's 
    - :doc:`Loading Data <./galera-manager-initializing-data>`
    - :doc:`Monitoring a Cluster <./galera-manager-monitoring-clusters>`
    - :doc:`Upgrading <./gmd-upgrading>`
-   
+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
