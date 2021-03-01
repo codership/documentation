@@ -95,8 +95,8 @@ You can configure the parameters of Auto-Eviction by setting the following optio
 
 - :ref:`evs.version <evs.version>`: This sets which version of the EVS Protocol the node uses.  Galera Cluster enables Auto-Eviction starting with EVS Protocol version 1.
 
-  If you use Galera Cluster version 3.9 or older, the default value is ``0``.
-  If you use Galera Cluster version 4.0 or newer, the default value is ``1``.
+  - If you use Galera Cluster version 3.9 or older, the default value is ``0``.
+  - If you use Galera Cluster version 4.0 or newer, the default value is ``1``.
   
   To check your version of Galera Cluster, see :ref:`wsrep_provider_version <wsrep_provider_version>`.
 
