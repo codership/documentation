@@ -797,11 +797,11 @@ Defines the EVS Protocol version.
 .. csv-table::
    :class: doc-options
 
-   "Default Value", "``0``"
+   "Default Value", "``0`` (up to Galera Cluster version 3.9) | ``1`` (as of Galera Cluster version 4.0)"
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-This parameter determines which version of the EVS Protocol the node uses.  In order to ensure backwards compatibility, the parameter defaults to ``0``.  Certain EVS Protocol features, such as Auto Eviction, require you to upgrade to more recent versions.
+This parameter determines which version of the EVS Protocol the node uses.  In order to ensure backwards compatibility, the parameter defaults to ``0`` on Galera Cluster versions prior to 3.9.  Certain EVS Protocol features, such as Auto Eviction, require you to upgrade to more recent versions. As of Galera Cluster version 4.0, the parameter defaults to ``1``.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
