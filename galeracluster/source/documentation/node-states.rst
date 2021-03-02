@@ -183,7 +183,7 @@ The node state machine handles different state changes on different layers of Ga
 
 5. The node receives a state transfer request. Flow Control relaxes to ``DONOR``.  The node caches all write-sets it cannot apply.
 
-6. The node completes the state transfer to joiner node.
+6. The node completes the state transfer to :term:`Joiner Node`.
 
 For the sake of legibility, certain transitions were omitted from the above description.  Bear in mind the following points:
 

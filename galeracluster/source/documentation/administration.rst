@@ -124,7 +124,7 @@ In addition to node administration, Galera Cluster also provides interfaces for 
 
 - :doc:`quorum-reset`
 
-  The Primary Component maintains quorum when most of the nodes in the cluster are connected to it.  This section provides a guide to resetting the quroum in the event that the cluster becomes non-operational due to a major network outage, the failure of more than half the nodes, or a split-brain situation.
+  The Primary Component maintains :term:`Quorum` when most of the nodes in the cluster are connected to it.  This section provides a guide to resetting the quroum in the event that the cluster becomes non-operational due to a major network outage, the failure of more than half the nodes, or a split-brain situation.
 
 - :doc:`managing-fc`
 

@@ -62,7 +62,7 @@ Quorum Components
 
 In addition to single node failures, the cluster may split into several components due to network failure.  A component is a set of nodes that are connected to each other, but not to the nodes that form other components.  In these situations, only one component can continue to modify the database state to avoid history divergence.  This component is called the :term:`Primary Component`.
 
-Under normal operations, your Primary Component is the cluster.  When cluster partitioning occurs, Galera Cluster invokes a special quorum algorithm to select one component as the Primary Component.  This guarantees that there is never more than one Primary Component in the cluster.
+Under normal operations, your Primary Component is the cluster.  When cluster partitioning occurs, Galera Cluster invokes a special :term:`Quorum` algorithm to select one component as the Primary Component.  This guarantees that there is never more than one Primary Component in the cluster.
 
 .. note:: In addition to the individual node, quorum calculations also take into account a separate process called ``garbd``.  For more information on its configuration and use, see :doc:`arbitrator`.
 
@@ -116,7 +116,7 @@ For example, this can occur if you have a cluster without a backup switch in the
 
 By design, Galera Cluster avoids split-brain condition.  In the event that a failure results in splitting the cluster into two partitions of equal size, (unless you explicitly configure it otherwise), neither partition becomes a Primary Component.
 
-To minimize the risk of this happening in clusters that do have an even number of nodes, partition the cluster in a way that one component always forms the Primary cluster section.
+To minimize the risk of this happening in clusters that do have an even number of nodes, partition the cluster in a way that one component always forms the :term:`Primary Cluster` section.
 
 .. code-block:: text
 

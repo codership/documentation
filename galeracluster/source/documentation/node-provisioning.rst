@@ -88,7 +88,7 @@ There are two options available to determining the state transfer donor:
 
 - **Automatic** When the node attempts to join the cluster, the group communication layer determines the state donor it should use from those members available in the Primary Component.
 
-- **Manual** When the node attempts to join the cluster, it uses the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter to determine which state donor it should use.  If it finds that the state donor it is looking for is not part of the Primary Component, the state transfer fails and the joining node aborts.  For :ref:`wsrep_sst_donor <wsrep_sst_donor>`, use the same name as you use on the donor node for the :ref:`wsrep_node_name <wsrep_node_name>` parameter.
+- **Manual** When the node attempts to join the cluster, it uses the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter to determine which state donor it should use.  If it finds that the state donor it is looking for is not part of the Primary Component, the state transfer fails and the joining node aborts.  For :ref:`wsrep_sst_donor <wsrep_sst_donor>`, use the same name as you use on the :term:`Donor Node` for the :ref:`wsrep_node_name <wsrep_node_name>` parameter.
 
 .. note:: A state transfer is a heavy operation.  This is true not only for the joining node, but also for the donor.  In fact, a state donor may not be able to serve client requests.
 
@@ -96,7 +96,7 @@ There are two options available to determining the state transfer donor:
 
 When a state transfer is in process, the joining node caches write-sets that it receives from other nodes in a slave queue.  Once the state transfer is complete, it applies the write-sets from the slave queue to catch up with the current Primary Component state.  Since the state snapshot carries a state UUID, it is easy to determine which write-sets the snapshot contains and which it should discard.
 
-During the catch-up phase, flow control ensures that the slave queue shortens, (that is, it limits the cluster replication rates to the write-set application rate on the node that is catching up).
+During the catch-up phase, flow control ensures that the slave queue shortens, (that is, it limits the :term:`Cluster Replication` rates to the write-set application rate on the node that is catching up).
 
 While there is no guarantee on how soon a node will catch up, when it does the node status updates to ``SYNCED`` and it begins to accept client connections.
 

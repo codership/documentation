@@ -63,7 +63,7 @@ The :term:`Logical State Transfer Method` has the following advantages:
 
 - These transfers are available on live servers.  In fact, only a fully initialized server can receive a Logical State Snapshot.
 
-- These transfers do not require the receptor node to have the same configuration as the donor node.  This allows you to upgrade storage engine options.
+- These transfers do not require the receptor node to have the same configuration as the :term:`Donor Node`.  This allows you to upgrade storage engine options.
 
   For example, when using this transfer method you can migrate from the Antelope to the Barracuda file format, use compression resize, or move iblog* files from one partition into another.
 
@@ -90,7 +90,7 @@ This transfer method is several times slower than the others on sizable database
 
 On occasion, ``mysqldump`` is the only option available.  For instance, if you upgrade from a cluster using MySQL 5.1 with the built-in InnoDB support to MySQL 5.5, which uses the InnoDB plugin.
 
-The ``mysqldump`` script only runs on the sending node.  The output from the script gets piped to the MySQL client that connects to the joiner node.
+The ``mysqldump`` script only runs on the sending node.  The output from the script gets piped to the MySQL client that connects to the :term:`Joiner Node`.
 
 Because ``mysqldump`` interfaces through the database client, configuring it requires several steps beyond setting the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.  For more information on its configuration, see:
 

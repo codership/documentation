@@ -92,7 +92,7 @@ In order to use this method for backups, you will need to use a script that impl
    $ garbd --address gcomm://192.168.1.2?gmcast.listen_addr=tcp://0.0.0.0:4444 \
      --group example_cluster --donor example_donor --sst backup
 
-This command triggers donor node to invoke a script with the name ``wsrep_sst_backup.sh``, which it looks for in the ``PATH`` for the ``mysqld`` process.  When the donor reaches a well-defined point, a point where no changes are happening to the database, it runs the backup script passing the GTID corresponding to the current database state.
+This command triggers the :term:`Donor Node` to invoke a script with the name ``wsrep_sst_backup.sh``, which it looks for in the ``PATH`` for the ``mysqld`` process.  When the donor reaches a well-defined point, a point where no changes are happening to the database, it runs the backup script passing the GTID corresponding to the current database state.
 
 .. note:: In the command, '``?gmcast.listen_addr=tcp://0.0.0.0:4444``' is an arbitrary listen socket address that Galera Arbitrator opens to communicate with the cluster.  You only need to specify this in the event that the default socket address (i.e., ``0.0.0.0:4567`` is busy).
 

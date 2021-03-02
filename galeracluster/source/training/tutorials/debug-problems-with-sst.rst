@@ -69,7 +69,7 @@ Let’s first consider all the items that play a role in the preparation and con
 
 Galera Cluster supports several different methods for performing SST so, before adding a new node, it is worth examining the alternatives:
 
-- rsync is the default method and requires the least amount of setup. Its disadvantage is that the donor node remains locked for all operations while the SST is in progress.
+- rsync is the default method and requires the least amount of setup. Its disadvantage is that the :term:`Donor Node` remains locked for all operations while the SST is in progress.
 - mysqldump transfers the data in the form of SQL INSERT statements. Such statements can take considerable time to execute on the joining node for any non-trivial dataset size. Some measures can be applied to improve insert performance, however they do not remove the major handicap that the data is transferred row-by-row rather than file-by-file.
 - xtrabackup-v2 uses the Percona XtraBackup tool to obtain a non-blocking snapshot of the donor node and then uses that snapshot to start the joining node. It is a bit more complicated to set up, but, as the donor remains mostly available for queries throughout the process, is the recommended method for any production setup where donor downtime is not acceptable.
 

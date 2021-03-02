@@ -64,7 +64,7 @@ In this article, we will describe the entire process of getting a restarted node
 .. rubric:: Basic Principles
 
 State transfers in Galera are governed by the following basic principles:
-The cluster will pick a donor node using an algorithm that favors IST and attempts to avoid any transfers over a wide-area network. A specific donor can be explicitly chosen using the wsrep_sst_donor variable.
+The cluster will pick a :term:`Donor Node` using an algorithm that favors IST and attempts to avoid any transfers over a wide-area network. A specific donor can be explicitly chosen using the wsrep_sst_donor variable.
 The joiner will declare if IST, SST or both are possible:
 
 If the ``mysqld`` process was shut down and is now being restarted, SST or IST are both possible;

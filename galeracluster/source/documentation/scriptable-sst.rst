@@ -90,7 +90,7 @@ These parameters are passed to all state transfer scripts, regardless of method 
 
    ``--role`` The script is given a string, either ``donor`` or ``joiner``, to indicate whether the node is using it to send or receive a state snapshot transfer.
 
-   ``--address`` The script is given the IP address of the joiner node.
+   ``--address`` The script is given the IP address of the :term:`Joiner Node`.
 
    When the script is run by the joiner, the node uses the value of either the :ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>` parameter or a sensible default formatted as ``<ip_address>:<port>``.   When the script is run by the donor, the node uses the value from the state transfer request.
 
@@ -109,7 +109,7 @@ The values the node passes to these parameters varies depending on whether the n
 .. rst-class:: sub-heading
 .. rubric:: Donor-specific Parameters
 
-These parameters are passed only to state transfer scripts initiated by a node serving as the donor node, regardless of the method being used:
+These parameters are passed only to state transfer scripts initiated by a node serving as the :term:`Donor Node`, regardless of the method being used:
 
 .. rst-class:: verbose-list
 

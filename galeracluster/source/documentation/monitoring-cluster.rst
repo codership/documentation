@@ -166,7 +166,7 @@ You can check cluster integrity using the following status variables:
      | wsrep_cluster_status | Primary |
      +----------------------+---------+
 
-  The node should only return a value of ``Primary``.  Any other value indicates that the node is part of a nonoperational component.  This occurs in cases of multiple membership changes that result in a loss of quorum or in cases of split-brain situations.
+  The node should only return a value of ``Primary``.  Any other value indicates that the node is part of a nonoperational component.  This occurs in cases of multiple membership changes that result in a loss of :term:`Quorum` or in cases of split-brain situations.
 
   .. note:: If you check all nodes in your cluster and find none that return a value of ``Primary``, see :doc:`quorum-reset`.
 

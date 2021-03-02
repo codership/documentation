@@ -71,7 +71,7 @@ When a new node joins a cluster, it will try to synchronize with the cluster by 
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-Suppose a new node joins a cluster |---| this is known as a joiner node.  This is assuming that the node has in fact joined the cluster, but just hasn't been able to synchronize the data with the other nodes.  When it joins the cluster, it will look for another node, known as a donor, to give it a copy of the databases by the :term:`State Snapshot Transfer` (SST) method.  Normally, this starts almost immediately and is completed fairly quickly, depending on the size of the databases and how busy are the nodes.
+Suppose a new node joins a cluster |---| this is known as a :term:`Joiner Node`.  This is assuming that the node has in fact joined the cluster, but just hasn't been able to synchronize the data with the other nodes.  When it joins the cluster, it will look for another node, known as a donor, to give it a copy of the databases by the :term:`State Snapshot Transfer` (SST) method.  Normally, this starts almost immediately and is completed fairly quickly, depending on the size of the databases and how busy are the nodes.
 
 Suppose further that an excessive amount of time passes without the SST starting. This can be disconcerting. To see what's going on, you could check the database server's error log, on the joiner node. It may contain a message like this:
 

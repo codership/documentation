@@ -197,7 +197,7 @@ Configurations for ``clone`` are handled through the ``my.cnf`` configuration fi
     ssl-ca= /path/to/ca.pem
     ssl-mode= VERIFY_CA
 
-Client SSL configuration on Donor node must match server SSL configuration
+Client SSL configuration on :term:`Donor Node` must match server SSL configuration
 on Joiner. (That means: mysql client using client SSL configuration from
 Joiner should be able to connect to server on Donor) Client SSL configuration
 on Joiner must match CLONE SSL configuration on donor. If CLONE plugin on

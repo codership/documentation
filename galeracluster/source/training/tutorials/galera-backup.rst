@@ -253,7 +253,7 @@ Galera Arbitrator can receive a request to make a back-up, manually from the com
 
 The Arbitrator chooses a node to be the donor |---| unless we tell it which to use. That node is then desynced. Incidentally, the back-up can be requested from any node in the cluster, and any node can be used to make the back-up.
 
-The donor node will then execute the back-up script.  We’ll have to create such a script to use whatever tools we prefer and back-up how and where we want. Once the back-up is completed, the node will be re-synchronized.
+The :term:`Donor Node` will then execute the back-up script.  We’ll have to create such a script to use whatever tools we prefer and back-up how and where we want. Once the back-up is completed, the node will be re-synchronized.
 
 Let’s take a look at how to configure Galera Arbitrator. Then we’ll look at how to create a back-up script.
 

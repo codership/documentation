@@ -57,7 +57,7 @@
 
 
    Galera Arbitrator
-      An external process that functions as an additional node in certain cluster operations, such as quorum calculations and generating consistent application state snapshots.
+      An external process that functions as an additional node in certain cluster operations, such as :term:`Quorum` calculations and generating consistent application state snapshots.
 
       For example, consider a situation where your cluster becomes partitioned due to a loss of network connectivity that results in two components of equal size.  Each component initiates quorum calculations to determine which should remain the :term:`Primary Component` and which should become a non-operational component.  If the components are of equal size, it risks a split-brain condition.  Galera Arbitrator provides an addition vote in the quorum calculation, so that one component registers as larger than the other.  The larger component then remains the Primary Component.
 
@@ -162,3 +162,24 @@
       The wsrep API is a generic replication plugin interface for databases.  The API defines a set of application callbacks and replication plugin calls.
 
       For more information, see :ref:`wsrep API <wsrep-api>`.
+
+   Cluster Replication
+      Normal replication path for cluster members. Can be encrypted (not by default) and unicast or multicast (unicast by default). Runs on tcp port 4567 by default.
+	  
+   Donor Node
+      The node elected to provide a state transfer (:term:`SST` or :term:`IST`).
+	  
+   Joiner Node
+      The node joining the cluster, usually a state transfer target.
+	  
+   Node
+      A cluster node – a single mysql instance that is in the cluster.
+	  
+   Primary Cluster
+      A cluster with quorum. A non-primary cluster will not allow any operations and will give ``Unknown command`` errors on any clients attempting to read or write from the database.
+	  
+   Quorum
+      A majority (> 50%) of nodes. In the event of a network partition, only the cluster partition that retains a quorum (if any) will remain Primary by default.
+	  
+   Split Brain
+      Split brain occurs when two parts of a computer cluster are disconnected, each part believing that the other is no longer running. This problem can lead to data inconsistency.

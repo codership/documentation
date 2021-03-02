@@ -113,7 +113,7 @@ With a better grasp on how replication works, these pages provide a more detaile
 
 - :doc:`weighted-quorum`
 
-  When nodes connect to each other, they form components.  The Primary Component is a component that has quorum: it carries the majority of nodes in the cluster.  By default, each node represents one vote in quorum calculations. However, you can modify this feature in order to ensure certain stable nodes with strong connections carry a greater value.  This section provides an overview of how Galera Cluster handles weighted values in quorum calculations.
+  When nodes connect to each other, they form components.  The Primary Component is a component that has :term:`Quorum`: it carries the majority of nodes in the cluster.  By default, each node represents one vote in quorum calculations. However, you can modify this feature in order to ensure certain stable nodes with strong connections carry a greater value.  This section provides an overview of how Galera Cluster handles weighted values in quorum calculations.
 
 - :doc:`streaming-replication`
 

@@ -64,7 +64,7 @@ If you have any suggestions for new FAQs, please email us at library@galeraclust
 
 .. rst-class:: list-abstract
 
-   A plugin that allows synchronous multi-master replication for InnoDB tables. It works differently from the standard MySQL replication, which provides Master and Slave structure. The Galera Cluster replication is able to manage true parallel read and write to any cluster node, managing conflicts using a Global Transaction ID mechanism.
+   A plugin that allows synchronous multi-master replication for InnoDB tables. It works differently from the standard MySQL replication, which provides Master and Slave structure. The Galera :term:`Cluster Replication` is able to manage true parallel read and write to any cluster node, managing conflicts using a Global Transaction ID mechanism.
 
 
 .. _`faq-pending-2`:
@@ -202,7 +202,7 @@ No new  questions in this category.
 
 .. rst-class:: list-abstract
 
-   To prevent a peculiar condition called split-brain. Galera Cluster uses a "quorum" mechanism every time suspects a problem on a node and so decide whether or not to exclude it from the cluster. In a 2-node cluster there would not be the majority to make these kinds of decisions. Moreover if a node is excluded, on his return on the cluster, another node may not be available to transfer data because it is busy with an another data alignment. Whereas two of the members are involved in this operation, the presence of the third continues to serve client requests.
+   To prevent a peculiar condition called split-brain. Galera Cluster uses a ":term:`Quorum`" mechanism every time suspects a problem on a node and so decide whether or not to exclude it from the cluster. In a 2-node cluster there would not be the majority to make these kinds of decisions. Moreover if a node is excluded, on his return on the cluster, another node may not be available to transfer data because it is busy with an another data alignment. Whereas two of the members are involved in this operation, the presence of the third continues to serve client requests.
 
 
 

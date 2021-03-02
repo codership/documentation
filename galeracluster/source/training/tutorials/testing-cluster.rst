@@ -130,7 +130,7 @@ The results returned  from the ``SELECT`` statement indicates that the data ente
 .. rst-class:: section-heading
 .. rubric:: Split-Brain Testing
 
-There are a few steps to test Galera Cluster for split-brain situations on a two-node cluster.  First, disconnect the network connection between the two nodes. At this point, the quorum will be lost and the nodes won't serve requests.
+There are a few steps to test Galera Cluster for split-brain situations on a two-node cluster.  First, disconnect the network connection between the two nodes. At this point, the :term:`Quorum` will be lost and the nodes won't serve requests.
 
 Now, reconnect the network connection.  The quorum will remain lost and the nodes still won't serve requests.
 
