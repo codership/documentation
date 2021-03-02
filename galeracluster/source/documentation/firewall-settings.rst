@@ -56,7 +56,7 @@ Galera Cluster requires a number of ports to maintain network connectivity betwe
 
 - ``3306`` is the default port for MySQL client connections and :term:`State Snapshot Transfer` using ``mysqldump`` for backups.
 
-- ``4567`` is reserved for Galera Cluster replication traffic. Multicast replication uses both TCP and UDP transport on this port.
+- ``4567`` is reserved for Galera :term:`Cluster Replication` traffic. Multicast replication uses both TCP and UDP transport on this port.
 
 - ``4568`` is the port for :term:`Incremental State Transfer`.
 

@@ -61,7 +61,7 @@ The :term:`Physical State Transfer Method` has the following advantages:
 
 - These transfers physically copy the data from one node to the disk of the other, and as such do not need to interact with the database server at either end.
 
-- These transfers do not require the database to be in working condition, as the donor node overwrites what was previously on the joining node disk.
+- These transfers do not require the database to be in working condition, as the :term:`Donor Node` overwrites what was previously on the joining node disk.
 
 - These transfers are faster.
 

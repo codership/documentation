@@ -94,7 +94,7 @@ You can choose from two conceptually different approaches in Galera Cluster to t
 
 - **Logical** This method uses ``mysqldump``.  It requires that you fully initialize the receiving server and ready it to accept connections *before* the transfer.
 
-  This is a blocking method.  The donor node becomes ``READ-ONLY`` for the duration of the transfer.  The State Snapshot Transfer applies the ``FLUSH TABLES WITH READ LOCK`` command on the donor node.
+  This is a blocking method.  The :term:`Donor Node` becomes ``READ-ONLY`` for the duration of the transfer.  The State Snapshot Transfer applies the ``FLUSH TABLES WITH READ LOCK`` command on the donor node.
 
   ``mysqldump`` is the slowest method for State Snapshot Transfers.  This can be an issue in a loaded cluster.
 
@@ -128,7 +128,7 @@ In an :term:`Incremental State Transfer` (IST), the cluster provisions a node by
 
 This provisioning method is only available under certain conditions:
 
-- Where the joiner node :term:`state UUID` is the same as that of the group.
+- Where the :term:`Joiner Node` :term:`state UUID` is the same as that of the group.
 
 - Where all missing write-sets are available in the donor's write-set cache.
 

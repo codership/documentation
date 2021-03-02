@@ -100,7 +100,7 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
 .. rst-class:: section-heading
 .. rubric:: ``compressor``
 
-Defines the compression utility the donor node uses to compress the state transfer.
+Defines the compression utility the :term:`Donor Node` uses to compress the state transfer.
 
 .. csv-table::
    :class: doc-options
@@ -111,7 +111,7 @@ Defines the compression utility the donor node uses to compress the state transf
    "**Permitted Values**", "Type:", "String"
    "", "Default Value:", ""
 
-This parameter defines whether the donor node performs compression on the state transfer stream.  It also defines what compression utility it uses to perform the operation.  You can use any compression utility which works on a stream, such as ``gzip`` or ``pigz``.  Given that the joiner node must decompress the state transfer before attempting to read it, you must match this parameter with the :ref:`decompressor <xtra-decompressor>` parameter, using the appropriate flags for each.
+This parameter defines whether the donor node performs compression on the state transfer stream.  It also defines what compression utility it uses to perform the operation.  You can use any compression utility which works on a stream, such as ``gzip`` or ``pigz``.  Given that the :term:`Joiner Node` must decompress the state transfer before attempting to read it, you must match this parameter with the :ref:`decompressor <xtra-decompressor>` parameter, using the appropriate flags for each.
 
 .. code-block:: ini
 

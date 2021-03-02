@@ -67,11 +67,11 @@ State Snapshot Transfers
 
 When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node, known as the joiner.
 
-You can designate in advance which node should be the donor with the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter. If you don't set the donor node, the *Group Communication* module will select a donor based on the information available about the node states.
+You can designate in advance which node should be the donor with the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter. If you don't set the :term:`Donor Node`, the *Group Communication* module will select a donor based on the information available about the node states.
 
-Group Communication monitors node states for the purposes of flow control, state transfers and quorum calculations.  It ensures that a node that shows as ``JOINING`` doesn't count towards flow control and quorum.
+Group Communication monitors node states for the purposes of flow control, state transfers and :term:`Quorum` calculations.  It ensures that a node that shows as ``JOINING`` doesn't count towards flow control and quorum.
 
-A node can serve as a donor when it is in the ``SYNCED`` state.  The joiner node selects a donor from the available synced nodes.  It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option, or it selects the first in the index.  When a donor node is chosen, its state changes immediately to ``DONOR``. It's no longer available for requests.
+A node can serve as a donor when it is in the ``SYNCED`` state.  The :term:`Joiner Node` selects a donor from the available synced nodes.  It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option, or it selects the first in the index.  When a donor node is chosen, its state changes immediately to ``DONOR``. It's no longer available for requests.
 
 
 .. _`sst-methods`:

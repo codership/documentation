@@ -87,7 +87,7 @@ You can see if this is happening by executing the ``SHOW STATUS`` statement and 
    | wsrep_cluster_status | Primary |
    +----------------------+---------+
 
-The return value ``Primary`` indicates that the node on which it was executed is part of the Primary Component.  When the query returns any other value it indicates that the node is part of a non-operational component.  If none of the nodes return the value ``Primary``, you need to reset the quorum.
+The return value ``Primary`` indicates that the node on which it was executed is part of the Primary Component.  When the query returns any other value it indicates that the node is part of a non-operational component.  If none of the nodes return the value ``Primary``, you need to reset the :term:`Quorum`.
 
 Situations in which none of the nodes show they are part of the Primary Component are very rare.  If you discover one or more nodes wtih a value ``Primary``, it may indicate a problem with network connectivity, rather than a need to reset the quorum.  Investigate the connection possibility.  Once the nodes regain network connectivity they automatically resynchronize with the Primary Component.
 

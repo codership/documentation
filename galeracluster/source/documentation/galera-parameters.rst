@@ -1200,7 +1200,7 @@ Should the rest of the cluster keep in sync with the donor? ``YES`` means that i
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-If you choose to use value ``YES``, it is theoretically possible that the donor node cannot keep up with the rest of the cluster due to the extra load from the SST. If the node lags behind, it may send flow control messages stalling the whole cluster. However, you can monitor this using the :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` status variable.
+If you choose to use value ``YES``, it is theoretically possible that the :term:`Donor Node` cannot keep up with the rest of the cluster due to the extra load from the SST. If the node lags behind, it may send flow control messages stalling the whole cluster. However, you can monitor this using the :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` status variable.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1527,7 +1527,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.ignore_sb
 
-Should we allow nodes to process updates even in the case of split brain? This is a dangerous setting in multi-master setup, but should simplify things in master-slave cluster (especially if only 2 nodes are used).
+Should we allow nodes to process updates even in the case of :term:`Split Brain`? This is a dangerous setting in multi-master setup, but should simplify things in master-slave cluster (especially if only 2 nodes are used).
 
 .. csv-table::
    :class: doc-options
@@ -1550,7 +1550,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.ignore_quorum
 
-Completely ignore quorum calculations. For example if the master splits from several slaves it still remains operational. Use with extreme caution even in master-slave setups, as slaves will not automatically reconnect to master in this case.
+Completely ignore :term:`Quorum` calculations. For example if the master splits from several slaves it still remains operational. Use with extreme caution even in master-slave setups, as slaves will not automatically reconnect to master in this case.
 
 .. csv-table::
    :class: doc-options

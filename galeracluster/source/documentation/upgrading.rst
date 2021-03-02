@@ -90,7 +90,7 @@ Some of the disadvantages to consider in rolling upgrades are:
 
    During the State Snapshot Transfer, the node continues to accumulate catch-up in the replication event queue, which it will then have to replay to synchronize with the cluster.  At the same time, the cluster is operational and continues to add further replication events to the queue.
 
-   **Blocking Nodes** When the node comes back online, if you use ``mysqldump`` for State Snapshot Transfers, the donor node remains blocked for the duration of the transfer.  In practice, this means that the cluster is short two nodes for the duration of the state transfer, one for the donor node and one for the node in catch-up.
+   **Blocking Nodes** When the node comes back online, if you use ``mysqldump`` for State Snapshot Transfers, the :term:`Donor Node` remains blocked for the duration of the transfer.  In practice, this means that the cluster is short two nodes for the duration of the state transfer, one for the donor node and one for the node in catch-up.
 
    Using ``xtrabackup`` or ``rsync`` with the LVM state transfer methods, you can avoid blocking the donor, but doing so may slow the donor node down.
 
@@ -116,7 +116,7 @@ Assuming you've read and considered the above, below are the steps for upgrading
 
    - When you've finished updating the database and Galera software, start the node. Check that it has successfully joined the cluster and finished synchronizing before beginning the process to upgrade another node in the cluster.
 
-.. tip:: If you upgrade a node that will be part of a weighted quorum, set the initial node weight to zero.  This guarantees that if the joining node should fail before it finishes synchronizing, it won't affect any quorum computations that follow.
+.. tip:: If you upgrade a node that will be part of a weighted :term:`Quorum`, set the initial node weight to zero.  This guarantees that if the joining node should fail before it finishes synchronizing, it won't affect any quorum computations that follow.
 
 
 .. _`rolling-upgrade-major-versions`:

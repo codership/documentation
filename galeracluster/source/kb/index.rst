@@ -90,7 +90,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-abstract
 
-      If a donor node crashes while using ``rsync`` for a state transfers, the joiner node may stall with incomplete databases, and be inaccessibe. This article discusses how to resolve this.
+      If a :term:`Donor Node` crashes while using ``rsync`` for a state transfers, the :term:`Joiner Node` may stall with incomplete databases, and be inaccessibe. This article discusses how to resolve this.
 
 
    .. rst-class:: rubric-2 list-sub-header

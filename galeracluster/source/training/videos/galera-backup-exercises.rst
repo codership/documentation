@@ -143,7 +143,7 @@ For the exercises in this section and the remaining sections, you won’t need t
 
 .. rst-class:: list-exercises
 
-8. Create a configuration file for Galera Arbitrator (see link at the top under Student Materials for an example).  Write a simple back-up script that will use ``rsync`` |---| or use the one linked above. Execute it using ``garbd`` from the command-line. As soon as it starts, check the status of the donor node for comments to see if it’s desynced during the back-up.
+8. Create a configuration file for Galera Arbitrator (see link at the top under Student Materials for an example).  Write a simple back-up script that will use ``rsync`` |---| or use the one linked above. Execute it using ``garbd`` from the command-line. As soon as it starts, check the status of the :term:`Donor Node` for comments to see if it’s desynced during the back-up.
 
 9. Write another simple back-up script that will use ``mysqldump`` and execute it. Make sure it gives a different name to the back-up file than in the previous exercise.
 
