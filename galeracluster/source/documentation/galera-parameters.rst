@@ -909,7 +909,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="gcache.page_size=128Mb"
+   wsrep_provider_options="gcache.page_size=128M"
 
 
 .. _`gcache.recover`:
@@ -959,7 +959,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="gcache.size=128Mb"
+   wsrep_provider_options="gcache.size=128M"
 
 For more information on customizing the write-set cache, see the :doc:`Best Practice Articles <../kb/index>`.
 
