@@ -110,9 +110,9 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`gcache.dir <gcache.dir>`", "working directory", "  No", "", "1.0"
    ":ref:`gcache.name <gcache.name>`", "``galera.cache``", "  No", "", "1.0"
    ":ref:`gcache.keep_pages_size <gcache.keep_pages_size>`", "``0``", "  No", "", "1.0"
-   ":ref:`gcache.page_size <gcache.page_size>`", "``128Mb``", "  No", "", "1.0"
+   ":ref:`gcache.page_size <gcache.page_size>`", "``128M``", "  No", "", "1.0"
    ":ref:`gcache.recover <gcache.recover>`", "``no``", "  No", "", "3.19"
-   ":ref:`gcache.size <gcache.size>`", "``128Mb``", "  No", "", "1.0"
+   ":ref:`gcache.size <gcache.size>`", "``128M``", "  No", "", "1.0"
    ":ref:`gcomm.thread_prio <gcomm.thread_prio>`", "", "  No", "", "3.0"
    ":ref:`gcs.fc_debug <gcs.fc_debug>`", "``0``", "  No", "", "1.0"
    ":ref:`gcs.fc_factor <gcs.fc_factor>`", "``1.0``", "  No", "", "1.0"
@@ -909,7 +909,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="gcache.page_size=128Mb"
+   wsrep_provider_options="gcache.page_size=128M"
 
 
 .. _`gcache.recover`:
@@ -959,7 +959,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="gcache.size=128Mb"
+   wsrep_provider_options="gcache.size=128M"
 
 For more information on customizing the write-set cache, see the :doc:`Best Practice Articles <../kb/index>`.
 
