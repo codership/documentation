@@ -57,7 +57,7 @@
 Crash Recovery
 ============================
 
-A Galera Cluster works are one logical entity, controlling the status and consistency of its nodes as well as the status of the whole cluster. This allows maintaining the data integrity more efficiently than with asynchronous replication, without losing safe writes on multiple nodes at the same time.
+A Galera Cluster works as one logical entity, controlling the status and consistency of its nodes as well as the status of the whole cluster. This allows maintaining the data integrity more efficiently than with asynchronous replication, without losing safe writes on multiple nodes at the same time.
 
 Nevertheless, scenarios may occur where the database service can stop with no node being able to serve requests. These scenarios are described in the sections that follow.
 
@@ -66,18 +66,18 @@ Nevertheless, scenarios may occur where the database service can stop with no no
 .. rst-class:: section-heading
 .. rubric:: Node A Is Gracefully Stopped
 
-In a three node cluster (node A, Node B, node C), node A is gracefully stopped, for the purpose of maintenance, configuration change and so on.
+In a three-node cluster (nodes A, B and C), node A is gracefully stopped, for the purpose of maintenance, configuration change and so on.
 
-In this case, the other nodes receive a “good bye” message from the stopped node and the cluster size is reduced; some properties like quorum calculation or auto increment are automatically changed. As soon as node A is started again, it joins the cluster based on its ``wsrep_cluster_address`` variable in ``my.cnf``.
+In this case, the other nodes receive a “good bye” message from the stopped node and the cluster size is reduced; some properties like :term:`Quorum` calculation or auto increment are automatically changed. As soon as node A is started again, it joins the cluster based on its ``wsrep_cluster_address`` variable in ``my.cnf``.
 
-If the writeset cache (``gcache.size``) on nodes B and/or C still has all the transactions executed while node A was down, joining is possible through :term:`IST`. If IST is impossible due to missing transactions in donor’s gcache, the fallback decision is made by the donor and :term:`SST` is started automatically.
+If the writeset cache (``gcache.size``) on nodes B and/or C still has all the transactions executed while node A was down, joining is possible through :term:`IST`. If IST is impossible due to missing transactions in donor’s gcache, the fallback decision is made by the donor, and :term:`SST` is started automatically.
 
 
 .. _`two-nodes-are-gracefully-stopped`:
 .. rst-class:: section-heading
 .. rubric:: Two Nodes Are Gracefully Stopped
 
-As in :ref:`Node A Is Gracefully Stopped <node-a-is-gracefully-stopped>`, the cluster size is reduced to 1 — even the single remaining node C forms the primary component and can serve client requests. To get the nodes back into the cluster, you just have to start them.
+As in :ref:`Node A Is Gracefully Stopped <node-a-is-gracefully-stopped>`, the cluster size is reduced to 1, even the single remaining node C forms the primary component and can serve client requests. To get the nodes back into the cluster, you just have to start them.
 
 However, when a new node joins the cluster, node C will be switched to the “Donor/Desynced” state, as it has to provide the state transfer at least to the first joining node. It is still possible to read/write to it during that process, but it may be much slower, which depends on how large amount of data should be sent during the state transfer. Also, some load balancers may consider the donor node as not operational and remove it from the pool. So, it is best to avoid the situation when only one node is up.
 
@@ -92,7 +92,7 @@ If you restart node A and then node B, ensure that node B does not use node A as
 .. rst-class:: section-heading
 .. rubric:: All Three Nodes Are Gracefully Stopped
 
-The cluster is completely stopped and the problem is to initialize it again. It is important that a node writes its last executed position to the ``grastate.dat`` file.
+The cluster is completely stopped and the problem is how to initialize it again. It is important that a node writes its last executed position to the ``grastate.dat`` file.
 
 By comparing the seqno number in this file, you can see which is the most advanced node (most likely the last stopped). The cluster must be bootstrapped using this node, otherwise nodes that had a more advanced position will have to perform the full SST to join the cluster initialized from the less advanced one. As a result, some transactions will be lost). To bootstrap the first node, invoke the startup script like this:
 
@@ -100,7 +100,7 @@ By comparing the seqno number in this file, you can see which is the most advanc
 
    $ systemctl start mysql@bootstrap.service
 
-.. note:: Even though you bootstrap from the most advanced node, the other nodes have a lower sequence number. They will still have to join via the full SST because the Galera Cache is not retained on restart.
+.. note:: Even though you bootstrap from the most advanced node, the other nodes have a lower sequence number. They will still have to join through the full SST, as the Galera Cache is not retained on restart.
           For this reason, it is recommended to stop writes to the cluster before its full shutdown, so that all nodes can stop at the same position. See also :ref:`pc.recovery <pc.recovery>`.
 
 
@@ -108,7 +108,7 @@ By comparing the seqno number in this file, you can see which is the most advanc
 .. rst-class:: section-heading
 .. rubric:: One Node Disappears from the CLuster
 
-This is the case when one node becomes unavailable due to power outage, hardware failure, kernel panic, mysqld crash, ``kill -9`` on mysqld pid, and so on.
+This is the case when one node becomes unavailable due to, for example, power outage, hardware failure, kernel panic, mysqld crash or ``kill -9`` on mysqld pid.
 
 The two remaining nodes notice the connection to node A is down and start trying to re-connect to it. After several timeouts, node A is removed from the cluster. The quorum is saved (2 out of 3 nodes are up), so no service disruption happens. After it is restarted, node A joins automatically, as described in :ref:`Node A Is Gracefully Stopped <node-a-is-gracefully-stopped>`.
 
@@ -117,7 +117,7 @@ The two remaining nodes notice the connection to node A is down and start trying
 .. rst-class:: section-heading
 .. rubric:: Two Nodes Disappear from the Cluster
 
-Two nodes are not available and the remaining node (node C) is not able to form the quorum alone. The cluster has to switch to a non-primary mode, where MySQL refuses to serve any SQL queries. In this state, the "mysqld" process on node C is still running and can be connected to but any statement related to data fails with an error.
+Two nodes are not available and the remaining node (node C) is not able to form the quorum alone. The cluster has to switch to a non-primary mode, where MySQL refuses to serve any SQL queries. In this state, the "mysqld" process on node C is still running and can be connected to, but any statement related to data fails with an error.
 
 .. code-block:: mysql
 
@@ -198,7 +198,7 @@ We can see a three node cluster with all members being up. Thanks to this featur
 .. rst-class:: section-heading
 .. rubric:: The cluster loses its primary state due to split brain
 
-Let’s assume that we have a cluster that consists of an even number of nodes: six, for example. Three of them are in one location while the other three are in another location and they lose network connectivity. It is best practice to avoid such topology: if you cannot have an odd number of real nodes, you can use an additional arbitrator (garbd) node or set a higher ``pc.weight`` to some nodes. But when the :term:`Split Brain` happens any way, none of the separated groups can maintain the :term:`Quorum`: all nodes must stop serving requests and both parts of the cluster will be continuously trying to re-connect.
+Let’s assume that we have a cluster that consists of an even number of nodes: six, for example. Three of them are in one location while the other three are in another location and they lose network connectivity. It is best practice to avoid such topology: if you cannot have an odd number of real nodes, you can use an additional arbitrator (garbd) node or set a higher ``pc.weight`` to some nodes. But when the :term:`Split Brain` happens any way, none of the separated groups can maintain the quorum: all nodes must stop serving requests and both parts of the cluster will be continuously trying to re-connect.
 
 If you want to restore the service even before the network link is restored, you can make one of the groups primary again using the same command as described in :ref:`Two Nodes Disappear from the Cluster <two-nodes-disappear-from-the-cluster>`.
 
@@ -206,7 +206,7 @@ If you want to restore the service even before the network link is restored, you
 
    SET GLOBAL wsrep_provider_options='pc.bootstrap=true';
 
-After this, you are able to work on the manually restored part of the cluster, and the other half should be able to automatically re-join using IST as soon as the network link is restored.
+After this, you are able to work on the manually restored part of the cluster, and the other half should be able to automatically re-join using IST, as soon as the network link is restored.
 
 .. warning:: If you set the bootstrap option on both the separated parts, you will end up with two living cluster instances, with data likely diverging away from each other. Restoring a network link in this case will not make them re-join until the nodes are restarted and members specified in configuration file are connected again.
              Then, as the Galera replication model truly cares about data consistency: once the inconsistency is detected, nodes that cannot execute row change statement due to a data difference – an emergency shutdown will be performed and the only way to bring the nodes back to the cluster is through the full SST.
