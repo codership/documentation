@@ -64,24 +64,24 @@ Nevertheless, scenarios may occur where the database service can stop with no no
 
 .. _`node-a-is-gracefully-stopped`:
 .. rst-class:: section-heading
-.. rubric:: Node A Is Gracefully Stopped
+.. rubric:: Node 1 Is Gracefully Stopped
 
-In a three-node cluster (nodes A, B and C), node A is gracefully stopped, for the purpose of maintenance, configuration change and so on.
+In a three-node cluster (nodes 1, 2 and 3), node 1 is gracefully stopped, for the purpose of maintenance, configuration change and so on.
 
-In this case, the other nodes receive a “good bye” message from the stopped node and the cluster size is reduced; some properties like :term:`Quorum` calculation or auto increment are automatically changed. As soon as node A is started again, it joins the cluster based on its ``wsrep_cluster_address`` variable in ``my.cnf``.
+In this case, the other nodes receive a “good bye” message from the stopped node and the cluster size is reduced; some properties like :term:`Quorum` calculation or auto increment are automatically changed. As soon as node 1 is started again, it joins the cluster based on its ``wsrep_cluster_address`` variable in ``my.cnf``.
 
-If the writeset cache (``gcache.size``) on nodes B and/or C still has all the transactions executed while node A was down, joining is possible through :term:`IST`. If IST is impossible due to missing transactions in donor’s gcache, the fallback decision is made by the donor, and :term:`SST` is started automatically.
+If the writeset cache (``gcache.size``) on nodes 2 and/or 3 still has all the transactions executed while node 1 was down, joining is possible through :term:`IST`. If IST is impossible due to missing transactions in donor’s gcache, the fallback decision is made by the donor, and :term:`SST` is started automatically.
 
 
 .. _`two-nodes-are-gracefully-stopped`:
 .. rst-class:: section-heading
 .. rubric:: Two Nodes Are Gracefully Stopped
 
-As in :ref:`Node A Is Gracefully Stopped <node-a-is-gracefully-stopped>`, the cluster size is reduced to 1, even the single remaining node C forms the primary component and can serve client requests. To get the nodes back into the cluster, you just have to start them.
+As in :ref:`Node 1 Is Gracefully Stopped <node-a-is-gracefully-stopped>`, the cluster size is reduced to 1, even the single remaining node 3 forms the primary component and can serve client requests. To get the nodes back into the cluster, you just have to start them.
 
-However, when a new node joins the cluster, node C will be switched to the “Donor/Desynced” state, as it has to provide the state transfer at least to the first joining node. It is still possible to read/write to it during that process, but it may be much slower, which depends on how large amount of data should be sent during the state transfer. Also, some load balancers may consider the donor node as not operational and remove it from the pool. So, it is best to avoid the situation when only one node is up.
+However, when a new node joins the cluster, node 3 will be switched to the “Donor/Desynced” state, as it has to provide the state transfer at least to the first joining node. It is still possible to read/write to it during that process, but it may be much slower, which depends on how large amount of data should be sent during the state transfer. Also, some load balancers may consider the donor node as not operational and remove it from the pool. So, it is best to avoid the situation when only one node is up.
 
-If you restart node A and then node B, ensure that node B does not use node A as the state transfer donor: node A may not have all the needed writesets in its gcache. Specify node C node as the donor in your configuration file and start the ``mysql`` service:
+If you restart node 1 and then node 2, ensure that node 2 does not use node 1 as the state transfer donor: node 1 may not have all the needed writesets in its gcache. Specify node 3 node as the donor in your configuration file and start the ``mysql`` service:
 
 .. code-block:: mysql
 
@@ -96,9 +96,24 @@ The cluster is completely stopped and the problem is how to initialize it again.
 
 By comparing the seqno number in this file, you can see which is the most advanced node (most likely the last stopped). The cluster must be bootstrapped using this node, otherwise nodes that had a more advanced position will have to perform the full SST to join the cluster initialized from the less advanced one. As a result, some transactions will be lost). To bootstrap the first node, invoke the startup script like this:
 
+For MySQL:
+
+.. code-block:: mysql
+
+   $ mysqld_bootstrap --wsrep-new-cluster
+
+For PXC:
+
 .. code-block:: mysql
 
    $ systemctl start mysql@bootstrap.service
+
+For MariaDB:
+
+.. code-block:: mysql
+
+   $ galera_new_cluster
+
 
 .. note:: Even though you bootstrap from the most advanced node, the other nodes have a lower sequence number. They will still have to join through the full SST, as the Galera Cache is not retained on restart.
           For this reason, it is recommended to stop writes to the cluster before its full shutdown, so that all nodes can stop at the same position. See also :ref:`pc.recovery <pc.recovery>`.
@@ -110,25 +125,25 @@ By comparing the seqno number in this file, you can see which is the most advanc
 
 This is the case when one node becomes unavailable due to, for example, power outage, hardware failure, kernel panic, mysqld crash or ``kill -9`` on mysqld pid.
 
-The two remaining nodes notice the connection to node A is down and start trying to re-connect to it. After several timeouts, node A is removed from the cluster. The quorum is saved (2 out of 3 nodes are up), so no service disruption happens. After it is restarted, node A joins automatically, as described in :ref:`Node A Is Gracefully Stopped <node-a-is-gracefully-stopped>`.
+The two remaining nodes notice the connection to node 1 is down and start trying to re-connect to it. After several timeouts, node 1 is removed from the cluster. The quorum is saved (two out of three nodes are up), so no service disruption happens. After it is restarted, node 1 joins automatically, as described in :ref:`Node 1 Is Gracefully Stopped <node-a-is-gracefully-stopped>`.
 
 
 .. _`two-nodes-disappear-from-the-cluster`:
 .. rst-class:: section-heading
 .. rubric:: Two Nodes Disappear from the Cluster
 
-Two nodes are not available and the remaining node (node C) is not able to form the quorum alone. The cluster has to switch to a non-primary mode, where MySQL refuses to serve any SQL queries. In this state, the "mysqld" process on node C is still running and can be connected to, but any statement related to data fails with an error.
+Two nodes are not available and the remaining node (node 3) is not able to form the quorum alone. The cluster has to switch to a non-primary mode, where MySQL refuses to serve any SQL queries. In this state, the "mysqld" process on node 3 is still running and can be connected to, but any statement related to data fails with an error.
 
 .. code-block:: mysql
 
    mysql> select * from test.sbtest1;
    ERROR 1047 (08S01): WSREP has not yet prepared node for application use
 
-Reads are possible until node C decides that it cannot access node A and node B. New writes are forbidden.
+Reads are possible until node 3 decides that it cannot access node 1 and node 2. New writes are forbidden.
 
-As soon as the other nodes become available, the cluster is formed again automatically. If node B and node C were just network-severed from node A, but they can still reach each other, they will keep functioning as they still form the quorum.
+As soon as the other nodes become available, the cluster is formed again automatically. If node 2 and node 3 were just network-severed from node 1, but they can still reach each other, they will keep functioning as they still form the quorum.
 
-If node A and node B crashed, you need to enable the primary component on node C manually, before you can bring up node A and node B. The command to do this is:
+If node 1 and node 2 crashed, you need to enable the primary component on node 3 manually, before you can bring up node 1 and node 2. The command to do this is:
 
 .. code-block:: mysql
 
@@ -196,7 +211,7 @@ We can see a three node cluster with all members being up. Thanks to this featur
 
 .. _`the-cluster-loses-its-primary-state-due-to-split-brain`:
 .. rst-class:: section-heading
-.. rubric:: The cluster loses its primary state due to split brain
+.. rubric:: The Cluster Loses its Primary State Due to Split Brain
 
 Let’s assume that we have a cluster that consists of an even number of nodes: six, for example. Three of them are in one location while the other three are in another location and they lose network connectivity. It is best practice to avoid such topology: if you cannot have an odd number of real nodes, you can use an additional arbitrator (garbd) node or set a higher ``pc.weight`` to some nodes. But when the :term:`Split Brain` happens any way, none of the separated groups can maintain the quorum: all nodes must stop serving requests and both parts of the cluster will be continuously trying to re-connect.
 
@@ -211,5 +226,7 @@ After this, you are able to work on the manually restored part of the cluster, a
 .. warning:: If you set the bootstrap option on both the separated parts, you will end up with two living cluster instances, with data likely diverging away from each other. Restoring a network link in this case will not make them re-join until the nodes are restarted and members specified in configuration file are connected again.
              Then, as the Galera replication model truly cares about data consistency: once the inconsistency is detected, nodes that cannot execute row change statement due to a data difference – an emergency shutdown will be performed and the only way to bring the nodes back to the cluster is through the full SST.
 
+
+This article is based on the blog post Galera replication - how to recover a PXC cluster by Przemysław Malkowski: `Galera replication – how to recover a PXC cluster <https://www.percona.com/blog/2014/09/01/galera-replication-how-to-recover-a-pxc-cluster/>`_
 
 .. container:: bottom-links
