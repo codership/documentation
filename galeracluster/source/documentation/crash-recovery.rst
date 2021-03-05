@@ -121,7 +121,7 @@ For MariaDB:
 
 .. _`one-node-disappears-from-the-cluster`:
 .. rst-class:: section-heading
-.. rubric:: One Node Disappears from the CLuster
+.. rubric:: One Node Disappears from the Cluster
 
 This is the case when one node becomes unavailable due to, for example, power outage, hardware failure, kernel panic, mysqld crash or ``kill -9`` on mysqld pid.
 
