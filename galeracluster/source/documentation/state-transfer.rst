@@ -152,7 +152,7 @@ The advantage of Incremental State Transfers is that they can dramatically speed
 
 .. note:: The most important parameter for Incremental State Transfers is ``gcache.size`` on the donor node.  This controls how much space you allocate in system memory for caching write-sets.  The more space available the more write-sets you can store.  The more write-sets you can store the wider the seqno gaps you can close through Incremental State Transfers.
 
-   On the other hand, if the write-set cache is much larger than the size of your database state, Incremental State Transfers begun less efficient than sending a state snapshot.
+   On the other hand, if the write-set cache is much larger than the size of your database state, Incremental State Transfers become less efficient than sending a state snapshot.
 
 
 .. _`state-transfer-gcache`:
