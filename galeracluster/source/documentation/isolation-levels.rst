@@ -110,7 +110,7 @@ However, at this isolation level ``SELECT`` queries use their own snapshots of c
 
 Here non-repeatable reads are not possible.  Snapshots taken for the ``SELECT`` query are taken the first time the ``SELECT`` query runs during the transaction.
 
-The snapshot remains in use throughout the entire transaction for the ``SELECT`` query.  It always returns the same result set.  This level does not take into account changes to data made by other transactions, regardless of whether or not they have been committed.  IN this way, reads remain repeatable.
+The snapshot remains in use throughout the entire transaction for the ``SELECT`` query.  It always returns the same result set.  This level does not take into account changes to data made by other transactions, regardless of whether or not they have been committed.  In this way, reads remain repeatable.
 
 
 .. _`serializable`:
