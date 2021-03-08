@@ -117,11 +117,11 @@ When starting Galera Arbitrator from the shell, you have two options as to how y
 
 If you use SSL, it's necessary to specify the cipher. Otherwise, after initializing the ssl context an error will occur with a message saying, "Terminate called after throwing an instance of 'gu::NotSet'".
 
-If you don't want to enter the options every time you start Galera Arbitrator from the shell, you can set the options in the ``arbtirator.config`` configuration file:
+If you don't want to enter the options every time you start Galera Arbitrator from the shell, you can set the options in the ``arbitrator.config`` configuration file:
 
 .. code-block:: linux-config
 
-   # arbtirator.config
+   # arbitrator.config
    group = example_cluster
    address = gcomm://192.168.1.1,192.168.1.2,192.168.1.3
 
