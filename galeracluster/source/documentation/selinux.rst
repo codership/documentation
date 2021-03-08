@@ -159,7 +159,7 @@ To generate and load an SELinux policy for Galera Cluster, complete the followin
 
    .. code-block:: console
 
-      semodule_package -m galera.mod -o galera.pp.
+      semodule_package -m galera.mod -o galera.pp
 
    This creates a ``galera.pp`` file in your working directory.
 
