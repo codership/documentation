@@ -168,9 +168,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
    :widths: 30, 42, 6, 6, 8, 8
 
-   ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "Yes", "", ""
-   
+   ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``OFF``", "Yes", "", "1.0", ""  
 
 
 .. _`wsrep_strict_ddl`:
