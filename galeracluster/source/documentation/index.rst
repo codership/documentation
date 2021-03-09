@@ -135,6 +135,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`wsrep-functions`", ":doc:`xtrabackup-options`"
    ":doc:`galera-parameters`", ":doc:`system-tables`"
    ":doc:`galera-status-variables`", ":doc:`versioning-information`"
+   ":doc:`mariadb-options`", ""
 
 
 .. container:: banner
