@@ -68,7 +68,7 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 42, 6, 6, 8, 8
+   :widths: 30, 34, 12, 6, 8, 8
 
    ":ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`", "``OFF``", "Yes", "", "1.0", ""
    ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "1.0", ""
@@ -166,7 +166,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 42, 6, 6, 8, 8
+   :widths: 30, 34, 12, 6, 8, 8
 
    ":ref:`wsrep-OSU-mode <wsrep-osu-mode>`", "``OFF``", "Yes", "", "1.0", ""
    ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``TOI``", "Global and Session", "Yes", "1.0", ""
@@ -194,11 +194,11 @@ DDL statements are non-transactional and as such don't replicate through write-s
 
 - ``NBO`` When the Non Blocking Option is used, DDL statements are processed in three phases:
   
-  # MDL lock requests for the operation are replicated first
+  1. MDL lock requests for the operation are replicated first
   
-  # DDL statements are not executed, with MDL protection 
+  2. DDL statements are executed, with MDL protection 
   
-  # Finally, the MDL lock release requests are replicated
+  3. Finally, the MDL lock release requests are replicated
 
 For more information on DDL statements and OSU methods, see :doc:`schema-upgrades`.
 
