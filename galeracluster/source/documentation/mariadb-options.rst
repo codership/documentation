@@ -168,7 +168,75 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
    :widths: 30, 42, 6, 6, 8, 8
 
-   ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``OFF``", "Yes", "", "1.0", ""  
+   ":ref:`wsrep-OSU-mode <wsrep-osu-mode>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``TOI``", "Global and Session", "Yes", "1.0", ""
+
+
+
+
+
+
+
+.. _`wsrep-osu-mode`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep-osu-mode``
+
+.. index::
+   pair: Parameters; wsrep-osu-mode
+
+This parameter defines the mode for Online Schema Upgrade that the node uses to replicate DDL statements. The following methods are available:
+
+DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
+
+- ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress.
+
+- ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
+
+- ``NBO`` When the Non Blocking Option is used, DDL statements are processed in three phases:
+  
+  # MDL lock requests for the operation are replicated first
+  
+  # DDL statements are not executed, with MDL protection 
+  
+  # Finally, the MDL lock release requests are replicated
+
+For more information on DDL statements and OSU methods, see :doc:`schema-upgrades`.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-osu-mode``"
+   "System Variable", "``wsrep-osu-mode``"
+   "Variable Scope", "Global and Session"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "(TOI | RSU | NBO)"
+   "Default Value", "``TOI`` "
+   "Initial Version", "Version 1.0"
+
+You can execute the following ``SHOW VARIABLES`` statement to see how its set:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'Parameters; wsrep-osu-mode';
+
+    +------------------------------+-------+
+    | Variable_name                | Value |
+    +------------------------------+-------+
+    | Parameters; wsrep-osu-mode   | TOI   |
+    +------------------------------+-------+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
 
 
 .. _`wsrep_strict_ddl`:
@@ -184,8 +252,8 @@ If set, rejects DDL on affected tables not supporting Galera replication.
 .. csv-table::
    :class: doc-options
 
-   "Command-line Format", "``--wsrep_mode_replicate_myisam``"
-   "System Variable", "``wsrep_mode_replicate_myisam``"
+   "Command-line Format", "``--wsrep_strict_ddl``"
+   "System Variable", "``wsrep_strict_ddl``"
    "Variable Scope", "Global"
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean (OFF, ON)"
