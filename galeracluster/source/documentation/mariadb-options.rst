@@ -102,6 +102,7 @@ Replicates both MyISAM and Aria DML, but requires a primary key for replicated t
    "Permitted Values", "Boolean"
    "Default Value", "``OFF`` "
    "Initial Version", "Version 1.0"
+   "MariaDB Version", "Version 10.6"
 
 You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 
@@ -145,6 +146,7 @@ Replicates both Aria and MyISAM DML, but requires a primary key for replicated t
    "Permitted Values", "Boolean"
    "Default Value", "``OFF`` "
    "Initial Version", "Version 1.0"
+   "MariaDB Version", "Version 10.6"
 
 You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 
@@ -212,6 +214,7 @@ For more information on DDL statements and OSU methods, see :doc:`schema-upgrade
    "Permitted Values", "(TOI | RSU | NBO)"
    "Default Value", "``TOI`` "
    "Initial Version", "Version 1.0"
+   "MariaDB Version", "Version 10.5"
 
 You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 
@@ -259,6 +262,7 @@ If set, rejects DDL on affected tables not supporting Galera replication.
    "Permitted Values", "Boolean (OFF, ON)"
    "Default Value", "``OFF`` "
    "Initial Version", "Version 1.0"
+   "MariaDB Version", "Version 10.5"
 
 You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 
