@@ -125,24 +125,33 @@ For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual 
 .. rst-class:: section-heading
 .. rubric:: ``clone``
 
-Starting with version 8.0.22 ``clone`` SST method is available for Galera
-CLuster for MySQL. It is based on the native MySQL clone plugin. It
+Starting with version 8.0.22, the ``clone`` SST method is available for Galera
+Cluster for MySQL. It is based on the native MySQL clone plugin. It
 proved to be much faster than ``xtrabackup``, however it will block Donor
-node on DDL execution if that happens during the transfer.
+node on DDL execution, if that happens during the transfer.
 
-Basic configuraition for ``clone`` SST on Joiner:
+Basic configuration for ``clone`` SST on Joiner:
 
 .. code-block:: ini
 
     [mysqld] 
     wsrep_sst_method=clone
 
-Basic configuraition for ``clone`` SST on Donor:
+Grant privileges on Donor:
+
+.. code-block:: ini
+
+    CREATE USER 'sst'@'%' IDENTIFIED BY 'secret';
+    GRANT BACKUP_ADMIN, CLONE_ADMIN ON . TO 'sst'@'localhost';
+    GRANT SYSTEM_VARIABLES_ADMIN ON . TO 'sst'@'localhost';
+
+
+Basic configuration for ``clone`` SST on Donor:
 
 .. code-block:: ini
 
     [mysqld]
-    wsrep_sst_auth=<admin user>:<admin password>
+    wsrep_sst_auth=some_user:some_password
 
-Optionally `plugin_dir` variable needs to be configured if MySQL plugins
+Optionally `plugin_dir` variable must be configured, if MySQL plugins
 are not in the default location.
