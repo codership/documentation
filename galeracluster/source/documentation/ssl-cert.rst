@@ -153,7 +153,9 @@ The node uses the client certificate to secure client-side activity.  In the eve
             -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
             -out client-cert.pem
 
-This creates a key and certificate file for the database client.  They are in the current working directory as ``client-key.pem`` and ``client-cert.pem``.  Each node requires both to secure client activity and state snapshot transfers.
+This creates a key and certificate file for the database client.  They are in the current working directory as ``client-key.pem`` and ``client-cert.pem``.  
+
+.. note:: Each node requires both to secure client activity and state snapshot transfers.
 
 
 .. _`verify-cert`:
@@ -171,6 +173,8 @@ When you finish creating the key and certificate files, use ``openssl`` to verif
    client-cert.pem: OK
 
 In the event that this verification fails, repeat the above process to generate replacement certificates.
+
+The Common Name value used for the server and client certificates/keys must each differ from the Common Name value used for the CA certificate. Otherwise, the certificate and key files will not work for servers compiled using OpenSSL.
 
 Once the certificates pass verification, you can send them out to each node.  Use a secure method, such as ``scp`` or ``sftp``.  The node requires the following files:
 
