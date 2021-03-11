@@ -139,19 +139,28 @@ Basic configuration for ``clone`` SST on Joiner:
 
 Grant privileges on Donor:
 
+On Donor, you will need a user/password pair with sufficient administrative privileges, like:
+
+1. The user can to connect through localhost.
+
+2. The user has BACKUP_ADMIN, CLONE_ADMIN, SYSTEM_VARIABLES_ADMIN on all of the database.
+
+See below for an example on how to create a MySQL user for CLONE SST:. In the example, the user is called ``sst`` and is given the password ``secret``. Also, the user is granted the required privileges.
+
 .. code-block:: ini
 
-    CREATE USER 'sst'@'%' IDENTIFIED BY 'secret';
-    GRANT BACKUP_ADMIN, CLONE_ADMIN ON . TO 'sst'@'localhost';
-    GRANT SYSTEM_VARIABLES_ADMIN ON . TO 'sst'@'localhost';
-
+    CREATE USER 'sst'@'localhost' IDENTIFIED BY 'secret';
+    GRANT BACKUP_ADMIN, CLONE_ADMIN, SYSTEM_VARIABLES_ADMIN ON . TO 'sst'@'localhost';
+    
+In the basic configuration below, you would then use this user and password.
 
 Basic configuration for ``clone`` SST on Donor:
 
 .. code-block:: ini
 
     [mysqld]
-    wsrep_sst_auth=some_user:some_password
+    wsrep_sst_auth=wsrep_sst_auth=<user>:<password>
+
 
 Optionally `plugin_dir` variable must be configured, if MySQL plugins
 are not in the default location.
