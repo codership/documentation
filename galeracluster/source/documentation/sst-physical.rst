@@ -141,9 +141,9 @@ Grant privileges on Donor:
 
 On Donor, you will need a user/password pair with sufficient administrative privileges, like:
 
-1. The user can to connect through localhost.
+1. The user can connect through localhost.
 
-2. The user has BACKUP_ADMIN, CLONE_ADMIN, SYSTEM_VARIABLES_ADMIN on all of the database.
+2. The user has BACKUP_ADMIN, CLONE_ADMIN, SYSTEM_VARIABLES_ADMIN privileges on all of the database.
 
 See below for an example on how to create a MySQL user for CLONE SST:. In the example, the user is called ``sst`` and is given the password ``secret``. Also, the user is granted the required privileges.
 
