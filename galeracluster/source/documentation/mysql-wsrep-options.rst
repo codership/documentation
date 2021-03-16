@@ -93,6 +93,7 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
    ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", "", "1.0", ""
    ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", "", "1.0", ""
    ":ref:`wsrep_provider_options <wsrep_provider_options>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_recover <wsrep_recover>`", "``OFF``", "Yes", "No", "1.0", ""
    ":ref:`wsrep_reject_queries <wsrep_reject_queries>`", "``NONE``", "Yes", "Yes", "???", ""
    ":ref:`wsrep_restart_slave <wsrep_restart_slave>`", "``OFF``", "Yes", "Yes", "1.0", ""
    ":ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`", "``1``", "Yes", "", "1.0", ""
@@ -1196,6 +1197,36 @@ For more information on the wsrep Provider options, see :doc:`galera-parameters`
    +------------------------+-----------------------------------------------+
    | wsrep_provider_options | ... evs.user_send_window=2,gcache.size=128Mb  |
    |                        | evs.auto_evict=0,debug=OFF, evs.version=0 ... |
+   +------------------------+-----------------------------------------------+
+
+
+.. _`wsrep_recover`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_recover``
+
+If ``ON``, when the server starts, the server will recover the sequence number of the most recent write set applied by Galera, and it will be output to ``stderr``, which is usually redirected to the error log. At that point, the server will exit. This sequence number can be provided to the ``wsrep_start_position`` system variable.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-recover``"
+   "System Variable", "``wsrep_recover``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "No"
+   "Permitted Values", "0 | 1"
+   "Default Value", "OFF"
+   "Initial Version", "Version 1.0"
+
+See also :doc:`Restarting the Cluster <../training/tutorials/restarting-cluster>`.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_recover';
+
+   +------------------------+-----------------------------------------------+
+   | Variable_name          | Value                                         |
+   +------------------------+-----------------------------------------------+
+   | wsrep_recover          | OFF                                           |
    +------------------------+-----------------------------------------------+
 
 
