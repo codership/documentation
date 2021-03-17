@@ -3,14 +3,14 @@ MariaDB Galera Cluster - Binary Installation
 ============================================
 .. _`galera-mariadb-binary-install`:
 
-MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux through the MariaDB repository.
+MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions of Linux through the MariaDB repository and for FreeBSD through its packaging system.
 
 ---------------------------------
 Enabling the MariaDB Repository
 ---------------------------------
 .. _`mariadb-repo`:
 
-In order to install MariaDB Galera Cluster through your package manager, you need to first enable the MariaDB repository on your system.  There are two different ways to accomplish this, depending on which Linux distribution you use.
+In order to install MariaDB Galera Cluster through your package manager, you need to first enable the MariaDB repository on your system.  There are two different ways to accomplish this, depending on which Linux distribution you use. Skip this step for FreeBSD.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Enabling the ``apt`` Repository
@@ -105,7 +105,7 @@ Installing MariaDB Galera Cluster
 ---------------------------------
 .. _`mariadb-install`:
 
-There are three packages involved in the installation of MariaDB Galera Cluster: the MariaDB database client, a command line tool for accessing the database; the MariaDB database server, built to include the :term:`wsrep API` patch; and the :term:`Galera Replication Plugin`.
+There are three packages involved in the installation of MariaDB Galera Cluster: the MariaDB database client (a command line tool for accessing the database); the MariaDB database server, built to include the :term:`wsrep API` patch; and the :term:`Galera Replication Plugin`.
 
 For Debian-based distributions, in the terminal run the following command:
 
@@ -123,6 +123,14 @@ For RPM-based distributions, instead run this command:
          MariaDB-Galera-server \
 	 galera
 
+For FreeBSD run this command:
+
+.. code-block:: console
+
+   # pkg install databases/mariadb101-client \
+         databases/mariadb101-server \
+	 databases/galera
+	 
 MariaDB Galera Cluster is now installed on your server.  You will need to repeat this process for each node in your cluster.
 
 .. note:: **See Also**: In the event that you installed MariaDB Galera Cluster over an existing standalone instance of MariaDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`migration`.
