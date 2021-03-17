@@ -45,7 +45,7 @@ Periodically, updates will become available for Galera Cluster, (for the databas
 #. Upgrade the software.
 #. Restart the node.
 
-In addition to this, you also need to transfer client connections from node you want to upgrade to another node for the duration of the migration.
+In addition to this, you also need to transfer client connections from the node you want to upgrade to another node for the duration of the migration.
 
 .. note:: **See Also**: For more information on upgrade process, see :doc:`upgrading`.
 
