@@ -116,6 +116,8 @@ On Percona XtraDB
 
    systemctl start mysql@bootstrap.service
 
+.. warning:: Use the ``--wsrep-new-cluster`` argument only when initializing the Primary Component.  Don't use it to connect a new node to an existing cluster.
+
 For operating systems that use ``systemd``, you would instead enter the following from the command-line:
 
 .. code-block:: console
@@ -124,19 +126,11 @@ For operating systems that use ``systemd``, you would instead enter the followin
 
 Both of these start the ``mysqld`` daemon on the node. 
 
-In MariaDB, use the command below to start MariaDB, Galera, and to establish the Primary Component:
+In MariaDB/Percona XtraDB, use the command below to start MariaDB/Percona XtraDB, Galera, and to establish the Primary Component:
 
 .. code-block:: console
 
    galera_new_cluster
-
-In Percona XtraDB, the command would be:
-
-.. code-block:: console
-
-   galera_new_cluster_sh
-
-.. warning:: Use the ``--wsrep-new-cluster`` argument only when initializing the Primary Component.  Don't use it to connect a new node to an existing cluster.
 
 Once the first node starts the database server, verify that the cluster has started, albeit a one-node cluster, by checking :ref:`wsrep_cluster_size <wsrep_cluster_size>`.  With the database client, execute the following SQL statement:
 
