@@ -124,13 +124,13 @@ For operating systems that use ``systemd``, you would instead enter the followin
 
 Both of these start the ``mysqld`` daemon on the node. 
 
-Starting in MariaDB version 10.4, which includes Galera version 4, you can enter instead the following from the command-line to start MariaDB, Galera, and to establish the Primary Component:
+In MariaDB, use the command below to start MariaDB, Galera, and to establish the Primary Component:
 
 .. code-block:: console
 
    galera_new_cluster
 
-Starting in Percona XtraDB version 5.7, the command would be:
+In Percona XtraDB, the command would be:
 
 .. code-block:: console
 

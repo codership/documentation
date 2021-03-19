@@ -1799,7 +1799,7 @@ In :term:`Streaming Replication`, the node breaks transactions down into fragmen
 
 .. code-block:: mysql
 
-   SHOW VARIABLE LIKE 'wsrep_trx_fragment_size';
+   SHOW VARIABLES LIKE 'wsrep_trx_fragment_size';
 
    +-------------------------+-------+
    | Variable_name           | Value |
@@ -1847,7 +1847,7 @@ Supported replication units are:
 
 .. code-block:: mysql
 
-   SHOW VARIABLE LIKE 'wsrep_trx_fragment_unit';
+   SHOW VARIABLES LIKE 'wsrep_trx_fragment_unit';
 
    +-------------------------+--------+
    | Variable_name           | Value  |
