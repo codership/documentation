@@ -65,11 +65,11 @@ Starting the Cluster
 
    Length:  1,097 words; Published: October 20, 2014; Topic: General; Level: Beginner
 
-After you finish installing MySQL (or MariaDB or Percona XtraDB to Galera Cluster) and Galera and have added the necessary settings for the configuration file needed for Galera Cluster, the next steps are to start the nodes that will form the cluster.  To do this, you will need to start the ``mysqld`` daemon on one node, using the ``--wsrep-new-cluster`` option.  This initializes the new :term:`Primary Component` for the cluster.  Each node you start after that will connect to the component and begin replication.
+After you finish installing MySQL (or MariaDB or Percona XtraDB Cluster to Galera Cluster) and Galera and have added the necessary settings for the configuration file needed for Galera Cluster, the next steps are to start the nodes that will form the cluster.  To do this, you will need to start the ``mysqld`` daemon on one node, using the ``--wsrep-new-cluster`` option.  This initializes the new :term:`Primary Component` for the cluster.  Each node you start after that will connect to the component and begin replication.
 
 Before you attempt to initialize the cluster, there are a few things you should verify are in place on each node and related services:
 
-- At least three servers with the same version of MySQL, MariaDB, or Percona XtraDB installed on each;
+- At least three servers with the same version of MySQL, MariaDB, or Percona XtraDB Cluster installed on each;
 
 - If you're using firewalls, make sure the ports 4444, 4567, and 4568 for TCP traffic, and 4567 for UPD traffic are open between the hosts;
 
@@ -83,7 +83,7 @@ Before you attempt to initialize the cluster, there are a few things you should 
 
 Once you have at least three hosts ready, you can initialize the cluster.
 
-.. note:: When migrating from an existing, stand-alone instance of MySQL, MariaDB or Percona XtraDB to Galera Cluster, there will be some additional steps that you must take.  For more information on what you need to do, see :doc:`Migration <./migration>`.
+.. note:: When migrating from an existing, stand-alone instance of MySQL, MariaDB or Percona XtraDB Cluster to Galera Cluster, there will be some additional steps that you must take.  For more information on what you need to do, see :doc:`Migration <./migration>`.
 
 
 .. _`Starting First Cluster Node`:
@@ -96,7 +96,7 @@ The problem is that there is no Primary Component when a cluster starts, when th
 
 .. note:: When you start a new cluster, any node can serve as the first node, since all the databases are empty.  When you migrate from MySQL to Galera Cluster, use the original master node as the first node.  When restarting the cluster, use the most advanced node.  For more information, see :doc:`Migration <./migration>` and :doc:`Quorum Reset <../../../documentation/quorum-reset>`.
 
-To start the first node--which should have MySQL, MariaDB or Percona XtraDB, and Galera installed--you'll have to launch the database server on it with the ``--wsrep-new-cluster`` option.  There are different ways to do this, depending on the operating system. For systems that use ``init``, execute the following from the command-line:
+To start the first node--which should have MySQL, MariaDB or Percona XtraDB Cluster, and Galera installed--you'll have to launch the database server on it with the ``--wsrep-new-cluster`` option.  There are different ways to do this, depending on the operating system. For systems that use ``init``, execute the following from the command-line:
 
 On Galera:
 
@@ -110,7 +110,7 @@ On MariaDB:
 
    mysqld --wsrep-new-cluster
 
-On Percona XtraDB
+On Percona XtraDB Cluster
 
 .. code-block:: console
 
@@ -126,7 +126,7 @@ For operating systems that use ``systemd``, you would instead enter the followin
 
 Both of these start the ``mysqld`` daemon on the node. 
 
-In MariaDB/Percona XtraDB, use the command below to start MariaDB/Percona XtraDB, Galera, and to establish the Primary Component:
+In MariaDB, use the command below to start MariaDB, Galera, and to establish the Primary Component:
 
 .. code-block:: console
 
