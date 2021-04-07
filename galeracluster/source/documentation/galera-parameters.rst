@@ -157,10 +157,12 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`socket.ssl_ca <socket.ssl_ca>`", "", "  No", "", "1.0"
    ":ref:`socket.ssl_cert <socket.ssl_cert>`", "", "  No", "", "1.0"
    ":ref:`socket.checksum <socket.checksum>`", "``1`` (vs. 2); ``2`` (vs. 3)", "  No", "", "2.0"
+   ":ref:`socket.dynamic <socket.dynamic>`", "FALSE", "  No", "", "4.8"   
    ":ref:`socket.ssl_cipher <socket.ssl_cipher>`", "``AES128-SHA`` (vs. 1); |br| system default (vs. 3.24)", "  No", "", "1.0"
    ":ref:`socket.ssl_compression <socket.ssl_compression>`", "``YES``", "  No", "", "1.0"
    ":ref:`socket.ssl_key <socket.ssl_key>`", "", "  No", "", "1.0"
    ":ref:`socket.ssl_password_file <socket.ssl_password_file>`", "", "  No", "", "1.0"
+   ":ref:`socket.ssl_reload <socket.ssl_reload>`", "", "  No", "", "4.8"
 
 
 
@@ -2001,6 +2003,33 @@ The excerpt below is an example of how this Galera parameter might look in the c
    wsrep_provider_options="socket.checksum=2"
 
 
+.. _`socket.dynamic`:
+.. rst-class:: section-heading
+.. rubric:: ``socket.dynamic``
+
+.. index::
+   pair: wsrep Provider Options; socket.dynamic
+
+Enable connection engine to accept both SSL and TCP connections.   
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "false"
+   "Dynamic", "No"
+   "Initial Version", "4.8"
+
+By enabling this parameter, it should be possible for Galera to communicate with both SSL and TCP connections.
+If SSL is enabled it will try to establish/accept SSL connection first and than fallback to TCP connection if
+necessary.
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file:
+
+.. code-block:: ini
+
+   wsrep_provider_options="socket.dynamic=true"
+
+
 .. _`socket.ssl_cipher`:
 .. rst-class:: section-heading
 .. rubric:: ``socket.ssl_cipher``
@@ -2097,6 +2126,33 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. code-block:: ini
 
    wsrep_provider_options="socket.ssl_password_file=/path/to/password-file"
+
+
+.. _`socket.ssl_reload`:
+.. rst-class:: section-heading
+.. rubric:: ``socket.reload``
+
+.. index::
+   pair: wsrep Provider Options; socket.ssl_reload
+
+Reinitialize SSL context.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", ""
+   "Dynamic", "Yes"
+   "Initial Version", "4.8"
+
+Parameter used to dynamically reinitialize the Galera SSL context.  This is most useful if you need to 
+replace a certificate that is about to expire without restarting the server. You need to change the 
+certificate and key files at the relevant paths defined by SSL variables.
+
+The excerpt below is an example of how this Galera parameter can be triggered from running database:
+
+.. code-block:: ini
+
+   SET GLOBAL wsrep_provider_options = 'socket.ssl_reload=1';
 
 
 .. _`Setting Galera Parameters in MySQL`:
