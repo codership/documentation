@@ -53,9 +53,9 @@
 .. cssclass:: library-document
 .. _`auditlogplugin`:
 
-===================
- Galera Arbitrator
-===================
+=================
+ Audit Log Plugin
+=================
 
 .. index::
    pair: Descriptions; Audit Log Plugin
@@ -747,8 +747,8 @@ This variable is used to specify the ``ident`` value for syslog. This variable h
    "Command-line Format", "``--audit_log_syslog_ident``"
    "Variable Scope", "Global"
    "Dynamic Variable", "No"
-   "Variable Type", "String"'
-   "Default Value", "``percona-audit``"   
+   "Variable Type", "String"
+   "Default Value", "``percona-audit``"
 
 
 .. _`audit_log_syslog_facility`:
@@ -766,7 +766,7 @@ This variable is used to specify the ``facility`` value for syslog. This variabl
    "Command-line Format", "``--audit_log_syslog_facility``"
    "Variable Scope", "Global"
    "Dynamic Variable", "No"
-   "Variable Type", "String"'
+   "Variable Type", "String"
    "Default Value", "``LOG_USER``"  
 
 
@@ -786,7 +786,7 @@ This variable is used to specify the ``priority`` value for syslog. This variabl
    "Command-line Format", "``--audit_log_syslog_priority``"
    "Variable Scope", "Global"
    "Dynamic Variable", "No"
-   "Variable Type", "String"'
+   "Variable Type", "String"
    "Default Value", "``LOG_INFO``"  
 
 
@@ -809,7 +809,7 @@ The number of times an audit log entry was either dropped or written directly to
 
    "Command-line Format", "``--Audit_log_buffer_size_overflow``"
    "Variable Scope", "Global"
-   "Variable Type", "Numeric"'
+   "Variable Type", "Numeric"
 
 
 
