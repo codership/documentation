@@ -1,6 +1,6 @@
 .. meta::
    :title: Audit Log Plugin
-   :description: Galera Audit Log Plugin monitors and logs connection and query activity performed on a specific server.
+   :description: The Audit Log plugin monitors and logs connection and query activity performed on a specific server.
    :language: en-US
    :keywords: galera cluster, audit log
    :copyright: Codership Oy, 2014 - 2021. All Rights Reserved.
@@ -62,9 +62,9 @@
 .. index::
    pair: Logs; Audit Log
 
-Galera Audit Log Plugin monitors and logs connection and query activity performed on a specific server. Information on the activity is stored in the XML log file, where each event will have a ``NAME`` field, a unique ``RECORD_ID`` field and a ``TIMESTAMP`` field. This implementation is alternative to the MySQL Enterprise Audit Log Plugin.
+The Audit Log plugin monitors and logs connection and query activity performed on a specific server. Information on the activity is stored in the XML log file, where each event will have a ``NAME`` field, a unique ``RECORD_ID`` field and a ``TIMESTAMP`` field. This implementation is alternative to the MySQL Enterprise Audit Log Plugin.
 
-Audit Log plugin logs events, as follows:
+The Audit Log plugin logs events, as follows:
 
 - **Audit**/**NoAudit** - An audit event indicates that audit logging has been started or finished. The ``NAME`` field value is ``Audit`` when the logging has been started and ``NoAudit`` when logging has been finished. The audit record also includes server version and command-line arguments. 
    
@@ -126,7 +126,7 @@ Audit Log plugin logs events, as follows:
 .. rst-class:: section-heading
 .. rubric:: Installation
 
-Galera Audit Log plugin is delivered with Galera Cluster, but it is uninstalled by default. To deploy the plugin, run the command below:
+The Audit Log plugin is delivered with Galera Cluster, but it is uninstalled by default. To deploy the plugin, run the command below:
 
 .. code-block:: console
 
