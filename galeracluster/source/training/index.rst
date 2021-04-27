@@ -64,19 +64,33 @@ In this Training section, you'll find information on upcoming training courses t
 
 Using video communcation conferencing systems such Zoom, Codership is able to offer live virtual classes. From your office, home, or virtually anywhere, you may attend courses conducted by the Codership staff. Each month we will offer courses on Galera Cluster and related software.
 
+Codership provdes two types of training sessions: one for beginners and one for more advanced attendees.
+
 .. container:: list-col1
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: Database Administration with Galera Cluster
+   .. rubric:: :doc:`Advanced database administration with Galer Cluster <./courses/galera-advanced-course-details>`
 
    .. rst-class:: list-stats
 
-      Length: 3 days, 4 hours per day
+      Length: 2 days, 6 hours per day
 
    .. rst-class:: list-abstract
 
-      If you're a new database administrator and been made recently responsible for maintaining your organization's databases, this course will teach you about basic and core DBA tasks.
+      The Advanced Database Administrator with Galera Cluster training course teaches you how to install and configure in real-time a Galera Cluster for your application use cases.
+
+	  
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Installation and introduction to database administration with Galera Cluster <./courses/galera-intro-course-details>`
+
+   .. rst-class:: list-stats
+
+      Length: 2 days, 6 hours per day
+
+   .. rst-class:: list-abstract
+
+      Introduction to database administration with Galera Cluster – from Installation to configuration and monitoring your cluster for beginners.
 
 
 
