@@ -3,7 +3,7 @@
    :description: The Audit Log plugin monitors and logs connection and query activity performed on a specific server.
    :language: en-US
    :keywords: galera cluster, audit log
-   :copyright: Codership Oy, 2014 - 2021. All Rights Reserved.
+   :copyright: This software documentation is (C)2009-2018 Percona LLC and/or its affiliates and is distributed under the Creative Commons Attribution-ShareAlike 2.0 Generic license.
 
 .. container:: left-margin
 
@@ -61,6 +61,8 @@
    pair: Descriptions; Audit Log Plugin
 .. index::
    pair: Logs; Audit Log
+
+This software documentation is (C)2009-2018 Percona LLC and/or its affiliates and is distributed under the `Creative Commons Attribution-ShareAlike 2.0 Generic license <http://creativecommons.org/licenses/by-sa/2.0/>`_.
 
 The Audit Log plugin monitors and logs connection and query activity performed on a specific server. Information on the activity is stored in the XML log file, where each event will have a ``NAME`` field, a unique ``RECORD_ID`` field and a ``TIMESTAMP`` field. This implementation is alternative to the MySQL Enterprise Audit Log Plugin.
 
