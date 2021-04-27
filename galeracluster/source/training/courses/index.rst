@@ -62,9 +62,6 @@ You are already an intermediate MySQL Database Administrator. The Advanced Datab
 This course not only covers Galera Cluster from Codership (upstream Galera Cluster) but also Percona XtraDB Cluster (PXC) and MariaDB Galera Cluster administration. The course contents will cover the newly released Galera 4 library, but also the commonly used Galera 3 library. You can start off never having used Galera Cluster to finish the training as an advanced and effective Galera Cluster user and administrator.
 
 .. rst-class:: section-heading
-.. rubric:: Course Details
-
-.. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
 - EMEA: 31st of May and 1st of June
@@ -166,9 +163,6 @@ Note that Hands On Labs are denoted with HOL.
 Introduction to database administration with Galera Cluster – from Installation to configuration and monitoring your cluster for beginners. You will participate in interactive hands-on labs for installation. Our expert instructor will teach you how to design and maintain your Galera Cluster for High Availability and scalability. You will also learn a lot of important MySQL basics, to ensure that you can do the Advanced Database Administration with Galera Cluster course.
 
 The course covers Galera Cluster for MySQL 8.0, and you can start off never having used Galera Cluster (and very minimal MySQL) to finish the training as an intermediate and effective Galera Cluster user and administrator.
-
-.. rst-class:: section-heading
-.. rubric:: Course Details
 
 .. rst-class:: section-heading
 .. rubric:: **Course Dates**
