@@ -272,7 +272,10 @@ Using video communication conferencing systems such Zoom, Codership is able to o
    :maxdepth: 2
    :hidden:
 
-
+   galera-intro
+   galera-mysql-installing
+   galera-mariadb-installing
+   galera-high-availability
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
