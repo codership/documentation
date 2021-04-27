@@ -23,7 +23,8 @@
 
       .. cssclass:: sub-links
 
-         - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Training Courses <../training/courses/index>`
+		 - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
       - :doc:`FAQ <../faq>`	  
