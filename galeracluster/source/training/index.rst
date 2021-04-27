@@ -70,7 +70,7 @@ Codership provdes two types of training sessions: one for beginners and one for 
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Advanced database administration with Galer Cluster <./courses/galera-advanced-course-details>`
+   .. rubric:: :ref:`Advanced database administration with Galer Cluster <galera-advanced-course-details>`
 
    .. rst-class:: list-stats
 
@@ -82,7 +82,7 @@ Codership provdes two types of training sessions: one for beginners and one for 
 
 	  
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Installation and introduction to database administration with Galera Cluster <./courses/galera-intro-course-details>`
+   .. rubric:: :ref:`Installation and introduction to database administration with Galera Cluster <galera-intro-course-details>`
 
    .. rst-class:: list-stats
 
