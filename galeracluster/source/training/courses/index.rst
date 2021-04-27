@@ -67,17 +67,17 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
 .. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
-   - EMEA: 31st of May and 1st of June
+- EMEA: 31st of May and 1st of June
 
-   - USA: 2nd and 3rd of June
+- USA: 2nd and 3rd of June
 
 
 .. rst-class:: section-heading
 .. rubric:: **Course Duration**
 
-   - 2 days.
+- 2 days.
 
-   - The breakdown is 3 hours, with a half hour lunch break, and another 3 hours per day. There will be bio-breaks. The total contact time with the trainer is 12 hours over a span of 2 days.
+- The breakdown is 3 hours, with a half hour lunch break, and another 3 hours per day. There will be bio-breaks. The total contact time with the trainer is 12 hours over a span of 2 days.
 
 
 .. rst-class:: section-heading
@@ -124,39 +124,39 @@ Note that Hands On Labs are denoted with HOL.
 .. rst-class:: section-heading
 .. rubric:: **Requirements**
 
-   - You need to be able to use the Zoom desktop application (not within the web browser, as we will be sharing files)
+- You need to be able to use the Zoom desktop application (not within the web browser, as we will be sharing files)
 
-   - You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3-4 remote servers.
+- You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3-4 remote servers.
 
-   - Understanding of Linux (e.g. package management) as well as MySQL — this really means you are familiar with RPM, YUM, DPKG, APT, a text editor on the command line (be it vim, or nano), the ability to edit configuration files, and so on. As for MySQL, you are expected to have installed it before, configured it to some extent, and know about asynchronous replication, set it up before, and also understand things like GRANTs.
+- Understanding of Linux (e.g. package management) as well as MySQL — this really means you are familiar with RPM, YUM, DPKG, APT, a text editor on the command line (be it vim, or nano), the ability to edit configuration files, and so on. As for MySQL, you are expected to have installed it before, configured it to some extent, and know about asynchronous replication, set it up before, and also understand things like GRANTs.
 	  
-   - You can also utilise your own Linux virtual machines, and note that you will need a minimum of 4. Please do not install anything beforehand, let it be a pristine CentOS 7 installation.
+- You can also utilise your own Linux virtual machines, and note that you will need a minimum of 4. Please do not install anything beforehand, let it be a pristine CentOS 7 installation.
 
 
 
 .. rst-class:: section-heading
 .. rubric:: **Audience**
 
-   - Experienced Database administrators (DBAs)
+- Experienced Database administrators (DBAs)
 
-   - Intermediate MySQL DBAs or application developers who want to delve into Galera Cluster administration in depth
+- Intermediate MySQL DBAs or application developers who want to delve into Galera Cluster administration in depth
 
-   - Systems administrators with database management responsibilities
+- Systems administrators with database management responsibilities
 
-   - DevOps professionals who need to manage the database as well
+- DevOps professionals who need to manage the database as well
 
 
 
 .. rst-class:: section-heading
 .. rubric:: **Cost**
 
-   - The cost of training is 1800 € / 2100 USD for 2 days.
+- The cost of training is 1800 € / 2100 USD for 2 days.
 
-   - Early bird price before 17th of May 2021 1500 €/1750 USD for 2 days.
+- Early bird price before 17th of May 2021 1500 €/1750 USD for 2 days.
 
-   - Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
+- Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
 
-   - `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
+- `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
 
 
 .. _`galera-intro-course-details`:
@@ -173,18 +173,18 @@ The course covers Galera Cluster for MySQL 8.0, and you can start off never havi
 .. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
-   - EMEA: 14th and 15th of June
+- EMEA: 14th and 15th of June
 
-   - USA: 16th and 17th of June
+- USA: 16th and 17th of June
 
 
 
 .. rst-class:: section-heading
 .. rubric:: **Course Duration**
 
-   - 2 days.
+- 2 days.
 
-   - The breakdown is 3 hours, with a half hour lunch break, and another 3 hours per day. There will be bio-breaks. The total contact time with the trainer is 12 hours over a span of 2 days.
+- The breakdown is 3 hours, with a half hour lunch break, and another 3 hours per day. There will be bio-breaks. The total contact time with the trainer is 12 hours over a span of 2 days.
 
 
 
@@ -218,40 +218,40 @@ Note that Hands On Labs are denoted with HOL.
 .. rst-class:: section-heading
 .. rubric:: **Requirements**
 
-   - You need to be able to use the Zoom desktop application (not within the web browser, as we will be sharing files)
+- You need to be able to use the Zoom desktop application (not within the web browser, as we will be sharing files)
 
-   - You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3-4 remote servers.
+- You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3-4 remote servers.
 
-   - Some basic understanding of Linux (e.g. package management) as well as MySQL.
+- Some basic understanding of Linux (e.g. package management) as well as MySQL.
 	  
-   - You can also utilise your own Linux virtual machines, and note that you will need a minimum of 4. Please do not install anything beforehand, let it be a pristine CentOS 7 installation.
+- You can also utilise your own Linux virtual machines, and note that you will need a minimum of 4. Please do not install anything beforehand, let it be a pristine CentOS 7 installation.
 
 
 .. rst-class:: section-heading
 .. rubric:: **Audience**
 
-   - Database administrators (DBAs)
+- Database administrators (DBAs)
 
-   - MySQL DBAs or application developers who want to delve into Galera Cluster administration
+- MySQL DBAs or application developers who want to delve into Galera Cluster administration
 
-   - Systems administrators with database management responsibilities
+- Systems administrators with database management responsibilities
 
-   - DevOps professionals who need to manage the database as well
+- DevOps professionals who need to manage the database as well
 
-   - Oracle or Microsoft SQL Server DBAs
+- Oracle or Microsoft SQL Server DBAs
 
 
 
 .. rst-class:: section-heading
 .. rubric:: **Cost**
 
-   - The cost of training is 1800 € / 2100 USD for 2 days.
+- The cost of training is 1800 € / 2100 USD for 2 days.
 
-   - Early bird price before 31.5.2021 1500 €/1750 USD for 2 days.
+- Early bird price before 31.5.2021 1500 €/1750 USD for 2 days.
 
-   - Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
+- Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
 
-   - `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
+- `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
 
 
 .. toctree::
