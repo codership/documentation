@@ -64,7 +64,7 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
 .. rst-class:: section-heading
 .. rubric:: Course Details
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
    - EMEA: 31st of May and 1st of June
@@ -72,7 +72,7 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
    - USA: 2nd and 3rd of June
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Course Duration**
 
    - 2 days.
@@ -80,7 +80,7 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
    - The breakdown is 3 hours, with a half hour lunch break, and another 3 hours per day. There will be bio-breaks. The total contact time with the trainer is 12 hours over a span of 2 days.
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Content Breakdown**
 	  
 Note that Hands On Labs are denoted with HOL.
@@ -121,7 +121,7 @@ Note that Hands On Labs are denoted with HOL.
 
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Requirements**
 
    - You need to be able to use the Zoom desktop application (not within the web browser, as we will be sharing files)
@@ -134,7 +134,7 @@ Note that Hands On Labs are denoted with HOL.
 
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Audience**
 
    - Experienced Database administrators (DBAs)
@@ -147,7 +147,7 @@ Note that Hands On Labs are denoted with HOL.
 
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Cost**
 
    - The cost of training is 1800 € / 2100 USD for 2 days.
@@ -170,7 +170,7 @@ The course covers Galera Cluster for MySQL 8.0, and you can start off never havi
 .. rst-class:: section-heading
 .. rubric:: Course Details
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
    - EMEA: 14th and 15th of June
@@ -179,7 +179,7 @@ The course covers Galera Cluster for MySQL 8.0, and you can start off never havi
 
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Course Duration**
 
    - 2 days.
@@ -189,7 +189,7 @@ The course covers Galera Cluster for MySQL 8.0, and you can start off never havi
 
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Content Breakdown**
 	  
 Note that Hands On Labs are denoted with HOL.
@@ -215,7 +215,7 @@ Note that Hands On Labs are denoted with HOL.
    - Query tuning and understanding the optimizer
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Requirements**
 
    - You need to be able to use the Zoom desktop application (not within the web browser, as we will be sharing files)
@@ -227,7 +227,7 @@ Note that Hands On Labs are denoted with HOL.
    - You can also utilise your own Linux virtual machines, and note that you will need a minimum of 4. Please do not install anything beforehand, let it be a pristine CentOS 7 installation.
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Audience**
 
    - Database administrators (DBAs)
@@ -242,7 +242,7 @@ Note that Hands On Labs are denoted with HOL.
 
 
 
-.. rst-class:: sub-heading list-sub-header
+.. rst-class:: section-heading
 .. rubric:: **Cost**
 
    - The cost of training is 1800 € / 2100 USD for 2 days.
@@ -258,10 +258,6 @@ Note that Hands On Labs are denoted with HOL.
    :maxdepth: 2
    :hidden:
 
-   galera-intro
-   galera-mysql-installing
-   galera-mariadb-installing
-   galera-high-availability
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
