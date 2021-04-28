@@ -28,7 +28,8 @@
 
          .. cssclass:: here
 
-         - :doc:`Tutorial Articles <./index>`
+         - :doc:`Training Courses <../training/courses/index>`
+		 - :doc:`Tutorial Articles <./index>`
 
       - :doc:`FAQ <../../faq>`
       - :ref:`search`
