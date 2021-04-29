@@ -24,7 +24,7 @@
       .. cssclass:: sub-links
 
          - :doc:`Training Courses <../training/courses/index>`
-		 - :doc:`Tutorial Articles <../training/tutorials/index>`
+         - :doc:`Tutorial Articles <../training/tutorials/index>`
          - :doc:`Training Videos <../training/videos/index>`
 
       - :doc:`FAQ <../faq>`
@@ -69,7 +69,7 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 34, 12, 6, 8, 8
+   :widths: 30, 20, 12, 6, 15, 15
 
    ":ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>`", "``0``", "Yes", "Yes", "", ""
    ":ref:`wsrep_gtid_mode <wsrep_gtid_mode>`", "``OFF``", "Yes", "Yes", "", ""
@@ -77,8 +77,8 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
    ":ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`", "``7``", "Yes", "Yes", "", ""
    ":ref:`wsrep-mysql-replication-bundle <wsrep-mysql-replication-bundle>`", "``0``", "Yes", "No", "", ""
    ":ref:`wsrep_patch_version <wsrep_patch_version>`", "````", "Yes", "No", "", ""
-   ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "", ""
+   ":ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`", "``OFF``", "Yes", "", "", ""
 
 
 .. _`wsrep_gtid_domain_id`:
