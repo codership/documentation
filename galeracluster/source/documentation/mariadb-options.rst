@@ -71,8 +71,160 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
    :widths: 30, 34, 12, 6, 8, 8
 
+   ":ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>`", "``0``", "Yes", "Yes", "", ""
+   ":ref:`wsrep_gtid_mode <wsrep_gtid_mode>`", "``OFF``", "Yes", "Yes", "", ""
+   ":ref:`wsrep_gtid_seq_no <wsrep_gtid_seq_no>`", "", "No", "Yes", "", ""
+   ":ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`", "``7``", "Yes", "Yes", "", ""
+   ":ref:`wsrep-mysql-replication-bundle <wsrep-mysql-replication-bundle>`", "``0``", "Yes", "No", "", ""
+   ":ref:`wsrep_patch_version <wsrep_patch_version>`", "````", "Yes", "No", "", ""
    ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "1.0", ""
    ":ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`", "``OFF``", "Yes", "", "1.0", ""
+
+
+.. _`wsrep_gtid_domain_id`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_gtid_domain_id``
+
+.. index::
+   pair: Parameters; wsrep_gtid_domain_id
+
+This system variable defines the GTID domain ID that is used for wsrep GTID mode.
+
+- When :ref:`wsrep_gtid_mode <wsrep_gtid_mode>` is set to ON, wsrep_gtid_domain_id is used in place of gtid_domain_id for all Galera Cluster write sets.
+
+- When :ref:`wsrep_gtid_mode <wsrep_gtid_mode>` is set to OFF, wsrep_gtid_domain_id is simply ignored to allow for backward compatibility.
+
+- There are some additional requirements that need to be met in order for this mode to generate consistent GTIDs. For more information, see `Using MariaDB GTIDs with MariaDB Galera Cluster <https://mariadb.com/kb/en/using-mariadb-gtids-with-mariadb-galera-cluster/>`_.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-gtid-domain-id=#``"
+   "System Variable", "``wsrep_gtid_domain_id``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Data Type", "Numeric"
+   "Default Value", "``0`` "
+   "Range", "``0`` to ``4294967295``"
+   "MariaDB Version", "Version 10.1.4"
+
+
+.. _`wsrep_gtid_mode`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_gtid_mode``
+
+.. index::
+   pair: Parameters; wsrep_gtid_mode
+
+Wsrep GTID mode attempts to keep GTIDs consistent for Galera Cluster write sets on all cluster nodes. GTID state is initially copied to a joiner node during an SST. If you are planning to use Galera Cluster with MariaDB replication, then wsrep GTID mode can be helpful.
+
+- When wsrep_gtid_mode is set to ON, :ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>` is used in place of gtid_domain_id for all Galera Cluster write sets.
+
+- When wsrep_gtid_mode is set to OFF, :ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>` is simply ignored to allow for backward compatibility.
+
+- There are some additional requirements that need to be met in order for this mode to generate consistent GTIDs. For more information, see `Using MariaDB GTIDs with MariaDB Galera Cluster <https://mariadb.com/kb/en/using-mariadb-gtids-with-mariadb-galera-cluster/>`_.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-gtid-mode[={0|1}]``"
+   "System Variable", "``wsrep_gtid_mode``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Data Type", "Boolean"
+   "Default Value", "``OFF`` "
+   "MariaDB Version", "Version 10.1.4"
+
+
+.. _`wsrep_gtid_seq_no`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_gtid_seq_no``
+
+.. index::
+   pair: Parameters; wsrep_gtid_seq_no
+
+Internal server usage, manually set WSREP GTID seqno.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "`None"
+   "System Variable", "``Internal server usage, manually set WSREP GTID seqno.``"
+   "Variable Scope", "Session only"
+   "Dynamic Variable", "Yes"
+   "Data Type", "Numeric"
+   "Range", "``0`` to ``18446744073709551615``"
+   "MariaDB Version", "Version 10.5.1"
+
+
+.. _`wsrep_ignore_apply_errors`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_ignore_apply_errors``
+
+.. index::
+   pair: Parameters; wsrep_ignore_apply_errors
+
+A bitmask defining whether errors are ignored, or reported back to the provider
+
+- 0: No errors are skipped.
+- 1: Ignore some DDL errors (DROP DATABASE, DROP TABLE, DROP INDEX, ALTER TABLE).
+- 2: Skip DML errors (Only ignores DELETE errors).
+- 4: Ignore all DDL errors.
+
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-wsrep_ignore_apply_errors``"
+   "System Variable", "``wsrep_ignore_apply_errors``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Data Type", "Numeric"
+   "Default Value", "``7`` "
+   "Range", "``0`` to ``7``"
+   "MariaDB Version", "Version 10.4.2"
+
+
+.. _`wsrep-mysql-replication-bundle`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep-mysql-replication-bundle``
+
+.. index::
+   pair: Parameters; wsrep-mysql-replication-bundle
+
+Defines the number of replication events that are grouped together. This is an experimental implementation aimed to assist with bottlenecks when a single replica faces a large commit time delay. If set to ``0`` (the default), there is no grouping.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-mysql-replication-bundle=#``"
+   "System Variable", "``wsrep-mysql-replication-bundle``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "No"
+   "Data Type", "Numeric"
+   "Default Value", "``0``"
+   "Range", "``0`` to ``1000``"
+
+
+.. _`wsrep_patch_version`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_patch_version``
+
+.. index::
+   pair: Parameters; wsrep_patch_version
+
+Wsrep patch version, for example ``wsrep_25.10``.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "None"
+   "System Variable", "``wsrep_patch_version``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "No"
+   "Data Type", "String"
+   "Default Value", "None"
+   "MariaDB Version", "Version 10.1.5"
 
 
 .. _`wsrep_mode_replicate_aria`:

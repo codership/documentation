@@ -69,6 +69,7 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
 
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", "", "1.0", ""
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", "", "1.0", "3.6"
+   ":ref:`wsrep_certification_rules <wsrep_certification_rules>`", "``STRICT``", "Yes", "Yes", "", ""
    ":ref:`wsrep_certify_nonPK <wsrep_certify_nonPK>`", "``ON``", "", "Yes", "1.0", ""
    ":ref:`wsrep_cluster_address <wsrep_cluster_address>`", "``ON``", "Yes", "", "1.0", ""
    ":ref:`wsrep_cluster_name <wsrep_cluster_name>`", "``example_cluster``", "Yes", "", "1.0", ""
