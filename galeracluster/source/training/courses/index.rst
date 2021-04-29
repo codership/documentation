@@ -26,7 +26,7 @@
         .. cssclass:: sub-links
 
            - :doc:`Training Courses <../training/courses/index>`
-		   - :doc:`Training Videos <../videos/index>`
+           - :doc:`Training Videos <../videos/index>`
            - :doc:`Tutorial Articles <../tutorials/index>`
 
       - :doc:`FAQ <../../faq>`
