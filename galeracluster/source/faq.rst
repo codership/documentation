@@ -20,13 +20,13 @@
       .. cssclass:: sub-links
 
          - :doc:`Training Courses <../training/courses/index>`
-		 - :doc:`Tutorial Articles <./training/tutorials/index>`
+         - :doc:`Tutorial Articles <./training/tutorials/index>`
          - :doc:`Training Videos <./training/videos/index>`
 
       .. cssclass:: here
 
          - :doc:`FAQ <./faq>`
-		 
+
       - :ref:`search`
 
 .. container:: top-links

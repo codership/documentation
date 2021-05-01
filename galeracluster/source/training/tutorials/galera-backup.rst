@@ -29,7 +29,7 @@
          .. cssclass:: here
 
          - :doc:`Training Courses <../training/courses/index>`
-		 - :doc:`Tutorial Articles <./index>`
+         - :doc:`Tutorial Articles <./index>`
 
       - :doc:`FAQ <../../faq>`
       - :ref:`search`
