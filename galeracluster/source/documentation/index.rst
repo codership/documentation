@@ -109,6 +109,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 
    ":doc:`load-balancing`", ":doc:`deployment-variants`"
    ":doc:`containers`", ":doc:`arbitrator`"
+   ":doc:`ldap-plugin`", ""
 
 
 .. container:: banner

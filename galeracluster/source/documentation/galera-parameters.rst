@@ -972,7 +972,7 @@ For more information on customizing the write-set cache, see the :doc:`Best Prac
 .. rubric:: ``gcomm.thread_prio``
 
 .. index::
-   pair wsrep Provider Options; gcomm.thread_prio
+   pair: wsrep Provider Options; gcomm.thread_prio
 
 Defines the policy and priority for the gcomm thread.
 
