@@ -122,7 +122,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
 
    ":doc:`monitoring-cluster`", ":doc:`log`"
    ":doc:`galera-manager`", ":doc:`security`"
-   ":doc:`notification-cmd`", ""
+   ":doc:`notification-cmd`", ":doc:`audit-log-plugin`"
 
 
 .. container:: banner
