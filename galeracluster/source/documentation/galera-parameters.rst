@@ -82,6 +82,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    :header: "|br| Parameter", "|br| Default", "|br| Dynamic", "Debug |br| Only", "Initial |br| Version"
    :widths: 30, 40, 10, 10, 10
 
+   ":ref:`base_dir <base_dir>`", "", "", "", ""
    ":ref:`base_host <base_host>`", "detected network address", "", "", "1.0"
    ":ref:`base_port <base_port>`", "``4567``", "", "", "1.0"
    ":ref:`cert.log_conflicts <cert.log_conflicts>`", "``NO``", "  Yes", "", "2.0"
@@ -111,6 +112,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`gcache.dir <gcache.dir>`", "working directory", "  No", "", "1.0"
    ":ref:`gcache.name <gcache.name>`", "``galera.cache``", "  No", "", "1.0"
    ":ref:`gcache.keep_pages_size <gcache.keep_pages_size>`", "``0``", "  No", "", "1.0"
+   ":ref:`gcache.mem_size <gcache.mem_size>`", "``0``", "  No", "", ""
    ":ref:`gcache.page_size <gcache.page_size>`", "``128M``", "  No", "", "1.0"
    ":ref:`gcache.recover <gcache.recover>`", "``no``", "  No", "", "3.19"
    ":ref:`gcache.size <gcache.size>`", "``128M``", "  No", "", "1.0"
@@ -133,28 +135,28 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`gmcast.version <gmcast.version>`", "n/a", "  No", "Yes", "1.0"
    ":ref:`ist.recv_addr <ist.recv_addr>`", "", "  No", "", "1.0"
    ":ref:`ist.recv_bind <ist.recv_bind>`", "", "  No", "", "3.0"
-   ":ref:`pc.recovery <pc.recovery>`", "``TRUE``", "  No", "", "3.0"
-   ":ref:`pc.bootstrap <pc.bootstrap>`", "n/a", "  No", "", "2.0"
    ":ref:`pc.announce_timeout <pc.announce_timeout>`", "``PT3S``", "  No", "", "2.0"
+   ":ref:`pc.bootstrap <pc.bootstrap>`", "n/a", "  No", "", "2.0"
    ":ref:`pc.checksum <pc.checksum>`", "``FALSE``", "  No", "", "1.0"
    ":ref:`pc.ignore_sb <pc.ignore_sb>`", "``FALSE``", "  Yes", "", "1.0"
    ":ref:`pc.ignore_quorum <pc.ignore_quorum>`", "``FALSE``", "  Yes", "", "1.0"
    ":ref:`pc.linger <pc.linger>`", "``PT2S``", "  No", "", "1.0"
    ":ref:`pc.npvo <pc.npvo>`", "``FALSE``", "  No", "", "1.0"
+   ":ref:`pc.recovery <pc.recovery>`", "``TRUE``", "  No", "", "3.0"
+   ":ref:`pc.version <pc.version>`", "n/a", "No", "Yes", "1.0"
    ":ref:`pc.wait_prim <pc.wait_prim>`", "``TRUE``", "  No", "", "1.0"
    ":ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>`", "``PT30S``", "  No", "", "2.0"
    ":ref:`pc.weight <pc.weight>`", "``1``", "  Yes", "", "2.4"
-   ":ref:`pc.version <pc.version>`", "n/a", "No", "Yes", "1.0"
    ":ref:`protonet.backend <protonet.backend>`", "``asio``", "  No", "", "1.0"
    ":ref:`protonet.version <protonet.version>`", "n/a", "  No", "Yes", "1.0"
-   ":ref:`repl.commit_order <repl.commit_order>`", "``3``", "  No", "", "1.0"
    ":ref:`repl.causal_read_timeout <repl.causal_read_timeout>`", "``PT30S``", "  No", "", "1.0"
+   ":ref:`repl.commit_order <repl.commit_order>`", "``3``", "  No", "", "1.0"
    ":ref:`repl.key_format <repl.key_format>`", "``FLAT8``", "  No", "", "3.0"
    ":ref:`repl.max_ws_size <repl.max_ws_size>`", "``2147483647``", "  No", "", "3.0"
    ":ref:`repl.proto_max <repl.proto_max>`", "``5``", "  No", "", "2.0"
    ":ref:`socket.recv_buf_size <socket.recv_buf_size>`", "``auto``", "  Yes", "", "3.17"
    ":ref:`socket.send_buf_size <socket.send_buf_size>`", "``auto``", "  Yes", "", "3.29"
-
+   ":ref:`socket.ssl <socket.ssl>`", "0", "  No", "", ""
    ":ref:`socket.ssl_ca <socket.ssl_ca>`", "", "  No", "", "1.0"
    ":ref:`socket.ssl_cert <socket.ssl_cert>`", "", "  No", "", "1.0"
    ":ref:`socket.checksum <socket.checksum>`", "``1`` (vs. 2); ``2`` (vs. 3)", "  No", "", "2.0"
@@ -165,6 +167,15 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`socket.ssl_password_file <socket.ssl_password_file>`", "", "  No", "", "1.0"
    ":ref:`socket.ssl_reload <socket.ssl_reload>`", "", "  No", "", "4.8"
 
+
+.. _`base_dir`:
+.. rst-class:: section-heading
+.. rubric:: ``base_dir``
+
+.. index::
+   pair: wsrep Provider Options; base_dir
+
+Specifies the data directory.
 
 
 .. _`base_host`:
@@ -863,6 +874,22 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. code-block:: ini
 
    wsrep_provider_options="gcache.keep_pages_size=0"
+
+
+.. _`gcache.mem_size`:
+.. rst-class:: section-heading
+.. rubric:: ``gcache.mem_size``
+
+.. index::
+   pair: wsrep Provider Options; gcache.mem_size
+
+The maximum size of size of the ``malloc()`` store for setups that have spare RAM.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "``0``"
+   "Dynamic", "No"
 
 
 .. _`gcache.name`:
@@ -1920,6 +1947,23 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. code-block:: ini
 
    wsrep_provider_options="socket.send_buf_size=212992"
+
+
+.. _`socket.ssl`:
+.. rst-class:: section-heading
+.. rubric:: ``socket.ssl``
+
+.. index::
+   pair: wsrep Provider Options; socket.ssl
+
+Explicitly enables TLS usage by the wsrep provider.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "``No``"
+   "Dynamic", "No"
+
 
 .. _`socket.ssl_ca`:
 .. rst-class:: section-heading
