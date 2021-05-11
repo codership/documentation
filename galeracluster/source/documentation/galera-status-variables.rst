@@ -732,7 +732,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 .. index::
    pair: Status Variables; wsrep_flow_control_active
 
-Whether flow cotrol is currently active (replication paused) in the cluster.
+Whether flow control is currently active (replication paused) in the cluster.
 
 .. csv-table::
    :class: doc-options
