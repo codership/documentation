@@ -1103,7 +1103,14 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gcs.fc_master_slave
 
-Defines whether there is only one master node in the group.
+Defines whether there is more than one source of replication. 
+
+As the number of nodes in the cluster grows, the larger the calculated ``gcs.fc_limit`` gets. At the same time, the number of writes from the nodes increases.
+
+When this parameter value is set to NO (multi-master), the ``gcs.fc_limit`` parameter is dynamically modified to give more margin for each node to be a bit further behind applying writes.
+
+The ``gcs.fc_limit`` parameter is modified by the square root of the cluster size, that is, in a four-node cluster it is two times higher than the base value. This is done to compensate for the increasing replication rate noise.
+
 
 .. csv-table::
    :class: doc-options
