@@ -70,7 +70,7 @@ Node Provisioning
 
 When the state of a new or failed node differs from that of the cluster's :term:`Primary Component`, the new or failed node must be synchronized with the cluster.  Because of this, the provisioning of new nodes and the recover of failed nodes are essentially the same process as that of joining a node to the cluster Primary Component.
 
-Galera reads the initial node state ID from the **grastate.txt** file, found in the directory assigned by the ``wsrep_data_dir`` parameter.  Each time the node gracefully shuts down, Galera saves to this file.
+Galera reads the initial node state ID from the **grastate.dat** file, found in the directory assigned by the ``wsrep_data_dir`` parameter.  Each time the node gracefully shuts down, Galera saves to this file.
 
 In the event that the node crashes while in :term:`Total Order Isolation` mode, its database state is unknown and its initial node state remains undefined::
 
