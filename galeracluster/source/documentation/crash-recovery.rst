@@ -84,7 +84,7 @@ However, when a new node joins the cluster, node 3 will be switched to the “Do
 
 If you restart node 1 and then node 2, ensure that node 2 does not use node 1 as the state transfer donor: node 1 may not have all the needed writesets in its gcache. Specify node 3 node as the donor in your configuration file and start the ``mysql`` service:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $ systemctl start mysql
 
@@ -99,19 +99,19 @@ By comparing the seqno number in this file, you can see which is the most advanc
 
 For MySQL:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $ mysqld_bootstrap --wsrep-new-cluster
 
 For PXC:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $ systemctl start mysql@bootstrap.service
 
 For MariaDB:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $ galera_new_cluster
 
@@ -160,7 +160,7 @@ This approach only works, if the other nodes are down before doing that! Otherwi
 
 This scenario is possible in the case of a datacenter power failure or when hitting a MySQL or Galera bug. Also, it may happen as a result of data consistency being compromised where the cluster detects that each node has different data. The ``grastate.dat`` file is not updated and does not contain a valid sequence number (seqno). It may look like this:.
 
-.. code-block:: mysql
+.. code-block:: console
 
    $ cat /var/lib/mysql/grastate.dat
    # GALERA saved state
@@ -171,7 +171,7 @@ This scenario is possible in the case of a datacenter power failure or when hitt
 
 In this case, you cannot be sure that all nodes are consistent with each other. We cannot use ``safe_to_bootstrap`` variable to determine the node that has the last transaction committed as it is set to 0 for each node. An attempt to bootstrap from such a node will fail unless you start ``mysqld`` with the ``--wsrep-recover`` parameter:
 
-.. code-block:: mysql
+.. code-block:: console
 
    $ mysqld --wsrep-recover
 
