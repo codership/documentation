@@ -51,7 +51,7 @@
 
 
 .. cssclass:: library-document
-.. _`auditlogplugin`:
+.. _`ldap-plugin`:
 
 ===========================
  LDAP Authentication Plugin
@@ -78,7 +78,7 @@ The installation adds the variables below:
 
 .. csv-table::
    :class: doc-options
-   :header: "|br| Name", "|br| Description", "|br| Default", "|br| Minimum", "|br| Maximum", "|br| Scope," "|br| Dynamic," "|br| Type,"
+   :header: "Name", "Description", "Default", "Minimum", "Maximum", "Scope", "Dynamic", "Type"
    :widths: 30, 30, 20, 10, 10, 10, 10, 10
 
    "authentication_ldap_simple_bind_base_dn", "Base distinguished name (DN)", "", "", "", "global", "Yes", "string"
@@ -101,9 +101,9 @@ For simple LDAP authentication, you must specify the ``authentication_ldap_simpl
 .. code-block:: console
 
    CREATE USER ... IDENTIFIED WITH authentication_ldap_simple;
-   
+
    or
-   
+
    CREATE USER ... IDENTIFIED WITH authentication_ldap_simple BY 'cn=[user
    name],ou=[organization unit],dc=[domain component],dc=com'
 
@@ -113,7 +113,7 @@ For simple LDAP authentication, you must specify the ``authentication_ldap_simpl
    - ``authentication_ldap_simple_bind_root_pwd``
    - ``authentication_ldap_simple_user_search_attr``
    - ``authentication_ldap_simple_group_search_attr``
-   
+
    If you create a user with ``IDENTIFIED BY authentication_ldap_simple``, the variables are used.
 
 If a MySQL user *test1* has the following entry in the LDAP directory:
