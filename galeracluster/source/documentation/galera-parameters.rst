@@ -2182,7 +2182,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. _`socket.ssl_reload`:
 .. rst-class:: section-heading
-.. rubric:: ``socket.reload``
+.. rubric:: ``socket.ssl_reload``
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_reload
