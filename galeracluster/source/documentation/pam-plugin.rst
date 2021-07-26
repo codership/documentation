@@ -51,7 +51,7 @@
 
 
 .. cssclass:: library-document
-.. _`auditlogplugin`:
+.. _`pam-plugin`:
 
 ===========================
  PAM Authentication Plugin

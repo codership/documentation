@@ -148,7 +148,7 @@ Internal server usage, manually set WSREP GTID seqno.
 .. csv-table::
    :class: doc-options
 
-   "Command-line Format", "`None"
+   "Command-line Format", "None"
    "System Variable", "``Internal server usage, manually set WSREP GTID seqno.``"
    "Variable Scope", "Session only"
    "Dynamic Variable", "Yes"
@@ -313,7 +313,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
     +------------------------------+-------+
     | wsrep_mode_replicate_myisam  | ON    |
     +------------------------------+-------+
-	
+
 
 
 .. _`mariadb_enterprise_options`:
@@ -346,11 +346,11 @@ DDL statements are non-transactional and as such don't replicate through write-s
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
 - ``NBO`` When the Non Blocking Option is used, DDL statements are processed in three phases:
-  
+
   1. MDL lock requests for the operation are replicated first
-  
-  2. DDL statements are executed, with MDL protection 
-  
+
+  2. DDL statements are executed, with MDL protection
+
   3. Finally, the MDL lock release requests are replicated
 
 For more information on DDL statements and OSU methods, see :doc:`schema-upgrades`.

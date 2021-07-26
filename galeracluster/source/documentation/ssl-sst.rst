@@ -68,7 +68,7 @@ SSL for State Snapshot Transfers
 
 When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use.  Where :doc:`ssl-config` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
 
-The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump``, ``clone`` or ``xtrabackup``.
+The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump``, ``clone``, ``rsync`` or ``xtrabackup``.
 
 .. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you want to enable this feature with an existing cluster you need to restart the entire cluster.
 
@@ -156,33 +156,11 @@ With the user now on every node, you can shut the cluster down to enable SSL for
 This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`.
 
 
-.. _`ssl-xtrabackup`:
-.. rst-class:: section-heading
-.. rubric:: Enabling SSL for ``xtrabackup``
-
-The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  Unlike ``rsync``, ``xtrabackup`` includes support for SSL encryption built in.
-
-Configurations for ``xtrabackup`` are handled through the ``my.cnf`` configuration file, in the same as the database server and client.  Use the ``[sst]`` unit to configure SSL for the script.  You can use the same SSL certificate files as the node uses on the database server, client and with replication traffic.
-
-.. code-block:: ini
-
-   # xtrabackup Configuration
-   [sst]
-   encrypt = 3
-   tca = /path/to/ca.pem
-   tkey = /path/to/key.pem
-   tcert = /path/to/cert.pem
-
-When you finish editing the configuration file, restart the node to apply the changes.  ``xtrabackup`` now sends and receives state snapshot transfers through SSL.
-
-.. note:: In order to use SSL with ``xtrabackup``, you need to set :ref:`wsrep_sst_method <wsrep_sst_method>` to ``xtrabackup-v2``, instead of ``xtrabackup``.
-
-
 .. _`ssl-clone`:
 .. rst-class:: section-heading
-.. rubric:: Enabling SSL for ``clone``
+.. rubric:: Enabling SSL for ``clone`` based SST
 
-Configurations for ``clone`` are handled through the ``my.cnf`` configuration file, in the same as the database server and client.  Use the ``[sst]`` unit to configure SSL for the script.  You can use the same SSL certificate files as the node uses on the database server, client and with replication traffic.
+Configurations for ``clone`` are handled through the ``my.cnf`` configuration file, in the same manner as for ``mysqldump``-based SST above. You can use the same SSL certificate files as the node uses on the database server, client and with replication traffic.
 
 .. code-block:: ini
 
@@ -209,6 +187,68 @@ If for some reason general client SSL configuration is undesirable, client
 SSL configuration for ``clone`` SST can be put into the `[sst]` section of
 the configuration file. It will be used first.
 
+
+.. _`ssl-xtrabackup`:
+.. rst-class:: section-heading
+.. rubric:: Enabling SSL for ``xtrabackup`` and ``rsync`` based SSTs
+
+The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  Before releases 5.7.34 and 8.0.25 only ``xtrabackup-v2`` SST supported SSL encryption and required custom configuration. Starting with releases 5.7.34 and 8.0.25 both ``rsync`` and ``xtrabackup-v2`` scripts can use the standard MySQL SSL configuration and will use it **BY DEFAULT**.
+
+New way SSL configuration for ``xtrabackup-v2`` and ``rsync`` SSTs (releases 5.7.34 and 8.0.25 or newer)
+--------------------------------------------------------------------------------------------------------
+If ``[mysqld]`` or ``[server]`` section of the configuration contains
+
+.. code-block:: ini
+
+    [mysqld]
+    ssl-cert= /path/to/server-cert.pem
+    ssl-key= /path/to/server-key.pem
+    ssl-ca= /path/to/ca.pem
+
+those credentials will be automatically used for SSL encryption of SST unless explicitly overridden with the same parameters in ``[sst]`` section.
+
+For backward compatibility no peer/CA authentication is performed unless explicitly requested in the ``[sst]`` section of the configuration using the standard ``ssl-mode`` option:
+
+.. code-block:: ini
+
+    [sst]
+    ssl-mode=VERIFY_CA
+
+or
+
+.. code-block:: ini
+
+    [sst]
+    ssl-mode=VERIFY_IDENTITY
+
+This is a backward incompatible option and should be used only on fully upgraded clusters.
+
+.. code-block:: ini
+
+    [sst]
+    ssl-mode=DISABLE
+
+disables SSL encryption for SST regardless server SSL settings
+
+
+Old way SSL configuration for ``xtrabackup-v2`` SST
+---------------------------------------------------
+*This is deprecated, but for backward compatibility takes precedence if present.*
+
+Configurations for ``xtrabackup-v2`` script are handled through the ``my.cnf`` configuration file, in the same as the database server and client.  Use the ``[sst]`` unit to configure SSL for the script.  You can use the same SSL certificate files as the node uses on the database server, client and with replication traffic.
+
+.. code-block:: ini
+
+   # xtrabackup Configuration
+   [sst]
+   encrypt = 3
+   tca = /path/to/ca.pem
+   tkey = /path/to/key.pem
+   tcert = /path/to/cert.pem
+
+When you finish editing the configuration file, restart the node to apply the changes.  ``xtrabackup`` now sends and receives state snapshot transfers through SSL.
+
+.. note:: In order to use SSL with ``xtrabackup``, you need to set :ref:`wsrep_sst_method <wsrep_sst_method>` to ``xtrabackup-v2``, instead of ``xtrabackup``.
 
 .. container:: bottom-links
 
