@@ -68,6 +68,7 @@ This distinction is of importance for developers only.  For convenience, all sta
 
    ":ref:`wsrep_apply_oooe <wsrep_apply_oooe>`", "Galera", "``0.671120``", "1.0"
    ":ref:`wsrep_apply_oool <wsrep_apply_oool>`", "Galera", "``0.195248``", "1.0"
+   ":ref:`wsrep_apply_waits <wsrep_apply_waits>`", "Galera", "``13549``", "3.34,4.9"
    ":ref:`wsrep_apply_window <wsrep_apply_window>`", "Galera", "``5.163966``", "1.0"
    ":ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`", "Galera", "``23.88889``", "1.0"
    ":ref:`wsrep_cert_index_size <wsrep_cert_index_size>`", "Galera", "``30936``", "1.0"
@@ -187,6 +188,35 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
    | wsrep_apply_oool | 0.195248 |
    +------------------+----------+
 
+
+.. _`wsrep_apply_waits`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_apply_waits``
+
+.. index::
+   pair: Status Variables; wsrep_apply_waits
+
+Number of times an applier thread has waited for the applying
+order.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``13549``"
+   "Location", "Galera"
+   "Initial Version", "3.34,4.9"
+
+To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_apply_waits';
+
+   +-------------------+-------+
+   | Variable_name     | Value |
+   +-------------------+-------+
+   | wsrep_apply_waits | 13549 |
+   +-------------------+-------+
 
 .. _`wsrep_apply_window`:
 .. rst-class:: section-heading
