@@ -124,8 +124,8 @@ Version 4 of Galera was recently released.  If you'd like to install it, the con
 .. code-block:: linux-config
 
    # Codership Repository (Galera Cluster for MySQL)
-	deb https://releases.galeracluster.com/galera-4/ubuntu focal main
-	deb https://releases.galeracluster.com/mysql-wsrep-8.0/ubuntu focal main
+   deb https://releases.galeracluster.com/galera-4/ubuntu focal main
+   deb https://releases.galeracluster.com/mysql-wsrep-8.0/ubuntu focal main
 
 Again, you may have to adust the version and release numbers, depending on which you want to install. Please note that this will require at least version 18.04 of Ubuntu.
 
