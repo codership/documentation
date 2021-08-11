@@ -124,12 +124,12 @@ Version 4 of Galera was recently released.  If you'd like to install it, the con
 .. code-block:: linux-config
 
    # Codership Repository (Galera Cluster for MySQL)
-   deb https://galeracluster.com/wsrep_8.0.19-26.3-rc/galera-4/ubuntu bionic main
-   deb https://galeracluster.com/wsrep_8.0.19-26.3-rc/mysql-wsrep-8.0/ubuntu bionic main
+   deb https://releases.galeracluster.com/galera-4/ubuntu focal main
+   deb https://releases.galeracluster.com/mysql-wsrep-8.0/ubuntu focal main
 
 Again, you may have to adust the version and release numbers, depending on which you want to install. Please note that this will require at least version 18.04 of Ubuntu.
 
-To be assured the proper version is installed and updated, set which repository you prefer to the Codership repository. To do this, using a text editor, create a file called, `galera.pref` in the ``/etc/apt/preferences.d/`` directory.  The contents should look like the following:
+To be assured the proper version is installed and updated, set which repository you prefer to the Codership repository (this is not only recommended, it is required). To do this, using a text editor, create a file called, `galera.pref` in the ``/etc/apt/preferences.d/`` directory.  The contents should look like the following:
 
 .. code-block:: linux-config
 
