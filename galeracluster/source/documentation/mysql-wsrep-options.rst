@@ -122,8 +122,8 @@ You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as s
 The results will vary depending on which version of Galera is running on your server. All of the parameters and variables possible are listed above, but they're listed below with explanations of each.
 
 
-.. |ImageLink| image:: ../../images/support.jpg
-.. _ImageLink: https://galeracluster.com/support/#galera-cluster-support-subscription
+.. figure:: ../../images/support.jpg
+         :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
 
 .. _`wsrep_auto_increment_control`:
