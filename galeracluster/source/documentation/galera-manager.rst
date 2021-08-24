@@ -81,6 +81,7 @@ The Galera Manager is a graphical user interface for provisioning and monitoring
    .. only:: latex
 
           .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
 
 
 This section of the Codership documentation provides detailed information and instructions on how to install and configure Galera Manager.  Below is a brief summary of each aspects of the process to start using Galera Manager, with each heading linked to the related page for much more information |---| there are also links in the margin to all pages of the Galera Manager documentation. However, if you're an advanced administrator and are confident in your abilities, this page will provide you a summary of what you need to install and start using Galera Manager.
