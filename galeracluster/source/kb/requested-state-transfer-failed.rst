@@ -73,6 +73,11 @@ When a new node joins a cluster, it will try to synchronize with the cluster by 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. rst-class:: section-heading
 .. rubric:: Scenario

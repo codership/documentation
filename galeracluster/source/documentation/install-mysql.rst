@@ -77,6 +77,11 @@ Galera Cluster for MySQL may be installed on Linux servers using binary packages
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 .. _`mysql-repo`:
 .. rst-class:: section-heading
 .. rubric:: Enabling the Codership Repository

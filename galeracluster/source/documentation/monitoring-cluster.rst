@@ -100,6 +100,11 @@ From the database client, you can check the status of write-set replication thro
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`check-cluster-integrity`:
 .. rst-class:: section-heading

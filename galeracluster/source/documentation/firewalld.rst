@@ -64,6 +64,11 @@ For more information on FirewallD, see the `Documentation <https://fedoraproject
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`firewalld-ports`:
 .. rst-class:: section-heading

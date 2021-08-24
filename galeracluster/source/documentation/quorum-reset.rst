@@ -79,6 +79,11 @@ Although it's unlikely, you may find your nodes no longer consider themselves pa
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 This loss of integrity can be a problem. When it occurs, the nodes will start to return an ``Unknown command`` error to all of queries they're given to execute: they simply stop performing their duties for fear of making the situation worse by becoming too out-of-sync with their true cluster.
 

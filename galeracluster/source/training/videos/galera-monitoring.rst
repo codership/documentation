@@ -82,6 +82,11 @@ Monitoring a Galera Cluster
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 .. container:: list-col1-3
 
    .. rst-class:: video-stats

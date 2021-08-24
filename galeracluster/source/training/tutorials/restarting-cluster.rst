@@ -69,6 +69,11 @@ When restarting an entire Galera Cluster, you'll need to determine which node ha
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 .. _`Identify Most Advanced Node`:
 .. rst-class:: section-heading
 .. rubric:: Identifying the Most Advanced Node

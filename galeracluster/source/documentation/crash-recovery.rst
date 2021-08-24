@@ -65,6 +65,12 @@ A Galera Cluster works as one logical entity, controlling the status and consist
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 Nevertheless, scenarios may occur where the database service can stop with no node being able to serve requests. These scenarios are described in the sections that follow.
 
 

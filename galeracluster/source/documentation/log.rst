@@ -67,6 +67,11 @@ Galera Cluster provides the same database server logging features available to M
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`server-log-parameters`:
 .. rst-class:: section-heading

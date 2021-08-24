@@ -60,6 +60,11 @@ High Availability Proxy, or HAProxy is a single-threaded event-driven non-blocki
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`install-haproxy`:
 .. rst-class:: section-heading

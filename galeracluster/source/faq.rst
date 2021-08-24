@@ -70,6 +70,11 @@ Just below each question is further categorization of the question: the minimum 
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`faq-general-questions`:
 .. container:: banner

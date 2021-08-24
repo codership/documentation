@@ -79,6 +79,11 @@ The database clients, such as web browsers or computer applications, do not see 
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`masters-slaves`:
 .. rst-class:: section-heading

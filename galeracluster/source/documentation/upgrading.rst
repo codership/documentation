@@ -77,6 +77,12 @@ There are advantages and disadvantages to each of these methods.  For instance, 
              :target: https://galeracluster.com/training-courses/
 
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
+
 .. _`rolling-upgrade`:
 .. rst-class:: section-heading
 .. rubric:: Rolling Upgrade

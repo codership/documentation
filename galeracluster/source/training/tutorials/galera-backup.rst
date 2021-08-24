@@ -85,6 +85,11 @@ First, make sure your back-ups are complete. If you're using binary logs, be sur
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 Second, don’t rely on making back-ups manually. Instead, automate your back-ups by using a scheduling tool like ``cron``.  Set the frequency to something reasonable, such as daily or twice a day. Make sure back-up files are stored in a different location than on the production server.
 
 There are two basic types of back-ups that can be made of a database: a physical back-up and logical back-up. We'll consider each in the next two sections. Whatever method you use, occasionally check your back-ups by performing recovery tests.  This has the advantage of helping you to become more proficient at restoring data, which will be useful when under pressure to do so quickly.

@@ -67,6 +67,11 @@ All ``wsrep_provider_options`` settings need to be specified on a single line. I
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 Below is a list of all of the Galera parameters.  Each is also a link to further down the page where you may find more information.  There are a few things to know about this table:
 

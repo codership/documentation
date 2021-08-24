@@ -75,6 +75,11 @@ When such a transaction is started with Galera Cluster running, it will do the s
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 This is a performance choice: assume the worst and lock rows on all nodes for all data changing transactions and thereby reduce overall performance; or assume everything will be fine and lock rows locally only and resolve the rare problems if they ever occur. Galera chooses improving overall performance, over draining performance to protect against the rare exception.
 

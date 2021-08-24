@@ -76,6 +76,11 @@ Nodes queue the write-sets they receive in the global order and begin to apply a
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`monitoring-fc`:
 .. rst-class:: section-heading

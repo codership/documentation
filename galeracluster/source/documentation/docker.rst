@@ -106,6 +106,11 @@ This example follows the installation process for running Galera Cluster from wi
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`docker-my-cnf`:
 .. rst-class:: sub-heading

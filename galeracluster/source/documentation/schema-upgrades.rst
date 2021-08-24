@@ -76,6 +76,11 @@ You can set the method for online schema changes by using the ``wsrep_OSU_method
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`toi`:
 .. rst-class:: section-heading

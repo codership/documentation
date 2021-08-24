@@ -113,6 +113,12 @@ For more information on the particular methods available for State Snapshot Tran
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 You can set which State Snapshot Transfer method a node uses from the confirmation file.  For example:
 
 .. code-block:: ini

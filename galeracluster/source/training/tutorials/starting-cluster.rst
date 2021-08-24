@@ -190,6 +190,11 @@ This indicates that the two nodes are now connected to the cluster.  When the no
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 .. container:: bottom-links
 
    Related Documents

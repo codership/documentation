@@ -68,6 +68,12 @@ You can use the database client (e.g., ``mysql`` client) to check the status of 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 As an alternative and better method, Galera Cluster provides a method to call a notification script. Such a script may be customized to automate the monitoring process of a cluster.
 
 .. note:: For an example of such a custom script and related instructions, see :ref:`Notification Script Example <example-notification-script>`.

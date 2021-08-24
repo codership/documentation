@@ -66,6 +66,11 @@ This distinction is of importance for developers only.  For convenience, all sta
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 .. csv-table::
    :class: doc-options
    :header: "|br| Status Variable", "|br| Exporter", "Example |br| Value", "Initial |br| Version"

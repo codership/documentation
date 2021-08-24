@@ -67,6 +67,12 @@ There are several tables that the kernel uses for packet filtering and within th
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 .. _`iptables-ports`:
 .. rst-class:: section-heading
 .. rubric:: Opening Ports for Galera Cluster

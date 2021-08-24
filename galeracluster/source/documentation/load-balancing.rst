@@ -72,6 +72,11 @@ Galera Cluster guarantees node consistency regardless of where and when the quer
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 For more information or ideas on where to use load balancers in your infrastructure, see :doc:`deployment-variants`.
 
