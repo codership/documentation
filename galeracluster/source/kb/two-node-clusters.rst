@@ -78,6 +78,16 @@ For the second scenario, suppose that one of the nodes in a two-node cluster, le
 
 There's a reason for nodes becoming non-operational. If a node is separated from the cluster due to losing network connection, both nodes will think itself as being the :term:`Primary Component`.  Each will be unaware that the other is still running. This could cause problems once network connectivity is restored. To prevent this, the nodes become non-operational.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. rst-class:: section-heading
 .. rubric:: Recommendation |---| Scenario One

@@ -55,6 +55,16 @@
 
 High Availability Proxy, or HAProxy is a single-threaded event-driven non-blocking engine that combines a fast I/O layer with a priority-based scheduler.  You can use it to balance  TCP connections between application servers and Galera Cluster.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`install-haproxy`:
 .. rst-class:: section-heading

@@ -71,6 +71,16 @@ The cluster replicates changes synchronously through global ordering, but applie
 
 Nodes queue the write-sets they receive in the global order and begin to apply and commit them on the database.  In the event that the received queue grows too large, the node initiates Flow Control.  The node pauses replication while it works the received queue.  Once it reduces the received queue to a more manageable size, the node resumes replication.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`monitoring-fc`:
 .. rst-class:: section-heading

@@ -74,6 +74,17 @@ Resetting the Quorum
 
 Although it's unlikely, you may find your nodes no longer consider themselves part of the :term:`Primary Component`.  There might have been a network failure; perhaps more than half of the cluster failed; or there is a split-brain situation.  In these cases, the node come to suspect that there is another Primary Component, to which they are no longer connected.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 This loss of integrity can be a problem. When it occurs, the nodes will start to return an ``Unknown command`` error to all of queries they're given to execute: they simply stop performing their duties for fear of making the situation worse by becoming too out-of-sync with their true cluster.
 
 You can see if this is happening by executing the ``SHOW STATUS`` statement and checking the :ref:`wsrep_cluster_status <wsrep_cluster_status>` status variable.  Specifically, this is done by executing the following SQL statement on each node:

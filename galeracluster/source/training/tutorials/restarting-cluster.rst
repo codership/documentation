@@ -64,6 +64,15 @@ Occasionally, you may have to restart an entire Galera Cluster.  This may happen
 
 When restarting an entire Galera Cluster, you'll need to determine which node has the most advanced node state ID. This is covered in the next section.  Once you've identified the most advanced node, you'll need to start that node first.  Then you can start the rest of the nodes in any order.  They will each look to the first node as the most up-to-date node.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
 
 .. _`Identify Most Advanced Node`:
 .. rst-class:: section-heading

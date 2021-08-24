@@ -59,6 +59,16 @@ FirewallD includes support for defining zones. This allows you to set the trust 
 
 For more information on FirewallD, see the `Documentation <https://fedoraproject.org/wiki/FirewallD>`_.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`firewalld-ports`:
 .. rst-class:: section-heading

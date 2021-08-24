@@ -66,6 +66,16 @@ The numeric value of a column which is a key index and uses the ``AUTO_INCREMENT
 
 However, when using Galera, an auto_increment column will increase by a greater amount.  This isn't a problem, but it's something you need to understand and it's something of which you need to be aware.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. rst-class:: section-heading
 .. rubric:: Scenario

@@ -74,6 +74,17 @@ Database replication refers to the frequent copying of data from one node |---| 
 The database clients, such as web browsers or computer applications, do not see the database replication system, but they benefit from close to native :abbr:`DBMS (Database Management System)` behavior.
 
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
+
 .. _`masters-slaves`:
 .. rst-class:: section-heading
 .. rubric:: Masters and Slaves

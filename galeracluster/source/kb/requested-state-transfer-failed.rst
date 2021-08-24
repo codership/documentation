@@ -68,6 +68,16 @@ Requested State Transfer Failed
 
 When a new node joins a cluster, it will try to synchronize with the cluster by getting a full copy of the databases from one of the other nodes.  This is known as a :doc:`State Transfer <../../documentation/sst>`.  It will use a tool like ``rsync`` or ``mysqldump``, depending on how the :ref:`wsrep_sst_method <wsrep_sst_method>` option was set. Although this usually works well, sometimes it will fail.  This KB article discusses such a situation.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. rst-class:: section-heading
 .. rubric:: Scenario

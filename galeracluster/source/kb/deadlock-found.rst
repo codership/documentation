@@ -70,6 +70,17 @@ When a transaction involves an ``UPDATE``, ``REPLACE``, or any SQL statement tha
 
 When such a transaction is started with Galera Cluster running, it will do the same locally.  However, it won't make sure the other nodes have also locked the rows in the table. As a result, there may be a node that is in the midst of a transaction that is changing the same rows and has locked them. Galera is optomistic that there is very little likelihood of this occurring and a conflict arising.  Otherwise, each transaction would take much longer as it waits for each node to report it has locked the rows before proceeding.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 This is a performance choice: assume the worst and lock rows on all nodes for all data changing transactions and thereby reduce overall performance; or assume everything will be fine and lock rows locally only and resolve the rare problems if they ever occur. Galera chooses improving overall performance, over draining performance to protect against the rare exception.
 
 

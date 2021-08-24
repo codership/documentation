@@ -65,6 +65,16 @@ The questions are grouped by a few categories:
 
 Just below each question is further categorization of the question: the minimum experience level of the person who might be interested |---| if you're new to database clusters, you might want to skip the Intermediate ones; and the type of person who might be interested in such a question (e.g., DBAs, business managers).
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`faq-general-questions`:
 .. container:: banner

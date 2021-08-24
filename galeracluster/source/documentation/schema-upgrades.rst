@@ -71,6 +71,16 @@ You can set the method for online schema changes by using the ``wsrep_OSU_method
 
 .. note:: If you're using Galera Cluster for Percona XtraDB Cluster, see the the `pt-online-schema-change <https://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html>`_ in the Percona Toolkit.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`toi`:
 .. rst-class:: section-heading

@@ -108,6 +108,17 @@ You can choose from two conceptually different approaches in Galera Cluster to t
 
 For more information on the particular methods available for State Snapshot Transfers, see the :doc:`sst`.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 You can set which State Snapshot Transfer method a node uses from the confirmation file.  For example:
 
 .. code-block:: ini

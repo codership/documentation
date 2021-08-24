@@ -127,6 +127,16 @@ If one node in the cluster fails, the other nodes continue to operate as usual. 
 
 No data is lost in single node failures.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`state-transfer-failure`:
 .. rst-class:: section-heading

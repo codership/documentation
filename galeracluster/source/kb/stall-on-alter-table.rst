@@ -75,6 +75,16 @@ This is a side effect of a multi-master cluster, with several appliers.  The clu
 
 Galera Cluster has a 65K window of tolerance for transactions applied in parallel. However, the cluster must wait when an ``ALTER TABLE`` statement take too long.  In a sense, the cluster is paused as it waits for all of the nodes to replicate the ``ALTER TABLE`` statement.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. rst-class:: section-heading
 .. rubric:: Work-Around

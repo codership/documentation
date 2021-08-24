@@ -62,6 +62,17 @@ As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key 
 
 All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 Below is a list of all of the Galera parameters.  Each is also a link to further down the page where you may find more information.  There are a few things to know about this table:
 
 - For numeric values related to memory size, Galera Cluster accepts the numeric modifiers, ``K``, ``M``, ``G``, and ``T`` to represent |210|, |220|, |230| and |240|, respectively.
