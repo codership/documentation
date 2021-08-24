@@ -72,6 +72,11 @@ Galera Cluster for MySQL |---| Binary Installation
 
 Galera Cluster for MySQL may be installed on Linux servers using binary packages. These files can be downloaded directly from the Codership repository, or by way of a package manager: ``apt-get``, ``yum`` or ``zypper``.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
 .. _`mysql-repo`:
 .. rst-class:: section-heading
 .. rubric:: Enabling the Codership Repository

@@ -60,6 +60,11 @@ Crash Recovery
 
 A Galera Cluster works as one logical entity, controlling the status and consistency of its nodes as well as the status of the whole cluster. This allows maintaining the data integrity more efficiently than with asynchronous replication, without losing safe writes on multiple nodes at the same time.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 Nevertheless, scenarios may occur where the database service can stop with no node being able to serve requests. These scenarios are described in the sections that follow.
 
 

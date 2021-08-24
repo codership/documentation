@@ -101,6 +101,11 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
 
 This example follows the installation process for running Galera Cluster from within a Docker container running on Ubuntu.  When you run the build command, Docker pulls down the Ubuntu 14.04 image from Docker Hub, if it's needed. It then runs each command in the ``Dockerfile`` to initialize the image for your use.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`docker-my-cnf`:
 .. rst-class:: sub-heading

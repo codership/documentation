@@ -63,6 +63,11 @@ Before you can enable encryption for your cluster, you first need to generate th
 
 .. note:: This chapter only covers certificate generation.  For information on its use in Galera Cluster, see :doc:`ssl-config`.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`gen-certs`:
 .. rst-class:: section-heading

@@ -185,6 +185,11 @@ You can verify that the node connection was successful checking the :ref:`wsrep_
 
 This indicates that the two nodes are now connected to the cluster.  When the nodes in the cluster agree on the membership state, they initiate state exchange.  In state exchange, a new node will check the cluster state.  If the state of a new node differs from the cluster state--which is normally the case--the new node requests a state snapshot transfer (SST) from the cluster and it installs it on its local database.  After this is done, the new node is ready for use.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
 .. container:: bottom-links
 
    Related Documents

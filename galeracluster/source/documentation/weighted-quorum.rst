@@ -81,6 +81,11 @@ Under normal operations, your Primary Component is the cluster.  When cluster pa
 
 The current number of nodes in the cluster defines the current cluster size.  There is no configuration setting that allows you to define the list of all possible cluster nodes.  Every time a node joins the cluster, the total cluster size increases.  When a node leaves the cluster, gracefully, the cluster size decreases.  Cluster size determines the number of votes required to achieve quorum.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
 Galera Cluster takes a quorum vote whenever a node does not respond and is suspected of no longer being a part of the cluster.  You can fine tune this no response timeout using the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter.  The default setting is 5 seconds.
 
 When the cluster takes a quorum vote, if the majority of the total nodes connected from before the disconnect remain, that partition stays up.  When network partitions occur, there are nodes active on both sides of the disconnect.  The component that has quorum alone continues to operate as the :term:`Primary Component`, while those without quorum enter the non-primary state and begin attempt to connect with the Primary Component.

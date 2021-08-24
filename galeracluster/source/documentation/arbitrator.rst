@@ -160,6 +160,11 @@ In addition to the standard configuration, any parameter available to Galera Clu
 
 For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`arbitrator-service-start`:
 .. rst-class:: section-heading

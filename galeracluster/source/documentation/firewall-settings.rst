@@ -71,3 +71,9 @@ How these ports are enabled for Galera Cluster can vary depending upon your oper
    ip-tables
    firewalld
    firewall-pf
+
+
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription

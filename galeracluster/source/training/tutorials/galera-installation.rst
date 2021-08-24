@@ -94,6 +94,11 @@ For software, each node in the cluster requires at a minimum the following:
 
 Before you begin the installation process, there are a few tasks that you need to do to prepare the servers for Galera Cluster.  You must perform the following steps on each node in your cluster.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Disabling SELinux for mysqld
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

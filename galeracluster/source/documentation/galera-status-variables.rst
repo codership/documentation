@@ -61,6 +61,11 @@ These variables are *Galera Cluster* 0.8.x status variables. There are two types
 
 This distinction is of importance for developers only.  For convenience, all status variables are presented as a single list below. They're noted as to whether they are exported by Galera or by MySQL.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
 .. csv-table::
    :class: doc-options
    :header: "|br| Status Variable", "|br| Exporter", "Example |br| Value", "Initial |br| Version"

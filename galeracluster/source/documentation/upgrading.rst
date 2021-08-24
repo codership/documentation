@@ -71,6 +71,12 @@ Since high-availability is a priority for many Galera Cluster administrators, ho
 There are advantages and disadvantages to each of these methods.  For instance, while a rolling upgrade may prove time consuming, the cluster continues to run during the upgrades.  Similarly, while a bulk upgrade is faster, depending on on your situation, problems can result from taking down the cluster for a longer period of time.  You will have to choose the best method for your situation, needs and concerns.
 
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
+
 .. _`rolling-upgrade`:
 .. rst-class:: section-heading
 .. rubric:: Rolling Upgrade

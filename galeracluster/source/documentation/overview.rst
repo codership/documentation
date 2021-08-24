@@ -62,6 +62,11 @@ Through the wsrep API, Galera Cluster provides certification-based replication. 
 
 This approach is also called virtually synchronous replication, given that while it is logically synchronous, the actual writing and committing to the tablespace happens independently, and thus asynchronously on each node.
 
+   .. only:: html
+
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+
 
 .. _`benefits-galera`:
 .. rst-class:: section-heading

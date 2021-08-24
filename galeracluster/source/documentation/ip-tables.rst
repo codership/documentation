@@ -62,6 +62,11 @@ Linux provides packet filtering support at the kernel level.  Using ``iptables``
 
 There are several tables that the kernel uses for packet filtering and within these tables are chains that it match specific kinds of traffic.  In order to open the relevant ports for Galera Cluster, you need to append new rules to the ``INPUT`` chain on the filter table.
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 .. _`iptables-ports`:
 .. rst-class:: section-heading
 .. rubric:: Opening Ports for Galera Cluster
