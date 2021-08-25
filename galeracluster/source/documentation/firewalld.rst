@@ -61,7 +61,7 @@ For more information on FirewallD, see the `Documentation <https://fedoraproject
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
    .. only:: latex

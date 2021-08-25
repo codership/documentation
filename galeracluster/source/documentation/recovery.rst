@@ -129,7 +129,7 @@ No data is lost in single node failures.
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
    .. only:: latex

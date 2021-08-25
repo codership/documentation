@@ -73,7 +73,7 @@ There are advantages and disadvantages to each of these methods.  For instance, 
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
 

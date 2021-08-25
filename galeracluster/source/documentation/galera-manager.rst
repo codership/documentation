@@ -75,7 +75,7 @@ The Galera Manager is a graphical user interface for provisioning and monitoring
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
    .. only:: latex
