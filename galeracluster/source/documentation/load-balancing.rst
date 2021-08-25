@@ -69,7 +69,7 @@ Galera Cluster guarantees node consistency regardless of where and when the quer
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
    .. only:: latex

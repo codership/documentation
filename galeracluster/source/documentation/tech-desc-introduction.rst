@@ -76,7 +76,7 @@ The database clients, such as web browsers or computer applications, do not see 
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
    .. only:: latex

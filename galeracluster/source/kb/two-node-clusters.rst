@@ -80,7 +80,7 @@ There's a reason for nodes becoming non-operational. If a node is separated from
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
    .. only:: latex

@@ -64,7 +64,7 @@ This approach is also called virtually synchronous replication, given that while
 
    .. only:: html
 
-          .. image:: ../../images/training.jpg
+          .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
 
    .. only:: latex
