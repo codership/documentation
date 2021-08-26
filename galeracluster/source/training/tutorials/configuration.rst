@@ -59,12 +59,13 @@ After you finish installing Galera Cluster on your server, you're ready to confi
 
 .. only:: html
 
-          .. image:: ../images/support.jpg
+          .. image:: ../../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 
-          .. image:: ../images/support.jpg
+          .. image:: ../../images/support.jpg
 		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
 Using a text editor, edit the ``/etc/my.cnf`` file.  You'll need to include entries like the ones shown in this sample excerpt:

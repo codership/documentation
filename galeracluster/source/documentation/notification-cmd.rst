@@ -67,6 +67,7 @@ You can use the database client (e.g., ``mysql`` client) to check the status of 
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

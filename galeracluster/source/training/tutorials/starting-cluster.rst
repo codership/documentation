@@ -189,6 +189,7 @@ This indicates that the two nodes are now connected to the cluster.  When the no
 
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 

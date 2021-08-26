@@ -77,6 +77,7 @@ How these ports are enabled for Galera Cluster can vary depending upon your oper
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

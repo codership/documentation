@@ -82,6 +82,7 @@ There's a reason for nodes becoming non-operational. If a node is separated from
 
           .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 

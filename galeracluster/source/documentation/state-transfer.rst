@@ -112,6 +112,7 @@ For more information on the particular methods available for State Snapshot Tran
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

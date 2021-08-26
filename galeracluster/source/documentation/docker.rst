@@ -105,6 +105,7 @@ This example follows the installation process for running Galera Cluster from wi
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

@@ -81,6 +81,18 @@ Nodes receive write-sets and organize them into the global ordering.  Transactio
 When the received queue reaches a certain size the node triggers Flow Control.  The node pauses replication, then works through the received queue.  When it reduces the received queue to a more manageable size, the node resumes replication.
 
 
+.. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
 .. _`node-states`:
 .. rst-class:: sub-heading
 .. rubric:: Understanding Node States

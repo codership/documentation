@@ -126,6 +126,7 @@ The results will vary depending on which version of Galera is running on your se
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

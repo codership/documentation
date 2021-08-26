@@ -66,6 +66,7 @@ There are several tables that the kernel uses for packet filtering and within th
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

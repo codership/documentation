@@ -68,6 +68,7 @@ When restarting an entire Galera Cluster, you'll need to determine which node ha
 
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 

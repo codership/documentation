@@ -79,6 +79,7 @@ Galera Cluster has a 65K window of tolerance for transactions applied in paralle
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 
