@@ -70,6 +70,7 @@ However, when using Galera, an auto_increment column will increase by a greater 
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

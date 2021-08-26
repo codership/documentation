@@ -64,6 +64,7 @@ A Galera Cluster works as one logical entity, controlling the status and consist
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

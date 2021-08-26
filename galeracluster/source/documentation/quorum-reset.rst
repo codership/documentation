@@ -78,6 +78,7 @@ Although it's unlikely, you may find your nodes no longer consider themselves pa
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

@@ -74,6 +74,7 @@ When such a transaction is started with Galera Cluster running, it will do the s
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

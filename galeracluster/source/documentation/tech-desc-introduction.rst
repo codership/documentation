@@ -78,6 +78,7 @@ The database clients, such as web browsers or computer applications, do not see 
 
           .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 

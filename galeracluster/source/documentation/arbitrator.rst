@@ -164,6 +164,7 @@ For more information on the options available to Galera Arbitrator, see :doc:`ga
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

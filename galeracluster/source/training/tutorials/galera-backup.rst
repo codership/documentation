@@ -84,6 +84,7 @@ First, make sure your back-ups are complete. If you're using binary logs, be sur
 
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 

@@ -66,6 +66,7 @@ All ``wsrep_provider_options`` settings need to be specified on a single line. I
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

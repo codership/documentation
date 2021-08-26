@@ -65,6 +65,7 @@ This distinction is of importance for developers only.  For convenience, all sta
 
           .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 

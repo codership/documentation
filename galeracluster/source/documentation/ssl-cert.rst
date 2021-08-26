@@ -67,6 +67,7 @@ Before you can enable encryption for your cluster, you first need to generate th
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

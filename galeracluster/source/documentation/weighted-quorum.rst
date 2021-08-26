@@ -85,6 +85,7 @@ The current number of nodes in the cluster defines the current cluster size.  Th
 
           .. image:: ../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 

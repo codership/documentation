@@ -72,6 +72,7 @@ When a new node joins a cluster, it will try to synchronize with the cluster by 
 
           .. image:: ../images/support.jpg
              :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
 
    .. only:: latex
 

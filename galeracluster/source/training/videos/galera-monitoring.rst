@@ -81,6 +81,7 @@ Monitoring a Galera Cluster
 
           .. image:: ../../images/training.jpg
              :target: https://galeracluster.com/training-courses/
+             :width: 740
 
    .. only:: latex
 
