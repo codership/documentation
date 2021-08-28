@@ -65,9 +65,9 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
 .. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
-- EMEA: 31st of May and 1st of June
+- EMEA: 6-7 September 2021
 
-- USA: 2nd and 3rd of June
+- USA: 8-9 September 2021
 
 
 .. rst-class:: section-heading
