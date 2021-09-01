@@ -63,16 +63,16 @@ Notification Command
 
 You can use the database client (e.g., ``mysql`` client) to check the status of a cluster, individual nodes, and the health of replication. However, you may find it counterproductive to log in on each node to run such checks.
 
-.. only:: html
+   .. only:: html
 
-          .. image:: ../images/support.jpg
-             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+          .. image:: ../../images/galera-manager.jpg
+             :target: https://galeracluster.com/galera-mgr/
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../images/support.jpg
-		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+          .. image:: ../../images/galera-manager.jpg
+          :target: https://galeracluster.com/galera-mgr/
 
 
 As an alternative and better method, Galera Cluster provides a method to call a notification script. Such a script may be customized to automate the monitoring process of a cluster.
