@@ -75,13 +75,13 @@ The Galera Manager is a graphical user interface for provisioning and monitoring
 
    .. only:: html
 
-          .. image:: ../../images/galera-manager.jpg
+          .. image:: ../images/galera-manager.jpg
              :target: https://galeracluster.com/galera-mgr/
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../../images/galera-manager.jpg
+          .. image:: ../images/galera-manager.jpg
           :target: https://galeracluster.com/galera-mgr/
 
 

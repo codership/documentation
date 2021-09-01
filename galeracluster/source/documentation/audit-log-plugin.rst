@@ -67,13 +67,13 @@ This software documentation is (C)2009-2018 Percona LLC and/or its affiliates an
 
    .. only:: html
 
-          .. image:: ../../images/galera-manager.jpg
+          .. image:: ../images/galera-manager.jpg
              :target: https://galeracluster.com/galera-mgr/
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../../images/galera-manager.jpg
+          .. image:: ../images/galera-manager.jpg
           :target: https://galeracluster.com/galera-mgr/
 
 
