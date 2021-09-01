@@ -95,16 +95,16 @@ From the database client, you can check the status of write-set replication thro
 
 .. note:: In addition to checking status variables through the database client, you can also monitor for changes in cluster membership and node status through ``wsrep_notify_cmd.sh``.  For more information on its use, see :doc:`notification-cmd`.
 
-.. only:: html
+   .. only:: html
 
-          .. image:: ../images/support.jpg
-             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+          .. image:: ../images/galera-manager.jpg
+             :target: https://galeracluster.com/galera-mgr/
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../images/support.jpg
-		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+          .. image:: ../images/galera-manager.jpg
+          :target: https://galeracluster.com/galera-mgr/
 
 
 .. _`check-cluster-integrity`:

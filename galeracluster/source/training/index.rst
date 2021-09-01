@@ -81,18 +81,6 @@ Codership provdes two types of training sessions: one for beginners and one for 
       The Advanced Database Administrator with Galera Cluster training course teaches you how to install and configure in real-time a Galera Cluster for your application use cases.
 
 	  
-   .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Installation and introduction to database administration with Galera Cluster <galera-intro-course-details>`
-
-   .. rst-class:: list-stats
-
-      Length: 2 days, 6 hours per day
-
-   .. rst-class:: list-abstract
-
-      Introduction to database administration with Galera Cluster – from Installation to configuration and monitoring your cluster for beginners.
-
-
 
 .. container:: list-col2
 

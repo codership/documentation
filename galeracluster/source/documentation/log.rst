@@ -64,14 +64,14 @@ Galera Cluster provides the same database server logging features available to M
 
    .. only:: html
 
-          .. image:: ../images/training.jpg
-             :target: https://galeracluster.com/training-courses/
+          .. image:: ../images/galera-manager.jpg
+             :target: https://galeracluster.com/galera-mgr/
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../images/training.jpg
-		  :target: https://galeracluster.com/training-courses/
+          .. image:: ../images/galera-manager.jpg
+          :target: https://galeracluster.com/galera-mgr/
 
 
 .. _`server-log-parameters`:
