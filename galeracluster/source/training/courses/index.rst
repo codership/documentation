@@ -65,9 +65,9 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
 .. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
-- EMEA: 6-7 September 2021
+- EMEA: `check the dates <https://galeracluster.com/training-courses/>`_
 
-- USA: 8-9 September 2021
+- USA: `check the dates <https://galeracluster.com/training-courses/>`_
 
 
 .. rst-class:: section-heading
@@ -150,11 +150,24 @@ Note that Hands On Labs are denoted with HOL.
 
 - The cost of training is 1800 € / 2100 USD for 2 days.
 
-- Early bird price before 26th of August 2021 1500 €/1750 USD for 2 days.
+- Early bird price 1500 €/1750 USD for 2 days applies.
 
 - Volume discount for trainees from the same company: 4 pays for 3, 5 pays for 4 etc.
 
 - `Sign Up For Training <http://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6>`_
+
+
+   .. only:: html
+
+          .. image:: ../images/training.jpg
+             :target: https://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6
+             :width: 740
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6
+
 
 
 .. toctree::
