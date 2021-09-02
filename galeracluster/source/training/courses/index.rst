@@ -65,9 +65,9 @@ This course not only covers Galera Cluster from Codership (upstream Galera Clust
 .. rst-class:: section-heading
 .. rubric:: **Course Dates**
 
-- EMEA: check the dates <https://galeracluster.com/training-courses/>`_
+- EMEA: `check the dates <https://galeracluster.com/training-courses/>`_
 
-- USA: check the dates <https://galeracluster.com/training-courses/>`_
+- USA: `check the dates <https://galeracluster.com/training-courses/>`_
 
 
 .. rst-class:: section-heading
