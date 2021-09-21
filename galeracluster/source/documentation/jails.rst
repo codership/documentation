@@ -246,7 +246,7 @@ When you enter the jail file system, note that the hostname changes to indicate 
 .. rst-class:: section-heading
 .. rubric:: Installing Galera Cluster
 
-Regardless of whether you are on the host system or working from within a jail, currently, there is no binary package or port available to fully install Galera Cluster on FreeBSD.  You must build the database server from source code.
+Regardless of whether you are on the host system or working from within a jail, you can install Galera Cluster on FreeBSD from a binary package, or build the database server from source code.
 
 The specific build process that you need to follow depends on the database server that you want to use:
 
