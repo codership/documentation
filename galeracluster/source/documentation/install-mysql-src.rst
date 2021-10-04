@@ -230,6 +230,6 @@ In addition to this procedure, bear in mind that any custom variables you enable
 
    Related Articles
 
-   - :doc:`../training/tutorials/migration`
+   - :doc:`System Migration <../training/tutorials/migration>`
    - :doc:`System Configuration <../training/tutorials/configuration>`
    - :doc:`Replication Configuration <../training/tutorials/wsrep-configuration>`
