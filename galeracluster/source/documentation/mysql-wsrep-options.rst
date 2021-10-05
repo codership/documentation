@@ -125,13 +125,13 @@ The results will vary depending on which version of Galera is running on your se
 .. only:: html
 
           .. image:: ../images/support.jpg
-             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
-             :width: 740
+                   :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+                   :width: 740
 
    .. only:: latex
 
           .. image:: ../images/support.jpg
-		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+                   :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
 
 .. _`wsrep_auto_increment_control`:
