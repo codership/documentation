@@ -138,7 +138,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>`", "``LLONG_MAX``", "  No", "", "1.0"
    ":ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`", "``0.25``", "  No", "", "1.0"
    ":ref:`gcs.sync_donor <gcs.sync_donor>`", "``NO``", "  No", "", "1.0"
-   ":ref:`gcs.vote_policy <gcs.vote_policy>`", "``NO``", "  No", "", "1.0"
+   ":ref:`gcs.vote_policy <gcs.vote_policy>`", "``0``", "  No", "", "1.0"
    ":ref:`gmcast.listen_addr <gmcast.listen_addr>`", "``tcp://0.0.0.0:4567``", "  No", "", "1.0"
    ":ref:`gmcast.mcast_addr <gmcast.mcast_addr>`", "", "  No", "", "1.0"
    ":ref:`gmcast.mcast_ttl <gmcast.mcast_ttl>`", "``1``", "  No", "", "1.0"
@@ -1269,7 +1269,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 When a cluster node fails to apply a writeset, it initiates voting on the outcome. Every node casts a vote, that is, a hash of the error message or 0, if there was no error. If a node votes "wrong", the node is considered to be inconsistent and it shuts down. ``gcs.vote_policy`` decides on how the votes are being counted and how to choose the winner:
 
 - ``gcs.vote_policy = 0`` - The outcome that has more votes is chosen as the winner. In other words, simple majority wins. In the case of a tie between 0 (success) and non-0 (error) outcomes, 0 (success) is preferred.
-- ``gcs.vote_policy > 0`` If success got as many or more votes as the parameter value defines, it is considered as a winner, even if in minority. For example, if ``gcs.vote_policy=1``, only the node that successfully committed a transaction would remain primary. Note that if ``gcs.vote_policy == 1``, an inconsistent master may crash all the slaves.
+- ``gcs.vote_policy > 0`` - If success gets as many as or more votes that the parameter value defines, it is chosen as the winner, even if in minority. For example, if ``gcs.vote_policy=1``, only the node that successfully committed a transaction would remain primary. Note that if ``gcs.vote_policy == 1``, an inconsistent master may crash all the slaves.
 
 .. csv-table::
    :class: doc-options
