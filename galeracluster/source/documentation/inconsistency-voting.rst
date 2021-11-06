@@ -52,7 +52,7 @@
 
 
 .. cssclass:: library-document
-.. _`gcs.vote_policy`:
+.. _`gcs.vote_policy_topic`:
 
 =================================
 Cluster Inconsistency Voting

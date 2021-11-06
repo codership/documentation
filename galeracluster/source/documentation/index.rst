@@ -96,7 +96,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`system-tables`", ":doc:`auto-eviction`"
    ":doc:`schema-upgrades`", ":doc:`using-sr`"
    ":doc:`upgrading`", ":doc:`backup-cluster`"
-   ":doc:`crash-recovery`", ":doc:`gcs.vote_policy`"
+   ":doc:`crash-recovery`", ":doc:`gcs.vote_policy_topic`"
 
 
 .. container:: banner
