@@ -171,7 +171,7 @@ A bitmask defining whether errors are ignored, or reported back to the provider
 - 2: Skip DML errors (Only ignores DELETE errors).
 - 4: Ignore all DDL errors.
 
-For example, if you want to ignore some DDL errors (option 1) and skip DML errors (option 2), you would calculate 1+2=3, and use --wsrep-wsrep_ignore_apply_errors=3.
+For example, if you want to ignore some DDL errors (option 1) and skip DML errors (option 2), you would calculate 1+2=3, and use ``--wsrep-wsrep_ignore_apply_errors=3``.
 
 .. csv-table::
    :class: doc-options
