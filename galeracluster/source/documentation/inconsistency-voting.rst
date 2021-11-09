@@ -72,9 +72,9 @@ Inconsistency voting works, as follows:
 
    - If applying a writeset fails on a secondary node, an error description is passed back to the primary, and it initiates voting in the group. All nodes report the result they get for a given action, and if there is a simple majority about a given result, this result wins and the nodes that have a different result gracefully leave the group.
    
-   -  If there is no majority, success wins.
+   - If there is no majority, successful transactions win.
    
-   - If there is no node with a successful result, another node wins.
+   - If there is no node with a successful result, failed transactions win.
 
 - For TOI operations (DDLs):
 
@@ -82,9 +82,9 @@ Inconsistency voting works, as follows:
 
 - Configuration:
 
-   - The ``wsrep_ignore_apply_errors`` bitmask controls whether the error is reported back to the provider. For example, ``wsrep_ignore_apply_errors=4`` ignores all DDL errors. Otherwise, any DDL error results in a voting round. In this case, a more useful value would be 1, where only reconciling DDL errors are ignored.
+   - The :ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>` bitmask controls whether the error is reported back to the provider. For example, ``wsrep_ignore_apply_errors=4`` ignores all DDL errors. Otherwise, any DDL error results in a voting round. In this case, a more useful value would be 1, where only reconciling DDL errors are ignored.
    
-   - The ``gcs.vote_policy`` parameter defines who wins in a voting round. The default value 0 means simple majority as described above. Any value above 1 means that if the success votes count is >= that value, success wins, even if in minority. For example, if ``gcs.vote_policy=1``, only the node that successfully committed a transaction would remain primary.
+   - The :ref:`gcs.vote_policy <gcs.vote_policy>` parameter defines who wins in a voting round. The default value 0 means that simple majority wins. Any value above 1 means that if the success votes count is >= that value, successesful transactions win, even if in minority. For example, if ``gcs.vote_policy=1``, only the node that successfully committed a transaction would remain primary.
 
 
 .. container:: bottom-links
@@ -92,3 +92,4 @@ Inconsistency voting works, as follows:
    Related Documents
 
    - :ref:`gcs.vote_policy <gcs.vote_policy>`
+   - :ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`
