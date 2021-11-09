@@ -92,22 +92,27 @@ These are MySQL system variables introduced by wsrep API patch version 0.8. Almo
    ":ref:`wsrep_notify_cmd <wsrep_notify_cmd>`", "", "Yes", "", "1.0", ""
    ":ref:`wsrep_on <wsrep_on>`", "``ON``", "Yes", "", "1.0", ""
    ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", "", "3.0", ""
-   ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", "", "1.0", ""
+   ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", "", "1.0", "4.0"
    ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", "", "1.0", ""
    ":ref:`wsrep_provider_options <wsrep_provider_options>`", "", "Yes", "", "1.0", ""
    ":ref:`wsrep_recover <wsrep_recover>`", "``OFF``", "Yes", "No", "1.0", ""
    ":ref:`wsrep_reject_queries <wsrep_reject_queries>`", "``NONE``", "Yes", "Yes", "???", ""
-   ":ref:`wsrep_restart_slave <wsrep_restart_slave>`", "``OFF``", "Yes", "Yes", "1.0", ""
+   ":ref:`wsrep_restart_replica <wsrep_restart_replica>`", "``OFF``", "Yes", "Yes", "4.10", ""
+   ":ref:`wsrep_restart_slave <wsrep_restart_slave>`", "``OFF``", "Yes", "Yes", "1.0", "4.10"
    ":ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`", "``1``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_slave_FK_checks <wsrep_slave_FK_checks>`", "``ON``", "Yes", "Yes", "1.0", ""
-   ":ref:`wsrep_slave_threads <wsrep_slave_threads>`", "``1``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_slave_UK_checks <wsrep_slave_UK_checks>`", "``OFF``", "Yes", "Yes", "1.0", ""
+   ":ref:`wsrep_applier_FK_checks <wsrep_applier_FK_checks>`", "``ON``", "Yes", "Yes", "4.10", ""
+    ":ref:`wsrep_slave_FK_checks <wsrep_slave_FK_checks>`", "``ON``", "Yes", "Yes", "1.0", "4.10"
+   ":ref:`wsrep_applier_threads <wsrep_applier_threads>`", "``1``", "Yes", "", "4.10", ""
+   ":ref:`wsrep_slave_threads <wsrep_slave_threads>`", "``1``", "Yes", "", "1.0", "4.10"
+   ":ref:`wsrep_applier_UK_checks <wsrep_applier_UK_checks>`", "``OFF``", "Yes", "Yes", "4.10", ""
+   ":ref:`wsrep_slave_UK_checks <wsrep_slave_UK_checks>`", "``OFF``", "Yes", "Yes", "1.0", "4.10"
    ":ref:`wsrep_sst_auth <wsrep_sst_auth>`", "", "Yes", "", "1.0", ""
    ":ref:`wsrep_sst_donor <wsrep_sst_donor>`", "", "Yes", "", "1.0", ""
    ":ref:`wsrep_sst_donor_rejects_queries <wsrep_sst_donor_rejects_queries>`", "``OFF``", "Yes", "", "1.0", ""
    ":ref:`wsrep_sst_method <wsrep_sst_method>`", "``mysqldump``", "Yes", "", "1.0", ""
    ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", "", "1.0", ""
    ":ref:`wsrep_start_position <wsrep_start_position>`", "*see reference entry*", "Yes", "", "1.0", ""
+   ":ref:`wsrep_status_file <wsrep_status_file>`", "````", "Yes", "No", "8.0.26-26.8", ""
    ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes", "3.6", ""
    ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes", "4.0", ""
    ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes", "4.0", ""
@@ -881,6 +886,7 @@ Extends node behaviour with provided values.
    :header: "Value", "Behaviour"
 
    "``IGNORE_NATIVE_REPLICATION_FILTER_RULES``", "Ignore replication filter rules for cluster events."
+   "``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR``", "Ignore missing row errors when applying cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821."
 
 .. code-block:: mysql
 
@@ -1333,6 +1339,38 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 .. note:: This is a MySQL wsrep parameter.  It was introduced in version 5.6.29.
 
 
+.. _`wsrep_restart_replica`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_restart_replica``
+
+.. index::
+   pair: Parameters; wsrep_restart_replica
+
+Defines whether the replica restarts when the node joins the cluster.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-restart-replica``"
+   "System Variable", "``wsrep_restart_replica``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Initial Version", "4.10"
+
+Enabling this parameter tells the node to restart the replica when it joins the cluster.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_restart_replica';
+
+   +---------------------+-------+
+   | Variable_name       | Value |
+   +---------------------+-------+
+   | wsrep_restart_replica | OFF   |
+   +---------------------+-------+
+
 .. _`wsrep_restart_slave`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_restart_slave``
@@ -1340,30 +1378,7 @@ You may find this parameter useful in certain maintenance situations.  In enabli
 .. index::
    pair: Parameters; wsrep_restart_slave
 
-Defines whether the replication slave restarts when the node joins the cluster.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep-restart-slave``"
-   "System Variable", "``wsrep_restart_slave``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", "Yes"
-   "Permitted Values", "Boolean"
-   "Default Value", "``OFF``"
-   "Initial Version", "Version ???"
-
-Enabling this parameter tells the node to restart the replication slave when it joins the cluster.
-
-.. code-block:: mysql
-
-   SHOW VARIABLES LIKE 'wsrep_restart_slave';
-
-   +---------------------+-------+
-   | Variable_name       | Value |
-   +---------------------+-------+
-   | wsrep_restart_slave | OFF   |
-   +---------------------+-------+
+Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_restart_replica``.
 
 
 .. _`wsrep_retry_autocommit`:
@@ -1399,6 +1414,39 @@ When an autocommit query fails the certification test due to a cluster-wide conf
    +------------------------+-------+
 
 
+.. _`wsrep_applier_FK_checks`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_applier_FK_checks``
+
+.. index::
+   pair: Parameters; wsrep_applier_FK_checks
+
+Defines whether the node performs foreign key checking for applier threads.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-applier-FK-checks``"
+   "System Variable", "``wsrep_applier_FK_checks``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON``"
+   "Initial Version", "4.10"
+
+This parameter enables foreign key checking on applier threads.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_applier_FK_checks';
+
+   +-----------------------+-------+
+   | Variable_name         | Value |
+   +-----------------------+-------+
+   | wsrep_applier_FK_checks | ON    |
+   +-----------------------+-------+
+
+
 .. _`wsrep_slave_FK_checks`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_slave_FK_checks``
@@ -1406,31 +1454,48 @@ When an autocommit query fails the certification test due to a cluster-wide conf
 .. index::
    pair: Parameters; wsrep_slave_FK_checks
 
-Defines whether the node performs foreign key checking for applier threads.
+Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of
+``wsrep_applier_FK_checks``.
+
+.. _`wsrep_applier_threads`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_applier_threads``
+
+.. index::
+   pair: Parameters; wsrep_applier_threads
+
+Defines the number of threads to use in applying of write-sets.
 
 .. csv-table::
    :class: doc-options
 
-   "Command-line Format", "``--wsrep-slave-FK-checks``"
-   "System Variable", "``wsrep_slave_FK_checks``"
+   "Command-line Format", "``--wsrep-applier-threads``"
+   "System Variable", "``wsrep_applier_threads``"
    "Variable Scope", "Global"
-   "Dynamic Variable", "Yes"
-   "Permitted Values", "Boolean"
-   "Default Value", "``ON``"
-   "Initial Version", "Version 1.0"
+   "Dynamic Variable", ""
+   "Permitted Values", "Integer"
+   "Default Value", "``1``"
+   "Initial Version", "4.10"
 
-This parameter enables foreign key checking on applier threads.
+This parameter allows you to define how many threads the node uses when applying write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many applier threads your node actually needs.
+
+Instead of concrete recommendations, there are some general guidelines that you can use as a starting point in finding the value that works best for your system:
+
+- It is rarely beneficial to use a value that is less than twice the number of CPU cores on your system.
+
+- Similarly, it is rarely beneficial to use a value that is more than one quarter the total number of client connections to the node.  While it is difficult to predict the number of client connections, being off by as much as 50% over or under is unlikely to make a difference.
+
+- From the perspective of resource utilization, it's recommended that you keep to the lower end of applier threads.
 
 .. code-block:: mysql
 
-   SHOW VARIABLES LIKE 'wsrep_slave_FK_checks';
+   SHOW VARIABLES LIKE 'wsrep_applier_threads';
 
-   +-----------------------+-------+
-   | Variable_name         | Value |
-   +-----------------------+-------+
-   | wsrep_slave_FK_checks | ON    |
-   +-----------------------+-------+
-
+   +---------------------+-------+
+   | Variable_name       | Value |
+   +---------------------+-------+
+   | wsrep_applier_threads | 1     |
+   +---------------------+-------+
 
 .. _`wsrep_slave_threads`:
 .. rst-class:: section-heading
@@ -1439,39 +1504,40 @@ This parameter enables foreign key checking on applier threads.
 .. index::
    pair: Parameters; wsrep_slave_threads
 
-Defines the number of threads to use in applying slave write-sets.
+Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_applier_threads``.
+
+
+.. _`wsrep_applier_UK_checks`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_applier_UK_checks``
+
+.. index::
+   pairs: Parameters; wsrep_applier_UK_checks
+
+Defines whether the node performs unique key checking on applier threads.
 
 .. csv-table::
    :class: doc-options
 
-   "Command-line Format", "``--wsrep-slave-threads``"
-   "System Variable", "``wsrep_slave_threads``"
+   "Command-line Format", "``--wsrep-applier-UK-checks``"
+   "System Variable", "``wsrep_applier_UK_checks``"
    "Variable Scope", "Global"
-   "Dynamic Variable", ""
-   "Permitted Values", "Integer"
-   "Default Value", "``1``"
-   "Initial Version", "Version 1.0"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Initial Version", "4.10"
 
-This parameter allows you to define how many threads the node uses when applying slave write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many slave threads your node actually needs.
-
-Instead of concrete recommendations, there are some general guidelines that you can use as a starting point in finding the value that works best for your system:
-
-- It is rarely beneficial to use a value that is less than twice the number of CPU cores on your system.
-
-- Similarly, it is rarely beneficial to use a value that is more than one quarter the total number of client connections to the node.  While it is difficult to predict the number of client connections, being off by as much as 50% over or under is unlikely to make a difference.
-
-- From the perspective of resource utilization, it's recommended that you keep to the lower end of slave threads.
+This parameter enables unique key checking on applier threads.
 
 .. code-block:: mysql
 
-   SHOW VARIABLES LIKE 'wsrep_slave_threads';
+   SHOW VARIABLES LIKE 'wsrep_applier_UK_checks';
 
-   +---------------------+-------+
-   | Variable_name       | Value |
-   +---------------------+-------+
-   | wsrep_slave_threads | 1     |
-   +---------------------+-------+
-
+   +-----------------------+-------+
+   | Variable_name         | Value |
+   +-----------------------+-------+
+   | wsrep_applier_UK_checks | OFF   |
+   +-----------------------+-------+
 
 .. _`wsrep_slave_UK_checks`:
 .. rst-class:: section-heading
@@ -1480,30 +1546,8 @@ Instead of concrete recommendations, there are some general guidelines that you 
 .. index::
    pairs: Parameters; wsrep_slave_UK_checks
 
-Defines whether the node performs unique key checking on applier threads.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep-slave-UK-checks``"
-   "System Variable", "``wsrep_slave_UK_checks``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", "Yes"
-   "Permitted Values", "Boolean"
-   "Default Value", "``OFF``"
-   "Initial Version", "Version ???"
-
-This parameter enables unique key checking on applier threads.
-
-.. code-block:: mysql
-
-   SHOW VARIABLES LIKE 'wsrep_slave_UK_checks';
-
-   +-----------------------+-------+
-   | Variable_name         | Value |
-   +-----------------------+-------+
-   | wsrep_slave_UK_checks | OFF   |
-   +-----------------------+-------+
+Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of
+``wsrep_applier_UK_checks``.
 
 
 .. _`wsrep_sst_auth`:
@@ -1764,6 +1808,41 @@ For more information on scripting state snapshot transfers, see :doc:`scriptable
    | wsrep_start_position | 00000000-0000-0000-0000-000000000000:-1 |
    +----------------------+-----------------------------------------+
 
+
+.. _`wsrep_status_file`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_status_file``
+
+.. index::
+   pair: Parameters; wsrep_status_file
+
+Defines the file name for node status output.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-status-file``"
+   "System Variable", "``wsrep_status_file``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "No"
+   "Permitted Values", "String"
+   "Default Value", "````"
+   "Initial Version", "MySQL-wsrep 8.0.26-26.8"
+
+If defined, the file will contain JSON formatted output of node status. The purpose of the file is to provide
+a machine readable view of the current node status which is available all the time after the node is started.
+
+The contents of the file are subject to change.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_status_file';
+
+   -------------------+-------------------+
+   | Variable_name     | Value             |
+   +-------------------+-------------------+
+   | wsrep_status_file | wsrep-status.json |
+   +-------------------+-------------------+
 
 .. _`wsrep_sync_wait`:
 .. rst-class:: section-heading
