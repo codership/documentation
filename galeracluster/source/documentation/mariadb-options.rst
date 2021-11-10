@@ -74,7 +74,6 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
    ":ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>`", "``0``", "Yes", "Yes", "", ""
    ":ref:`wsrep_gtid_mode <wsrep_gtid_mode>`", "``OFF``", "Yes", "Yes", "", ""
    ":ref:`wsrep_gtid_seq_no <wsrep_gtid_seq_no>`", "", "No", "Yes", "", ""
-   ":ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`", "``7``", "Yes", "Yes", "", ""
    ":ref:`wsrep-mysql-replication-bundle <wsrep-mysql-replication-bundle>`", "``0``", "Yes", "No", "", ""
    ":ref:`wsrep_patch_version <wsrep_patch_version>`", "````", "Yes", "No", "", ""
    ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "", ""
@@ -155,35 +154,6 @@ Internal server usage, manually set WSREP GTID seqno.
    "Data Type", "Numeric"
    "Range", "``0`` to ``18446744073709551615``"
    "MariaDB Version", "Version 10.5.1"
-
-
-.. _`wsrep_ignore_apply_errors`:
-.. rst-class:: section-heading
-.. rubric:: ``wsrep_ignore_apply_errors``
-
-.. index::
-   pair: Parameters; wsrep_ignore_apply_errors
-
-A bitmask defining whether errors are ignored, or reported back to the provider
-
-- 0: No errors are skipped.
-- 1: Ignore some DDL errors (DROP DATABASE, DROP TABLE, DROP INDEX, ALTER TABLE).
-- 2: Skip DML errors (Only ignores DELETE errors).
-- 4: Ignore all DDL errors.
-
-For example, if you want to ignore some DDL errors (option 1) and skip DML errors (option 2), you would calculate 1+2=3, and use ``--wsrep-wsrep_ignore_apply_errors=3``.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep-wsrep_ignore_apply_errors``"
-   "System Variable", "``wsrep_ignore_apply_errors``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", "Yes"
-   "Data Type", "Numeric"
-   "Default Value", "``7`` "
-   "Range", "``0`` to ``7``"
-   "MariaDB Version", "Version 10.4.2"
 
 
 .. _`wsrep-mysql-replication-bundle`:
