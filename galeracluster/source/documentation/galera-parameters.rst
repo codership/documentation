@@ -178,7 +178,6 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`socket.ssl_key <socket.ssl_key>`", "", "  No", "", "1.0"
    ":ref:`socket.ssl_password_file <socket.ssl_password_file>`", "", "  No", "", "1.0"
    ":ref:`socket.ssl_reload <socket.ssl_reload>`", "", "  No", "", "4.8"
-   ":ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`", "``7``", "  Yes", "", "1.0"
 
 
 .. _`base_dir`:
@@ -2218,36 +2217,6 @@ The excerpt below is an example of how this Galera parameter can be triggered fr
 .. code-block:: ini
 
    SET GLOBAL wsrep_provider_options = 'socket.ssl_reload=1';
-
-
-.. _`wsrep_ignore_apply_errors`:
-.. rst-class:: section-heading
-.. rubric:: ``wsrep_ignore_apply_errors``
-
-.. index::
-   pair: Parameters; wsrep_ignore_apply_errors
-
-A bitmask defining whether errors are ignored, or reported back to the provider
-
-- 0: No errors are skipped.
-- 1: Ignore some DDL errors (DROP DATABASE, DROP TABLE, DROP INDEX, ALTER TABLE).
-- 2: Skip DML errors (Only ignores DELETE errors).
-- 4: Ignore all DDL errors.
-
-For example, if you want to ignore some DDL errors (option 1) and skip DML errors (option 2), you would calculate 1+2=3, and use ``--wsrep-wsrep_ignore_apply_errors=3``.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep-wsrep_ignore_apply_errors``"
-   "System Variable", "``wsrep_ignore_apply_errors``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", "Yes"
-   "Data Type", "Numeric"
-   "Default Value", "``7`` "
-   "Range", "``0`` to ``7``"
-   "MariaDB Version", "Version 10.4.2"
-
 
 
 .. _`Setting Galera Parameters in MySQL`:
