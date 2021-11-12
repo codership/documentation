@@ -59,64 +59,73 @@ MySQL wsrep Options
    pair: Logs; Debug log
 
 
-These are MySQL system variables introduced by wsrep API patch version 0.8. Almost all of the variables are global except for a few. Those are session variables.  If you click on a particular variable in this table, your web browser will scroll down to the entry for it with more details and an explanation.
+These are MySQL system variables starting from wsrep API patch version 21.1
+for MySQL 5.1.58. Although there were earlier versions of MySQL-wsrep, this
+was the first one to use consistent versioning scheme as was chosen as
+the starting point.
+
+Almost all of the variables are global except for a few.
+Those are session variables. If you click on a particular variable in this
+table, your web browser will scroll down to the entry for it with more details
+and an explanation.
 
 
 .. csv-table::
    :class: doc-options tight-header
-   :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 42, 6, 6, 8, 8
+   :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
+   :widths: 30, 42, 6, 6
 
-   ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", "", "1.0", "3.6"
-   ":ref:`wsrep_certify_nonPK <wsrep_certify_nonPK>`", "``ON``", "", "Yes", "1.0", ""
-   ":ref:`wsrep_cluster_address <wsrep_cluster_address>`", "``ON``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_cluster_name <wsrep_cluster_name>`", "``example_cluster``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_convert_LOCK_to_trx <wsrep_convert_LOCK_to_trx>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_data_home_dir <wsrep_data_home_dir>`", "``/path/to/datadir``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_dbug_option <wsrep_dbug_option>`", "", "Yes", "", "1.0", ""
-   ":ref:`wsrep_debug <wsrep_debug>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_desync <wsrep_desync>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_dirty_reads <wsrep_dirty_reads>`", "``OFF``", "Yes", "Yes", "1.0", ""
-   ":ref:`wsrep_drupal_282555_workaround <wsrep_drupal_282555_workaround>`", "``ON``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_forced_binlog_format <wsrep_forced_binlog_format>`", "``NONE``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`", "``7``", "Yes", "Yes", "1.0", ""
-   ":ref:`wsrep_load_data_splitting <wsrep_load_data_splitting>`", "``ON``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_log_conflicts <wsrep_log_conflicts>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_max_ws_rows <wsrep_max_ws_rows>`", "``0``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_max_ws_size <wsrep_max_ws_size>`", "``1G``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_mode <wsrep_mode>`", "``ON``", "Yes", "", "4.0", ""
-   ":ref:`wsrep_node_address <wsrep_node_address>`", "*host address:default port*", "Yes", "", "1.0", ""
-   ":ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>`", "*host address:mysqld port*", "Yes", "", "1.0", ""
-   ":ref:`wsrep_node_name <wsrep_node_name>`", "``<hostname>``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_notify_cmd <wsrep_notify_cmd>`", "", "Yes", "", "1.0", ""
-   ":ref:`wsrep_on <wsrep_on>`", "``ON``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", "", "3.0", ""
-   ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", "", "1.0", "4.0"
-   ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_provider_options <wsrep_provider_options>`", "", "Yes", "", "1.0", ""
-   ":ref:`wsrep_recover <wsrep_recover>`", "``OFF``", "Yes", "No", "1.0", ""
-   ":ref:`wsrep_reject_queries <wsrep_reject_queries>`", "``NONE``", "Yes", "Yes", "???", ""
-   ":ref:`wsrep_restart_replica <wsrep_restart_replica>`", "``OFF``", "Yes", "Yes", "4.10", ""
-   ":ref:`wsrep_restart_slave <wsrep_restart_slave>`", "``OFF``", "Yes", "Yes", "1.0", "4.10"
-   ":ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`", "``1``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_applier_FK_checks <wsrep_applier_FK_checks>`", "``ON``", "Yes", "Yes", "4.10", ""
-    ":ref:`wsrep_slave_FK_checks <wsrep_slave_FK_checks>`", "``ON``", "Yes", "Yes", "1.0", "4.10"
-   ":ref:`wsrep_applier_threads <wsrep_applier_threads>`", "``1``", "Yes", "", "4.10", ""
-   ":ref:`wsrep_slave_threads <wsrep_slave_threads>`", "``1``", "Yes", "", "1.0", "4.10"
-   ":ref:`wsrep_applier_UK_checks <wsrep_applier_UK_checks>`", "``OFF``", "Yes", "Yes", "4.10", ""
-   ":ref:`wsrep_slave_UK_checks <wsrep_slave_UK_checks>`", "``OFF``", "Yes", "Yes", "1.0", "4.10"
-   ":ref:`wsrep_sst_auth <wsrep_sst_auth>`", "", "Yes", "", "1.0", ""
-   ":ref:`wsrep_sst_donor <wsrep_sst_donor>`", "", "Yes", "", "1.0", ""
-   ":ref:`wsrep_sst_donor_rejects_queries <wsrep_sst_donor_rejects_queries>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_sst_method <wsrep_sst_method>`", "``mysqldump``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", "", "1.0", ""
-   ":ref:`wsrep_start_position <wsrep_start_position>`", "*see reference entry*", "Yes", "", "1.0", ""
-   ":ref:`wsrep_status_file <wsrep_status_file>`", "````", "Yes", "No", "8.0.26-26.8", ""
-   ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes", "3.6", ""
-   ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes", "4.0", ""
-   ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes", "4.0", ""
-   ":ref:`wsrep_ws_persistency <wsrep_ws_persistency>`", "", "Yes", "", "1.0", ""
+   ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
+   ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", ""
+   ":ref:`wsrep_certify_nonPK <wsrep_certify_nonPK>`", "``ON``", "", "Yes"
+   ":ref:`wsrep_certification_rules <wsrep_certification_rules>`", "", "", "Yes"
+   ":ref:`wsrep_cluster_address <wsrep_cluster_address>`", "``ON``", "Yes", ""
+   ":ref:`wsrep_cluster_name <wsrep_cluster_name>`", "``example_cluster``", "Yes", ""
+   ":ref:`wsrep_convert_LOCK_to_trx <wsrep_convert_LOCK_to_trx>`", "``OFF``", "Yes", ""
+   ":ref:`wsrep_data_home_dir <wsrep_data_home_dir>`", "``/path/to/datadir``", "Yes", ""
+   ":ref:`wsrep_dbug_option <wsrep_dbug_option>`", "", "Yes", ""
+   ":ref:`wsrep_debug <wsrep_debug>`", "``OFF``", "Yes", ""
+   ":ref:`wsrep_desync <wsrep_desync>`", "``OFF``", "Yes", ""
+   ":ref:`wsrep_dirty_reads <wsrep_dirty_reads>`", "``OFF``", "Yes", "Yes"
+   ":ref:`wsrep_drupal_282555_workaround <wsrep_drupal_282555_workaround>`", "``ON``", "Yes", ""
+   ":ref:`wsrep_forced_binlog_format <wsrep_forced_binlog_format>`", "``NONE``", "Yes", ""
+   ":ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`", "``7``", "Yes", "Yes"
+   ":ref:`wsrep_load_data_splitting <wsrep_load_data_splitting>`", "``ON``", "Yes", ""
+   ":ref:`wsrep_log_conflicts <wsrep_log_conflicts>`", "``OFF``", "Yes", ""
+   ":ref:`wsrep_max_ws_rows <wsrep_max_ws_rows>`", "``0``", "Yes", ""
+   ":ref:`wsrep_max_ws_size <wsrep_max_ws_size>`", "``1G``", "Yes", ""
+   ":ref:`wsrep_mode <wsrep_mode>`", "``ON``", "Yes", ""
+   ":ref:`wsrep_node_address <wsrep_node_address>`", "*host address:default port*", "Yes", ""
+   ":ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>`", "*host address:mysqld port*", "Yes", ""
+   ":ref:`wsrep_node_name <wsrep_node_name>`", "``<hostname>``", "Yes", ""
+   ":ref:`wsrep_notify_cmd <wsrep_notify_cmd>`", "", "Yes", ""
+   ":ref:`wsrep_on <wsrep_on>`", "``ON``", "Yes", ""
+   ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", ""
+   ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", ""
+   ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", ""
+   ":ref:`wsrep_provider_options <wsrep_provider_options>`", "", "Yes", ""
+   ":ref:`wsrep_recover <wsrep_recover>`", "``OFF``", "Yes", "No"
+   ":ref:`wsrep_reject_queries <wsrep_reject_queries>`", "``NONE``", "Yes", "Yes"
+   ":ref:`wsrep_restart_replica <wsrep_restart_replica>`", "``OFF``", "Yes", "Yes"
+   ":ref:`wsrep_restart_slave <wsrep_restart_slave>`", "``OFF``", "Yes", "Yes"
+   ":ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`", "``1``", "Yes", ""
+   ":ref:`wsrep_applier_FK_checks <wsrep_applier_FK_checks>`", "``ON``", "Yes", "Yes"
+   ":ref:`wsrep_slave_FK_checks <wsrep_slave_FK_checks>`", "``ON``", "Yes", "Yes"
+   ":ref:`wsrep_applier_threads <wsrep_applier_threads>`", "``1``", "Yes", ""
+   ":ref:`wsrep_slave_threads <wsrep_slave_threads>`", "``1``", "Yes", ""
+   ":ref:`wsrep_applier_UK_checks <wsrep_applier_UK_checks>`", "``OFF``", "Yes", "Yes"
+   ":ref:`wsrep_slave_UK_checks <wsrep_slave_UK_checks>`", "``OFF``", "Yes", "Yes"
+   ":ref:`wsrep_sst_auth <wsrep_sst_auth>`", "", "Yes", ""
+   ":ref:`wsrep_sst_donor <wsrep_sst_donor>`", "", "Yes", ""
+   ":ref:`wsrep_sst_donor_rejects_queries <wsrep_sst_donor_rejects_queries>`", "``OFF``", "Yes", ""
+   ":ref:`wsrep_sst_method <wsrep_sst_method>`", "``mysqldump``", "Yes", ""
+   ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", ""
+   ":ref:`wsrep_start_position <wsrep_start_position>`", "*see reference entry*", "Yes", ""
+   ":ref:`wsrep_status_file <wsrep_status_file>`", "````", "Yes", "No"
+   ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes"
+   ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes"
+   ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes"
+   ":ref:`wsrep_ws_persistency <wsrep_ws_persistency>`", "", "Yes", ""
 
 
 You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get list of all Galera related variables on your server:
@@ -158,7 +167,7 @@ This parameter enables the automatic adjustment of auto increment system variabl
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON`` "
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 The node manages auto-increment values in a table using two variables: ``auto_increment_increment`` and ``auto_increment_offset``.  The first relates to the value auto-increment rows count from the offset. The second relates to the offset it should use in moving to the next position.
 
@@ -195,7 +204,8 @@ This parameter enables the enforcement of strict cluster-wide ``READ COMMITTED``
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF`` "
-   "Initial Version", "Version 1.0, Deprecated in Version 3.6"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
+   "Deprecated Version", "MySQL-wsrep: 5.5.42-25.12"
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
@@ -225,7 +235,7 @@ Certification rules to use in the cluster.
    "Permitted Values", "Enumeration"
    "Default Value", "``STRICT``"
    "Valid Value", "``OPTIMIZED``, ``STRICT``"
-   "Initial Version", "Version ???"
+   "Initial Version", "MySQL-wsrep: 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15"
 
 Controls how certification is done in the cluster, in particular this affects how foreign keys are handled: with the ``STRICT`` option two INSERTs that happen at about the same time on two different nodes in a child table, that insert different (non conflicting rows), but both rows point to the same row in the parent table could result in certification failure. With the ``OPTIMIZED`` option such certification failure is avoided.
 
@@ -239,7 +249,6 @@ Controls how certification is done in the cluster, in particular this affects ho
    | wsrep_certification_rules | STRICT |
    +---------------------------+--------+
 
-.. note:: This is a MySQL wsrep parameter. It was introduced in 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15.
 
 
 .. _`wsrep_certify_nonPK`:
@@ -260,7 +269,7 @@ This parameter is used to define whether the node should generate primary keys o
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON`` "
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 Galera Cluster requires primary keys on all tables.  The node uses the primary key in replication to allow for the parallel applying of transactions to a table.  This parameter tells the node that when it encounters a row without a primary key, it should create one for replication purposes.  However, as a rule don't use tables without primary keys.
 
@@ -297,7 +306,7 @@ This parameter sets the back-end schema, IP addresses, ports and options the nod
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 Galera Cluster uses this parameter to determine the IP addresses for the other nodes in the cluster, the back-end schema to use and additional options it should use in connecting to and communicating with those nodes.  Currently, the only back-end schema supported for production is ``gcomm``.
 
@@ -354,7 +363,7 @@ This parameter defines the logical cluster name for the node.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``exmaple_cluster``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter allows you to define the logical name the node uses for the cluster.  When a node attempts to connect to a cluster, it checks the value of this parameter against that of the cluster.  The connection is only made if the names match.  If they don't match, the connection fails.  Because of this, the cluster name must be the same on all nodes.
 
@@ -389,7 +398,7 @@ This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` s
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter determines how the node handles ``LOCK/UNLOCK TABLES`` statements, specifically whether or not you want it to convert these statements into ``BEGIN/COMMIT`` statements.  It tells the node to convert implicitly locking sessions into transactions within the database server. By itself, this is not the same as support for locking sections, but it does prevent the database from resulting in a logically inconsistent state.
 
@@ -428,7 +437,7 @@ Use this parameter to set the directory the wsrep Provider uses for its files.
    "Dynamic Variable", ""
    "Permitted Values", "Directory"
    "Default Value", "/path/mysql_datadir"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 During operation, the wsrep Provider needs to save various files to disk that record its internal state.  This parameter defines the path to the directory that you want it to use.  If not set, it defaults the MySQL ``datadir`` path.
 
@@ -463,7 +472,7 @@ You can set debug options to pass to the wsrep Provider with this parameter.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.15-21.1, MariaDB: 5.5.21"
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set, if its set:
 
@@ -496,7 +505,7 @@ This parameter enables additional debugging output for the database server error
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
 
@@ -533,7 +542,7 @@ This parameter is used to set whether or not the node participates in Flow Contr
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.33-23.7.6, MariaDB: 5.5.33"
 
 When a node receives more write-sets than it can apply, the transactions are placed in a received queue.  In the event that the node falls too far behind, it engages Flow Control.  The node takes itself out of sync with the cluster and works through the received queue until it reaches a more manageable size.
 
@@ -572,7 +581,7 @@ This parameter defines whether the node accepts read queries when in a non-opera
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "???"
+   "Initial Version", "MySQL-wsrep: 5.6.29-25.14, MariaDB: 10.1.3"
 
 
 When a node loses its connection to the :term:`Primary Component`, it enters a non-operational state.  Given that it can't keep its data current while in this state, it rejects all queries with an ``ERROR: Unknown command`` message.  This parameter determines whether or not the node permits reads while in a non-operational state.
@@ -616,7 +625,7 @@ This parameter enables workaround for a bug in MySQL InnoDB that affects Drupal 
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 Drupal installations using MySQL are subject to a bug in InnoDB, tracked as `MySQL Bug 41984 <https://bugs.mysql.com/bug.php?id=41984>`_ and `Drupal Issue 282555 <https://drupal.org/node/282555>`_.  Specifically, inserting a `DEFAULT` value into an `AUTO_INCREMENT` column may return duplicate key errors.
 
@@ -654,7 +663,7 @@ This parameter defines the binary log format for all transactions.
    "Permitted Values", "Enumeration"
    "Default Value", "``NONE``"
    "Valid Values", "``ROW``, ``STATEMENT``, ``MIXED``, ``NONE``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.17-22.3, MariaDB: 5.5.21"
 
 The node uses the format given by this parameter regardless of the client session variable `binlog_format <https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html>`_.  Valid choices for this parameter are: ``ROW``, ``STATEMENT``, and ``MIXED``.  Additionally, there is the special value ``NONE``, which means that there is no forced format in effect for the binary logs. When set to a value other than ``NONE``, this parameter forces all transactions to use a given binary log format.
 
@@ -733,7 +742,7 @@ This parameter defines whether the node splits large ``LOAD DATA`` commands into
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.34-25.29, MariaDB: 5.5.32"
 
 When loading huge amounts of data creates problems for Galera Cluster, in that they eventually reach a size that is too large for the node to rollback completely the operation in the event of a conflict and whatever gets committed stays committed.
 
@@ -770,7 +779,7 @@ This parameter defines whether the node logs additional information about confli
    "Dynamic Variable", "No"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF`` "
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.28-23.7, MariaDB: 5.5.27"
 
 
 In Galera Cluster, the database server uses the standard logging features of MySQL, MariaDB and Percona XtraDB.  This parameter enables additional information for the logs pertaining to conflicts. You may find this useful in troubleshooting replication problems. You can also log conflict information with the wsrep Provider option :ref:`cert.log_conflicts <cert.log_conflicts>`.
@@ -809,7 +818,7 @@ With this parameter you can set the maximum number of rows the node allows in a 
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``0``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 If set to a value greater than ``0``, this parameter sets the maximum number of rows that the node allows in a write-set.
 
@@ -844,7 +853,7 @@ You can set the maximum size the node allows for write-sets with this parameter.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``2G``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter sets the maximum size that the node allows for a write-set.  Currently, this value limits the supported size of transactions and of ``LOAD DATA`` statements.
 
@@ -879,7 +888,7 @@ Extends node behaviour with provided values.
    "Dynamic Variable", ""
    "Permitted Values", "Set"
    "Default Value", ""
-   "Initial Version", "Version 4.0"
+   "Initial Version", "MySQL-wsrep: 5.7.32-25.24, 8.0.22-26.5, MariaDB: 10.6.0"
 
 .. csv-table::
    :class: doc-options
@@ -920,7 +929,7 @@ This parameter is used to note the IP address and port of the node.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "Server IP Address, Port ``4567``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.20-23.4, MariaDB: 5.5.21"
 
 The node passes its IP address and port number to the :term:`Galera Replication Plugin`, where it's used as the base address in cluster communications.  By default, the node pulls the address of the first network interface and uses the default port for Galera Cluster.  Typically, this is the address of ``eth0`` or ``enp2s0`` on port ``4567``.
 
@@ -970,7 +979,7 @@ This parameter is used to provide the IP address and port from which the node sh
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter defines the IP address and port number at which the node should expect to receive client connections.  It's intended for integration with load balancers. For now, it's otherwise unused by the node.
 
@@ -1005,7 +1014,7 @@ You can set the logical name that the node uses for itself with this parameter.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "Server Hostname"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter defines the logical name that the node uses when referring to itself in logs and in the cluster.  It's for convenience, to help you in identifying nodes in the cluster by means other than the node address.
 
@@ -1042,7 +1051,7 @@ Defines the command the node runs whenever cluster membership or the state of th
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 Whenever the node registers changes in cluster membership or its own state, this parameter allows you to send information about that change to an external script defined by the value.  You can use this to reconfigure load balancers, raise alerts and so on, in response to node and cluster activity.
 
@@ -1099,7 +1108,7 @@ Defines whether replication takes place for updates from the current session.
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter defines whether or not updates made in the current session replicate to the cluster.  It does not cause the node to leave the cluster and the node continues to communicate with other nodes.  Additionally, it is a session variable.  Defining it through the ``SET GLOBAL`` syntax also affects future sessions.
 
@@ -1133,7 +1142,7 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
    "Permitted Values", "Enumeration"
    "Default Value", "``TOI``"
    "Valid Values", "``TOI``, ``RSU``"
-   "Initial Version", "Version 3, Patch 5.5.17-22.3"
+   "Initial Version", "MySQL-wsrep: 5.5.17-22.3, MariaDB: 5.5.21"
 
 DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
 
@@ -1172,7 +1181,8 @@ Defines whether the node uses transparent handling of preordered replication eve
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.6.21-25.9"
+   "Deprecated Version", "MySQL-wsrep: 8.0.19-26.3, MariaDB: 10.1.1"
 
 This parameter enables transparent handling of preordered replication events, such as replication events arriving from traditional asynchronous replication. When this option is ``ON``, such events will be applied locally first before being replicated to the other nodes of the cluster. This could increase the rate at which they can be processed which would be otherwise limited by the latency between the nodes in the cluster.
 
@@ -1207,7 +1217,7 @@ Defines the path to the :term:`Galera Replication Plugin`.
    "Dynamic Variable", ""
    "Permitted Values", "File"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 When the node starts, it needs to load the wsrep Provider in order to enable replication functions.  The path defined in this parameter tells it what file it needs to load and where to find it.  In the event that you do not define this path or you give it an invalid value, the node bypasses all calls to the wsrep Provider and behaves as a standard standalone instance of MySQL.
 
@@ -1240,7 +1250,7 @@ Defines optional settings the node passes to the wsrep Provider.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 When the node loads the wsrep Provider, there are several configuration options available that affect how it handles certain events.  These allow you to fine tune how it handles various situations.
 
@@ -1277,7 +1287,7 @@ If ``ON``, when the server starts, the server will recover the sequence number o
    "Dynamic Variable", "No"
    "Permitted Values", "0 | 1"
    "Default Value", "OFF"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.23-23.5, MariaDB: 5.5.21"
 
 See also :doc:`Restarting the Cluster <../training/tutorials/restarting-cluster>`.
 
@@ -1308,7 +1318,7 @@ Defines whether the node rejects client queries while participating in the clust
    "Permitted Values", "Array"
    "Default Value", "``NONE``"
    "Valid Values", "``NONE``, ``ALL``, ``ALL_KILL``"
-   "Initial Version", "Version ???"
+   "Initial Version", "MySQL-wsrep: 5.6.29-25.14, MariaDB: 10.1.32"
 
 When in use, this parameter causes the node to reject queries from client connections.  The node continues to participate in the cluster and apply write-sets, but client queries generate ``Unknown command`` errors.  For instance,
 
@@ -1357,7 +1367,7 @@ Defines whether the replica restarts when the node joins the cluster.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "4.10"
+   "Initial Version", "MySQL-wsrep: 8.0.26-26.8"
 
 Enabling this parameter tells the node to restart the replica when it joins the cluster.
 
@@ -1399,7 +1409,7 @@ Defines the number of retries the node attempts when an autocommit query fails.
    "Dynamic Variable", ""
    "Permitted Values", "Integer"
    "Default Value", "``1``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 When an autocommit query fails the certification test due to a cluster-wide conflict, the node can retry it without returning an error to the client.  This parameter defines how many times the node retries the query.  It is analogous to rescheduling an autocommit query should it go into deadlock with other transactions in the database lock manager.
 
@@ -1432,7 +1442,7 @@ Defines whether the node performs foreign key checking for applier threads.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``ON``"
-   "Initial Version", "4.10"
+   "Initial Version", "MySQL-wsrep: 8.0.26-26.8"
 
 This parameter enables foreign key checking on applier threads.
 
@@ -1453,6 +1463,18 @@ This parameter enables foreign key checking on applier threads.
 
 .. index::
    pair: Parameters; wsrep_slave_FK_checks
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-slave-FK-checks``"
+   "System Variable", "``wsrep_slave_FK_checks``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``ON``"
+   "Initial Version", "MySQL-wsrep: 5.5.42-25.11, MariaDB: 10.0.12"
+   "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
 
 Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of
 ``wsrep_applier_FK_checks``.
@@ -1475,7 +1497,7 @@ Defines the number of threads to use in applying of write-sets.
    "Dynamic Variable", ""
    "Permitted Values", "Integer"
    "Default Value", "``1``"
-   "Initial Version", "4.10"
+   "Initial Version", "MySQL-wsrep: 8.0.26-26.8"
 
 This parameter allows you to define how many threads the node uses when applying write-sets.  Performance on the underlying system and hardware, the size of the database, the number of client connections, and the load your application puts on the server all factor in the need for threading, but not in a way that makes the scale of that need easy to predict.  Because of this, there is no strict formula to determine how many applier threads your node actually needs.
 
@@ -1504,8 +1526,19 @@ Instead of concrete recommendations, there are some general guidelines that you 
 .. index::
    pair: Parameters; wsrep_slave_threads
 
-Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_applier_threads``.
+.. csv-table::
+   :class: doc-options
 
+   "Command-line Format", "``--wsrep-slave-threads``"
+   "System Variable", "``wsrep_slave_threads``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Integer"
+   "Default Value", "``1``"
+   "Initial Version", "MySQL-wsrep: 5.1.58-25.11, MariaDB: 5.5.21"
+   "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
+
+Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_applier_threads``.
 
 .. _`wsrep_applier_UK_checks`:
 .. rst-class:: section-heading
@@ -1525,7 +1558,7 @@ Defines whether the node performs unique key checking on applier threads.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "4.10"
+   "Initial Version", "MySQL-wsrep: 8.0.26-26.8"
 
 This parameter enables unique key checking on applier threads.
 
@@ -1546,7 +1579,19 @@ This parameter enables unique key checking on applier threads.
 .. index::
    pairs: Parameters; wsrep_slave_UK_checks
 
-Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep-slave-UK-checks``"
+   "System Variable", "``wsrep_slave_UK_checks``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean"
+   "Default Value", "``OFF``"
+   "Initial Version", "MySQL-wsrep: 5.5.42-25.11, MariaDB: 5.5.21"
+   "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
+
+Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of
 ``wsrep_applier_UK_checks``.
 
 
@@ -1568,7 +1613,7 @@ Defines the authentication information to use in :term:`State Snapshot Transfer`
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 When the node attempts a state snapshot transfer using the :term:`Logical State Transfer Method`, the transfer script uses a client connection to the database server in order to obtain the data it needs to send.  This parameter provides the authentication information, (that is, the username and password), that the script uses to access the database servers of both sending and receiving nodes.
 
@@ -1605,7 +1650,7 @@ Defines the name of the node that this node uses as a donor in state transfers.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 When the node requires a state transfer from the cluster, it looks for the most appropriate one available.  The group communications module monitors the node state for the purposes of Flow Control, state transfers and :term:`Quorum` calculations.  The node can be a donor if it is in the ``SYNCED`` state.  The first node in the ``SYNCED`` state in the index becomes the donor and is made unavailable for requests while serving as such.
 
@@ -1657,7 +1702,7 @@ Defines whether the node rejects blocking client sessions on a node when it is s
    "Dynamic Variable", ""
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.5.28-23.7, MariaDB: 5.5.28"
 
 This parameter determines whether the node rejects blocking client sessions while it is sending state transfers using methods that block it as the donor.  In these situations, all queries return the error ``ER_UNKNOWN_COM_ERROR``, that is they respond with ``Unknown command``, just like the joining node does.
 
@@ -1694,7 +1739,7 @@ Defines the method or script the node uses in a :term:`State Snapshot Transfer`.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``rsync``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 When the node makes a state transfer request it calls on an external shell script to establish a connection a with the donor node and transfer the database state onto the local database server.  This parameter allows you to define what script the node uses in requesting state transfers.
 
@@ -1755,7 +1800,7 @@ Defines the address from which the node expects to receive state transfers.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ":ref:`wsrep_node_address <wsrep_node_address>`"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter defines the address from which the node expects to receive state transfers.  It is dependent on the :term:`State Snapshot Transfer` method the node uses.
 
@@ -1792,7 +1837,7 @@ Defines the node start position.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", "``00000000-0000-0000-0000-00000000000000:-1``"
-   "Initial Version", "Version 1.0"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 This parameter defines the node start position.  It exists for the sole purpose of notifying the joining node of the completion of a state transfer.
 
@@ -1864,7 +1909,7 @@ Defines whether the node enforces strict cluster-wide causality checks.
    "Dynamic Variable", "Yes"
    "Permitted Values", "Bitmask"
    "Default Value", "``0``"
-   "Initial Version", "Version 3.6"
+   "Initial Version", "MySQL-wsrep: 5.5.42-25.12, MariaDB: 10.0.13"
 
 When you enable this parameter, the node triggers causality checks in response to certain types of queries.  During the check, the node blocks new queries while the database server catches up with all updates made in the cluster to the point where the check was begun.  Once it reaches this point, the node executes the original query.
 
@@ -1928,7 +1973,7 @@ Defines the number of replication units needed to generate a new fragment in Str
    "Dynamic Variable", "Yes"
    "Permitted Values", "Integer"
    "Default Value", "``0``"
-   "Initial Version", "Version 4.0"
+   "Initial Version", "MySQL-wsrep: 8.0.19-26.3, MariaDB: 10.4.2"
 
 In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the number of replication units to include in a fragment.  To define what these units represent, use :ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`. A value of ``0`` indicates that streaming replication will not be used.
 
@@ -1966,7 +2011,7 @@ Defines the replication unit type to use in Streaming Replication.
    "Permitted Values", "String"
    "Default Value", "``bytes``"
    "Valid Values", "``bytes``, ``rows``, ``statements``"
-   "Initial Version", "Version 4.0"
+   "Initial Version", "MySQL-wsrep: 8.0.19-26.3, MariaDB: 10.4.2"
 
 In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the unit to use in determining the size of the fragment.  To define the number of replication units to use in the fragment, use :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
 
@@ -2007,7 +2052,8 @@ Defines whether the node stores write-sets locally for debugging.
    "Dynamic Variable", ""
    "Permitted Values", "String"
    "Default Value", ""
-   "Initial Version", "Version ???, Deprecated in Version 0.8"
+   "Initial Version", "MySQL-wsrep: 5.1.58-21.1"
+   "Deprecated Version", "MySQL-wsrep: 5.1.59-22.2"
 
 This parameter defines whether the node stores write-sets locally for debugging purposes.
 
