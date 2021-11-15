@@ -28,7 +28,7 @@ End of life notices:
 - Due to little usage pattern building Galera 4 packages
   for SUSE Linux Enterprise Server 15 was discontinued.
 
-The users still running above discontinued platforms are adviced to
+The users still running above discontinued platforms are advised to
 use the binary tarball package.
 
 Known Issues:
