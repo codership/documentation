@@ -68,6 +68,17 @@ If the write-set position differs between the nodes, the recovery process also r
 
 For more information on this feature, see the :ref:`pc.recovery <pc.recovery>` parameter.  By default, it's enabled starting in version 3.6.
 
+   .. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 
 .. _`understand-pc-state`:
 .. rst-class:: section-heading

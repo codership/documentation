@@ -67,6 +67,17 @@ Reference
 
 In the event that you need more information about particular variables or parameters or status variable or would like a clearer explanation about various terms used in the documentation, these chapters provide general reference material to Galera Cluster configuration and use.
 
+   .. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 .. _`ref-vars`:
 .. rst-class:: section-heading
 .. rubric:: Variable Reference
