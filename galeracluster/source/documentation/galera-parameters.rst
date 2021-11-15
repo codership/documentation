@@ -140,7 +140,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`", "``0.25``", "  No", "", "1.0", ""
    ":ref:`gcs.sync_donor <gcs.sync_donor>`", "``NO``", "  No", "", "1.0", ""
    ":ref:`gcs.vote_policy <gcs.vote_policy>`", "``0``", "  No", "", "1.0", ""
-":ref:`gmcast.listen_addr <gmcast.listen_addr>`", "``tcp://0.0.0.0:4567``", "  No", "", "1.0", ""
+   ":ref:`gmcast.listen_addr <gmcast.listen_addr>`", "``tcp://0.0.0.0:4567``", "  No", "", "1.0", ""
    ":ref:`gmcast.mcast_addr <gmcast.mcast_addr>`", "", "  No", "", "1.0", ""
    ":ref:`gmcast.mcast_ttl <gmcast.mcast_ttl>`", "``1``", "  No", "", "1.0", ""
    ":ref:`gmcast.peer_timeout <gmcast.peer_timeout>`", "``PT3S``", "  No", "", "1.0", ""
