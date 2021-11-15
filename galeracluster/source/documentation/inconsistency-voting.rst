@@ -62,7 +62,7 @@ Cluster Inconsistency Voting
    pair: Configuration; gcs.vote_policy
 
 
-Cluster inconsistency voting is a protocol for nodes to decide how the cluster reacts to problems in replication. Inconsistency voting helps, when one or several nodes have an issue to apply an incoming transactions. This can happen, for example, in the case of suspected inconsistency.
+Cluster inconsistency voting is a protocol for nodes to decide how the cluster reacts to problems in replication. Inconsistency voting helps, when one or several nodes have an issue to apply an incoming transaction, which can happen in the case of suspected inconsistency.
 
 If, for example, in a five-node cluster, two nodes fail to apply a transaction, they get removed. When the DBA has corrected the issue, the nodes can rejoin the cluster.
 
