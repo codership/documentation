@@ -1965,7 +1965,7 @@ Defines the replication unit type to use in Streaming Replication.
    "Dynamic Variable", "Yes"
    "Permitted Values", "String"
    "Default Value", "``bytes``"
-   "Valid Values", "``bytes``, ``events``, ``rows``, ``statements``"
+   "Valid Values", "``bytes``, ``rows``, ``statements``"
    "Initial Version", "Version 4.0"
 
 In :term:`Streaming Replication`, the node breaks transactions down into fragments, then replicates and certifies them while the transaction is in progress.  Once certified, a fragment can no longer be aborted due to conflicting transactions.  This parameter determines the unit to use in determining the size of the fragment.  To define the number of replication units to use in the fragment, use :ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`.
@@ -1973,8 +1973,6 @@ In :term:`Streaming Replication`, the node breaks transactions down into fragmen
 Supported replication units are:
 
 - **bytes**: Refers to the fragment size in bytes.
-
-- **events**: Refers to the number of binary log events in the fragment.
 
 - **rows**: Refers to the number of rows updated in the fragment.
 
