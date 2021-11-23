@@ -226,7 +226,7 @@ This is a backward incompatible option and should be used only on fully upgraded
 .. code-block:: ini
 
     [sst]
-    ssl-mode=DISABLE
+    ssl-mode=DISABLED
 
 disables SSL encryption for SST regardless server SSL settings
 
