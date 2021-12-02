@@ -77,7 +77,7 @@ For server hardware, each node requires at a minimum the following components:
 
 The recommended hardware depends on how much data you are planning to store in the cluster.
 
-Galera Cluster also runs on virtual environments, such as VMware, and in cloud environments. For example, you can run MySQL 8 Galera Cluster on amazon EC2 with a t2.micro/t2.small instance.
+Galera Cluster also runs on virtual environments, such as VMware, and in cloud environments. For example, you can run MySQL 8 Galera Cluster on Amazon EC2 with a t2.micro/t2.small instance.
 
 .. note:: Galera Cluster may occasionally crash when run on limited hardware due to insufficient memory.  To prevent this, make sure that you have allocated a sufficient amount of swap space.  For more information on how to create swap space, see :ref:`Configuring Swap Space <swap-config>`.
 
