@@ -66,7 +66,7 @@ The :term:`Physical State Transfer Method` has the following advantages:
 
 - These transfers are faster.
 
-The :term:'Physical State Transfer Method' has the following disadvantages:
+The :term:`Physical State Transfer Method` has the following disadvantages:
 
 - These transfers require the joining node to have the same data directory layout and the same storage engine configuration as the donor node.  For example, you must use the same file-per-table, compression, log file size and similar settings for InnoDB.
 
