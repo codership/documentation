@@ -83,7 +83,7 @@ Without Galera Manager, to create a Galera Cluster, you have to set up multiple 
 To create a cluster in Galera Manager, click on *Create New Cluster*.  You'll then see a large dialog box like the one below in Figure 1. In this box you will give the cluster a name, as well as make some default choices for creating nodes and hosts
 
 .. figure:: ../images/galera-manager-create-first-cluster.png
-   :width: 800px
+   :width: 600px
    :alt: Create New Cluster in Galera Manager
    :class: document-screenshot
 
