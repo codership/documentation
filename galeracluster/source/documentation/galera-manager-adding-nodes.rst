@@ -95,7 +95,7 @@ To add nodes to a cluster, after logging into Galera Manager from a web browser,
 After you click *Add Node*, a large box like the one shown in the screenshot below in Figure 2 will appear.  Here you will provide your preferences for the node or nodes, and the hosts you want to add.
 
 .. figure:: ../images/galera-manager-node-deploy-wizard.png
-   :width: 800px
+   :width: 600px
    :alt: Node Deployment Wizard in Galera Manager
    :class: document-screenshot
 
@@ -113,7 +113,7 @@ In the example here, we are creating a cluster in AWS EC2, so 3 has been entered
 Next, you'll enter specific information on this node or set of nodes.  To make discussing easier, below is the screenshot from Figure 2, but cropped around the default node configuration section:
 
 .. figure:: ../images/galera-manager-node-deploy-node-config.png
-   :width: 800px
+   :width: 600px
    :alt: Node Deployment - Node Configuration
    :class: document-screenshot
 
@@ -132,7 +132,7 @@ The database system and version is already set from when you created the cluster
 The next part of the *Node Deployment Wizard*, shown in the cropped screenshot below, relates to configuring the hosts.  By default host setting are inherited from the cluster values, but you can change them for particular host here. If you are adding a host that is not created by Galera Manager, here you will need to provide private SSH key for Galera Manager root access to the host. Host defaults are explained in the :ref:`galera-manager-default-host-configuration` section of the :doc:`galera-manager-adding-clusters` documentation page.
 
 .. figure:: ../images/galera-manager-node-deploy-host-config.png
-   :width: 800px
+   :width: 600px
    :alt: Node Deployment - Host Configuration
    :class: document-screenshot
 
@@ -177,7 +177,7 @@ If you chose to have the nodes started automatically, they should all have a sta
 Now that we created our cluster in AWS EC2, Galera Manager has provisioned a EC2 instance for each node's host.  If you look in your EC2 console showing your *Instances*, you'll see something like the screenshot below:
 
 .. figure:: ../images/galera-manager-aws-nodes.png
-   :width: 800px
+   :width: 600px
    :alt: Nodes on AWS
    :class: document-screenshot
 

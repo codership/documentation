@@ -99,7 +99,7 @@ Logical back-ups are generated with a utility like ``mysqldump`` and produce tex
 If you will be restoring data by way of a MySQL client, you'll need the node's IP address and the root password for the database. To get this information select a node in Galera Manager and then click on the *Configuration* tab for the node.  You can see an example of this in the screenshot in Figure 1 below:
 
 .. figure:: ../images/galera-manager-node-configuration.png
-   :width: 800px
+   :width: 600px
    :alt: Galera Manager - Node Configuration
    :class: document-screenshot
 
@@ -149,7 +149,7 @@ The results table in Example 2 here shows that the ``company`` database was crea
 You might also go back to Galera Manager to see how the activity looks for your nodes. Below is a screenshot of Galera Manager that was taken shortly after loading the dump file above:
 
 .. figure:: ../images/galera-manager-monitor-data-loading.png
-   :width: 800px
+   :width: 600px
    :alt: Galera Manager - Monitoring Data Loading on a Node
    :class: document-screenshot
 

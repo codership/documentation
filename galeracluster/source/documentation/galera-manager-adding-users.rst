@@ -120,7 +120,7 @@ You can, of course, add more users. Should you decide to delete a Galera Manager
 
 
 .. figure:: ../images/galera-manager-user-info.png
-   :width: 300px
+   :width: 500px
    :alt: Galera Manager User Information
    :class: document-screenshot
 

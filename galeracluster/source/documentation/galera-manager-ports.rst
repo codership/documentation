@@ -150,7 +150,7 @@ You might be tempted to tighten security more, to create one *Security Group* to
 If you were to do all of that, make all of those changes to the *Source* IP addresses, it would like something like what you see in the screenshot in Figure 3 below:
 
 .. figure:: ../images/galera-manager-aws-inbound-rules-all-nodes.png
-   :width: 800px
+   :width: 600px
    :alt: AWS Security Group for All Nodes
    :class: document-screenshot
 
