@@ -92,7 +92,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
 .. csv-table::
    :class: doc-options
    :header: "|br| Parameter", "|br| Default", "|br| Dynamic", "Debug |br| Only", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 40, 10, 10, 10, 10
+   :widths: 30, 30, 12, 12, 12, 14
 
    ":ref:`base_dir <base_dir>`", "", "", "", "", ""
    ":ref:`base_host <base_host>`", "detected network address", "", "", "1.0", ""

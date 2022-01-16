@@ -73,7 +73,7 @@ and an explanation.
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
-   :widths: 30, 42, 6, 6
+   :widths: 30, 30, 12, 12
 
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", ""
