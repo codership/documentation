@@ -157,7 +157,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`pc.linger <pc.linger>`", "``PT2S``", "  No", "", "1.0", ""
    ":ref:`pc.npvo <pc.npvo>`", "``FALSE``", "  No", "", "1.0", ""
    ":ref:`pc.recovery <pc.recovery>`", "``TRUE``", "  No", "", "3.0", ""
-   ":ref:`pc.version <pc.version>`", "n/a", "No", "Yes", "1.0", ""
+   ":ref:`pc.version <pc.version>`", "n/a", "  No", "Yes", "1.0", ""
    ":ref:`pc.wait_prim <pc.wait_prim>`", "``TRUE``", "  No", "", "1.0", ""
    ":ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>`", "``PT30S``", "  No", "", "2.0", ""
    ":ref:`pc.weight <pc.weight>`", "``1``", "  Yes", "", "2.4", ""
