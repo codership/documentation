@@ -221,9 +221,6 @@ After the build completes, there are some additional steps that you must take in
 
 In addition to this procedure, bear in mind that any further customization variables that you enabled during the build process through ``cmake``, (such as nonstandard base or data directories), may require you to define addition parameters in the configuration file, (that is, the ``my.cnf``).
 
-
-.. note:: This tutorial omits MariaDB authentication options for brevity.
-
 .. _GitHub: https://github.com
 
 
