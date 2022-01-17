@@ -107,6 +107,7 @@ This distinction is of importance for developers only.  For convenience, all sta
    ":ref:`wsrep_gcomm_uuid <wsrep_gcomm_uuid>`", "Galera", "", "1.0"
    ":ref:`wsrep_gmcast_seqment <wsrep_gmcast_segment>`", "Galera", "2", "3.31"
    ":ref:`wsrep_incoming_addresses <wsrep_incoming_addresses>`", "Galera", "", "1.0"
+   ":ref:`wsrep_ist_receive_status <wsrep_ist_receive_status>`", "Galera", "", "1.0"
    ":ref:`wsrep_last_committed <wsrep_last_committed>`", "Galera", "``409745`` ", "1.0"
    ":ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>`", "Galera", "``960`` ", "1.0"
    ":ref:`wsrep_local_cached_downto <wsrep_local_cached_downto>`", "Galera", "", "1.0"
@@ -1027,6 +1028,16 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
    +--------------------------+--------------------------------------+
    | wsrep_incoming_addresses | 10.0.0.1:3306,10.0.02:3306,undefined |
    +--------------------------+--------------------------------------+
+
+
+.. _`wsrep_ist_receive_status`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_ist_receive_status``
+
+.. index::
+   pair: Status Variables; wsrep_ist_receive_status
+
+This variable displays the IST progress for the joiner node. If IST is running, the value is the percentage of transfer completed. If IST is not running, the value is empty.
 
 
 .. _`wsrep_last_committed`:
