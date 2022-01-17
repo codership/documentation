@@ -231,7 +231,7 @@ Regarding ports, notice the line in the example above about TCP ports 80, 8081, 
 If you deploy Galera Manager on AWS, those ports are closed by default.  Go to the EC2 console in AWS, and click on *Security Groups* in the left margin.  Then look for the security group for the server on which you installed Galera Manager. Edit the *Inbound Rules* for that group to open those ports (see the screenshot below).
 
 .. figure:: ../images/galera-manager-aws-inbound-rules-gmd.png
-   :width: 800px
+   :width: 600px
    :alt: AWS Inbound Rules for Galera Manager
    :class: document-screenshot
 

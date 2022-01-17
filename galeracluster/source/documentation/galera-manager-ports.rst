@@ -106,7 +106,7 @@ Ports 80 and 443 are used to access Galera Manager through a web browser.  Port 
 To open these ports on AWS, go to the EC2 console, and click on *Security Groups* in the left margin.  Then look for the *Security Group* for the *Instance* on which you installed Galera Manager. Edit the *Inbound Rules* for that group to open those ports. When you're finished, the *Inbound Rules* will look something like the screenshot below:
 
 .. figure:: ../images/galera-manager-aws-inbound-rules-gmd.png
-   :width: 800px
+   :width: 600px
    :alt: AWS Inbound Rules for Galera Manager
    :class: document-screenshot
 
@@ -137,7 +137,7 @@ After you create a cluster within Galera Manager, and then add nodes to that clu
 The screenshot in Figure 2 below shows an example of a *Security Group* for a host created with Galera Manager for a node in a cluster:
 
 .. figure:: ../images/galera-manager-aws-inbound-rules.png
-   :width: 800px
+   :width: 600px
    :alt: AWS Inbound Rules
    :class: document-screenshot
 
@@ -150,7 +150,7 @@ You might be tempted to tighten security more, to create one *Security Group* to
 If you were to do all of that, make all of those changes to the *Source* IP addresses, it would like something like what you see in the screenshot in Figure 3 below:
 
 .. figure:: ../images/galera-manager-aws-inbound-rules-all-nodes.png
-   :width: 800px
+   :width: 600px
    :alt: AWS Security Group for All Nodes
    :class: document-screenshot
 

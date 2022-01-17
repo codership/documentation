@@ -83,7 +83,7 @@ Without Galera Manager, to create a Galera Cluster, you have to set up multiple 
 To create a cluster in Galera Manager, click on *Create New Cluster*.  You'll then see a large dialog box like the one below in Figure 1. In this box you will give the cluster a name, as well as make some default choices for creating nodes and hosts
 
 .. figure:: ../images/galera-manager-create-first-cluster.png
-   :width: 800px
+   :width: 600px
    :alt: Create New Cluster in Galera Manager
    :class: document-screenshot
 
@@ -103,7 +103,7 @@ Looking at the screenshot here, in the first section labeled *Cluster Configurat
 In the next section of the box shown in Figure 1, the section labeled *Node Configuration*, you're asked to make default choices that will be used when you later add nodes to the cluster.  To be clear as to what's discussed, below is the screenshot from Figure 1, but cropped around the default node configuration section:
 
 .. figure:: ../images/galera-manager-create-cluster-node-defaults.png
-   :width: 800px
+   :width: 600px
    :alt: Create Cluster - Node Defaults
    :class: document-screenshot
 
@@ -179,7 +179,7 @@ The next section of the *Create Cluster* dialog box relates to how you want to c
 To make it easier to discuss, below is the screenshot from Figure 1, but this time cropped around the default host configuration section:
 
 .. figure:: ../images/galera-manager-create-cluster-host-defaults.png
-   :width: 800px
+   :width: 600px
    :alt: Create Cluster - Host Defaults
    :class: document-screenshot
 
@@ -209,7 +209,7 @@ In case you chose *ec2* host type, you will also be asked to provide your *Acces
 Click where it says, *My Security Credentials*.  This will take you to the *Identity and Access Management (IAM)* page.  Look in the main panel for the choice labeled, *Access Keys* and click on it to expand that sub-section.  Your screen will look something like the screenshot below:
 
 .. figure:: ../images/galera-manager-aws-security-credentials.png
-   :width: 800px
+   :width: 600px
    :alt: AWS Security Credentials
    :class: document-screenshot
 
@@ -235,7 +235,7 @@ You can copy the text containing the *AWS Access Key ID* and the *AWS Access Key
 The last two fields of the *Default Host Configuration* section are related to ``ssh`` enryption keys. To be clear, below is the screenshot from Figure 1 again, but cropped here around the part on SSH keys:
 
 .. figure:: ../images/galera-manager-create-cluster-ssh-keys.png
-   :width: 800px
+   :width: 600px
    :alt: Default Host Configuration - SSH Keys
    :class: document-screenshot
 

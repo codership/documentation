@@ -82,7 +82,7 @@ If you happened upon this page of the documentation first, without having instal
 After first having created a cluster and added nodes, you'll see a dashboard containing charts for tracking some metrics. Below in Figure 1 is a screenshot of how a cluster with three nodes would look at the start. However, these charts and monitored metrics are just a few that are loaded by default. You can add and remove any charts, monitor any database or cluster metrics you want.
 
 .. figure:: ../images/galera-manager-monitor-data-loading.png
-   :width: 800px
+   :width: 600px
    :alt: Monitoring Data Loading
    :class: document-screenshot
 
