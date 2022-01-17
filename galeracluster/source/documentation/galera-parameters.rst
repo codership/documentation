@@ -92,7 +92,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
 .. csv-table::
    :class: doc-options
    :header: "|br| Parameter", "|br| Default", "|br| Dynamic", "Debug |br| Only", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 40, 10, 10, 10, 10
+   :widths: 30, 30, 12, 12, 12, 14
 
    ":ref:`base_dir <base_dir>`", "", "", "", "", ""
    ":ref:`base_host <base_host>`", "detected network address", "", "", "1.0", ""
@@ -157,7 +157,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`pc.linger <pc.linger>`", "``PT2S``", "  No", "", "1.0", ""
    ":ref:`pc.npvo <pc.npvo>`", "``FALSE``", "  No", "", "1.0", ""
    ":ref:`pc.recovery <pc.recovery>`", "``TRUE``", "  No", "", "3.0", ""
-   ":ref:`pc.version <pc.version>`", "n/a", "No", "Yes", "1.0", ""
+   ":ref:`pc.version <pc.version>`", "n/a", "  No", "Yes", "1.0", ""
    ":ref:`pc.wait_prim <pc.wait_prim>`", "``TRUE``", "  No", "", "1.0", ""
    ":ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>`", "``PT30S``", "  No", "", "2.0", ""
    ":ref:`pc.weight <pc.weight>`", "``1``", "  Yes", "", "2.4", ""

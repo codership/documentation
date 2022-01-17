@@ -77,7 +77,7 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
 .. csv-table::
    :class: doc-options
    :header: "Option", "Default", "Match", ""
-   :widths: 30, 15, 10, 45
+   :widths: 30, 20, 20
 
    ":ref:`compressor <xtra-compressor>`", "", ""
    ":ref:`cpat <xtra-cpat>`", "``0``", ""

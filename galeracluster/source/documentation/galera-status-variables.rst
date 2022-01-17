@@ -75,7 +75,7 @@ This distinction is of importance for developers only.  For convenience, all sta
 .. csv-table::
    :class: doc-options
    :header: "|br| Status Variable", "|br| Exporter", "Example |br| Value", "Initial |br| Version"
-   :widths: 40, 15, 30, 15
+   :widths: 40, 15, 25, 20
 
    ":ref:`wsrep_apply_oooe <wsrep_apply_oooe>`", "Galera", "``0.671120``", "1.0"
    ":ref:`wsrep_apply_oool <wsrep_apply_oool>`", "Galera", "``0.195248``", "1.0"
