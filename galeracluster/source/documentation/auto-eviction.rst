@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, auto-eviction, evs state, provider options
-   :copyright: Codership Oy, 2014 - 2021. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
 
 
 .. container:: left-margin
