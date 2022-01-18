@@ -140,6 +140,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`", "``0.25``", "  No", "", "1.0", ""
    ":ref:`gcs.sync_donor <gcs.sync_donor>`", "``NO``", "  No", "", "1.0", ""
    ":ref:`gcs.vote_policy <gcs.vote_policy>`", "``0``", "  No", "", "1.0", ""
+   ":ref:`gcache.freeze_purge_at_seqno <gcache.freeze_purge_at_seqno>`", "``-1``", "  Yes", "", "1.0", ""
    ":ref:`gmcast.listen_addr <gmcast.listen_addr>`", "``tcp://0.0.0.0:4567``", "  No", "", "1.0", ""
    ":ref:`gmcast.mcast_addr <gmcast.mcast_addr>`", "", "  No", "", "1.0", ""
    ":ref:`gmcast.mcast_ttl <gmcast.mcast_ttl>`", "``1``", "  No", "", "1.0", ""
@@ -1294,6 +1295,37 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. code-block:: ini
 
    wsrep_provider_options="gcs.vote_policy=0"
+
+
+.. _`gcache.freeze_purge_at_seqno`:
+.. rst-class:: section-heading
+.. rubric:: ``gcache.freeze_purge_at_seqno``
+
+.. index::
+   pair: wsrep Provider Options; gcache.freeze_purge_at_seqno
+
+This variable controls the purging of the gcache and enables retaining more data in it. With this variable, you can use IST (:term:`Incremental State Transfer`) when the node rejoins, instead of SST (:term:`State Snapshot Transfer`).
+
+Set this variable on an existing node of the cluster. This node will continue to be part of the cluster, and can act as a potential donor node. Furthermore, the node continues to retain the write-sets and allows restarting the node to rejoin by using IST.
+
+The possible values are:
+
+- ``gcache.freeze_purge_at_seqno = -1`` - No freeze, the purge operates normally.
+- ``gcache.freeze_purge_at_seqno = x`` - A  valid seqno in the gcache. The freeze purge of write-sets may not be smaller than the selected seqno. We recommend using the value of the variable wsrep_last_applied from the node that you are planning to shut down. 
+- ``gcache.freeze_purge_at_seqno = now`` - The freeze purge of write-sets is no less than the smallest seqno currently in the gcache. Using this value instantly freezes the gcache-purge. If it is difficult to select a valid seqno in gcache, use this value.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "``-1``"
+   "Dynamic", "Yes"
+   "Initial Version", "1.0"
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file:
+
+.. code-block:: ini
+
+   wsrep_provider_options="gcache.freeze_purge_at_seqno=now"
 
 
 .. _`gmcast.listen_addr`:
