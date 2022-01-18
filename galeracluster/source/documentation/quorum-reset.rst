@@ -3,7 +3,7 @@
    :description: "Provides an explanation of how determine if a cluster needs to be restarted and how to do it."
    :language: en-US
    :keywords: galera cluster, quorum, split-brain, recovery, primary component, restarting cluster
-   :copyright: Codership Oy, 2014 - 2021. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
 
 
 .. container:: left-margin
