@@ -124,15 +124,15 @@ For more information on initializing and adding nodes to a cluster, see :doc:`St
 .. rst-class:: section-heading
 .. rubric:: Migrating from MySQL to Galera Cluster
 
-In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL master-slave replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
+In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL primary-replica replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
 
 There are three types of database servers referred to in this guide:
 
-- **Master Server** Refers to the MySQL master server.
-- **Slave Server**  Refers to a MySQL slave server.
+- **Primary Server** Refers to the MySQL primary (formerly referred to as master) server.
+- **Replica Server**  Refers to a MySQL replica (formerly referred to as slave) server.
 - **Cluster Node** Refers to a node in Galera Cluster.
 
-For the sake of simplicity, slave servers and cluster nodes are referenced collectively, rather than individually.  In production, you may have several slave servers and must have at least three cluster nodes.
+For the sake of simplicity, replica servers and cluster nodes are referenced collectively, rather than individually.  In production, you may have several replica servers and must have at least three cluster nodes.
 
 
 .. _`migrate-infrastructure`:
@@ -141,13 +141,13 @@ For the sake of simplicity, slave servers and cluster nodes are referenced colle
 Infrastructure Preparation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For your existing infrastructure, you have a MySQL master server as well as several slave servers that form a master-slave cluster.  Before you can begin migration, you first need to prepare your infrastructure for the change.
+For your existing infrastructure, you have a MySQL primary server as well as several replica servers that form a primary-replica cluster.  Before you can begin migration, you first need to prepare your infrastructure for the change.
 
 #. Launch at least three new servers, outside of and unconnected to your existing database infrastructure.
 
 #. On each new server, install Galera Cluster.  For information on how to do this, see :doc:`Galera Installation <galera-installation>`.
 
-#. Configure the database server.  In addition to the IP addresses of each node, on the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, include the IP addresses of the MySQL master server and each instance of the slave servers.
+#. Configure the database server.  In addition to the IP addresses of each node, on the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, include the IP addresses of the MySQL primary server and each instance of the replica servers.
 
 For more information on configuring Galera Cluster, see :doc:`System Configuration <configuration>` and :doc:`Replication Configuration <wsrep-configuration>`.
 
@@ -165,7 +165,7 @@ To check that it is running properly, log into one of the database clients and r
    | wsrep_cluster_size | 3     |
    +--------------------+-------+
 
-Galera Cluster is now running in parallel to your MySQL master-slave cluster.  It contains no data and remains unused by your application servers.  You can now begin migrating your data.
+Galera Cluster is now running in parallel to your MySQL primary-replica cluster.  It contains no data and remains unused by your application servers.  You can now begin migrating your data.
 
 
 .. _`migrate-data`:
@@ -174,11 +174,11 @@ Galera Cluster is now running in parallel to your MySQL master-slave cluster.  I
 Data Migration
 ^^^^^^^^^^^^^^^^^^^
 
-In order to migrate data from a MySQL master-slave cluster to Galera Cluster, you need to manually transfer it from your existing infrastructure to the new one.
+In order to migrate data from a MySQL primary-replica cluster to Galera Cluster, you need to manually transfer it from your existing infrastructure to the new one.
 
-#. Stop the load of the master server.
+#. Stop the load of the primary server.
 
-#. On the master server, run ``mysqldump``:
+#. On the primary server, run ``mysqldump``:
 
    .. code-block:: console
 
@@ -192,17 +192,17 @@ In order to migrate data from a MySQL master-slave cluster to Galera Cluster, yo
 
       $ scp migration.sql user@galera-node-IP
 
-#. On the cluster node, load the data from the master server.
+#. On the cluster node, load the data from the primary server.
 
    .. code-block:: console
 
       mysql -u root -p < migration.sql
 
-#. Restart the load from the application servers, this time directing it towards your cluster nodes instead of the master server.
+#. Restart the load from the application servers, this time directing it towards your cluster nodes instead of the primary server.
 
-Your application now uses Galera Cluster, instead of your previous MySQL master-slave cluster.
+Your application now uses Galera Cluster, instead of your previous MySQL primary-replica cluster.
 
-.. note:: Bear in mind that your application will experience downtime at this stage of the process.  The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the master server, then transfer and upload it onto a cluster node.
+.. note:: Bear in mind that your application will experience downtime at this stage of the process.  The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the primary server, then transfer and upload it onto a cluster node.
 
 
 .. _`migrate-db`:
@@ -211,7 +211,7 @@ Your application now uses Galera Cluster, instead of your previous MySQL master-
 Database Migration
 ^^^^^^^^^^^^^^^^^^^^
 
-With your application server now using the new cluster nodes, you now need to migrate your master and slave servers from stock MySQL to Galera Cluster.
+With your application server now using the new cluster nodes, you now need to migrate your primary and replica servers from stock MySQL to Galera Cluster.
 
 #. Using the same process described in :doc:`Galera Installation <galera-installation>`, install and configure Galera Cluster on the server.
 
@@ -241,15 +241,15 @@ With your application server now using the new cluster nodes, you now need to mi
 
     For more information, see :ref:`Upgrading System Tables <upgrade-system-tables>`.
 
-#. From one of the running Galera Cluster nodes, copy the ``grastate.dat`` file into the data directory of the former MySQL master server.
+#. From one of the running Galera Cluster nodes, copy the ``grastate.dat`` file into the data directory of the former MySQL primary server.
 
    .. code-block:: console
 
-      $ scp grastate.dat user@server-master-ip:/path/to/datadir
+      $ scp grastate.dat user@server-primary-ip:/path/to/datadir
 
-#. Using your preferred text editor, on the former MySQL master server update the sequence number (that is, the seqno) in the ``grastate.dat`` file from ``-1`` to ``0``.
+#. Using your preferred text editor, on the former MySQL primary server update the sequence number (that is, the seqno) in the ``grastate.dat`` file from ``-1`` to ``0``.
 
-#. Restart the master and slave servers.  For servers that use ``init``, run the following command:
+#. Restart the primary and replica servers.  For servers that use ``init``, run the following command:
 
    .. code-block:: console
 
@@ -263,7 +263,7 @@ With your application server now using the new cluster nodes, you now need to mi
 
 #. Resume load on these servers.
 
-When the former MySQL master and slave servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.
+When the former MySQL primary and replica servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.
 
 .. container:: bottom-links
 
