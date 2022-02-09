@@ -296,8 +296,8 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
    :widths: 30, 34, 12, 6, 8, 8
 
-   ":ref:`wsrep-OSU-mode <wsrep-osu-mode>`", "``OFF``", "Yes", "", "1.0", ""
-   ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``TOI``", "Global and Session", "Yes", "1.0", ""
+   ":ref:`wsrep-OSU-mode <wsrep-osu-mode>`", "``TOI``", "Global and Session", "Yes", "1.0", ""
+   ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``OFF``", "Yes", "Yes", "1.0", ""
 
 
 
