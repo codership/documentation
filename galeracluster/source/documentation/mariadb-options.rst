@@ -338,7 +338,6 @@ For more information on DDL statements and OSU methods, see :doc:`schema-upgrade
    "Initial Version", "Version 1.0"
    "MariaDB Version", "Version 10.5"
    "MariaDB Enterprise Server (for NBO)", "Version 10.5"
-   "Percona XtraDB Cluster (for NBO)", "Version 8.0.25-15.1"
 
 You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 
