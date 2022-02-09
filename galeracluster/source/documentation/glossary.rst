@@ -96,7 +96,7 @@
    Non-Blocking Operations
       With the NBO method, :abbr:`DDL (Data Definition Language)` statements are processed similarly as with the :abbr:`TOI (Total Order Isolation)` method, except that the NBO method uses a more efficient locking strategy. Compared with TOI, NBO offers significant flexibility in DDL statement processing.
 
-      For more information, see :ref:`Total Order Isolation <toi>`.
+      For more information, see :ref:`Non-Blocking Operations <nbo>`.
 
    NBO
       See :term:`Non-Blocking Operations`.

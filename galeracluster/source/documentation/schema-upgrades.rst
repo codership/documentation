@@ -151,7 +151,7 @@ The main advantage of Non-Blocking Operations is that it significantly reduces t
 - The supported statements are:
 
    - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} , alter_specification``
-   - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} PARTITION`. The comma after ``LOCK=SHARED|EXCLUSIVE`` is not used for partition-management ``ALTER``s.
+   - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} PARTITION``. The comma after ``LOCK=SHARED|EXCLUSIVE`` is not used for partition-management ``ALTER``s.
    - ``ANALYZE TABLE``
    - ``OPTIMIZE TABLE``
 
