@@ -92,6 +92,14 @@
       This is a type of back-end state transfer method that operates through the database server (e.g., ``mysqldump``).
 
       For more information, see :ref:`Logical State Snapshot <sst-logical>`.
+	  
+   Non-Blocking Operations
+      With the NBO method, :abbr:`DDL (Data Definition Language)` statements are processed similarly as with the :abbr:`TOI (Total Order Isolation)` method, except that the NBO method uses a more efficient locking strategy. Compared with TOI, NBO offers significant flexibility in DDL statement processing.
+
+      For more information, see :ref:`Total Order Isolation <toi>`.
+
+   NBO
+      See :term:`Non-Blocking Operations`.
 
    PF
       PF is packet filter used for firewall software, that has been ported to several operating systems. It can be configured for firewall protection of a Galera Cluster.

@@ -100,7 +100,7 @@ and an explanation.
    ":ref:`wsrep_node_name <wsrep_node_name>`", "``<hostname>``", "Yes", ""
    ":ref:`wsrep_notify_cmd <wsrep_notify_cmd>`", "", "Yes", ""
    ":ref:`wsrep_on <wsrep_on>`", "``ON``", "Yes", ""
-   ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", ""
+   ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", "Yes"
    ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", ""
    ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", ""
    ":ref:`wsrep_provider_options <wsrep_provider_options>`", "", "Yes", ""
@@ -1141,7 +1141,7 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
    "Dynamic Variable", "Yes"
    "Permitted Values", "Enumeration"
    "Default Value", "``TOI``"
-   "Valid Values", "``TOI``, ``RSU``"
+   "Valid Values", "``TOI``, ``RSU``", ``NBO``"
    "Initial Version", "MySQL-wsrep: 5.5.17-22.3, MariaDB: 5.5.21"
 
 DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
@@ -1149,6 +1149,8 @@ DDL statements are non-transactional and as such don't replicate through write-s
 - ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress.
 
 - ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
+
+- ``NBO`` In the :term:`Non-Blocking Operations` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress. In comparison with TOI, the NBO method has more efficient locking for several operations, as the NBO method issues metadata locks on all nodes at the start of the DDL operation, to ensure consistency. This prevents the TOI issue of long-running DDL statements, which block cluster updates.
 
 For more information on DDL statements and OSU methods, see :doc:`schema-upgrades`.
 
