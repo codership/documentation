@@ -1143,6 +1143,7 @@ Defines the Online Schema Upgrade method the node uses to replicate :abbr:`DDL (
    "Default Value", "``TOI``"
    "Valid Values", "``TOI``, ``RSU``", ``NBO``"
    "Initial Version", "MySQL-wsrep: 5.5.17-22.3, MariaDB: 5.5.21"
+   "Initial Version, NBO", "MariaDB Enterprise Server Version 10.5, Percona XtraDB Cluster 8.0.25-15.1"
 
 DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
 

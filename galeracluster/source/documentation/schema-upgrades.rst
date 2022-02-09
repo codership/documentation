@@ -72,7 +72,7 @@ Galera Cluster processes schema changes by three different methods:
 
 You can set the method for online schema changes by using the ``wsrep_OSU_method`` parameter in the configuration file, (``my.ini`` or ``my.cnf`, depending on your build) or through the ``mysql`` client.  Galera Cluster defaults to the Total Order Isolation method.
 
-.. note:: If you're using Galera Cluster for Percona XtraDB Cluster, see the the `pt-online-schema-change <https://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html>`_ in the Percona Toolkit.
+.. note:: If you're using Galera Cluster for Percona XtraDB Cluster, see the the `pt-online-schema-change <https://www.percona.com/doc/percona-toolkit/3.0/pt-online-schema-change.html>`_ in the Percona Toolkit.
 
 .. only:: html
 
@@ -146,7 +146,13 @@ When you want an online schema change to replicate through the cluster, but are 
 
 The NBO method resembles the TOI method. Queries that change the schema replicate as statements to all nodes in the cluster.  The nodes wait for all preceding transactions to commit simultaneously, then they execute the schema change in isolation.  For the duration of the :abbr:`DDL (Data Definition Language)` processing, no other transactions can commit.
 
-The main advantage of Non-Blocking Operations is that it significantly reduces the impact of DDL statements on the cluster. When using Non-Blocking Operations, take the following particularities into consideration:
+The main advantage of Non-Blocking Operations is that it significantly reduces the impact of DDL statements on the cluster. During DDL processing:
+
+   - You can alter another table, using NBO
+   - You can continue inserting data, excluding the table(s) you are altering
+   - If one node crashes, the operation will continue on the other nodes, and if successful it will persist
+
+When using Non-Blocking Operations, take the following particularities into consideration:
 
 - The supported statements are:
 
@@ -188,3 +194,4 @@ The main advantage of Non-Blocking Operations is that it significantly reduces t
 
    - :ref:`Total Order Isolation <toi>`
    - :ref:`Rolling Schema Upgrade <rsu>`
+   - :ref:`Non-Blocking Operations <nbo>`
