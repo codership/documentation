@@ -34,6 +34,7 @@
 
       - :ref:`Total Order Isolation <toi>`
       - :ref:`Rolling Schema Upgrade <rsu>`
+	  - :ref:`Non-Blocking Operations <nbo>`
 
 .. container:: top-links
 
@@ -61,15 +62,17 @@ Schema Upgrades
 
 Schema changes are of particular interest related to Galara Cluster. Schema changes are  :abbr:`DDL (Data Definition Language)` statement executed on a database (e.g., ``CREATE TABLE``, ``GRANT``).  These :abbr:`DDL (Data Definition Language)` statements change the database itself and are non-transactional.
 
-Galera Cluster processes schema changes by two different methods:
+Galera Cluster processes schema changes by three different methods:
 
 - :ref:`Total Order Isolation <toi>`: Abbreviated as TOI, these are schema changes made on all cluster nodes in the same total order sequence, preventing other transations from committing for the duration of the operation.
 
 - :ref:`Rolling Schema Upgrade <rsu>` Known also as RSU, these are schema changes run locally, affecting only the node on which they are run.  The changes do not replicate to the rest of the cluster.
 
+- :ref:`Non-Blocking Operations <nbo>`: Abbreviated as NBO, these are schema changes made on all cluster nodes in the same total order sequence, preventing other transations from committing for the duration of the operation, with mush more efficient locking strategy that the TOI method.
+
 You can set the method for online schema changes by using the ``wsrep_OSU_method`` parameter in the configuration file, (``my.ini`` or ``my.cnf`, depending on your build) or through the ``mysql`` client.  Galera Cluster defaults to the Total Order Isolation method.
 
-.. note:: If you're using Galera Cluster for Percona XtraDB Cluster, see the the `pt-online-schema-change <https://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html>`_ in the Percona Toolkit.
+.. note:: If you're using Galera Cluster for Percona XtraDB Cluster, see the the `pt-online-schema-change <https://www.percona.com/doc/percona-toolkit/3.0/pt-online-schema-change.html>`_ in the Percona Toolkit.
 
 .. only:: html
 
@@ -128,6 +131,61 @@ To change a schema cluster-wide, you must manually execute the query on each nod
 
 The main advantage of the Rolling Schema Upgrade is that it only blocks one node at a time. The main disadvantage of the Rolling Schema Upgrade is that it is potentially unsafe, and may fail if the new and old schema definitions are incompatible at the replication event level.
 
+.. _`nbo`:
+.. rst-class:: section-heading
+.. rubric:: Non-Blocking Operations
+
+.. index::
+   pair: Descriptions; Non-Blocking Operations
+
+When you want an online schema change to replicate through the cluster, but are worried that long-running :abbr:`DDL (Data Definition Language)` statements block cluster updates, use the :term:`Non-Blocking Operations` method. You would do this with the ``SET`` statement like so:
+
+.. code-block:: mysql
+
+   SET GLOBAL wsrep_OSU_method='NBO';
+
+The NBO method resembles the TOI method. Queries that change the schema replicate as statements to all nodes in the cluster.  The nodes wait for all preceding transactions to commit simultaneously, then they execute the schema change in isolation.  For the duration of the :abbr:`DDL (Data Definition Language)` processing, no other transactions can commit.
+
+The main advantage of Non-Blocking Operations is that it significantly reduces the impact of DDL statements on the cluster. During DDL processing:
+
+   - You can alter another table, using NBO
+   - You can continue inserting data, excluding the table(s) you are altering
+   - If one node crashes, the operation will continue on the other nodes, and if successful it will persist
+
+When using Non-Blocking Operations, take the following particularities into consideration:
+
+- The supported statements are:
+
+   - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} , alter_specification``
+   - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} PARTITION``. The comma after ``LOCK=SHARED|EXCLUSIVE`` is not used for partition-management ``ALTER``s.
+   - ``ANALYZE TABLE``
+   - ``OPTIMIZE TABLE``
+
+- The unsupported statements are:
+
+   - ``ALTER TABLE LOCK = {DEFAULT|NONE}``. This also means that ``ALTER TABLE`` without a ``LOCK`` clause is not supported, as is defaults to ``DEFAULT``.
+   - ``CREATE``
+   - ``RENAME``
+   - ``DROP``
+   - ``REPAIR``
+
+- As some DDL statements, such as ``CREATE`` without a ``LOCK`` argument, return an error, it is not recommended to use NBO on a server-wide basis. Only use it for sessions that run compatible DDL statements.
+
+- You cannot perform writes on a table that is being altered under NBO. Write attempts are blocked, until the ``ALTER`` is complete. Under ``LOCK=SHARED``, reading from the table is allowed. Under ``LOCK=EXCLUSIVE``, read operations are also blocked.
+
+- Locking the tables at the beginning of the operation is a blocking operation. The cluster may block, if there is an ongoing long transaction against the table being altered. To avoid this, ensure that no clients have open transactions that include the table, prior to running the ``ALTER`` statement.
+
+- While a DDL operation is running, nodes cannot be donors for SST. Thus, a node cannot join or rejoin the cluster using SST while an NBO DDL is in progress.
+
+- If a node leaves the cluster while an NBO DDL operation is in progress, its data files will be inconsistent and it can only rejoin the cluster through SST, not IST.
+
+- If a DDL statement is expected to take one hour, SST will not be available for one hour, only IST. Set a high-enough value for the ``gcache.size`` so that there is sufficient cached data to use IST.
+
+- Do not use NBO with statements that operate on more than one table at a time.
+
+- Do not perform online schema upgrades using the RSU method while a statement is running under the NBO method.
+
+
 .. warning:: To avoid conflicts between new and old schema definitions, execute SQL statements such as ``CREATE TABLE`` and ``DROP TABLE`` using the :ref:`Total Order Isolation <toi>` method.
 
 .. container:: bottom-links
@@ -136,3 +194,4 @@ The main advantage of the Rolling Schema Upgrade is that it only blocks one node
 
    - :ref:`Total Order Isolation <toi>`
    - :ref:`Rolling Schema Upgrade <rsu>`
+   - :ref:`Non-Blocking Operations <nbo>`
