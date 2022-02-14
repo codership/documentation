@@ -236,7 +236,7 @@ If you sense a node is getting overwhelmed, you might execute ``FLUSH STATUS`` o
    | wsrep_flow_control_paused | 0.184353 |
    +---------------------------+----------+
 
-In the results here, it shows that for a little more than 18 percent of the time elapsed, the replication was paused.  A value of 1 would indicate that the node was paused 100% of the time. Anything greater than 0 indicates the node's replication health may be weak. You should closely monitor it |---| flushing occasionally |---| until you start seeing 0 values.  If it doesn't resolve itself, you might increase the number of slave threads (i.e., ``wsrep_slave_threads``).
+In the results here, it shows that for a little more than 18 percent of the time elapsed, the replication was paused.  A value of 1 would indicate that the node was paused 100% of the time. Anything greater than 0 indicates the node's replication health may be weak. You should closely monitor it |---| flushing occasionally |---| until you start seeing 0 values.  If it doesn't resolve itself, you might increase the number of slave threads (i.e., ``wsrep_applier_threads``).
 
 
 .. rst-class:: lower-heading
@@ -244,7 +244,7 @@ In the results here, it shows that for a little more than 18 percent of the time
 
 Last, you might monitor ``wsrep_cert_deps_distance``. It will tell you the average distance between the lowest and highest sequence number, values a node can potentially apply in parallel.
 
-Basically, this is the optimal value to set ``wsrep_slave_threads``, since it's pointless to assign more slave threads than the number of transactions that can be applied in parallel.
+Basically, this is the optimal value to set ``wsrep_applier_threads``, since it's pointless to assign more slave threads than the number of transactions that can be applied in parallel.
 
 
 .. rst-class:: section-heading

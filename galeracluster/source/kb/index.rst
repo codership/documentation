@@ -267,7 +267,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Parallel Slave Threads <parallel-slave-threads>`
+   .. rubric:: :doc:`Parallel Applier Threads <parallel-applier-threads>`
 
    .. rst-class:: list-stats
 
@@ -483,7 +483,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    group-commit
    large-transactions
-   parallel-slave-threads
+   parallel-applier-threads
    detecting-slow-node
 
    wan-latency
