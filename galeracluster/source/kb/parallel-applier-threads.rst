@@ -34,7 +34,7 @@
       Related Documents
 
       - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
-      - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
+      - :ref:`wsrep_applier_threads <wsrep_applier_threads>`
       - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
 
 
