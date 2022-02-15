@@ -28,7 +28,7 @@
 
          .. cssclass:: here
 
-         - :doc:`Training Courses <../training/courses/index>`
+         - :doc:`Training Courses <../courses/index>`
          - :doc:`Tutorial Articles <./index>`
 
       - :doc:`FAQ <../../faq>`
