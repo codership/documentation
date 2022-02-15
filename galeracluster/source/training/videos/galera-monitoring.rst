@@ -86,7 +86,7 @@ Monitoring a Galera Cluster
    .. only:: latex
 
           .. image:: ../images/galera-manager.jpg
-          :target: https://galeracluster.com/galera-mgr/
+             :target: https://galeracluster.com/galera-mgr/
 
 
 .. container:: list-col1-3

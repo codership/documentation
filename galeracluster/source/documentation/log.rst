@@ -71,7 +71,7 @@ Galera Cluster provides the same database server logging features available to M
    .. only:: latex
 
           .. image:: ../images/galera-manager.jpg
-          :target: https://galeracluster.com/galera-mgr/
+             :target: https://galeracluster.com/galera-mgr/
 
 
 .. _`server-log-parameters`:

@@ -105,7 +105,7 @@ From the database client, you can check the status of write-set replication thro
    .. only:: latex
 
           .. image:: ../images/galera-manager.jpg
-          :target: https://galeracluster.com/galera-mgr/
+             :target: https://galeracluster.com/galera-mgr/
 
 
 .. _`check-cluster-integrity`:
