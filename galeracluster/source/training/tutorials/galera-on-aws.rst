@@ -178,7 +178,7 @@ There are some basic parameters related to MariaDB and using the InnoDB storage 
    wsrep_cluster_address="gcomm://172.31.19.208,172.31.26.197,172.31.15.54"
 
    wsrep_provider_options="gcache.size=300M; gcache.page_size=300M"
-   wsrep_applier_threads=4
+   wsrep_slave_threads=4
    wsrep_sst_method=rsync
 
 There are several parameters here, but we'll talk about just a few of them. First, ``wsrep_on`` enables Galera. The file path for the value of ``wsrep_provider`` may have to be adjusted to your server.

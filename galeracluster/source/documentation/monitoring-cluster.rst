@@ -50,6 +50,7 @@
       - :ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>`
       - :ref:`wsrep_ready <wsrep_ready>`
       - :ref:`wsrep_applier_threads <wsrep_applier_threads>`
+      - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
 
 .. container:: top-links
 
@@ -314,7 +315,7 @@ You can monitor the local received queue and Flow Control using the following st
 
   When the node returns a value of ``0.0``, it indicates that the node did not pause due to Flow Control during this period.  When the node returns a value of ``1.0``, it indicates that the node spent the entire period paused.  If the time between ``FLUSH STATUS`` and ``SHOW STATUS`` was one minute and the node returned ``0.25``, it indicates that the node was paused for a total 15 seconds over that time period.
 
-  Ideally, the return value should stay as close to ``0.0`` as possible, since this means the node is not falling behind the cluster.  In the event that you find that the node is pausing frequently, you can adjust the :ref:`wsrep_applier_threads <wsrep_applier_threads>` parameter or you can exclude the node from the cluster.
+  Ideally, the return value should stay as close to ``0.0`` as possible, since this means the node is not falling behind the cluster.  In the event that you find that the node is pausing frequently, you can adjust the :ref:`wsrep_slave_threads <wsrep_slave_threads>` or :ref:`wsrep_applier_threads <wsrep_applier_threads>` parameter or you can exclude the node from the cluster.
 
 - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` shows the average distance between the lowest and highest sequence number, or seqno, values that the node can possibly apply in parallel.
 
@@ -328,7 +329,7 @@ You can monitor the local received queue and Flow Control using the following st
      | wsrep_cert_deps_distance | 23.8889 |
      +--------------------------+---------+
 
-  This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_applier_threads <wsrep_applier_threads>` parameter, given that there is no reason to assign more slave threads than transactions you can apply in parallel.
+  This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_slave_threads <wsrep_slave_threads>` or :ref:`wsrep_applier_threads <wsrep_applier_threads>` parameter, given that there is no reason to assign more slave threads than transactions you can apply in parallel.
 
 .. _`check-network-issues`:
 .. rst-class:: section-heading
@@ -385,3 +386,4 @@ Values much greater than ``0.0`` indicate replication throttling or network thro
    - :ref:`wsrep_local_recv_queue_min <wsrep_local_recv_queue_min>`
    - :ref:`wsrep_ready <wsrep_ready>`
    - :ref:`wsrep_applier_threads <wsrep_applier_threads>`
+   - :ref:`wsrep_slave_threads <wsrep_slave_threads>`

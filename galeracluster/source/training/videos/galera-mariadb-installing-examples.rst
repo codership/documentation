@@ -126,7 +126,7 @@ Do these exercises after viewing the first two sections of the training video:  
    log-error=/var/log/mysqld.log
    pid-file=/var/run/mysqld/mysqld.pid
 
-   # Galera Optons
+   # Galera Options
 
    wsrep_on=ON
    wsrep_provider=/usr/lib64/galera-3/libgalera_smm.so
@@ -137,7 +137,7 @@ Do these exercises after viewing the first two sections of the training video:  
    wsrep_cluster_name='galera-training'
    wsrep_cluster_address="gcomm://172.31.18.216,172.31.23.129,172.31.25.198"
    wsrep_provider_options="gcache.size=300M; gcache.page_size=300M"
-   wsrep_applier_threads=4
+   wsrep_slave_threads=4
    wsrep_sst_method=rsync
 
 

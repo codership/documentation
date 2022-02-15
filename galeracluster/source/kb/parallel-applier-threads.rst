@@ -35,6 +35,7 @@
 
       - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
       - :ref:`wsrep_applier_threads <wsrep_applier_threads>`
+	  - :ref:`wsrep_slave_threads <wsrep_slave_threads>`
       - :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`
 
 
@@ -72,7 +73,7 @@ Setting Parallel Slave Threads
 
 There is no rule about how many slave threads you need for replication.  Parallel threads do not guarantee better performance, but they don't impair regular operation performance and they may in fact speed up the synchronization of new nodes joining a cluster.
 
-.. note:: The ``wsrep_slave_threads`` parameter is still available, but it is deprecated. Use ``wsrep_applier_threads`` for parallel threads.
+.. note:: The ``wsrep_slave_threads`` parameter is still available, but it is deprecated. Use ``wsrep_applier_threads`` for parallel threads, if you use MySQL-wsrep 8.0.26 or newer.
 
 .. rst-class:: section-heading
 .. rubric:: Scenario
