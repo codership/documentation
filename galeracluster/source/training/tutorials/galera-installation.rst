@@ -106,8 +106,8 @@ Before you begin the installation process, there are a few tasks that you need t
 
    .. only:: latex
 
-          .. image:: ../images/training.jpg
-		  :target: https://galeracluster.com/training-courses/
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Disabling SELinux for mysqld

@@ -159,14 +159,14 @@ Note that Hands On Labs are denoted with HOL.
 
    .. only:: html
 
-          .. image:: ../images/training.jpg
+          .. image:: ../../images/training.jpg
              :target: https://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../images/training.jpg
-		  :target: https://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6
+          .. image:: ../../images/training.jpg
+             :target: https://www2.galeracluster.com/l/38852/2020-09-18/9kqcz6
 
 
 

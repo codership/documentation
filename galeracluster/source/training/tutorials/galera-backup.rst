@@ -88,8 +88,8 @@ First, make sure your back-ups are complete. If you're using binary logs, be sur
 
    .. only:: latex
 
-          .. image:: ../images/training.jpg
-		  :target: https://galeracluster.com/training-courses/
+          .. image:: ../../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
 
 Second, don’t rely on making back-ups manually. Instead, automate your back-ups by using a scheduling tool like ``cron``.  Set the frequency to something reasonable, such as daily or twice a day. Make sure back-up files are stored in a different location than on the production server.
 
