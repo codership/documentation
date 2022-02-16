@@ -103,6 +103,12 @@ These parameters are passed to all state transfer scripts, regardless of method 
 
    ``--defaults-file`` The script is given the path to the ``my.cnf`` configuration file.
 
+   ``--total N`` This progress reporting parameter indicates the new SST stage and reports the estimated total work.
+
+   ``--complete N`` This progress reporting parameter reports the work completed so far.
+   
+   Progress reporting is also enabled for the ``clone`` SST method.
+
 The values the node passes to these parameters varies depending on whether the node calls the script to send or receive a state snapshot transfer.  For more information, see :ref:`Calling Conventions <calling-conventions>` below.
 
 
