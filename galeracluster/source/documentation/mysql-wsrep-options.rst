@@ -170,6 +170,7 @@ The ``innodb-wsrep-applier-lock-wait-timeout`` parameter defines the timeout in 
    "Default Value", "``0`` "
    "Initial Version", "MySQL-wsrep 8.0.26-26.8"
 
+You can execute the following ``SHOW VARIABLES`` statement to see how this variable set:
 
 .. code-block:: mysql
 
@@ -205,7 +206,7 @@ The node manages auto-increment values in a table using two variables: ``auto_in
 
 The :ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>` parameter enables additional calculations to this process, using the number of nodes connected to the :term:`Primary Component` to adjust the increment and offset.  This is done to reduce the likelihood that two nodes will attempt to write the same auto-increment value to a table.
 
-It significantly reduces the rate of certification conflicts for ``INSERT`` statements. You can execute the following ``SHOW VARIABLES`` statement to see how its set:
+It significantly reduces the rate of certification conflicts for ``INSERT`` statements. You can execute the following ``SHOW VARIABLES`` statement to see how this variable set:
 
 .. code-block:: mysql
 
@@ -506,7 +507,7 @@ You can set debug options to pass to the wsrep Provider with this parameter.
    "Default Value", ""
    "Initial Version", "MySQL-wsrep: 5.5.15-21.1, MariaDB: 5.5.21"
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set, if its set:
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set, if it is set:
 
 .. code-block:: mysql
 
