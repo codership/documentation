@@ -1378,11 +1378,11 @@ Enabling this parameter tells the node to restart the replica when it joins the 
 
    SHOW VARIABLES LIKE 'wsrep_restart_replica';
 
-   +---------------------+-------+
-   | Variable_name       | Value |
-   +---------------------+-------+
+   +-----------------------+-------+
+   | Variable_name         | Value |
+   +-----------------------+-------+
    | wsrep_restart_replica | OFF   |
-   +---------------------+-------+
+   +-----------------------+-------+
 
 .. _`wsrep_restart_slave`:
 .. rst-class:: section-heading
@@ -1453,11 +1453,11 @@ This parameter enables foreign key checking on applier threads.
 
    SHOW VARIABLES LIKE 'wsrep_applier_FK_checks';
 
-   +-----------------------+-------+
-   | Variable_name         | Value |
-   +-----------------------+-------+
+   +-------------------------+-------+
+   | Variable_name           | Value |
+   +-------------------------+-------+
    | wsrep_applier_FK_checks | ON    |
-   +-----------------------+-------+
+   +-------------------------+-------+
 
 
 .. _`wsrep_slave_FK_checks`:
@@ -1516,11 +1516,11 @@ Instead of concrete recommendations, there are some general guidelines that you 
 
    SHOW VARIABLES LIKE 'wsrep_applier_threads';
 
-   +---------------------+-------+
-   | Variable_name       | Value |
-   +---------------------+-------+
+   +-----------------------+-------+
+   | Variable_name         | Value |
+   +-----------------------+-------+
    | wsrep_applier_threads | 1     |
-   +---------------------+-------+
+   +-----------------------+-------+
 
 .. _`wsrep_slave_threads`:
 .. rst-class:: section-heading
@@ -1541,7 +1541,7 @@ Instead of concrete recommendations, there are some general guidelines that you 
    "Initial Version", "MySQL-wsrep: 5.1.58-25.11, MariaDB: 5.5.21"
    "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
 
-Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_applier_threads``.
+Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_applier_threads``. See :doc:`Setting Parallel Slave Threads <../kb/parallel-applier-threads>`.
 
 .. _`wsrep_applier_UK_checks`:
 .. rst-class:: section-heading
@@ -1569,11 +1569,11 @@ This parameter enables unique key checking on applier threads.
 
    SHOW VARIABLES LIKE 'wsrep_applier_UK_checks';
 
-   +-----------------------+-------+
-   | Variable_name         | Value |
-   +-----------------------+-------+
+   +-------------------------+-------+
+   | Variable_name           | Value |
+   +-------------------------+-------+
    | wsrep_applier_UK_checks | OFF   |
-   +-----------------------+-------+
+   +-------------------------+-------+
 
 .. _`wsrep_slave_UK_checks`:
 .. rst-class:: section-heading
@@ -1886,7 +1886,7 @@ The contents of the file are subject to change.
 
    SHOW VARIABLES LIKE 'wsrep_status_file';
 
-   -------------------+-------------------+
+   --------------------+-------------------+
    | Variable_name     | Value             |
    +-------------------+-------------------+
    | wsrep_status_file | wsrep-status.json |

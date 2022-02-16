@@ -126,7 +126,7 @@ Do these exercises after viewing the first two sections of the training video:  
    log-error=/var/log/mysqld.log
    pid-file=/var/run/mysqld/mysqld.pid
 
-   # Galera Optons
+   # Galera Options
 
    wsrep_on=ON
    wsrep_provider=/usr/lib64/galera-3/libgalera_smm.so
