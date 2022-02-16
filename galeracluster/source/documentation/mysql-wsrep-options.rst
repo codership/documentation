@@ -157,7 +157,7 @@ The results will vary depending on which version of Galera is running on your se
 .. index::
    pair: Parameters; innodb-wsrep-applier-lock-wait-timeout
 
-This parameter enables the automatic adjustment of auto increment system variables with changes in cluster membership.
+The ``innodb-wsrep-applier-lock-wait-timeout`` parameter defines the timeout in seconds, after which the ``wsrepw`` watchdog starts killing local transactions that are blocking the applier. Value ``0`` disables the watchdog.
 
 .. csv-table::
    :class: doc-options
@@ -170,7 +170,6 @@ This parameter enables the automatic adjustment of auto increment system variabl
    "Default Value", "``0`` "
    "Initial Version", "MySQL-wsrep 8.0.26-26.8"
 
-The ``innodb-wsrep-applier-lock-wait-timeout`` parameter defines the timeout in seconds, after which the ``wsrepw`` watchdog starts killing local transactions that are blocking the applier. Value ``0`` disables the watchdog.
 
 .. code-block:: mysql
 
