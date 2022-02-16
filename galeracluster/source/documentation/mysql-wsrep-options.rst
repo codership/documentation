@@ -75,6 +75,7 @@ and an explanation.
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
    :widths: 30, 30, 12, 12
 
+   ":ref:`innodb-wsrep-applier-lock-wait-timeout <innodb-wsrep-applier-lock-wait-timeout>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", ""
    ":ref:`wsrep_certify_nonPK <wsrep_certify_nonPK>`", "``ON``", "", "Yes"
@@ -148,6 +149,38 @@ The results will vary depending on which version of Galera is running on your se
            .. image:: ../images/support.jpg
               :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
+
+.. _`innodb-wsrep-applier-lock-wait-timeout`:
+.. rst-class:: section-heading
+.. rubric:: ``innodb-wsrep-applier-lock-wait-timeout``
+
+.. index::
+   pair: Parameters; innodb-wsrep-applier-lock-wait-timeout
+
+This parameter enables the automatic adjustment of auto increment system variables with changes in cluster membership.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--innodb-wsrep-applier-lock-wait-timeout``"
+   "System Variable", "``innodb-wsrep-applier-lock-wait-timeout``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "0 or timeout in seconds"
+   "Default Value", "``0`` "
+   "Initial Version", "MySQL-wsrep 8.0.26-26.8"
+
+The ``innodb-wsrep-applier-lock-wait-timeout`` parameter defines the timeout in seconds, after which the ``wsrepw`` watchdog starts killing local transactions that are blocking the applier. Value ``0`` disables the watchdog.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'innodb-wsrep-applier-lock-wait-timeout';
+
+    +----------------------------------------+-------+
+    | Variable_name                          | Value |
+    +----------------------------------------+-------+
+    | innodb-wsrep-applier-lock-wait-timeout | 10    |
+    +----------------------------------------+-------+
 
 .. _`wsrep_auto_increment_control`:
 .. rst-class:: section-heading
