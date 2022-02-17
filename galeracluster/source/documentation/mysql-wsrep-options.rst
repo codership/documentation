@@ -75,6 +75,7 @@ and an explanation.
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
    :widths: 30, 30, 12, 12
 
+   ":ref:`innodb-wsrep-applier-lock-wait-timeout <innodb-wsrep-applier-lock-wait-timeout>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", ""
    ":ref:`wsrep_certify_nonPK <wsrep_certify_nonPK>`", "``ON``", "", "Yes"
@@ -149,6 +150,38 @@ The results will vary depending on which version of Galera is running on your se
               :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
 
+.. _`innodb-wsrep-applier-lock-wait-timeout`:
+.. rst-class:: section-heading
+.. rubric:: ``innodb-wsrep-applier-lock-wait-timeout``
+
+.. index::
+   pair: Parameters; innodb-wsrep-applier-lock-wait-timeout
+
+The ``innodb-wsrep-applier-lock-wait-timeout`` parameter defines the timeout in seconds, after which the ``wsrepw`` watchdog starts killing local transactions that are blocking the applier. Value ``0`` disables the watchdog.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--innodb-wsrep-applier-lock-wait-timeout``"
+   "System Variable", "``innodb-wsrep-applier-lock-wait-timeout``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "0 or timeout in seconds"
+   "Default Value", "``0`` "
+   "Initial Version", "MySQL-wsrep 8.0.26-26.8"
+
+You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'innodb-wsrep-applier-lock-wait-timeout';
+
+    +----------------------------------------+-------+
+    | Variable_name                          | Value |
+    +----------------------------------------+-------+
+    | innodb-wsrep-applier-lock-wait-timeout | 10    |
+    +----------------------------------------+-------+
+
 .. _`wsrep_auto_increment_control`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_auto_increment_control``
@@ -173,7 +206,7 @@ The node manages auto-increment values in a table using two variables: ``auto_in
 
 The :ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>` parameter enables additional calculations to this process, using the number of nodes connected to the :term:`Primary Component` to adjust the increment and offset.  This is done to reduce the likelihood that two nodes will attempt to write the same auto-increment value to a table.
 
-It significantly reduces the rate of certification conflicts for ``INSERT`` statements. You can execute the following ``SHOW VARIABLES`` statement to see how its set:
+It significantly reduces the rate of certification conflicts for ``INSERT`` statements. You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
 
 .. code-block:: mysql
 
@@ -237,7 +270,7 @@ Certification rules to use in the cluster.
    "Valid Value", "``OPTIMIZED``, ``STRICT``"
    "Initial Version", "MySQL-wsrep: 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15"
 
-Controls how certification is done in the cluster, in particular this affects how foreign keys are handled: with the ``STRICT`` option two INSERTs that happen at about the same time on two different nodes in a child table, that insert different (non conflicting rows), but both rows point to the same row in the parent table could result in certification failure. With the ``OPTIMIZED`` option such certification failure is avoided.
+Controls how certification is done in the cluster. To be more specific, this parameter affects how foreign keys are handled: with the ``STRICT`` option, two INSERTs that happen at about the same time on two different nodes in a child table, and insert different (non conflicting) rows, but both rows point to the same row in the parent table, could result in certification failure. With the ``OPTIMIZED`` option, such certification failure is avoided.
 
 .. code-block:: mysql
 
@@ -474,7 +507,7 @@ You can set debug options to pass to the wsrep Provider with this parameter.
    "Default Value", ""
    "Initial Version", "MySQL-wsrep: 5.5.15-21.1, MariaDB: 5.5.21"
 
-You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set, if its set:
+You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set, if it is set:
 
 .. code-block:: mysql
 
