@@ -331,7 +331,7 @@ a:visited.reference.internal {
 }
 
 body a:link.reference.internal > span.std.std-term {
- color: #d05656 !important;
+ color: #c7a049 !important;
  }
 
 body a:link.reference.internal:visited > span.std.std-term {
