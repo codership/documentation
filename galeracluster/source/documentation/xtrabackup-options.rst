@@ -87,7 +87,6 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
    ":ref:`progress <xtra-progress>`", "", ""
    ":ref:`rebuild <xtra-rebuild>`", "``0``", ""
    ":ref:`rlimit <xtra-rlimit>`", "", ""
-   ":ref:`sst_initial_timeout <xtra-sst_initial_timeout>`", "``100``", ""
    ":ref:`sst_special_dirs <xtra-sst_special_dirs>`", "``1``", ""
    ":ref:`sockopt <xtra-sockopt>`", "", ""
    ":ref:`streamfmt <xtra-streamfmt>`", "``xbstream``", "Yes"
@@ -95,6 +94,8 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
    ":ref:`tcert <xtra-tcert>`", "", ""
    ":ref:`time <xtra-time>`", "``0``", ""
    ":ref:`transferfmt <xtra-transferfmt>`", "``socat``", "Yes"
+   ":ref:`joiner_timeout <xtra-joiner_timeout>`", "``60``", ""
+   ":ref:`donor_timeout <xtra-donor_timeout>`", "``10``", ""
 
 
 .. _`xtra-compressor`:
@@ -318,28 +319,6 @@ This parameter allows you to definite the rate-limit the donor node.  This allow
    rlimit=300M
 
 
-.. _`xtra-sst_initial_timeout`:
-.. rst-class:: section-heading
-.. rubric:: ``sst_initial_timeout``
-
-Defines the initial timeout to receive the first state transfer packet.
-
-.. csv-table::
-   :class: doc-options
-   :stub-columns: 1
-
-   "**System Variable**", "Name:", "``sst_initial_timeout``"
-   "", "Match:", "No"
-   "**Permitted Values**", "Type:", "Integer"
-   "", "Default Value:", "``100``"
-
-This parameter determines the initial timeout in seconds for the joiner to receive the first packet in a :term:`State Snapshot Transfer`.  This keeps the joiner node from hanging in the event that the donor node crashes while starting the operation.
-
-.. code-block:: ini
-
-   sst_initial_timeout=130
-
-
 .. _`xtra-sst_special_dirs`:
 .. rst-class:: section-heading
 .. rubric:: ``sst_special_dirs``
@@ -506,3 +485,48 @@ The default and recommended utility is Socat, given that it allows for socket op
 .. code-block:: ini
 
    transferfmt="socat"
+
+
+.. _`xtra-joiner_timeout`:
+.. rst-class:: section-heading
+.. rubric:: ``joiner_timeout``
+
+How soon joiner should timeout waiting for SST (seconds).
+
+.. csv-table::
+   :class: doc-options
+   :stub-columns: 1
+
+   "**System Variable**", "Name:", "``joiner_timeout``"
+   "", "Match:", "No"
+   "**Permitted Values**", "Type:", "Integer"
+   "", "Default Value:", "``60``"
+
+This parameter determines the initial timeout in seconds for the joiner to receive the first packet in a :term:`State Snapshot Transfer`.  This keeps the joiner node from hanging in the event that the donor node crashes while starting the operation.
+
+.. code-block:: ini
+
+   joiner_timeout=120
+
+
+.. _`xtra-donor_timeout`:
+.. rst-class:: section-heading
+.. rubric:: ``donor_timeout``
+
+How soon donor should timeout on connection to joiner (seconds).
+
+.. csv-table::
+   :class: doc-options
+   :stub-columns: 1
+
+   "**System Variable**", "Name:", "``donor_timeout``"
+   "", "Match:", "No"
+   "**Permitted Values**", "Type:", "Integer"
+   "", "Default Value:", "``10``"
+
+This parameter determines how soon the donor should timeout on connection to joiner and return to normal operation in case the joiner turns to be unresponsive.
+
+.. code-block:: ini
+
+   donor_timeout=5
+
