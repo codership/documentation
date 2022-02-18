@@ -255,7 +255,7 @@ If you want to install version 4 of Galera Cluster using ``yum``, you would inst
 
    yum install galera-4 mysql-wsrep-8.0
 
-Please note that on CentOS 8 and RedHat 8, you need to disable MySQL and
+Please note that on Red Hat 8, you need to disable MySQL and
 MariaDB modules before installing Galera Cluster from a repository under
 https://releases.galeracluster.com/. In order to do this, execute the
 following from the command-line:

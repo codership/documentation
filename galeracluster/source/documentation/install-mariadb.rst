@@ -164,7 +164,7 @@ For the value of ``baseurl``, you'll have to adjust the web address:
 
 - ``version`` should be changed to the version of MariaDB you want to use (e.g., ``5.6``).
 
-- ``package`` will have to be changed to the package name for your operating system distribution, release and architecture.  For example, ``rhel6-amd64`` would reference packages for a Red Hat Enterprise Linux 6 server running on 64-bit hardware.
+- ``package`` will have to be changed to the package name for your operating system distribution, release and architecture.  For example, ``rhel8-amd64`` would reference packages for a Red Hat Enterprise Linux 8 server running on 64-bit hardware.
 
 For more information on the repository, package names or available mirrors, see the `MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_. It will generate the actual text you will need to put in your repository configuration file. In fact, by clicking through the choices presented, you can just copy the results and paste them into your configuration file without any modification.
 
