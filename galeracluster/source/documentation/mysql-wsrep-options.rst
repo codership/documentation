@@ -122,7 +122,7 @@ and an explanation.
    ":ref:`wsrep_sst_method <wsrep_sst_method>`", "``mysqldump``", "Yes", ""
    ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", ""
    ":ref:`wsrep_start_position <wsrep_start_position>`", "*see reference entry*", "Yes", ""
-   ":ref:`wsrep_status_file <wsrep_status_file>`", "````", "Yes", "No"
+   ":ref:`wsrep_status_file <wsrep_status_file>`", "", "Yes", "No"
    ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes"
@@ -1907,7 +1907,7 @@ Defines the file name for node status output.
    "Variable Scope", "Global"
    "Dynamic Variable", "No"
    "Permitted Values", "String"
-   "Default Value", "````"
+   "Default Value", ""
    "Initial Version", "MySQL-wsrep 8.0.26-26.8"
 
 If defined, the file will contain JSON formatted output of node status. The purpose of the file is to provide

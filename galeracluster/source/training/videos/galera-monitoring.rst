@@ -79,14 +79,14 @@ Monitoring a Galera Cluster
    
    .. only:: html
 
-          .. image:: ../images/galera-manager.jpg
+          .. image:: ../../images/galera-manager.jpg
              :target: https://galeracluster.com/galera-mgr/
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../images/galera-manager.jpg
-          :target: https://galeracluster.com/galera-mgr/
+          .. image:: ../../images/galera-manager.jpg
+             :target: https://galeracluster.com/galera-mgr/
 
 
 .. container:: list-col1-3

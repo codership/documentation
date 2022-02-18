@@ -75,7 +75,7 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
    ":ref:`wsrep_gtid_mode <wsrep_gtid_mode>`", "``OFF``", "Yes", "Yes", "", ""
    ":ref:`wsrep_gtid_seq_no <wsrep_gtid_seq_no>`", "", "No", "Yes", "", ""
    ":ref:`wsrep-mysql-replication-bundle <wsrep-mysql-replication-bundle>`", "``0``", "Yes", "No", "", ""
-   ":ref:`wsrep_patch_version <wsrep_patch_version>`", "````", "Yes", "No", "", ""
+   ":ref:`wsrep_patch_version <wsrep_patch_version>`", "", "Yes", "No", "", ""
    ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "", ""
    ":ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`", "``OFF``", "Yes", "", "", ""
 

@@ -74,7 +74,7 @@ This software documentation is (C)2009-2018 Percona LLC and/or its affiliates an
    .. only:: latex
 
           .. image:: ../images/galera-manager.jpg
-          :target: https://galeracluster.com/galera-mgr/
+             :target: https://galeracluster.com/galera-mgr/
 
 
 The Audit Log plugin monitors and logs connection and query activity performed on a specific server. Information on the activity is stored in the XML log file, where each event will have a ``NAME`` field, a unique ``RECORD_ID`` field and a ``TIMESTAMP`` field. This implementation is alternative to the MySQL Enterprise Audit Log Plugin.

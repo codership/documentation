@@ -157,7 +157,7 @@ When using Non-Blocking Operations, take the following particularities into cons
 - The supported statements are:
 
    - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} , alter_specification``
-   - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} PARTITION``. The comma after ``LOCK=SHARED|EXCLUSIVE`` is not used for partition-management ``ALTER``s.
+   - ``ALTER TABLE table_name LOCK = {SHARED|EXCLUSIVE} PARTITION``. The comma after ``LOCK=SHARED|EXCLUSIVE`` is not used for partition-management ``ALTER``\s.
    - ``ANALYZE TABLE``
    - ``OPTIMIZE TABLE``
 
