@@ -103,12 +103,6 @@ These parameters are passed to all state transfer scripts, regardless of method 
 
    ``--defaults-file`` The script is given the path to the ``my.cnf`` configuration file.
 
-   ``--total N`` This progress reporting parameter indicates the new SST stage and reports the estimated total work.
-
-   ``--complete N`` This progress reporting parameter reports the work completed so far.
-   
-   Progress reporting is also enabled for the ``clone`` SST method.
-
 The values the node passes to these parameters varies depending on whether the node calls the script to send or receive a state snapshot transfer.  For more information, see :ref:`Calling Conventions <calling-conventions>` below.
 
 
@@ -192,6 +186,12 @@ While your script runs, Galera Cluster accepts the following signals.  You can t
    ``flush tables\n`` Optional signal that asks the database server to run ``FLUSH TABLES``.  When complete, the database server creates a ``tables_flushed`` file in the data directory.
 
    ``continue\n`` Optional signal that tells the database server that it can continue to commit transactions.
+
+   ``total\n`` This progress reporting parameter indicates the new SST stage and reports the estimated total work.
+
+   ``complete\n`` This progress reporting parameter reports the work completed so far.
+   
+   Progress reporting is also enabled for the ``clone`` SST method.
 
    ``done\n`` Mandatory signal that tells the database server that the state transfer is complete and successful.
 
