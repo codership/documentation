@@ -59,6 +59,17 @@ Galera System Tables
 
 Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
 
+   .. only:: html
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+             :width: 740
+
+   .. only:: latex
+
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
 To see these tables on your server, execute the following SQL statement one of them using the ``mysql`` client or a similar client:
 
 .. code-block:: mysql

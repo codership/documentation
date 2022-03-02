@@ -65,6 +65,17 @@ Galera Load Balancer provides simple TCP connection balancing developed with sca
 
 It can be run either through the ``service`` command or the command-line interface of ``glbd``.  Configuration for Galera Load Balancer depends on which you use to run it.
 
+   .. only:: html
+
+          .. image:: ../images/training.jpg
+             :target: https://galeracluster.com/training-courses/
+             :width: 740
+
+   .. only:: latex
+
+          .. image:: ../images/training.jpg
+		  :target: https://galeracluster.com/training-courses/
+
 
 .. _`glb-config-parameters`:
 .. rst-class:: section-heading
