@@ -522,9 +522,7 @@ Just below each question is further categorization of the question: the minimum 
 
    You can use all isolation levels.  Locally, in a given node, transaction isolation works as it does natively with InnoDB.
 
-   Globally, with transactions processing in separate nodes, Galera Cluster implements a transaction-level called ``SNAPSHOT ISOLATION``.  The ``SNAPSHOT ISOLATION`` level is between the ``REPEATABLE READ`` and ``SERIALIZABLE`` levels.
-
-   The ``SERIALIZABLE`` level cannot be guaranteed in the multi-master use case because Galera :term:`Cluster Replication` does not carry a transaction read set.  Also, ``SERIALIZABLE`` transaction is vulnerable to multi-master conflicts.  It holds read locks and any replicated write to read locked row will cause the transaction to abort. Hence, it is recommended not to use it in Galera Cluster.
+   The ``SERIALIZABLE`` level cannot be guaranteed in the multi-primary use case because Galera :term:`Cluster Replication` does not carry a transaction read set.  Also, ``SERIALIZABLE`` transaction is vulnerable to cluster wide conflicts.  It holds read locks and any replicated write to read locked row will cause the transaction to abort. Hence, it is recommended not to use it in Galera Cluster.
 
    For more information, see :doc:`./documentation/isolation-levels`.
 
