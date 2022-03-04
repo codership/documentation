@@ -57,13 +57,12 @@ Support for Transaction Isolation Levels
    Length:  1009 words; Writer: Seppo Jaakola; Published: September 21, 2015; Topic: General; Level: Intermediate
 
 
-There appears to be great misunderstanding as to what MySQL transaction isolation levels Galera CLuster actually supports and how. This blog post tries to give answer to those uncertainties.
+There appears to be great misunderstanding as to what MySQL transaction isolation levels Galera Cluster actually supports and how. This page tries to give answer to those uncertainties.
 
-Galera Cluster provides ``SNAPSHOT ISOLATION`` between transactions running on separate cluster nodes. Transactions running on the same node are isolated by whatever was configured as the transaction isolation level in the MySQL configuration. So, if you have configured the default ``REPEATABLE READ`` isolation, transactions issued on the same node will behave under ``REPEATABLE READ`` semantics. However, for transactions issued on separate cluster nodes, the ‘first committer wins’ rule of ``SNAPSHOT ISOLATION`` is provided, and this will fix the lost update problem that generally hurts REPEATABLE READ isolation.
+In general, Galera Cluster can support transaction isolation levels up to ``REPEATABLE READ`` (see :doc:`./documentation/isolation-levels`).
 
-Therefore, it is not safe for the application to rely on ``SNAPSHOT ISOLATION`` semantics. But in general, transaction isolation in Galera CLuster is no less than what was configured for transaction isolation level in MySQL.
-
-Note that this transaction isolation behavior has changed somewhat over time. Earlier Galera releases have also supported ``SNAPSHOT ISOLATION`` among transactions on the same node.
+Transactions running on the same node are isolated by whatever was configured as the transaction isolation level in the MySQL configuration. So, if you have configured the default ``REPEATABLE READ`` isolation level, transactions issued on the same node will behave under ``REPEATABLE READ`` semantics.
+In addition, transactions issued on separate cluster nodes, are subject to the ‘first committer wins’ rule. This will avoid the lost update problem that generally hurts ``REPEATABLE READ`` isolation.
 
 Here is an example showing how the lost update anomaly hurts transactions using plain ``REPEATABLE READ`` isolation. Two transactions read a value from a row in table t and then update the value and commit. The transactions are issued on the same node, and will behave under MySQL’s ``REPEATABLE READ`` isolation.
 
@@ -264,4 +263,4 @@ Therefore, transactions on multiple nodes are protected from the ‘lost update�
 
 Galera Cluster can support transaction isolation levels up to ``REPEATABLE READ`` and also protect against lost update problem if the application can be tuned to use proper locking strategy like the one shown above.
 
-However, Galera does not support ``SERIALIZABLE`` isolation in multi-master topology, because there is currently no means to protect read locks from being overwritten by the replication. ``SERIALIZABLE`` isolation should work in controlled master-slave topologies, but in practice its use is not recommended at all. And, ``SERIALIZABLE`` isolation may be disabled in future releases, unless we can figure out a way to support it in a safe way.
+Galera does not support ``SERIALIZABLE`` isolation in multi-primary topology, because there is currently no means to protect read locks from being overwritten by the replication. ``SERIALIZABLE`` isolation should work in controlled single-primary topologies, but in practice its use is not recommended at all. And, ``SERIALIZABLE`` isolation may be disabled in future releases, unless we can figure out a way to support it in a safe way.
