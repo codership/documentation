@@ -68,7 +68,7 @@ Galera Cluster processes schema changes by three different methods:
 
 - :ref:`Rolling Schema Upgrade <rsu>` Known also as RSU, these are schema changes run locally, affecting only the node on which they are run.  The changes do not replicate to the rest of the cluster.
 
-- :ref:`Non-Blocking Operations <nbo>`: Abbreviated as NBO, these are schema changes made on all cluster nodes in the same total order sequence, preventing other transations from committing for the duration of the operation, with mush more efficient locking strategy that the TOI method.
+- :ref:`Non-Blocking Operations <nbo>`: Abbreviated as NBO, these are schema changes made on all cluster nodes in the same total order sequence, preventing other transations from committing for the duration of the operation, with much more efficient locking strategy that the TOI method.
 
 You can set the method for online schema changes by using the ``wsrep_OSU_method`` parameter in the configuration file, (``my.ini`` or ``my.cnf`, depending on your build) or through the ``mysql`` client.  Galera Cluster defaults to the Total Order Isolation method.
 
