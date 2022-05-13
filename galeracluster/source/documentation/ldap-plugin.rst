@@ -86,7 +86,7 @@ The installation adds the variables below:
    "authentication_ldap_simple_bind_root_pwd", "Password for the root distinguished name", "", "", "", "global", "Yes", "string"
    "authentication_ldap_simple_ca_path", "Absolute path of the certificate authority file", "", "", "", "global", "Yes", "string"
    "authentication_ldap_simple_group_search_attr", "Name of the attribute that specifies the group names in LDAP directory entries", "CN", "", "", "global", "Yes", "string"
-   "authentication_ldap_simple_group_search_filter", "Custom group search filter", "(|(&(objectClass=posixGroup)(memberUid={UA}))(&(objectClass=group)(member={UD})))", "", "", "global", "Yes", "string"
+   "authentication_ldap_simple_group_search_filter", "Custom group search filter", "(\|(&(objectClass=posixGroup)(memberUid={UA}))(&(objectClass=group)(member={UD})))", "", "", "global", "Yes", "string"
    "authentication_ldap_simple_init_pool_size", "Initial size of the connection pool to the LDAP server", "10", "1", "32767", "global", "Yes", "uint"
    "authentication_ldap_simple_log_status", "Logging level", "1", "1", "5", "global", "Yes", "uint"
    "authentication_ldap_simple_max_pool_size", "Maximum size of the pool of connections to the LDAP server", "1000", "1", "32767", "global", "Yes", "uint"

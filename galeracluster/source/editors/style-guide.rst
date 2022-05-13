@@ -56,7 +56,7 @@ This style guide is a little haphazard at the moment. Rather than dedicate a sig
 
 Ampersands shouldn't be used in sentences, unless they are part of an organization's name (e.g., *Dolce & Gabbana*). They may be used in section and page titles (e.g., the title above this paragraph).
 
-Arabic numbers shouldn't be used in sentences, unless they are meant to provide the value of something: *Set the wsrep_slave_threads variable to a value of at least 3.*
+Arabic numbers shouldn't be used in sentences, unless they are meant to provide the value of something: *Set the wsrep_applier_threads variable to a value of at least 3.*
 
 Here is an example of a sentence that would not be good form based on the above style policies and a couple of others here:
 

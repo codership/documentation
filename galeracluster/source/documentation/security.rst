@@ -73,7 +73,7 @@ On occasion, you may want or need to enable degrees of security that go beyond t
    .. only:: latex
 
           .. image:: ../images/galera-manager.jpg
-          :target: https://galeracluster.com/galera-mgr/
+             :target: https://galeracluster.com/galera-mgr/
 
 For situations such as these,  you can secure both node communications and client connections between the application servers and the cluster.
 

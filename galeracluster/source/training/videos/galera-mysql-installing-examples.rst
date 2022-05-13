@@ -126,7 +126,7 @@ Do these exercises after viewing the first two sections of the training video:  
    log-error=/var/log/mysqld.log
    pid-file=/var/run/mysqld/mysqld.pid
 
-   # Galera Optons
+   # Galera Options
 
    wsrep_on=ON
    wsrep_provider=/usr/lib64/galera-3/libgalera_smm.so
@@ -139,6 +139,11 @@ Do these exercises after viewing the first two sections of the training video:  
    wsrep_provider_options="gcache.size=300M; gcache.page_size=300M"
    wsrep_slave_threads=4
    wsrep_sst_method=rsync
+
+
+.. note::
+
+  If you use MySQL-wsrep 8.0.26 or newer, use ``wsrep_applier_threads`` instead of ``wsrep_slave_threads``, in the configuration file.
 
 
 .. rst-class:: sub-heading

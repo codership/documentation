@@ -243,3 +243,5 @@ After this, you are able to work on the manually restored part of the cluster, a
 This article is based on the blog post Galera replication - how to recover a PXC cluster by Przemysław Malkowski: `Galera replication – how to recover a PXC cluster <https://www.percona.com/blog/2014/09/01/galera-replication-how-to-recover-a-pxc-cluster/>`_
 
 .. container:: bottom-links
+
+   Related documents
