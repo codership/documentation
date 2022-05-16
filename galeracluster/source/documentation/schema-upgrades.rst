@@ -133,7 +133,7 @@ The main advantage of the Rolling Schema Upgrade is that it only blocks one node
 
 .. _`nbo`:
 .. rst-class:: section-heading
-.. rubric:: Non-Blocking Operations
+.. rubric:: Non-Blocking Operations (this feature is part of Galera Cluster Enterprise Edition)
 
 .. index::
    pair: Descriptions; Non-Blocking Operations
@@ -187,6 +187,8 @@ When using Non-Blocking Operations, take the following particularities into cons
 
 
 .. warning:: To avoid conflicts between new and old schema definitions, execute SQL statements such as ``CREATE TABLE`` and ``DROP TABLE`` using the :ref:`Total Order Isolation <toi>` method.
+
+.. note:: Contact Codership sales at sales@galeracluster.com for more information, and to get the Galera Cluster Enterprise Edition software.
 
 .. container:: bottom-links
 
