@@ -62,7 +62,7 @@
 .. _`glb-doc`:
 
 ======================
-Galera Load Balancer
+Galera Load Balancer (Galera Load Balancer binaries are part of Galera Cluster Enterprise Edition)
 ======================
 
 Galera Load Balancer provides simple TCP connection balancing. It was developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.  It provides several features:
@@ -211,6 +211,8 @@ The ``service`` script supports several operations.  Below is a list of them and
 - ``drain <IP Address>`` will sets the designated server to drain. When doing this, Galera Load Balancer won't send new connections to the given server, but it also won't kill existing connections. Instead, it waits for the connections to the specified server to end gracefully.
 
 When adding an IP address to Galera Load Balancer at runtime, keep in mind that it must follow the convention, ``IP Address:port:weight``.  A hostname may be used instead of an IP address.
+
+.. note:: Contact Codership sales at sales@galeracluster.com for more information, and to get Galera Load Balancer binaries and the Galera Cluster Enterprise Edition software.
 
 .. container:: bottom-links
 
