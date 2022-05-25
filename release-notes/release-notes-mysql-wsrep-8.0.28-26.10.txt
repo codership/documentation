@@ -12,7 +12,7 @@ deployment and upgrade of Galera nodes.
 
 This and future releases will be available from https://www.galeracluster.com.
 
-The latest version of MySQL-wsrep 5.7 for FreeBSD will be available in the
+The latest version of MySQL-wsrep 8.0 for FreeBSD will be available in the
 FreeBSD Ports Collection.
 
 The source repositories and bug tracking are now on
