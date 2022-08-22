@@ -20,11 +20,13 @@ https://github.com/codership/mysql-wsrep.
 
 Notable changes and fixes in MySQL-wsrep since the latest release 5.7.37-25.29:
 - Distinguish between unset ssl_mode and ssl_mode explicitly set to "DISABLED"
-fixing codership/mysql-wsrep-bugs#1248
 
 Known Issues:
 
-- Server cannot be started using 'service' command on Debian Stretch. This will
-be the last release for Debian 9 "Stretch" as it became EOL June 30, 2022.
+- Server cannot be started using 'service' command on Debian Stretch. 
 - InnoDB tablespaces outside of the data directory are not supported, as they
 may not be copied over during SST.
+
+EOL Notice:
+- This will be the last release for Debian 9 "Stretch" as it became EOL June 30,
+2022.
