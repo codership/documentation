@@ -187,6 +187,12 @@ While your script runs, Galera Cluster accepts the following signals.  You can t
 
    ``continue\n`` Optional signal that tells the database server that it can continue to commit transactions.
 
+   ``total\n`` This progress reporting parameter indicates the new SST stage and reports the estimated total work.
+
+   ``complete\n`` This progress reporting parameter reports the work completed so far.
+   
+   Progress reporting is also enabled for the ``clone`` SST method.
+
    ``done\n`` Mandatory signal that tells the database server that the state transfer is complete and successful.
 
    After your script sends the ``done\n`` signal, exit with a ``0`` return code.
