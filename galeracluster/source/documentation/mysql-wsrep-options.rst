@@ -1424,7 +1424,7 @@ Enabling this parameter tells the node to restart the replica when it joins the 
 .. index::
    pair: Parameters; wsrep_restart_slave
 
-Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_restart_replica``.
+Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of :ref:`wsrep_restart_replica <wsrep_restart_replica>`.
 
 
 .. _`wsrep_retry_autocommit`:
@@ -1512,8 +1512,7 @@ This parameter enables foreign key checking on applier threads.
    "Initial Version", "MySQL-wsrep: 5.5.42-25.11, MariaDB: 10.0.12"
    "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
 
-Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of
-``wsrep_applier_FK_checks``.
+Deprecated as of Galera Cluster 4.10/MySQL-wsrep 8.0.26-26.8 in favor of :ref:`wsrep_applier_FK_checks <wsrep_applier_FK_checks>`.
 
 .. _`wsrep_applier_threads`:
 .. rst-class:: section-heading
@@ -1574,7 +1573,7 @@ Instead of concrete recommendations, there are some general guidelines that you 
    "Initial Version", "MySQL-wsrep: 5.1.58-25.11, MariaDB: 5.5.21"
    "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
 
-Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of ``wsrep_applier_threads``. See :doc:`Setting Parallel Slave Threads <../kb/parallel-applier-threads>`.
+Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of :ref:`wsrep_applier_threads <wsrep_applier_threads>`. See also :doc:`Setting Parallel Slave Threads <../kb/parallel-applier-threads>`.
 
 .. _`wsrep_applier_UK_checks`:
 .. rst-class:: section-heading
@@ -1627,8 +1626,7 @@ This parameter enables unique key checking on applier threads.
    "Initial Version", "MySQL-wsrep: 5.5.42-25.11, MariaDB: 5.5.21"
    "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
 
-Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of
-``wsrep_applier_UK_checks``.
+Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of :ref:`wsrep_applier_UK_checks <wsrep_applier_UK_checks>`.
 
 
 .. _`wsrep_sst_auth`:
