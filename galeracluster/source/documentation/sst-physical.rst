@@ -112,12 +112,18 @@ Given that ``xtrabackup`` copies a large amount of data in the shortest possible
 .. code-block:: ini
 
    [mysqld]
-   wsrep_sst_auth = <wsrep_sst_user>:<password>
-   wsrep_sst_method = xtrabackup
+   wsrep_sst_auth = <SST user>:<SST password>
+   wsrep_sst_method = xtrabackup-v2
    datadir = /path/to/datadir
 
-   [client]
-   socket = /path/to/socket
+Minimal setup for the ``xtrabackup`` SST user:
+
+.. code-block:: ini
+
+    mysql> CREATE USER '<SST user>'@'localhost' IDENTIFIED BY '<SST password>';
+    mysql> GRANT BACKUP_ADMIN, PROCESS, RELOAD ON *.* TO '<SST user>'@'localhost';
+    mysql> GRANT SELECT ON performance_schema.keyring_component_status TO '<SST user>'@'localhost' ;
+    mysql> GRANT SELECT ON performance_schema.log_status TO '<SST user>'@'localhost' ;
 
 For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual <https://www.percona.com/doc/percona-xtrabackup/2.1/manual.html?id=percona-xtrabackup:xtrabackup_manual>`_ and `XtraBackup SST Configuration <https://www.percona.com/doc/percona-xtradb-cluster/5.6/manual/xtrabackup_sst.html>`_.
 
@@ -127,7 +133,7 @@ For more information on ``xtrabackup``, see the `Percona XtraBackup User Manual 
 .. rubric:: ``clone``
 
 Starting with version 8.0.22 ``clone`` SST method is available for Galera
-CLuster for MySQL. It is based on the native MySQL clone plugin. It
+Cluster for MySQL. It is based on the native MySQL clone plugin. It
 proved to be much faster than ``xtrabackup``, however it will block Donor
 node on DDL execution if that happens during the transfer.
 
@@ -138,12 +144,25 @@ Basic configuraition for ``clone`` SST on Joiner:
     [mysqld] 
     wsrep_sst_method=clone
 
-Basic configuraition for ``clone`` SST on Donor:
+Basic server configuration for ``clone`` SST on Donor:
 
 .. code-block:: ini
 
     [mysqld]
-    wsrep_sst_auth=<admin user>:<admin password>
+    wsrep_sst_auth=<SST user>:<SST password>
+
+Minimal setup for the ``clone`` SST user:
+
+.. code-block:: ini
+
+    mysql> CREATE USER '<SST user>'@'localhost' IDENTIFIED BY '<SST password>';
+    mysql> GRANT CREATE USER, SUPER ON *.* TO '<SST user>'@'localhost';
+    mysql> GRANT INSERT, DELETE ON mysql.plugin TO '<SST user>'@'localhost';
+    mysql> GRANT UPDATE ON performance_schema.setup_instruments TO '<SST user>'@'localhost';
+    mysql> GRANT UPDATE ON performance_schema.setup_consumers TO '<SST user>'@'localhost';
+    mysql> GRANT BACKUP_ADMIN ON *.* TO '<SST user>'@'localhost' WITH GRANT OPTION;
+    mysql> GRANT EXECUTE ON *.* TO '<SST user>'@'localhost' WITH GRANT OPTION;
+    mysql> GRANT SELECT ON performance_schema.* TO '<SST user>'@'localhost' WITH GRANT OPTION;
 
 Optionally `plugin_dir` variable needs to be configured if MySQL plugins
 are not in the default location.
