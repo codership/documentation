@@ -31,6 +31,12 @@ longer
 - Deprecated wsrep_slave_UK_checks variable with the default set to ON.
 - Roles are replicated (CREATE ROLE/DROP ROLE)
 - Variable innodb_wsrep_applier_lock_wait_timeout is now dynamic
+- In rare instances, fixed an inconsistency with an import operation where
+TRUNCATE is issued on a table having a Foreign Key constraint, while there is
+concurrent DML for the FK parent table
+- Fix wsrep-recover crash when gtid_mode=ON
+- Galera now truncates trailing strings and pads characters according to the
+collation rules for a given key column
 
 We have one word of **warning** to all users upgrading from a previous version
 that happen to use INSTANT ALTER. Users can check whether INSTANT ALTER is used
