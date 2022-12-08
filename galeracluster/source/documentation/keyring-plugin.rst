@@ -153,7 +153,7 @@ The ``secret_mount_point_version`` can be either ``1``, ``2``, ``AUTO``, or the 
              - The ``mount_point_path`` - the mount path under which the Vault Server secret was created
              - The ``directory_path`` - a virtual directory suffix that can be used to create virtual namespaces with the same real mount point
 
-             For example, both the ``mount_point_path`` and the ``directory_path`` are needed to form key access URLs: ``/v1/<mount_point_path/data//skey``."
+          For example, both the ``mount_point_path`` and the ``directory_path`` are needed to form key access URLs: ``/v1/<mount_point_path/data//skey``."
    "``AUTO``", "An autodetection mechanism probes and determines if the secrets engine version is kv or kv-v2 and based on the outcome will either use the ``secret_mount_point`` as is, or split the ``secret_mount_point`` into two parts."
    "Not listed", "If the ``secret_mount_point_version`` is not listed in the configuration file, the behavior is the same as with ``AUTO``."
 
