@@ -151,10 +151,9 @@ The ``secret_mount_point_version`` can be either ``1``, ``2``, ``AUTO``, or the 
    "``2``", "Works with KV Secrets Engine - Version 2 (kv) The initialization logic splits the secret_mount_point parameter into two parts:
    
              - The ``mount_point_path`` - the mount path under which the Vault Server secret was created
-			 
-			 - The ``directory_path`` - a virtual directory suffix that can be used to create virtual namespaces with the same real mount point
-			 
-			 For example, both the ``mount_point_path`` and the ``directory_path`` are needed to form key access URLs: ``/v1/<mount_point_path/data//skey``."
+             - The ``directory_path`` - a virtual directory suffix that can be used to create virtual namespaces with the same real mount point
+
+             For example, both the ``mount_point_path`` and the ``directory_path`` are needed to form key access URLs: ``/v1/<mount_point_path/data//skey``."
    "``AUTO``", "An autodetection mechanism probes and determines if the secrets engine version is kv or kv-v2 and based on the outcome will either use the ``secret_mount_point`` as is, or split the ``secret_mount_point`` into two parts."
    "Not listed", "If the ``secret_mount_point_version`` is not listed in the configuration file, the behavior is the same as with ``AUTO``."
 
@@ -213,6 +212,58 @@ The plugin library contains keyring user-defined functions which allow access to
 You must also create keyring encryption user-defined functions.
 
 
+.. _`keyring-plugin-using`:
+.. rst-class:: section-heading
+.. rubric:: Using the keyring_file component
+
+See `keyring component installation <https://dev.mysql.com/doc/refman/8.0/en/keyring-component-installation.html/>`_ for information on installing the component.
+
+.. warning:: Do not use the ``keyring_file`` component for regulatory compliance.
+
+.. note:: See also `MySQL Documentation: Using the keyring_file component <https://dev.mysql.com/doc/refman/8.0/en/keyring-file-component.html/>`_.
+
+
+.. _`keyring-plugin-system-variables`:
+.. rst-class:: section-heading
+.. rubric:: System Variables
+
+.. _`keyring_vault_config`:
+.. rst-class:: section-heading
+.. rubric:: ``keyring_vault_config``
+
+.. index::
+   pair: Keyring System Variables; keyring_vault_config
+
+This variable defines the location of the ``keyring_vault_plugin`` configuration file.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command Line", "``–keyring-vault-config``"
+   "Scope", "Global"
+   "Dynamic", "Yes"
+   "Data Type", "Text"
+
+.. _`keyring_vault_timeout`:
+.. rst-class:: section-heading
+.. rubric:: ``keyring_vault_timeout``
+
+.. index::
+   pair: Keyring System Variables; keyring_vault_timeout
+
+Set the duration in seconds for the Vault server connection timeout. The default value is ``15``. The allowed range is from ``0`` to ``86400``. The timeout can be also disabled to wait an infinite amount of time by setting this variable to ``0``.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command Line", "``–keyring_vault_timeout``"
+   "Scope", "Global"
+   "Dynamic", "Yes"
+   "Data Type", "Numeric"
+   "Default", "15"
+
+
+   
 .. container:: bottom-links
 
    Related Documents
