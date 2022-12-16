@@ -3,7 +3,7 @@
    :description: The keyring_vault plugin can store the encryption keys inside the HashiCorp Vault.
    :language: en-US
    :keywords: galera cluster, keyring_vault
-   :copyright:
+   :copyright: This software documentation is (C)2009-2018 Percona LLC and/or its affiliates and is distributed under the Creative Commons Attribution-ShareAlike 2.0 Generic license.
 
 .. container:: left-margin
 
@@ -59,6 +59,8 @@
 
 .. index::
    pair: Descriptions; Keyring Plugin
+
+This software documentation is (C)2009-2018 Percona LLC and/or its affiliates and is distributed under the `Creative Commons Attribution-ShareAlike 2.0 Generic license <http://creativecommons.org/licenses/by-sa/2.0/>`_.
 
 The ``keyring_vault`` plugin can store the encryption keys inside the `HashiCorp Vault <https://www.hashicorp.com/products/vault/data-protection/>`_.
 
