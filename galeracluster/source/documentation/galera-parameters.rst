@@ -161,8 +161,8 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`pc.wait_prim <pc.wait_prim>`", "``TRUE``", "  No", "", "1.0", ""
    ":ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>`", "``PT30S``", "  No", "", "2.0", ""
    ":ref:`pc.weight <pc.weight>`", "``1``", "  Yes", "", "2.4", ""
-   ":ref:`protonet.backend <protonet.backend>`", "``asio``", "  No", "", "1.0", ""
-   ":ref:`protonet.version <protonet.version>`", "n/a", "  No", "Yes", "1.0", ""
+   ":ref:`protonet.backend <protonet.backend>`", "``asio``", "  No", "", "1.0", "4.14"
+   ":ref:`protonet.version <protonet.version>`", "n/a", "  No", "Yes", "1.0", "4.14"
    ":ref:`repl.causal_read_timeout <repl.causal_read_timeout>`", "``PT30S``", "  No", "", "1.0", ""
    ":ref:`repl.commit_order <repl.commit_order>`", "``3``", "  No", "", "1.0", ""
    ":ref:`repl.key_format <repl.key_format>`", "``FLAT8``", "  No", "", "3.0", ""
@@ -176,7 +176,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`socket.checksum <socket.checksum>`", "``1`` (vs. 2); ``2`` (vs. 3)", "  No", "", "2.0", ""
    ":ref:`socket.dynamic <socket.dynamic>`", "FALSE", "  No", "", "4.8", ""
    ":ref:`socket.ssl_cipher <socket.ssl_cipher>`", "``AES128-SHA`` (vs. 1); |br| system default (vs. 3.24)", "  No", "", "1.0", ""
-   ":ref:`socket.ssl_compression <socket.ssl_compression>`", "``YES``", "  No", "", "1.0", ""
+   ":ref:`socket.ssl_compression <socket.ssl_compression>`", "``YES``", "  No", "", "1.0", "4.14"
    ":ref:`socket.ssl_key <socket.ssl_key>`", "", "  No", "", "1.0", ""
    ":ref:`socket.ssl_password_file <socket.ssl_password_file>`", "", "  No", "", "1.0", ""
    ":ref:`socket.ssl_reload <socket.ssl_reload>`", "", "  No", "", "4.8", ""
@@ -1802,6 +1802,10 @@ Which transport backend to use. Currently only ASIO is supported.
    "Default Value", "``asio``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+   "Version Deprecated", "4.14"
+
+
+This parameter is deprecated and will be removed in the future versions.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1817,6 +1821,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; protonet.version
 
+This parameter is deprecated and will be removed in the future versions.
+
 This status variable is used to check which transport backend protocol version is used.
 
 .. csv-table::
@@ -1825,6 +1831,7 @@ This status variable is used to check which transport backend protocol version i
    "Default Value", ""
    "Dynamic", "No"
    "Initial Version", "1.0"
+   "Version Deprecated", "4.14"
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -2161,6 +2168,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. index::
    pair: wsrep Provider Options; socket.ssl_compression
+
+This parameter is deprecated and will be removed in the future versions.
 
 Whether to enable compression on SSL connections.
 
