@@ -205,7 +205,7 @@ Wsrep patch version, for example ``wsrep_25.10``.
 .. index::
    pair: Parameters; wsrep_mode=REPLICATE_ARIA
 
-.. note:: This is an experimental feature. This is documentation for currently unreleased software, that is, MariaDB 10.6.
+.. note:: This functionality is experimental and should not be relied upon in production systems.
 
 Together with :ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`, this parameter enables Galera to replicate both DDL and DML for ARIA and/or MyISAM using TOI.
 
@@ -249,7 +249,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 .. index::
    pair: Parameters; wsrep_mode=REPLICATE_MYISAM
 
-.. note:: This is an experimental feature. This is documentation for currently unreleased software, that is, MariaDB 10.6.
+.. note:: This functionality is experimental and should not be relied upon in production systems.
 
 Together with :ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`, this parameter enables Galera to replicate both DDL and DML for MyISAM and/or Aria using TOI.
 
