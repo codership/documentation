@@ -307,7 +307,7 @@ To start the initial cluster node, run the following commands:
 .. code-block:: console
 
    # ezjail-admin console galera-node
-   # service mysql start --wsrep-new-cluster
+   # service mysql start mysqld_bootstrap
 
 To start each additional node, run the following commands:
 

@@ -176,17 +176,17 @@ For servers that use ``systemd``, execute instead this from the command-line:
 
    systemctl stop mysql
 
-You're now ready to start the cluster again.  Start the most advanced node with the ``--wsrep-new-cluster`` option |---| not the other nodes.  For servers that use ``init``, run the following command:
+You're now ready to start the cluster again.  Start the most advanced node with the ``mysqld_bootstrap`` command |---| not the other nodes.  For servers that use ``init``, run the following command:
 
 .. code-block:: console
 
-   service mysql start --wsrep-new-cluster
+   service mysql start mysqld_bootstrap
 
 For servers that use ``systemd`` and Galera Cluster 5.5 or 5.6, enter instead the following from the command-line:
 
 .. code-block:: console
 
-   systemctl start mysqld --wsrep-new-cluster
+   systemctl start mysqld mysqld_bootstrap
 
 For MySQL servers that use ``systemd`` and at least version 5.7 of Galera Cluster, you can execute the following script from the command-line only on the first node:
 
@@ -214,7 +214,7 @@ For servers that use ``systemd``, instead run this command:
 
    systemctl start mysqld
 
-Written into all of these scripts is the ``--wsrep-new-cluster`` option, but it's done with a certain finesse.  Whichever method or script you use, when the first node starts with the ``--wsrep-new-cluster`` option, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start, they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.  In a short amount of time, they all should become synchronized and running smoothly.
+Written into all of these scripts is the ``mysqld_bootstrap`` command, but it's done with a certain finesse.  Whichever method or script you use, when the first node starts with the ``mysqld_bootstrap`` command, it initializes a new cluster using the data from the most advanced state available from the previous cluster.  As the other nodes start, they connect to this node and request state snapshot transfers, to bring their own databases up-to-date.  In a short amount of time, they all should become synchronized and running smoothly.
 
 .. container:: bottom-links
 

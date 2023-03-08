@@ -244,7 +244,7 @@ Now that you've authorized each Galera node to communicate with the others on th
 .. rst-class:: section-heading list-sub-header
 .. rubric:: Starting Galera
 
-When first starting a new Galera cluster, you'll have to start one node first. The problem is that if there are no other nodes in the cluster, it will fail |---| unless you start MariaDB on the first node telling it that it's the first. To do this, you would use the ``--wsrep-new-cluster`` option.
+When first starting a new Galera cluster, you'll have to start one node first. The problem is that if there are no other nodes in the cluster, it will fail |---| unless you start MariaDB on the first node telling it that it's the first. To do this, you would use the ``mysqld_bootstrap`` command.
 
 To make it easy, though, in version 4 of Galera, you can use the ``galera_new_cluster`` script. Just execute it from the command-line on the first node, only. Incidentally, if you ever shut-down all nodes in the cluster and want to use ``galera_new_cluster`` again, you may have to edit ``/var/lib/mysql/grastate.dat`` and change the ``safe_to_bootstrap`` variable in that file from 0 to 1.
 
