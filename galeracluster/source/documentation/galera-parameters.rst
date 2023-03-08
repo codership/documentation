@@ -161,8 +161,8 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`pc.wait_prim <pc.wait_prim>`", "``TRUE``", "  No", "", "1.0", ""
    ":ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>`", "``PT30S``", "  No", "", "2.0", ""
    ":ref:`pc.weight <pc.weight>`", "``1``", "  Yes", "", "2.4", ""
-   ":ref:`protonet.backend <protonet.backend>`", "``asio``", "  No", "", "1.0", ""
-   ":ref:`protonet.version <protonet.version>`", "n/a", "  No", "Yes", "1.0", ""
+   ":ref:`protonet.backend <protonet.backend>`", "``asio``", "  No", "", "1.0", "4.14"
+   ":ref:`protonet.version <protonet.version>`", "n/a", "  No", "Yes", "1.0", "4.14"
    ":ref:`repl.causal_read_timeout <repl.causal_read_timeout>`", "``PT30S``", "  No", "", "1.0", ""
    ":ref:`repl.commit_order <repl.commit_order>`", "``3``", "  No", "", "1.0", ""
    ":ref:`repl.key_format <repl.key_format>`", "``FLAT8``", "  No", "", "3.0", ""
@@ -175,8 +175,8 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`socket.ssl_cert <socket.ssl_cert>`", "", "  No", "", "1.0", ""
    ":ref:`socket.checksum <socket.checksum>`", "``1`` (vs. 2); ``2`` (vs. 3)", "  No", "", "2.0", ""
    ":ref:`socket.dynamic <socket.dynamic>`", "FALSE", "  No", "", "4.8", ""
-   ":ref:`socket.ssl_cipher <socket.ssl_cipher>`", "``AES128-SHA`` (vs. 1); |br| system default (vs. 3.24)", "  No", "", "1.0", ""
-   ":ref:`socket.ssl_compression <socket.ssl_compression>`", "``YES``", "  No", "", "1.0", ""
+   ":ref:`socket.ssl_cipher <socket.ssl_cipher>`", "````", "  No", "", "1.0", ""
+   ":ref:`socket.ssl_compression <socket.ssl_compression>`", "``YES``", "  No", "", "1.0", "4.14"
    ":ref:`socket.ssl_key <socket.ssl_key>`", "", "  No", "", "1.0", ""
    ":ref:`socket.ssl_password_file <socket.ssl_password_file>`", "", "  No", "", "1.0", ""
    ":ref:`socket.ssl_reload <socket.ssl_reload>`", "", "  No", "", "4.8", ""
@@ -1376,7 +1376,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gmcast.peer_timeout
 
-Connection timeout to initiate message relaying.
+Connection timeout for inactive connections.
 
 .. csv-table::
    :class: doc-options
@@ -1384,6 +1384,15 @@ Connection timeout to initiate message relaying.
    "Default Value", "``PT3S``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+
+GMCast module monitors liveness of the socket connections on a regular basis.
+Nodes exchange periodically replication and keepalives messages,
+which are expected to be received more frequently than
+``gmcast.peer_timeout`` duration. The ``gmcast.peer_timeout`` defines the
+timeout after which an idle socket connection between two nodes is considered
+inactive and will be closed and reopened again. If a socket connection is
+closed due to timeout, the relaying protocol is activated as a side effect to
+keep messages delivered to all members in the cluster.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1430,6 +1439,16 @@ Time to wait until allowing peer declared outside of stable view to reconnect.
    "Default Value", "``PT5S``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+
+In case a node leaves or gets partitioned from the cluster, it is kept
+isolated from the rest of the cluster for a while to avoid distractions
+to membership protocol operation. Option ``gmcast.time_wait`` denotes
+the time period during which nodes in the primary component refuse
+connection attempts from nodes not in the primary component in the
+following way: The nodes which partitioned from the cluster are allowed
+to reconnect after ``gmcast.time_wait/2`` seconds, the nodes which
+left the group completely are allowed to reconnect after ``gmcast.time_wait``
+seconds.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1577,6 +1596,13 @@ Cluster joining announcements are sent every :math:`\frac{1}{2}` second for this
    "Dynamic", "No"
    "Initial Version", "2.0"
 
+When a node joins the cluster, it will initially broadcast join
+messages every half a second to inform other nodes about the joining
+attempt, but does not handle its own messages to avoid forming
+membership configuration containing only itself. This initial join
+message broadcasting will terminate if at least one other node is seen
+or if the timeout expires, whichever happens first.
+
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
 .. code-block:: ini
@@ -1599,6 +1625,13 @@ Checksum replicated messages.
    "Default Value", "``FALSE``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+
+
+If set to true, a CRC16 checksum is computed and included into
+replicated messages on primary component protocol level. This checksum
+is redundant since the checksum does not take into account all
+protocol layers, and all messages are checksummed with stronger CRC32C
+algorithm when transferred between nodes.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1669,6 +1702,9 @@ The period for which the PC protocol waits for the EVS termination.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
+When a node leaves the cluster, it will wait up to ``pc.linger`` duration to
+get itself removed gracefully from the cluster.
+
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
 .. code-block:: ini
@@ -1683,7 +1719,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: Parameters; pc.npvo
 
-If set to ``TRUE``, the more recent primary component overrides older ones in the case of conflicting primaries.
+Control which primary component is allowed to continue in case of
+conflicting primary components after cluster partitioning.
 
 .. csv-table::
    :class: doc-options
@@ -1691,6 +1728,17 @@ If set to ``TRUE``, the more recent primary component overrides older ones in th
    "Default Value", "``FALSE``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+
+If the cluster is configured to ignore quorum or split brain, the
+nodes may continue processing write sets independently after cluster
+partitioning, which leads to diverged states. When the cluster merges
+back to the original configuration, the ``pc.npvo`` controls which
+partition is allowed to continue after the merge. If the value is
+``FALSE``, the partition with the lowest view identifier (the most
+immediate successor to the view before partitioning) is allowed to
+continue. Otherwise the partition with the highest view identifier
+(the one which has gone through more configuration changes or has a
+representative with highest node identifier) is allowed to continue.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1706,7 +1754,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.wait_prim
 
-If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>` time period. Useful to bring up a non-primary component and make it primary with :ref:`pc.bootstrap <pc.bootstrap>`.
+Control whether a joining node is allowed to start in non-primary component
+or if it should wait for primary component.
 
 .. csv-table::
    :class: doc-options
@@ -1714,6 +1763,22 @@ If set to ``TRUE``, the node waits for the :ref:`pc.wait_prim_timeout <pc.wait_p
    "Default Value", "``TRUE``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+
+This variable can be used to control if a node waits for connecting to
+the primary component when joining to the cluster.
+
+With default value ``TRUE``, the joining node waits for the primary
+component so that the first event delivered by the group
+communication system is the primary component view event, or times
+out with error (see :ref:`pc.wait_prim_timeout <pc.wait_prim_timeout>`).
+
+With value ``FALSE``, the joining node completes the initialization
+without waiting for the primary component, and may end up in
+non-primary component if no other nodes are seen in
+:ref:`pc.announce_timeout <pc.announce_timeout>`. This is a useful
+setting mainly if it is desirable to start the cluster by starting all
+the nodes at once, and bootstrapping the primary component with
+:ref:`pc.bootstrap <pc.bootstrap>` after all nodes have been started.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1729,7 +1794,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.wait_prim_timeout
 
-The period of time to wait for a primary component.
+The timeout for waiting primary component.
 
 .. csv-table::
    :class: doc-options
@@ -1737,6 +1802,10 @@ The period of time to wait for a primary component.
    "Default Value", "``PT30S``"
    "Dynamic", "No"
    "Initial Version", "2.0"
+
+The timeout after which an error is thrown if a primary view event is
+not seen when joining a new node into the cluster. This value is
+effective only if :ref:`pc.wait_prim <pc.wait_prim>` is set to ``TRUE``.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1752,7 +1821,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.weight
 
-As of version 2.4. Node weight for quorum calculation.
+Node weight for quorum calculation.
 
 .. csv-table::
    :class: doc-options
@@ -1760,6 +1829,9 @@ As of version 2.4. Node weight for quorum calculation.
    "Default Value", "``1``"
    "Dynamic", "Yes"
    "Initial Version", "2.4"
+
+For detailed description about weighted quorum see
+https://galeracluster.com/library/documentation/weighted-quorum.html
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1775,7 +1847,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.version
 
-This status variable is used to check which pc protocol version is used.
+This variable is used to control which PC protocol version is used.
 
 .. csv-table::
    :class: doc-options
@@ -1784,7 +1856,8 @@ This status variable is used to check which pc protocol version is used.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
+This variable is mostly used for troubleshooting purposes and should
+not be implemented in a production environment.
 
 
 .. _`protonet.backend`:
@@ -1794,7 +1867,11 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: wsrep Provider Options; protonet.backend
 
+This parameter is deprecated and will be removed in the future versions.
+
 Which transport backend to use. Currently only ASIO is supported.
+This variable is deprecated and will be removed in the future
+versions.
 
 .. csv-table::
    :class: doc-options
@@ -1802,6 +1879,7 @@ Which transport backend to use. Currently only ASIO is supported.
    "Default Value", "``asio``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+   "Version Deprecated", "4.14"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1817,6 +1895,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; protonet.version
 
+This parameter is deprecated and will be removed in the future versions
+
 This status variable is used to check which transport backend protocol version is used.
 
 .. csv-table::
@@ -1825,6 +1905,7 @@ This status variable is used to check which transport backend protocol version i
    "Default Value", ""
    "Dynamic", "No"
    "Initial Version", "1.0"
+   "Version Deprecated", "4.14"
 
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
@@ -1869,7 +1950,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; repl.causal_read_timeout
 
-Sometimes causal reads need to timeout.
+The default timeout for causal read and sync wait operations.
 
 .. csv-table::
    :class: doc-options
@@ -2139,14 +2220,23 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; socket.ssl_cipher
 
-Symmetric cipher to use. By default SSL library implementation default cipher is used.
+Symmetric cipher to use for encrypted connections.
 
 .. csv-table::
    :class: doc-options
 
-   "Default Value", "``AES128-SHA`` (before vs. 3.24), ``system default``"
+   "Default Value", "````"
    "Dynamic", "No"
    "Initial Version", "1.0"
+
+This parameter defines which cipher to use for encrypted SSL connections.
+If left empty, the SSL library implementation default cipher is used.
+
+The value format depends on used SSL implementation. For OpenSSL, see
+cipher list format description in
+https://www.openssl.org/docs/manmaster/man1/openssl-ciphers.html.
+
+The default value was ``AES128-SHA`` until Galera version 3.24.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -2162,6 +2252,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; socket.ssl_compression
 
+This parameter is deprecated and will be removed in the future versions.
+
 Whether to enable compression on SSL connections.
 
 .. csv-table::
@@ -2170,6 +2262,7 @@ Whether to enable compression on SSL connections.
    "Default Value", "``YES``"
    "Dynamic", "No"
    "Initial Version", "1.0"
+   "Version Deprecated", "4.14"
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
