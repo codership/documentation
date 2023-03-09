@@ -108,7 +108,7 @@ On MariaDB:
 
 .. code-block:: console
 
-   mysqld mysqld_bootstrap
+   mysqld --wsrep-new-cluster
 
 On Percona XtraDB Cluster
 

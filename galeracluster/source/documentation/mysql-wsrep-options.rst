@@ -361,9 +361,9 @@ Changing this variable while Galera is running will cause the node to close the 
 
     gcomm://node1:port1,node2:port2,...[?option1=value1&...]
 
-Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster--that the other nodes can join to.  Using ``mysqld_bootstrap`` is the newer, preferred way.
+Using the string ``gcomm://`` without any address will cause the node to startup alone, thus initializing a new cluster--that the other nodes can join to.  Using ``--wsrep-new-cluster`` is the newer, preferred way.
 
-.. warning:: Never use an empty ``gcomm://`` string with the ``wsrep_cluster_address`` option in the configuration file. If a node restarts, it will cause the node not to rejoin the cluster. Instead, it will initialize a new one-node cluster and cause a :term:`Split Brain`. To bootstrap a cluster, you should only pass the ``mysqld_bootstrap`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
+.. warning:: Never use an empty ``gcomm://`` string with the ``wsrep_cluster_address`` option in the configuration file. If a node restarts, it will cause the node not to rejoin the cluster. Instead, it will initialize a new one-node cluster and cause a :term:`Split Brain`. To bootstrap a cluster, you should only pass the ``--wsrep-new-cluster`` string at the command-line--instead of using ``--wsrep-cluster-address="gcomm://"``. For more information, see :doc:`Starting the Cluster <../training/tutorials/starting-cluster>`.
 
 You can execute the following SQL statement to see how this variable is set:
 
