@@ -28,15 +28,11 @@ troubleshooting wsrep related issues
 to error reporting
 - mysqld_bootstrap script handles interruptions 
 - now have version_comment variable to display server version releases
-- wsrep_recover is an enhanced new addition, backported from 8.0 to aid in
-recovery of crashed clusters
 - the wsrep position can be recovered even if wsrep is off
 - new wsrep_mode APPLIER_IGNORE_MISSING_TABLE which enables the server to skip
 failures with table open at applying time, but only if the log event contains
 other tables that are open. This is the default setting now, improving
 multi-table updates involving triggers
-- a wsrep_diag.sql script contains useful diagnostics queries for
-troubleshooting wsrep related issues 
 
 Known Issues:
 

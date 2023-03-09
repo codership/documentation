@@ -15,13 +15,18 @@ Collection.
 
 Notable changes and fixes in Galera since latest release 4.13:
 
-- memory leak in the gcs gcomm backend fixed (tp_ object deleted in GCommConn destructor)
-- protonet.backend option deprecated since it only supports one option, asio, and the option will be removed in future release. Related, protonet.version is also deprecated
-- embedded asio downgraded to 1.14.1 for compatibility with older OpenSSL libraries
-- deprecation message for socket.ssl_compression as SSL compression cannot be enabled and the option will be removed in future releases
-- library could parse incorrect parameters as long as it had a "good" prefix, i.e. evs.*, so fix prevents setting of invali option values
+- memory leak in the gcs gcomm backend fixed (tp_ object deleted in GCommConn
+destructor)
+- protonet.backend option deprecated since it only supports one option, asio,
+and the option will be removed in future release. Related, protonet.version is
+also deprecated
+- deprecation message for socket.ssl_compression as SSL compression cannot be
+enabled and the option will be removed in future releases
+- library could parse incorrect parameters as long as it had a "good" prefix,
+i.e. evs.*, so fix prevents setting of invalid option values
 - parsing of ISO8601 durations previously accepted invalid values, now fixed
-- parsing durations now uses lossless real number representation with nanosecond accuracy
+- in addition to ISO8601 format, parsing durations now supports real number
+representation
 
 Known Issues:
 

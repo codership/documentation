@@ -24,7 +24,6 @@ OCTOBER 2023. **
 Notable changes and fixes in MySQL-wsrep since the latest release 5.7.39-25.31:
 
 - wsrep_sync_wait is skipped during trigger execution
-- some format errors for wsrep_protocol_version have been fixed
 - a wsrep_diag.sql script contains useful diagnostics queries for
 troubleshooting wsrep related issues 
 - mysqld_bootstrap script handles interruptions 
