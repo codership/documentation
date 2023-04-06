@@ -23,7 +23,9 @@ Notable changes and fixes in MySQL-wsrep since the latest release 8.0.30-26.11:
 - mysqladmin now displays all status variables for wsrep, overriding the default
 upper limit to be read from the server
 - a wsrep_diag.sql script contains useful diagnostics queries for
-troubleshooting wsrep related issues 
+troubleshooting wsrep related issues
+- wsrep_recover script accepts now --basedir and --mysqld options to support
+  installations in non-standard locations (codership/mysql-wsrep#409)
 - better handling of Total Order Isolation, from mistakenly skipped replication
 to error reporting
 - mysqld_bootstrap script handles interruptions 
