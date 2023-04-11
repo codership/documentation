@@ -17,9 +17,9 @@ https://github.com/codership/mysql-wsrep.
 
 Notable changes and fixes in MySQL-wsrep since the latest release 8.0.31-26.12:
 - all output from wsrep_diag.sql goes to the same output stream
-- better handling of SST scripts in environments where ASAN is enabled
+- better handling of SST scripts with ASAN builds
 - memory leak around apply failure, ALTER TABLESPACE, fixed
-- the wsrep patch works with lock order instrumentation
+- the wsrep patch works with lock order debug instrumentation
 - removed check for innodb_lock_schedule_algorithm as it does not exist in MySQL 8
 
 Known Issues:
