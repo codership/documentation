@@ -122,7 +122,7 @@ Next, add the Codership repository to your sources list.  Using a simple text ed
    deb https://releases.galeracluster.com/mysql-wsrep-VERSION/DIST RELEASE main
    deb https://releases.galeracluster.com/galera-3/DIST RELEASE main
 
-In the example above, you would change the repository addresses.  The ``VERSION`` should be set to MySQL-wsrep version you want to install. For example, it might be something like, ``5.6``.  The ``DIST`` should be replaced with the name of the Linux distribution on the server.  This could be ``ubuntu``.  Last, replace ``RELEASE`` with the distribution release (e.g., ``wheezy``).
+In the example above, you would change the repository addresses.  The ``VERSION`` should be set to MySQL-wsrep version you want to install. For example, it might be something like, ``5.7``.  The ``DIST`` should be replaced with the name of the Linux distribution on the server.  This could be ``ubuntu``.  Last, replace ``RELEASE`` with the distribution release (e.g., ``wheezy``).
 
 If you don't know which release you have installed on your server, you can generally find this using the following command:
 
@@ -182,7 +182,24 @@ For rpm-based distributions of Linux (e.g., CentOS, Red Hat and Fedora), you wil
    gpgcheck = 1
 
 
-In this sample repository configuration file, you would change the repository addresses for the ``baseurl``.  The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (e.g., it might be ``5.6``).  The ``DIST`` should be changed to the name of the Linux distribution you're using on your sever (e.g., ``centos`` or ``fedora``). The ``RELEASE`` should be replaced with the distribution's release number.  It might be ``6`` for CentOS, but  ``20`` or ``21`` for Fedora. Last, the ``ARCH`` indicates the architecture of your hardware.  This could be changed to ``x86_64`` for 64-bit systems.
+In this sample repository configuration file, you would change the repository addresses for the ``baseurl``.  The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (e.g., it might be ``5.7``).  The ``DIST`` should be changed to the name of the Linux distribution you're using on your sever (e.g., ``centos`` or ``fedora``). The ``RELEASE`` should be replaced with the distribution's release number.  It might be ``6`` for CentOS, but  ``20`` or ``21`` for Fedora. Last, the ``ARCH`` indicates the architecture of your hardware.  This could be changed to ``x86_64`` for 64-bit systems.
+
+Here is a sample repository configuration file for CentOS 7 and Galera Cluster with MySQL 8.
+
+.. code-block:: ini
+
+	[galera4]
+	name = Galera
+	baseurl = https://releases.galeracluster.com/galera-4/centos/7/x86_64
+	gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
+	gpgcheck = 1
+
+	[mysql-wsrep8]
+	name = MySQL-wsrep
+	baseurl = https://releases.galeracluster.com/mysql-wsrep-8.0/centos/7/x86_64
+	gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
+	gpgcheck = 1
+
 
 After you've created, modified, and saved this repository file, you'll be able to install the packages from the Codership repository using ``yum``. For an explanation on installing, skip ahead on this page to the section entitled, :ref:`Installing Galera Cluster for MySQL <mysql-install>`.
 
@@ -197,7 +214,7 @@ So, for Debian-based distributions using the ``apt-get`` package manager, execut
 
 .. code-block:: console
 
-   apt-get install galera-3 galera-arbitrator-3 mysql-wsrep-5.6
+   apt-get install galera-3 galera-arbitrator-3 mysql-wsrep-5.7
 
 If you want to install version 4 of Galera Cluster, you would instead execute the following from the command-line:
 
@@ -209,7 +226,7 @@ On servers using the ``yum`` package manager (i.e., Red Hat, Fedora and CentOS d
 
 .. code-block:: console
 
-   yum install galera-3 mysql-wsrep-5.6
+   yum install galera-3 mysql-wsrep-5.7
 
 Please note that on CentOS 6 and 7, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
 
@@ -258,17 +275,17 @@ For CentOS 6, you would enter something like the following from the command-line
 
    yum upgrade -y mysql-wsrep-libs-compat-VERSION
 
-You would, of course, replace ``VERSION`` here with ``5.5`` or ``5.6``, depending on the version of MySQL you want to use.  For CentOS 7, to install MySQL version 5.6, you would execute the following from the command-line:
+You would, of course, replace ``VERSION`` here with ``5.7`` or ``8.0``, depending on the version of MySQL you want to use.  For CentOS 7, to install MySQL version 5.7, you would execute the following from the command-line:
 
 .. code-block:: console
 
-   yum upgrade mysql-wsrep-shared-5.6
+   yum upgrade mysql-wsrep-shared-5.7
 
-For CentOS 7, to install MySQL version 5.5, you will also need to disable the 5.6 upgrade. To do this, enter the following from the command-line:
+For CentOS 7, to install MySQL version 5.7, you will also need to disable the 5.7 upgrade. To do this, enter the following from the command-line:
 
 .. code-block:: console
 
-   yum upgrade -y mysql-wsrep-shared-5.5 -x mysql-wsrep-shared-5.6
+   yum upgrade -y mysql-wsrep-shared-5.7 -x mysql-wsrep-shared-5.7
 
 When ``yum`` finishes the upgrade, you can then install the MySQL wsrep database server and the Galera Replication Plugin as described above.
 
