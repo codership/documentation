@@ -165,7 +165,7 @@ Once you've done all of these tasks, the packages in the Codership repository wi
 .. rst-class:: sub-heading
 .. rubric:: Enabling the ``yum`` Repository
 
-For rpm-based distributions of Linux (e.g., CentOS, Red Hat and Fedora), you will need to enable the Codership repository. Using a simple text editor, create a file called, ``galera.repo`` in the ``/etc/yum.repos.d/`` directory. The contents of that file should look something like the following:
+For rpm-based distributions of Linux (e.g., CentOS and Red Hat Enterprise Linux), you will need to enable the Codership repository. Using a simple text editor, create a file called, ``galera.repo`` in the ``/etc/yum.repos.d/`` directory. The contents of that file should look something like the following:
 
 .. code-block:: ini
 
@@ -182,7 +182,7 @@ For rpm-based distributions of Linux (e.g., CentOS, Red Hat and Fedora), you wil
    gpgcheck = 1
 
 
-In this sample repository configuration file, you would change the repository addresses for the ``baseurl``.  The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (e.g., it might be ``5.7``).  The ``DIST`` should be changed to the name of the Linux distribution you're using on your sever (e.g., ``centos`` or ``fedora``). The ``RELEASE`` should be replaced with the distribution's release number.  It might be ``6`` for CentOS, but  ``20`` or ``21`` for Fedora. Last, the ``ARCH`` indicates the architecture of your hardware.  This could be changed to ``x86_64`` for 64-bit systems.
+In this sample repository configuration file, you would change the repository addresses for the ``baseurl``.  The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (e.g., it might be ``5.7``).  The ``DIST`` should be changed to the name of the Linux distribution you're using on your sever (e.g., ``centos``). The ``RELEASE`` should be replaced with the distribution's release number.  It might be ``7`` or ``8`` for CentOS and Red Hat Enterprise Linux. Last, the ``ARCH`` indicates the architecture of your hardware.  This could be changed to ``x86_64`` for 64-bit systems.
 
 Here is a sample repository configuration file for CentOS 7 and Galera Cluster with MySQL 8.
 
@@ -222,7 +222,7 @@ If you want to install version 4 of Galera Cluster, you would instead execute th
 
    apt-get install galera-4 galera-arbitrator-4 mysql-wsrep-8.0
 
-On servers using the ``yum`` package manager (i.e., Red Hat, Fedora and CentOS distributions), you would instead execute this command:
+On servers using the ``yum`` package manager (i.e., Red Hat Enterprise Linux and CentOS distributions), you would instead execute this command:
 
 .. code-block:: console
 
