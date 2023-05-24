@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, installation, install, mysql, binaries, apt, yum
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -70,7 +70,7 @@
 Galera Cluster for MySQL |---| Binary Installation
 ===================================================
 
-Galera Cluster for MySQL may be installed on Linux servers using binary packages. These files can be downloaded directly from the Codership repository, or by way of a package manager: ``apt-get``, ``yum`` or ``zypper``.
+Galera Cluster for MySQL may be installed on Linux servers using binary packages. These files can be downloaded directly from the Codership repository, or by way of a package manager: ``apt-get`` or ``yum``.
 
    .. only:: html
 
@@ -187,47 +187,11 @@ In this sample repository configuration file, you would change the repository ad
 After you've created, modified, and saved this repository file, you'll be able to install the packages from the Codership repository using ``yum``. For an explanation on installing, skip ahead on this page to the section entitled, :ref:`Installing Galera Cluster for MySQL <mysql-install>`.
 
 
-.. _`mysql-zypper-repo`:
-.. rst-class:: sub-heading
-.. rubric:: Enabling the ``zypper`` Repository
-
-For servers with Linux distributions that use ``zypper`` for package management (e.g.,  openSUSE and SUSE Linux Enterprise Server), you can enable the Codership repository by importing the GPG key and then creating a ``galera.repo`` file in the local directory.
-
-To import the GPG key, execute the following from the command-line on your server:
-
-.. code-block:: console
-
-   rpm --import "https://releases.galeracluster.com/GPG-KEY-galeracluster.com"
-
-Next, you'll need to use a simple text editor to create a repository file called, ``galera.repo`` in the local directory.  The contents should look something like the following:
-
-.. code-block:: ini
-
-   [galera]
-   name = Galera
-   baseurl = https://releases.galeracluster.com/galera-3/DIST/RELEASE/ARCH
-
-   [MySQL-wsrep]
-   name = MySQL-wsrep
-   baseurl = https://releases.galeracluster.com/mysql-wsrep-VERSION/DIST/RELEASE/ARCH
-
-You'll have to adjust these ``baseurl`` repository addresses.  Replace where you see ``VERSION`` above with the version of MySQL-wsrep you want to install (e.g., it might be ``5.6``). Next, substitute ``DIST`` in both addresses with the Linux distribution name (e.g., ``opensuse`` or ``sles``).  Where it says ``RELEASE``, enter instead the distribution release number. Last, change ``ARCH`` to the architecture of the server's hardware.  For example, you would enter ``x86_64`` for 64-bit systems.  When you're finished these modifications, save the file.
-
-You'll now need to add the Codership repository to ``zypper`` by executing the following two lines from the command-line:
-
-.. code-block:: console
-
-   zypper addrepo galera.repo
-   zypper refresh
-
-Once that's all done, you'll be able to install the packages from the Codership repository using ``zypper``. This is covered in the next section.
-
-
 .. _`mysql-install`:
 .. rst-class:: section-heading
 .. rubric:: Installing Galera Cluster for MySQL
 
-There are two packages involved in the installation of Galera Cluster for MySQL: the MySQL database server, but one that has been built to include the :term:`wsrep API`; and the :term:`Galera Replication Plugin`. The ``yum`` and ``zypper`` repositories include Galera Arbitrator with the Galera Replication Plugin, but for Debian-based distributions using ``apt-get`` you'll need to include add it to your installation instruction.
+There are two packages involved in the installation of Galera Cluster for MySQL: the MySQL database server, but one that has been built to include the :term:`wsrep API`; and the :term:`Galera Replication Plugin`. The ``yum`` repositories include Galera Arbitrator with the Galera Replication Plugin, but for Debian-based distributions using ``apt-get`` you'll need to include add it to your installation instruction.
 
 So, for Debian-based distributions using the ``apt-get`` package manager, execute the following from the command-line:
 
@@ -263,12 +227,6 @@ following from the command-line:
 .. code-block:: console
 
    dnf module disable mysql mariadb
-
-If you're using the ``zypper`` utility, which would be used with openSUSE and SUSE Linux Enterprise Server, you would execute the following from the command-line:
-
-.. code-block:: console
-
-   zypper install galera-3 mysql-wsrep-5.6
 
 Once you've executed the line appropriate to your distribution and package manager, Galera Cluster for MySQL should be installed on your server.  You will then have to repeat this process for each node in your cluster, including enabling the repository files mentioned earlier.
 
