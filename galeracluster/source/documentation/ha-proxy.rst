@@ -85,12 +85,6 @@ HAProxy is available in the software repositories of most Linux distributions an
 
      # yum install haproxy
 
-- For SUSE-based Linux distributions (e.g., SUSE Enterprise Linux and openSUSE), execute instead this from the command-line:
-
-  .. code-block:: console
-
-     # zypper install haproxy
-
 - For FreeBSD and similar operating systems, HAProxy is available in the ports tree at `/usr/ports/net/haproxy`.  Alternatively, you can install it using the package manager like so:
 
   .. code-block:: console
