@@ -69,7 +69,7 @@ Pen is available in the software repositories of most Linux distributions.  You 
 
      # apt-get install pen
 
-- For RPM-based Linux distributions (i.e., Red Hat, Fedora and CentOS), use the ``yum`` utility instead by executing the following from the command-line:
+- For RPM-based Linux distributions (i.e., Red Hat Enterprise Linux and CentOS), use the ``yum`` utility instead by executing the following from the command-line:
 
   .. code-block:: console
 

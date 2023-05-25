@@ -94,7 +94,7 @@ Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``.  T
 
 How you configure Galera Arbitrator depends on how you start it.  That is to say, whether it runs from the shell or as a service. These two methods are described in the next two sections.
 
-.. note::  When Galera Arbitrator starts, the script executes a ``sudo`` statement as the user ``nobody`` during its process.  There is a particular issue in Fedora and some other distributions of Linux, in which the default ``sudo`` configuration will block users that operate without ``tty`` access.  To correct this, edit with a text editor the ``/etc/sudoers`` file and comment out this line:
+.. note::  When Galera Arbitrator starts, the script executes a ``sudo`` statement as the user ``nobody`` during its process.  There is a particular issue in Red Hat Enterprise Linux and some other distributions of Linux, in which the default ``sudo`` configuration will block users that operate without ``tty`` access.  To correct this, edit with a text editor the ``/etc/sudoers`` file and comment out this line:
 
 	   .. code-block:: bash
 

@@ -79,7 +79,7 @@ HAProxy is available in the software repositories of most Linux distributions an
 
      # apt-get install haproxy
 
-- For RPM-based Linux distributions (e.g., Red Hat, Fedora and CentOS), execute the following from the command-line:
+- For RPM-based Linux distributions (e.g., Red Hat Enterprise Linux and CentOS), execute the following from the command-line:
 
   .. code-block:: console
 
