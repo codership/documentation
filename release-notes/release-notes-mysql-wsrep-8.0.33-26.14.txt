@@ -25,7 +25,7 @@ nodes kept generating their own individual server UUIDs
 - wsrep_start_position contains the wsrep GTID position, local seqno for
 asynchronous replication, server ID and server UUID all in one argument,
 slash-separated
-- XID does not exceed 64-bytes as per standard; local UUID removed from XIA as
+- XID does not exceed 64-bytes as per standard; local UUID removed from XID as
 it is identical with wsrep UUID
 - New wsrep_sync_server_uuid configuration variable, if set to true the node
 respects server UUID received from the donor node; otherwise the node generates
