@@ -24,7 +24,7 @@ slash-separated
 - Nodes now use the same server UUID (generated on the seed node) to binlog
 events that don't go through wsrep; this makes histories comparable provided the
 user executes such operations in agreed order on all the nodes. Previously wsrep
-nodes kept generating their own individual server UUIDs. A mew
+nodes kept generating their own individual server UUIDs. A new
 wsrep_sync_server_uuid configuration variable, if set to true, the node then 
 respects server UUID received from the donor node; otherwise the node generates
 its own server UUID. This concerns binlog events not replicated via wsrep which
