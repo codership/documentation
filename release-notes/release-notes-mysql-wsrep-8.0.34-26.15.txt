@@ -31,10 +31,15 @@ changing the priority to INFORMATION_LEVEL if needed.
 wsrep_forced_binlog_format=MIXED|STATEMENT, and it will result in ROW with a
 warning.
 - Fix the binlog not being truncated after ROLLBACK TO SAVEPOINT
+- systemd multi-instance support fixed, such that one can specify startup
+position and instance to bootstrap.
 
 Known Issues:
 
 - InnoDB tablespaces outside of the data directory are not supported, as they
 may not be copied over during SST.
+
+End of Life Notice:
+
 - this is the last release for Ubuntu 18.04 LTS (Bionic) as it is has reached
 EOL May 31 2023.

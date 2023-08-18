@@ -24,9 +24,8 @@ OCTOBER 2023. **
 
 Notable changes and fixes in MySQL-wsrep since the latest release 5.7.42-25.34:
 
-- a fix from 8.0 was backported, that when the server as started with
-read-only=ON, the mode toggled off during concurrent load due to a race
-condition. 
+- when the server as started with read-only=ON, the mode toggled off during
+concurrent load due to a race condition. 
 - condition to replay a transaction via autocommit retry is now based entirely
 on wsrep_conflict_state, not accessing the lex tree as it is not guaranteed to
 be in a well-formed state (not user visible, but notable as to how
@@ -36,5 +35,8 @@ Known Issues:
 
 - InnoDB tablespaces outside of the data directory are not supported, as they
 may not be copied over during SST.
+
+End of Life Notice:
+
 - this is the last release for Ubuntu 18.04 LTS (Bionic) as it is has reached
 EOL May 31 2023.
