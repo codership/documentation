@@ -31,8 +31,7 @@ changing the priority to INFORMATION_LEVEL if needed.
 wsrep_forced_binlog_format=MIXED|STATEMENT, and it will result in ROW with a
 warning.
 - Fix an inconsistency caused by ROLLBACK TO SAVEPOINT 
-- systemd multi-instance support fixed, such that one can specify startup
-position and instance to bootstrap.
+- systemd multi-instance support fixed
 
 Known Issues:
 
