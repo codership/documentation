@@ -140,19 +140,57 @@ Packages in the Percona repository are now available for installation on your se
 .. rst-class:: section-heading
 .. rubric:: Installing Percona XtraDB Cluster
 
-There are three packages involved in the installation of Percona XtraDB Cluster: the Percona XtraDB client, a command line tool for accessing the database; the percona XtraDB database server, built to include the :term:`wsrep API` patch and the :term:`Galera Replication Plugin`.
+.. note::  Telemetry is enabled by default. To disable it, see <https://docs.percona.com/percona-xtradb-cluster/8.0/telemetry.html>`_.
+
+Percona provides generic tarballs with all required files and binaries for manual installation.
+
+You can download the appropriate tarball package from <https://www.percona.com/downloads>`_
+
+Starting with Percona XtraDB Cluster 8.0.20-11, the ``Linux - Generic`` section lists only full or minimal tar files. Each tarball file replaces the multiple tar file listing used in earlier versions and supports all distributions.
+
+The version number in the tarball name must be substituted with the appropriate version number for your system. To indicate that such a substitution is needed in statements, we use ``<version-number>``.
+
+.. csv-table::
+   :class: doc-options tight-header
+   :widths: 40, 20, 40
+
+   Percona-XtraDB-Cluster_-Linux.x86_64.glibc2.17.tar.gz, Full, Contains binary files, libraries, test files, and debug symbols
+   Percona-XtraDB-Cluster_-Linux.x86_64.glibc2.17.minimal.tar.gz, Minumum, Contains binary files and libraries but does not include test files, or debug symbols
+
+For installations before Percona XtraDB Cluster 8.0.20-11, the ``Linux - Generic`` section contains multiple tarballs based on the operating system names:
+
+   .. code-block:: console
+
+      Percona-XtraDB-Cluster_8.0.18-9.3_Linux.x86_64.bionic.tar.gz
+      Percona-XtraDB-Cluster_8.0.18-9.3_Linux.x86_64.buster.tar.gz
+      ...
+
+For example, you can use ``curl`` as follows:
+
+   .. code-block:: console
+
+      curl -O https://downloads.percona.com/downloads/Percona-XtraDB-Cluster-LATEST/Percona-XtraDB-Cluster-8.0.27/binary/tarball/Percona-XtraDB-Cluster_8.0.27-18.1_Linux.x86_64.glibc2.17-minimal.tar.gz
+
+
+Check your system to make sure the packages that the PXC version requires are installed.
 
 For most Debian-based distributions, you can install all of these through a single package.  In the terminal run the following command:
 
 .. code-block:: console
 
-   # apt-get install percona-xtradb-cluster
+   # sudo apt-get install -y \
+         socat libdbd-mysql-perl \
+         libaio1 libc6 libcurl3 libev4 libgcc1 libgcrypt20 \
+         libgpg-error0 libssl1.1 libstdc++6 zlib1g libatomic1
 
 For Ubuntu and distributions that derive from Ubuntu, however, you will need to specify the meta package.  In the terminal, run this command instead:
 
 .. code-block:: console
 
-   $ sudo apt-get install percona-xtradb-cluster
+   $ sudo apt-get install -y \
+         socat libdbd-mysql-perl \
+         libaio1 libc6 libcurl3 libev4 libgcc1 libgcrypt20 \
+         libgpg-error0 libssl1.1 libstdc++6 zlib1g libatomic1
          percona-xtradb-cluster-galera
 
 
@@ -160,7 +198,8 @@ For RPM-based distributions, instead run this command:
 
 .. code-block:: console
 
-   # yum install Percona-XtraDB-Cluster
+   # sudo yum install -y openssl socat  \
+         procps-ng chkconfig procps-ng coreutils shadow-utils \
 
 Percona XtraDB Cluster is now installed on your server.
 
