@@ -3,7 +3,7 @@
    :description: "Discusses how to resolve a problem with rsync or other tool stalling during SST."
    :language: en-US
    :keywords: galera cluster, sst, rsync, stalled, hangs
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 
 .. container:: left-margin

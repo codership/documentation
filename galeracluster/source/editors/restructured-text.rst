@@ -3,7 +3,7 @@
    :description: Instructions and examples on using Restructured Text mark-up.
    :language: en-US
    :keywords: sphinx, restructured text, restructuredtext
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -181,7 +181,7 @@ There are many meta tags that may be included in an HTML page. Below is how you 
       :description: Instructions on using Restructured Text mark-up.
       :language: en-US
       :keywords: sphinx, restructured text, restructuredtext
-      :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+      :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 This block of code should be entered at the very top of the document.  Below is the results of the above; it's the tags that can be see when looking at the page source in the web browser.
 
@@ -192,7 +192,7 @@ This block of code should be entered at the very top of the document.  Below is 
    <meta content="Instructions on using Restructured Text mark-up." name="description" />
    <meta content="en-US" name="language" />
    <meta content="sphinx, restructured text, restructuredtext" name="keywords" />
-   <meta content="Codership Oy, 2014 - 2022. All Rights Reserved." name="copyright" />
+   <meta content="Codership Oy, 2014 - 2023. All Rights Reserved." name="copyright" />
    ...
    </head>
 
