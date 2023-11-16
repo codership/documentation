@@ -140,11 +140,11 @@ Packages in the Percona repository are now available for installation on your se
 .. rst-class:: section-heading
 .. rubric:: Installing Percona XtraDB Cluster
 
-.. note::  Telemetry is enabled by default. To disable it, see <https://docs.percona.com/percona-xtradb-cluster/8.0/telemetry.html>`_.
+.. note::  Telemetry is enabled by default. To disable it, see `https://docs.percona.com/percona-xtradb-cluster/8.0/telemetry.html <https://docs.percona.com/percona-xtradb-cluster/8.0/telemetry.html>`_.
 
 Percona provides generic tarballs with all required files and binaries for manual installation.
 
-You can download the appropriate tarball package from <https://www.percona.com/downloads>`_
+You can download the appropriate tarball package from `https://www.percona.com/downloads <https://www.percona.com/downloads>`_.
 
 Starting with Percona XtraDB Cluster 8.0.20-11, the ``Linux - Generic`` section lists only full or minimal tar files. Each tarball file replaces the multiple tar file listing used in earlier versions and supports all distributions.
 
