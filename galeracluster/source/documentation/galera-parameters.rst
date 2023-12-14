@@ -520,7 +520,7 @@ Defines a hard limit on node inactivity.
 
 Hard limit on the inactivity period, after which the node is pronounced dead.
 
-Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it add an entry for that node to its delayed list, which can lead tot he delayed node's eviction from the cluster.
+Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it add an entry for that node to its delayed list, which can lead to the delayed node's eviction from the cluster.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
