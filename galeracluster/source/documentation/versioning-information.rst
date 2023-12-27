@@ -63,10 +63,7 @@ Galera Cluster for MySQL is available in binary software packages for several di
 For Linux distributions, binary packages in 32-bit and 64-bit for both the MySQL database server with the wsrep API patch and the :term:`Galera Replication Plugin` are available from the `Codership Repository <https://releases.galeracluster.com>`_.  These include support for:
 
 - Red Hat Enterprise Linux
-- Fedora
 - CentOS
-- SUSE Linux Enterprise Server
-- openSUSE
 - Debian
 - Ubuntu
 

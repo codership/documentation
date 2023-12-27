@@ -146,7 +146,7 @@ Packages in the MariaDB repository are now available for installation through ``
 .. rst-class:: sub-heading
 .. rubric:: Enabling the ``yum`` Repository
 
-For RPM-based distributions (e.g., CentOS, Red Hat and Fedora), you can enable the MariaDB repository by creating a text file with ``.repo`` as the file extension to the ``/etc/yum/repos.d/`` directory.
+For RPM-based distributions (e.g., CentOS and Red Hat Enterprise Linux), you can enable the MariaDB repository by creating a text file with ``.repo`` as the file extension to the ``/etc/yum/repos.d/`` directory.
 
 Using a simple text editor, create a new ``.repo`` file containing something like the following:
 

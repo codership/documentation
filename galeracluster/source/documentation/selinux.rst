@@ -58,7 +58,7 @@
 SELinux Configuration
 =======================
 
-Security-Enhanced Linux, or SELinux, is a kernel module for improving security of Linux operating systems.  It integrates support for access control security policies, including mandatory access control (MAC), that limit user applications and system daemons access to files and network resources.  Some Linux distributions, such as Fedora, ship with SELinux enabled by default.
+Security-Enhanced Linux, or SELinux, is a kernel module for improving security of Linux operating systems.  It integrates support for access control security policies, including mandatory access control (MAC), that limit user applications and system daemons access to files and network resources.  Some Linux distributions, such as Red Hat Enterprise Linux or CentOS, ship with SELinux enabled by default.
 
 In the context of Galera Cluster, systems with SELinux may block the database server, keeping it from starting or preventing the node from establishing connections with other nodes in the cluster.  To prevent this, you need to configure SELinux policies to allow the node to operate.
 

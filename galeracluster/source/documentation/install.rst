@@ -79,7 +79,7 @@ MySQL the company and the database software was purchased quite a while ago by O
 .. rst-class:: sub-heading
 .. rubric:: :doc:`MySQL Binary Installation <./install-mysql>`
 
-Click on the heading here to read this article on how to install MySQL using a binary installation package. Binary installation packages are available for Linux distributions using ``apt-get``, ``yum`` and ``zypper`` package managers through the Codership repository.
+Click on the heading here to read this article on how to install MySQL using a binary installation package. Binary installation packages are available for Linux distributions using ``apt-get`` and ``yum`` package managers through the Codership repository.
 
 .. rst-class:: sub-heading
 .. rubric:: :doc:`MySQL Source Installation <./install-mysql-src>`
