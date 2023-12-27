@@ -3,7 +3,7 @@
    :description: How to use Database Server Logs to Troubleshoot Galera Cluster Problems.
    :language: en-US
    :keywords: galera cluster, logs, log file, troubleshooting
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 
 .. container:: left-margin

@@ -3,7 +3,7 @@
    :description: "Provides an explanation of how determine if a cluster needs to be restarted and how to do it."
    :language: en-US
    :keywords: galera cluster, quorum, split-brain, recovery, primary component, restarting cluster
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -176,17 +176,17 @@ For servers that use ``systemd``, execute instead this from the command-line:
 
    systemctl stop mysql
 
-You're now ready to start the cluster again.  Start the most advanced node with the ``--wsrep-new-cluster`` option |---| not the other nodes.  For servers that use ``init``, run the following command:
+You're now ready to start the cluster again.  Start the most advanced node with the ``mysqld_bootstrap`` command |---| not the other nodes.  For servers that use ``init``, run the following command:
 
 .. code-block:: console
 
-   service mysql start --wsrep-new-cluster
+   service mysql start mysqld_bootstrap
 
-For servers that use ``systemd`` and Galera Cluster 5.5 or 5.6, enter instead the following from the command-line:
+For servers that use ``systemd`` and Galera Cluster 5.7 or 8.0, enter instead the following from the command-line:
 
 .. code-block:: console
 
-   systemctl start mysqld --wsrep-new-cluster
+   mysqld_bootstrap
 
 For MySQL servers that use ``systemd`` and at least version 5.7 of Galera Cluster, you can execute the following script from the command-line only on the first node:
 

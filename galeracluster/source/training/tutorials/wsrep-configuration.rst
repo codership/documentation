@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -118,7 +118,7 @@ Here, the backend schema is ``gcomm``.  The cluster addresses (i.e., ``192.168.0
 
 The IP addresses given in the configuration file should include any current members of the cluster.  The list may also include the IP addresses of any possible cluster members. Members can belong to no more than one Primary Component;
 
-If you start a node without proving an IP address for this parameter, the node will assume that it's the first node of a new cluster.  It will initialize the cluster as though you launched ``mysqld`` with the ``--wsrep-new-cluster`` option.
+If you start a node without proving an IP address for this parameter, the node will assume that it's the first node of a new cluster.  It will initialize the cluster as though you launched ``mysqld`` with the ``mysqld_bootstrap`` command.
 
 
 .. _`cluster-address-options`:

@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, sst, state snapshot transfer, mysqldump, logical
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
 
 
 .. container:: left-margin
