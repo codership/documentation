@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, installation, install, mariadb, binaries, apt, yum
-   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2024. All Rights Reserved.
 
 
 .. container:: left-margin

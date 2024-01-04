@@ -3,7 +3,7 @@
    :description: Describes Why a Transaction Can't Lock Rows
    :language: en-US
    :keywords: galera cluster, deadlock found, transaction incomplete
-   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2024. All Rights Reserved.
 
 .. container:: left-margin
 

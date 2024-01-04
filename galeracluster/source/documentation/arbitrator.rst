@@ -3,7 +3,7 @@
    :description: Galera Arbitrator serves can function as an odd node to avoid split-brain and can be useful in making back-ups.
    :language: en-US
    :keywords: galera cluster, mysql, mariadb, arbitrator, garbd
-   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2024. All Rights Reserved.
 
 .. container:: left-margin
 

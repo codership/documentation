@@ -3,7 +3,7 @@
    :description: An overview of installing and using Galera Manager
    :language: en-US
    :keywords: galera cluster, gmd, galera manager, gui
-   :copyright: Codership Oy, 2014 - 2023. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2024. All Rights Reserved.
 
 
 .. container:: left-margin
