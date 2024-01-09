@@ -16,7 +16,7 @@ Notable changes and fixes in Galera since latest release 4.16:
 of resource keys: schema, table, row, yet one common resource used by every
 writeset, a node. The key is added by default to every writeset with the default
 type WSREP_KEY_SHARED. Now, node-wide operations can be performed with the same
-semantics as regular transactions. (codership/galera-bugs#891)
+semantics as regular transactions. 
 - Non-SYNCED nodes are not counted when calculating commit cut - maximum seqno
 that is no longer needed in certification index; situations may arise when group
 commit cut is applied before all preceding events are committed on a non-SYNCED
@@ -27,7 +27,7 @@ on which nodes will be blocked, however now, connections are explicitly allowed
 from all nodes which may be accepted as members in the next view.
 - Stability of node joining process for EVS improved by dropping EVS join
 messages without own identified in joining state, to avoid starting membership
-protocol before at least one of the existing nodes has seen at lease one join
+protocol before at least one of the existing nodes has seen at least one join
 message from a joiner. 
 - Improve "Failed to report last committed" warning to make it more accurate and
 user-friendly.
