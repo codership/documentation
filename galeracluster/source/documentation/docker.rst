@@ -88,7 +88,7 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
 
    RUN apt-get update
    RUN apt-get install -y  software-properties-common
-   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA
+   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 8DA84635
    RUN add-apt-repository 'deb https://releases.galeracluster.com/galera-3/ubuntu trusty main'
    RUN add-apt-repository 'deb https://releases.galeracluster.com/mysql-wsrep-5.6/ubuntu trusty main'
 
@@ -98,6 +98,8 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
 
    COPY my.cnf /etc/mysql/my.cnf
    ENTRYPOINT ["mysqld"]
+
+Note that for packages before MySQL 5.7.44 and 8.0.35, the signing key is BC19DDBA. 
 
 This example follows the installation process for running Galera Cluster from within a Docker container running on Ubuntu.  When you run the build command, Docker pulls down the Ubuntu 14.04 image from Docker Hub, if it's needed. It then runs each command in the ``Dockerfile`` to initialize the image for your use.
 

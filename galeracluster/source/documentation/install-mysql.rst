@@ -112,9 +112,9 @@ Once you have the *Software Properties* installed, you can then enable the Coder
 
 .. code-block:: console
 
-   apt-key adv --keyserver keyserver.ubuntu.com --recv BC19DDBA
+   apt-key adv --keyserver keyserver.ubuntu.com --recv 8DA84635
 
-Next, add the Codership repository to your sources list.  Using a simple text editor, create file called, `galera.list` in the ``/etc/apt/sources.list.d/`` directory. Add these lines to that file, with the necessary adjustments for the version used:
+Note that for packages before MySQL 5.7.44 and 8.0.35, the signing key is BC19DDBA. Next, add the Codership repository to your sources list.  Using a simple text editor, create file called, `galera.list` in the ``/etc/apt/sources.list.d/`` directory. Add these lines to that file, with the necessary adjustments for the version used:
 
 .. code-block:: linux-config
 

@@ -74,14 +74,14 @@ In Docker, Dockerfiles are used to describe the Docker images we are going to us
 
    RUN apt-get update
    RUN apt-get install -y software-properties-common
-   RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 BC19DDBA
+   RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 8DA84635
    RUN add-apt-repository 'deb https://releases.galeracluster.com/ubuntu trusty main'
    RUN apt-get update
    RUN apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync lsof
    COPY my.cnf /etc/mysql/my.cnf
    ENTRYPOINT ["mysqld"]
 
-This image builds on top of the Ubuntu 14.04 image. It simply installs Galera using the Codership repository and copies the my.cnf over.
+Note that for packages before MySQL 5.7.44 and 8.0.35, the signing key is BC19DDBA. This image builds on top of the Ubuntu 14.04 image. It simply installs Galera using the Codership repository and copies the my.cnf over.
 
 The `my.cnf` is quite simple.
 
