@@ -74,7 +74,7 @@ and an explanation.
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
    :widths: 30, 30, 12, 12
-   ":ref:`wsrep_applier_FK_failure_retries <iwsrep_applier_FK_failure_retries>`", "``1``", "Yes", "Yes"
+   ":ref:`wsrep_applier_FK_failure_retries <wsrep_applier_FK_failure_retries>`", "``1``", "Yes", "Yes"
    ":ref:`innodb-wsrep-applier-lock-wait-timeout <innodb-wsrep-applier-lock-wait-timeout>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", ""
