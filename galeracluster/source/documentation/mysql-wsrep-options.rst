@@ -74,8 +74,8 @@ and an explanation.
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
    :widths: 30, 30, 12, 12
-   ":ref:`wsrep_applier_FK_failure_retries <wsrep_applier_FK_failure_retries>`", "``1``", "Yes", "Yes"
    ":ref:`innodb-wsrep-applier-lock-wait-timeout <innodb-wsrep-applier-lock-wait-timeout>`", "``0``", "Yes", "Yes"
+   ":ref:`wsrep_applier_FK_failure_retries <wsrep_applier_FK_failure_retries>`", "``1``", "Yes", "Yes"
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", ""
    ":ref:`wsrep_certify_nonPK <wsrep_certify_nonPK>`", "``ON``", "", "Yes"
@@ -150,6 +150,38 @@ The results will vary depending on which version of Galera is running on your se
               :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
 
+.. _`innodb-wsrep-applier-lock-wait-timeout`:
+.. rst-class:: section-heading
+.. rubric:: ``innodb-wsrep-applier-lock-wait-timeout``
+
+.. index::
+   pair: Parameters; innodb-wsrep-applier-lock-wait-timeout
+
+The ``innodb-wsrep-applier-lock-wait-timeout`` parameter defines the timeout in seconds, after which the ``wsrepw`` watchdog starts killing local transactions that are blocking the applier. Value ``0`` disables the watchdog.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--innodb-wsrep-applier-lock-wait-timeout``"
+   "System Variable", "``innodb-wsrep-applier-lock-wait-timeout``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "0 or timeout in seconds"
+   "Default Value", "``0`` "
+   "Initial Version", "MySQL-wsrep 8.0.26-26.8"
+
+You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'innodb-wsrep-applier-lock-wait-timeout';
+
+    +----------------------------------------+-------+
+    | Variable_name                          | Value |
+    +----------------------------------------+-------+
+    | innodb-wsrep-applier-lock-wait-timeout | 10    |
+    +----------------------------------------+-------+
+
 .. _`wsrep_applier_FK_failure_retries`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_applier_FK_failure_retries``
@@ -183,37 +215,6 @@ You can execute the following ``SHOW VARIABLES`` statement to see how this varia
     +----------------------------------------+-------+
 
 
-.. _`innodb-wsrep-applier-lock-wait-timeout`:
-.. rst-class:: section-heading
-.. rubric:: ``innodb-wsrep-applier-lock-wait-timeout``
-
-.. index::
-   pair: Parameters; innodb-wsrep-applier-lock-wait-timeout
-
-The ``innodb-wsrep-applier-lock-wait-timeout`` parameter defines the timeout in seconds, after which the ``wsrepw`` watchdog starts killing local transactions that are blocking the applier. Value ``0`` disables the watchdog.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--innodb-wsrep-applier-lock-wait-timeout``"
-   "System Variable", "``innodb-wsrep-applier-lock-wait-timeout``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", "Yes"
-   "Permitted Values", "0 or timeout in seconds"
-   "Default Value", "``0`` "
-   "Initial Version", "MySQL-wsrep 8.0.26-26.8"
-
-You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
-
-.. code-block:: mysql
-
-   SHOW VARIABLES LIKE 'innodb-wsrep-applier-lock-wait-timeout';
-
-    +----------------------------------------+-------+
-    | Variable_name                          | Value |
-    +----------------------------------------+-------+
-    | innodb-wsrep-applier-lock-wait-timeout | 10    |
-    +----------------------------------------+-------+
 
 .. _`wsrep_auto_increment_control`:
 .. rst-class:: section-heading
