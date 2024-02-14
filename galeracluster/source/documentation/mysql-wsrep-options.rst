@@ -74,7 +74,7 @@ and an explanation.
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
    :widths: 30, 30, 12, 12
-
+   ":ref:`wsrep_applier_FK_failure_retries <iwsrep_applier_FK_failure_retries>`", "``1``", "Yes", "Yes"
    ":ref:`innodb-wsrep-applier-lock-wait-timeout <innodb-wsrep-applier-lock-wait-timeout>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "", ""
@@ -148,6 +148,39 @@ The results will vary depending on which version of Galera is running on your se
  
            .. image:: ../images/support.jpg
               :target: https://galeracluster.com/support/#galera-cluster-support-subscription
+
+
+.. _`wsrep_applier_FK_failure_retries`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_applier_FK_failure_retries``
+
+.. index::
+   pair: Parameters; wsrep_applier_FK_failure_retries
+
+Occasionally, foreign key constrains may fail even though the constraints themselves are not violated (for example, if the same transaction inserts in the parent table, and the next insert into the child table fails in FK checks). With this foreign key constraint check retrying implementation, you can control the number of retries. If the constraint check fails despite retires, the final retry prints out a warning with an error code and InnoDB system monitor output for further troubleshooting.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep_applier_FK_failure_retries``"
+   "System Variable", "``wsrep_applier_FK_failure_retries``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Integer"
+   "Default Value", "``1`` "
+   "Initial Version", "MySQL-wsrep 5.7.44"
+
+You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_applier_FK_failure_retries';
+
+    +----------------------------------------+-------+
+    | Variable_name                          | Value |
+    +----------------------------------------+-------+
+    | wsrep_applier_FK_failure_retries       | 1     |
+    +----------------------------------------+-------+
 
 
 .. _`innodb-wsrep-applier-lock-wait-timeout`:
