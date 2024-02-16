@@ -200,7 +200,7 @@ Occasionally, foreign key constrains may fail even though the constraints themse
    "Dynamic Variable", "Yes"
    "Permitted Values", "Integer"
    "Default Value", "``1`` "
-   "Initial Version", "MySQL-wsrep 5.7.44"
+   "Initial Version", "MySQL-wsrep 8.0.35"
 
 You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
 
