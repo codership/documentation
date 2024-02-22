@@ -166,6 +166,13 @@ Codership Tutorials on Galera Cluster
 
       Once you have a cluster running, test its features to ensure it’s working well, to decide on a deployment plan. This tutorial provides a guide to testing replication and cluster operations.
 
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: :doc:`differences`
+
+   .. rst-class:: list-abstract
+
+      This tutorial provides information on the differences between a Galera Cluster and a Stand-Alone MySQL Server.
+
 
 
 .. _`training-tutorials-admin`:
