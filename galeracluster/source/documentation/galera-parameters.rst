@@ -1917,6 +1917,8 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: wsrep Provider Options; repl.commit_order
 
+.. warning:: Do not change the default value ``3``, as other values may produce inconsistencies or even lead to server crashes.
+
 Whether to allow Out-Of-Order committing (improves parallel applying performance).
 
 .. csv-table::
