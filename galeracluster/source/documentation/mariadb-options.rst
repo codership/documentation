@@ -71,6 +71,7 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
    :widths: 30, 20, 12, 6, 15, 15
 
+   ":ref:`wsrep_allowlist <wsrep_allowlist>`", "``None``", "Yes", "No", "10.10", ""
    ":ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>`", "``0``", "Yes", "Yes", "", ""
    ":ref:`wsrep_gtid_mode <wsrep_gtid_mode>`", "``OFF``", "Yes", "Yes", "", ""
    ":ref:`wsrep_gtid_seq_no <wsrep_gtid_seq_no>`", "", "No", "Yes", "", ""
@@ -78,6 +79,36 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
    ":ref:`wsrep_patch_version <wsrep_patch_version>`", "", "Yes", "No", "", ""
    ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "", ""
    ":ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`", "``OFF``", "Yes", "", "", ""
+
+
+
+
+
+
+.. _`wsrep_allowlist`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_allowlist``
+
+.. index::
+   pair: Parameters; wsrep_allowlist
+
+This system variable allows you to add comma delimited IP addresses to an allow list for Galera Cluster node addresses that can make SST/IST requests.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep_allowlist=#``"
+   "System Variable", "``wsrep_allowlist``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "No"
+   "Data Type", "String"
+   "Default Value", "``None`` "
+   "MariaDB Version", "Version 10.10"
+
+
+
+
+
 
 
 .. _`wsrep_gtid_domain_id`:
