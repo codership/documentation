@@ -1984,7 +1984,7 @@ Sets the node to use the server UUID received from the donor node.
 
 Unless this variable is set, the wsrep nodes generate individual server UUIDs, which are used on binlog events, such as rolling schema upgrades, that are not replicated through wsrep. This makes individual node histories incomparable and complicates switching asynchronous slave MASTER between the nodes in the cluster. 
 
-When set, this variable forces the nodes to use the same server UUID (generated on the seed node) to binlog events that that are not replicated through wsrep. This makes the histories comparable, provided tha the user executes such operations in agreed order on all the nodes..
+When set, this variable forces the nodes to use the same server UUID (generated on the seed node) to binlog events that are not replicated through wsrep. This makes the histories comparable, provided that the user executes such operations in agreed order on all the nodes..
 
 .. code-block:: mysql
 
