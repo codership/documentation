@@ -123,6 +123,7 @@ and an explanation.
    ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", ""
    ":ref:`wsrep_start_position <wsrep_start_position>`", "*see reference entry*", "Yes", ""
    ":ref:`wsrep_status_file <wsrep_status_file>`", "", "Yes", "No"
+   ":ref:`wsrep_sync_server_uuid <wsrep_sync_server_uuid>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes"
@@ -1956,6 +1957,48 @@ The contents of the file are subject to change.
    +-------------------+-------------------+
    | wsrep_status_file | wsrep-status.json |
    +-------------------+-------------------+
+
+
+
+
+
+.. _`wsrep_sync_server_uuid`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_sync_server_uuid``
+
+.. index::
+   pair: Parameters; wsrep_sync_server_uuid
+
+Sets the node to use the server UUID received from the donor node.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep_sync_server_uuid``"
+   "System Variable", "``wsrep_sync_server_uuid``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "String"
+   "Default Value", "0"
+   "Initial Version", "MySQL-wsrep 8.0.26-26.8"
+
+Unless this variable is set, the wsrep nodes generate individual server UUIDs, which are used on binlog events, such as rolling schema upgrades, that are not replicated through wsrep. This makes individual node histories incomparable and complicates switching asynchronous slave MASTER between the nodes in the cluster. 
+
+When set, this variable forces the nodes to use the same server UUID (generated on the seed node) to binlog events that are not replicated through wsrep. This makes the histories comparable, provided that the user executes such operations in agreed order on all the nodes..
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_sync_server_uuid';
+
+   --------------------------+-------+
+   | Variable_name           | Value |
+   +-------------------------+-------+
+   | wsrep_sync_server_uuid  | 1     |
+   +-------------------------+-------+
+
+
+
+
 
 .. _`wsrep_sync_wait`:
 .. rst-class:: section-heading
