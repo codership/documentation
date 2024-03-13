@@ -801,7 +801,7 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
 .. index::
    pair: Parameters; wsrep_info_level
 
-This parameter defines whether the node splits large ``LOAD DATA`` commands into more manageable units.
+This parameter defines how to log ``INFO``-level wsrep messages.
 
 .. csv-table::
    :class: doc-options
@@ -814,7 +814,7 @@ This parameter defines whether the node splits large ``LOAD DATA`` commands into
    "Default Value", "``0``"
    "Initial Version", "MySQL-wsrep: 8.0.34"
 
-INFO-level wsrep messages are logged with ``SYSTEM_LEVEL`` priority by default, as WSREP information level messages are crucial for troubleshooting replication issues. However, if you need to use ``INFORMATION_LEVEL`` logging, you can use this variable to change the logging priority.
+``INFO``-level wsrep messages are logged with ``SYSTEM_LEVEL`` priority by default, as WSREP information level messages are crucial for troubleshooting replication issues. However, if you need to use ``INFORMATION_LEVEL`` logging, you can use this variable to change the logging priority.
 
 The options are:
 
