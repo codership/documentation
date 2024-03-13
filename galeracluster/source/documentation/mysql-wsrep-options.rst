@@ -91,6 +91,7 @@ and an explanation.
    ":ref:`wsrep_drupal_282555_workaround <wsrep_drupal_282555_workaround>`", "``ON``", "Yes", ""
    ":ref:`wsrep_forced_binlog_format <wsrep_forced_binlog_format>`", "``NONE``", "Yes", ""
    ":ref:`wsrep_ignore_apply_errors <wsrep_ignore_apply_errors>`", "``7``", "Yes", "Yes"
+   ":ref:`wsrep_info_level <wsrep_info_level>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_load_data_splitting <wsrep_load_data_splitting>`", "``ON``", "Yes", ""
    ":ref:`wsrep_log_conflicts <wsrep_log_conflicts>`", "``OFF``", "Yes", ""
    ":ref:`wsrep_max_ws_rows <wsrep_max_ws_rows>`", "``0``", "Yes", ""
@@ -789,6 +790,53 @@ You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` opera
    +---------------------------------+-------+
    | wsrep-wsrep_ignore_apply_errors |  7    |
    +---------------------------------+-------+
+
+
+
+
+.. _`wsrep_info_level`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_info_level``
+
+.. index::
+   pair: Parameters; wsrep_info_level
+
+This parameter defines how to log ``INFO``-level wsrep messages.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep_info_level``"
+   "System Variable", "``wsrep_info_level``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "Numeric"
+   "Default Value", "``0``"
+   "Initial Version", "MySQL-wsrep: 8.0.34"
+
+``INFO``-level wsrep messages are logged with ``SYSTEM_LEVEL`` priority by default, as WSREP information level messages are crucial for troubleshooting replication issues. However, if you need to use ``INFORMATION_LEVEL`` logging, you can use this variable to change the logging priority.
+
+The options are:
+
+- ``0`` Use ``SYSTEM_LEVEL`` logging.
+
+- ``3`` Use ``INFORMATION_LEVEL`` logging.
+
+You can execute the following ``SHOW VARIABLES`` statement to see how this variable is set:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'wsrep_info_level';
+
+   +------------------+-------+
+   | Variable_name    | Value |
+   +------------------+-------+
+   | wsrep_info_level | 0     |
+   +------------------+-------+
+
+
+
+
 
 
 
