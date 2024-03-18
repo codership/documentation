@@ -1953,10 +1953,10 @@ Defines the node start position.
    "Variable Scope", "Global"
    "Dynamic Variable", ""
    "Permitted Values", "String"
-   "Default Value", "``00000000-0000-0000-0000-00000000000000:-1``"
+   "Default Value", "``00000000-0000-0000-0000-000000000000:-1/0/0/00000000-0000-0000-0000-000000000000``"
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
-This parameter defines the node start position.  It exists for the sole purpose of notifying the joining node of the completion of a state transfer.
+This parameter defines the node start position. It contains the wsrep GTID position, local seqno for asynchronous replication, server ID and server UUID all in one, slash-separated argument. It exists for the sole purpose of notifying the joining node of the completion of a state transfer.
 
 For more information on scripting state snapshot transfers, see :doc:`scriptable-sst`.
 
@@ -1964,11 +1964,11 @@ For more information on scripting state snapshot transfers, see :doc:`scriptable
 
    SHOW VARIABLES LIKE 'wsrep_start_position';
 
-   +----------------------+-----------------------------------------+
-   | Variable_name        | Value                                   |
-   +----------------------+-----------------------------------------+
-   | wsrep_start_position | 00000000-0000-0000-0000-000000000000:-1 |
-   +----------------------+-----------------------------------------+
+   +----------------------+----------------------------------------------------------------------------------+
+   | Variable_name        | Value                                                                            |
+   +----------------------+----------------------------------------------------------------------------------+
+   | wsrep_start_position | 00000000-0000-0000-0000-000000000000:-1/0/0/00000000-0000-0000-0000-000000000000 |
+   +----------------------+----------------------------------------------------------------------------------+
 
 
 .. _`wsrep_status_file`:
