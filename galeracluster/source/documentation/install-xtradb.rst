@@ -116,7 +116,7 @@ Once you have Software Properties installed, you can enable the Percona reposito
 
       # apt-get update
 
-For more information on the repository, available packages and mirrors, see the `Percona apt Repository <https://www.percona.com/doc/percona-server/5.5/installation/apt_repo.html>`_
+For more information on the repository, available packages and mirrors, see `Percona Software Repositories Documentation <https://docs.percona.com/percona-software-repositories/index.html>`_.
 
 Packages in the Percona repository are now available for installation on your server through ``apt-get``.
 
@@ -129,9 +129,9 @@ For RPM-based distributions, you can enable the Percona repository through ``yum
 
 .. code-block:: console
 
-   # yum install https://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+   # yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
 
-For more information on the repository, package names or available mirrors, see the `Percona yum Repository <https://www.percona.com/doc/percona-server/5.5/installation/yum_repo.html>`_.
+For more information on the repository, package names or available mirrors, see `Percona Software Repositories Documentation <https://docs.percona.com/percona-software-repositories/index.html>`_.
 
 Packages in the Percona repository are now available for installation on your server through ``yum``.
 
@@ -142,29 +142,32 @@ Packages in the Percona repository are now available for installation on your se
 
 There are three packages involved in the installation of Percona XtraDB Cluster: the Percona XtraDB client, a command line tool for accessing the database; the percona XtraDB database server, built to include the :term:`wsrep API` patch and the :term:`Galera Replication Plugin`.
 
-For most Debian-based distributions, you can install all of these through a single package.  In the terminal run the following command:
+For Debian and Ubuntu-based distributions, run the following commands in the terminal:
 
 .. code-block:: console
 
-   # apt-get install percona-xtradb-cluster
-
-For Ubuntu and distributions that derive from Ubuntu, however, you will need to specify the meta package.  In the terminal, run this command instead:
-
-.. code-block:: console
-
-   $ sudo apt-get install percona-xtradb-cluster
-         percona-xtradb-cluster-galera
+   # apt-get update
+   # apt-get install -y wget gnupg2 lsb-release curl
+   # wget https://repo.percona.com/apt/percona-release_latest.generic_all.deb
+   # dpkg -i percona-release_latest.generic_all.deb
+   # apt-get update
+   # percona-release setup pxc80
+   # apt-get install -y percona-xtradb-cluster
 
 
 For RPM-based distributions, instead run this command:
 
 .. code-block:: console
 
-   # yum install Percona-XtraDB-Cluster
+   # yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+   # percona-release setup pxc-80
+   # yum install percona-xtradb-cluster
 
 Percona XtraDB Cluster is now installed on your server.
 
 .. note::  If you installed Percona XtraDB Cluster over an existing standalone instance of Percona XtraDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`../training/tutorials/migration`.
+
+.. note::  Telemetry is enabled by default. To disable it, see `Telemetry on Percona XtraDB Cluster <https://docs.percona.com/percona-xtradb-cluster/8.0/telemetry.html>`_.
 
 .. container:: bottom-links
 
