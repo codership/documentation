@@ -188,15 +188,15 @@ For RPM-based distributions, first install the EPEL repository and the PV utilit
 
 - For CentOS:
 
-   .. code-block:: console
-      # yum install epel-release
-      # yum install pv
+.. code-block:: console
+   # yum install epel-release
+   # yum install pv
 
 - For Red Hat Enterprise Linux:
 
-   .. code-block:: console
-      # yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm
-      # yum install pv
+.. code-block:: console
+   # yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm
+   # yum install pv
 
 Then, to install MariaDB Galera Cluster, execute from the command line the following:
 
