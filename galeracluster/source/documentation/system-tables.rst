@@ -227,7 +227,7 @@ Typically, you won't see any results since it will contain entries only for tran
 
 You can see in the results from the example here that the node UUID matches that of the third node (i.e., ``galera3``) in the results for the example above related to the ``wsrep_cluster_members`` table. In this example, the ``frag`` column was omitted from the ``SELECT`` statement since it contains binary characters that don't format well.
 
-.. note:: Galera Cluster no longer uses ``INFORMATION_SCHEMA.PROCESSLIST``. Instead, it uses "PERFORMANCE_SCHEMA.PROCESSLIST". See the example below:
+.. note:: Galera Cluster no longer uses ``INFORMATION_SCHEMA.PROCESSLIST``, since it has been deprecated upstream. Instead, it uses "PERFORMANCE_SCHEMA.PROCESSLIST". See the example below:
    
    .. code-block:: console
    
