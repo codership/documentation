@@ -98,7 +98,7 @@ The *Galera Manager Installer* is provided to make installation and configuratio
 
    Galera Manager is a server program (it serves client requests from both the cluster nodes and graphical frontend) so it should be installed on a host (server or other computer) which can be connected to from both the prospective cluster nodes and a computer running the graphical client.  A laptop behind a WiFi NAT is a poor choice.  You may use a local computer (e.g., a desktop or laptop computer), but most administrators would want to use a computer in the same network as the cluster nodes. E.g. if the cluster is in EC2, you'd want to use an EC2 instance, if it is on premises, then you'd use a host in the on-premises network.  It is also possible to use one of the cluster nodes, but it is recommended to have a dedicated *Galera Manager Host*.
 
-   At this point Galera Manager Installer supports the following x86_64 Linux distributions: Ubuntu 18.04 and 20.04, CentOS 7 and 8, Debian 10 ("buster")
+   At this point Galera Manager Installer supports the following x86_64 Linux distributions: Ubuntu 18.04 and 20.04, CentOS 7, Debian 10 ("buster") and Debian 11 ("bullseye").
 
    Future releases of Galera Manager Installer may support other platforms. For now, it's recommended you use one of these distributions for *Galera Manager Host*. The Galera Manager itself will, however, manage or monitor clusters that may run on a different platform and nodes that will run either MySQL or MariaDB.
 
