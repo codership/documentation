@@ -17,8 +17,7 @@ The source repositories and bug tracking are now on
 https://github.com/codership/mysql-wsrep.
 
 Notable changes and fixes in MySQL-wsrep since the latest release 8.0.35-26.17:
-- small fix that occasionally breaks SST, if variable is not set, it is not
-possible to check for it being empty.
+- fix broken clone SST when port configuration variable is not explicitly set.
 
 Known Issues:
 
