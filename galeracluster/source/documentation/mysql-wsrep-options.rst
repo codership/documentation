@@ -1003,7 +1003,7 @@ Extends node behaviour with provided values.
    "Variable Scope", "Global"
    "Dynamic Variable", ""
    "Permitted Values", "Set"
-   "Default Value", ""
+   "Default Value", "APPLIER_IGNORE_MISSING_TABLE"
    "Initial Version", "MySQL-wsrep: 5.7.32-25.24, 8.0.22-26.5, MariaDB: 10.6.0"
 
 .. csv-table::
