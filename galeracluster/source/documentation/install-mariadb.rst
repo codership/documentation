@@ -118,7 +118,7 @@ Next, add the MariaDB repository to your sources list. You can do this by enteri
 
 You wouldn't enter exactly the line above. You'll have to adjust the repository address:
 
-- ``version`` indicates the version number of MariaDB that you want to use. (e.g., ``5.6``).
+- ``version`` indicates the version number of MariaDB that you want to use. (e.g., ``10.4``).
 
 - ``distro`` is the name of the Linux distribution you're using' (e.g., ``ubuntu``).
 
@@ -162,7 +162,7 @@ Using a simple text editor, create a new ``.repo`` file containing something lik
 
 For the value of ``baseurl``, you'll have to adjust the web address:
 
-- ``version`` should be changed to the version of MariaDB you want to use (e.g., ``5.6``).
+- ``version`` should be changed to the version of MariaDB you want to use (e.g., ``10.4``).
 
 - ``package`` will have to be changed to the package name for your operating system distribution, release and architecture.  For example, ``rhel6-amd64`` would reference packages for a Red Hat Enterprise Linux 6 server running on 64-bit hardware.
 
@@ -175,21 +175,38 @@ For more information on the repository, package names or available mirrors, see 
 
 There are three packages involved in the installation of MariaDB Galera Cluster: the MariaDB database client, a command-line tool for accessing the database; the MariaDB database server, built to include the :term:`wsrep API` patch; and the :term:`Galera Replication Plugin`.
 
-For Debian-based distributions, from the command-line run the following command:
+For Debian-based distributions, from the command-line run the following commands:
 
 .. code-block:: console
 
-   # apt-get install mariadb-client \
-         mariadb-galera-server \
-	 galera
+   # apt-get update
+   # apt-get install mariadb-server mariadb-client galera-4
 
-For RPM-based distributions, execute instead from the command line the following:
+.. note:: For MariaDB 10.3 and before, replace ``galera-4`` with ``galera-3``.
+
+For RPM-based distributions, first install the EPEL repository and the PV utility:
+
+- For CentOS:
+
+   .. code-block:: console
+   
+      # yum install epel-release
+      # yum install pv
+
+- For Red Hat Enterprise Linux:
+
+   .. code-block:: console
+   
+      # yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm
+      # yum install pv
+
+Then, to install MariaDB Galera Cluster, execute from the command line the following:
 
 .. code-block:: console
 
-   # yum install MariaDB-client \
-         MariaDB-Galera-server \
-	 galera
+   # yum install MariaDB-server MariaDB-client galera-4
+
+.. note:: For MariaDB 10.3 and before, replace ``galera-4`` with ``galera-3``.
 
 Once you've done this, MariaDB Galera Cluster will be installed on your server.  You'll need to repeat this process for each node in your cluster.
 
