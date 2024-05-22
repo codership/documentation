@@ -1009,6 +1009,7 @@ Extends node behaviour with provided values.
 .. csv-table::
    :class: doc-options
    :header: "Value", "Behaviour"
+   :widths: 25, 50
 
    "``IGNORE_NATIVE_REPLICATION_FILTER_RULES``", "Ignore replication filter rules for cluster events."
    "``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR``", "Ignore missing row errors when applying a cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821."
