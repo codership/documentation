@@ -1011,7 +1011,8 @@ Extends node behaviour with provided values.
    :header: "Value", "Behaviour"
 
    "``IGNORE_NATIVE_REPLICATION_FILTER_RULES``", "Ignore replication filter rules for cluster events."
-   "``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR``", "Ignore missing row errors when applying cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821."
+   "``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR``", "Ignore missing row errors when applying a cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821."
+   "``APPLIER_IGNORE_MISSING_TABLE``", "MySQL has an anomaly to sometimes add an excessive tablemap event in binlog. This can happen in use cases related to multi-table updates and trigger definitions to a third table, which is not effectively needed in applying of the replication events. With wsrep_mode "APPLIER_IGNORE_MISSING_TABLE", replication applier will ignore the failure to open such a table, which would not be used in the actual applying."
 
 .. code-block:: mysql
 
