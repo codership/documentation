@@ -22,8 +22,6 @@ binary log (binlog). Now wsrep_forced_binlog_format is only effective for DML
 operations, and is also marked as deprecated because binlog_format has been
 deprecated as of MySQL 8.0.34 (the only possible logging format is ROW, making
 this option redundant).
-- Streaming replication improved, as there was a failure to apply writeset with
-flags=(rollback|pa_unsafe) fixing MDEV-33509
 - Support for table names with special characters
 - Binlog coordinated wsrep recovery now improved.
 - Ported MDEV-29293, reorganising BF abort codepaths so that mutex locking
@@ -33,10 +31,10 @@ occasional stuck on starting commit state.
 - the GRA log file was malformed due to missing Format_description_log_event; it
 is now easier to read with mysqlbinlog
 - race condition in wsrep InnoDB watchdog fixed
-- fixes a conflict between RSU session and a local command causes the server to
-wrongly report "MDL unknown BF-BF conflict". 
-- improve MDL conflict reporting, including applying failures due to MDL
-deadlocks
+- fix unexpected server abort after MDL conflict between RSU and local command
+- improve MDL conflict reporting by printing all lock types
+- fix applying failures due to MDL deadlocks by making sure that appliers get
+higher priority compared to locally executing DDLs in MDL deadlock resolving
 - Improve "BF applier failed to open_and_lock_tables" warning
 
 Known Issues:
