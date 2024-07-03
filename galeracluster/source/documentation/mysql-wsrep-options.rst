@@ -738,6 +738,8 @@ The node uses the format given by this parameter regardless of the client sessio
 
 This variable was introduced to support ``STATEMENT`` format replication during :term:`Rolling Schema Upgrade`.  In most cases, however, ``ROW`` format replication is valid for asymmetric schema replication.
 
+If you turn on ``wsrep_forced_binlog_format``, it is only effective for DML operations, to avoid binary log corruption. In addition, it is also deprecated, as ``binlog_format`` has been deprecated since MySQL 8.0.34. As the only possible logging format is ROW, this option is redundant.
+
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see how this variable is set:
 
 .. code-block:: mysql
