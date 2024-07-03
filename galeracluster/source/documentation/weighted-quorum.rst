@@ -81,16 +81,17 @@ Under normal operations, your Primary Component is the cluster.  When cluster pa
 
 The current number of nodes in the cluster defines the current cluster size.  There is no configuration setting that allows you to define the list of all possible cluster nodes.  Every time a node joins the cluster, the total cluster size increases.  When a node leaves the cluster, gracefully, the cluster size decreases.  Cluster size determines the number of votes required to achieve quorum.
 
+   
    .. only:: html
 
-          .. image:: ../images/training.jpg
-             :target: https://galeracluster.com/training-courses/
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
              :width: 740
 
    .. only:: latex
 
-          .. image:: ../images/training.jpg
-		  :target: https://galeracluster.com/training-courses/
+          .. image:: ../images/support.jpg
+             :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
 Galera Cluster takes a quorum vote whenever a node does not respond and is suspected of no longer being a part of the cluster.  You can fine tune this no response timeout using the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter.  The default setting is 5 seconds.
 
