@@ -128,7 +128,6 @@ and an explanation.
    ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes"
-   ":ref:`wsrep_ws_persistency <wsrep_ws_persistency>`", "", "Yes", ""
 
 
 You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get list of all Galera related variables on your server:
@@ -2193,40 +2192,6 @@ Supported replication units are:
    +-------------------------+--------+
    | wsrep_trx_fragment_unit | bytes  |
    +-------------------------+--------+
-
-
-.. _`wsrep_ws_persistency`:
-.. rst-class:: section-heading
-.. rubric:: ``wsrep_ws_persistency``
-
-.. index::
-   pair: Parameters; wsrep_ws_persistency
-
-Defines whether the node stores write-sets locally for debugging.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep-ws-persistency``"
-   "System Variable", "``wsrep_ws_persistency``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", ""
-   "Permitted Values", "String"
-   "Default Value", ""
-   "Initial Version", "MySQL-wsrep: 5.1.58-21.1"
-   "Deprecated Version", "MySQL-wsrep: 5.1.59-22.2"
-
-This parameter defines whether the node stores write-sets locally for debugging purposes.
-
-.. code-block:: mysql
-
-   SHOW VARIABLES LIKE 'wsrep_ws_persistency';
-
-   +----------------------+-------+
-   | Variable_name        | Value |
-   +----------------------+-------+
-   | wsrep_ws_persistency | ON    |
-   +----------------------+-------+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
