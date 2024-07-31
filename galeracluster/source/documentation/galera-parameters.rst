@@ -110,7 +110,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`evs.inactive_check_period <evs.inactive_check_period>`", "``PT1S``", "   No", "", "1.0", ""
    ":ref:`evs.inactive_timeout <evs.inactive_timeout>`", "``PT15S``", "   No", "", "1.0", ""
    ":ref:`evs.info_log_mask <evs.info_log_mask>`", "``0``", "   No", "", "1.0", ""
-   ":ref:`evs.install_timeout <evs.install_timeout>`", "``PT15S``", "  Yes", "", "1.0", ""
+   ":ref:`evs.install_timeout <evs.install_timeout>`", "``PT7.5S``", "  Yes", "", "1.0", ""
    ":ref:`evs.join_retrans_period <evs.join_retrans_period>`", "``PT1S``", "  Yes", "", "1.0", ""
    ":ref:`evs.keepalive_period <evs.keepalive_period>`", "``PT1S``", "  No", "", "1.0", ""
    ":ref:`evs.max_install_timeouts <evs.max_install_timeouts>`", "``1``", "  No", "", "1.0", ""
@@ -573,7 +573,7 @@ Defines the timeout for install message acknowledgments.
 .. csv-table::
    :class: doc-options
 
-   "Default Value", "``PT15S``"
+   "Default Value", "``PT7.5S``"
    "Dynamic", "Yes"
    "Initial Version", "1.0"
 
@@ -583,7 +583,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="evs.install_timeout=PT15S"
+   wsrep_provider_options="evs.install_timeout=PT7.5S"
 
 .. note:: This parameter replaces :ref:`evs.consensus_timeout <evs.consensus_timeout>`.
 
