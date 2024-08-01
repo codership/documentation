@@ -304,6 +304,7 @@ Certification rules to use in the cluster.
    "Default Value", "``STRICT``"
    "Valid Value", "``OPTIMIZED``, ``STRICT``"
    "Initial Version", "MySQL-wsrep: 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15"
+   "Deprecated Version", "MySQL-wsrep: 8.0.19-26.3"
 
 Controls how certification is done in the cluster. To be more specific, this parameter affects how foreign keys are handled: with the ``STRICT`` option, two INSERTs that happen at about the same time on two different nodes in a child table, and insert different (non conflicting) rows, but both rows point to the same row in the parent table, could result in certification failure. With the ``OPTIMIZED`` option, such certification failure is avoided.
 
