@@ -468,6 +468,7 @@ This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` s
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
+   "Deprecated Version", "MySQL-wsrep: 8.0.19-26.3"
 
 This parameter determines how the node handles ``LOCK/UNLOCK TABLES`` statements, specifically whether or not you want it to convert these statements into ``BEGIN/COMMIT`` statements.  It tells the node to convert implicitly locking sessions into transactions within the database server. By itself, this is not the same as support for locking sections, but it does prevent the database from resulting in a logically inconsistent state.
 
