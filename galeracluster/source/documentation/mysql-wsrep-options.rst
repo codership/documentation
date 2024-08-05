@@ -128,7 +128,6 @@ and an explanation.
    ":ref:`wsrep_sync_wait <wsrep_sync_wait>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_size <wsrep_trx_fragment_size>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_trx_fragment_unit <wsrep_trx_fragment_unit>`", "``bytes``", "Yes", "Yes"
-   ":ref:`wsrep_ws_persistency <wsrep_ws_persistency>`", "", "Yes", ""
 
 
 You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get list of all Galera related variables on your server:
@@ -305,6 +304,7 @@ Certification rules to use in the cluster.
    "Default Value", "``STRICT``"
    "Valid Value", "``OPTIMIZED``, ``STRICT``"
    "Initial Version", "MySQL-wsrep: 5.5.61-25.24, 5.6.41-25.23, 5.7.23-25.15"
+   "Deprecated Version", "MySQL-wsrep: 8.0.19-26.3"
 
 Controls how certification is done in the cluster. To be more specific, this parameter affects how foreign keys are handled: with the ``STRICT`` option, two INSERTs that happen at about the same time on two different nodes in a child table, and insert different (non conflicting) rows, but both rows point to the same row in the parent table, could result in certification failure. With the ``OPTIMIZED`` option, such certification failure is avoided.
 
@@ -468,6 +468,7 @@ This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` s
    "Permitted Values", "Boolean"
    "Default Value", "``OFF``"
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
+   "Deprecated Version", "MySQL-wsrep: 8.0.19-26.3"
 
 This parameter determines how the node handles ``LOCK/UNLOCK TABLES`` statements, specifically whether or not you want it to convert these statements into ``BEGIN/COMMIT`` statements.  It tells the node to convert implicitly locking sessions into transactions within the database server. By itself, this is not the same as support for locking sections, but it does prevent the database from resulting in a logically inconsistent state.
 
@@ -2193,40 +2194,6 @@ Supported replication units are:
    +-------------------------+--------+
    | wsrep_trx_fragment_unit | bytes  |
    +-------------------------+--------+
-
-
-.. _`wsrep_ws_persistency`:
-.. rst-class:: section-heading
-.. rubric:: ``wsrep_ws_persistency``
-
-.. index::
-   pair: Parameters; wsrep_ws_persistency
-
-Defines whether the node stores write-sets locally for debugging.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep-ws-persistency``"
-   "System Variable", "``wsrep_ws_persistency``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", ""
-   "Permitted Values", "String"
-   "Default Value", ""
-   "Initial Version", "MySQL-wsrep: 5.1.58-21.1"
-   "Deprecated Version", "MySQL-wsrep: 5.1.59-22.2"
-
-This parameter defines whether the node stores write-sets locally for debugging purposes.
-
-.. code-block:: mysql
-
-   SHOW VARIABLES LIKE 'wsrep_ws_persistency';
-
-   +----------------------+-------+
-   | Variable_name        | Value |
-   +----------------------+-------+
-   | wsrep_ws_persistency | ON    |
-   +----------------------+-------+
 
 
 .. |---|   unicode:: U+2014 .. EM DASH
