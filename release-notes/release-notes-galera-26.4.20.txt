@@ -13,10 +13,11 @@ deployment and upgrade of Galera nodes.
 This and future releases will be available from https://www.galeracluster.com.
 
 Notable changes and fixes in Galera since latest release 4.19:
-- improve error and warning messages handling in the library. Some of these
-changes including hiding system error numbers and messages from thrown
-exceptions, warning level messages being changed to info level messages when it
-comes to gcomm error logging and GCS messages.
+- improve error and warning messages handling in the library. System error
+numbers and messages are hidden from thrown exceptions, except for the cases
+where the exception is thrown because of error from system call. Some warning
+level messages in gcomm and GCS have been changed to info level in cases where
+the message does not require action from the administrator.
 
 Known Issues:
 

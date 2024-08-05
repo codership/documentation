@@ -18,8 +18,6 @@ https://github.com/codership/mysql-wsrep.
 
 Notable changes and fixes in MySQL-wsrep since the latest release 8.0.37-26.19:
 - DROP TABLE could cause MDL BF-BF conflicts during concurrent operations
-- Wrapper function around wsrep_register_binlog_handler() that fixes an error in
-undeclared scope
 - make the CLONE SST script more robust when dealing with SSL
 - deprecate wsrep_convert_lock_to_trx 
 - wsrep now always waits for unobtrusive MDL locks
