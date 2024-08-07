@@ -204,7 +204,7 @@ Defines optional settings the node passes to the wsrep Provider.
    "Permitted Values", "String"
    "Default Value", "ON"
    "Valied Values", "ON, OFF"
-   "Initial Version", "MySQL-wsrep: 8.4.2, MariaDB: 4.x"
+   "Initial Version", "MySQL-wsrep: 8.4.2, MariaDB: 11.x"
 
 When this option is enabled, the node loads the wsrep Provider configuration options through the ``plugin_wsrep_provider`` plugin, instead of using ``wsrep_provider_options`` options. ``wsrep_provider_options`` options can no longer be used. 
 
@@ -212,11 +212,9 @@ The configuration required to use ``plugin_wsrep_provider``:
 
 .. code-block:: mysql
 
-   [mysqld.1]
    wsrep-on=ON
    wsrep-cluster-address=gcomm://
    wsrep-provider=@ENV.WSREP_PROVIDER
-   binlog-format=ROW
    plugin-wsrep-provider=ON
 
 Often it is not optimal to use a system variable, that is, one large string, for a long list of options. Instead, it would be better to separate the different options into separate cluster system variables. 
