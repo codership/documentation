@@ -99,7 +99,7 @@ When you want an online schema change to replicate through the cluster and don't
 
    SET GLOBAL wsrep_OSU_method='TOI';
 
-And with a session-based ``SET`` statement, as follows:
+The GLOBAL command does not change the "wsrep_OSU_method" for the running session. If you want to change it for the running session, use the session-based ``SET`` statement, as follows:
 
 .. code-block:: mysql
 
@@ -132,7 +132,7 @@ When you want to maintain high-availability during schema upgrades and can avoid
 
    SET GLOBAL wsrep_OSU_method='RSU';
 
-And with a session-based ``SET`` statement, as follows:
+The GLOBAL command does not change the "wsrep_OSU_method" for the running session. If you want to change it for the running session, use the session-based ``SET`` statement, as follows:
 
 .. code-block:: mysql
 
@@ -157,7 +157,7 @@ When you want an online schema change to replicate through the cluster, but are 
 
    SET GLOBAL wsrep_OSU_method='NBO';
 
-And with a session-based ``SET`` statement, as follows:
+The GLOBAL command does not change the "wsrep_OSU_method" for the running session. If you want to change it for the running session, use the session-based ``SET`` statement, as follows:
 
 .. code-block:: mysql
 
