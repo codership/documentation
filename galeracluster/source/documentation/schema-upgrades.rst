@@ -93,11 +93,18 @@ You can set the method for online schema changes by using the ``wsrep_OSU_method
 .. index::
    pair: Descriptions; Total Order Isolation
 
-When you want an online schema change to replicate through the cluster and don't care that other transactions will be blocked while the cluster processes the :abbr:`DDL (Data Definition Language)` statements, use the :term:`Total Order Isolation` method. You would do this with the ``SET`` statement like so:
+When you want an online schema change to replicate through the cluster and don't care that other transactions will be blocked while the cluster processes the :abbr:`DDL (Data Definition Language)` statements, use the :term:`Total Order Isolation` method. You can do this with a global ``SET`` statement, as follows:
 
 .. code-block:: mysql
 
    SET GLOBAL wsrep_OSU_method='TOI';
+
+And with a session-based ``SET`` statement, as follows:
+
+.. code-block:: mysql
+
+   SET SESSION wsrep_OSU_method='TOI';
+
 
 In Total Order Isolation, queries that change the schema replicate as statements to all nodes in the cluster.  The nodes wait for all preceding transactions to commit simultaneously, then they execute the schema change in isolation.  For the duration of the :abbr:`DDL (Data Definition Language)` processing, no other transactions can commit.
 
@@ -119,11 +126,17 @@ The main advantage of Total Order Isolation is its simplicity and predictability
 .. index::
    pair: Parameters; wsrep_OSU_method
 
-When you want to maintain high-availability during schema upgrades and can avoid conflicts between new and old schema definitions, use the :term:`Rolling Schema Upgrade` method.  You would do this with the ``SET`` statement like so:
+When you want to maintain high-availability during schema upgrades and can avoid conflicts between new and old schema definitions, use the :term:`Rolling Schema Upgrade` method.  You can do this with a global ``SET`` statement, as follows:
 
 .. code-block:: mysql
 
    SET GLOBAL wsrep_OSU_method='RSU';
+
+And with a session-based ``SET`` statement, as follows:
+
+.. code-block:: mysql
+
+   SET SESSION wsrep_OSU_method='RSU';
 
 In Rolling Schema Upgrade, queries that change the schema are only processed on the local node.  While the node processes the schema change, it desynchronizes with the cluster.  When it finishes processing the schema change, it applies delayed replication events and synchronizes itself with the cluster.
 
@@ -138,11 +151,17 @@ The main advantage of the Rolling Schema Upgrade is that it only blocks one node
 .. index::
    pair: Descriptions; Non-Blocking Operations
 
-When you want an online schema change to replicate through the cluster, but are worried that long-running :abbr:`DDL (Data Definition Language)` statements block cluster updates, use the :term:`Non-Blocking Operations` method. You would do this with the ``SET`` statement like so:
+When you want an online schema change to replicate through the cluster, but are worried that long-running :abbr:`DDL (Data Definition Language)` statements block cluster updates, use the :term:`Non-Blocking Operations` method. You can do this with a global ``SET`` statement, as follows:
 
 .. code-block:: mysql
 
    SET GLOBAL wsrep_OSU_method='NBO';
+
+And with a session-based ``SET`` statement, as follows:
+
+.. code-block:: mysql
+
+   SET SESSION wsrep_OSU_method='NBO';
 
 The NBO method resembles the TOI method. Queries that change the schema replicate as statements to all nodes in the cluster.  The nodes wait for all preceding transactions to commit simultaneously, then they execute the schema change in isolation.  For the duration of the :abbr:`DDL (Data Definition Language)` processing, no other transactions can commit.
 
