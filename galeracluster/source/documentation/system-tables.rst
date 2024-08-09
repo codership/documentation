@@ -57,7 +57,7 @@ Galera System Tables
 .. index::
    pair: Galera Cluster 4.x; System Tables
 
-Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  As of MariaDB Server 10.10, there is yet another, ``wsrep_allowlist``. These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
+Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  As of MariaDB Server 10.10, and MySQL-wsrep 8.4.2, there is yet another, ``wsrep_allowlist``. These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
 
 To see these tables on your server, execute the following SQL statement one of them using the ``mysql`` client or a similar client:
 
@@ -147,7 +147,7 @@ Add the remaining node to the allowlist to fix this:
     +----------------+
     3 rows in set (0.000 sec)
 
-And now we are back to having a three-node MariaDB Galera Cluster.
+And now we are back to having a three-node Galera Cluster.
 
 .. _`cluster-view`:
 .. rst-class:: section-heading
