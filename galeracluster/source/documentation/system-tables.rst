@@ -57,7 +57,7 @@ Galera System Tables
 .. index::
    pair: Galera Cluster 4.x; System Tables
 
-Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
+Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  As of MariaDB Server 10.10, and MySQL-wsrep 8.4.2, there is yet another, ``wsrep_allowlist``. These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
 
 To see these tables on your server, execute the following SQL statement one of them using the ``mysql`` client or a similar client:
 
@@ -68,6 +68,7 @@ To see these tables on your server, execute the following SQL statement one of t
    +---------------------------+
    | Tables_in_mysql (wsrep%)  |
    +---------------------------+
+   | wsrep_allowlist           |
    | wsrep_cluster             |
    | wsrep_cluster_members     |
    | wsrep_streaming_log       |
@@ -75,6 +76,78 @@ To see these tables on your server, execute the following SQL statement one of t
 
 Database administrators and clients with the access to the ``mysql`` database may read these tables, but they may not modify them: the database itself will make modifications, as needed. If your server doesn't have these tables, it may be that your server is using an older version of Galera.
 
+.. _`allowlist`:
+.. rst-class:: section-heading
+.. rubric:: Allowlist
+
+The ``wsrep_allowlist`` table stores the allowed IP addresses that can perform an IST/SST, in a comma delimited format. Before the introduction of "wsrep_allowlist", as long as a node has access to Galera Cluster TCP ports, it can make an SST/IST request, without authentication being performed; some users prefer to have a method to make this more robust, and secure, hence with ``wsrep_allowlist`` only if the JOINER node is in the IP list, will it be allowed to join the cluster.
+
+You can either have IPv4 or IPv6 addresses for ``wsrep_allowlist``, but it does not allow wildcard IPs or hostnames.
+
+.. code-block:: mysql
+
+    MariaDB [mysql]> describe wsrep_allowlist\G
+    *************************** 1. row ***************************
+    Field: ip
+    Type: char(64)
+    Null: NO
+    Key: PRI
+    Default: NULL
+    Extra: 
+    1 row in set (0.001 sec)
+
+To alter the allowlist, execute command:
+
+.. code-block:: mysql
+
+    insert into mysql.wsrep_allowlist(ip) values('18.193.102.155');
+
+and the result will look like:
+
+.. code-block:: mysql
+
+    MariaDB [mysql]> select * from wsrep_allowlist;
+    +----------------+
+    | ip             |
+    +----------------+
+    | 18.193.102.155 |
+    | 18.194.147.243 |
+    +----------------+
+    2 rows in set (0.000 sec)
+
+When another node tries to get connected, the potential DONOR nodes will see this in the ``error.log``:
+
+.. code-block:: mysql
+
+    2024-03-18  8:19:02 0 [Warning] WSREP: Connection not allowed, IP 3.70.155.51 not found in allowlist.
+
+On the node trying to be the JOINER not in the allowlist, an error such as the one below should be easily notable:
+
+.. code-block:: mysql
+
+    2024-03-18  8:19:14 0 [ERROR] WSREP: failed to open gcomm backend connection: 110: failed to reach primary view: 110 (Connection timed out) at ./gcomm/src/pc.cpp:connect():160
+    2024-03-18  8:19:14 0 [ERROR] WSREP: ./gcs/src/gcs_core.cpp:gcs_core_open():221: Failed to open backend connection: -110 (Connection timed out)
+    2024-03-18  8:19:15 0 [ERROR] WSREP: ./gcs/src/gcs.cpp:gcs_open():1674: Failed to open channel 'mariadb' at 'gcomm://18.194.147.243,18.193.102.155': -110 (Connection timed out)
+    2024-03-18  8:19:15 0 [ERROR] WSREP: gcs connect failed: Connection timed out
+
+Add the remaining node to the allowlist to fix this:
+
+.. code-block:: mysql
+
+    MariaDB [mysql]> insert into mysql.wsrep_allowlist(ip) values('3.70.155.51');
+    Query OK, 1 row affected (0.002 sec)
+    
+    MariaDB [mysql]> select * from wsrep_allowlist;
+    +----------------+
+    | ip             |
+    +----------------+
+    | 18.193.102.155 |
+    | 18.194.147.243 |
+    | 3.70.155.51    |
+    +----------------+
+    3 rows in set (0.000 sec)
+
+And now we are back to having a three-node Galera Cluster.
 
 .. _`cluster-view`:
 .. rst-class:: section-heading
