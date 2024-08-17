@@ -426,9 +426,9 @@ A better solution would be to have the script connect with the database and inse
 .. rst-class:: section-heading
 .. rubric:: Reading GRA_*.log Files
 
-Your datadirectory may contain log files starting with ``GRA_``. These files are related to replication failures, where the slave thread was not able to apply a transaction. For each ``GRA_`` file, there is a corresponding warning or error message in the mysql error log file. 
+Your data directory may contain log files starting with ``GRA_``. These files are related to replication failures, whenever a node fails to apply an event on a slave node. The database server creates a special binary log file of the event in the data directory. For each ``GRA_`` file, there is a corresponding warning or error message in the mysql error log file. 
 
-To view the contents of these files, you can use ``strings`` and run it with ``mysqlbinlog``. See below for an example output:
+To view the contents of these files, you can use ``strings`` or view it with ``mysqlbinlog``. See below for an example output:
 
 .. code-block:: bash
 
@@ -436,6 +436,7 @@ To view the contents of these files, you can use ``strings`` and run it with ``m
    binM
    8.0.26
    CREATE UNDO TABLESPACE undo_003 ADD DATAFILE 'undo_003.ibu'
+
    [root@galerasf mysql]# mysqlbinlog GRA_2_123440_v2.log 
    # The proper term is pseudo_replica_mode, but we use this compatibility alias
    # to make the statement usable on server versions 8.0.24 and older.
@@ -470,7 +471,7 @@ To view the contents of these files, you can use ``strings`` and run it with ``m
    /*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
    /*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;
 
-``GRA_`` files are for troubleshooting purpose only, and are not automatically cleaned up. Once you have identified if they represent a problem or not, you can manually delete them.
+``GRA_`` files are for troubleshooting purposes only, and are not automatically cleaned up. Once you have identified if they represent a problem or not, you can manually delete them.
 
 
 .. rst-class:: section-heading
