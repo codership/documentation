@@ -73,18 +73,18 @@ Usage:
 
    sudo wsrep_recover [options]
 
-The script options are mostly passed through directly to mysqld. However, some options have a special meaning. The options are:
+The script options are mostly passed through directly to ``mysqld``. However, some options have a special meaning. The options are:
 
-- ``--basedir /x/y/z``  This option additionally sets mysqld binary path to ``/x/y/z/bin/mysqld``.
+- ``--basedir /x/y/z`` - This option additionally sets mysqld binary path to ``/x/y/z/bin/mysqld``.
 
-- ``--mysqld /x/y/z/mysqld``  This option overrides the ``--basedir`` effect on the mysqld binary path.
+- ``--mysqld /x/y/z/mysqld`` - This option overrides the ``--basedir`` effect on the mysqld binary path.
 
 
 (NOTE ):
 
-.. note:: Notice the whitespace between the option name and the value
+.. note:: Notice the whitespace between the option name and the value.
 
-An example from a non-standard setup:
+An example:
 
 .. code-block:: ini
 
