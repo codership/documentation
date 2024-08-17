@@ -58,6 +58,13 @@
 Utility Scripts
 ===============
 
+.. index::
+   single: Utility scripts
+
+.. index::
+   pair: wsrep_recover; wsrep_recover Script
+
+
 This page describes Galera Cluster utility scripts.
 
 
