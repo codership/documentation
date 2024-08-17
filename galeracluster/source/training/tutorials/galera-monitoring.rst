@@ -424,6 +424,57 @@ A better solution would be to have the script connect with the database and inse
 
 
 .. rst-class:: section-heading
+.. rubric:: Reading GRA_*.log Files
+
+Your data directory may contain log files starting with ``GRA_``. These files are related to replication failures, whenever a node fails to apply an event on a slave node. The database server creates a special binary log file of the event in the data directory. For each ``GRA_`` file, there is a corresponding warning or error message in the mysql error log file. 
+
+To view the contents of these files, you can use ``strings`` or view it with ``mysqlbinlog``. See below for an example output:
+
+.. code-block:: bash
+
+   [root@galerasf mysql]# strings GRA_2_123440_v2.log 
+   binM
+   8.0.26
+   CREATE UNDO TABLESPACE undo_003 ADD DATAFILE 'undo_003.ibu'
+
+   [root@galerasf mysql]# mysqlbinlog GRA_2_123440_v2.log 
+   # The proper term is pseudo_replica_mode, but we use this compatibility alias
+   # to make the statement usable on server versions 8.0.24 and older.
+   /*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=1*/;
+   /*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
+   DELIMITER /*!*/;
+   # at 4
+   #230713  6:35:57 server id 1  end_log_pos 0 	Start: binlog v 4, server v 8.0.26 created 230713  6:35:57 at startup
+   ROLLBACK/*!*/;
+   BINLOG '
+   TZuvZA8BAAAAeQAAAAAAAAAAAAQAOC4wLjI2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   AAAAAAAAAAAAAAAAAABNm69kEwANAAgAAAAABAAEAAAAYQAEGggAAAAICAgCAAAACgoKKioAEjQA
+   CigAbVYcMQ==
+   '/*!*/;
+   # at 125
+   #230713  6:35:57 server id 1  end_log_pos 0 	Query	thread_id=2256014	exec_time=0	error_code=0
+   SET TIMESTAMP=1689230157/*!*/;
+   SET @@session.pseudo_thread_id=2256014/*!*/;
+   SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=0, @@session.unique_checks=1, @@session.autocommit=1/*!*/;
+   SET @@session.sql_mode=1168113696/*!*/;
+   SET @@session.auto_increment_increment=1, @@session.auto_increment_offset=1/*!*/;
+   /*!\C utf8mb4 *//*!*/;
+   SET @@session.character_set_client=255,@@session.collation_connection=255,@@session.collation_server=255/*!*/;
+   SET @@session.lc_time_names=0/*!*/;
+   SET @@session.collation_database=DEFAULT/*!*/;
+   /*!80011 SET @@session.default_collation_for_utf8mb4=255*//*!*/;
+   CREATE UNDO TABLESPACE undo_003 ADD DATAFILE 'undo_003.ibu'
+   /*!*/;
+   SET @@SESSION.GTID_NEXT= 'AUTOMATIC' /* added by mysqlbinlog */ /*!*/;
+   DELIMITER ;
+   # End of log file
+   /*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
+   /*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;
+
+``GRA_`` files are for troubleshooting purposes only, and are not automatically cleaned up. Once you have identified if they represent a problem or not, you can manually delete them.
+
+
+.. rst-class:: section-heading
 .. rubric:: Conclusion
 
 With busy and large databases, keeping them running smoothly and consistently can be a little intimidating.  However, Galera provides plenty of information for you to be able to monitor the status of each node and the cluster. You need only develop a habit of checking, or a system to check automatically and with regularity.  Plus, it provides a method of reacting to changes in node and cluster status.
