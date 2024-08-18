@@ -97,6 +97,7 @@ An example:
 
 By default, the ``mysqld`` binary is expected to be found at '/usr/sbin/mysqld' and will be run as 'mysql' user, using the configuration file from the standard location.
 
+This utility script was introduced on version 8.0.27, and was backported to version 5.7.40.
 
 See also wsrep option :ref:`wsrep_recover <wsrep_recover>`.
 
