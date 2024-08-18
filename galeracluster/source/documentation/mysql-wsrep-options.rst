@@ -1411,7 +1411,7 @@ If ``ON``, when the server starts, the server will recover the sequence number o
    "Default Value", "OFF"
    "Initial Version", "MySQL-wsrep: 5.5.23-23.5, MariaDB: 5.5.21"
 
-See also :doc:`Restarting the Cluster <../training/tutorials/restarting-cluster>`.
+See also :doc:`Restarting the Cluster <../training/tutorials/restarting-cluster>` and :ref:`wsrep_recover Script <wsrep_recover_script>`.
 
 .. code-block:: mysql
 
