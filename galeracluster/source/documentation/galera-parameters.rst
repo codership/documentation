@@ -208,7 +208,7 @@ Global variable for internal use.
 
    "Default Value", "detected network address"
    "Dynamic", ""
-   "Initial Version", "???"
+   "Initial Version", ""
 
 .. warning:: Since this is for internal use only, don't manually set the ``base_host`` variable.
 
@@ -227,7 +227,7 @@ Global variable for internal use.
 
    "Default Value", "``4567``"
    "Dynamic", ""
-   "Initial Version", "???"
+   "Initial Version", ""
 
 .. warning:: Since this is for internal use only, don't manually set the ``base_port`` variable.
 
@@ -296,11 +296,11 @@ Set the path to the database root directory.
    "Dynamic", "Yes"
    "Initial Version", "1.0"
 
-The excerpt below is an example of how this Galera parameter might look in the configuration file:
+The excerpt below is an example of how this Galera parameter might look in the ``my.cnf`` configuration file:
 
 .. code-block:: ini
 
-   wsrep_provider_options="datadir=/var/lib/mysql/"
+   datadir=/var/lib/mysql/
 
 
 .. _`debug`:
@@ -1508,14 +1508,14 @@ This variable is mostly used for troubleshooting purposes and should not be impl
 .. index::
    pair: wsrep Provider Options; innodb_flush_log_at_trx_commit
 
-This variable Controls the durability/speed trade-off for commits.
+This variable controls the durability/speed trade-off for commits.
 
 The possible values are:
 
 - ``0`` - Nothing is done on commit; rather the log buffer is written and flushed to the InnoDB redo log once a second. This gives better performance, but a server crash can erase the last second of transactions.
-- ``1`` - The log buffer is written to the InnoDB redo log file, and a flush to disk performed after each transaction. After a crash, committed transactions will not be lost and will be consistent with the binlog and other transactional engines. This is required for full ACID compliance.
-- ``2`` - The log buffer is written to the InnoDB redo log after each commit, but flushing takes place once a second. With this option, your system can get inconsistent and lose the last second's transactions if there is a power failure or kernel crash, but not if ``mysqld`` crashes.
-- ``3`` - Flush to disk at prepare and at commit. This option is slower and usually redundant. After a crash, committed transactions will not be lost and will be consistent with the binlog and other transactional engines. With this option, InnoDB emulates the older implementation of group commit, with 3 syncs to disk per group commit.
+- ``1`` - The log buffer is written to the InnoDB redo log file, and a flush to disk performed after each transaction. This is required for full ACID compliance. Used with ``sync_binlog=1`` provides the greatest level of fault tolerance.
+- ``2`` - The log buffer is written to the InnoDB redo log after each commit, but flushing takes place every ``innodb_flush_log_at_timeout``(by default once a second). The performance is better, but an operating system crash or a power outage can cause the last second's transactions to be lost.
+- ``3`` - Flush to disk at prepare and at commit. This option is slower and usually redundant. 
 
 Options 0 and 2 can be faster than 1 or 3.
 
@@ -2425,7 +2425,13 @@ The excerpt below is an example of how this Galera parameter can be triggered fr
 .. index::
    pair: wsrep Provider Options; sync_binlog
 
-Synchronously flush binary log to disk after every #th event. Use 0 (default) to disable synchronous flushing.
+Synchronously flush binary log to disk after every #th event. The options are:
+
+-  ``0`` - Disable synchronous flushing. This is the default value. This setting provides the best performance, but in the case of a power failure or operating system crash, it is possible that the server has committed transactions that have yet not been synchronized to the binary log.
+
+-  ``1`` - Enables synchronization of the binary log to disk before transactions are committed. This is the safest setting, but can impact performance due to the increased number of disk writes. In the event of a power failure or operating system crash, transactions that are missing from the binary log are only in a prepared state. This permits the automatic recovery routine to roll back the transactions, which guarantees that no transaction is lost from the binary log.
+
+-  ``N`` - where ``N``is a value other than 0 or 1: The binary log is synchronized to disk after N binary log commit groups have been collected. In the case of a power failure or operating system crash, it is possible that the server has committed transactions that have not been flushed to the binary log. This setting can have a negative impact on performance due to the increased number of disk writes. A higher value improves performance, but with an increased risk of data loss.
 
 .. csv-table::
    :class: doc-options
@@ -2438,7 +2444,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   SET GLOBAL wsrep_provider_options = 'sync_binlog=4294967295';
+   sync_binlog=4294967295
 
 
 
