@@ -100,6 +100,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`cert.log_conflicts <cert.log_conflicts>`", "``NO``", "  Yes", "", "2.0", ""
    ":ref:`cert.optimistic_pa <cert.optimistic_pa>`", "``YES``", "  Yes", "", "3.25", ""
    ":ref:`debug <debug>`", "``NO``", "  Yes", "", "2.0", ""
+   ":ref:`datadir <datadir>`", "``/var/lib/mysql/``", "  Yes", "", "1.0", ""
    ":ref:`evs.auto_evict <evs.auto_evict>`", "``0``", "   No", "", "3.8", ""
    ":ref:`evs.causal_keepalive_period <evs.causal_keepalive_period>`", "``0``", "   No", "", "1.0", ""
    ":ref:`evs.consensus_timeout <evs.consensus_timeout>`", "``PT30S``", "   No", "Yes", "1.0, 2.0", ""
@@ -147,6 +148,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`gmcast.segment <gmcast.segment>`", "``0``", "  No", "", "3.0", ""
    ":ref:`gmcast.time_wait <gmcast.time_wait>`", "``PT5S``", "  No", "", "1.0", ""
    ":ref:`gmcast.version <gmcast.version>`", "n/a", "  No", "Yes", "1.0", ""
+   ":ref:`innodb_flush_log_at_trx_commit <innodb_flush_log_at_trx_commit>`", "1", "  Yes", "", "", ""
    ":ref:`ist.recv_addr <ist.recv_addr>`", "", "  No", "", "1.0", ""
    ":ref:`ist.recv_bind <ist.recv_bind>`", "", "  No", "", "3.0", ""
    ":ref:`pc.announce_timeout <pc.announce_timeout>`", "``PT3S``", "  No", "", "2.0", ""
@@ -180,7 +182,7 @@ Below is a list of all of the Galera parameters.  Each is also a link to further
    ":ref:`socket.ssl_key <socket.ssl_key>`", "", "  No", "", "1.0", ""
    ":ref:`socket.ssl_password_file <socket.ssl_password_file>`", "", "  No", "", "1.0", ""
    ":ref:`socket.ssl_reload <socket.ssl_reload>`", "", "  No", "", "4.8", ""
-
+   ":ref:`sync_binlog <sync_binlog>`", "0", "  Yes", "", "", ""
 
 .. _`base_dir`:
 .. rst-class:: section-heading
@@ -276,6 +278,29 @@ on the master are committed.
 .. code-block:: ini
 
    wsrep_provider_options="cert.optimistic_pa=NO"
+
+
+.. _`datadir`:
+.. rst-class:: section-heading
+.. rubric:: ``datadir``
+
+.. index::
+   pair: wsrep Provider Options; datadir
+
+Set the path to the database root directory.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "``/var/lib/mysql/``"
+   "Dynamic", "Yes"
+   "Initial Version", "1.0"
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file:
+
+.. code-block:: ini
+
+   wsrep_provider_options="datadir=/var/lib/mysql/"
 
 
 .. _`debug`:
@@ -1476,6 +1501,47 @@ This status variable is used to check which gmcast protocol version is used.
 This variable is mostly used for troubleshooting purposes and should not be implemented in a production environment.
 
 
+.. _`innodb_flush_log_at_trx_commit`:
+.. rst-class:: section-heading
+.. rubric:: ``innodb_flush_log_at_trx_commit``
+
+.. index::
+   pair: wsrep Provider Options; innodb_flush_log_at_trx_commit
+
+This variable Controls the durability/speed trade-off for commits.
+
+The possible values are:
+
+- ``0`` - Nothing is done on commit; rather the log buffer is written and flushed to the InnoDB redo log once a second. This gives better performance, but a server crash can erase the last second of transactions.
+- ``1`` - The log buffer is written to the InnoDB redo log file, and a flush to disk performed after each transaction. After a crash, committed transactions will not be lost and will be consistent with the binlog and other transactional engines. This is required for full ACID compliance.
+- ``2`` - The log buffer is written to the InnoDB redo log after each commit, but flushing takes place once a second. With this option, your system can get inconsistent and lose the last second's transactions if there is a power failure or kernel crash, but not if ``mysqld`` crashes.
+- ``3`` - Flush to disk at prepare and at commit. This option is slower and usually redundant. After a crash, committed transactions will not be lost and will be consistent with the binlog and other transactional engines. With this option, InnoDB emulates the older implementation of group commit, with 3 syncs to disk per group commit.
+
+Options 0 and 2 can be faster than 1 or 3.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "1"
+   "Dynamic", "Yes"
+   "Initial Version", "1.0"
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file:
+
+.. code-block:: ini
+
+   innodb_flush_log_at_trx_commit="1"
+
+This variable can also be set dynamically at runtime:
+
+.. code-block:: mysql
+
+   SET GLOBAL innodb_flush_log_at_trx_commit=1;
+
+If you set ``innodb_flush_log_at_trx_commit`` dynamically at runtime, its value will be reset the next time the server restarts. To make the value persist on restart, set it also in a configuration file.
+
+
+
 .. _`ist.recv_addr`:
 .. rst-class:: section-heading
 .. rubric:: ``ist.recv_addr``
@@ -2175,9 +2241,9 @@ Checksum to use on socket layer.
    "Dynamic", "No"
    "Initial Version", "2.0"
 
-Possible Values;
+The possible values are:
 
-- ``0`` - disable checksum
+- ``0`` - Disable checksum
 - ``1`` - CRC32
 - ``2`` - CRC-32C (optimized and potentially HW-accelerated on Intel CPUs)
 
@@ -2350,6 +2416,30 @@ The excerpt below is an example of how this Galera parameter can be triggered fr
 .. code-block:: ini
 
    SET GLOBAL wsrep_provider_options = 'socket.ssl_reload=1';
+
+
+.. _`sync_binlog`:
+.. rst-class:: section-heading
+.. rubric:: ``sync_binlog``
+
+.. index::
+   pair: wsrep Provider Options; sync_binlog
+
+Synchronously flush binary log to disk after every #th event. Use 0 (default) to disable synchronous flushing.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "0"
+   "Dynamic", "Yes"
+   "Initial Version", ""
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file, using the maximum value of the parameter:
+
+.. code-block:: ini
+
+   SET GLOBAL wsrep_provider_options = 'sync_binlog=4294967295';
+
 
 
 .. _`Setting Galera Parameters in MySQL`:
