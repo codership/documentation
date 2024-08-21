@@ -86,16 +86,31 @@ Taking a full data backup is very similar to node provisioning through a :term:`
 - The node desyncs from the cluster to avoid throttling performance while making the backup, even if the backup process blocks the node.
 - The cluster knows that the node is performing a backup and won't choose the node as a donor for another node.
 
-In order to use this method for backups, you will need to use a script that implements both your preferred backup procedure and the Galera Arbitrator daemon, triggering it in a manner similar to a state snapshot transfer. You would execute such a script from the command-line like this:
+In order to use this method for backups, you will need to use a script that implements both your preferred backup procedure and the Galera Arbitrator daemon, triggering it in a manner similar to a state snapshot transfer. You would execute such a script from the command-line, as described below:
+
+On the node where you want to have a backup, start the original SST script manually in "joiner" mode. This command opens a socket listening for a connection from "donor":
 
 .. code-block:: console
 
-   $ garbd --address gcomm://192.168.1.2?gmcast.listen_addr=tcp://0.0.0.0:4444 \
-     --group example_cluster --donor example_donor --sst backup
+   $ wsrep_sst_rsync --role 'joiner' --address '10.21.32.1:3333' --datadir '/tmp/backup/' \
+     --defaults-file '' --defaults-group-suffix '' --parent $$
 
-This command triggers the :term:`Donor Node` to invoke a script with the name ``wsrep_sst_backup.sh``, which it looks for in the ``PATH`` for the ``mysqld`` process.  When the donor reaches a well-defined point, a point where no changes are happening to the database, it runs the backup script passing the GTID corresponding to the current database state.
+Note the output:
 
-.. note:: In the command, '``?gmcast.listen_addr=tcp://0.0.0.0:4444``' is an arbitrary listen socket address that Galera Arbitrator opens to communicate with the cluster.  You only need to specify this in the event that the default socket address (i.e., ``0.0.0.0:4567`` is busy).
+.. code-block:: console
+
+   $ ready 10.21.32.1:3333/rsync_sst
+
+Next, on any node, give the command:
+
+.. code-block:: console
+
+   $ garbd --address gcomm://10.21.32.1:4567?gmcast.listen_addr=tcp://0.0.0.0:4560 \
+     --group my_cluster --sst rsync:10.21.32.1:3333/rsync_sst
+
+.. note:: In the command, ``?gmcast.listen_addr=tcp://0.0.0.0:4560`` is an arbitrary listen socket address that Galera Arbitrator opens to communicate with the cluster.  You only need to specify this in the event that the default socket address (i.e., ``0.0.0.0:4567``) is busy.
+
+.. note:: In the command, the value of the ``--sst`` option is ``<sst_method>:<sst_address>``, where ``<sst_address>`` is given in the output of the joiner script above.
 
 .. note:: You may find it useful to create your backup script using a modified version of the standard state snapshot transfer script.  For information on scripts of this kind, see :doc:`scriptable-sst`.
 
