@@ -187,6 +187,9 @@ While your script runs, Galera Cluster accepts the following signals.  You can t
 
    ``continue\n`` Optional signal that tells the database server that it can continue to commit transactions.
 
+   
+   Progress reporting is also enabled for the ``clone`` SST method.
+
    ``done\n`` Mandatory signal that tells the database server that the state transfer is complete and successful.
 
    After your script sends the ``done\n`` signal, exit with a ``0`` return code.
@@ -194,6 +197,12 @@ While your script runs, Galera Cluster accepts the following signals.  You can t
 In the event of failure, Galera Cluster expects your script to return a code that corresponds to the error it encountered.  The donor node returns this code to the joiner through group communication.  Given that its data directory now holds an inconsistent state, the joiner node then leaves the cluster and aborts the state transfer.
 
 .. note:: Without the ``continue\n`` signal, your script runs in Total Order Isolation, which guarantees that no further commits occur until the script exits.
+
+The script outputs control messages to the standard output, from where they are read by the parent ``mysqld`` process. These are:
+
+- ``total\n`` This progress reporting parameter indicates the new SST stage and repor-ts the estimated total work.
+
+- ``complete\n`` This progress reporting parameter reports the work completed so far.
 
 
 .. _`enabling-ssst`:
