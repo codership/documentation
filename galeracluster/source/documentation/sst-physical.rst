@@ -137,6 +137,8 @@ Cluster for MySQL. It is based on the native MySQL clone plugin. As of 8.4.2, it
 proved to be much faster than ``xtrabackup``, however it will block Donor
 node on DDL execution if that happens during the transfer.
 
+As of MySQL-wsrep 8.0.27-26.9, progress reporting is also available for the ``clone`` SST method. See also :doc:`Scriptable State Snapshot Transfers <scriptable-sst>`.
+
 Basic configuration for ``clone`` SST on Joiner:
 
 .. code-block:: ini
