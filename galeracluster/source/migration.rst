@@ -116,7 +116,7 @@ In order to migrate data from a MySQL master-slave cluster to Galera Cluster, yo
       $ mysqldump -u root -p --skip-create-options --all-databases > migration.sql
 
    The ``--skip-create-options`` ensures that the database server uses the default storage engine when loading the data, instead of MyISAM.
-   Note: Using this option may also prohibid the SQL-dump from containing previously existing "AUTO_INCREMENT" options for your columns which will most likely cause problems.
+   Note: Using this option may also prohibit the SQL dump from containing previously existing "AUTO_INCREMENT" options for your columns which will most likely cause problems.
 
 #. Transfer the ``migration.sql`` output file to one of your new cluster nodes.
 
