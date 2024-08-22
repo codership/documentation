@@ -1540,6 +1540,8 @@ This variable can also be set dynamically at runtime:
 
 If you set ``innodb_flush_log_at_trx_commit`` dynamically at runtime, its value will be reset the next time the server restarts. To make the value persist on restart, set it also in a configuration file.
 
+.. note:: If you use MySQL 8 or a later version, you can also use ``SET PERSIST`` to ensure the value persists upon restart.
+
 
 
 .. _`ist.recv_addr`:
