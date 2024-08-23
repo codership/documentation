@@ -1873,6 +1873,8 @@ Galera Cluster ships with a number of default scripts that the node can use in s
 
 - ``rsync_wan`` This option is almost the same as ``rsync``, but uses the ``delta-xfer`` algorithm to minimize network traffic.
 
+- ``mariabackup`` This option uses the Mariabackup utility for performing SSTs. See :doc:`mariabackup-options`.
+
 - ``xtrabackup`` This option is a fast and practically non-blocking state transfer method based on the Percona ``xtrabackup`` tool.  If you want to use it, the following settings must be present in the ``my.cnf`` configuration file on all nodes:
 
   .. code-block:: ini
