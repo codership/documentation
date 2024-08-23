@@ -147,7 +147,7 @@ This parameter operates on the joiner node with the :ref:`rebuild <xtra-rebuild>
 .. rst-class:: section-heading
 .. rubric:: ``cpat``
 
-Defines what files to clean up from the datadir during state transfers.
+Defines what files to exclude from the clean up from the datadir during state transfers.
 
 .. csv-table::
    :class: doc-options
@@ -158,11 +158,11 @@ Defines what files to clean up from the datadir during state transfers.
    "**Permitted Values**", "Type:", "String"
    "", "Default Value:", ""
 
-When the donor node begins a :term:`State Snapshot Transfer`, it cleans up various files from the datadir.  This ensures that the joiner node can cleanly apply the state transfer.  With this parameter, you can define what files you want the node to delete before the state transfer.
+When the donor node begins a :term:`State Snapshot Transfer`, it cleans up various files from the datadir.  This ensures that the joiner node can cleanly apply the state transfer.  With this parameter, you can define what files you want the node to exclude from being deleted, before the state transfer.
 
 .. code-block:: ini
 
-   cpat=".*glaera\.cache$\|.*sst_in_progress$\|.*grastate\.dat$\|.*\.err"
+   cpat=".*galera\.cache$\|.*sst_in_progress$\|.*grastate\.dat$\|.*\.err"
 
 
 .. _`xtra-decompressor`:
