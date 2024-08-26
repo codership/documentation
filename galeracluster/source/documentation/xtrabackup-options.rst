@@ -1,5 +1,5 @@
 .. meta::
-   :title: XtraBackup Parameters
+   :title: XtraBackup-v2 Parameters
    :description:
    :language: en-US
    :keywords: galera cluster, xtradb, xtrabackup, parameters
@@ -51,7 +51,7 @@
 .. _`xtrabackup-parameters`:
 
 ======================
-XtraBackup Parameters
+XtraBackup-v2 Parameters
 ======================
 
 When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you can fine tune how the script operates using the ``[sst]`` unit in the ``my.cnf`` configuration file.
@@ -156,13 +156,13 @@ Defines what files to exclude from the clean up from the datadir during state tr
    "**System Variable**", "Name:", "``cpat``"
    "", "Match:", "No"
    "**Permitted Values**", "Type:", "String"
-   "", "Default Value:", ""
+   "", "Default Value:", "See below"
 
 When the donor node begins a :term:`State Snapshot Transfer`, it cleans up various files from the datadir.  This ensures that the joiner node can cleanly apply the state transfer.  With this parameter, you can define what files you want the node to exclude from being deleted, before the state transfer.
 
 .. code-block:: ini
 
-   cpat=".*galera\.cache$\|.*sst_in_progress$\|.*grastate\.dat$\|.*\.err"
+   cpat='.\*\\.pem$\\|.\*init\\.ok$\\|.\*galera\\.cache$\\|.\*sst_in_progress$\\|.\*\\.sst$\\|.\*gvwstate\\.dat$\\|.\*grastate\\.dat$\\|.\*\\.err$\\|.\*\\.log$\\|.\*RPM_UPGRADE_MARKER$\\|.\*RPM_UPGRADE_HISTORY$'
 
 
 .. _`xtra-decompressor`:
