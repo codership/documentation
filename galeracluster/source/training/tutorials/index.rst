@@ -304,6 +304,15 @@ Codership Tutorials on Galera Cluster
 
       When it's necessary to shut down a cluster, it's important to do so safely and as quickly as possible to avoid extended downtime and data loss. This article gives advice in this area.
 
+.. container:: list-col1
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: :doc:`recovery-on-ansible`
+
+   .. rst-class:: list-abstract
+
+      When it's necessary to recover a cluster node or the entire cluster by using Ansible, this article gives advice in this area.
+
 
 .. _`training-tutorials-performance-availability`:
 .. container:: banner
