@@ -107,20 +107,35 @@ The source code for Percona XtraDB Cluster is available through GitHub_.  Using 
 
    .. code-block:: console
 
-      # git clone https://github.com/percona/percona-xtradb-cluster
+      # git clone https://github.com/percona/percona-xtradb-cluster.git
 
-#. Checkout the branch for the version that you want to use.
+#. Checkout the 8.0 branch and initialize submodules:
 
    .. code-block:: console
 
-      # git checkout 5.6
+      # cd percona-xtradb-cluster
+      # git checkout 8.0
+      # git submodule update --init --recursive
 
-   The main branches available for Percona XtraDB Cluster are:
-
-   - ``5.6``
-   - ``5.5``
 
 You now have the source files for the Percona XtraDB Cluster database server, set to the branch of development that you want to build.
+
+Download the matching Percona XtraBackup 8.0 tarball (*.tar.gz) for your operating system from `Percona Downloads <https://www.percona.com/downloads>`_. The following example extracts the Percona XtraBackup 8.0.32-25 tar.gz file to the target directory ``./pxc-build``:
+
+   .. code-block:: console
+
+      ```{.bash data-prompt="$"}
+      # tar -xvf percona-xtrabackup-8.0.32-25-Linux-x86_64.glibc2.17.tar.gz -C ./pxc-build
+      ```
+
+Run the build script ``./build-ps/build-binary.sh``. By default, it attempts building into the current directory. Specify the target output directory, such as ``./pxc-build``:
+
+   .. code-block:: console
+
+      # mkdir ./pxc-build
+      # ./build-ps/build-binary.sh ./pxc-build
+
+When the compilation completes, pxc-build contains a tarball, such as ``Percona-XtraDB-Cluster-8.0.x86_64.tar.gz``, that you can deploy on your system.
 
 In addition to the database server, you also need the wsrep Provider, also known as the Galera Replication Plugin.  In a separate directory, run the following command:
 
