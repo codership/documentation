@@ -45,7 +45,7 @@ Other standard MySQL functionality, if it is not related to Galera, is not
 covered by this manual, rather the reader should refer to the following official 
 documentations for each product:
 
-* `MySQL Reference Manual <http://dev.mysql.com/doc/refman/5.5/en/index.html>`_
+* `MySQL Reference Manual <https://dev.mysql.com/doc/refman/8.4/en/>`_
 * `Percona Server Documentation <http://www.percona.com/doc/percona-server/5.5/?id=percona-server:start>`_
 * `MariaDB AskMonty Knowledgebase <https://kb.askmonty.org/en/mariadb/>`_
 

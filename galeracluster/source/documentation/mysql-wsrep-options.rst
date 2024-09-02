@@ -577,7 +577,7 @@ This parameter enables additional debugging output for the database server error
    "Default Value", "``OFF``"
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
-Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
+Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
 
 .. warning:: In addition to useful debugging information, the ``wsrep_debug`` parameter also causes the database server to print authentication information (i.e., passwords) to the error logs.  Don't enable it in production environments.
 
@@ -735,7 +735,7 @@ This parameter defines the binary log format for all transactions.
    "Valid Values", "``ROW``, ``STATEMENT``, ``MIXED``, ``NONE``"
    "Initial Version", "MySQL-wsrep: 5.5.17-22.3, MariaDB: 5.5.21"
 
-The node uses the format given by this parameter regardless of the client session variable `binlog_format <https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html>`_.  Valid choices for this parameter are: ``ROW``, ``STATEMENT``, and ``MIXED``.  Additionally, there is the special value ``NONE``, which means that there is no forced format in effect for the binary logs. When set to a value other than ``NONE``, this parameter forces all transactions to use a given binary log format.
+The node uses the format given by this parameter regardless of the client session variable `binlog_format <https://dev.mysql.com/doc/refman/8.4/en/binary-log-setting.html>`_.  Valid choices for this parameter are: ``ROW``, ``STATEMENT``, and ``MIXED``.  Additionally, there is the special value ``NONE``, which means that there is no forced format in effect for the binary logs. When set to a value other than ``NONE``, this parameter forces all transactions to use a given binary log format.
 
 This variable was introduced to support ``STATEMENT`` format replication during :term:`Rolling Schema Upgrade`.  In most cases, however, ``ROW`` format replication is valid for asymmetric schema replication.
 

@@ -89,12 +89,13 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
    RUN apt-get update
    RUN apt-get install -y  software-properties-common
    RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 8DA84635
-   RUN add-apt-repository 'deb https://releases.galeracluster.com/galera-3/ubuntu trusty main'
-   RUN add-apt-repository 'deb https://releases.galeracluster.com/mysql-wsrep-5.6/ubuntu trusty main'
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/galera-4/ubuntu trusty main'
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/mysql-wsrep-8.4/ubuntu trusty main'
 
 
    RUN apt-get update
-   RUN apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync
+   RUN apt-get install -y galera-4 galera-arbitrator-4 mysql-wsrep-8.4 rsync
+   RUN apt-get install -y galera-4 galera-arbitrator-4 mysql-wsrep-8.4 rsync
 
    COPY my.cnf /etc/mysql/my.cnf
    ENTRYPOINT ["mysqld"]
