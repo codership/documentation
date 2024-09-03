@@ -1006,15 +1006,17 @@ Extends node behaviour with provided values.
    "Variable Scope", "Global"
    "Dynamic Variable", ""
    "Permitted Values", "Set"
-   "Default Value", ""
+   "Default Value", "APPLIER_IGNORE_MISSING_TABLE"
    "Initial Version", "MySQL-wsrep: 5.7.32-25.24, 8.0.22-26.5, MariaDB: 10.6.0"
 
 .. csv-table::
    :class: doc-options
    :header: "Value", "Behaviour"
+   :widths: 25, 50
 
    "``IGNORE_NATIVE_REPLICATION_FILTER_RULES``", "Ignore replication filter rules for cluster events."
-   "``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR``", "Ignore missing row errors when applying cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821."
+   "``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR``", "Ignore missing row errors when applying a cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821."
+   "``APPLIER_IGNORE_MISSING_TABLE``", "MySQL has an anomaly to sometimes add an excessive tablemap event in the binlog. This can happen in use cases related to multi-table updates and trigger definitions to a third table, which is not effectively needed in applying of the replication events. With wsrep_mode "APPLIER_IGNORE_MISSING_TABLE", the replication applier will ignore the failure to open such a table, which would not be used in the actual applying."
 
 .. code-block:: mysql
 
