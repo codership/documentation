@@ -95,7 +95,7 @@ The ``mysqldump`` script only runs on the sending node.  The output from the scr
 
 Because ``mysqldump`` interfaces through the database client, configuring it requires several steps beyond setting the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.  For more information on its configuration, see:
 
-For more information on ``mysqldump``, see `mysqldump Documentation <https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html>`_.
+For more information on ``mysqldump``, see `mysqldump Documentation <https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html>`_.
 
 .. container:: bottom-links
 

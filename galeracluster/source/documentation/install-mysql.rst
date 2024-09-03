@@ -212,9 +212,17 @@ There are two packages involved in the installation of Galera Cluster for MySQL:
 
 So, for Debian-based distributions using the ``apt-get`` package manager, execute the following from the command-line:
 
+For Galera Cluster 8.0:
+
 .. code-block:: console
 
-   apt-get install galera-4 galera-arbitrator-3 mysql-wsrep-8.4
+   apt-get install galera-4 galera-arbitrator-4 mysql-wsrep-8.0
+
+For Galera Cluster 8.4:
+
+.. code-block:: console
+
+   apt-get install galera-4 galera-arbitrator-4 mysql-wsrep-8.4
 
 If you want to install version 4 of Galera Cluster, you would instead execute the following from the command-line:
 

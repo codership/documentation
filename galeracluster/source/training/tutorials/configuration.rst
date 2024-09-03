@@ -136,7 +136,7 @@ Next, ensure the InnoDB locking mode for generating auto-increment values is set
 
 Don't change this value afterwards.  Other modes may cause ``INSERT`` statements to fail on tables with ``AUTO_INCREMENT`` columns.
 
-.. warning:: When `innodb_autoinc_lock_mode <https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode (i.e., a value of ``0``) or to consecutive lock mode (i.e., a value of ``1``) it can cause unresolved deadlocks and make the system unresponsive in Galera Cluster.
+.. warning:: When `innodb_autoinc_lock_mode <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode>`_ is set to traditional lock mode (i.e., a value of ``0``) or to consecutive lock mode (i.e., a value of ``1``) it can cause unresolved deadlocks and make the system unresponsive in Galera Cluster.
 
 
 After all of that, make sure the InnoDB log buffer is written to file once per second, rather than on each commit, to improve performance. To do this, set the ``innodb_flush_log_at_trx_commit`` variable to 0 like so;
