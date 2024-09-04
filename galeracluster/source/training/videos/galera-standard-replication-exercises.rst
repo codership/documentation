@@ -122,7 +122,7 @@ Do these exercises after viewing the three sections on Standard Replication |---
 
 3. Use mysqldump to dump all of the databases on the master, although it will only have the system databases.  Be sure to use the ``--master-data`` and ``--flush-logs`` option.  Then use ``scp`` to copy the dump file from the master to the slave. Restart ``mysqld`` on the slave when you finish. Use the ``mysql`` client to process the dump file on the slave.
 
-4. Execute the ``CHANGE MASTER`` statement on the slave to provide the slave with the replication user name and password, and the port and IP address for communicating with the master.
+4. Execute the ``CHANGE MASTER TO`` (for MySQL releases before 8.4) or ``CHANGE REPLICATION SOURCE TO`` (for MySQL releases 8.4 und upper) statement on the slave to provide the slave with the replication user name and password, and the port and IP address for communicating with the master.
 
 5. Use the ``START SLAVE`` statement to start the slave replicating.  Use ``SHOW SLAVE STATUS`` to check the slave’s status and to see if there are any errors.  Execute ``SHOW MASTER STATUS`` on the master.  Compare the name of the master’s binary and position to the corresponding values on the slave in the results of ``SHOW SLAVE STATUS``. If everything agrees and there are no error, enter a ``CREATE DATABASE`` statement on the master and see if it’s replicated on the slave.  If there are any problems, resolve them or start over.  Don’t do the next exercises until replication is working properly.
 
