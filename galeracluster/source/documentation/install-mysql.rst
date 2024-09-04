@@ -122,7 +122,7 @@ Note that for packages before MySQL 5.7.44 and 8.0.35, the signing key is BC19DD
    deb https://releases.galeracluster.com/mysql-wsrep-VERSION/DIST RELEASE main
    deb https://releases.galeracluster.com/galera-3/DIST RELEASE main
 
-In the example above, you would change the repository addresses.  The ``VERSION`` should be set to MySQL-wsrep version you want to install. For example, it might be something like, ``5.7``.  The ``DIST`` should be replaced with the name of the Linux distribution on the server.  This could be ``ubuntu``.  Last, replace ``RELEASE`` with the distribution release (e.g., ``wheezy``).
+In the example above, you would change the repository addresses.  The ``VERSION`` should be set to MySQL-wsrep version you want to install. For example, it might be something like, ``8.4``.  The ``DIST`` should be replaced with the name of the Linux distribution on the server.  This could be ``ubuntu``.  Last, replace ``RELEASE`` with the distribution release (e.g., ``wheezy``).
 
 If you don't know which release you have installed on your server, you can generally find this using the following command:
 
@@ -212,9 +212,17 @@ There are two packages involved in the installation of Galera Cluster for MySQL:
 
 So, for Debian-based distributions using the ``apt-get`` package manager, execute the following from the command-line:
 
+For Galera Cluster 8.0:
+
 .. code-block:: console
 
-   apt-get install galera-3 galera-arbitrator-3 mysql-wsrep-5.7
+   apt-get install galera-4 galera-arbitrator-4 mysql-wsrep-8.0
+
+For Galera Cluster 8.4:
+
+.. code-block:: console
+
+   apt-get install galera-4 galera-arbitrator-4 mysql-wsrep-8.4
 
 If you want to install version 4 of Galera Cluster, you would instead execute the following from the command-line:
 
@@ -226,7 +234,7 @@ On servers using the ``yum`` package manager (i.e., Red Hat Enterprise Linux and
 
 .. code-block:: console
 
-   yum install galera-3 mysql-wsrep-5.7
+   yum install galera-3 mysql-wsrep-8.4
 
 Please note that on CentOS 6 and 7, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
 

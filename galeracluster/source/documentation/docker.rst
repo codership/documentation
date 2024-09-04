@@ -76,7 +76,9 @@ Galera Cluster can run from within a such a container, within Docker.  You may f
 
 Images are the containers that Docker has available to run.  There are a number of base images available through `Docker Hub <https://registry.hub.docker.com>`_.  You can pull these to your system through the ``docker`` command-line tool.  You can also build new images.
 
-When Docker builds a new image, it sources a ``Dockerfile`` to determine the steps that it needs to take in order to generate the image you want to use. This means you can script the installation and configuration process.  Basically, such a script would need to load the needed configuration files, run updates, and install packages when the image is built---all through a single command.  Below is an example of how you might write such a script:
+When Docker builds a new image, it sources a ``Dockerfile`` to determine the steps that it needs to take in order to generate the image you want to use. This means you can script the installation and configuration process.  Basically, such a script would need to load the needed configuration files, run updates, and install packages when the image is built - all through a single command.  Below are examples of how you might write such a script.
+
+For Galera Cluster 8.0:
 
 .. code-block:: Dockerfile
 
@@ -89,12 +91,38 @@ When Docker builds a new image, it sources a ``Dockerfile`` to determine the ste
    RUN apt-get update
    RUN apt-get install -y  software-properties-common
    RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 8DA84635
-   RUN add-apt-repository 'deb https://releases.galeracluster.com/galera-3/ubuntu trusty main'
-   RUN add-apt-repository 'deb https://releases.galeracluster.com/mysql-wsrep-5.6/ubuntu trusty main'
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/galera-4/ubuntu trusty main'
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/mysql-wsrep-8.0/ubuntu trusty main'
 
 
    RUN apt-get update
-   RUN apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync
+   RUN apt-get install -y galera-4 galera-arbitrator-4 mysql-wsrep-8.0 rsync
+   RUN apt-get install -y galera-4 galera-arbitrator-4 mysql-wsrep-8.0 rsync
+
+   COPY my.cnf /etc/mysql/my.cnf
+   ENTRYPOINT ["mysqld"]
+
+
+For Galera Cluster 8.4:
+
+.. code-block:: Dockerfile
+
+   # Galera Cluster Dockerfile
+   FROM ubuntu:14.04
+   MAINTAINER your name <your.user@example.org>
+
+   ENV DEBIAN_FRONTEND noninteractive
+
+   RUN apt-get update
+   RUN apt-get install -y  software-properties-common
+   RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 8DA84635
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/galera-4/ubuntu trusty main'
+   RUN add-apt-repository 'deb https://releases.galeracluster.com/mysql-wsrep-8.4/ubuntu trusty main'
+
+
+   RUN apt-get update
+   RUN apt-get install -y galera-4 galera-arbitrator-4 mysql-wsrep-8.4 rsync
+   RUN apt-get install -y galera-4 galera-arbitrator-4 mysql-wsrep-8.4 rsync
 
    COPY my.cnf /etc/mysql/my.cnf
    ENTRYPOINT ["mysqld"]

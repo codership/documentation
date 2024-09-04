@@ -117,12 +117,12 @@ To download the database server, complete the following steps:
 
    .. code-block:: console
 
-      # git checkout 5.6
+      # git checkout 8.4
 
    The main branches available for Galera Cluster for MySQL are:
 
-   - ``5.6``
-   - ``5.5``
+   - ``8.0``
+   - ``8.4``
 
 
 You now have the source files for the MySQL database server, including the wsrep API patch needed for it to function as a Galera Cluster node.

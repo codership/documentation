@@ -123,7 +123,6 @@ The source code for MariaDB Galera Cluster is available through GitHub_. Using G
 
    - ``10.1``
    - ``10.0-galera``
-   - ``5.5-galera``
 
    Starting with version 10.1, MariaDB includes the wsrep API for Galera Cluster by default.
 

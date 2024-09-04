@@ -137,7 +137,7 @@ Assuming you've read and considered the above, below are the steps for upgrading
 .. rst-class:: sub-heading
 .. rubric:: Rolling Upgrades of Major Versions of Galera Cluster
 
-Performing a rolling upgrade between major versions of Galera Cluster (e.g., from 5.6 to 5.7) has certain additional limitations.  Below is a list of them; you should consider these factors.
+Performing a rolling upgrade between major versions of Galera Cluster (e.g., from 8.0 to 8.4) has certain additional limitations.  Below is a list of them; you should consider these factors.
 
 .. rst-class:: verbose-list
 

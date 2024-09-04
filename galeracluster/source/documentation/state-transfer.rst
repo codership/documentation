@@ -101,7 +101,7 @@ You can choose from two conceptually different approaches in Galera Cluster to t
 
 - **Physical** This method uses ``rsync``, ``rsync_wan``, ``xtrabackup`` and other methods and copies the data files directly from server to server.  It requires that you initialize the receiving server *after* the transfer.
 
-  This method is faster than ``mysqldump``, but they have certain limitations.  You can only use them on server startup.  The receiving server requires very similar configurations to the donor, (for example, both servers must use the same `innodb_file_per_table <https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_file_per_table>`_ value).
+  This method is faster than ``mysqldump``, but they have certain limitations.  You can only use them on server startup.  The receiving server requires very similar configurations to the donor, (for example, both servers must use the same "innodb_file_per_table" value. See `innodb_file_per_table <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_file_per_table>`_ for version 8.0 or `innodb_file_per_table <https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_file_per_table>`_ for version 8.4.
 
   Some of these methods, such as ``xtrabackup`` can be made non-blocking on the donor.  They are supported through a scriptable SST interface.
 
