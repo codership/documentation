@@ -59,7 +59,7 @@ Support for Transaction Isolation Levels
 
 There appears to be great misunderstanding as to what MySQL transaction isolation levels Galera Cluster actually supports and how. This page tries to give answer to those uncertainties.
 
-In general, Galera Cluster can support transaction isolation levels up to ``REPEATABLE READ`` (see :doc:`./documentation/isolation-levels`).
+In general, Galera Cluster can support transaction isolation levels up to ``REPEATABLE READ`` (see :doc:`../../../documentation/isolation-levels`).
 
 Transactions running on the same node are isolated by whatever was configured as the transaction isolation level in the MySQL configuration. So, if you have configured the default ``REPEATABLE READ`` isolation level, transactions issued on the same node will behave under ``REPEATABLE READ`` semantics.
 In addition, transactions issued on separate cluster nodes, are subject to the ‘first committer wins’ rule. This will avoid the lost update problem that generally hurts ``REPEATABLE READ`` isolation.
