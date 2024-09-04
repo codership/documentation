@@ -35,7 +35,8 @@
       Related Documents
 
       - `Binary Log <https://dev.mysql.com/doc/refman/en/binary-log.html>`_
-      - `CHANGE MASTER <https://dev.mysql.com/doc/refman/5.5/en/change-master-to.html>`_
+      - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
+      - `MySQL > 8.4: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
       - :doc:`Firewall Settings <../../documentation/firewall-settings>`
       - :doc:`firewalld <../../documentation/firewalld>`
       - :doc:`Load Balancer <../../documentation/glb>`
@@ -146,7 +147,8 @@ Standard Replication & Galera Cluster
    Related Documents
 
    - `Binary Log <https://dev.mysql.com/doc/refman/en/binary-log.html>`_
-   - `CHANGE MASTER <https://dev.mysql.com/doc/refman/5.5/en/change-master-to.html>`_
+   - `For MySQL releases before 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
+   - `For MySQL releases 8.4 and upper: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
    - :doc:`Firewall Settings <../../documentation/firewall-settings>`
    - :doc:`firewalld <../../documentation/firewalld>`
    - :doc:`Load Balancer <../../documentation/glb>`

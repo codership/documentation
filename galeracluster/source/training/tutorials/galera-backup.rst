@@ -205,7 +205,7 @@ To attach a server to a Galera node, so that it may act as a slave, we'll need t
 
 The only other parameter worth mentioning is the ``read-only`` option to make sure no one will edit the data.
 
-Once we've configured the slave, we'll need to restart it.  Then we have to load the data back-up dump file we made on the master, using the ``mysql`` client. And we'll have to execute the CHANGE MASTER statement on the slave to tell it who is the master:
+Once we've configured the slave, we'll need to restart it.  Then we have to load the data back-up dump file we made on the master, using the ``mysql`` client. And we'll have to execute the ``CHANGE MASTER TO`` (for MySQL releases before 8.4) or ``CHANGE REPLICATION SOURCE TO`` (for MySQL releases 8.4 und upper) statement on the slave to tell it who is the master:
 
 .. code-block:: mysql
 
@@ -214,6 +214,17 @@ Once we've configured the slave, we'll need to restart it.  Then we have to load
    MASTER_PORT=3306,
    MASTER_USER='replicator',
    MASTER_PASSWORD='Rover123!';
+
+Or:
+
+.. code-block:: mysql
+
+   CHANGE REPLICATION SOURCE TO
+   SOURCE_HOST='172.31.31.202',
+   SOURCE_PORT=3306,
+   SOURCE_USER='replicator',
+   SOURCE_PASSWORD='Rover123!';
+
 
 Once all of this is done, we’ll be ready to start replication and using the slave as a back-up source.
 
