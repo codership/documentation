@@ -50,7 +50,7 @@
       - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
       - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
       - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
-      - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/5.5/en/change-master-to.html>`_
+      - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
       - `MySQL > 8.4: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
       - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
       - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
@@ -151,7 +151,7 @@ Making Back-Ups with Galera Cluster
    - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
    - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
    - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
-   - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/5.5/en/change-master-to.html>`_
+   - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
    - `MySQL > 8.4: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
    - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
    - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
