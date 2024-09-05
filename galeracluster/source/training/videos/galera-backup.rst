@@ -52,8 +52,11 @@
       - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
       - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
       - `MySQL > 8.4: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
-      - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
-      - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
+      - `MySQL < 8.4: SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
+      - `MySQL > 8.4: SHOW BINARY LOG STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-binary-log-status.html>`_
+      - `MySQL < 8.4: SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+      - `MySQL > 8.4: SHOW REPLICA STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-replica-status.html>`_
+      - `MariaDB > 10.5.1:  SHOW REPLICA STATUS <https://mariadb.com/kb/en/show-replica-status/>`_
 
 .. container:: top-links
 
@@ -153,8 +156,11 @@ Making Back-Ups with Galera Cluster
    - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
    - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
    - `MySQL > 8.4: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
-   - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/en/show-master-status.html>`_
-   - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/en/show-slave-status.html>`_
+   - `MySQL < 8.4: SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
+   - `MySQL > 8.4: SHOW BINARY LOG STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-binary-log-status.html>`_
+   - `MySQL < 8.4: SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+   - `MySQL > 8.4: SHOW REPLICA STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-replica-status.html>`_
+   - `MariaDB > 10.5.1:  SHOW REPLICA STATUS <https://mariadb.com/kb/en/show-replica-status/>`_
 
 
 .. toctree::

@@ -205,7 +205,7 @@ To attach a server to a Galera node, so that it may act as a slave, we'll need t
 
 The only other parameter worth mentioning is the ``read-only`` option to make sure no one will edit the data.
 
-Once we've configured the slave, we'll need to restart it.  Then we have to load the data back-up dump file we made on the master, using the ``mysql`` client. And we'll have to execute the ``CHANGE MASTER TO`` (for MySQL releases before 8.4) or ``CHANGE REPLICATION SOURCE TO`` (for MySQL releases 8.4 und upper) statement on the slave to tell it who is the master:
+Once we've configured the slave, we'll need to restart it.  Then we have to load the data back-up dump file we made on the master, using the ``mysql`` client. And we'll have to execute the ``CHANGE MASTER TO`` (MySQL < 8.4) or ``CHANGE REPLICATION SOURCE TO`` (MySQL > 8.4) statement on the slave to tell it who is the master:
 
 .. code-block:: mysql
 
@@ -234,9 +234,21 @@ Once all of this is done, we’ll be ready to start replication and using the sl
 
 With replication working, making back-ups is easy.  We just need to stop the slave from replicating and then start whatever back-up utility we want to use.  We'll also copy the database configuration files.  Here's how that might be done:
 
+For MySQL releases before 8.4, and MariaDB:
+
 .. code-block:: text
 
    mysql -p -u root -e "STOP SLAVE"
+
+   mysqldump -p -u admin_backup --flush-logs --all-databases \
+             > /backups/temp/backup-20191025.sql
+
+   cp -r /etc/my.cnf* /backups/temp/
+
+For MySQL releases 8.4 und upper:
+.. code-block:: text
+
+   mysql -p -u root -e "STOP REPLICA"
 
    mysqldump -p -u admin_backup --flush-logs --all-databases \
              > /backups/temp/backup-20191025.sql
