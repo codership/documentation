@@ -44,8 +44,11 @@
       - :doc:`Node Provisioning <../../documentation/node-provisioning>`
       - `Replication Threads <https://dev.mysql.com/doc/refman/en/replication-implementation-details.html>`_
       - :doc:`SELinux <../../documentation/selinux>`
-      - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
-      - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+      - `MySQL < 8.4: SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
+      - `MySQL > 8.4: SHOW BINARY LOG STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-binary-log-status.html>`_
+      - `MySQL < 8.4: SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+      - `MySQL > 8.4: SHOW REPLICA STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-replica-status.html>`_
+      - `MariaDB > 10.5.1:  SHOW REPLICA STATUS <https://mariadb.com/kb/en/show-replica-status/>`_
       - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
       - :doc:`State Transfer <../../documentation/state-transfer>`
       - :doc:`wsrep Options <../tutorials/wsrep-configuration>`
@@ -147,8 +150,8 @@ Standard Replication & Galera Cluster
    Related Documents
 
    - `Binary Log <https://dev.mysql.com/doc/refman/en/binary-log.html>`_
-   - `For MySQL releases before 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
-   - `For MySQL releases 8.4 and upper: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
+   - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
+   - `MySQL > 8.4:: CHANGE REPLICATION SOURCE TO <https://dev.mysql.com/doc/refman/8.4/en/change-replication-source-to.html>`_
    - :doc:`Firewall Settings <../../documentation/firewall-settings>`
    - :doc:`firewalld <../../documentation/firewalld>`
    - :doc:`Load Balancer <../../documentation/glb>`
@@ -156,8 +159,11 @@ Standard Replication & Galera Cluster
    - :doc:`Node Provisioning <../../documentation/node-provisioning>`
    - `Replication Threads <https://dev.mysql.com/doc/refman/en/replication-implementation-details.html>`_
    - :doc:`SELinux <../../documentation/selinux>`
-   - `SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
-   - `SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+   - `MySQL < 8.4: SHOW MASTER STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html>`_
+   - `MySQL > 8.4: SHOW BINARY LOG STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-binary-log-status.html>`_
+   - `MySQL < 8.4: SHOW SLAVE STATUS <https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html>`_
+   - `MySQL > 8.4: SHOW REPLICA STATUS <https://dev.mysql.com/doc/refman/8.4/en/show-replica-status.html>`_
+   - `MariaDB > 10.5.1:  SHOW REPLICA STATUS <https://mariadb.com/kb/en/show-replica-status/>`_
    - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
    - :doc:`State Transfer <../../documentation/state-transfer>`
    - :doc:`wsrep Options <../tutorials/wsrep-configuration>`
