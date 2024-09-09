@@ -2086,7 +2086,7 @@ This value of this parameter is a bitmask, which determines the type of check yo
 .. csv-table::
    :class: doc-options
    :header: "Bitmask", "Checks"
-   :widths: 20, 80
+   :widths: 10, 90
 
    "``0``", "Disabled."
    "``1``", "Checks on ``READ`` statements, including ``SELECT``, and ``BEGIN`` / ``START TRANSACTION``. Checks on ``SHOW`` (up to versions 5.5.54, 5.6.35, 5.7.17)"
