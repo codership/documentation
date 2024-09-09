@@ -620,7 +620,7 @@ The ``wsrep_debug`` options are:
 
 - ``CLIENT`` - Logging from ``wsrep-lib`` client state will be added to the error log.
 
-See also :doc:`evs.debug_log_mask <evs.debug_log_mask>`.
+See also :ref:`evs.debug_log_mask <evs.debug_log_mask>`.
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
