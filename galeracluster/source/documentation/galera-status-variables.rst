@@ -308,12 +308,12 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 
 .. code-block:: mysql
 
-   SHOW STATUS LIKE 'wsrep_certs_index_size';
+   SHOW STATUS LIKE 'wsrep_cert_index_size';
 
    +------------------------+-------+
    | Variable_name          | Value |
    +------------------------+-------+
-   | wsrep_certs_index_size | 30936 |
+   | wsrep_cert_index_size | 30936 |
    +------------------------+-------+
 
 
