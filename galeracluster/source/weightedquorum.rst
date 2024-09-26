@@ -89,9 +89,9 @@ The quorum calculation formula is
 
 .. math::
    \frac{ \sum_{p_i \times w_i} - \sum_{l_i \times w_i}}
-   { 2} < \sum_{m_i \times w_i}
+   { 2} <= \sum_{m_i \times w_i}
    
-.. The original equation read (sum(p_i * w_i) - sum(l_i * w_i)) / 2 < sum(m_i * w_i).  Remove this comment after confirming that the LaTeX renders correctly.
+.. The original equation read (sum(p_i * w_i) - sum(l_i * w_i)) / 2 <= sum(m_i * w_i).  Remove this comment after confirming that the LaTeX renders correctly.
     
 Where:
 
@@ -103,7 +103,7 @@ Where:
 
 - :math:`w_i` Member weights.
 
-What this means is that the quorum is preserved if (and only if) the sum weight of the nodes in a new component strictly exceeds half that of the preceding :term:`Primary Component`, minus the nodes which left gracefully.
+What this means is that the quorum is preserved if (and only if) the sum weight of the nodes in a new component exceeds or is equal to half that of the preceding :term:`Primary Component`, minus the nodes which left gracefully.
 
 You can customize node weight using the :ref:`pc.weight <pc.weight>` parameter.  By default, node weight is ``1``, which translates to the traditional node count behavior.
 
