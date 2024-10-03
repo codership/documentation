@@ -234,7 +234,13 @@ On servers using the ``yum`` package manager (i.e., Red Hat Enterprise Linux and
 
    yum install galera-4 mysql-wsrep-8.4
 
-.. note:: On CentOS 6 and 7, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
+For ``mysql-wsrep-8.0``:
+
+.. code-block:: console
+
+   yum install galera-4 mysql-wsrep-8.0
+
+.. note:: On CentOS 7, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
 
 Please note that on Red Hat 8, you need to disable MySQL and
 MariaDB modules before installing Galera Cluster from a repository under
@@ -256,7 +262,7 @@ If you installed Galera Cluster for MySQL over an existing stand-alone instance 
 .. rst-class:: section-heading
 .. rubric:: MySQL Shared Compatibility Libraries
 
-When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check-error that blocks the installation. The error message may look something like this:
+When installing Galera Cluster for MySQL on CentOS 7, you may encounter a transaction check-error that blocks the installation. The error message may look something like this:
 
 .. code-block:: text
 
@@ -269,7 +275,7 @@ This relates to a dependency problem between the version of the MySQL shared com
 
 There are two versions available for this package.  Which version you'll need will depend on which version of the MySQL wsrep database server you want to install.
 
-For CentOS 6, you would enter something like the following from the command-line:
+For CentOS, you would enter something like the following from the command-line:
 
 .. code-block:: console
 
