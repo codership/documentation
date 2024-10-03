@@ -212,7 +212,7 @@ After you've created, modified, and saved this repository file, you'll be able t
 
 There are two packages involved in the installation of Galera Cluster for MySQL: the MySQL database server, but one that has been built to include the :term:`wsrep API`; and the :term:`Galera Replication Plugin`. The ``yum`` repositories include Galera Arbitrator with the Galera Replication Plugin, but for Debian-based distributions using ``apt-get`` you'll need to include add it to your installation instruction.
 
-.. note:: If SELinux (Security-Enhanced Linux) is enabled on the servers, disable it. See :ref:`Disabling SELinux for mysqld <disable-selinux>`. Also, if AppArmor is enabled on the servers, disable it. See :ref:`Disabling AppArmor <disable-apparmor>`.
+.. note:: If SELinux (Security-Enhanced Linux) is enabled on the servers, disable it. See :ref:`Disabling SELinux for mysqld <disable-selinux>`. Also, if AppArmor is enabled on the servers, disable it. See :ref:`Disabling AppArmor <disable-apparmor>`. However, this is optional, and there are methods to enable the context files.
 
 So, for Debian-based distributions using the ``apt-get`` package manager, execute the following from the command-line:
 
