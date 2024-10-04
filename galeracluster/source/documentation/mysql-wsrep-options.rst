@@ -71,9 +71,10 @@ and an explanation.
 
 
 .. csv-table::
-   :class: doc-options tight-header
-   :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic"
+   :class: doc-options
+   :header: "Option", "Default Value", "Global ", "Dynamic"
    :widths: 30, 30, 12, 12
+
    ":ref:`innodb-wsrep-applier-lock-wait-timeout <innodb-wsrep-applier-lock-wait-timeout>`", "``0``", "Yes", "Yes"
    ":ref:`wsrep_applier_FK_failure_retries <wsrep_applier_FK_failure_retries>`", "``1``", "Yes", "Yes"
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", ""
