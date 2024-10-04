@@ -62,7 +62,7 @@ The table below maps the Galera Cluster versions to the  MySQL database server v
 
 .. csv-table::
    :class: doc-options
-   :header: "|br| Galera Cluster version", "|br| MySQL database server version"
+   :header: "Galera Cluster version", "MySQL database server version"
 
    "`4.20 <https://releases.galeracluster.com/galera-4.20/release-notes-galera-26.4.20.txt>`_", "`8.0.39-26.20 <https://releases.galeracluster.com/mysql-wsrep-8.4.2-26.20/release-notes-mysql-wsrep-8.4.2-26.20.txt>`_"
    "`4.19 <https://releases.galeracluster.com/galera-4.19/release-notes-galera-26.4.19.txt>`_", "`8.0.37-26.19 <https://releases.galeracluster.com/mysql-wsrep-8.0.37-26.19/release-notes-mysql-wsrep-8.0.37-26.19.txt>`_"
