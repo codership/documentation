@@ -114,7 +114,9 @@ Once you have the *Software Properties* installed, you can then enable the Coder
 
    apt-key adv --keyserver keyserver.ubuntu.com --recv 8DA84635
 
-Note that for packages before MySQL 5.7.44 and 8.0.35, the signing key is BC19DDBA. Next, add the Codership repository to your sources list.  Using a simple text editor, create file called, `galera.list` in the ``/etc/apt/sources.list.d/`` directory. Add these lines to that file, with the necessary adjustments for the version used:
+.. note::
+
+   For packages before MySQL 5.7.44 and 8.0.35, the signing key is BC19DDBA. Next, add the Codership repository to your sources list.  Using a simple text editor, create file called, `galera.list` in the ``/etc/apt/sources.list.d/`` directory. Add these lines to that file, with the necessary adjustments for the version used:
 
 .. code-block:: linux-config
 
@@ -210,6 +212,8 @@ After you've created, modified, and saved this repository file, you'll be able t
 
 There are two packages involved in the installation of Galera Cluster for MySQL: the MySQL database server, but one that has been built to include the :term:`wsrep API`; and the :term:`Galera Replication Plugin`. The ``yum`` repositories include Galera Arbitrator with the Galera Replication Plugin, but for Debian-based distributions using ``apt-get`` you'll need to include add it to your installation instruction.
 
+.. note:: If SELinux (Security-Enhanced Linux) is enabled on the servers, disable it. See :ref:`Disabling SELinux for mysqld <disable-selinux>`. Also, if AppArmor is enabled on the servers, disable it. See :ref:`Disabling AppArmor <disable-apparmor>`. However, this is optional, and there are methods to enable the context files.
+
 So, for Debian-based distributions using the ``apt-get`` package manager, execute the following from the command-line:
 
 For Galera Cluster 8.0:
@@ -224,25 +228,19 @@ For Galera Cluster 8.4:
 
    apt-get install galera-4 galera-arbitrator-4 mysql-wsrep-8.4
 
-If you want to install version 4 of Galera Cluster, you would instead execute the following from the command-line:
-
-.. code-block:: console
-
-   apt-get install galera-4 galera-arbitrator-4 mysql-wsrep-8.0
-
 On servers using the ``yum`` package manager (i.e., Red Hat Enterprise Linux and CentOS distributions), you would instead execute this command:
 
 .. code-block:: console
 
-   yum install galera-3 mysql-wsrep-8.4
+   yum install galera-4 mysql-wsrep-8.4
 
-Please note that on CentOS 6 and 7, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
-
-If you want to install version 4 of Galera Cluster using ``yum``, you would instead execute the following from the command-line:
+For ``mysql-wsrep-8.0``:
 
 .. code-block:: console
 
    yum install galera-4 mysql-wsrep-8.0
+
+.. note:: On CentOS 7, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
 
 Please note that on Red Hat 8, you need to disable MySQL and
 MariaDB modules before installing Galera Cluster from a repository under
@@ -264,7 +262,7 @@ If you installed Galera Cluster for MySQL over an existing stand-alone instance 
 .. rst-class:: section-heading
 .. rubric:: MySQL Shared Compatibility Libraries
 
-When installing Galera Cluster for MySQL on CentOS, versions 6 and 7, you may encounter a transaction check-error that blocks the installation. The error message may look something like this:
+When installing Galera Cluster for MySQL on CentOS 7, you may encounter a transaction check-error that blocks the installation. The error message may look something like this:
 
 .. code-block:: text
 
@@ -277,7 +275,7 @@ This relates to a dependency problem between the version of the MySQL shared com
 
 There are two versions available for this package.  Which version you'll need will depend on which version of the MySQL wsrep database server you want to install.
 
-For CentOS 6, you would enter something like the following from the command-line:
+For CentOS, you would enter something like the following from the command-line:
 
 .. code-block:: console
 
