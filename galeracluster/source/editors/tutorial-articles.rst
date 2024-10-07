@@ -82,7 +82,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    :class: doc-options library-small
    :widths: 50, 50
 
-   "**Multi-Mastering Conflicts** :raw-html:`<small>not yet scheduled</small>` Explain how Multi-Master conflicts can occur and how to resolve them and methods to prevent them.", "**Testing a Schema Change** :raw-html:`<small>not yet scheduled</small>` Explain how to install and use ``sysbench`` to test a schema change, to determine how long it will take."
+   "**Multi-Primary Conflicts** :raw-html:`<small>not yet scheduled</small>` Explain how Multi-Primary conflicts can occur and how to resolve them and methods to prevent them.", "**Testing a Schema Change** :raw-html:`<small>not yet scheduled</small>` Explain how to install and use ``sysbench`` to test a schema change, to determine how long it will take."
    "**Managing Users** :raw-html:`<small>not yet scheduled</small>` some text", "**Recovering from Split Brain** :raw-html:`<small>not yet scheduled</small>` some text"
 
 

@@ -93,7 +93,7 @@ Galera Cluster is well suited for LAN, WAN, container and cloud environments.  T
 
 The primary focus is data consistency.  The transactions are either applied on every node or not all.  So, the databases stay synchronized, provided that they were properly configured and synchronized at the beginning.
 
-The :term:`Galera Replication Plugin` differs from the standard MySQL Replication by addressing several issues, including multi-master write conflicts, replication lag and slaves being out of sync with the master.
+The :term:`Galera Replication Plugin` differs from the standard MySQL Replication by addressing several issues, including multi-primary write conflicts, replication lag and replicas being out of sync with the primary.
 
 .. figure:: ../../images/galerausecases1.png
 

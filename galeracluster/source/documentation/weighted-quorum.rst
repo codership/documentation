@@ -208,23 +208,23 @@ Under this pattern, killing ``node2`` and ``node3`` simultaneously preserves the
 
 .. _`wq-simple-master-slave`:
 .. rst-class:: sub-heading
-.. rubric:: Weighted Quorum for a Simple Master-Slave Scenario
+.. rubric:: Weighted Quorum for a Simple Primary-Replica Scenario
 
-When configuring quorum weights for a simple master-slave scenario, use the following pattern:
+When configuring quorum weights for a simple primary-replica scenario, use the following pattern:
 
 .. code-block:: text
 
    node1: pc.weight = 1
    node2: pc.weight = 0
 
-Under this pattern, if the master ``node`` dies, ``node2`` becomes a non-primary component.  However, in the event that ``node2`` dies, ``node1`` continues as the :term:`Primary Component`.  If the network connection between the nodes fails, ``node1`` continues as the Primary Component while ``node2`` becomes a non-primary component.
+Under this pattern, if the primary ``node`` dies, ``node2`` becomes a non-primary component.  However, in the event that ``node2`` dies, ``node1`` continues as the :term:`Primary Component`.  If the network connection between the nodes fails, ``node1`` continues as the Primary Component while ``node2`` becomes a non-primary component.
 
 
 .. _`wq-master-multi-slave`:
 .. rst-class:: sub-heading
-.. rubric:: Weighted Quorum for a Master and Multiple Slaves Scenario
+.. rubric:: Weighted Quorum for a Primary and Multiple Replicas Scenario
 
-When configuring quorum weights for a master-slave scenario that features multiple slave nodes, use the following pattern:
+When configuring quorum weights for a primary-replica scenario that features multiple replica nodes, use the following pattern:
 
 .. code-block:: text
 

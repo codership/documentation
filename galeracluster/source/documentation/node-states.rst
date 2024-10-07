@@ -163,7 +163,7 @@ The one occasion when nodes in the ``JOINED`` state do effect cluster performanc
 
 This Flow Control takes effect when nodes are in the ``SYNCED`` state.
 
-When nodes enter this state Flow Control attempts to keep the slave queue to a minimum.  You can configure how the node handles this using the following parameters:
+When nodes enter this state Flow Control attempts to keep the replica queue to a minimum.  You can configure how the node handles this using the following parameters:
 
 - :ref:`gcs.fc_limit <gcs.fc_limit>` Used to determine the point where Flow Control engages.
 - :ref:`gcs.fc_factor <gcs.fc_factor>` Used to determine the point where Flow Control disengages.
@@ -188,9 +188,9 @@ The node state machine handles different state changes on different layers of Ga
 
 3. The node receives a :term:`State Snapshot Transfer`.  It now has all cluster data and begins to apply the cached write-sets.
 
-   Here the node enables Flow Control to ensure an eventual decrease in the slave queue.
+   Here the node enables Flow Control to ensure an eventual decrease in the replica queue.
 
-4. The node finishes catching up with the cluster.  Its slave queue is now empty and it enables Flow Control to keep it empty.
+4. The node finishes catching up with the cluster.  Its replica queue is now empty and it enables Flow Control to keep it empty.
 
    The node sets the MySQL status variable :ref:`wsrep_ready <wsrep_ready>` to the value ``1``.  The node is now allowed to process transactions.
 

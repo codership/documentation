@@ -137,7 +137,7 @@ In addition to node administration, Galera Cluster also provides interfaces for 
 
 - :doc:`using-sr`
 
-  When the node uses Streaming Replication, instead of waiting for the commit to replicate and apply transactions to the cluster, it breaks the transaction down into replication units, transferring and applying these on the slave nodes while the transaction is still open.  This section provides a guide to how to enable, configure and utilize Streaming Replication.
+  When the node uses Streaming Replication, instead of waiting for the commit to replicate and apply transactions to the cluster, it breaks the transaction down into replication units, transferring and applying these on the replica nodes while the transaction is still open.  This section provides a guide to how to enable, configure and utilize Streaming Replication.
 
 - :doc:`arbitrator`
 

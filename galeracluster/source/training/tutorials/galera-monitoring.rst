@@ -236,7 +236,7 @@ If you sense a node is getting overwhelmed, you might execute ``FLUSH STATUS`` o
    | wsrep_flow_control_paused | 0.184353 |
    +---------------------------+----------+
 
-In the results here, it shows that for a little more than 18 percent of the time elapsed, the replication was paused.  A value of 1 would indicate that the node was paused 100% of the time. Anything greater than 0 indicates the node's replication health may be weak. You should closely monitor it |---| flushing occasionally |---| until you start seeing 0 values.  If it doesn't resolve itself, you might increase the number of slave threads (i.e., ``wsrep_slave_threads``).
+In the results here, it shows that for a little more than 18 percent of the time elapsed, the replication was paused.  A value of 1 would indicate that the node was paused 100% of the time. Anything greater than 0 indicates the node's replication health may be weak. You should closely monitor it |---| flushing occasionally |---| until you start seeing 0 values.  If it doesn't resolve itself, you might increase the number of replica threads (i.e., ``wsrep_slave_threads``).
 
 .. note::
 
@@ -248,7 +248,7 @@ In the results here, it shows that for a little more than 18 percent of the time
 
 Last, you might monitor ``wsrep_cert_deps_distance``. It will tell you the average distance between the lowest and highest sequence number, values a node can potentially apply in parallel.
 
-Basically, this is the optimal value to set ``wsrep_slave_threads`` or ``wsrep_applier_threads``, since it's pointless to assign more slave threads than the number of transactions that can be applied in parallel.
+Basically, this is the optimal value to set ``wsrep_slave_threads`` or ``wsrep_applier_threads``, since it's pointless to assign more replica threads than the number of transactions that can be applied in parallel.
 
 
 .. rst-class:: section-heading
@@ -426,7 +426,7 @@ A better solution would be to have the script connect with the database and inse
 .. rst-class:: section-heading
 .. rubric:: Reading GRA_*.log Files
 
-Your data directory may contain log files starting with ``GRA_``. These files are related to replication failures, whenever a node fails to apply an event on a slave node. The database server creates a special binary log file of the event in the data directory. For each ``GRA_`` file, there is a corresponding warning or error message in the mysql error log file. 
+Your data directory may contain log files starting with ``GRA_``. These files are related to replication failures, whenever a node fails to apply an event on a replica node. The database server creates a special binary log file of the event in the data directory. For each ``GRA_`` file, there is a corresponding warning or error message in the mysql error log file. 
 
 To view the contents of these files, you can use ``strings`` or view it with ``mysqlbinlog``. See below for an example output:
 

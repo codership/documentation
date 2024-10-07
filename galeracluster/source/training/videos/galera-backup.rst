@@ -47,7 +47,7 @@
       Other Resources
 
       - `mysqldump <https://mariadb.com/kb/en/mariadb/mysqldump/>`_
-      - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
+      - `Replica Options <https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html>`_
       - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
       - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
       - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_
@@ -118,9 +118,9 @@ Making Back-Ups with Galera Cluster
 
    **1. Back-Up Basics** :raw-html:`<small>(time index: 3:30)</small>` |br| Covers the basic concepts, reasons and goals in making back-ups of databases.
 
-   **2. Using Standard Replication** :raw-html:`<small>(time index: 16:23)</small>` |br| Presents how to use standard MySQL or MariaDB replication to attach a slave to a Galera node, with it acting as master. With this arrangement, it's easy to stop the slave and regularly make back-ups.
+   **2. Using Standard Replication** :raw-html:`<small>(time index: 16:23)</small>` |br| Presents how to use standard MySQL or MariaDB replication to attach a replica to a Galera node, with it acting as a primary. With this arrangement, it's easy to stop the replica and regularly make back-ups.
 
-   **3. Using Galera Arbitrator** :raw-html:`<small>(time index: 27:31)</small>` |br| Galera Arbitrator may be used to desynchronize a node and then initiate a back-up script on that node.  When it's finished, it will resynchronize the node.
+   **3. Using Galera Arbitrator** :raw-html:`<small>(time index: 27:31)</small>` |br| Galera Arbitrator may be used to desynchronize a node and then initiate a back-up script on that node.  When it's finished, it will resynchronize the node.
 
 .. container:: list-col2
 
@@ -151,7 +151,7 @@ Making Back-Ups with Galera Cluster
    Other Resources
 
    - `mysqldump <https://mariadb.com/kb/en/mariadb/mysqldump/>`_
-   - `Slave Options <https://dev.mysql.com/doc/refman/en/replication-options-slave.html>`_
+   - `Replica Options <https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html>`_
    - `Std Replication with Galera <https://mariadb.com/kb/en/library/using-mariadb-replication-with-mariadb-galera-cluster-using-mariadb-replica/>`_
    - `Types of Back-Ups <https://dev.mysql.com/doc/mysql-backup-excerpt/en/backup-types.html>`_
    - `MySQL < 8.4: CHANGE MASTER TO <https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html>`_

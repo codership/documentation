@@ -1,5 +1,5 @@
 .. meta::
-   :title: Handling Multi-Master Conflicts in Galera Cluster
+   :title: Handling Multi-Primary Conflicts in Galera Cluster
    :description:
    :language: en-US
    :keywords:
@@ -59,25 +59,25 @@
 .. _`kb-trouble-multi-master-conflicts`:
 
 ======================================
-Multi-Master Conflicts
+Multi-Primary Conflicts
 ======================================
 
 .. rst-class:: article-stats
 
    Length: 751 words; Published: April 1, 2014; Updated: October 7, 2019; Category: Splits & Topology; Type: Troubleshooting
 
-These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
+These types of conflicts relate to multi-primary database environments and typically involve inconsistencies of row amongst nodes.
 
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-To understand this better, consider a situation in a multi-master replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
+To understand this better, consider a situation in a multi-primary replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
 
 
 .. rst-class:: section-heading
 .. rubric:: Troubleshooting
 
-There are a few techniques available to log and monitor problems that may indicate multi-master conflicts.  They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log.  You can enable it through the configuration file with a line like so:
+There are a few techniques available to log and monitor problems that may indicate multi-primary conflicts.  They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log.  You can enable it through the configuration file with a line like so:
 
 .. code-block:: ini
 
@@ -120,7 +120,7 @@ If you develop your own notification system, you can use status variables to wat
    | wsrep_local_cert_failures | 333   |
    +---------------------------+-------+
 
-:ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` returns the total number of local transactions aborted by slave transactions while in execution. :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` provides the total number of transactions that have failed certification tests.
+:ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` returns the total number of local transactions aborted by replica transactions while in execution. :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` provides the total number of transactions that have failed certification tests.
 
 You can enable conflict logging features with :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` and :ref:`cert.log_conflicts <cert.log_conflicts>`. Just add the following lines to the configuration file (i.e., ``my.cnf``):
 
@@ -161,15 +161,15 @@ Retrying only applies to auto-commit transactions, as retrying is not safe for m
 .. rst-class:: section-heading
 .. rubric:: Work-Around
 
-While Galera Cluster resolves multi-master conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.
+While Galera Cluster resolves multi-primary conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.
 
 - First, analyze the hot-spot and see if you can change the application logic to catch deadlock exceptions.
 
 - Next, enable retrying logic at the node level using the :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>` parameter.
 
-- Last, limit the number of master nodes or switch to a master-slave model.
+- Last, limit the number of primary nodes or switch to a primary-replica model.
 
-If you can filter out access to the hot-spot table, it may be enough to treat writes only to the hot-spot table as master-slave.
+If you can filter out access to the hot-spot table, it may be enough to treat writes only to the hot-spot table as primary-replica.
 
 .. container:: bottom-links
 

@@ -52,7 +52,7 @@
 The Codership Library
 =============================
 
-This library contains a variety of information about Codership's Galera Cluster |---| a synchronous multi-master database cluster, based on synchronous replication and MySQL and InnoDB.  Here you will find many resources to help you with installing and configuring Galera, as well as learning about it.
+This library contains a variety of information about Codership's Galera Cluster |---| a synchronous multi-primary database cluster, based on synchronous replication and MySQL and InnoDB.  Here you will find many resources to help you with installing and configuring Galera, as well as learning about it.
 
 .. rst-class:: section-heading list-sub-header
 .. rubric:: :doc:`Documentation <./documentation/index>`

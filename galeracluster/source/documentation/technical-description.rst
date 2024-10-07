@@ -77,7 +77,7 @@ Replication in the context of databases refers to the frequent copying of data f
 
 - :doc:`tech-desc-introduction`
 
-  This section explains how database replication works in general.  It provides an overview of the problems inherent in the various replication implementations, including master-slave, asynchronous and synchronous replication.
+  This section explains how database replication works in general.  It provides an overview of the problems inherent in the various replication implementations, including primary-replica, asynchronous and synchronous replication.
 
 - :doc:`certification-based-replication`
 
@@ -118,7 +118,7 @@ With a better grasp on how replication works, these pages provide a more detaile
 
 - :doc:`streaming-replication`
 
-  Normally, nodes transfer all replication and certification events on the transaction commit.  With Streaming Replication, the nodes break the transaction into fragments.  Then they certify, replicate and apply these replication fragments onto the slave nodes.  This section describes Streaming Replication, how it works and the limitations of its use.
+  Normally, nodes transfer all replication and certification events on the transaction commit.  With Streaming Replication, the nodes break the transaction into fragments.  Then they certify, replicate and apply these replication fragments onto the replica nodes.  This section describes Streaming Replication, how it works and the limitations of its use.
 
 .. container:: bottom-links
 

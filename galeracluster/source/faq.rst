@@ -94,7 +94,7 @@ Just below each question is further categorization of the question: the minimum 
 
 .. rst-class:: list-abstract
 
-   Galera Cluster is a write-set replication service provider in the form of the *dlopenable* library.  It provides synchronous replication and supports multi-master replication.  Galera Cluster is capable of unconstrained parallel applying (i.e., "parallel replication"), multicast replication and automatic node provisioning.
+   Galera Cluster is a write-set replication service provider in the form of the *dlopenable* library.  It provides synchronous replication and supports multi-primary replication.  Galera Cluster is capable of unconstrained parallel applying (i.e., "parallel replication"), multicast replication and automatic node provisioning.
 
    The primary focus of Galera Cluster is data consistency.  Transactions are either applied to every node or not at all.  Galera Cluster is not a cluster manager, a load balancer, or a cluster monitor.  What it does is keep databases synchronized, provided they were properly configured and synchronized in the beginning.
 
@@ -109,11 +109,11 @@ Just below each question is further categorization of the question: the minimum 
 
 .. rst-class:: list-abstract
 
-   Galera Cluster uses a multi-master method of replication. It allows you to write to any node in a cluster; writes on any node are synchronized to all nodes. Standard MySQL replication uses one master and multiple slaves: although you can read data from any node, you can write only on the master.
+   Galera Cluster uses a multi-primary method of replication. It allows you to write to any node in a cluster; writes on any node are synchronized to all nodes. Standard MySQL replication uses one primary and multiple replicas: although you can read data from any node, you can write only on the primary.
 
-   With Galera and multi-master replication, any write is either committed to all nodes in the cluster, or rolled back.  With standard MySQL and master-slaves replication, writes to the master might not be synchronized to one or more slave, but users could continue to read from an out-of-sync slave.
+   With Galera and multi-primary replication, any write is either committed to all nodes in the cluster, or rolled back.  With standard MySQL and primary-replicas replication, writes to the primary might not be synchronized to one or more replica, but users could continue to read from an out-of-sync replica.
 
-   With Galera, if one master fails, the cluster continues and users can continue to write and read on other nodes.  With standard MySQL replication, if the master fails, users cannot write until it's restored or replaced--which can involve manual intervention and take good bit of time.
+   With Galera, if one primary fails, the cluster continues and users can continue to write and read on other nodes.  With standard MySQL replication, if the primary fails, users cannot write until it's restored or replaced--which can involve manual intervention and take good bit of time.
 
 
 .. _`faq-galera-on-aws`:
@@ -484,7 +484,7 @@ Just below each question is further categorization of the question: the minimum 
 
 .. rst-class:: list-abstract
 
-   Galera Cluster is a true synchronous multi-master replication system, which allows the use of any or all of the nodes as master at any time without any extra provisioning.  What this means is that there is no failover in the traditional MySQL master-slave sense.
+   Galera Cluster is a true synchronous multi-primary replication system, which allows the use of any or all of the nodes as primary at any time without any extra provisioning.  What this means is that there is no failover in the traditional MySQL primary-replica sense.
 
    The primary focus of Galera Cluster is data consistency across the nodes.  This doesn't allow for any modifications to the database that may compromise consistency.  For instance, the node rejects write requests until the joining node synchronizes with the cluster and is ready to process requests.
 
@@ -539,7 +539,7 @@ Just below each question is further categorization of the question: the minimum 
 
    For :abbr:`DDL (Data Definition Language)` statements and similar queries, Galera Cluster has two modes of execution:
 
-   - :term:`Total Order Isolation`: A query is replicated in a statement before executing on the master. The node waits for all preceding transactions to commit and then all nodes simultaneously execute the transaction in isolation.
+   - :term:`Total Order Isolation`: A query is replicated in a statement before executing on the primary. The node waits for all preceding transactions to commit and then all nodes simultaneously execute the transaction in isolation.
 
    - :term:`Rolling Schema Upgrade`: Schema upgrades run locally, blocking only the node on which they are run.  The changes do not replicate to the rest of the cluster.
 
@@ -579,7 +579,7 @@ Just below each question is further categorization of the question: the minimum 
 
    Standard MySQL replication uses the binary log for replicating. However, Galera doesn't use the binary log.  Nevertheless, there may be situations in which you might want to use point-in-time recovery methods to restore tables or data since the last backup.
 
-   You might also want to attach an asynchronous slave to one of your nodes, using standard MySQL replication and set it on a delay.  This can also help with recovering tables and data lost since the last backup was made.
+   You might also want to attach an asynchronous replica to one of your nodes, using standard MySQL replication and set it on a delay.  This can also help with recovering tables and data lost since the last backup was made.
 
 
 

@@ -142,14 +142,14 @@ This simple method of making back-ups of a Galera node works well, but it still 
    .. rst-class:: section-heading
    .. rubric:: Using Standard Replication
 
-Even though Galera is running on a node, it’s possible for it also to be running standard replication and act as a master to another server that’s not part of the cluster, that’s not using Galera software.
+Even though Galera is running on a node, it’s possible for it also to be running standard replication and act as a primary to another server that’s not part of the cluster, that’s not using Galera software.
 
-With such an arrangement, the replication slave can be used to make back-ups without disturbing the Galera cluster.  When you want to make a back-up, just stop the slave from replicating. Then run whatever back-up utility you prefer. When you’re finished, just start the slave replicating again.
+With such an arrangement, the replication server can be used to make back-ups without disturbing the Galera cluster.  When you want to make a back-up, just stop the replica from replicating. Then run whatever back-up utility you prefer. When you’re finished, just start the replica replicating again.
 
 .. rst-class:: sub-heading
-.. rubric:: Galera Master Configuration
+.. rubric:: Galera Primary Configuration
 
-For a Galera node to be able also to serve as a standard replication master, we will have to add some extra parameters to the configuration file.  Let's look at those settings.  Below is an excerpt from a database configuration file on the node that's to be the master:
+For a Galera node to be able also to serve as a standard replication primary, we will have to add some extra parameters to the configuration file.  Let's look at those settings.  Below is an excerpt from a database configuration file on the node that's to be the primary:
 
 .. code-block:: text
 
@@ -163,7 +163,7 @@ For a Galera node to be able also to serve as a standard replication master, we 
    log_slave_updates = ON
 
 
-Standard replication requires each server to have a unique identification number. This is set with the ``server-id`` parameter. Actually, so that any of the other nodes can be used as a master, you might add these parameters to all of the nodes, with the same values.  It'll be fine as long as only one is part of the standard replication.
+Standard replication requires each server to have a unique identification number. This is set with the ``server-id`` parameter. Actually, so that any of the other nodes can be used as a primary, you might add these parameters to all of the nodes, with the same values.  It'll be fine as long as only one is part of the standard replication.
 
 Next, we’ll add the ``log-bin`` parameter on all nodes, to enable the binary log. Even though Galera doesn't need this, it's essential to the standard replication process. This will be a performance drain, but not much.
 
@@ -171,7 +171,7 @@ So that Galera understands what's going on, we'll need to set the ``log_slave_up
 
 When we’re finished making these additions, we’ll have to restart all of the nodes and the cluster.  That means we’ll have to shut down all of the nodes first, before we start them again, so that there’s a new cluster.
 
-We'll neeed to export the data from the master using a utility like ``mysqldump`` with the ``--flush-logs`` and ``--master-data`` options.  We'll also need to create a user account on the master that has the IP address of the slave |---| with the ``REPLICATION SLAVE`` privilege.
+We'll neeed to export the data from the primary using a utility like ``mysqldump`` with the ``--flush-logs`` and ``--master-data`` options.  We'll also need to create a user account on the primary that has the IP address of the replica |---| with the ``REPLICATION SLAVE`` privilege.
 
 .. code-block:: text
 
@@ -179,13 +179,13 @@ We'll neeed to export the data from the master using a utility like ``mysqldump`
    TO 'replicator'@'172.31.31.75'
    IDENTIFIED BY 'Rover123!';
 
-Now we can configure the slave. Again, the slave is not a node in the Galera cluster.  It’s an extra server that will be replicating the transactions of one of the Galera nodes.
+Now we can configure the replica. Again, the replica is not a node in the Galera cluster.  It’s an extra server that will be replicating the transactions of one of the Galera nodes.
 
 
 .. rst-class:: sub-heading
-.. rubric:: Galera Slave Configuration & Preparation
+.. rubric:: Galera Replica Configuration & Preparation
 
-To attach a server to a Galera node, so that it may act as a slave, we'll need to add a few lines to its configuration file.  Actually, we only need ``server-id`` and ``log-bin``.  You can see them below.  The rest are somewhat optional; They're for choosing the name and path of logs and other files.
+To attach a server to a Galera node, so that it may act as a replica, we'll need to add a few lines to its configuration file.  Actually, we only need ``server-id`` and ``log-bin``.  You can see them below.  The rest are somewhat optional; They're for choosing the name and path of logs and other files.
 
 .. code-block:: text
 
@@ -205,7 +205,7 @@ To attach a server to a Galera node, so that it may act as a slave, we'll need t
 
 The only other parameter worth mentioning is the ``read-only`` option to make sure no one will edit the data.
 
-Once we've configured the slave, we'll need to restart it.  Then we have to load the data back-up dump file we made on the master, using the ``mysql`` client. And we'll have to execute the ``CHANGE MASTER TO`` (MySQL < 8.4) or ``CHANGE REPLICATION SOURCE TO`` (MySQL > 8.4) statement on the slave to tell it who is the master:
+Once we've configured the replica, we'll need to restart it.  Then we have to load the data back-up dump file we made on the primary, using the ``mysql`` client. And we'll have to execute the ``CHANGE MASTER TO`` (MySQL < 8.4) or ``CHANGE REPLICATION SOURCE TO`` (MySQL > 8.4) statement on the replica to tell it who is the primary:
 
 .. code-block:: mysql
 
@@ -226,13 +226,13 @@ Or:
    SOURCE_PASSWORD='Rover123!';
 
 
-Once all of this is done, we’ll be ready to start replication and using the slave as a back-up source.
+Once all of this is done, we’ll be ready to start replication and using the replica as a back-up source.
 
 
 .. rst-class:: sub-heading
-.. rubric:: Backing-Up a Slave
+.. rubric:: Backing-Up a Replica
 
-With replication working, making back-ups is easy.  We just need to stop the slave from replicating and then start whatever back-up utility we want to use.  We'll also copy the database configuration files.  Here's how that might be done:
+With replication working, making back-ups is easy.  We just need to stop the replica from replicating and then start whatever back-up utility we want to use.  We'll also copy the database configuration files.  Here's how that might be done:
 
 For MySQL releases before 8.4, and MariaDB:
 
@@ -263,7 +263,7 @@ In this example, everything it being copied into a temporary sub-directory. We w
 
    tar -czf mysql-backup-20191025.tgz ./temp/*
 
-That's all we have to do, except start the slave again. Actually, we could have started it before starting ``tar``.
+That's all we have to do, except start the replica again. Actually, we could have started it before starting ``tar``.
 
 This method works well, but it requires an extra server just for back-ups.  A better choice is to use Galera Arbitrator, to use it to conduct the back-ups.  Let’s look at its purpose and how we might utilize it for back-ups.
 

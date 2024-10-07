@@ -141,7 +141,7 @@ the changes made to the ``mysql-*`` tables would replicate to the cluster.  Howe
 
 the changes would not replicate.
 
-.. note:: In general, non-transactional storage engines cannot be supported in multi-master replication.
+.. note:: In general, non-transactional storage engines cannot be supported in multi-primary replication.
 
 
 .. _`table-without-pk`:
@@ -163,7 +163,7 @@ When tables lack a primary key, rows can appear in different order on different 
 Table Locking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Galera Cluster does not support table locking, as they conflict with multi-master replication.  As such, the ``LOCK TABLES`` and ``UNLOCK TABLES`` queries are not supported.  This also applies to lock functions, such as ``GET_LOCK()`` and ``RELEASE_LOCK()...`` for the same reason.
+Galera Cluster does not support table locking, as they conflict with multi-primary replication.  As such, the ``LOCK TABLES`` and ``UNLOCK TABLES`` queries are not supported.  This also applies to lock functions, such as ``GET_LOCK()`` and ``RELEASE_LOCK()...`` for the same reason.
 
 
 .. _`query-log-support`:

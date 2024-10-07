@@ -812,7 +812,7 @@ The fraction of time since the last ``FLUSH STATUS`` command that replication wa
    "Location", "Galera"
    "Initial Version", ""
 
-Basically, this is how much the slave lag is slowing down the cluster.
+Basically, this is how much the replica lag is slowing down the cluster.
 
 To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -1078,7 +1078,7 @@ For more information, see :ref:`wsrep API <wsrep-api>`.
 .. index::
    pair: Status Variables; wsrep_local_bf_aborts
 
-Total number of local transactions that were aborted by slave transactions while in execution.
+Total number of local transactions that were aborted by replica transactions while in execution.
 
 .. csv-table::
    :class: doc-options

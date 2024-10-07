@@ -71,7 +71,7 @@ The ``ALTER TABLE`` statement requires access to the table to be delayed as the 
 
 Suppose you execute an ``ALTER TABLE`` statement on one node, but it takes a long time to execute |---| at least, much longer than expected. This could be because the table which is being altered contains a huge amount of data and several indexed columns.  While the ``ALTER TABLE`` statement is being processed, all of the other nodes may stall. It could cause a significant performance problem throughout the cluster.
 
-This is a side effect of a multi-master cluster, with several appliers.  The cluster needs to control when a :abbr:`DDL (Data Definition Language)` statement ends in relation to other transactions. It's necessary for the cluster to detect conflicts and then schedule parallel appliers.  Any DDL statement must be executed in isolation. This is known as :term:`Total Order Isolation` or TOI.
+This is a side effect of a multi-primary cluster, with several appliers.  The cluster needs to control when a :abbr:`DDL (Data Definition Language)` statement ends in relation to other transactions. It's necessary for the cluster to detect conflicts and then schedule parallel appliers.  Any DDL statement must be executed in isolation. This is known as :term:`Total Order Isolation` or TOI.
 
 Galera Cluster has a 65K window of tolerance for transactions applied in parallel. However, the cluster must wait when an ``ALTER TABLE`` statement take too long.  In a sense, the cluster is paused as it waits for all of the nodes to replicate the ``ALTER TABLE`` statement.
 
