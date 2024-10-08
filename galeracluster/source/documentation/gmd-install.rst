@@ -92,7 +92,7 @@ The *Installer* is a simple installation program for installing Galera Manager. 
 
 Below are more details on these steps to download and run the *Installer*.  The questions you'll be presented when installing are fairly self-explanatory.  However, you may want to read this page before beginning, in case there are questions about which you want to know more before starting the installation.
 
-To install Galera Manager, you'll need to download the *Installer* to the computer chosen as the Galera Manager host. Currently *Installer* runs on the following x86_64 Linux distributions: Ubuntu 18.04 and 20.04, CentOS 7, Debian 10 ("buster") and Debian 11 ("bullseye"). Eventually, the *Installer* will be made available for other distributions.
+To install Galera Manager, you'll need to download the *Installer* to the computer chosen as the Galera Manager host. Currently *Installer* runs on the following x86_64 Linux distributions: Ubuntu 20.04 and Ubuntu 22.04, Debian 11 ("bullseye") and Debian 12 ("bookworm"), RedHat 8 and RedHat 9. Eventually, the *Installer* will be made available for other distributions.
 
 After you've decided on and prepared the *Galera Manager Host*, you'll need to download the *Installer* from Codership's site at this address:
 
