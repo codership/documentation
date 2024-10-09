@@ -103,7 +103,7 @@ You can enable these through the ``my.cnf`` configuration file.  The excerpt bel
 .. rst-class:: section-heading
 .. rubric:: Additional Log Files
 
-Whenever a node fails to apply an event on a slave node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.
+Whenever a node fails to apply an event on a replica node, the database server creates a special binary log file of the event in the data directory.  The naming convention the node uses for the filename is ``GRA_*.log``.
 
 .. container:: bottom-links
 

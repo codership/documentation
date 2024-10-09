@@ -63,7 +63,7 @@ Using Streaming Replication
 .. index::
    pair: Galera Cluster 4.x; Streaming Replication
 
-When a node replicates a transaction under :term:`Streaming Replication`, it breaks the transaction into fragments, and then certifies and applies the fragments to slave nodes while the transaction is still in progress.
+When a node replicates a transaction under :term:`Streaming Replication`, it breaks the transaction into fragments, and then certifies and applies the fragments to replica nodes while the transaction is still in progress.
 
 This allows you to work with larger data-sets, manage hot records, and help avoid conflicts and hangs in the case of long-running transactions.
 

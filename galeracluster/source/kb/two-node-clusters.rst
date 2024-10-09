@@ -133,7 +133,7 @@ Another solution, but a bad choice, is to configure the ``wsrep_provider_options
 
    SET GLOBAL wsrep_provider_options='pc.ignore_sb=TRUE';
 
-The node will resume processing updates, even if it suspects a split-brain situation. Enabling :ref:`pc.ignore_sb <pc.ignore_sb>` is dangerous, though, in a multi-master setup due to the risk for split-brain situations.  However, it does simplify things in master-slave clusters |---| especially in situations with only two nodes.
+The node will resume processing updates, even if it suspects a split-brain situation. Enabling :ref:`pc.ignore_sb <pc.ignore_sb>` is dangerous, though, in a multi-primary setup due to the risk for split-brain situations.  However, it does simplify things in primary-replica clusters |---| especially in situations with only two nodes.
 
 .. container:: bottom-links
 

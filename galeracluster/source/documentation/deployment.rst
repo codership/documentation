@@ -64,7 +64,7 @@ When you start Galera Cluster, you have to do so by initializing a series of nod
 
 :doc:`deployment-variants`
 
-Galera Cluster provides synchronous multi-master replication.  This means that the nodes collectively operate as a single database server that listens across many interfaces.  This section provides various examples of how you might deploy a cluster in relation to your application servers.
+Galera Cluster provides synchronous multi-primary replication.  This means that the nodes collectively operate as a single database server that listens across many interfaces.  This section provides various examples of how you might deploy a cluster in relation to your application servers.
 
 :doc:`load-balancing`
 

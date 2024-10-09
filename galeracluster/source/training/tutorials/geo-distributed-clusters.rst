@@ -105,7 +105,7 @@ It is possible to tell Galera Cluster how nodes are grouped by physical proximit
 
 **Configurable Flow Control**
 
-By default, Galera will keep slave lag to a minimum by using various flow control measures in order to keep all nodes moving forward in time together. If WAN network links are involved, Galera can be configured to allow more data to be in flight on the network at any given time by increasing the evs.send_window and evs.user_send_window wsrep provider options. A higher setting will reduce the amount of time nodes wait on each other for acknowledgement, increasing transaction throughput.
+By default, Galera will keep replica lag to a minimum by using various flow control measures in order to keep all nodes moving forward in time together. If WAN network links are involved, Galera can be configured to allow more data to be in flight on the network at any given time by increasing the ``evs.send_window`` and ``evs.user_send_window`` wsrep provider options. A higher setting will reduce the amount of time nodes wait on each other for acknowledgement, increasing transaction throughput.
 
 Network timeouts can also be configured to tolerate transient WAN outages.
 
@@ -129,7 +129,7 @@ Galera Cluster can be configured to use public IP addresses if individual nodes 
 
 **Compatibility with Asynchronous Replication**
 
-Galera Cluster also supports traditional MySQL replication and GTIDs. In high-latency situations where complete avoidance of slave lag is not required, asynchronous replication can be set up between two otherwise independent Galera clusters, each running in its own datacenter.
+Galera Cluster also supports traditional MySQL replication and GTIDs. In high-latency situations where complete avoidance of replica lag is not required, asynchronous replication can be set up between two otherwise independent Galera clusters, each running in its own datacenter.
 
 
 .. rst-class:: section-heading

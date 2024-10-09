@@ -56,7 +56,7 @@ Cluster Deployment Variants
 
 A Galera Cluster will consist of multiple nodes, preferably three or more.  Each node is an instance of MySQL, MariaDB or Percona XtraDB that you convert to Galera Cluster, allowing you to use that node as a cluster base.
 
-Galera Cluster provides synchronous multi-master replication. You can treat the cluster as a single database server that listens through many interfaces.  To appreciate this, consider a typical *n*-tier application and the various benefits that would come from deploying it with Galera Cluster.
+Galera Cluster provides synchronous multi-primary replication. You can treat the cluster as a single database server that listens through many interfaces.  To appreciate this, consider a typical *n*-tier application and the various benefits that would come from deploying it with Galera Cluster.
 
 
 .. _`no-clustering`:
@@ -104,7 +104,7 @@ There are, however, certain disadvantages to whole stack clustering that you sho
 
 - **Increased Rollback Rate**: Given that each application server writes to a dedicated database server, cluster-wide conflicts are more likely. This can increase the likelihood of corrective rollbacks.
 
-- **Inflexibility**: There is no way for you to limit the number of master nodes or to perform intelligent load balancing.
+- **Inflexibility**: There is no way for you to limit the number of primary nodes or to perform intelligent load balancing.
 
 Despite the disadvantages, however, this setup can prove very usable for several applications, depending on your needs.
 

@@ -88,26 +88,26 @@ The database clients, such as web browsers or computer applications, do not see 
 
 .. _`masters-slaves`:
 .. rst-class:: section-heading
-.. rubric:: Masters and Slaves
+.. rubric:: Primaries and Replicas
 
 Many :abbr:`Database Management Systems (DBMS)` replicate the database.
 
-The most common replication setup uses a master/slave relationship between the original data set and the copies.
+The most common replication setup uses a primary/replica relationship between the original data set and the copies.
 
 
 .. figure:: ../images/asynchronousreplication.png
 
-   *Master/Slave Replication*
+   *Primary/Primary Replication*
 
-In this system, the master database server logs the updates to the data and propagates those logs through the network to the slaves.  The slave database servers receive a stream of updates from the master and apply those changes.
+In this system, the primary database server logs the updates to the data and propagates those logs through the network to the replicas.  The replica database servers receive a stream of updates from the primary and apply those changes.
 
-Another common replication setup uses mult-master replication, where all nodes function as masters.
+Another common replication setup uses multi-primary replication, where all nodes function as primaries.
 
 .. figure:: ../images/synchronousreplication.png
 
-   *Multi-master Replication*
+   *Multi-primary Replication*
 
-In a multi-master replication system, you can submit updates to any database node.  These updates then propagate through the network to other database nodes.  All database nodes function as masters.  There are no logs available and the system provides no indicators sent to tell you if the updates were successful.
+In a multi-primary replication system, you can submit updates to any database node.  These updates then propagate through the network to other database nodes.  All database nodes function as primaries.  There are no logs available and the system provides no indicators sent to tell you if the updates were successful.
 
 
 .. _`asynchronous-synchronous-replication`:
@@ -127,7 +127,7 @@ In addition to the setup of how different nodes relate to one another, there is 
 
 - **Synchronous Replication** Uses the approach of eager replication.  Nodes keep all replicas synchronized by updating all replicas in a single transaction.  In other words, when a transaction commits, all nodes have the same value.
 
-- **Asynchronous Replication** Uses the approach of lazy replication.  The master database asynchronously propagates replica updates to other nodes.  After the master node propagates the replica, the transaction commits.  In other words, when a transaction commits, for at least a short time, some nodes hold different values.
+- **Asynchronous Replication** Uses the approach of lazy replication.  The primary database asynchronously propagates replica updates to other nodes.  After the primary node propagates the replica, the transaction commits.  In other words, when a transaction commits, for at least a short time, some nodes hold different values.
 
 
 .. _`advantages-synchronous-replication`:

@@ -85,7 +85,7 @@ High Availability with Galera Cluster
 
    **3. Redundancy Through MySQL Replication** :raw-html:`<small>(time index: 19:22)</small>` |br| Covers briefly how standard replication may be used for maintaining high availability.
 
-   **4. Failover Frameworks** :raw-html:`<small>(time index: 21:55)</small>` |br| Discusses methods by which failed servers, in particular a master, may be replaced |---| including common difficulties one may encounter.
+   **4. Failover Frameworks** :raw-html:`<small>(time index: 21:55)</small>` |br| Discusses methods by which failed servers, in particular a primary, may be replaced |---| including common difficulties one may encounter.
 
 .. container:: list-col2
 

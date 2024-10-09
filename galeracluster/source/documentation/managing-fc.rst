@@ -113,7 +113,7 @@ For instance, using `myq_gadgets <https://github.com/jayjanssen/myq_gadgets/>`_:
    09:22:22 cluster1 P   3  3 node3 Sync T/T   0  29   0   0    0    0 0.9   1 109   0   0
    09:22:23 cluster1 P   3  3 node3 Sync T/T   0  29   0   0    0    0 1.0   0 109   0   0
 
-You can find the slave queue under the ``Queue Dn`` column and ``FC pau`` refers to Flow Control pauses.  When the slave queue rises to a certain point, Flow Control changes the pause value to ``1.0``.  The node will hold to this value until the slave queue is worked down to a more manageable size.
+You can find the replica queue under the ``Queue Dn`` column and ``FC pau`` refers to Flow Control pauses.  When the replica queue rises to a certain point, Flow Control changes the pause value to ``1.0``.  The node will hold to this value until the replica queue is worked down to a more manageable size.
 
 For more information on status variables that relate to flow control, see :doc:`galera-status-variables`.
 
@@ -137,7 +137,7 @@ In addition to tracking Flow Control pauses, Galera Cluster also allows you to t
 
 You can find this using one of two status variables:
 
-- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` Provides the amount of time replication was paused as a fraction.  Effectively, how much the slave lag is slowing the cluster.  The value ``1.0`` indicates replication is paused now.
+- :ref:`wsrep_flow_control_paused <wsrep_flow_control_paused>` Provides the amount of time replication was paused as a fraction.  Effectively, how much the replica lag is slowing the cluster.  The value ``1.0`` indicates replication is paused now.
 
 - :ref:`wsrep_flow_control_paused_ns <wsrep_flow_control_paused_ns>` Provides the amount of time replication was paused in nanoseconds.
 
@@ -181,17 +181,17 @@ The write-set cache grows semi-logarithmically with time after the :ref:`gcs.rec
 These parameters control the point at which the node triggers Flow Control and the factor used in determining when it should disengage Flow Control and resume replication.
 
 
-- :ref:`gcs.fc_limit <gcs.fc_limit>` This parameter determines the point at which Flow Control engages.  When the slave queue exceeds this limit, the node pauses replication.
+- :ref:`gcs.fc_limit <gcs.fc_limit>` This parameter determines the point at which Flow Control engages.  When the replica queue exceeds this limit, the node pauses replication.
 
-  It is essential for multi-master configurations that you keep this limit low.  The certification conflict rate is proportional to the slave queue length.  In master-save setups, you can use a considerably higher value to reduce Flow Control intervention.
+  It is essential for multi-primary configurations that you keep this limit low.  The certification conflict rate is proportional to the replica queue length.  In primary-replics setups, you can use a considerably higher value to reduce Flow Control intervention.
 
   The default value is ``16``.
 
-- :ref:`gcs.fc_factor <gcs.fc_factor>` This parameter is used in determining when the node can disengage Flow Control.  When the slave queue on the node drops below the value of :ref:`gcs.fc_limit <gcs.fc_limit>` times that of :ref:`gcs.fc_factor <gcs.fc_factor>` replication resumes.
+- :ref:`gcs.fc_factor <gcs.fc_factor>` This parameter is used in determining when the node can disengage Flow Control.  When the replica queue on the node drops below the value of :ref:`gcs.fc_limit <gcs.fc_limit>` times that of :ref:`gcs.fc_factor <gcs.fc_factor>` replication resumes.
 
   The default value is ``0.5``.
 
-Bear in mind that, while it is critical for multi-master operations that you use as small a slave queue as possible, the slave queue length is not so critical in master-slave setups.  Depending on your application and hardware, the node can apply even 1K of write-sets in a fraction of a second.  The slave queue length has no effect on master-slave failover.
+Bear in mind that, while it is critical for multi-primary operations that you use as small a replica queue as possible, the replica queue length is not so critical in primary-replica setups.  Depending on your application and hardware, the node can apply even 1K of write-sets in a fraction of a second.  The replica queue length has no effect on primary-replica failover.
 
 .. warning:: Cluster nodes process transactions asynchronously with regards to each other.  Nodes cannot anticipate in any way the amount of replication data.  Because of this, Flow Control is always reactive.  That is, it only comes into affect after the node exceeds certain limits.  It cannot prevent exceeding these limits or, when they are exceeded, it cannot make any guarantee as to the degree they are exceeded.
 

@@ -329,7 +329,7 @@ You can monitor the local received queue and Flow Control using the following st
      | wsrep_cert_deps_distance | 23.8889 |
      +--------------------------+---------+
 
-  This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_slave_threads <wsrep_slave_threads>` or :ref:`wsrep_applier_threads <wsrep_applier_threads>` parameter, given that there is no reason to assign more slave threads than transactions you can apply in parallel.
+  This represents the node's potential degree for parallelization.  In other words, the optimal value you can use with the :ref:`wsrep_slave_threads <wsrep_slave_threads>` or :ref:`wsrep_applier_threads <wsrep_applier_threads>` parameter, given that there is no reason to assign more replica threads than transactions you can apply in parallel.
 
 .. _`check-network-issues`:
 .. rst-class:: section-heading

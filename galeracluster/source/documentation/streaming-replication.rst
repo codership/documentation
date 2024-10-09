@@ -64,7 +64,7 @@ Streaming Replication
 
 Under normal operation, the node performs all replication and certification events when a transaction commits.  When working with small transactions this is fine. However, it poses an issue with long-running writes and changes to large data-sets.
 
-In :term:`Streaming Replication`, the node breaks the transaction into fragments, then certifies and replicates them on the slaves while the transaction is still in progress.  Once certified, the fragment can no longer be aborted by conflicting transactions.
+In :term:`Streaming Replication`, the node breaks the transaction into fragments, then certifies and replicates them on the replicas while the transaction is still in progress.  Once certified, the fragment can no longer be aborted by conflicting transactions.
 
 Additionally, Streaming Replication allows the node to process transaction write-sets greater than 2Gb.
 
@@ -100,11 +100,11 @@ Certification keys are generated from record locks, therefore they don't cover g
 
 When using normal replication, the node locally processes the transaction and doesn't replicate the data until you commit.  This can create problems when updating a large volume of data, especially on nodes with slower network connections.
 
-Additionally, while slave nodes apply a large transaction, they cannot commit other transactions they receive, which may result in Flow Control throttling of the entire cluster.
+Additionally, while replica nodes apply a large transaction, they cannot commit other transactions they receive, which may result in Flow Control throttling of the entire cluster.
 
 With :term:`Streaming Replication`, the node begins to replicate the data with each transaction fragment, rather than waiting for the commit.  This allows you to spread the replication over the lifetime of the transaction.
 
-In the case of the slave nodes, after the slave applies a fragment, it's free to apply and commit other, concurrent transactions without blocking.  This allows the slave node to process incrementally the entire large transaction with a minimal impact on the cluster.
+In the case of the replica nodes, after the replica applies a fragment, it's free to apply and commit other, concurrent transactions without blocking.  This allows the replica node to process incrementally the entire large transaction with a minimal impact on the cluster.
 
 
 .. _`hot-records`:

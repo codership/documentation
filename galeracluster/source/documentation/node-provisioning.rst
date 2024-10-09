@@ -95,9 +95,9 @@ There are two options available to determining the state transfer donor:
 
 	  Thus, whenever possible: manually select the state donor, based on network proximity and configure the load balancer to transfer client connections to other nodes in the cluster for the duration of the state transfer.
 
-When a state transfer is in process, the joining node caches write-sets that it receives from other nodes in a slave queue.  Once the state transfer is complete, it applies the write-sets from the slave queue to catch up with the current Primary Component state.  Since the state snapshot carries a state UUID, it is easy to determine which write-sets the snapshot contains and which it should discard.
+When a state transfer is in process, the joining node caches write-sets that it receives from other nodes in a replica queue.  Once the state transfer is complete, it applies the write-sets from the replica queue to catch up with the current Primary Component state.  Since the state snapshot carries a state UUID, it is easy to determine which write-sets the snapshot contains and which it should discard.
 
-During the catch-up phase, flow control ensures that the slave queue shortens, (that is, it limits the :term:`Cluster Replication` rates to the write-set application rate on the node that is catching up).
+During the catch-up phase, flow control ensures that the replica queue shortens, (that is, it limits the :term:`Cluster Replication` rates to the write-set application rate on the node that is catching up).
 
 While there is no guarantee on how soon a node will catch up, when it does the node status updates to ``SYNCED`` and it begins to accept client connections.
 

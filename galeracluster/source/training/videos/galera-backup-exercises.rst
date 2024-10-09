@@ -128,18 +128,18 @@ This set of exercises require all four servers mentioned in the requirements abo
 
 .. rst-class:: list-exercises
 
-4. On one of the Galera nodes, configure it also to use standard replication, to be a master.  See the link in at the top under Student Materials for an example configuration file.  On the fourth server, the one without Galera Cluster, configure it to use standard replication, to be a slave to the master.  If you’re unfamiliar with standard replication, you might watch our training video on *Standard Replication and Galera Cluster* |---| or read the related article on the same topic.
+4. On one of the Galera nodes, configure it also to use standard replication, to be a primary.  See the link in at the top under Student Materials for an example configuration file.  On the fourth server, the one without Galera Cluster, configure it to use standard replication, to be a replica to the primary.  If you’re unfamiliar with standard replication, you might watch our training video on *Standard Replication and Galera Cluster* |---| or read the related article on the same topic.
 
-5. Create a user with ``REPLICATION CLIENT`` on the Galera node you’ve designated to be a master. Use ``mysqldump`` to make a copy of all of the databases on the master. Be sure to use the ``--flush-logs`` and ``--master-data`` options.
+5. Create a user with ``REPLICATION CLIENT`` on the Galera node you’ve designated to be a primary. Use ``mysqldump`` to make a copy of all of the databases on the primary. Be sure to use the ``--flush-logs`` and ``--master-data`` options.
 
-6. Use the ``scp`` command to copy the dump file you created on the master, to the slave.  Load the data on the slave, using the ``mysql`` client. Execute the ``CHANGE MASTER TO`` (MySQL < 8.4) or ``CHANGE REPLICATION SOURCE TO`` (MySQL > 8.4) statement to provide the IP address and port 3306, as well as the replication user name and password. Then start replication by executing either the ``START SLAVE`` (MySQL < 8.4) or ``START REPLICA`` (MySQL > 8.4) statement on the slave.  Check that replication is running fine with either ``SHOW SLAVE STATUS`` (MySQL < 8.4) or ``SHOW REPLICA STATUS`` (MySQL > 8.4, MariaDB > 10.5.1) on the slave. Try changing some data on the master and see if it replicates to the slave.
+6. Use the ``scp`` command to copy the dump file you created on the primary, to the replica.  Load the data on the replica, using the ``mysql`` client. Execute the ``CHANGE MASTER TO`` (MySQL < 8.4) or ``CHANGE REPLICATION SOURCE TO`` (MySQL > 8.4) statement to provide the IP address and port 3306, as well as the replication user name and password. Then start replication by executing either the ``START SLAVE`` (MySQL < 8.4) or ``START REPLICA`` (MySQL > 8.4) statement on the replica.  Check that replication is running fine with either ``SHOW SLAVE STATUS`` (MySQL < 8.4) or ``SHOW REPLICA STATUS`` (MySQL > 8.4, MariaDB > 10.5.1) on the replica. Try changing some data on the primary and see if it replicates to the replica.
 
-7. Make a directory called ``backups``, with a sub-directory within it called ``temp``. Stop the slave and use `mysqldump` to make a back-up on it to a the ``backups``, ``temp`` sub-directory.  Copy the binary log files, as well as the MySQL configuration file to the temporary back-up sub-directory.  Then tar and zip the back-up files. Start the slave again and make sure replication is running.
+7. Make a directory called ``backups``, with a sub-directory within it called ``temp``. Stop the replica and use `mysqldump` to make a back-up on it to a the ``backups``, ``temp`` sub-directory.  Copy the binary log files, as well as the MySQL configuration file to the temporary back-up sub-directory.  Then tar and zip the back-up files. Start the replica again and make sure replication is running.
 
 .. rst-class:: sub-heading
 .. rubric:: Using Galera Arbitrator
 
-For the exercises in this section and the remaining sections, you won’t need the replication slave server. You can shut it down. You’ll only use the three servers with Galera installed on them.
+For the exercises in this section and the remaining sections, you won’t need the replica server. You can shut it down. You’ll only use the three servers with Galera installed on them.
 
 .. rst-class:: list-exercises
 
@@ -152,7 +152,7 @@ For the exercises in this section and the remaining sections, you won’t need t
 
 .. rst-class:: list-exercises
 
-10. Drop the ``company`` database on one of the nodes.  Check that the deletion of the database has occurred on all of the Galera nodes and the slave. Choose one Galera node for restoration. Shutdown the ``mysqld`` daemon on the other two nodes.
+10. Drop the ``company`` database on one of the nodes.  Check that the deletion of the database has occurred on all of the Galera nodes and the replica. Choose one Galera node for restoration. Shutdown the ``mysqld`` daemon on the other two nodes.
 
 11. Using the back-up you made with ``rsync``, in the previous set of exercises, restore the data to one of the nodes. Start the other Galera nodes, one at a time.  Verify that they’ve been restored.
 

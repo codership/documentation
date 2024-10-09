@@ -357,7 +357,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      When using Galera in multi-master mode, transaction conflicts may occur if clients try to modify the same row at the same time. This discusses troubleshooting these deadlock errors.
+      When using Galera in multi-primary mode, transaction conflicts may occur if clients try to modify the same row at the same time. This discusses troubleshooting these deadlock errors.
 
 
 
