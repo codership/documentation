@@ -114,7 +114,7 @@ and an explanation.
    ":ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>`", "``1``", "Yes", ""
    ":ref:`wsrep_applier_FK_checks <wsrep_applier_FK_checks>`", "``ON``", "Yes", "Yes"
    ":ref:`wsrep_slave_FK_checks <wsrep_slave_FK_checks>`", "``ON``", "Yes", "Yes"
-   ":ref:`wsrep_applier_threads <wsrep_applier_threads>`", "``1``", "Yes", ""
+   ":ref:`wsrep_applier_threads <wsrep_applier_threads>`", "``1``", "Yes", "Yes"
    ":ref:`wsrep_slave_threads <wsrep_slave_threads>`", "``1``", "Yes", ""
    ":ref:`wsrep_applier_UK_checks <wsrep_applier_UK_checks>`", "``OFF``", "Yes", "Yes"
    ":ref:`wsrep_slave_UK_checks <wsrep_slave_UK_checks>`", "``OFF``", "Yes", "Yes"
@@ -122,7 +122,7 @@ and an explanation.
    ":ref:`wsrep_sst_donor <wsrep_sst_donor>`", "", "Yes", ""
    ":ref:`wsrep_sst_donor_rejects_queries <wsrep_sst_donor_rejects_queries>`", "``OFF``", "Yes", ""
    ":ref:`wsrep_sst_method <wsrep_sst_method>`", "``mysqldump``", "Yes", ""
-   ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", ""
+   ":ref:`wsrep_sst_receive_address <wsrep_sst_receive_address>`", "*node IP address*", "Yes", "Yes"
    ":ref:`wsrep_start_position <wsrep_start_position>`", "*see reference entry*", "Yes", ""
    ":ref:`wsrep_status_file <wsrep_status_file>`", "", "Yes", "No"
    ":ref:`wsrep_sync_server_uuid <wsrep_sync_server_uuid>`", "``0``", "Yes", "Yes"
@@ -1618,7 +1618,7 @@ Defines the number of threads to use in applying of write-sets.
    "Command-line Format", "``--wsrep-applier-threads``"
    "System Variable", "``wsrep_applier_threads``"
    "Variable Scope", "Global"
-   "Dynamic Variable", ""
+   "Dynamic Variable", "Yes"
    "Permitted Values", "Integer"
    "Default Value", "``1``"
    "Initial Version", "MySQL-wsrep: 8.0.26-26.8"
@@ -1922,7 +1922,7 @@ Defines the address from which the node expects to receive state transfers.
    "Command-line Format", "``--wsrep-sst-receive-address``"
    "System Variable", "``wsrep_sst_receive_address``"
    "Variable Scope", "Global"
-   "Dynamic Variable", ""
+   "Dynamic Variable", "Yes"
    "Permitted Values", "String"
    "Default Value", ":ref:`wsrep_node_address <wsrep_node_address>`"
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
@@ -2087,13 +2087,24 @@ This value of this parameter is a bitmask, which determines the type of check yo
 .. csv-table::
    :class: doc-options
    :header: "Bitmask", "Checks"
+   :widths: 10, 90
 
    "``0``", "Disabled."
    "``1``", "Checks on ``READ`` statements, including ``SELECT``, and ``BEGIN`` / ``START TRANSACTION``. Checks on ``SHOW`` (up to versions 5.5.54, 5.6.35, 5.7.17)"
    "``2``", "Checks made on ``UPDATE`` and ``DELETE`` statements."
    "``3``", "Checks made on ``READ``, ``UPDATE`` and ``DELETE`` statements."
    "``4``", "Checks made on ``INSERT`` and ``REPLACE`` statements."
+   "``5``", "Checks made on ``READ``, ``INSERT`` and ``REPLACE`` statements."
+   "``6``", "Checks made on ``UPDATE``, ``DELETE``, ``INSERT`` and ``REPLACE`` statements."
+   "``7``", "Checks made on ``READ``,``UPDATE``, ``DELETE``, ``INSERT`` and ``REPLACE`` statements."
    "``8``", "Checks made on ``SHOW`` statements."
+   "``9``", "Checks made on ``READ`` and ``SHOW`` statements."
+   "``10``", "Checks made on ``UPDATE``, ``DELETE`` and ``SHOW`` statements."
+   "``11``", "Checks made on ``READ``, ``UPDATE``, ``DELETE`` and ``SHOW`` statements."
+   "``12``", "Checks made on ``INSERT``, ``REPLACE``, and ``SHOW`` statements."
+   "``13``", "Checks made on ``READ``, ``INSERT``, ``REPLACE``, and ``SHOW`` statements."
+   "``14``", "Checks made on ``UPDATE``, ``DELETE``, ``INSERT``, ``REPLACE``, and ``SHOW`` statements."
+   "``15``", "Checks made on ``READ``, ``UPDATE``, ``DELETE``, ``INSERT``, ``REPLACE``, and ``SHOW`` statements."
 
 For example, say that you have a web application.  At one point in its run, you need it to perform a critical read.  That is, you want the application to access the database server and run a ``SELECT`` query that must return the most up to date information possible.
 
