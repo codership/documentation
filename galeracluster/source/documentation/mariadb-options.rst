@@ -53,11 +53,6 @@
 ======================
 MariaDB Options
 ======================
-.. index::
-   single: Drupal
-.. index::
-   pair: Logs; Debug log
-
 
 These are MariaDB Server and Enterprise options. If you click on a particular variable in this table, your web browser will scroll down to the entry for it with more details and an explanation.
 
@@ -69,7 +64,7 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 20, 12, 6, 15, 15
+   :widths: 30, 20, 6, 6, 18, 18
 
    ":ref:`wsrep_allowlist <wsrep_allowlist>`", "``None``", "Yes", "No", "10.10", ""
    ":ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>`", "``0``", "Yes", "Yes", "", ""
@@ -234,7 +229,7 @@ Wsrep patch version, for example ``wsrep_25.10``.
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 34, 12, 6, 8, 8
+   :widths: 30, 20, 19, 6, 11, 12
 
    ":ref:`wsrep-OSU-mode <wsrep-osu-mode>`", "``TOI``", "Global and Session", "Yes", "1.0", ""
    ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``OFF``", "Yes", "Yes", "1.0", ""
