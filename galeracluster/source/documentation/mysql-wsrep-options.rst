@@ -1032,6 +1032,7 @@ The options for MariaDB are:
 - ``REPLICATE_MYISAM`` - Together with ``wsrep_mode=REPLICATE_ARIA``, this parameter enables Galera to replicate both DDL and DML for ARIA and/or MyISAM using TOI. This option requires a primary key for the replicated table. To use this mode, set on ``REQUIRED_PRIMARY_KEY,REPLICATE_MYISAM,REPLICATE_ARIA``.
 - ``REQUIRED_PRIMARY_KEY`` - The table must have a primary key defined.
 - ``STRICT_REPLICATION`` - The same as the old ``wsrep_strict_ddl`` setting.
+- ``BF_ABORT_MARIABACKUP`` - With this option, backup execution can be aborted if DDL statements take place during the backup execution. Note that node desync and pause operations are still needed, if the node is operating as an SST donor.
 - (Empty) - Giving no value does not change the node behavior. This is the default value for MariaDB.
 
 The options for Percona XtraDB Cluster (PXC) are:
