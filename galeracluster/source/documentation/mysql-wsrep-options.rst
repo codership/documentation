@@ -97,7 +97,7 @@ and an explanation.
    ":ref:`wsrep_log_conflicts <wsrep_log_conflicts>`", "``OFF``", "Yes", ""
    ":ref:`wsrep_max_ws_rows <wsrep_max_ws_rows>`", "``0``", "Yes", ""
    ":ref:`wsrep_max_ws_size <wsrep_max_ws_size>`", "``1G``", "Yes", ""
-   ":ref:`wsrep_mode <wsrep_mode>`", "``ON``", "Yes", ""
+   ":ref:`wsrep_mode <wsrep_mode>`", "``ON``", "Yes", "Yes"
    ":ref:`wsrep_node_address <wsrep_node_address>`", "*host address:default port*", "Yes", ""
    ":ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>`", "*host address:mysqld port*", "Yes", ""
    ":ref:`wsrep_node_name <wsrep_node_name>`", "``<hostname>``", "Yes", ""
@@ -1005,19 +1005,40 @@ Extends node behaviour with provided values.
    "Command-line Format", "``--wsrep_mode``"
    "System Variable", "``wsrep_mode``"
    "Variable Scope", "Global"
-   "Dynamic Variable", ""
+   "Dynamic Variable", "Yes"
    "Permitted Values", "Set"
-   "Default Value", "APPLIER_IGNORE_MISSING_TABLE"
+   "Default Value", "See the information below."
    "Initial Version", "MySQL-wsrep: 5.7.32-25.24, 8.0.22-26.5, MariaDB: 10.6.0"
 
 .. csv-table::
    :class: doc-options
-   :header: "Value", "Behaviour"
-   :widths: 25, 50
+   :header: "Galera Cluster version", "MySQL database server version", "Blog post"
 
-   "``IGNORE_NATIVE_REPLICATION_FILTER_RULES``", "Ignore replication filter rules for cluster events."
-   "``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR``", "Ignore missing row errors when applying a cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821."
-   "``APPLIER_IGNORE_MISSING_TABLE``", "MySQL has an anomaly to sometimes add an excessive tablemap event in the binlog. This can happen in use cases related to multi-table updates and trigger definitions to a third table, which is not effectively needed in applying of the replication events. With wsrep_mode "APPLIER_IGNORE_MISSING_TABLE", the replication applier will ignore the failure to open such a table, which would not be used in the actual applying."
+The options for MySQL are:
+
+- ``IGNORE_NATIVE_REPLICATION_FILTER_RULES`` - Ignore native replication filter rules for cluster events. In other words, native asynchronous replication filtering options are honored when applying Galera replication. These options are of format ``replicate_*``, and specify if transactions for a table or a database should be applied or not.
+- ``IGNORE_CASCADING_FK_DELETE_MISSING_ROW_ERROR`` - Ignore missing row errors when applying a cascading delete write set. This a workaround for https://bugs.mysql.com/bug.php?id=80821, and is possibly obsolete in the upstream versions.
+- ``APPLIER_IGNORE_MISSING_TABLE`` - MySQL has an anomaly to sometimes add an excessive tablemap event in the binlog. This can happen in use cases related to multi-table updates and trigger definitions to a third table, which is not effectively needed in applying of the replication events. With ``wsrep_mode`` set to ``APPLIER_IGNORE_MISSING_TABLE``, the replication applier will ignore the failure to open such a table, which would not be used in the actual applying. This is the default value for MySQL.
+- ``APPLIER_SKIP_FK_CHECKS_IN_IST`` - In normal operation, appliers must verify foreign key constraints in multi-active topologies. Thus, appliers are configured to enable FK checking. However, during node joining, in IST and latter catch up period, the node is still idle from local connections, and the only source for incoming transactions is the cluster sending certified write sets for applying. IST happens with parallel applying, and there is a possibility that a foreign key check causes lock conflicts between appliers accessing FK child and parent tables. Also, the excessive FK checking will slow down IST process. When this mode is set, and the node is processing IST or catch up, appliers will skip FK checking.
+
+The options for MariaDB are:
+
+- ``BINLOG_ROW_FORMAT_ONLY`` - Only ``ROW`` binlog format is supported.
+- ``DISALLOW_LOCAL_GTID`` - Nodes can have GTIDs for local transactions in a number of scenarios. If ``DISALLOW_LOCAL_GTID`` is set, these operations produce error ``ERROR HY000: Galera replication not supported``. Scenarios include:
+   - A DDL statement is executed with ``wsrep_OSU_method=RSU`` set.
+   - A DML statement writes to a non-InnoDB table.
+   - A DML statement writes to an InnoDB table with ``wsrep_on=OFF`` set.
+- ``REPLICATE_ARIA`` - Together with ``wsrep_mode=REPLICATE_MYISAM``, this parameter enables Galera to replicate both DDL and DML for ARIA and/or MyISAM using TOI. This option requires a primary key for the replicated table. To use this mode, set on ``REQUIRED_PRIMARY_KEY,REPLICATE_MYISAM,REPLICATE_ARIA``.
+- ``REPLICATE_MYISAM`` - Together with ``wsrep_mode=REPLICATE_ARIA``, this parameter enables Galera to replicate both DDL and DML for ARIA and/or MyISAM using TOI. This option requires a primary key for the replicated table. To use this mode, set on ``REQUIRED_PRIMARY_KEY,REPLICATE_MYISAM,REPLICATE_ARIA``.
+- ``REQUIRED_PRIMARY_KEY`` - The table must have a primary key defined.
+- ``STRICT_REPLICATION`` - The same as the old ``wsrep_strict_ddl`` setting (which was deprecated in 10.6, and removed in 10.7).
+- ``BF_ABORT_MARIABACKUP`` - With this option, backup execution can be aborted if DDL statements take place during the backup execution. Note that node desync and pause operations are still needed, if the node is operating as an SST donor.
+- (Empty) - Giving no value does not change the node behavior. This is the default value for MariaDB.
+
+The options for Percona XtraDB Cluster (PXC) are:
+
+- ``IGNORE_NATIVE_REPLICATION_FILTER_RULES`` - Ignore native replication filter rules for cluster events.
+- (Empty) - Giving no value does not change the node behavior. This is the default value for Percona XtraDB Cluster (PXC).
 
 .. code-block:: mysql
 

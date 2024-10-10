@@ -53,11 +53,6 @@
 ======================
 MariaDB Options
 ======================
-.. index::
-   single: Drupal
-.. index::
-   pair: Logs; Debug log
-
 
 These are MariaDB Server and Enterprise options. If you click on a particular variable in this table, your web browser will scroll down to the entry for it with more details and an explanation.
 
@@ -69,7 +64,7 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 20, 12, 6, 15, 15
+   :widths: 30, 20, 6, 6, 18, 18
 
    ":ref:`wsrep_allowlist <wsrep_allowlist>`", "``None``", "Yes", "No", "10.10", ""
    ":ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>`", "``0``", "Yes", "Yes", "", ""
@@ -77,8 +72,6 @@ These are MariaDB Server and Enterprise options. If you click on a particular va
    ":ref:`wsrep_gtid_seq_no <wsrep_gtid_seq_no>`", "", "No", "Yes", "", ""
    ":ref:`wsrep-mysql-replication-bundle <wsrep-mysql-replication-bundle>`", "``0``", "Yes", "No", "", ""
    ":ref:`wsrep_patch_version <wsrep_patch_version>`", "", "Yes", "No", "", ""
-   ":ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`", "``OFF``", "Yes", "", "", ""
-   ":ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`", "``OFF``", "Yes", "", "", ""
 
 
 
@@ -229,95 +222,6 @@ Wsrep patch version, for example ``wsrep_25.10``.
    "MariaDB Version", "Version 10.1.5"
 
 
-.. _`wsrep_mode_replicate_aria`:
-.. rst-class:: section-heading
-.. rubric:: ``wsrep_mode=REPLICATE_ARIA``
-
-.. index::
-   pair: Parameters; wsrep_mode=REPLICATE_ARIA
-
-.. note:: This functionality is experimental and should not be relied upon in production systems.
-
-Together with :ref:`wsrep_mode=REPLICATE_MYISAM <wsrep_mode_replicate_myisam>`, this parameter enables Galera to replicate both DDL and DML for ARIA and/or MyISAM using TOI.
-
-For example:
-
-.. code-block:: mysql
-
-   SET GLOBAL wsrep_mode = "REQUIRED_PRIMARY_KEY,REPLICATE_MYISAM,REPLICATE_ARIA";
-
-Replicates both Aria and MyISAM DML, but requires a primary key for replicated table.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep_mode_replicate_aria``"
-   "System Variable", "``wsrep_mode_replicate_aria``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", ""
-   "Permitted Values", "Boolean"
-   "Default Value", "``OFF`` "
-   "Initial Version", "Version 1.0"
-   "MariaDB Version", "Version 10.6"
-
-You can execute the following ``SHOW VARIABLES`` statement to see how its set:
-
-.. code-block:: mysql
-
-   SHOW VARIABLES LIKE 'wsrep_mode_replicate_aria';
-
-    +------------------------------+-------+
-    | Variable_name                | Value |
-    +------------------------------+-------+
-    | wsrep_mode_replicate_aria    | ON    |
-    +------------------------------+-------+
-
-
-.. _`wsrep_mode_replicate_myisam`:
-.. rst-class:: section-heading
-.. rubric:: ``wsrep_mode=REPLICATE_MYISAM``
-
-.. index::
-   pair: Parameters; wsrep_mode=REPLICATE_MYISAM
-
-.. note:: This functionality is experimental and should not be relied upon in production systems.
-
-Together with :ref:`wsrep_mode=REPLICATE_ARIA <wsrep_mode_replicate_aria>`, this parameter enables Galera to replicate both DDL and DML for MyISAM and/or Aria using TOI.
-
-For example:
-
-.. code-block:: mysql
-
-   SET GLOBAL wsrep_mode = "REQUIRED_PRIMARY_KEY,REPLICATE_MYISAM,REPLICATE_ARIA";
-
-Replicates both MyISAM and Aria DML, but requires a primary key for replicated table.
-
-.. csv-table::
-   :class: doc-options
-
-   "Command-line Format", "``--wsrep_mode_replicate_myisam``"
-   "System Variable", "``wsrep_mode_replicate_myisam``"
-   "Variable Scope", "Global"
-   "Dynamic Variable", ""
-   "Permitted Values", "Boolean"
-   "Default Value", "``OFF`` "
-   "Initial Version", "Version 1.0"
-   "MariaDB Version", "Version 10.6"
-
-You can execute the following ``SHOW VARIABLES`` statement to see how its set:
-
-.. code-block:: mysql
-
-   SHOW VARIABLES LIKE 'wsrep_mode_replicate_myisam';
-
-    +------------------------------+-------+
-    | Variable_name                | Value |
-    +------------------------------+-------+
-    | wsrep_mode_replicate_myisam  | ON    |
-    +------------------------------+-------+
-
-
-
 .. _`mariadb_enterprise_options`:
 .. rst-class:: section-heading
 .. rubric:: MariaDB Enterprise Options
@@ -325,7 +229,7 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 .. csv-table::
    :class: doc-options tight-header
    :header: "|br| Option", "|br| Default Value", "|br| Global ", "|br| Dynamic", "Initial |br| Version", "Version |br| Deprecated"
-   :widths: 30, 34, 12, 6, 8, 8
+   :widths: 30, 20, 19, 6, 11, 12
 
    ":ref:`wsrep-OSU-mode <wsrep-osu-mode>`", "``TOI``", "Global and Session", "Yes", "1.0", ""
    ":ref:`wsrep_strict_ddl <wsrep_strict_ddl>`", "``OFF``", "Yes", "Yes", "1.0", ""
