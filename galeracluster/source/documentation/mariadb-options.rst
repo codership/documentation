@@ -294,6 +294,8 @@ You can execute the following ``SHOW VARIABLES`` statement to see how its set:
 .. index::
    pair: Parameters; wsrep_strict_ddl
 
+.. note:: This feature has been **deprecated** in MariaDB 10.6.0 and **removed** in MariaDB 10.7. Use ``wsrep_mode=STRICT_REPLICATION`` instead. See :ref:`wsrep_mode <wsrep_mode>`.
+
 If set, rejects DDL on affected tables not supporting Galera replication.
 
 
