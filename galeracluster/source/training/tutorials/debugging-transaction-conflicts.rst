@@ -55,7 +55,7 @@ Debugging Transaction Conflicts
 
    Length:  1,086 words; Writer: Philip Stoev; Published: June 29, 2015; Topic: General; Level: Beginner
 
-If you are using Galera Cluster in multi-primary mode, you will most likely run into transaction conflicts if two clients attempt to modify the same row at the same time. Such conflicts are reported a deadlock errors to the application.
+If you are using Galera Cluster in multi-primary mode, you will most likely run into transaction conflicts if two clients attempt to modify the same row at the same time. Such conflicts are reported as deadlock errors to the application.
 Legacy applications are frequently unable to handle transaction conflicts properly and may not provide sufficient information to debug the source of the problem.
 
 If the ``wsrep_log_conflicts`` option is set, Galera can output all the information about transaction conflicts that is available to it to the error log. As it is a dynamic option, you can enable it while the server is running, collect some entries for examination, and disable it to avoid filling up the log.
