@@ -100,7 +100,7 @@ The following features are available through Galera Cluster:
 
 - **No Primary-Replica Failover**
 
-  There is no need for primary/replica operations or to use VIP.
+  There is no need for primary/replica operations or to use Virtual IPs (VIP).
 
 - **Hot Standby**
 
