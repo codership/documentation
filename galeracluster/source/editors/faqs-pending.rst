@@ -65,7 +65,7 @@ If you have any suggestions for new FAQs, please email us at library@galeraclust
 
 .. rst-class:: list-abstract
 
-   A plugin that allows synchronous multi-primary replication for InnoDB tables. It works differently from the standard MySQL replication, which provides Primary and Replica structure. The Galera :term:`Cluster Replication` is able to manage true parallel read and write to any cluster node, managing conflicts using a Global Transaction ID mechanism.
+   A plugin that allows synchronous multi-primary replication for InnoDB tables. It works differently from the standard MySQL replication, which provides a Primary and Replica structure. The Galera :term:`Cluster Replication` is able to manage true parallel read and write to any cluster node, managing conflicts using a Global Transaction ID mechanism.
 
 
 .. _`faq-pending-2`:
