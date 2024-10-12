@@ -473,7 +473,7 @@ This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` s
 
 This parameter determines how the node handles ``LOCK/UNLOCK TABLES`` statements, specifically whether or not you want it to convert these statements into ``BEGIN/COMMIT`` statements.  It tells the node to convert implicitly locking sessions into transactions within the database server. By itself, this is not the same as support for locking sections, but it does prevent the database from resulting in a logically inconsistent state.
 
-This parameter may help sometimes to get old applications working in a multi-primary setup.
+This parameter may sometimes help to get old applications working in a multi-primary setup.
 
 .. note:: Loading a large database dump with ``LOCK`` statements can result in abnormally large transactions and cause an out-of-memory condition.
 
