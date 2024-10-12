@@ -1715,7 +1715,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.ignore_sb
 
-Should we allow nodes to process updates even in the case of :term:`Split Brain`? This is a dangerous setting in multi-primary setup, but should simplify things in primary-replica cluster (especially if only 2 nodes are used).
+Should we allow nodes to process updates even in the case of :term:`Split Brain`? This is a dangerous setting in a multi-primary setup, but should simplify things in a primary-replica cluster (especially if only 2 nodes are used).
 
 .. csv-table::
    :class: doc-options
