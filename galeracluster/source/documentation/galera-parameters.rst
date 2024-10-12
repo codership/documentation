@@ -262,11 +262,11 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; cert.optimistic_pa
 
-Controls parallel applying of slave actions. When enabled allows full range
+Controls parallel applying of replica actions. When enabled allows full range
 of parallelization as determined by certification algorithm. When disabled
-limits parallel applying window to not exceed that seen on master. In other
+limits parallel applying window to not exceed that seen on primary. In other
 words, the action starts applying no sooner than all actions it has seen
-on the master are committed.
+on the primary are committed.
 
 .. csv-table::
    :class: doc-options
@@ -1119,7 +1119,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gcs.fc_limit
 
-Pause replication if recv queue exceeds this number of  writesets. For master-slave setups this number can be increased considerably.
+Pause replication if recv queue exceeds this number of  writesets. For primary-replica setups this number can be increased considerably.
 
 .. csv-table::
    :class: doc-options
@@ -1715,7 +1715,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.ignore_sb
 
-Should we allow nodes to process updates even in the case of :term:`Split Brain`? This is a dangerous setting in multi-master setup, but should simplify things in master-slave cluster (especially if only 2 nodes are used).
+Should we allow nodes to process updates even in the case of :term:`Split Brain`? This is a dangerous setting in a multi-primary setup, but should simplify things in a primary-replica cluster (especially if only 2 nodes are used).
 
 .. csv-table::
    :class: doc-options
@@ -1738,7 +1738,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; pc.ignore_quorum
 
-Completely ignore :term:`Quorum` calculations. For example if the master splits from several slaves it still remains operational. Use with extreme caution even in master-slave setups, as slaves will not automatically reconnect to master in this case.
+Completely ignore :term:`Quorum` calculations. For example if the primary splits from several replicas it still remains operational. Use with extreme caution even in primary-replica setups, as replicas will not automatically reconnect to primary in this case.
 
 .. csv-table::
    :class: doc-options
@@ -2467,7 +2467,7 @@ You can set *Galera Cluster* parameters in the ``my.cnf`` configuration file as 
 
    wsrep_provider_options="gcs.fc_limit=256;gcs.fc_factor=0.9"
 
-This is useful in master-slave setups.
+This is useful in primary-replica setups.
 
 You can set Galera Cluster parameters through a MySQL client with the following query:
 

@@ -91,7 +91,7 @@ Software packages for Galera Cluster have their own release numbering schemas.  
 
 For instances of Galera Cluster that use the MariaDB database server, consult the MariaDB documentation for version and release information.
 
-See also :ref:`Galera Cluster and MySQL Database Server Versions <versions-and-release-notes>`.
+See also :doc:`Galera Cluster and MySQL Database Server Versions <versions-and-release-notes>`.
 
 
 .. _`third-party-galera`:

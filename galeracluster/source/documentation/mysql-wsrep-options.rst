@@ -473,7 +473,7 @@ This parameter is used to set whether the node converts ``LOCK/UNLOCK TABLES`` s
 
 This parameter determines how the node handles ``LOCK/UNLOCK TABLES`` statements, specifically whether or not you want it to convert these statements into ``BEGIN/COMMIT`` statements.  It tells the node to convert implicitly locking sessions into transactions within the database server. By itself, this is not the same as support for locking sections, but it does prevent the database from resulting in a logically inconsistent state.
 
-This parameter may help sometimes to get old applications working in a multi-master setup.
+This parameter may sometimes help to get old applications working in a multi-primary setup.
 
 .. note:: Loading a large database dump with ``LOCK`` statements can result in abnormally large transactions and cause an out-of-memory condition.
 
@@ -1683,7 +1683,7 @@ Instead of concrete recommendations, there are some general guidelines that you 
    "Initial Version", "MySQL-wsrep: 5.1.58-25.11, MariaDB: 5.5.21"
    "Deprecated Version", "MySQL-wsrep: 8.0.26-26.8"
 
-Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of :ref:`wsrep_applier_threads <wsrep_applier_threads>`. See also :doc:`Setting Parallel Slave Threads <../kb/parallel-applier-threads>`.
+Deprecated as of MySQL-wsrep 8.0.26-26.8 in favor of :ref:`wsrep_applier_threads <wsrep_applier_threads>`. See also :doc:`Setting Parallel Replica Threads <../kb/parallel-applier-threads>`.
 
 .. _`wsrep_applier_UK_checks`:
 .. rst-class:: section-heading
@@ -2059,7 +2059,7 @@ Sets the node to use the server UUID received from the donor node.
    "Default Value", "0"
    "Initial Version", "MySQL-wsrep 8.0.26-26.8"
 
-Unless this variable is set, the wsrep nodes generate individual server UUIDs, which are used on binlog events, such as rolling schema upgrades, that are not replicated through wsrep. This makes individual node histories incomparable and complicates switching asynchronous slave MASTER between the nodes in the cluster. 
+Unless this variable is set, the wsrep nodes generate individual server UUIDs, which are used on binlog events, such as rolling schema upgrades, that are not replicated through wsrep. This makes individual node histories incomparable and complicates switching asynchronous replica PRIMARY between the nodes in the cluster. 
 
 When set, this variable forces the nodes to use the same server UUID (generated on the seed node) to binlog events that are not replicated through wsrep. This makes the histories comparable, provided that the user executes such operations in agreed order on all the nodes..
 

@@ -7,7 +7,7 @@ Galera Cluster for MySQL Reference Manual
 =========================================
 
 `Galera Cluster for MySQL <http://www.codership.com/content/using-galera-cluster>`_ 
-is a synchronous multi-master database cluster, based on Oracle's MySQL/InnoDB.
+is a synchronous multi-primary database cluster, based on Oracle's MySQL, and InnoDB storage engine.
 The MySQL forks from Percona and MariaDB also provide Galera clustered versions 
 as `Percona XtraDB Cluster <http://www.percona.com/software/percona-xtradb-cluster>`_
 and `MariaDB Galera Cluster <https://downloads.mariadb.org/mariadb-galera/>`_

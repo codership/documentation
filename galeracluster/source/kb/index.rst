@@ -200,7 +200,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 .. container:: list-col1
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Multi-Master Conflicts <multi-master-conflicts>`
+   .. rubric:: :doc:`Multi-Primary Conflicts <multi-master-conflicts>`
 
    .. rst-class:: list-stats
 
@@ -208,7 +208,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-abstract
 
-      Multi-master clusters have certain types of conflicts and can involve data inconsistencies among nodes. This article explains the nuances of Galera and how to prevent them.
+      Multi-primary clusters have certain types of conflicts and can involve data inconsistencies among nodes. This article explains the nuances of Galera and how to prevent them.
 
 .. container:: list-col2
 
@@ -348,7 +348,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 .. container:: list-col1
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Single Master Setup <single-master-setup>`
+   .. rubric:: :doc:`Single Primary Setup <single-master-setup>`
 
    .. rst-class:: list-stats
 
@@ -356,10 +356,10 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      It's possible to designate one node in a cluster to handle all writes, to be the *master* to the other nodes. To do this, there are certain configuratoin requirements.
+      It's possible to designate one node in a cluster to handle all writes, to be the primary to the other nodes. To do this, there are certain configuration requirements.
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`Multi-Master Setup <multi-master-setup>`
+   .. rubric:: :doc:`Multi-Primary Setup <multi-master-setup>`
 
    .. rst-class:: list-stats
 
@@ -367,7 +367,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      The more *masters* in a cluster, the higher the probability of certification conflicts. This can lead to undesirable rollbacks and performance degradation.
+      The more primaries in a cluster, the higher the probability of certification conflicts. This can lead to undesirable rollbacks and performance degradation.
 
 .. container:: list-col2
 
@@ -426,11 +426,11 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 .. container:: list-col1
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: Read Master
+   .. rubric:: Read Primary
 
    .. rst-class:: list-abstract
 
-      Traditional MySQL master-slave topology, but with Galera all “slave” nodes are capable masters at all times, it is just the application who treats them as slaves. Galera replication can guarantee 0 slave lag for such installations and due to parallel slave applying, much better throughput for the cluster.
+      Traditional MySQL primary-replica topology, but with Galera all replica nodes are capable primaries at all times, it is just the application who treats them as replicas. Galera replication can guarantee 0 replica lag for such installations and due to parallel replica applying, much better throughput for the cluster.
 
    .. rst-class:: rubric-2 list-sub-header
    .. rubric:: Disaster Recovery
@@ -444,7 +444,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      Distributing writes across the cluster will harness the CPU power in slave nodes for better use to process client write transactions. Due to the row based replication method, only changes made during a client transaction will be replicated and applying such a transaction in slave applier is much faster than the processing of the original transaction. Therefore the cluster can distribute the heavy client transaction processing across many master nodes and this yields in better write transaction throughput overall.
+      Distributing writes across the cluster will harness the CPU power in replica nodes for better use to process client write transactions. Due to the row based replication method, only changes made during a client transaction will be replicated and applying such a transaction in replica applier is much faster than the processing of the original transaction. Therefore the cluster can distribute the heavy client transaction processing across many primary nodes and this yields in better write transaction throughput overall.
 
 .. container:: list-col2
 

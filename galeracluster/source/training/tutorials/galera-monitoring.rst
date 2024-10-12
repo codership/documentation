@@ -65,9 +65,9 @@ Monitoring a Galera Cluster
 
    Length: 3100 words; Writer: Russell J.T Dyer: July 17, 2019; Topic: Administration; Level: Intermediate
 
-Galera Cluster is a reliable, stable database replication clustering system. Both MySQL and MariaDB, with the InnoDB storage, utilize Galera for communications between nodes running Linux. Every aspect of such an arrangement is equally dependable for maintenance and availability of data.  It's truly a high-end professional package.
+Galera Cluster is a reliable, stable database replication clustering system. Both MySQL and MariaDB, with the InnoDB storage, utilize Galera for communications between nodes running Linux. Every aspect of such an arrangement is equally dependable for maintenance and availability of data. It's truly a high-end professional package.
 
-Nevertheless, you should monitor your cluster as an added level of assurance, to maintain a high availability standard -- to resolve problems quickly and without loss of data.  You should occasionally manually, and continuously by automated means, check the status of your cluster. Additionally, you should check and monitor the state of each node to ensure against problems (i.e., replication lag, network connectivity, etc.).
+Nevertheless, you should monitor your cluster as an added level of assurance, to maintain a high availability standard -- to resolve problems quickly and without loss of data. You should occasionally manually, and continuously by automated means, check the status of your cluster. Additionally, you should check and monitor the state of each node to ensure against problems (i.e., replication lag, network connectivity, etc.).
 
 There are three methods available to monitor cluster activity and replication health: you can regularly query MySQL's status variables; use customized scripts, which would basically react to changes in status variables; or use a third-party monitoring application, which would also relies on status variables. In essence, you can either check the status variables yourself, or you can automate and record the process by employing a script or some sort of monitoring software to check the status variables and alert you when there's a problem.
 
@@ -94,7 +94,7 @@ Galera Cluster variables are related to write-set replication and thereby prefix
    | wsrep_thread_count     | 6                                    |
    +------------------------+--------------------------------------+
 
-If you'd execute this SQL statement on one of your nodes, you'd see that there are over sixty status variables. Some of them may be of no interest to you -- perhaps most -- but there are some you should check regularly.  You could group these into three basic categories:  cluster integrity; node status; and replication health.
+If you'd execute this SQL statement on one of your nodes, you'd see that there are over sixty status variables. Some of them may be of no interest to you -- perhaps most -- but there are some you should check regularly. You could group these into three basic categories:  cluster integrity; node status; and replication health.
 
 
 .. rst-class:: sub-heading
@@ -102,13 +102,13 @@ If you'd execute this SQL statement on one of your nodes, you'd see that there a
 
 A cluster is said to have integrity when each node -- all of the nodes in the cluster -- receive and replicate write-sets from all of the other nodes. The cluster begins to lose integrity when this situation falters. This can be caused by the cluster going down, becoming partitioned, or if there is a split-brain situation.
 
-The status variables that will reveal whether there is a loss of cluster integrity are the ``wsrep_cluster_state_uuid``, ``wsrep_cluster_conf_id``, ``wsrep_cluster_size``, and the ``wsrep_cluster_status``.  Let's consider each and how it may indicate a problem.
+The status variables that will reveal whether there is a loss of cluster integrity are the ``wsrep_cluster_state_uuid``, ``wsrep_cluster_conf_id``, ``wsrep_cluster_size``, and the ``wsrep_cluster_status``. Let's consider each and how it may indicate a problem.
 
 
 .. rst-class:: lower-heading
 .. rubric:: Compare UUIDs
 
-When all nodes are synchronized with each other, they will have executed all of the same transactions.  Each transaction includes a UUID to identify it.  Therefore, the last UUID on each node should be the same.
+When all nodes are synchronized with each other, they will have executed all of the same transactions. Each transaction includes a UUID to identify it. Therefore, the last UUID on each node should be the same.
 
 To confirm this, execute the following SQL statement on each node to see if the results are the same:
 
@@ -126,7 +126,7 @@ If the last node has a different result from the others, it may be that a transa
 .. rst-class:: lower-heading
 .. rubric:: Take Attendance
 
-If there may be a problem with network connectivity or if you think the cluster may have split into separate clusters, check the ``wsrep_cluster_size`` on each to see that they agree.  If you have five nodes and some of the nodes say the cluster size contains three, while others say two, you have a problem. Any value that doesn't match the number of nodes you have running suggests there's a network connectivity problem, or maybe MySQL is down on one node.
+If there may be a problem with network connectivity or if you think the cluster may have split into separate clusters, check the ``wsrep_cluster_size`` on each to see that they agree. If you have five nodes and some of the nodes say the cluster size contains three, while others say two, you have a problem. Any value that doesn't match the number of nodes you have running suggests there's a network connectivity problem, or maybe MySQL is down on one node.
 
 However, if only one node is out of sync, you might solve the problem by taking it down, fixing whatever network problem it's having, and then starting it again. When it properly joins the cluster, it will undergo a  State Snapshot Transfer (SST), a full replacement of the databases.
 
@@ -160,15 +160,15 @@ Basically, you would look to see whether a node received and processed updates f
 .. rst-class:: lower-heading
 .. rubric:: Ready & Connected
 
-The first two status variables are pretty straightforward: they're either ``ON`` or ``OFF``.  If ``wsrep_ready`` returns ``OFF``, it's not ready and almost all queries will fail.  You'll receive error messages like this one:
+The first two status variables are pretty straightforward: they're either ``ON`` or ``OFF``. If ``wsrep_ready`` returns ``OFF``, it's not ready and almost all queries will fail. You'll receive error messages like this one:
 
 .. code-block:: mysql
 
    ERROR 1047 (08501) Unknown Command
 
-When ``wsrep_connected`` returns a value ``OFF``, the node doesn't have a connection to any other nodes or cluster components. The reason for lost connection could be more physical (i.e., the network is down, a cable is disconnected, etc.).  Or it could be that the node's configuration file is incorrect or inconsistent with the other nodes.
+When ``wsrep_connected`` returns a value ``OFF``, the node doesn't have a connection to any other nodes or cluster components. The reason for lost connection could be more physical (i.e., the network is down, a cable is disconnected, etc.). Or it could be that the node's configuration file is incorrect or inconsistent with the other nodes.
 
-For instance, the values of the ``wsrep_cluster_address`` and ``wsrep_cluster_name`` parameters may be entered incorrectly in the MySQL configuration file. The error log should provide details to help troubleshoot the problem.  This is usually, ``/var/log/mysqld.log`` |---| or whatever the value is for ``log_error`` variable.
+For instance, the values of the ``wsrep_cluster_address`` and ``wsrep_cluster_name`` parameters may be entered incorrectly in the MySQL configuration file. The error log should provide details to help troubleshoot the problem. This is usually, ``/var/log/mysqld.log`` |---| or whatever the value is for ``log_error`` variable.
 
 
 .. rst-class:: lower-heading
@@ -204,9 +204,9 @@ The status variables you'd check for this are ``wsrep_local_recv_queue_avg``, ``
 .. rst-class:: lower-heading
 .. rubric:: Bunching of Writes
 
-The ``wsrep_local_recv_queue_avg`` variable shows the average size of the local received queue since the last status query. When this is greater than 0, it indicates that the node can't apply write-sets as fast as it's receiving them.  If you're detecting a problem here, you might also check ``wsrep_local_recv_queue_min`` and ``wsrep_local_recv_queue_max`` to get a range of values, rather than just the average.
+The ``wsrep_local_recv_queue_avg`` variable shows the average size of the local received queue since the last status query. When this is greater than 0, it indicates that the node can't apply write-sets as fast as it's receiving them. If you're detecting a problem here, you might also check ``wsrep_local_recv_queue_min`` and ``wsrep_local_recv_queue_max`` to get a range of values, rather than just the average.
 
-In addition to checking the node's status related to incoming write-sets, it could check how outgoing connectivity is looking.  Mainly, you would check the ``wsrep_local_send_queue_avg`` variable to get an average of the send queue length since the last time the status variables were flushed.  However, sending is rarely a bottleneck.
+In addition to checking the node's status related to incoming write-sets, it could check how outgoing connectivity is looking. Mainly, you would check the ``wsrep_local_send_queue_avg`` variable to get an average of the send queue length since the last time the status variables were flushed. However, sending is rarely a bottleneck.
 
 .. code-block:: mysql
 
@@ -224,7 +224,7 @@ A value greater than 0 indicates replication throttling or network throughput is
 .. rst-class:: lower-heading
 .. rubric:: Flow Control Paused
 
-If you sense a node is getting overwhelmed, you might execute ``FLUSH STATUS`` on it and then check the value of the ``wsrep_flow_control_paused`` variable |---| after waiting a bit for a better sample.  It will return the percentage of time the node was paused because of Flow Control since you just flushed the status.
+If you sense a node is getting overwhelmed, you might execute ``FLUSH STATUS`` on it and then check the value of the ``wsrep_flow_control_paused`` variable |---| after waiting a bit for a better sample. It will return the percentage of time the node was paused because of Flow Control since you just flushed the status.
 
 .. code-block:: mysql
 
@@ -236,7 +236,7 @@ If you sense a node is getting overwhelmed, you might execute ``FLUSH STATUS`` o
    | wsrep_flow_control_paused | 0.184353 |
    +---------------------------+----------+
 
-In the results here, it shows that for a little more than 18 percent of the time elapsed, the replication was paused.  A value of 1 would indicate that the node was paused 100% of the time. Anything greater than 0 indicates the node's replication health may be weak. You should closely monitor it |---| flushing occasionally |---| until you start seeing 0 values.  If it doesn't resolve itself, you might increase the number of slave threads (i.e., ``wsrep_slave_threads``).
+In the results here, it shows that for a little more than 18 percent of the time elapsed, the replication was paused. A value of 1 would indicate that the node was paused 100% of the time. Anything greater than 0 indicates the node's replication health may be weak. You should closely monitor it |---| flushing occasionally |---| until you start seeing 0 values. If it doesn't resolve itself, you might increase the number of replica threads (i.e., ``wsrep_slave_threads``).
 
 .. note::
 
@@ -248,13 +248,13 @@ In the results here, it shows that for a little more than 18 percent of the time
 
 Last, you might monitor ``wsrep_cert_deps_distance``. It will tell you the average distance between the lowest and highest sequence number, values a node can potentially apply in parallel.
 
-Basically, this is the optimal value to set ``wsrep_slave_threads`` or ``wsrep_applier_threads``, since it's pointless to assign more slave threads than the number of transactions that can be applied in parallel.
+Basically, this is the optimal value to set ``wsrep_slave_threads`` or ``wsrep_applier_threads``, since it's pointless to assign more replica threads than the number of transactions that can be applied in parallel.
 
 
 .. rst-class:: section-heading
 .. rubric:: Utilizing Server Logs to Troubleshoot
 
-As you can see, the status variables provide you with plenty of information for detecting problems.  However, they don't generally indicate a pattern |---| they're mostly the current state when you happen to look.  Historical information, though, can make it easier to see a problem developing. Additionally, the status variables do little to help you to determine the cause of problems, or provide you with recommendations on how to solve them.
+As you can see, the status variables provide you with plenty of information for detecting problems. However, they don't generally indicate a pattern |---| they're mostly the current state when you happen to look. Historical information, though, can make it easier to see a problem developing. Additionally, the status variables do little to help you to determine the cause of problems, or provide you with recommendations on how to solve them.
 
 For seeing a pattern, you'll have to record the results from querying the status variables at regular intervals, recording them in a database or a log for later review. For consistency of intervals, it should be automated. You could either write your own scripts to do this, or you could use one of the many database monitoring programs (e.g., Monyog).
 
@@ -280,7 +280,7 @@ Below is how these entries would look in the MySQL configuration file:
    wsrep_provider_options="cert.log_conflicts=ON"
    wsrep_debug=ON
 
-There is one more type of log you should check. When a node is unable to complete a transaction or some other event, the database server will create a special binary log file with details of that failure. This file is placed in the data directory and is named something like, ``GRA_*.log``. You should periodically see if these log files are generated.  When they are, review them right away.
+There is one more type of log you should check. When a node is unable to complete a transaction or some other event, the database server will create a special binary log file with details of that failure. This file is placed in the data directory and is named something like, ``GRA_*.log``. You should periodically see if these log files are generated. When they are, review them right away.
 
 
 .. rst-class:: section-heading
@@ -288,9 +288,9 @@ There is one more type of log you should check. When a node is unable to complet
 
 Although checking status variables and logs will provide you information you'll need, retrieving and reviewing such information is a manual process. Plus, you may have to examine status variables and logs on each determine and resolve a problem. This is one of the appealing aspects of third-party monitoring software.
 
-To assist you in monitoring a cluster and its nodes, Galera includes a mechanism for alerting you of a problem.  To make use of it, you'll need to create a script |---| or copy someone else's script |---| that will process values passed to it from Galera.  Then you have to set the ``wsrep_notify_cmd`` parameter with the path and name of the script |---| put this in the MySQL configuration file.
+To assist you in monitoring a cluster and its nodes, Galera includes a mechanism for alerting you of a problem. To make use of it, you'll need to create a script |---| or copy someone else's script |---| that will process values passed to it from Galera. Then you have to set the ``wsrep_notify_cmd`` parameter with the path and name of the script |---| put this in the MySQL configuration file.
 
-Galera will call the script and pass a set of values to it whenever a node joins or leaves the cluster, and whenever the cluster or node's status changes.  Your script can then send you an alert, log the data it receives in a table or a log file |---| this is a way to accumulate data for determining a pattern we just mentioned |---| or adjusting traffic flow through a load balancer.
+Galera will call the script and pass a set of values to it whenever a node joins or leaves the cluster, and whenever the cluster or node's status changes. Your script can then send you an alert, log the data it receives in a table or a log file |---| this is a way to accumulate data for determining a pattern we just mentioned |---| or adjusting traffic flow through a load balancer.
 
 
 .. rst-class:: lower-heading
@@ -362,7 +362,7 @@ A more useful version of this script would include code which sends you an email
    Node Status: synced
    ----------------------
 
-This entry shows three nodes are running and lists their names |---| there are in fact only three nodes in this cluster.  It also shows that the notification script was run on the ``galera1`` node and that node is synchronized.
+This entry shows three nodes are running and lists their names |---| there are in fact only three nodes in this cluster. It also shows that the notification script was run on the ``galera1`` node and that node is synchronized.
 
 The next two entries show that ``mysqld`` was shut down on this node.
 
@@ -418,15 +418,15 @@ The next set of entries below reflect ``mysqld`` starting again. Notice here tha
    Node Status: synced
    ----------------------
 
-You would have to copy this script to each node and set it to run with the ``wsrep_notify_cmd`` parameter on each.  The problem with this approach is that the data will be in separate logs.
+You would have to copy this script to each node and set it to run with the ``wsrep_notify_cmd`` parameter on each. The problem with this approach is that the data will be in separate logs.
 
-A better solution would be to have the script connect with the database and insert these log entries into a table.  Remember, entries made on one table are made on all and thereby joined together as part of the replication process. However, Galera seems to trip over itself when the notification command tries to replicate its own writes. It results in the nodes becoming non-operational and out-of-sync. An alternative would be to create a table on each node that doesn't use the InnoDB storage engine (e.g., use a MyISAM table). These tables would be unique to each node and not replicated, but they wouldn't choke Galera.  You could write another script |---| activated instead by ``cron`` |---| that would query the table on each node to produce reports and alerts. You could be alerted by email or some other method. It's a little cumbersome, but it works.
+A better solution would be to have the script connect with the database and insert these log entries into a table. Remember, entries made on one table are made on all and thereby joined together as part of the replication process. However, Galera seems to trip over itself when the notification command tries to replicate its own writes. It results in the nodes becoming non-operational and out-of-sync. An alternative would be to create a table on each node that doesn't use the InnoDB storage engine (e.g., use a MyISAM table). These tables would be unique to each node and not replicated, but they wouldn't choke Galera. You could write another script |---| activated instead by ``cron`` |---| that would query the table on each node to produce reports and alerts. You could be alerted by email or some other method. It's a little cumbersome, but it works.
 
 
 .. rst-class:: section-heading
 .. rubric:: Reading GRA_*.log Files
 
-Your data directory may contain log files starting with ``GRA_``. These files are related to replication failures, whenever a node fails to apply an event on a slave node. The database server creates a special binary log file of the event in the data directory. For each ``GRA_`` file, there is a corresponding warning or error message in the mysql error log file. 
+Your data directory may contain log files starting with ``GRA_``. These files are related to replication failures, whenever a node fails to apply an event on a replica node. The database server creates a special binary log file of the event in the data directory. For each ``GRA_`` file, there is a corresponding warning or error message in the mysql error log file. 
 
 To view the contents of these files, you can use ``strings`` or view it with ``mysqlbinlog``. See below for an example output:
 
@@ -477,7 +477,7 @@ To view the contents of these files, you can use ``strings`` or view it with ``m
 .. rst-class:: section-heading
 .. rubric:: Conclusion
 
-With busy and large databases, keeping them running smoothly and consistently can be a little intimidating.  However, Galera provides plenty of information for you to be able to monitor the status of each node and the cluster. You need only develop a habit of checking, or a system to check automatically and with regularity.  Plus, it provides a method of reacting to changes in node and cluster status.
+With busy and large databases, keeping them running smoothly and consistently can be a little intimidating. However, Galera provides plenty of information for you to be able to monitor the status of each node and the cluster. You need only develop a habit of checking, or a system to check automatically and with regularity. Plus, it provides a method of reacting to changes in node and cluster status.
 
 Yes, you'll need to know how to read the warning signs and know what to do to resolve problems before they affect the entire cluster, but the sooner you are made aware of a situation developing, the better and less stressful it will be for you.
 

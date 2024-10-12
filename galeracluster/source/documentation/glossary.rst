@@ -68,7 +68,7 @@
 
 
    Galera Replication Plugin
-      Galera Replication Plugin is a general purpose replication plugin for any transactional system. It can be used to create a synchronous multi-master replication solution to achieve high availability and scale-out.
+      Galera Replication Plugin is a general purpose replication plugin for any transactional system. It can be used to create a synchronous multi-primary replication solution to achieve high availability and scale-out.
 
       See :ref:`Galera Replication Plugin <galera-replication-plugin>` for more details.
 
@@ -149,7 +149,7 @@
 
 
    Total Order Isolation
-      By default, :abbr:`DDL (Data Definition Language)` statements are processed by using the Total Order Isolation (TOI) method. In TOI, the query is replicated to the nodes in a statement form before executing on the master. The query waits for all preceding transactions to commit and then gets executed in isolation on all nodes, simultaneously.
+      By default, :abbr:`DDL (Data Definition Language)` statements are processed by using the Total Order Isolation (TOI) method. In TOI, the query is replicated to the nodes in a statement form before executing on the primary. The query waits for all preceding transactions to commit and then gets executed in isolation on all nodes, simultaneously.
 
       For more information, see :ref:`Total Order Isolation <toi>`.
 

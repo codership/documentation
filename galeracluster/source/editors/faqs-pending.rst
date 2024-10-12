@@ -65,7 +65,7 @@ If you have any suggestions for new FAQs, please email us at library@galeraclust
 
 .. rst-class:: list-abstract
 
-   A plugin that allows synchronous multi-master replication for InnoDB tables. It works differently from the standard MySQL replication, which provides Master and Slave structure. The Galera :term:`Cluster Replication` is able to manage true parallel read and write to any cluster node, managing conflicts using a Global Transaction ID mechanism.
+   A plugin that allows synchronous multi-primary replication for InnoDB tables. It works differently from the standard MySQL replication, which provides a Primary and Replica structure. The Galera :term:`Cluster Replication` is able to manage true parallel read and write to any cluster node, managing conflicts using a Global Transaction ID mechanism.
 
 
 .. _`faq-pending-2`:
@@ -91,7 +91,7 @@ If you have any suggestions for new FAQs, please email us at library@galeraclust
 
 .. rst-class:: list-abstract
 
-   Among the advantages: synchronous data replication across all nodes; scalability; high availability; auto failover with the database serving requests as long as one node remains active; all nodes are masters so you could read/write on any node. On the other hand there are some limitations to be considered: the replica provided by Galera Cluster currently is available only for InnoDB tables; it does not support explicit lock tables statement (LOCK TABLES, FLUSH TABLES); all tables must have a primary key in order to replicate correctly the DELETE queries and get the same display order for the SELECT queries on all nodes; you will notice an increase in latency for write transactions linearly with the increase of the number of nodes. However there are solutions to minimize the effects of these limitations.
+   Among the advantages: synchronous data replication across all nodes; scalability; high availability; auto failover with the database serving requests as long as one node remains active; all nodes are primaries so you could read/write on any node. On the other hand there are some limitations to be considered: the replica provided by Galera Cluster currently is available only for InnoDB tables; it does not support explicit lock tables statement (LOCK TABLES, FLUSH TABLES); all tables must have a primary key in order to replicate correctly the DELETE queries and get the same display order for the SELECT queries on all nodes; you will notice an increase in latency for write transactions linearly with the increase of the number of nodes. However there are solutions to minimize the effects of these limitations.
 
 
 .. _`faq-pending-2a`:
