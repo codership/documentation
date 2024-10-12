@@ -71,19 +71,19 @@ These types of conflicts relate to multi-primary database environments and typic
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-To understand this better, consider a situation in a multi-primary replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
+To understand this better, consider a situation in a multi-primary replication system in which users can submit updates to any database node. There may be an instance in which two nodes attempt to change the same row in a database, but with different values. Galera Cluster copes with situations such as this by using certification-based replication.
 
 
 .. rst-class:: section-heading
 .. rubric:: Troubleshooting
 
-There are a few techniques available to log and monitor problems that may indicate multi-primary conflicts.  They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log.  You can enable it through the configuration file with a line like so:
+There are a few techniques available to log and monitor problems that may indicate multi-primary conflicts. They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log. You can enable it through the configuration file with a line like so:
 
 .. code-block:: ini
 
    wsrep_debug=ON
 
-Once you turn debugging on, you can use monitoring software to watch for row conflicts.  Below is an example of a log entry that indicates a conflict as described above:
+Once you turn debugging on, you can use monitoring software to watch for row conflicts. Below is an example of a log entry that indicates a conflict as described above:
 
 .. code-block:: text
 
@@ -98,7 +98,7 @@ Once you turn debugging on, you can use monitoring software to watch for row con
        commit failed for reason: 3, seqno: -1
 
 
-.. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
+.. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs. Do not enable it in production environments.
 
 If you develop your own notification system, you can use status variables to watch for conflicts. Below is an example of how you might manually retrieve this information. You would simply incorporate something similar into your scripts or customized program.
 
@@ -129,7 +129,7 @@ You can enable conflict logging features with :ref:`wsrep_log_conflicts <wsrep_l
    wsrep_log_conflicts=ON
    wsrep_provider_options="cert.log_conflicts=YES"
 
-These parameters enable different forms of conflict logging on the database server.  When turned on, the node logs additional information about the conflicts it encounters. For instance, it will log the name of the table and schema where the conflict occurred and the actual values for the keys that produced the conflict. Below is an example of such a log entry:
+These parameters enable different forms of conflict logging on the database server. When turned on, the node logs additional information about the conflicts it encounters. For instance, it will log the name of the table and schema where the conflict occurred and the actual values for the keys that produced the conflict. Below is an example of such a log entry:
 
 .. code-block:: text
 
@@ -145,7 +145,7 @@ These parameters enable different forms of conflict logging on the database serv
 .. rst-class:: section-heading
 .. rubric:: Solution
 
-When two transactions are conflicting, the later of the two is rolled back by the cluster.  The client application registers this rollback as a deadlock error.  Ideally, the client application should retry the deadlocked transaction. However, not all client applications have this logic built in.
+When two transactions are conflicting, the later of the two is rolled back by the cluster. The client application registers this rollback as a deadlock error. Ideally, the client application should retry the deadlocked transaction. However, not all client applications have this logic built in.
 
 If you encounter this problem, you can set the node to attempt to auto-commit the deadlocked transactions on behalf of the client application. You would do this with the :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>` parameter. Just enter the following to the configuration file:
 
