@@ -105,7 +105,7 @@ and an explanation.
    ":ref:`wsrep_on <wsrep_on>`", "``ON``", "Yes", "Yes"
    ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", "Yes"
    ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", "Yes"
-   ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", ""
+   ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", "No"
    ":ref:`wsrep_provider_options <wsrep_provider_options>`", "(empty)", "Yes", "No"
    ":ref:`wsrep_recover <wsrep_recover>`", "``OFF``", "Yes", "No"
    ":ref:`wsrep_reject_queries <wsrep_reject_queries>`", "``NONE``", "Yes", "Yes"
