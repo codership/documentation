@@ -104,7 +104,7 @@ and an explanation.
    ":ref:`wsrep_notify_cmd <wsrep_notify_cmd>`", "(empty)", "Yes", "Yes"
    ":ref:`wsrep_on <wsrep_on>`", "``ON``", "Yes", "Yes"
    ":ref:`wsrep_OSU_method <wsrep_OSU_method>`", "``TOI``", "", "Yes"
-   ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", ""
+   ":ref:`wsrep_preordered <wsrep_preordered>`", "``OFF``", "Yes", "Yes"
    ":ref:`wsrep_provider <wsrep_provider>`", "``NONE``", "Yes", ""
    ":ref:`wsrep_provider_options <wsrep_provider_options>`", "(empty)", "Yes", "No"
    ":ref:`wsrep_recover <wsrep_recover>`", "``OFF``", "Yes", "No"
@@ -813,7 +813,7 @@ This parameter defines how to log ``INFO``-level wsrep messages.
    "Command-line Format", "``--wsrep_info_level``"
    "System Variable", "``wsrep_info_level``"
    "Variable Scope", "Global"
-   "Dynamic Variable", ""
+   "Dynamic Variable", "Yes"
    "Permitted Values", "Numeric"
    "Default Value", "``0``"
    "Initial Version", "MySQL-wsrep: 8.0.34"
@@ -1125,7 +1125,7 @@ This parameter is used to provide the IP address and port from which the node sh
    "Default Value", ""
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
-This parameter defines the IP address and port number at which the node should expect to receive client connections.  It's intended for integration with load balancers. For now, it's otherwise unused by the node.
+This parameter defines the IP address and port number at which the node should expect to receive client connections.  It is intended for integration with load balancers. For now, it is otherwise unused by the node.
 
 You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get the IP address and port setting of this parameter:
 
@@ -1361,9 +1361,9 @@ Defines the path to the :term:`Galera Replication Plugin`.
    "Command-line Format", "``--wsrep-provider``"
    "System Variable", "``wsrep_provider``"
    "Variable Scope", "Global"
-   "Dynamic Variable", ""
+   "Dynamic Variable", "No"
    "Permitted Values", "File"
-   "Default Value", ""
+   "Default Value", "None"
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
 When the node starts, it needs to load the wsrep Provider in order to enable replication functions.  The path defined in this parameter tells it what file it needs to load and where to find it.  In the event that you do not define this path or you give it an invalid value, the node bypasses all calls to the wsrep Provider and behaves as a standard standalone instance of MySQL.
@@ -1792,7 +1792,7 @@ Defines the name of the node that this node uses as a donor in state transfers.
    "Command-line Format", "``--wsrep-sst-donor``"
    "System Variable", "``wsrep_sst_donor``"
    "Variable Scope", "Global"
-   "Dynamic Variable", ""
+   "Dynamic Variable", "Yes"
    "Permitted Values", "String"
    "Default Value", ""
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
