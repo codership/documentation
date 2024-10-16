@@ -1764,6 +1764,12 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 
 Whether the server is ready to accept queries. If this status is ``OFF``, almost all of the queries will fail with:
 
+.. code-block:: text
+
+    ERROR 1047 (08S01) Unknown Command
+
+unless the ``wsrep_on`` session variable is set to ``0``.
+
 .. csv-table::
    :class: doc-options
 
@@ -1772,12 +1778,6 @@ Whether the server is ready to accept queries. If this status is ``OFF``, almost
    "Initial Version", "???"
 
 To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
-
-.. code-block:: text
-
-    ERROR 1047 (08S01) Unknown Command
-
-unless the ``wsrep_on`` session variable is set to ``0``.
 
 .. code-block:: mysql
 
