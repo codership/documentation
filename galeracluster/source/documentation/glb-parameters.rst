@@ -61,16 +61,16 @@
 Galera Load Balancer Parameters
 ================================
 
-Galera Load Balancer provides simple TCP connection balancing developed with scalability and performance in mind.  It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.
+Galera Load Balancer provides simple TCP connection balancing developed with scalability and performance in mind. It draws on Pen for inspiration, but its functionality is limited to only balancing TCP connections.
 
-It can be run either through the ``service`` command or the command-line interface of ``glbd``.  Configuration for Galera Load Balancer depends on which you use to run it.
+It can be run either through the ``service`` command or the command-line interface of ``glbd``. Configuration for Galera Load Balancer depends on which you use to run it.
 
 
 .. _`glb-config-parameters`:
 .. rst-class:: section-heading
 .. rubric:: Configuration Parameters
 
-When Galera Load Balancer starts as a system service, it reads the ``glbd.cfg`` configuration file for default parameters you want to use.  Only the :ref:`LISTEN_ADDR <glb-listen_addr>` parameter is mandatory.
+When Galera Load Balancer starts as a system service, it reads the ``glbd.cfg`` configuration file for default parameters you want to use. Only the :ref:`LISTEN_ADDR <glb-listen_addr>` parameter is mandatory.
 
 .. csv-table::
    :class: doc-options
@@ -98,7 +98,7 @@ Defines the IP address and port for controlling connections.
    "**Mandatory Parameter**", "No"
 
 
-This is an optional parameter.  Use it to define the server used in controlling client connections.  When using this parameter you must define the port.  In the event that you do not define this parameter, Galera Load Balancer does not open the relevant socket.
+This is an optional parameter. Use it to define the server used in controlling client connections. When using this parameter you must define the port. In the event that you do not define this parameter, Galera Load Balancer does not open the relevant socket.
 
 .. code-block:: ini
 
@@ -118,7 +118,7 @@ Defines the path to the FIFO control file.
    "**Default Configuration**", "``/var/run/glbd.fifo``"
    "**Mandatory Parameter**", "No"
 
-This is an optional parameter.  It defines the path to the FIFO control file as is always opened.  In the event that there is already a file at this path, Galera Load Balancer fails to start.
+This is an optional parameter. It defines the path to the FIFO control file as is always opened. In the event that there is already a file at this path, Galera Load Balancer fails to start.
 
 .. code-block:: ini
 
@@ -137,7 +137,7 @@ Defines the IP addresses and ports of the destination servers.
    "**Default Configuration**", "``127.0.0.1:80 10.0.0.1:80 10.0.0.2:80:2``"
    "**Mandatory Parameter**", "No"
 
-This parameter defines that IP addresses that Galera Load Balancer uses as destination servers.  Specifically, in this case the Galera Cluster nodes that it routes application traffic onto.
+This parameter defines that IP addresses that Galera Load Balancer uses as destination servers. Specifically, in this case the Galera Cluster nodes that it routes application traffic onto.
 
 .. code-block:: ini
 
@@ -156,7 +156,7 @@ Defines the IP address and port used for client connections.
    "**Default Configuration**", "``8010``"
    "**Mandatory Parameter**", "Yes"
 
-This parameter defines the IP address and port that Galera Load Balancer listens on for incoming client connections.  The IP address is optional, the port mandatory.  In the event that you define a port without an IP address, Galera Load Balancer listens on that port for all available network interfaces.
+This parameter defines the IP address and port that Galera Load Balancer listens on for incoming client connections. The IP address is optional, the port mandatory. In the event that you define a port without an IP address, Galera Load Balancer listens on that port for all available network interfaces.
 
 .. code-block:: ini
 
@@ -175,7 +175,7 @@ Defines the maximum allowed client connections.
    "**Default Configuration**", ":ref:`--max_conn <glb-max_conn-arg>`"
    "**Mandatory Parameter**", "No"
 
-This parameter defines the maximum number of client connections that you want to allow to Galera Load Balancer.  It modifies the system open files limit to accommodate at least this many connections, provided sufficient privileges.  It is recommend that you define this parameter if you expect the number of client connections to exceed five hundred.
+This parameter defines the maximum number of client connections that you want to allow to Galera Load Balancer. It modifies the system open files limit to accommodate at least this many connections, provided sufficient privileges. It is recommend that you define this parameter if you expect the number of client connections to exceed five hundred.
 
 .. code-block:: ini
 
@@ -188,9 +188,7 @@ This option defines the maximum number of client connections that you want allow
 .. rst-class:: section-heading
 .. rubric:: ``OTHER_OPTIONS``
 
-Defines additional options that you want to pass to Galera Load Balancer.  There is no default configuration and this is not a mandatory parameter.
-
-This parameter defines various additional options that you would like to pass to Galera Load Balancer, such as a destination selection policy or Watchdog configurations.  Use the same syntax as you would for the command-line arguments.  For more information on the available options, see :ref:`Configuration Options <glb-config-options>`.
+This parameter defines various additional options that you would like to pass to Galera Load Balancer, such as a destination selection policy or Watchdog configurations. Use the same syntax as you would for the command-line arguments. There is no default configuration, and this is not a mandatory parameter. For more information on the available options, see :ref:`Configuration Options <glb-config-options>`.
 
 .. code-block:: ini
 
@@ -209,7 +207,7 @@ Defines the number of threads you want to use.
    "**Default Configuration**", ":ref:`--threads <glb-threads-arg>`"
    "**Mandatory Parameter**", "No"
 
-This parameter allows you to define the number of threads (that is, connection pools), which you want to allow Galera Load Balancer to use.  It is advisable that you have at least a few per CPU core.
+This parameter allows you to define the number of threads (that is, connection pools), which you want to allow Galera Load Balancer to use. It is advisable that you have at least a few per CPU core.
 
 .. code-block:: ini
 
@@ -220,7 +218,7 @@ This parameter allows you to define the number of threads (that is, connection p
 .. rst-class:: section-heading
 .. rubric:: Configuration Options
 
-When Galera Load Balancer starts as a daemon process, through the ``/sbin/glbd`` command, it allows you to pass a number of command-line arguments to configure how it operates.  It uses the following syntax:
+When Galera Load Balancer starts as a daemon process, through the ``/sbin/glbd`` command, it allows you to pass a number of command-line arguments to configure how it operates. It uses the following syntax:
 
 .. code-block:: text
 
@@ -290,7 +288,7 @@ Defines whether you want Galera Load Balancer to run as a daemon process.
    "**Syntax**", "``--daemon``"
    "**Type**", "Boolean"
 
-This option defines whether you want to start ``glbd`` as a daemon process.  That is, if you want it to run in the background, instead of claiming the current terminal session.
+This option defines whether you want to start ``glbd`` as a daemon process. That is, if you want it to run in the background, instead of claiming the current terminal session.
 
 .. code-block:: console
 
@@ -311,7 +309,7 @@ Enables TCP deferred acceptance on the listening socket.
    "**Syntax**", "``--defer-accept``"
    "**Type**", "Boolean"
 
-Enabling ``TCP_DEFER_ACCEPT`` allows Galera Load Balancer to awaken only when data arrives on the listening socket.  It is disabled by default.
+Enabling ``TCP_DEFER_ACCEPT`` allows Galera Load Balancer to awaken only when data arrives on the listening socket. It is disabled by default.
 
 .. code-block:: console
 
@@ -332,7 +330,7 @@ Defines whether you want to use watchdog results to discover and set new destina
    "**Syntax**", "``--discover``"
    "**Type**", "Boolean"
 
-When you define the :ref:`--watchdog <glb-watchdog>` option, this option defines whether Galera Load Balancer uses the return value in discovering and setting new addresses for destination servers.  For instance, after querying for the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.
+When you define the :ref:`--watchdog <glb-watchdog>` option, this option defines whether Galera Load Balancer uses the return value in discovering and setting new addresses for destination servers. For instance, after querying for the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter.
 
 .. code-block:: console
 
@@ -353,7 +351,7 @@ Defines whether you want to perform an extra destination poll on connection atte
    "**Syntax**", "``--extra D.DDD``"
    "**Type**", "Decimal"
 
-This option defines whether and when you want Galera Load Balancer to perform an additional destination poll on connection attempts.  The given value indicates how many seconds after the previous poll that you want it to run the extra poll.  By default, the extra polling feature is disabled.
+This option defines whether and when you want Galera Load Balancer to perform an additional destination poll on connection attempts. The given value indicates how many seconds after the previous poll that you want it to run the extra poll. By default, the extra polling feature is disabled.
 
 .. code-block:: console
 
@@ -396,7 +394,7 @@ Defines how often to probe destinations for liveliness.
    "**Syntax**", "``--interval D.DDD``"
    "**Type**", "Decimal"
 
-This option defines how often Galera Load Balancer checks destination servers for liveliness.  It uses values given in seconds.  By default, it checks every second.
+This option defines how often Galera Load Balancer checks destination servers for liveliness. It uses values given in seconds. By default, it checks liveliness every second.
 
 .. code-block:: console
 
@@ -417,7 +415,7 @@ Defines whether you want to disable the ``SO_KEEPALIVE`` socket option on server
    "**Syntax**", "``--keepalive``"
    "**Type**", "Boolean"
 
-Linux systems feature the socket option ``SO_KEEPALIVE``, which causes the server to send packets to a remote system in order to main the client connection with the destination server.  This option allows you to disable ``SO_KEEPALIVE`` on server-side sockets.  It allows ``SO_KEEPALIVE`` by default.
+Linux systems feature the socket option ``SO_KEEPALIVE``, which causes the server to send packets to a remote system in order to maintain the client connection with the destination server. This option allows you to disable ``SO_KEEPALIVE`` on server-side sockets. It allows ``SO_KEEPALIVE`` by default.
 
 .. code-block:: console
 
@@ -438,7 +436,7 @@ Defines the number of samples to take in calculating latency for watchdog.
    "**Syntax**", "``--latency N``"
    "**Type**", "Integer"
 
-When the Watchdog module tests a destination server to calculate latency, it sends a number of packets through to measure its responsiveness.  This option configures how many packets it sends in sampling latency.
+When the Watchdog module tests a destination server to calculate latency, it sends a number of packets through to measure its responsiveness. This option configures how many packets it sends in sampling latency.
 
 .. code-block:: console
 
@@ -459,7 +457,7 @@ Defines whether Galera Load Balancer disables sockets lingering after they are c
    "**Syntax**", "``--linger``"
    "**Type**", "Boolean"
 
-When Galera Load Balancer sends the ``close()`` command, occasionally sockets linger in a ``TIME_WAIT`` state.  This options defines whether or not you want Galera Load Balancer to disable lingering sockets.
+When Galera Load Balancer sends the ``close()`` command, occasionally sockets linger in a ``TIME_WAIT`` state. This option defines whether or not you want Galera Load Balancer to disable lingering sockets.
 
 .. code-block:: console
 
@@ -501,7 +499,7 @@ Defines whether it disables the TCP no-delay socket option.
    "**Syntax**", "``--nodelay``"
    "**Type**", "Boolean"
 
-Under normal operation, TCP connections automatically concatenate small packets into larger frames through the Nagle algorithm.  In the event that you want Galera Load Balancer to disable this feature, this option causes it to open TCP connections with the ``TCP_NODELAY`` feature.
+Under normal operation, TCP connections automatically concatenate small packets into larger frames through the Nagle algorithm. In the event that you want Galera Load Balancer to disable this feature, this option causes it to open TCP connections with the ``TCP_NODELAY`` feature.
 
 .. code-block:: console
 
@@ -522,7 +520,7 @@ Defines the destination selection policy as Random.
    "**Syntax**", "``--random``"
    "**Type**", "Boolean"
 
-The destination selection policy determines how Galera Load Balancer determines which servers to route traffic to.  When you set the policy to Random, it randomly chooses a destination from the pool of available servers.  You can enable this feature by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
+The destination selection policy determines how Galera Load Balancer determines which servers to route traffic to. When you set the policy to Random, it randomly chooses a destination from the pool of available servers. You can enable this feature by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
 
 
 For more information on other policies, see :ref:`Destination Selection Policies <glb-dest-select>`.
@@ -546,7 +544,7 @@ Defines the destination selection policy as Round Robin.
    "**Syntax**", "``--round``"
    "**Type**", "Boolean"
 
-The destination selection policy determines how Galera Load Balancer determines which servers to route traffic to.  When you set the policy to Round Robin, it directs new connections to the next server in a circular order list.  You can enable this feature by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
+The destination selection policy determines how Galera Load Balancer determines which servers to route traffic to. When you set the policy to Round Robin, it directs new connections to the next server in a circular order list. You can enable this feature by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
 
 For more information on other policies, see :ref:`Destination Selection Policies <glb-dest-select>`.
 
@@ -572,7 +570,7 @@ Defines the destination selection policy as Single.
 
 The destination selection policy determines how Galera Load Balancer determines which servers to route traffic to.
 
-When you set the policy to Single, all connections route to the server with the highest weight value.  You can enable this by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
+When you set the policy to Single, all connections route to the server with the highest weight value. You can enable this by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
 
 .. code-block:: console
 
@@ -593,9 +591,9 @@ Defines the destination selection policy as Source Tracking.
    "**Syntax**", "``--source``"
    "**Type**", "Boolean"
 
-The destination selection policy determines how Galera Load Balancer determines which servers to route traffic to.  When you set the policy to Source Tracking, connections that originate from one address are routed to the same destination.  That is, you can ensure that certain IP addresses always route to the same destination server.  You can enable this by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
+The destination selection policy determines how Galera Load Balancer determines which servers to route traffic to. When you set the policy to Source Tracking, connections that originate from one address are routed to the same destination. That is, you can ensure that certain IP addresses always route to the same destination server. You can enable this by default through the :ref:`OTHER_OPTIONS <glb-other_options>` parameter.
 
-Bear in mind, there are some limitations to this selection policy.  When the destination list changes, the destination choice for new connections changes as well, while established connections remain in place.  Additionally, when a destination is marked as unavailable, all connections that would route to it fail over to another, randomly chosen destination.  When the original target becomes available again, routing to it for new connections resumes.  In other words, Source Tracking works best with short-lived connections.
+Bear in mind, there are some limitations to this selection policy. When the destination list changes, the destination choice for new connections changes as well, while established connections remain in place. Additionally, when a destination is marked as unavailable, all connections that would route to it fail over to another, randomly chosen destination. When the original target becomes available again, routing to it for new connections resumes. In other words, Source Tracking works best with short-lived connections.
 
 For more information on other policies, see :ref:`Destination Selection Policies <glb-dest-select>`.
 
@@ -639,7 +637,7 @@ Enables balancing to top weights only.
    "**Syntax**", "``--top``"
    "**Type**", "Boolean"
 
-This option restricts all balancing policies to a subset of destination servers with the top weight.  For instance, if you have servers with weights ``1``, ``2`` and ``3``, balancing occurs only on servers with weight ``3``, while they remain available.
+This option restricts all balancing policies to a subset of destination servers with the top weight. For instance, if you have servers with weights ``1``, ``2`` and ``3``, balancing occurs only on servers with weight ``3``, while they remain available.
 
 .. code-block:: console
 
@@ -681,18 +679,16 @@ Defines specifications for watchdog operations.
    "**Syntax**", "``--watchdog SPEC_STR``"
    "**Type**", "String"
 
-Under normal operation, Galera Load Balancer checks destination availability by attempting to establish a TCP connection to the server.  For most use cases, this is insufficient.  If you want to establish a connection with web server, you need to know if it is able to serve web pages.  If you want to establish a connection with a database server, you need to know if it is able to execute queries.  TCP connections don't provide that kind of information.
+Under normal operation, Galera Load Balancer checks destination availability by attempting to establish a TCP connection to the server. For most use cases, this is insufficient. If you want to establish a connection with web server, you need to know if it is able to serve web pages. If you want to establish a connection with a database server, you need to know if it is able to execute queries. TCP connections do not provide that kind of information.
 
-The Watchdog module implements asynchronous monitoring of destination servers through back-ends designed to service availability.  This option allows you to enable it by defining the back-end ID string, optionally followed by a colon and the configuration options.
+The Watchdog module implements asynchronous monitoring of destination servers through back-ends designed to service availability. This option allows you to enable it by defining the back-end ID string, optionally followed by a colon and the configuration options.
 
 .. code-block:: console
 
    # glbd -w exec:"mysql.sh -utest -ptestpass" 3306 \
          192.168.1.1 192.168.1.2 192.168.1.3
 
-This initializes the ``exec`` back-end to execute external programs.  It runs the ``mysql.sh`` script on each destination server in order to determine it's availability.  You can find the ``mysql.sh`` in the Galera Load Balancer build directory, under ``files/``.
-
-.. note:: The Watchdog module remains a work in progress.  Neither its functionality nor terminology is final.
+This initializes the ``exec`` back-end to execute external programs. It runs the ``mysql.sh`` script on each destination server in order to determine its availability. You can find the ``mysql.sh`` in the Galera Load Balancer build directory, under ``files/``.
 
 .. container:: bottom-links
 

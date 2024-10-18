@@ -62,7 +62,7 @@
 Security
 ==========
 
-On occasion, you may want or need to enable degrees of security that go beyond the basics of Unix file permissions and secure database management.  
+On occasion, you may want or need to enable degrees of security that go beyond the basics of Unix file permissions and secure database management. 
 
    .. only:: html
 
@@ -79,15 +79,15 @@ For situations such as these,  you can secure both node communications and clien
 
 - :doc:`firewall-settings`
 
-  In order to use Galera Cluster, nodes must have access to a number of ports to maintain network connectivity with the cluster.  While it was touched upon briefly in the :ref:`Installation <firewall-config>` section, this section provides more detailed guides on configuring a system firewall using ``iptables``, FirewallD and PF.
+  In order to use Galera Cluster, nodes must have access to a number of ports to maintain network connectivity with the cluster. While it was touched upon briefly in the :ref:`Installation <firewall-config>` section, this section provides more detailed guides on configuring a system firewall using ``iptables``, FirewallD and PF.
 
 - :doc:`ssl`
 
-  To secure communications between nodes and from the application severs, you can enable encryption through the SSL protocol for client connections, replication traffic and State Snapshot Transfers.  This section provides guidance to configuring SSL on Galera Cluster.
+  To secure communications between nodes and from the application severs, you can enable encryption through the SSL protocol for client connections, replication traffic and State Snapshot Transfers. This section provides guidance to configuring SSL on Galera Cluster.
 
 - :doc:`selinux`
 
-  Without proper configuration, SELinux can either block nodes from communicating or it can block the database server from starting at all.  When it does so, it causes the given process to fail silently, without any notification sent to standard output or error as to why.  While you can configure SELinux to permit all activity from the database server, (as was explained in the :ref:`Installation <disable-selinux>` section, this is not a good long-term solution.
+  Without proper configuration, SELinux can either block nodes from communicating or it can block the database server from starting at all. When it does so, it causes the given process to fail silently, without any notification sent to standard output or error as to why. While you can configure SELinux to permit all activity from the database server, (as was explained in the :ref:`Installation <disable-selinux>` section, this is not a good long-term solution.
 
   This section provides a guide to creating an SELinux security policy for Galera Cluster.
 

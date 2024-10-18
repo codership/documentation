@@ -66,20 +66,20 @@
 SSL for State Snapshot Transfers
 ==================================
 
-When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use.  Where :doc:`ssl-config` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
+When you finish generating the SSL certificates for your cluster, you can begin configuring the node for their use. Where :doc:`ssl-config` covers how to enable SSL for replication traffic and the database client, this page covers enabling it for :term:`State Snapshot Transfer` scripts.
 
 The particular method you use to secure the State Snapshot Transfer through SSL depends upon the method you use in state snapshot transfers: ``mysqldump``, ``clone``, ``rsync`` or ``xtrabackup``.
 
-.. note:: For Gelera Cluster, SSL configurations are not dynamic.  Since they must be set on every node in the cluster, if you want to enable this feature with an existing cluster you need to restart the entire cluster.
+.. note:: For Gelera Cluster, SSL configurations are not dynamic. Since they must be set on every node in the cluster, if you want to enable this feature with an existing cluster you need to restart the entire cluster.
 
 
 .. _`ssl-mysqldump`:
 .. rst-class:: section-heading
 .. rubric:: Enabling SSL for ``mysqldump``
 
-The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client through SSL.  Given that ``mysqldump`` connects through the database client, you can use the same SSL certificates you created for replication traffic.
+The procedure for securing ``mysqldump`` is fairly similar to that of securing the database server and client through SSL. Given that ``mysqldump`` connects through the database client, you can use the same SSL certificates you created for replication traffic.
 
-Before you shut down the cluster, you need to create a user for ``mysqldump`` on the database server and grant it privileges through the cluster.  This ensures that when the cluster comes back up, the nodes have the correct privileges to execute the incoming state snapshot transfers.  In the event that you use the :term:`Total Order Isolation` online schema upgrade method, you only need to execute the following commands on a single node.
+Before you shut down the cluster, you need to create a user for ``mysqldump`` on the database server and grant it privileges through the cluster. This ensures that when the cluster comes back up, the nodes have the correct privileges to execute the incoming state snapshot transfers. In the event that you use the :term:`Total Order Isolation` online schema upgrade method, you only need to execute the following commands on a single node.
 
 #. From the database client, check that you use Total Order Isolation for online schema upgrades.
 
@@ -125,7 +125,7 @@ Before you shut down the cluster, you need to create a user for ``mysqldump`` on
 
 This configures and enables the ``mysqldump`` user for the cluster.
 
-.. note:: In the event that you find, :ref:`wsrep_OSU_method <wsrep_OSU_method>` set to ``ROI``, you need to manually create the user on each node in the cluster.  For more information on rolling schema upgrades, see :doc:`schema-upgrades`.
+.. note:: In the event that you find, :ref:`wsrep_OSU_method <wsrep_OSU_method>` set to ``ROI``, you need to manually create the user on each node in the cluster. For more information on rolling schema upgrades, see :doc:`schema-upgrades`.
 
 With the user now on every node, you can shut the cluster down to enable SSL for ``mysqldump`` State Snapshot Transfers.
 
@@ -153,7 +153,7 @@ With the user now on every node, you can shut the cluster down to enable SSL for
       # mysqldump SST auth
       wsrep_sst_auth = sst_user:sst_password
 
-This configures the node to use ``mysqldump`` for state snapshot transfers over SSL.  When all nodes are updated to SSL, you can begin restarting the cluster.  For more information on how to do this, see :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`.
+This configures the node to use ``mysqldump`` for state snapshot transfers over SSL. When all nodes are updated to SSL, you can begin restarting the cluster. For more information on how to do this, see :doc:`Starting a Cluster <../training/tutorials/starting-cluster>`.
 
 
 .. _`ssl-clone`:
@@ -192,7 +192,7 @@ the configuration file. It will be used first.
 .. rst-class:: section-heading
 .. rubric:: Enabling SSL for ``xtrabackup`` and ``rsync`` based SSTs
 
-The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another.  Before releases 5.7.34 and 8.0.25 only ``xtrabackup-v2`` SST supported SSL encryption and required custom configuration. Starting with releases 5.7.34 and 8.0.25 both ``rsync`` and ``xtrabackup-v2`` scripts can use the standard MySQL SSL configuration and will use it **BY DEFAULT**.
+The :term:`Physical State Transfer Method` for state snapshot transfers, uses an external script to copy the physical data directly from the file system on one cluster node into another. Before releases 5.7.34 and 8.0.25 only ``xtrabackup-v2`` SST supported SSL encryption and required custom configuration. Starting with releases 5.7.34 and 8.0.25 both ``rsync`` and ``xtrabackup-v2`` scripts can use the standard MySQL SSL configuration and will use it **BY DEFAULT**.
 
 New way SSL configuration for ``xtrabackup-v2`` and ``rsync`` SSTs (releases 5.7.34 and 8.0.25 or newer)
 --------------------------------------------------------------------------------------------------------
@@ -235,7 +235,7 @@ Old way SSL configuration for ``xtrabackup-v2`` SST
 ---------------------------------------------------
 *This is deprecated, but for backward compatibility takes precedence if present.*
 
-Configurations for ``xtrabackup-v2`` script are handled through the ``my.cnf`` configuration file, in the same as the database server and client.  Use the ``[sst]`` unit to configure SSL for the script.  You can use the same SSL certificate files as the node uses on the database server, client and with replication traffic.
+Configurations for ``xtrabackup-v2`` script are handled through the ``my.cnf`` configuration file, in the same as the database server and client. Use the ``[sst]`` unit to configure SSL for the script. You can use the same SSL certificate files as the node uses on the database server, client and with replication traffic.
 
 .. code-block:: ini
 
@@ -246,7 +246,7 @@ Configurations for ``xtrabackup-v2`` script are handled through the ``my.cnf`` c
    tkey = /path/to/key.pem
    tcert = /path/to/cert.pem
 
-When you finish editing the configuration file, restart the node to apply the changes.  ``xtrabackup`` now sends and receives state snapshot transfers through SSL.
+When you finish editing the configuration file, restart the node to apply the changes. ``xtrabackup`` now sends and receives state snapshot transfers through SSL.
 
 .. note:: In order to use SSL with ``xtrabackup``, you need to set :ref:`wsrep_sst_method <wsrep_sst_method>` to ``xtrabackup-v2``, instead of ``xtrabackup``.
 

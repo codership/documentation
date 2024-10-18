@@ -69,7 +69,7 @@
 MariaDB Galera Cluster - Binary Installation
 ============================================
 
-MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster.  Binary installation packages are available for Debian-based and RPM-based distributions of Linux through the MariaDB repository (`MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_).
+MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster. Binary installation packages are available for Debian-based and RPM-based distributions of Linux through the MariaDB repository (`MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_).
 
 .. image:: ../images/mariadb-repository-tool.png
    :width: 600px
@@ -81,13 +81,13 @@ MariaDB Galera Cluster is the MariaDB implementation of Galera Cluster.  Binary 
 .. rst-class:: section-heading
 .. rubric:: Enabling the MariaDB Repository
 
-In order to install MariaDB Galera Cluster through your package manager, you need to enable the MariaDB repository on your server.  There are two different ways to accomplish this, depending on which Linux distribution you use.
+In order to install MariaDB Galera Cluster through your package manager, you need to enable the MariaDB repository on your server. There are two different ways to accomplish this, depending on which Linux distribution you use.
 
 .. _`mariadb-deb`:
 .. rst-class:: sub-heading
 .. rubric:: Enabling the ``apt`` Repository
 
-For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the software properties.  The package names vary depending on your distribution.  For Debian, at the command-line execute the following:
+For Debian and Debian-based Linux distributions, the procedure for adding a repository requires that you first install the software properties. The package names vary depending on your distribution. For Debian, at the command-line execute the following:
 
 .. code-block:: console
 
@@ -99,7 +99,7 @@ For Ubuntu or a distribution derived from Ubuntu, execute instead this command:
 
    $ sudo apt-get install software-properties-common
 
-If you're use a different Debian-based distribution and neither of these lines above work, consult your distribution's package listings for the appropriate package name.
+If you are use a different Debian-based distribution and neither of these lines above work, consult your distribution's package listings for the appropriate package name.
 
 Once you have the software properties installed, you can enable the MariaDB repository for your server.
 
@@ -118,19 +118,19 @@ Next, add the MariaDB repository to your sources list. You can do this by enteri
 
 You wouldn't enter exactly the line above. You'll have to adjust the repository address:
 
-- ``version`` indicates the version number of MariaDB that you want to use. (e.g., ``10.4``).
+- ``version`` indicates the version number of MariaDB that you want to use. (for example, ``10.4``).
 
-- ``distro`` is the name of the Linux distribution you're using' (e.g., ``ubuntu``).
+- ``distro`` is the name of the Linux distribution you are using' (for example, ``ubuntu``).
 
-- ``release`` should be changed to your distribution release (e.g., ``wheezy``).
+- ``release`` should be changed to your distribution release (for example, ``wheezy``).
 
-If you don't know which release is installed on your server, you can determine this by using the entering the following from the command-line:
+If you do not know which release is installed on your server, you can determine this by using the entering the following from the command-line:
 
 .. code-block:: console
 
    $ lsb_release -a
 
-#. You should also update the local cache on the server.  You can do this by entering the following:
+#. You should also update the local cache on the server. You can do this by entering the following:
 
 .. code-block:: console
 
@@ -146,7 +146,7 @@ Packages in the MariaDB repository are now available for installation through ``
 .. rst-class:: sub-heading
 .. rubric:: Enabling the ``yum`` Repository
 
-For RPM-based distributions (e.g., CentOS and Red Hat Enterprise Linux), you can enable the MariaDB repository by creating a text file with ``.repo`` as the file extension to the ``/etc/yum/repos.d/`` directory.
+For RPM-based distributions (for example, CentOS and Red Hat Enterprise Linux), you can enable the MariaDB repository by creating a text file with ``.repo`` as the file extension to the ``/etc/yum/repos.d/`` directory.
 
 Using a simple text editor, create a new ``.repo`` file containing something like the following:
 
@@ -160,11 +160,11 @@ Using a simple text editor, create a new ``.repo`` file containing something lik
    gpgkey = httpss://yum.mariadb.org/RPM-GPG-KEY-MariaDB
    gpgcheck = 1
 
-For the value of ``baseurl``, you'll have to adjust the web address:
+For the value of ``baseurl``, you will have to adjust the web address:
 
-- ``version`` should be changed to the version of MariaDB you want to use (e.g., ``10.4``).
+- ``version`` should be changed to the version of MariaDB you want to use (for example, ``10.4``).
 
-- ``package`` will have to be changed to the package name for your operating system distribution, release and architecture.  For example, ``rhel8-amd64`` would reference packages for a Red Hat Enterprise Linux 8 server running on 64-bit hardware.
+- ``package`` will have to be changed to the package name for your operating system distribution, release and architecture. For example, ``rhel8-amd64`` would reference packages for a Red Hat Enterprise Linux 8 server running on 64-bit hardware.
 
 For more information on the repository, package names or available mirrors, see the `MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_. It will generate the actual text you will need to put in your repository configuration file. In fact, by clicking through the choices presented, you can just copy the results and paste them into your configuration file without any modification.
 
@@ -208,9 +208,9 @@ Then, to install MariaDB Galera Cluster, execute from the command line the follo
 
 .. note:: For MariaDB 10.3 and before, replace ``galera-4`` with ``galera-3``.
 
-Once you've done this, MariaDB Galera Cluster will be installed on your server.  You'll need to repeat this process for each node in your cluster.
+Once you've done this, MariaDB Galera Cluster will be installed on your server. You'll need to repeat this process for each node in your cluster.
 
-.. note:: If you installed MariaDB Galera Cluster over an existing stand-alone instance of MariaDB, there are some additional steps that you'll need to take to update your system to the new database server.  For more information on this, see :doc:`../training/tutorials/migration`.
+.. note:: If you installed MariaDB Galera Cluster over an existing stand-alone instance of MariaDB, there are some additional steps that you will need to take to update your system to the new database server. For more information on this, see :doc:`../training/tutorials/migration`.
 
 
 .. container:: bottom-links

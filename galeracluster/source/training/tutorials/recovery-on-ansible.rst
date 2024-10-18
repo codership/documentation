@@ -189,7 +189,7 @@ If MariaDB fails to start on any of the failed nodes, run the ``mysqld`` command
 .. rst-class:: section-heading
 .. rubric:: Complete Failure
 
-Restore from backup if all of the nodes in a Galera cluster fail (do not shutdown gracefully). Run the following command to determine if all nodes in the cluster have failed:
+Restore from backup if all of the nodes in a Galera Cluster fail (do not shutdown gracefully). Run the following command to determine if all nodes in the cluster have failed:
 
 .. code-block:: console
    
@@ -256,7 +256,7 @@ Run the infrastructure playbook to configure the container specifically on node 
    # openstack-ansible setup-infrastructure.yml \
    -l node3_galera_container-3ea2cbd3
 
-.. warning:: The new container runs a single-node Galera cluster, which is a dangerous state because the environment contains more than one active database with potentially different data.
+.. warning:: The new container runs a single-node Galera Cluster, which is a dangerous state because the environment contains more than one active database with potentially different data.
 
 .. code-block:: console
    

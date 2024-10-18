@@ -70,7 +70,7 @@ Migrating to Galera Cluster
 
    Length: xxx words; Published: October 20, 2014; Topic: General; Level: Beginner
 
-For systems that already have instances of the standalone versions of MySQL or MariaDB, the Galera Cluster installation replaces the existing database server with a new one that includes the :term:`wsrep API` patch.  This only affects the database server, not the data.
+For systems that already have instances of the standalone versions of MySQL or MariaDB, the Galera Cluster installation replaces the existing database server with a new one that includes the :term:`wsrep API` patch. This only affects the database server, not the data.
 
 When upgrading from a standalone database server, you must take some additional steps in order to subsequently preserve and use your data with Galera Cluster.
 
@@ -81,9 +81,9 @@ For more information on installing Galera Cluster, see :doc:`Galera Installation
 .. rst-class:: section-heading
 .. rubric:: Upgrading System Tables
 
-When you finish upgrading a standalone database server to Galera Cluster, but before you initialize your own cluster, you need to update the system tables to take advantage of the new privileges and capabilities.  You can do this with ``mysql_upgrade``.
+When you finish upgrading a standalone database server to Galera Cluster, but before you initialize your own cluster, you need to update the system tables to take advantage of the new privileges and capabilities. You can do this with ``mysql_upgrade``.
 
-In order to use ``mysql_upgrade``, you need to first start the database server, but start it without initializing replication.  For systems that use ``init``, run the following command:
+In order to use ``mysql_upgrade``, you need to first start the database server, but start it without initializing replication. For systems that use ``init``, run the following command:
 
 .. code-block:: console
 
@@ -95,15 +95,15 @@ For servers that use ``systemd``, instead use this command:
 
    # systemctl start mysql --wsrep_on=OFF
 
-The command starts ``mysqld`` with the :ref:`wsrep_on <wsrep_on>` parameter set to ``OFF``, which disables replication.  With the database server running, you can update the system tables:
+The command starts ``mysqld`` with the :ref:`wsrep_on <wsrep_on>` parameter set to ``OFF``, which disables replication. With the database server running, you can update the system tables:
 
 .. code-block:: console
 
    # mysql_upgrade
 
-If this command generates any errors, check the MySQL Reference Manual for more information related to the particular error message.  Typically, these errors are not critical and you can usually ignore them, unless they relate to specific functionality that your system requires.
+If this command generates any errors, check the MySQL Reference Manual for more information related to the particular error message. Typically, these errors are not critical and you can usually ignore them, unless they relate to specific functionality that your system requires.
 
-When you finish upgrading the system tables, you need to stop the ``mysqld`` process until you are ready to initialize the cluster.  For servers that use ``init``, run the following command:
+When you finish upgrading the system tables, you need to stop the ``mysqld`` process until you are ready to initialize the cluster. For servers that use ``init``, run the following command:
 
 .. code-block:: console
 
@@ -115,7 +115,7 @@ For servers that use ``systemd``, instead use this command:
 
    # systemctl stop mysql
 
-Running this command stops database server.  When you are ready to initialize your cluster, choose this server as your starting node.
+Running this command stops database server. When you are ready to initialize your cluster, choose this server as your starting node.
 
 For more information on initializing and adding nodes to a cluster, see :doc:`Starting the Cluster <starting-cluster>`.
 
@@ -124,7 +124,7 @@ For more information on initializing and adding nodes to a cluster, see :doc:`St
 .. rst-class:: section-heading
 .. rubric:: Migrating from MySQL to Galera Cluster
 
-In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL primary-replica replication, there are some additional steps that you need to take.  The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function.  As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
+In the event that you have an existing database server that uses the MyISAM storage engine or the stock MySQL primary-replica replication, there are some additional steps that you need to take. The :term:`Galera Replication Plugin` requires a transactional storage engine in order to function. As MyISAM is non-transactional, you need to migrate your data to InnoDB, in addition to installing the new software packages.
 
 There are three types of database servers referred to in this guide:
 
@@ -132,7 +132,7 @@ There are three types of database servers referred to in this guide:
 - **Replica Server**  Refers to a MySQL replica (formerly referred to as slave) server.
 - **Cluster Node** Refers to a node in Galera Cluster.
 
-For the sake of simplicity, replica servers and cluster nodes are referenced collectively, rather than individually.  In production, you may have several replica servers and must have at least three cluster nodes.
+For the sake of simplicity, replica servers and cluster nodes are referenced collectively, rather than individually. In production, you may have several replica servers and must have at least three cluster nodes.
 
 
 .. _`migrate-infrastructure`:
@@ -141,17 +141,17 @@ For the sake of simplicity, replica servers and cluster nodes are referenced col
 Infrastructure Preparation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For your existing infrastructure, you have a MySQL primary server as well as several replica servers that form a primary-replica cluster.  Before you can begin migration, you first need to prepare your infrastructure for the change.
+For your existing infrastructure, you have a MySQL primary server as well as several replica servers that form a primary-replica cluster. Before you can begin migration, you first need to prepare your infrastructure for the change.
 
 #. Launch at least three new servers, outside of and unconnected to your existing database infrastructure.
 
-#. On each new server, install Galera Cluster.  For information on how to do this, see :doc:`Galera Installation <galera-installation>`.
+#. On each new server, install Galera Cluster. For information on how to do this, see :doc:`Galera Installation <galera-installation>`.
 
-#. Configure the database server.  In addition to the IP addresses of each node, on the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, include the IP addresses of the MySQL primary server and each instance of the replica servers.
+#. Configure the database server. In addition to the IP addresses of each node, on the :ref:`wsrep_cluster_address <wsrep_cluster_address>` parameter, include the IP addresses of the MySQL primary server and each instance of the replica servers.
 
 For more information on configuring Galera Cluster, see :doc:`System Configuration <configuration>` and :doc:`Replication Configuration <wsrep-configuration>`.
 
-#. When you finish the installation and configuration, start the cluster.  For more information on how to start the cluster, see :doc:`Starting the Cluster <starting-cluster>`.
+#. When you finish the installation and configuration, start the cluster. For more information on how to start the cluster, see :doc:`Starting the Cluster <starting-cluster>`.
 
 To check that it is running properly, log into one of the database clients and run the :ref:`wsrep_cluster_size <wsrep_cluster_size>` status variable:
 
@@ -165,7 +165,7 @@ To check that it is running properly, log into one of the database clients and r
    | wsrep_cluster_size | 3     |
    +--------------------+-------+
 
-Galera Cluster is now running in parallel to your MySQL primary-replica cluster.  It contains no data and remains unused by your application servers.  You can now begin migrating your data.
+Galera Cluster is now running in parallel to your MySQL primary-replica cluster. It contains no data and remains unused by your application servers. You can now begin migrating your data.
 
 
 .. _`migrate-data`:
@@ -202,7 +202,7 @@ In order to migrate data from a MySQL primary-replica cluster to Galera Cluster,
 
 Your application now uses Galera Cluster, instead of your previous MySQL primary-replica cluster.
 
-.. note:: Bear in mind that your application will experience downtime at this stage of the process.  The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the primary server, then transfer and upload it onto a cluster node.
+.. note:: Bear in mind that your application will experience downtime at this stage of the process. The length of the downtime varies depending on the amount of data you have to migrate, specifically how long it takes ``mysqldump`` to create a snapshot of the primary server, then transfer and upload it onto a cluster node.
 
 
 .. _`migrate-db`:
@@ -215,7 +215,7 @@ With your application server now using the new cluster nodes, you now need to mi
 
 #. Using the same process described in :doc:`Galera Installation <galera-installation>`, install and configure Galera Cluster on the server.
 
-#. Start the node with replication disabled.  For servers that use ``init``, run the following command:
+#. Start the node with replication disabled. For servers that use ``init``, run the following command:
 
    .. code-block:: console
 
@@ -249,7 +249,7 @@ With your application server now using the new cluster nodes, you now need to mi
 
 #. Using your preferred text editor, on the former MySQL primary server update the sequence number (that is, the seqno) in the ``grastate.dat`` file from ``-1`` to ``0``.
 
-#. Restart the primary and replica servers.  For servers that use ``init``, run the following command:
+#. Restart the primary and replica servers. For servers that use ``init``, run the following command:
 
    .. code-block:: console
 
@@ -263,7 +263,7 @@ With your application server now using the new cluster nodes, you now need to mi
 
 #. Resume load on these servers.
 
-When the former MySQL primary and replica servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes.  All of the servers now function as nodes in Galera Cluster.
+When the former MySQL primary and replica servers come back after restarting, they establish network connectivity with the cluster and begin catching up with recent changes. All of the servers now function as nodes in Galera Cluster.
 
 .. container:: bottom-links
 

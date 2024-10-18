@@ -66,7 +66,7 @@ Making Back-Ups with Galera Cluster
 
    Length: 2693 words; Writer: Russell J.T Dyer: November 4, 2019; Topic: Administration
 
-Galera Cluster is a reliable, stable database replication clustering system. Nevertheless, there's always the possibility that something will go wrong |---| in fact, it's inevitable and unavoidable. Therefore, as a database administrator, you should ensure that back-ups of the databases and related systems are made regularly and often.
+Galera Cluster is a reliable, stable database replication clustering system. Nevertheless, there's always the possibility that something will go wrong |---| in fact, it is inevitable and unavoidable. Therefore, as a database administrator, you should ensure that back-ups of the databases and related systems are made regularly and often.
 
 Using Galera Cluster, there are a few ways in which you might make a back-up. In this article, we'll first look at the basics of back-ups. We'll then look at some other methods involving replication and how to automate back-ups by using the functionality of Galera itself.
 
@@ -78,7 +78,7 @@ Using Galera Cluster, there are a few ways in which you might make a back-up. In
 
 Back-ups are important for many reasons:  User errors are inevitable |---| such as tables dropped and rows deleted inadvertently |---| and there’s always the chance that a server crashes or is physically damaged in some other way. As a result, to ensure regular and good back-ups, you should develop some back-up policies.
 
-First, make sure your back-ups are complete. If you're using binary logs, be sure that you make a back-up of them. Also, make back-up copies of the database configuration files.
+First, make sure your back-ups are complete. If you are using binary logs, be sure that you make a back-up of them. Also, make back-up copies of the database configuration files.
 
    .. only:: html
 
@@ -132,7 +132,7 @@ After that's done, we can run whatever tool or utility we prefer to make a back-
              --flush-logs --all-databases \
              > /backups/db-backup-20191025.sql
 
-When it's finished, we’ll set ``wsrep_desync`` back to ``OFF``. The node will then process any transactions that are queued and waiting to be executed on the node.
+When it is finished, we’ll set ``wsrep_desync`` back to ``OFF``. The node will then process any transactions that are queued and waiting to be executed on the node.
 
 This simple method of making back-ups of a Galera node works well, but it still require us to take a node out of service. It supposes we're using a load balancer to redirect traffic away from the node to the other nodes. Let's look at some other methods.
 
@@ -144,7 +144,7 @@ This simple method of making back-ups of a Galera node works well, but it still 
 
 Even though Galera is running on a node, it’s possible for it also to be running standard replication and act as a primary to another server that’s not part of the cluster, that’s not using Galera software.
 
-With such an arrangement, the replication server can be used to make back-ups without disturbing the Galera cluster. When you want to make a back-up, just stop the replica from replicating. Then run whatever back-up utility you prefer. When you’re finished, just start the replica replicating again.
+With such an arrangement, the replication server can be used to make back-ups without disturbing the Galera Cluster. When you want to make a back-up, just stop the replica from replicating. Then run whatever back-up utility you prefer. When you’re finished, just start the replica replicating again.
 
 .. rst-class:: sub-heading
 .. rubric:: Galera Primary Configuration
@@ -165,7 +165,7 @@ For a Galera node to be able also to serve as a standard replication primary, we
 
 Standard replication requires each server to have a unique identification number. This is set with the ``server-id`` parameter. Actually, so that any of the other nodes can be used as a primary, you might add these parameters to all of the nodes, with the same values. It'll be fine as long as only one is part of the standard replication.
 
-Next, we’ll add the ``log-bin`` parameter on all nodes, to enable the binary log. Even though Galera doesn't need this, it's essential to the standard replication process. This will be a performance drain, but not much.
+Next, we’ll add the ``log-bin`` parameter on all nodes, to enable the binary log. Even though Galera does not need this, it is essential to the standard replication process. This will be a performance drain, but not much.
 
 So that Galera understands what's going on, we'll need to set the ``log_slave_updates`` parameter to ``ON``.
 
@@ -179,7 +179,7 @@ We'll neeed to export the data from the primary using a utility like ``mysqldump
    TO 'replicator'@'172.31.31.75'
    IDENTIFIED BY 'Rover123!';
 
-Now we can configure the replica. Again, the replica is not a node in the Galera cluster. It’s an extra server that will be replicating the transactions of one of the Galera nodes.
+Now we can configure the replica. Again, the replica is not a node in the Galera Cluster. It is an extra server that will be replicating the transactions of one of the Galera nodes.
 
 
 .. rst-class:: sub-heading
@@ -363,17 +363,17 @@ Below is a very simple back-up script which uses ``bash`` and ``mysqldump``. How
 
 The first section defines some variables:  the user name and password it will use with ``mysqldump``. There are more secure ways to do this, but we're trying to keep this script very straightforward. The next pair of variables contain the paths for storing the back-ups. Then there's a variables that will store today's date to be part of the name of the back-up file.
 
-The next stanza assembles the names of files: the dump file (e.g., ``galera-mysqldump-20191025.sql``), the data file for the GTID (e.g., ``gtid-20191025.dat``)
+The next stanza assembles the names of files: the dump file (for example, ``galera-mysqldump-20191025.sql``), the data file for the GTID (for example, ``gtid-20191025.dat``)
 
-The second section is small, but it's important. It loads the common SST script that Galera Arbitrator uses. Among other things, it will contain some variables we can use. In particular, it has the variable which contains the GTID.
+The second section is small, but it is important. It loads the common SST script that Galera Arbitrator uses. Among other things, it will contain some variables we can use. In particular, it has the variable which contains the GTID.
 
-In the third section, the script makes copies of the database configuration files (e.g., ``my.cnf``) and the Galera Arbitrator configuration file (e.g., ``garb.cnf``). The last line in this section gets the GTID variable from the common script, and writes it to a text file.
+In the third section, the script makes copies of the database configuration files (for example, ``my.cnf``) and the Galera Arbitrator configuration file (for example, ``garb.cnf``). The last line in this section gets the GTID variable from the common script, and writes it to a text file.
 
 The next section uses ``mysqldump`` to generate a dump file containing all of the databases on the node. We looked at the options already, so we'll move on.
 
-In the last section, the script will use the tar command to create an archive file that will contain all of the files in the back-up sub-directory, and then zip that file (e.g., ``galera-mysqldump-20191025.tgz``). The ``--transform`` option is so that when it's extracted, it will put everything in a directory named based on today’s date.
+In the last section, the script will use the tar command to create an archive file that will contain all of the files in the back-up sub-directory, and then zip that file (for example, ``galera-mysqldump-20191025.tgz``). When it is extracted, the ``--transform`` option puts everything in a directory named based on today’s date.
 
-That's everything:  it's everything we need. Below is how we would execute this script from the command line, in conjunction with Galera Arbitrator:
+That is all. Below is how we would execute this script from the command line, in conjunction with Galera Arbitrator:
 
 .. code-block:: text
 
@@ -384,7 +384,7 @@ This one option, ``--cfg`` is to give the path and name of the Galera Arbitrator
 .. rst-class:: section-heading
 .. rubric:: Conclusion
 
-Those are the primary ways in which DBAs can make back-ups when using Galera Cluster. There are some third-party software that provide some more advanced methods (e.g., XtraBackup). But these are the more straightforward and most common methods.
+Those are the primary ways in which DBAs can make back-ups when using Galera Cluster. There are some third-party software that provide some more advanced methods (for example, XtraBackup). But these are the more straightforward and most common methods.
 
 .. container:: bottom-links
 

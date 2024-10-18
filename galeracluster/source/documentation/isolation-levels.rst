@@ -84,7 +84,7 @@ Data consistency between the nodes is always guaranteed regardless of the isolat
 .. rst-class:: section-heading
 .. rubric:: Understanding Isolation Levels
 
-.. warning:: When using Galera Cluster in primary-replica mode, all four levels are available to you, to the extent that MySQL supports it.  In multi-primary mode, however, you can only use the ``REPEATABLE-READ`` level.
+.. warning:: When using Galera Cluster in primary-replica mode, all four levels are available to you, to the extent that MySQL supports it. In multi-primary mode, however, you can only use the ``REPEATABLE-READ`` level.
 
 
 .. _`read-uncommitted`:
@@ -93,34 +93,34 @@ Data consistency between the nodes is always guaranteed regardless of the isolat
 
 Here transactions can see changes to data made by other transactions that are not yet committed.
 
-In other words, transactions can read data that eventually may not exist, given that other transactions can always rollback the changes without commit.  This is known as a dirty read.  Effectively, ``READ-UNCOMMITTED`` has no real isolation at all.
+In other words, transactions can read data that eventually may not exist, given that other transactions can always rollback the changes without commit. This is known as a dirty read. Effectively, ``READ-UNCOMMITTED`` has no real isolation at all.
 
 
 .. _`read-committed`:
 .. rst-class:: sub-heading
 .. rubric:: READ-COMMITTED
 
-Here dirty reads are not possible.  Uncommitted changes remain invisible to other transactions until the transaction commits.
+Here dirty reads are not possible. Uncommitted changes remain invisible to other transactions until the transaction commits.
 
-However, at this isolation level ``SELECT`` queries use their own snapshots of committed data, that is data committed before the ``SELECT`` query executed.  As a result, ``SELECT`` queries, when run multiple times within the same transaction, can return different result sets.  This is called a non-repeatable read.
+However, at this isolation level ``SELECT`` queries use their own snapshots of committed data, that is data committed before the ``SELECT`` query executed. As a result, ``SELECT`` queries, when run multiple times within the same transaction, can return different result sets. This is called a non-repeatable read.
 
 
 .. _`repeatable-read`:
 .. rst-class:: sub-heading
 .. rubric:: REPEATABLE-READ
 
-Here non-repeatable reads are not possible.  Snapshots taken for the ``SELECT`` query are taken the first time the ``SELECT`` query runs during the transaction.
+Here non-repeatable reads are not possible. Snapshots taken for the ``SELECT`` query are taken the first time the ``SELECT`` query runs during the transaction.
 
-The snapshot remains in use throughout the entire transaction for the ``SELECT`` query.  It always returns the same result set.  This level does not take into account changes to data made by other transactions, regardless of whether or not they have been committed.  In this way, reads remain repeatable.
+The snapshot remains in use throughout the entire transaction for the ``SELECT`` query. It always returns the same result set. This level does not take into account changes to data made by other transactions, regardless of whether or not they have been committed. In this way, reads remain repeatable.
 
 
 .. _`serializable`:
 .. rst-class:: sub-heading
 .. rubric:: SERIALIZABLE
 
-Here all records accessed within a transaction are locked.  The resource locks in a way that also prevents you from appending records to the table the transaction operates upon.
+Here all records accessed within a transaction are locked. The resource locks in a way that also prevents you from appending records to the table the transaction operates upon.
 
-``SERIALIZABLE`` prevents a phenomenon known as a phantom read.  Phantom reads occur when, within a transaction, two identical queries execute, and the rows the second query returns differ from the first.
+``SERIALIZABLE`` prevents a phenomenon known as a phantom read. Phantom reads occur when, within a transaction, two identical queries execute, and the rows the second query returns differ from the first.
 
 .. container:: bottom-links
 

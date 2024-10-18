@@ -47,9 +47,9 @@
 Development of the Codership Knowledge Base
 ============================================
 
-:doc:`The Codership Knowledge Base <../kb/index>` is composed of :doc:`Troubleshooting <../kb/index>` and :doc:`Best Practices <../kb/index>` articles |---| KB articles are grouped by these two distinctions. This is different from the Documentation, which explains how to configure and administer a Galera Cluster |---| not how to solve problems that occur or how best to use Galera based on particular circumstances.  Previously, the Documentation included what we now define as KB articles. This was a confusing approach:  when reading the Documentation, readers want to know how to install, configure, and administer Galera, not be told how to fix problems they have not yet or may never encouter.
+:doc:`The Codership Knowledge Base <../kb/index>` is composed of :doc:`Troubleshooting <../kb/index>` and :doc:`Best Practices <../kb/index>` articles |---| KB articles are grouped by these two distinctions. This is different from the Documentation, which explains how to configure and administer a Galera Cluster |---| not how to solve problems that occur or how best to use Galera based on particular circumstances. Previously, the Documentation included what we now define as KB articles. This was a confusing approach:  when reading the Documentation, readers want to know how to install, configure, and administer Galera, not be told how to fix problems they have not yet or may never encouter.
 
-To start the KB, we removed pages from the Documentation which were essentially KB articles and put them in the KB. Once there, we changed their structure:  for troubleshooting articles, presenting a scenario and then solutions or work-arounds; for best practice articles, presenting a scenario and then recommendations.  We also included in the left margin, links to related documentation and other articles.
+To start the KB, we removed pages from the Documentation which were essentially KB articles and put them in the KB. Once there, we changed their structure:  for troubleshooting articles, presenting a scenario and then solutions or work-arounds; for best practice articles, presenting a scenario and then recommendations. We also included in the left margin, links to related documentation and other articles.
 
 
 .. rst-class:: section-heading
@@ -59,9 +59,9 @@ To start the KB, we removed pages from the Documentation which were essentially 
 
    Content: 21 Articles, 15 pages, 6,547 Words; Google Traffic, July: 3,300 Impressions, 379 Clicks
 
-Although we now have the structure and an initial batch of KB articles, we need many more articles. We can get ideas for KB articles from our internal support tickets, as well as postings in public forums.  We'll have to write out own, generic text, but ideas of common problems is what's needed. We can compete with other sites by providing well written and thorough text and solutions.
+Although we now have the structure and an initial batch of KB articles, we need many more articles. We can get ideas for KB articles from our internal support tickets, as well as postings in public forums. We'll have to write out own, generic text, but ideas of common problems is what's needed. We can compete with other sites by providing well written and thorough text and solutions.
 
-Before we start promoting our KB, we should have at least two-hundred KB articles, with most in the Troubleshooting section.  Our first goal, though, is to get to thirty-give KB articles. Below is a list of ideas for KB articles and links to their sources.  Writing articles for each of these will get us to our first goal.
+Before we start promoting our KB, we should have at least two-hundred KB articles, with most in the Troubleshooting section. Our first goal, though, is to get to thirty-give KB articles. Below is a list of ideas for KB articles and links to their sources. Writing articles for each of these will get us to our first goal.
 
 .. _`kb-pending-1`:
 .. rst-class:: rubric-2
