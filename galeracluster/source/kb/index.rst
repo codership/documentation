@@ -58,11 +58,11 @@ The Codership Knowledge Base
 
    Article Counts: 10 Troubleshooting, 13 Best Practices; Recent Changes: 6 Revised, 2 New Articles
 
-:doc:`The Codership Documentation <../documentation/index>` explains in detail how to deploy and administer a Galera Cluster. This section, the Codership Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster.  Here you'll find troubleshooting articles and best practices articles.
+:doc:`The Codership Documentation <../documentation/index>` explains in detail how to deploy and administer a Galera Cluster. This section, the Codership Knowledge Base (KB) contains information on resolving problems and improving use of Galera Cluster. Here you will find troubleshooting articles and best practices articles.
 
-In essence, the Documentation is how to use Galera assuming everything goes according to plan; the KB is for when things don't go as expected or when they could be better.
+In essence, the Documentation is how to use Galera assuming everything goes according to plan; the KB is for when things do not go as expected or when they could be better.
 
-In addition to this KB, you can also post questions on the `Codership Forum <https://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there. If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use `our on-line form <https://galeracluster.com/contact-us/#send-us-a-message>`_ to send us a message.
+In addition to this KB, you can also post questions on the `Codership Forum <https://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there. If you need more immediate and personalized assistance, you can get a Support contract with us at Codership. For a quote on the cost of support, write us at info@codership.com or use `our on-line form <https://galeracluster.com/contact-us/#send-us-a-message>`_ to send us a message.
 
 
 .. _`kb-trouble`:
@@ -117,7 +117,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-abstract
 
-      When a new node joins a cluster, it will try to get a full copy of the databases from one of the other nodes.  Sometimes its request will be ignored and no node is selected to be the donor.
+      When a new node joins a cluster, it will try to get a full copy of the databases from one of the other nodes. Sometimes its request will be ignored and no node is selected to be the donor.
 
 
 .. _`kb-trouble-sql-syntax`:
@@ -149,7 +149,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
    .. rst-class:: list-abstract
 
-      Changes to the ``mysql`` database (e.g., user name, host address) are not replicated on other nodes. This can cause problems for users, as well as frustrate the DBA.
+      Changes to the ``mysql`` database (for example, user name, host address) are not replicated on other nodes. This can cause problems for users, as well as frustrate the DBA.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -275,7 +275,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      Parallel threads don't ensure better performance, but they don't impair performance and they may actually increase synchronization of new nodes joining a cluster.
+      Parallel threads do not ensure better performance, but they do not impair performance and they may actually increase synchronization of new nodes joining a cluster.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -336,7 +336,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      Galera nodes don't use much more memory than a stand-alone. The certification index and uncommitted write-sets drain some. Write-set caching during state transfers is the exception.
+      Galera nodes do not use much more memory than a stand-alone. The certification index and uncommitted write-sets drain some. Write-set caching during state transfers is the exception.
 
 
 .. _`kb-best-topology`:
@@ -356,7 +356,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
 
    .. rst-class:: list-abstract
 
-      It's possible to designate one node in a cluster to handle all writes, to be the primary to the other nodes. To do this, there are certain configuration requirements.
+      It is possible to designate one node in a cluster to handle all writes, to be the primary to the other nodes. To do this, there are certain configuration requirements.
 
    .. rst-class:: rubric-2 list-sub-header
    .. rubric:: :doc:`Multi-Primary Setup <multi-master-setup>`

@@ -59,7 +59,7 @@ These variables are *Galera Cluster* 0.8.x status variables. There are two types
 
 - Variables exported by MySQL. These variables are for the general wsrep provider.
 
-This distinction is of importance for developers only.  For convenience, all status variables are presented as a single list below. They're noted as to whether they are exported by Galera or by MySQL.
+This distinction is of importance for developers only. For convenience, all status variables are presented as a single list below. They're noted as to whether they are exported by Galera or by MySQL.
 
    .. only:: html
 
@@ -333,9 +333,9 @@ Average number of transactions received while a transaction replicates.
    "Location", "Galera"
    "Initial Version", "???"
 
-When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it.  By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
+When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it. By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
 
-To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts.  Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.
+To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts. Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.
 
 To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -417,7 +417,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_cluster_state_uuid
 
-Provides the current State UUID.  This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes.
+Provides the current State UUID. This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes.
 
 .. csv-table::
    :class: doc-options
@@ -448,7 +448,7 @@ For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 .. index::
    pair: Status Variables; wsrep_cluster_status
 
-Status of this cluster component.  That is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
+Status of this cluster component. That is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
 
 .. csv-table::
    :class: doc-options
@@ -632,7 +632,7 @@ Returns the number of operations in progress that require the node to temporaril
    "Location", "Galera"
    "Initial Version", "3.8"
 
-Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
+Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster. This status variable shows how many of these operations are currently running on the node. When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
 
 To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
@@ -679,7 +679,7 @@ This refers to the UUID and IP address of the delayed node, with a count of the 
 .. index::
    pair: Status Variables; wsrep_evs_evict_list
 
-Lists the UUID's of all nodes evicted from the cluster.  Evicted nodes cannot rejoin the cluster until you restart their ``mysqld`` processes.
+Lists the UUID's of all nodes evicted from the cluster. Evicted nodes cannot rejoin the cluster until you restart their ``mysqld`` processes.
 
 .. csv-table::
    :class: doc-options
@@ -708,7 +708,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Parameters; wsrep_evs_repl_latency
 
-This status variable provides figures for the replication latency on group communication.  It measures latency from the time point when a message is sent out to the time point when a message is received.  As replication is a group operation, this essentially gives you the slowest ACK and longest RTT in the cluster.
+This status variable provides figures for the replication latency on group communication. It measures latency from the time point when a message is sent out to the time point when a message is received. As replication is a group operation, this essentially gives you the slowest ACK and longest RTT in the cluster.
 
 .. csv-table::
    :class: doc-options
@@ -729,13 +729,13 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
    | wsrep_evs_repl_latency | 0.00243433/0.144022/0.591963/0.215824/13 |
    +------------------------+------------------------------------------+
 
-The units are in seconds.  The format of the return value is:
+The units are in seconds. The format of the return value is:
 
 .. code-block:: text
 
    Minimum / Average / Maximum / Standard Deviation / Sample Size
 
-This variable periodically resets.  You can control the reset interval using the :ref:`evs.stats_report_period <evs.stats_report_period>` parameter.  The default value is 1 minute.
+This variable periodically resets. You can control the reset interval using the :ref:`evs.stats_report_period <evs.stats_report_period>` parameter. The default value is 1 minute.
 
 
 .. _`wsrep_evs_state`:
@@ -863,7 +863,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_flow_control_recv
 
-Returns the number of ``FC_PAUSE`` events the node has received, including those the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
+Returns the number of ``FC_PAUSE`` events the node has received, including those the node has sent. Unlike most status variables, the counter for this one does not reset every time you run the query.
 
 .. csv-table::
    :class: doc-options
@@ -892,7 +892,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_flow_control_requested
 
-Whether the node has requested replication pause (received events queue too long)
+Whether the node has requested replication pause (received events queue too long).
 
 .. csv-table::
    :class: doc-options
@@ -921,7 +921,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_flow_control_sent
 
-Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
+Returns the number of ``FC_PAUSE`` events the node has sent. Unlike most status variables, the counter for this one does not reset every time you run the query.
 
 .. csv-table::
    :class: doc-options

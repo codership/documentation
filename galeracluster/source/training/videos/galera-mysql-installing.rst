@@ -73,7 +73,7 @@ Installing Galera Cluster with MySQL
 
    This training video explains how to use install MySQL and Galera Cluster software on a server, on three servers, and to use those servers as nodes of a Galera Cluster. It shows how to download and install the software, as well as how to configure MySQL and Galera on each node. The video ends by showing the steps to start a cluster, and some tips on resolving problems when first starting a cluster.
 
-   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video. You should look at it before starting the video so that you can be prepared. There is also a link to a PDF copy of the slide presentation. It has been set so that you make notes on it. In the left margin are links to related documentation, articles, and other materials.
 
 .. container:: list-col1-3
 
@@ -115,7 +115,7 @@ Installing Galera Cluster with MySQL
 
    **4. Opening Ports** :raw-html:`<small>(time index: 22:16)</small>` |br| Setting security to allow Galera traffic through specific ports.
 
-   **5. Starting Galera** :raw-html:`<small>(time index: 24:57)</small>` |br| Starting and testing a Galera cluster |---| and some resolving common beginner problems.
+   **5. Starting Galera** :raw-html:`<small>(time index: 24:57)</small>` |br| Starting and testing a Galera Cluster |---| and some resolving common beginner problems.
 
 .. raw:: html
 

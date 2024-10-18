@@ -83,11 +83,11 @@ Making Back-Ups with Galera Cluster
 
 .. container:: video-abstract list-col2-3
 
-   A primary responsibility of a database administrator, a DBA, is to make back-ups |---| or to ensure they are made properly and regularly.  It's a key part of ensuring high availability of data. While the average DBA may know well how to perform this essentential administrative task on stand-alone database servers, most aren't so sure how best to do so when the database server is part of a Galera Cluster.
+   A primary responsibility of a database administrator, a DBA, is to make back-ups |---| or to ensure they are made properly and regularly. It is a key part of ensuring high availability of data. While the average DBA may know well how to perform this essential administrative task on stand-alone database servers, most aren't so sure how best to do so when the database server is part of a Galera Cluster.
 
-   This training video explains in detail how to make back-ups of MySQL and MariaDB databases within a Galera Cluster.  It presents in stages, different methods for removing or pausing a node to make a proper back-up.  Additionally, it presents methods for restoring back-ups |---| recovering single nodes and an entire cluster.
+   This training video explains in detail how to make back-ups of MySQL and MariaDB databases within a Galera Cluster. It presents in stages, different methods for removing or pausing a node to make a proper back-up. Additionally, it presents methods for restoring back-ups |---| recovering single nodes and an entire cluster.
 
-   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video. You should look at it before starting the video so that you can be prepared. There is also a link to a PDF copy of the slide presentation. It has been set so that you make notes on it. In the left margin are links to related documentation, articles, and other materials.
 
 .. container:: list-col1-3
 
@@ -118,9 +118,9 @@ Making Back-Ups with Galera Cluster
 
    **1. Back-Up Basics** :raw-html:`<small>(time index: 3:30)</small>` |br| Covers the basic concepts, reasons and goals in making back-ups of databases.
 
-   **2. Using Standard Replication** :raw-html:`<small>(time index: 16:23)</small>` |br| Presents how to use standard MySQL or MariaDB replication to attach a replica to a Galera node, with it acting as a primary. With this arrangement, it's easy to stop the replica and regularly make back-ups.
+   **2. Using Standard Replication** :raw-html:`<small>(time index: 16:23)</small>` |br| Presents how to use standard MySQL or MariaDB replication to attach a replica to a Galera node, with it acting as a primary. With this arrangement, it is easy to stop the replica and regularly make back-ups.
 
-   **3. Using Galera Arbitrator** :raw-html:`<small>(time index: 27:31)</small>` |br| Galera Arbitrator may be used to desynchronize a node and then initiate a back-up script on that node.  When it's finished, it will resynchronize the node.
+   **3. Using Galera Arbitrator** :raw-html:`<small>(time index: 27:31)</small>` |br| Galera Arbitrator may be used to desynchronize a node and then initiate a back-up script on that node. When it is finished, it will resynchronize the node.
 
 .. container:: list-col2
 

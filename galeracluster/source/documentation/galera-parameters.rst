@@ -58,7 +58,7 @@
 Galera Parameters
 ==================
 
-As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key value pair lists, such as ``key1 = value1; key2 = value2``.  In this way, you can configure an arbitrary number of Galera Cluster parameters in one call. A key consists of parameter group and parameter name: ``<group>.<name>``, where ``<group>`` corresponds roughly to some Galera module.
+As of version 0.8, Galera Cluster accepts parameters as semicolon-separated key value pair lists, such as ``key1 = value1; key2 = value2``. In this way, you can configure an arbitrary number of Galera Cluster parameters in one call. A key consists of parameter group and parameter name: ``<group>.<name>``, where ``<group>`` corresponds roughly to some Galera module.
 
 All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
 
@@ -74,7 +74,7 @@ All ``wsrep_provider_options`` settings need to be specified on a single line. I
 		  :target: https://galeracluster.com/support/#galera-cluster-support-subscription
 
 
-Below is a list of all of the Galera parameters.  Each is also a link to further down the page where you may find more information.  There are a few things to know about this table:
+Below is a list of all of the Galera parameters. Each is also a link to further down the page where you may find more information. There are a few things to know about this table:
 
 - For numeric values related to memory size, Galera Cluster accepts the numeric modifiers, ``K``, ``M``, ``G``, and ``T`` to represent |210|, |220|, |230| and |240|, respectively.
 
@@ -210,7 +210,7 @@ Global variable for internal use.
    "Dynamic", ""
    "Initial Version", ""
 
-.. warning:: Since this is for internal use only, don't manually set the ``base_host`` variable.
+.. warning:: Since this is for internal use only, do not manually set the ``base_host`` variable.
 
 
 .. _`base_port`:
@@ -229,7 +229,7 @@ Global variable for internal use.
    "Dynamic", ""
    "Initial Version", ""
 
-.. warning:: Since this is for internal use only, don't manually set the ``base_port`` variable.
+.. warning:: Since this is for internal use only, do not manually set the ``base_port`` variable.
 
 
 .. _`cert.log_conflicts`:
@@ -340,11 +340,11 @@ Defines how many entries the node allows for given a delayed node before it trig
    "Dynamic", "No"
    "Initial Version", "3.8"
 
-Each cluster node monitors the group communication response times from all other nodes.  When the cluster registers delayed response from a given node, it adds an entry for that node to its delayed list.  If the majority of the cluster nodes show the node as delayed, the node is permanently evicted from the cluster.
+Each cluster node monitors the group communication response times from all other nodes. When the cluster registers delayed response from a given node, it adds an entry for that node to its delayed list. If the majority of the cluster nodes show the node as delayed, the node is permanently evicted from the cluster.
 
 This parameter determines how many entries a given node can receive before it triggers Auto Eviction.
 
-When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node.  Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster.
+When this parameter is set to ``0``, it disables the Auto Eviction protocol for this node. Even when you disable Auto Eviction, though; the node continues to monitor response times from the cluster.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -439,7 +439,7 @@ Defines how long this node requires a delayed node to remain responsive before i
    "Dynamic", "No"
    "Initial Version", "3.8"
 
-Each cluster node monitors the group communication response times from all other nodes.  When the cluster registered delayed responses from a given node, it adds an entry for that node to its delayed list.  Nodes that remain on the delayed list can trigger Auto Eviction, which removes them permanently from the cluster.
+Each cluster node monitors the group communication response times from all other nodes. When the cluster registered delayed responses from a given node, it adds an entry for that node to its delayed list. Nodes that remain on the delayed list can trigger Auto Eviction, which removes them permanently from the cluster.
 
 This parameter determines how long a node on the delayed list must remain responsive before it removes one entry. The number of entries on the delayed list and how long it takes before the node removes all entries depends on how long the delayed node was unresponsive.
 
@@ -468,9 +468,9 @@ Defines how long the node allows response times to deviate before adding an entr
    "Dynamic", "No"
    "Initial Version", "3.8"
 
-Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list.  Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.
+Each cluster node monitors group communication response times from all other nodes. When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list. Delayed nodes can trigger Auto Eviction, which removes them permanently from the cluster.
 
-This parameter determines how long a delay can run before the node adds an entry to the delayed list.  You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
+This parameter determines how long a delay can run before the node adds an entry to the delayed list. You must set this parameter to a value higher than the round-trip delay time (RTT) between the nodes.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -488,7 +488,7 @@ For more information on the delayed list and the Auto Eviction process, see :doc
 .. index::
    pair: wsrep Provider Options; evs.evict
 
-If set to the gcomm UUID of some node, that node will be evicted from the cluster.  Setting this parameter to an empty string causes the eviction list to be cleared on the node where it is set.
+If set to the gcomm UUID of some node, that node will be evicted from the cluster. Setting this parameter to an empty string causes the eviction list to be cleared on the node where it is set.
 
 .. csv-table::
    :class: doc-options
@@ -516,7 +516,7 @@ Defines how often you want the node to check for peer inactivity.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list, which can lead to the delayed node's eviction from the cluster.
+Each cluster node monitors group communication response times from all other nodes. When the cluster registers a delayed response from a given node, it adds an entry for that node to its delayed list, which can lead to the delayed node's eviction from the cluster.
 
 This parameter determines how often you want the node to check for delays in the group communication responses from other cluster nodes.
 
@@ -545,7 +545,7 @@ Defines a hard limit on node inactivity.
 
 Hard limit on the inactivity period, after which the node is pronounced dead.
 
-Each cluster node monitors group communication response times from all other nodes.  When the cluster registers a delayed response from a given node, it add an entry for that node to its delayed list, which can lead to the delayed node's eviction from the cluster.
+Each cluster node monitors group communication response times from all other nodes. When the cluster registers a delayed response from a given node, it add an entry for that node to its delayed list, which can lead to the delayed node's eviction from the cluster.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -553,7 +553,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
    wsrep_provider_options="evs.inactive_timeout=PT15S"
 
-This parameter sets a hard limit for node inactivity.  If a delayed node remains unresponsive for longer than this period, the node pronounces the delayed node as dead.
+This parameter sets a hard limit for node inactivity. If a delayed node remains unresponsive for longer than this period, the node pronounces the delayed node as dead.
 
 
 .. _`evs.info_log_mask`:
@@ -572,7 +572,7 @@ Defines additional logging options for the EVS Protocol.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-The EVS Protocol monitors group communication response times and controls the node eviction and auto eviction processes.  This parameter allows you to enable additional logging options, through a bitmask value.
+The EVS Protocol monitors group communication response times and controls the node eviction and auto eviction processes. This parameter allows you to enable additional logging options, through a bitmask value.
 
 - ``0x1`` Provides extra view change info.
 - ``0x2`` Provides extra state change info
@@ -602,7 +602,7 @@ Defines the timeout for install message acknowledgments.
    "Dynamic", "Yes"
    "Initial Version", "1.0"
 
-Each cluster node monitors group communication response times from all other nodes, checking whether they are responsive or delayed.  This parameter determines how long you want the node to wait on install message acknowledgments.
+Each cluster node monitors group communication response times from all other nodes, checking whether they are responsive or delayed. This parameter determines how long you want the node to wait on install message acknowledgments.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -652,7 +652,7 @@ Defines how often the node emits keepalive signals.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-Each cluster node monitors group communication response times from all other nodes.  When there is no traffic going out for the cluster to monitor, nodes emit keepalive signals so that other nodes have something to measure.  This parameter determines how often the node emits a keepalive signal, absent any other traffic.
+Each cluster node monitors group communication response times from all other nodes. When there is no traffic going out for the cluster to monitor, nodes emit keepalive signals so that other nodes have something to measure. This parameter determines how often the node emits a keepalive signal, absent any other traffic.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -677,7 +677,7 @@ Defines the number of membership install rounds to try before giving up.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-This parameter determines the maximum number of times that the node tries for a membership install acknowledgment, before it stops trying.  The total number of rounds it tries is this value plus 2.
+This parameter determines the maximum number of times that the node tries for a membership install acknowledgment, before it stops trying. The total number of rounds it tries is this value plus 2.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -702,9 +702,9 @@ Defines the maximum number of packets at a time in replication.
    "Dynamic", "Yes"
    "Initial Version", "1.0"
 
-This parameter determines the maximum number of packets the node uses at a time in replication.  For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this value considerably higher, (for example, 512), than for clusters implemented over :abbr:`LAN (Local Area Network)`.
+This parameter determines the maximum number of packets the node uses at a time in replication. For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this value considerably higher, (for example, 512), than for clusters implemented over :abbr:`LAN (Local Area Network)`.
 
-You must use a value that is greater than :ref:`evs.user_send_window <evs.user_send_window>`.  The recommended value is double :ref:`evs.user_send_window <evs.user_send_window>`.
+You must use a value that is greater than :ref:`evs.user_send_window <evs.user_send_window>`. The recommended value is double :ref:`evs.user_send_window <evs.user_send_window>`.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -752,7 +752,7 @@ Defines the inactivity period after which a node is *suspected* as dead.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-Each node in the cluster monitors group communications from all other nodes in the cluster.  This parameter determines the period of inactivity before the node suspects another of being dead.  If all nodes agree on that, the cluster drops the inactive node.
+Each node in the cluster monitors group communications from all other nodes in the cluster. This parameter determines the period of inactivity before the node suspects another of being dead. If all nodes agree on that, the cluster drops the inactive node.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -800,9 +800,9 @@ Defines the maximum number of data packets at a time in replication.
    "Dynamic", "Yes"
    "Initial Version", "1.0"
 
-This parameter determines the maximum number of data packets the node uses at a time in replication.  For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this to a value considerably higher than cluster implementations over :abbr:`LAN (Local Area Network)`, (for example, 512).
+This parameter determines the maximum number of data packets the node uses at a time in replication. For clusters implemented over :abbr:`WAN (Wide Area Network)`, you can set this to a value considerably higher than cluster implementations over :abbr:`LAN (Local Area Network)`, (for example, 512).
 
-You must use a value that is smaller than :ref:`evs.send_window<evs.send_window>`.  The recommended value is half :ref:`evs.send_window<evs.send_window>`.
+You must use a value that is smaller than :ref:`evs.send_window<evs.send_window>`. The recommended value is half :ref:`evs.send_window<evs.send_window>`.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -829,7 +829,7 @@ Defines how long the node saves past views from the view history.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-Each node maintains a history of past views.  This parameter determines how long you want the node to save past views before dropping them from the table.
+Each node maintains a history of past views. This parameter determines how long you want the node to save past views before dropping them from the table.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -854,7 +854,7 @@ Defines the EVS Protocol version.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-This parameter determines which version of the EVS Protocol the node uses.  In order to ensure backwards compatibility, the parameter defaults to ``0`` on Galera Cluster versions prior to 3.9.  Certain EVS Protocol features, such as Auto Eviction, require you to upgrade to more recent versions. As of Galera Cluster version 4.0, the parameter defaults to ``1``.
+This parameter determines which version of the EVS Protocol the node uses. In order to ensure backwards compatibility, the parameter defaults to ``0`` on Galera Cluster versions prior to 3.9. Certain EVS Protocol features, such as Auto Eviction, require you to upgrade to more recent versions. As of Galera Cluster version 4.0, the parameter defaults to ``1``.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -881,9 +881,9 @@ Defines the directory where the write-set cache places its files.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory mapped files to disk.
+When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state. Under certain methods, the node that sends the state transfer is similarly blocked. To prevent the database from falling further behind, GCache saves the incoming write-sets on memory mapped files to disk.
 
-This parameter determines where you want the node to save these files for write-set caching.  By default, GCache uses the working directory for the database server.
+This parameter determines where you want the node to save these files for write-set caching. By default, GCache uses the working directory for the database server.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -947,7 +947,7 @@ Defines the filename for the write-set cache.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
+When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state. Under certain methods, the node that sends the state transfer is similarly blocked. To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
 This parameter determines the name you want the node to use for this ring buffer storage file.
 
@@ -965,7 +965,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gcache.page_size
 
-Size of the page files in page storage. The limit on overall page storage is the size of the disk.  Pages are prefixed by ``gcache.page``.
+Size of the page files in page storage. The limit on overall page storage is the size of the disk. Pages are prefixed by ``gcache.page``.
 
 .. csv-table::
    :class: doc-options
@@ -1020,9 +1020,9 @@ Defines the disk space you want to node to use in caching write-sets.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state.  Under certain methods, the node that sends the state transfer is similarly blocked.  To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
+When nodes receive state transfers they cannot process incoming write-sets until they finish updating their state. Under certain methods, the node that sends the state transfer is similarly blocked. To prevent the database from falling further behind, GCache saves the incoming write-sets on memory-mapped files to disk.
 
-This parameter defines the amount of disk space you want to allocate for the present ring buffer storage.  The node allocates this space when it starts the database server.
+This parameter defines the amount of disk space you want to allocate for the present ring buffer storage. The node allocates this space when it starts the database server.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1049,15 +1049,15 @@ Defines the policy and priority for the gcomm thread.
    "Dynamic", "No"
    "Initial Version", "3.0"
 
-Using this option, you can raise the priority of the gcomm thread to a higher level than it normally uses.  You may find this useful in situations where Galera Cluster threads do not receive sufficient CPU time, due to competition with other MySQL threads.  In these cases, when the thread scheduler for the operating system does not run the Galera threads frequently enough, timeouts may occur, causing the node to drop from the cluster.
+Using this option, you can raise the priority of the gcomm thread to a higher level than it normally uses. You may find this useful in situations where Galera Cluster threads do not receive sufficient CPU time, due to competition with other MySQL threads. In these cases, when the thread scheduler for the operating system does not run the Galera threads frequently enough, timeouts may occur, causing the node to drop from the cluster.
 
-The format for this option is: ``<policy>:<priority>``.  The priority value is an integer.  The policy value supports the following options:
+The format for this option is: ``<policy>:<priority>``. The priority value is an integer. The policy value supports the following options:
 
-- ``other`` Designates the default time-sharing scheduling in Linux.  They can run until they are blocked by an I/O request or preempted by higher priorities or superior scheduling designations.
+- ``other`` Designates the default time-sharing scheduling in Linux. They can run until they are blocked by an I/O request or preempted by higher priorities or superior scheduling designations.
 
-- ``fifo`` Designates first-in out scheduling.  These threads always immediately preempt any currently running other, batch or idle threads.  They can run until they are either blocked by an I/O request or preempted by a FIFO thread of a higher priority.
+- ``fifo`` Designates first-in out scheduling. These threads always immediately preempt any currently running other, batch or idle threads. They can run until they are either blocked by an I/O request or preempted by a FIFO thread of a higher priority.
 
-- ``rr`` Designates round-robin scheduling.  These threads always preempt any currently running other, batch or idle threads.  The scheduler allows these threads to run for a fixed period of a time.  If the thread is still running when this time period is exceeded, they are stopped and moved to the end of the list, allowing another round-robin thread of the same priority to run in their place.  They can otherwise continue to run until they are blocked by an I/O request or are preempted by threads of a higher priority.
+- ``rr`` Designates round-robin scheduling. These threads always preempt any currently running other, batch or idle threads. The scheduler allows these threads to run for a fixed period of a time. If the thread is still running when this time period is exceeded, they are stopped and moved to the end of the list, allowing another round-robin thread of the same priority to run in their place. They can otherwise continue to run until they are blocked by an I/O request or are preempted by threads of a higher priority.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1433,7 +1433,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gmcast.segment
 
-Define which network segment this node is in. Optimisations on communication are performed to minimise the amount of traffic between network segments including writeset relaying and IST and SST donor selection.  The :ref:`gmcast.segment <gmcast.segment>` value is an integer from ``0`` to ``255``. By default all nodes are placed in the same segment (``0``).
+Define which network segment this node is in. Optimisations on communication are performed to minimise the amount of traffic between network segments including writeset relaying and IST and SST donor selection. The :ref:`gmcast.segment <gmcast.segment>` value is an integer from ``0`` to ``255``. By default all nodes are placed in the same segment (``0``).
 
 .. csv-table::
    :class: doc-options
@@ -1583,7 +1583,7 @@ Defines the address that the node binds on for receiving an :term:`Incremental S
    "Dynamic", "No"
    "Initial Version", "3.16"
 
-This option defines the address to which the node will bind in order to receive Incremental State Transfers.  When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`.  You may find it useful when the node runs behind a NAT or in similar cases where the public and private addresses differ.
+This option defines the address to which the node will bind in order to receive Incremental State Transfers. When this option is not set, it takes its value from :ref:`ist.recv_addr <ist.recv_addr>` or, in the event that that is also not set, from :ref:`wsrep_node_address <wsrep_node_address>`. You may find it useful when the node runs behind a NAT or in similar cases where the public and private addresses differ.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -1601,7 +1601,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    single: gvwstate.dat
 
-When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file.  The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.
+When set to ``TRUE``, the node stores the Primary Component state to disk, in the ``gvwstate.dat`` file. The Primary Component can then recover automatically when all nodes that were part of the last saved state reestablish communications with each other.
 
 .. csv-table::
    :class: doc-options
@@ -2189,7 +2189,7 @@ Defines the path to the SSL Certificate Authority (CA) file.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-The node uses the CA file to verify the signature on the certificate.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
+The node uses the CA file to verify the signature on the certificate. You can use either an absolute path or one relative to the working directory. The file must use PEM format.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -2216,7 +2216,7 @@ Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
+The node uses the certificate as a self-signed public key in encrypting replication traffic over :abbr:`SSL (Secure Socket Layer)`. You can use either an absolute path or one relative to the working directory. The file must use PEM format.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -2263,7 +2263,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; socket.dynamic
 
-Enable connection engine to accept both SSL and TCP connections.   
+Enable connection engine to accept both SSL and TCP connections. 
 
 .. csv-table::
    :class: doc-options
@@ -2357,7 +2357,7 @@ Defines the path to the :abbr:`SSL (Secure Socket Layer)` certificate key.
    "Dynamic", "No"
    "Initial Version", "1.0"
 
-The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`.  You can use either an absolute path or one relative to the working directory.  The file must use PEM format.
+The node uses the certificate key a self-signed private key in encrypting replication traffic over  :abbr:`SSL (Secure Socket Layer)`. You can use either an absolute path or one relative to the working directory. The file must use PEM format.
 
 The excerpt below is an example of how this Galera parameter might look in the configuration file:
 
@@ -2409,7 +2409,7 @@ Reinitialize SSL context.
    "Dynamic", "Yes"
    "Initial Version", "4.8"
 
-Parameter used to dynamically reinitialize the Galera SSL context.  This is most useful if you need to 
+Parameter used to dynamically reinitialize the Galera SSL context. This is most useful if you need to 
 replace a certificate that is about to expire without restarting the server. You need to change the 
 certificate and key files at the relevant paths defined by SSL variables.
 

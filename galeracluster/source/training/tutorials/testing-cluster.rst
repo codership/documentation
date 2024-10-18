@@ -69,7 +69,7 @@ When you have a cluster running, you may want to test certain features, to ensur
 .. rst-class:: section-heading
 .. rubric:: Replication Testing
 
-With these steps, you can test that your Galera Cluster is working as expected.  First, using the database client, verify that all nodes have connected to each other.  To do this, execute the ``SHOW STATUS`` statement as shown below:
+With these steps, you can test that your Galera Cluster is working as expected. First, using the database client, verify that all nodes have connected to each other. To do this, execute the ``SHOW STATUS`` statement as shown below:
 
  .. code-block:: mysql
 
@@ -84,7 +84,7 @@ With these steps, you can test that your Galera Cluster is working as expected. 
     | wsrep_ready               | ON         |
     +---------------------------+------------+
 
-Because of the ``LIKE`` operator, only variables beginning with ``wsrep_`` are returned.  The three variables pertinent here are the ones shown in the example above.
+Because of the ``LIKE`` operator, only variables beginning with ``wsrep_`` are returned. The three variables pertinent here are the ones shown in the example above.
 
   - :ref:`wsrep_local_state_comment <wsrep_local_state_comment>`: The ``Synced`` value indicates that the node is connected to the cluster and operational.
 
@@ -110,7 +110,7 @@ For the next test, try creating a table and inserting data into it. Use a databa
     INSERT INTO test_table (msg)
        VALUES ("Hello, again, cluster dear.");
 
-These statements will create a ``galeratest`` database and a ``test_table`` table within it.  The last two SQL statements insert data into that table.  After doing this, log into ``node2`` and check that the data was correctly replicated. You would do this with by executing the following SQL statement on ``node2``:
+These statements will create a ``galeratest`` database and a ``test_table`` table within it. The last two SQL statements insert data into that table. After doing this, log into ``node2`` and check that the data was correctly replicated. You would do this with by executing the following SQL statement on ``node2``:
 
  .. code-block:: mysql
 
@@ -119,7 +119,7 @@ These statements will create a ``galeratest`` database and a ``test_table`` tabl
    +----+-----------------------------+
    | id | msg                         |
    +----+-----------------------------+
-   |  1 | Hello my dear cluster.      |
+   |  1 | Hello my dear cluster.     |
    |  2 | Hello, again, cluster dear. |
    +----+-----------------------------+
 
@@ -130,9 +130,9 @@ The results returned  from the ``SELECT`` statement indicate that the data enter
 .. rst-class:: section-heading
 .. rubric:: Split-Brain Testing
 
-There are a few steps to test Galera Cluster for split-brain situations on a two-node cluster.  First, disconnect the network connection between the two nodes. At this point, the :term:`Quorum` will be lost and the nodes will not serve requests.
+There are a few steps to test Galera Cluster for split-brain situations on a two-node cluster. First, disconnect the network connection between the two nodes. At this point, the :term:`Quorum` will be lost and the nodes will not serve requests.
 
-Now, reconnect the network connection.  The quorum will remain lost and the nodes still will not serve requests.
+Now, reconnect the network connection. The quorum will remain lost and the nodes still will not serve requests.
 
 To reset the quorum, execute the following SQL statement on one of the database clients:
 
@@ -155,7 +155,7 @@ You can also test Galera Cluster by simulating various failure situations on thr
 
 To simulate a network disconnection, use ``iptables`` or ``netem`` to block all TCP/IP traffic to a node.
 
-To simulate an entire server crash, run each ``mysqld`` in a virtualized guest, and abrubtly terminate the entire virtual instance.
+To simulate an entire server crash, run each ``mysqld`` in a virtualized guest, and abruptly terminate the entire virtual instance.
 
 If you have three or more Galera Cluster nodes, the cluster should be able to survive the simulations.
 

@@ -71,14 +71,14 @@
 Galera Manager Daemon (``gmd``)
 ===================================================
 
-The Galera Manager is driven by the ``gmd`` daemon program that can create clusters,  add and remove nodes, and gather monitoring data from the Galera Cluster.  For information on installing ``gmd``, see the documentation page, :doc:`gmd-install`.
+The Galera Manager is driven by the ``gmd`` daemon program that can create clusters,  add and remove nodes, and gather monitoring data from the Galera Cluster. For information on installing ``gmd``, see the documentation page, :doc:`gmd-install`.
 
 
 .. _`gmd-process`:
 .. rst-class:: section-heading
 .. rubric:: ``gmd`` Process
 
-If Galera Manager was installed on a host, you can enter something like the following from the command-line to check that it's running:
+If Galera Manager was installed on a host, you can enter something like the following from the command-line to check that it is running:
 
 .. code-block:: console
    :caption: Checking if Galera Manager Daemon is Running (Example 1)
@@ -87,21 +87,21 @@ If Galera Manager was installed on a host, you can enter something like the foll
 
    5810 ?        00:00:18 gmd
 
-The results showing the process identification number and the amount of time ``gmd`` has been running will be different on your server. Although it's unlikely you'll need to restart ``gmd``, to do so you may enter the following from the command-line:
+The results showing the process identification number and the amount of time ``gmd`` has been running will be different on your server. Although it is unlikely you will need to restart ``gmd``, to do so you may enter the following from the command-line:
 
 .. code-block:: console
    :caption: Restarting the Galera Manager Daemon (Example 2)
 
    systemctl restart gmd
 
-You can replace ``restart`` with ``stop`` to shutdown the Galera Manager daemon |---| and use ``start`` to start it later.  If the server is rebooted, ``gmd`` is set to start automatically.
+You can replace ``restart`` with ``stop`` to shutdown the Galera Manager daemon |---| and use ``start`` to start it later. If the server is rebooted, ``gmd`` is set to start automatically.
 
 
 .. _`gmd-configuration`:
 .. rst-class:: section-heading
 .. rubric:: Configuration File
 
-When you installed Galera Manager, the *Installer* created a configuration file for ``gmd`` based on the responses you gave. You don't have to create it yourself. However, if you want to change some of the information you provided when installing, you can edit the configuration file. It's located in the sub-directory, ``/etc/default/`` and called, ``gmd``.
+When you installed Galera Manager, the *Installer* created a configuration file for ``gmd`` based on the responses you gave. You do not have to create it yourself. However, if you want to change some of the information you provided when installing, you can edit the configuration file. It is located in the sub-directory, ``/etc/default/`` and called, ``gmd``.
 
 The ``gmd`` configuration file will look something like this:
 
@@ -114,7 +114,7 @@ The ``gmd`` configuration file will look something like this:
    INFLUXDB_URL=https://gmd:8hCh2GeYv9@34.217.207.40:8091
    PROMETHEUS_URL=https://34.217.207.40:8092
 
-There are few settings here.  You can change the values with a simple text editor. Just remember to restart ``gmd`` for the changes to take effect.  See above for how to restart the daemon.
+There are few settings here. You can change the values with a simple text editor. Just remember to restart ``gmd`` for the changes to take effect. See above for how to restart the daemon.
 
 
 
@@ -122,7 +122,7 @@ There are few settings here.  You can change the values with a simple text edito
 .. rst-class:: section-heading
 .. rubric:: gmd Logs
 
-In the previous section, you may have noticed the location of the log files: ``/var/log/gmd``.  Should you have difficulty starting ``gmd`` or encounter similar problems, you can check this directory for log files containing messages that may indicate the cause.  Below is an example of the contents of that log file directory:
+In the previous section, you may have noticed the location of the log files: ``/var/log/gmd``. Should you have difficulty starting ``gmd`` or encounter similar problems, you can check this directory for log files containing messages that may indicate the cause. Below is an example of the contents of that log file directory:
 
 .. code-block:: console
    :caption: List of Galera Manager Log Files (Example 3)
@@ -142,18 +142,18 @@ In the previous section, you may have noticed the location of the log files: ``/
    node-noder-lisvt.log
    node-noder-mlksh.log
 
-There's a log file for the ``gmd`` daemon (i.e., ``default.log``), one for the cluster, a pair for each host, and one for each node.
+There's a log file for the ``gmd`` daemon (that is, ``default.log``), one for the cluster, a pair for each host, and one for each node.
 
 You may be confused as to the difference between a host and a node in this context. A host has to do with the computer system on which the Galera Cluster software is installed. This includes software configuration, network traffic, as well as where particular software like Galera Manager and MySQL are running. Whereas, a node is a database engine process running on the host and forming the Galera Cluster by connecting with other such processes running elsewhere. Is the node available and handling database client traffic?  Is it synchronized with the other nodes in the cluster?
 
-What's important to an administrator, though, is knowing where to find log messages to troubleshoot problems that may be encountered.  Below are descriptions of what may be found in each log, with the most information recorded in the host standard output log (e.g., ``host-hoster-mlksh-stdout.log``).
+What's important to an administrator, though, is knowing where to find log messages to troubleshoot problems that may be encountered. Below are descriptions of what may be found in each log, with the most information recorded in the host standard output log (for example, ``host-hoster-mlksh-stdout.log``).
 
 
 .. _`gmd-log-default`:
 .. rst-class:: sub-heading
 .. rubric:: Default Log
 
-The main log file for the ``gmd`` daemon, the ``default.log`` file, contains information related to starting and stopping the daemon.  Here's an excerpt from such a log file:
+The main log file for the ``gmd`` daemon, the ``default.log`` file, contains information related to starting and stopping the daemon. Here's an excerpt from such a log file:
 
 .. code-block:: console
    :caption: Excerpt from Galera Manager's Default Log (Example 4)
@@ -163,28 +163,28 @@ The main log file for the ``gmd`` daemon, the ``default.log`` file, contains inf
    time="2020-05-18T08:05:19Z" level=info msg="ConfigDir = /var/lib/gmd"
    time="2020-05-18T08:05:19Z" level=info msg="LogsDir = /var/log/gmd"
 
-As you can see, it records when it started the ``gmd`` daemon, on which IP address and port it's listening for connections from users (i.e., ``admin``), and the directories for configuration and log files.
+As you can see, it records when it started the ``gmd`` daemon, on which IP address and port it is listening for connections from users (such as ``admin``), and the directories for configuration and log files.
 
 
 .. _`gmd-log-cluster`:
 .. rst-class:: sub-heading
 .. rubric:: Cluster Log
 
-As mentioned above, there's a log file for the cluster. It's name contains the name of the cluster appended to it (i.e., ``testeroo`` from the examples on other pages of this documentation section). This log file contains some very basic information on the settings of the cluster. Below is an example of its contents:
+As mentioned above, there's a log file for the cluster. Its name contains the name of the cluster appended to it (for example, ``testeroo`` from the examples on other pages of this documentation section). This log file contains some very basic information on the settings of the cluster. Below is an example of its contents:
 
 .. code-block:: console
    :caption: Excerpt from Galera Manager's Cluster Log (Example 5)
 
    time="2020-06-07T06:27:39Z" level=info msg="cluster record created" cluster-name=testeroo
 
-It's not much since it's from a new installation of Galera Manager, one used in examples elsewhere in this documentation.  It contains the date and time the cluster was created, as well as the name of the cluster. As a result of that name, this log file is named, ``cluster-testeroo.log``.
+It is not much, since it is from a new installation of Galera Manager, one used in examples elsewhere in this documentation. It contains the date and time the cluster was created, as well as the name of the cluster. As a result of that name, this log file is named, ``cluster-testeroo.log``.
 
 
 .. _`gmd-log-hosts`:
 .. rst-class:: sub-heading
 .. rubric:: Host Logs
 
-As mentioned earlier, there is a pair of log files for each host in the cluster.  One is labeled ``host``, followed by the name of the host and the extention, ``.log``  This file contains primarily entries showing the data time or changes to the host's status.
+As mentioned earlier, there is a pair of log files for each host in the cluster. One is labeled ``host``, followed by the name of the host and the extension, ``.log``  This file contains primarily entries showing the data time or changes to the host's status.
 
 Below is an excerpt from the ``host-hoster-mlksh.log`` file from the examples used here in documentation on Galera Manager:
 
@@ -196,18 +196,18 @@ Below is an excerpt from the ``host-hoster-mlksh.log`` file from the examples us
    time="2020-06-07T06:30:04Z" level=info
      msg="setting deployment status to ok" host-name=hoster-mlksh
 
-This is actually two lines of entries, but we broke the lines to fit more easily on the screen. Still, there's not much information here.  Nevertheless, you might write a custom shell script to parse this file to check for the latest entry, looking for when the deployment status is not *ok*, and send you a message saying as much |---| and then have ``cron`` run that script frequently at regular intervals.  Or you could just keep Galera Manager open in a window on your computer.
+This is actually two lines of entries, but we broke the lines to fit more easily on the screen. Still, there's not much information here. Nevertheless, you might write a custom shell script to parse this file to check for the latest entry, looking for when the deployment status is not *ok*, and send you a message saying as much |---| and then have ``cron`` run that script frequently at regular intervals. Or you could just keep Galera Manager open in a window on your computer.
 
-The other log file for each host is labeled ``host``, followed by the name of the host, then ``stdout`` and the extention, ``.log`` (e.g., ``host-hoster-mlksh-stdout.log``). This log file contains the messages generated by the host server when activities happen, when various commands, utilities and other programs are run by Galera Manager.  If these commands and all were executed manually, some messages would normally be shown on the screen (i.e., the standard output). However, since they're run in the background, there's no one to see them. So Galera Manager writes them to a log file for each host.
+The other log file for each host is labeled ``host``, followed by the name of the host, then ``stdout`` and the extention, ``.log`` (for example, ``host-hoster-mlksh-stdout.log``). This log file contains the messages generated by the host server when activities happen, when various commands, utilities and other programs are run by Galera Manager. If these commands and all were executed manually, some messages would normally be shown on the screen (that is, the standard output). However, since they're run in the background, there's no one to see them. So Galera Manager writes them to a log file for each host.
 
-These host ``stdout`` log files are extensive. They contain information on updating Galera Manager software, network traffic, and many other logistical system information related to Galera.  As a result, they can become fairly large files.  But they can also be useful when trying to troubleshoot a problem with Galera Manager software |---| but not the synchronizing and accessing of data within the cluster, on nodes.
+These host ``stdout`` log files are extensive. They contain information on updating Galera Manager software, network traffic, and many other logistical system information related to Galera. As a result, they can become fairly large files. But they can also be useful when trying to troubleshoot a problem with Galera Manager software |---| but not the synchronizing and accessing of data within the cluster, on nodes.
 
 
 .. _`gmd-log-nodes`:
 .. rst-class:: sub-heading
 .. rubric:: Node Logs
 
-In the log directory for ``gmd``, there is a log file for each node. As mentioned earlier, these log files contain information related to the nodes of the cluster, their interactions with each other.  Below is an excerpt from the ``node-noder-mlksh.log`` file from examples elsewhere in this documentation:
+In the log directory for ``gmd``, there is a log file for each node. As mentioned earlier, these log files contain information related to the nodes of the cluster, their interactions with each other. Below is an excerpt from the ``node-noder-mlksh.log`` file from examples elsewhere in this documentation:
 
 .. code-block:: console
    :caption: Excerpt from a Galera Manager Node Log (Example 7)
@@ -219,7 +219,7 @@ In the log directory for ``gmd``, there is a log file for each node. As mentione
 
 Notice these entries are related to nodes in the cluster having started, being ready to accept MySQL client traffic, and in sync |---| that is to say, the node's health.
 
-Should one of the nodes have problems that are not reflected in the metrics you're tracking in Galera Manager, you could check the log for that node for an indication of what's wrong with it. Afterwards, you might want to add the appropriate metrics to Galera Manager to monitor the situation more closely and conveniently from within Galera Manager.  For more information on adding metrics to track in Galera Manager, see the :doc:`galera-manager-monitoring-clusters` documentation page.
+Should one of the nodes have problems that are not reflected in the metrics you are tracking in Galera Manager, you could check the log for that node for an indication of what's wrong with it. Afterwards, you might want to add the appropriate metrics to Galera Manager to monitor the situation more closely and conveniently from within Galera Manager. For more information on adding metrics to track in Galera Manager, see the :doc:`galera-manager-monitoring-clusters` documentation page.
 
 
 .. container:: bottom-links

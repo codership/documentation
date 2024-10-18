@@ -54,11 +54,11 @@
 Overview of Galera Cluster
 =============================
 
-Galera Cluster is a synchronous multi-primary database cluster, based on synchronous replication and MySQL and InnoDB.  When Galera Cluster is in use, database reads and writes can be directed to any node. Any individual node can be lost without interruption in operations and without using complex failover procedures.
+Galera Cluster is a synchronous multi-primary database cluster, based on synchronous replication and MySQL and InnoDB. When Galera Cluster is in use, database reads and writes can be directed to any node. Any individual node can be lost without interruption in operations and without using complex failover procedures.
 
-At a high level, Galera Cluster consists of a database server (i.e., MySQL or MariaDB) that uses the :term:`Galera Replication Plugin` to manage replication. To be more specific, the MySQL replication plugin API has been extended to provide all the information and hooks required for true multi-primary, synchronous replication.  This extended API is called the Write-Set Replication API, or wsrep API.
+At a high level, Galera Cluster consists of a database server (that is, MySQL or MariaDB) that uses the :term:`Galera Replication Plugin` to manage replication. To be more specific, the MySQL replication plugin API has been extended to provide all the information and hooks required for true multi-primary, synchronous replication. This extended API is called the Write-Set Replication API, or wsrep API.
 
-Through the wsrep API, Galera Cluster provides certification-based replication.  A transaction for replication, the write-set not only contains the database rows to replicate, but also includes information on all of the locks that were held by the database during the transaction.  Each node then certifies the replicated write-set against other write-sets in the applier queue.  The write-set is then applied |---| if there are no conflicting locks.  At this point, the transaction is considered committed, after which each node continues to apply it to the tablespace.
+Through the wsrep API, Galera Cluster provides certification-based replication. A transaction for replication, the write-set not only contains the database rows to replicate, but also includes information on all of the locks that were held by the database during the transaction. Each node then certifies the replicated write-set against other write-sets in the applier queue. The write-set is then applied |---| if there are no conflicting locks. At this point, the transaction is considered committed, after which each node continues to apply it to the tablespace.
 
 This approach is also called virtually synchronous replication, given that while it is logically synchronous, the actual writing and committing to the tablespace happens independently, and thus asynchronously on each node.
 
@@ -78,7 +78,7 @@ This approach is also called virtually synchronous replication, given that while
 .. rst-class:: section-heading
 .. rubric:: Benefits of Galera Cluster
 
-Galera Cluster provides a significant improvement in high-availability for the MySQL system.  The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in trade-offs.
+Galera Cluster provides a significant improvement in high-availability for the MySQL system. The various ways to achieve high-availability have typically provided only some of the features available through Galera Cluster, making the choice of a high-availability solution an exercise in trade-offs.
 
 The following features are available through Galera Cluster:
 
@@ -130,7 +130,7 @@ In summary, Galera Cluster is a high-availability solution that is both robust i
 .. rst-class:: section-heading
 .. rubric:: Cloud Implementations with Galera Cluster
 
-An additional benefit of Galera Cluster is good cloud support.  Automatic node provisioning makes elastic scale-out and scale-in operations painless.  Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.
+An additional benefit of Galera Cluster is good cloud support. Automatic node provisioning makes elastic scale-out and scale-in operations painless. Galera Cluster has been proven to perform extremely well in the cloud, such as when using multiple small node instances, across multiple data centers |---| AWS zones, for example |---| or even over Wider Area Networks.
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:

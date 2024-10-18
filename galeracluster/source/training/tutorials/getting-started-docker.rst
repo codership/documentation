@@ -139,7 +139,7 @@ For the next two containers, we use a simple Docker trick. The `–link` option 
    $ sudo docker run --detach=true --name node2 -h node2 --link node1:node1 erkules/galera:basic --wsrep-cluster-name=local-test --wsrep-cluster-address=gcomm://node1
    $ sudo docker run --detach=true --name node3 -h node3 --link node1:node1 erkules/galera:basic --wsrep-cluster-name=local-test --wsrep-cluster-address=gcomm://node1
 
-Now we have a running Galera cluster. We can check the number of nodes in the Cluster by running the mysql client from inside one of the containers:
+Now we have a running Galera Cluster. We can check the number of nodes in the Cluster by running the mysql client from inside one of the containers:
 
 .. code-block:: console
 
@@ -215,7 +215,7 @@ In this example, we used the image from the previous blog post. Docker is going 
 .. rst-class:: section-heading
 .. rubric:: Building a Multi-Node Cluster using Non-Default Ports
 
-In the long run, we may want to start more than one instance of Galera on a host in order to run more than one Galera cluster using the same set of hosts.
+In the long run, we may want to start more than one instance of Galera on a host in order to run more than one Galera Cluster using the same set of hosts.
 
 For the purpose, we set Galera Cluster to use non-default ports and then map MySQL’s default port to 4306:
 
@@ -262,7 +262,7 @@ The following Galera Cluster configuration options are used to specify each port
 .. rst-class:: section-heading
 .. rubric:: Summary
 
-That concludes this tutorial. As you can see, it's easy to run Galera on Docker and inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.
+That concludes this tutorial. As you can see, it is easy to run Galera on Docker and inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.
 
 
 

@@ -70,17 +70,17 @@ There are four methods available in monitoring cluster activity and replication 
 
 - :doc:`log`
 
-  Queries entered through the database client will provide information on the current state of the cluster. However, to check its history for more systemic issues, you need to check the logs.  This section provides a guide to the Galera Cluster parameter used to configure database logging to ensure it records the information you need.
+  Queries entered through the database client will provide information on the current state of the cluster. However, to check its history for more systemic issues, you need to check the logs. This section provides a guide to the Galera Cluster parameter used to configure database logging to ensure it records the information you need.
 
 - :doc:`galera-manager`
 
-  If you have an account with Amazon Web Services (AWS) for server hosting, you can use Galera Manager to create and configure easily Galera Clusters.  Additionally, Galera Manager provides a graphical user interface with charts for monitoring over one thousand cluster metrics: just configure it to track metrics you find most useful.
+  If you have an account with Amazon Web Services (AWS) for server hosting, you can use Galera Manager to create and configure easily Galera Clusters. Additionally, Galera Manager provides a graphical user interface with charts for monitoring over one thousand cluster metrics: just configure it to track metrics you find most useful.
 
 - :doc:`notification-cmd`
 
-  Although checking logs and status variables may give you the information you need while logged into a node, getting information from them is a manual process.  Using the notification command, you can set the node to call a script in response to changes in cluster membership or node status.  You can use this to raise alerts and adjust load balances. You can use it in a script for any situation in which you need the infrastructure to respond to changes in the cluster.
+  Although checking logs and status variables may give you the information you need while logged into a node, getting information from them is a manual process. Using the notification command, you can set the node to call a script in response to changes in cluster membership or node status. You can use this to raise alerts and adjust load balances. You can use it in a script for any situation in which you need the infrastructure to respond to changes in the cluster.
 
-You can also use Nagios for monitoring Galera Cluster.  For more information, see `Galera Cluster Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
+You can also use Nagios for monitoring Galera Cluster. For more information, see `Galera Cluster Nagios Plugin <https://www.fromdual.com/galera-cluster-nagios-plugin-en>`_
 
 .. container:: bottom-links
 

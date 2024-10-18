@@ -57,7 +57,7 @@ Single Primary Setup
 
    Length: 81 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Topology; Type: Best Practices
 
-If a cluster uses only one node as a primary, there are certain requirements (e.g., the replica queue size) that can be relaxed.
+If a cluster uses only one node as a primary, there are certain requirements (for example, the replica queue size) that can be relaxed.
 
 
 .. rst-class:: section-heading

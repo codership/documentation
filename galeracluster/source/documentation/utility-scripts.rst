@@ -95,7 +95,7 @@ An example:
 
    sudo wsrep_recover --mysqld /path/to/mysqld --datadir /path/to/datadir --user some_user
 
-By default, the ``mysqld`` binary is expected to be found at '/usr/sbin/mysqld' and will be run as 'mysql' user, using the configuration file from the standard location.
+By default, the ``mysqld`` binary is expected to be found at ``/usr/sbin/mysqld`` and will be run as ``mysql`` user, using the configuration file from the standard location.
 
 This utility script was introduced on version 8.0.27, and was backported to version 5.7.40.
 

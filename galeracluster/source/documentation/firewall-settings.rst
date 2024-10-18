@@ -53,7 +53,7 @@
  Firewall Settings
 =====================
 
-Galera Cluster requires a number of ports to maintain network connectivity between the nodes.  Depending on your deployment, you may not require all of these ports, but a cluster might require all of them on each node.  Below is a list of these ports and their purpose:
+Galera Cluster requires a number of ports to maintain network connectivity between the nodes. Depending on your deployment, you may not require all of these ports, but a cluster might require all of them on each node. Below is a list of these ports and their purpose:
 
 - ``3306`` is the default port for MySQL client connections and :term:`State Snapshot Transfer` using ``mysqldump`` for backups.
 

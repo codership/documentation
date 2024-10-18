@@ -60,7 +60,7 @@
 Upgrading Galera Cluster
 ==========================
 
-Since high-availability is a priority for many Galera Cluster administrators, how to go about upgrading the nodes is important. Doing so with the least amount of downtime is tricky.  There are three methods for upgrading Galera Cluster, the Galera software on the individual nodes:
+Since high-availability is a priority for many Galera Cluster administrators, how to go about upgrading the nodes is important. Doing so with the least amount of downtime is tricky. There are three methods for upgrading Galera Cluster, the Galera software on the individual nodes:
 
    - :ref:`Rolling Upgrade <rolling-upgrade>` permits you to upgrade one node  at a time, without taking down the cluster |---| and newly upgraded nodes can join the cluster without problems.
 
@@ -68,7 +68,7 @@ Since high-availability is a priority for many Galera Cluster administrators, ho
 
    - :ref:`Provider Upgrade <provider-upgrade>` is a method in which you only upgrade the Galera Replication Plugin on each node.
 
-There are advantages and disadvantages to each of these methods.  For instance, while a rolling upgrade may prove time consuming, the cluster continues to run during the upgrades.  Similarly, while a bulk upgrade is faster, depending on on your situation, problems can result from taking down the cluster for a longer period of time.  You will have to choose the best method for your situation, needs and concerns.
+There are advantages and disadvantages to each of these methods. For instance, while a rolling upgrade may prove time consuming, the cluster continues to run during the upgrades. Similarly, while a bulk upgrade is faster, depending on on your situation, problems can result from taking down the cluster for a longer period of time. You will have to choose the best method for your situation, needs and concerns.
 
 
    .. only:: html
@@ -90,7 +90,7 @@ There are advantages and disadvantages to each of these methods.  For instance, 
 
 When you need the cluster to remain live and do not mind the time it takes to upgrade each node, use rolling upgrades.
 
-In rolling upgrades, you take each node down individually, upgrade its software and then restart the node.  When the node reconnects, it brings itself back into sync with the cluster, as it would in the event of any other outage.  Once the individual finishes syncing with the cluster, you can move to the next in the cluster.
+In rolling upgrades, you take each node down individually, upgrade its software and then restart the node. When the node reconnects, it brings itself back into sync with the cluster, as it would in the event of any other outage. Once the individual finishes syncing with the cluster, you can move to the next in the cluster.
 
 The main advantage of a rolling upgrade is that in the even that something goes wrong with the upgrade, the other nodes remain operational, giving you time to troubleshoot the problem.
 
@@ -102,9 +102,9 @@ Some of the disadvantages to consider in rolling upgrades are:
 
    Unless you use :term:`Incremental State Transfer`, as you bring each node back online after an upgrade, it initiates a full :term:`State Snapshot Transfer`, which can take a long time to process on larger databases and slower state transfer methods.
 
-   During the State Snapshot Transfer, the node continues to accumulate catch-up in the replication event queue, which it will then have to replay to synchronize with the cluster.  At the same time, the cluster is operational and continues to add further replication events to the queue.
+   During the State Snapshot Transfer, the node continues to accumulate catch-up in the replication event queue, which it will then have to replay to synchronize with the cluster. At the same time, the cluster is operational and continues to add further replication events to the queue.
 
-   **Blocking Nodes** When the node comes back online, if you use ``mysqldump`` for State Snapshot Transfers, the :term:`Donor Node` remains blocked for the duration of the transfer.  In practice, this means that the cluster is short two nodes for the duration of the state transfer, one for the donor node and one for the node in catch-up.
+   **Blocking Nodes** When the node comes back online, if you use ``mysqldump`` for State Snapshot Transfers, the :term:`Donor Node` remains blocked for the duration of the transfer. In practice, this means that the cluster is short two nodes for the duration of the state transfer, one for the donor node and one for the node in catch-up.
 
    Using ``xtrabackup`` or ``rsync`` with the LVM state transfer methods, you can avoid blocking the donor, but doing so may slow the donor node down.
 
@@ -114,30 +114,30 @@ Some of the disadvantages to consider in rolling upgrades are:
 
    In such cases, losing access to two nodes during a rolling upgrade can create situations where the cluster can no longer serve all requests made of it or where the execution times of each request increase to the point where services become less available.
 
-   **Cluster Performance** Each node you bring up after an upgrade, diminishes cluster performance until the node buffer pool warms back up.  Parallel applying can help with this.
+   **Cluster Performance** Each node you bring up after an upgrade, diminishes cluster performance until the node buffer pool warms back up. Parallel applying can help with this.
 
 .. _`rolling-upgrade-steps`:
 .. rst-class:: rubric-3
 .. rubric:: Rolling Upgrade Procedure
 
-Assuming you've read and considered the above, below are the steps for upgrading each node in a cluster |---| one at a time. This procedure, though, is for minor upgrades, not major upgrades.  For those, see the next section.
+Assuming you've read and considered the above, below are the steps for upgrading each node in a cluster |---| one at a time. This procedure, though, is for minor upgrades, not major upgrades. For those, see the next section.
 
-   - First, transfer all client connections from the node you're about to upgrade to the other nodes.
+   - First, transfer all client connections from the node you are about to upgrade to the other nodes.
 
-   - When there are no more client connections trying to access the node, shut down the database software (i.e., ``mysqld``). This will remove the node from the cluster.
+   - When there are no more client connections trying to access the node, shut down the database software (that is, ``mysqld``). This will remove the node from the cluster.
 
-   - Now use the method you prefer to upgrade the software.  A package management utility such as ``yum``, or whatever is appropriate for the your operating system distribution.
+   - Now use the method you prefer to upgrade the software. A package management utility such as ``yum``, or whatever is appropriate for the your operating system distribution.
 
    - When you've finished updating the database and Galera software, start the node. Check that it has successfully joined the cluster and finished synchronizing before beginning the process to upgrade another node in the cluster.
 
-.. tip:: If you upgrade a node that will be part of a weighted :term:`Quorum`, set the initial node weight to zero.  This guarantees that if the joining node should fail before it finishes synchronizing, it won't affect any quorum computations that follow.
+.. tip:: If you upgrade a node that will be part of a weighted :term:`Quorum`, set the initial node weight to zero. This guarantees that if the joining node should fail before it finishes synchronizing, it won't affect any quorum computations that follow.
 
 
 .. _`rolling-upgrade-major-versions`:
 .. rst-class:: sub-heading
 .. rubric:: Rolling Upgrades of Major Versions of Galera Cluster
 
-Performing a rolling upgrade between major versions of Galera Cluster (e.g., from 8.0 to 8.4) has certain additional limitations.  Below is a list of them; you should consider these factors.
+Performing a rolling upgrade between major versions of Galera Cluster (for example, from 8.0 to 8.4) has certain additional limitations. Below is a list of them; you should consider these factors.
 
 .. rst-class:: verbose-list
 
@@ -154,11 +154,11 @@ Performing a rolling upgrade between major versions of Galera Cluster (e.g., fro
 
 Below are the steps of the following procedure for performing rolling upgrades between major versions of Galera Cluster.
 
-   - Choose one node to upgrade and make sure that all client connections are directed elsewhere.  Once it's free of its cluster obligations, shut down the database daemon (e.g., ``mysqld``).
+   - Choose one node to upgrade and make sure that all client connections are directed elsewhere. Once it is free of its cluster obligations, shut down the database daemon (fir example, ``mysqld``).
 
-   - Edit the database configuration file (i.e., ``my.cnf``) and temporarily comment out the ``wsrep_provider`` line. This will prevent the node from attempting to rejoin the cluster during the package upgrade process.
+   - Edit the database configuration file (that is, ``my.cnf``) and temporarily comment out the ``wsrep_provider`` line. This will prevent the node from attempting to rejoin the cluster during the package upgrade process.
 
-   - Uninstall all existing ``mysql-wsrep`` packages and install the new packages using a package manager (e.g., ``yum``)
+   - Uninstall all existing ``mysql-wsrep`` packages and install the new packages using a package manager (for example, ``yum``)
 
    - Start the ``mysqld`` daemon |---| without connecting to the cluster |---| and then run the ``mysql_upgrade`` script, if it wasn't run automatically as part of package installation.
 
@@ -171,15 +171,15 @@ Below are the steps of the following procedure for performing rolling upgrades b
 
 When you want to avoid time-consuming state transfers and the slow process of upgrading each node, one at a time, use a bulk upgrade.
 
-In bulk upgrades, you take all of the nodes down in an idle cluster, perform the upgrades, then bring the cluster back online.  This allows you to upgrade your cluster quickly, but does mean a complete service outage for your cluster.
+In bulk upgrades, you take all of the nodes down in an idle cluster, perform the upgrades, then bring the cluster back online. This allows you to upgrade your cluster quickly, but does mean a complete service outage for your cluster.
 
 .. warning:: Always use bulk upgrades when using a two-node cluster, as the rolling upgrade would result in a much longer service outage.
 
 The main advantage of bulk upgrade is that when you are working with huge databases, it is much faster and results in better availability than rolling upgrades.
 
-The main disadvantage is that it relies on the upgrade and restart being quick.  Shutting down InnoDB may take a few minutes as it flushes dirty pages.  If something goes wrong during the upgrade, there is little time to troubleshoot and fix the problem.
+The main disadvantage is that it relies on the upgrade and restart being quick. Shutting down InnoDB may take a few minutes as it flushes dirty pages. If something goes wrong during the upgrade, there is little time to troubleshoot and fix the problem.
 
-.. note:: To minimize any issues that might arise from an upgrade, do not upgrade all of the nodes at once.  Rather, run the upgrade on a single node first.  If it runs without issue, upgrade the rest of the cluster.
+.. note:: To minimize any issues that might arise from an upgrade, do not upgrade all of the nodes at once. Rather, run the upgrade on a single node first. If it runs without issue, upgrade the rest of the cluster.
 
 To perform a bulk upgrade on Galera Cluster, complete the following steps:
 
@@ -227,7 +227,7 @@ To upgrade the Galera Replicator Plugin on a Debian-based Linux distribution, ru
       $ apt-get update
       $ apt-get upgrade galera
 
-When ``apt-get`` or ``yum`` finish, you will have the latest version of the Galera Replicator Plugin available on the node.  Once this process is complete, you can move on to updating the cluster to use the newer version of the plugin.
+When ``apt-get`` or ``yum`` finish, you will have the latest version of the Galera Replicator Plugin available on the node. Once this process is complete, you can move on to updating the cluster to use the newer version of the plugin.
 
 
 .. _`updating-galera-cluster`:

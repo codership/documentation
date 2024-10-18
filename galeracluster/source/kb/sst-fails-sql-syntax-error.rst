@@ -65,25 +65,25 @@ SST Fails with SQL Syntax Errors
 
    Length: 789 words; Published: April 1, 2014; Updated: November 7, 2019; Category: State Transfers; Type: Troubleshooting
 
-When a new node joins a cluster, since it has no data, it will request data from the cluster.  This node is known as the joiner.  One of the nodes that's already part of the cluster and synchronized, will provide the joiner with a full copy of all of the databases. This node is know as a donor.  It will use the :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node.
+When a new node joins a cluster, since it has no data, it will request data from the cluster. This node is known as the joiner. One of the nodes that's already part of the cluster and synchronized, will provide the joiner with a full copy of all of the databases. This node is know as a donor. It will use the :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node.
 
-For making snapshots to send to a joiner, the donor will use whatever method designated in advanced by the administrator.  This is done by setting the ``wsrep_sst_method`` variable.  There are two basic methods: :term:`Physical State Transfer Method` and :term:`Logical State Transfer Method`.  For the physical method, most use the utility ``rsync``.  For the logical method, there is the utility ``mysqldump``.  The better choice is to use is to use the physical method and ``rsync``. It's faster and more dependable than using ``mysqldump``.
+For making snapshots to send to a joiner, the donor will use whatever method designated in advanced by the administrator. This is done by setting the ``wsrep_sst_method`` variable. There are two basic methods: :term:`Physical State Transfer Method` and :term:`Logical State Transfer Method`. For the physical method, most use the utility ``rsync``. For the logical method, there is the utility ``mysqldump``. The better choice is to use is to use the physical method and ``rsync``. It is faster and more dependable than using ``mysqldump``.
 
-Nevertheless, since ``mysqldump`` is a popular tool for making back-ups of MySQL and MariaDB databases, many administrators opt to use it. Unfortunately, while it's good for back-ups, it doesn't always work well for synchronizing a joiner. Let's consider a common scenario about this.
+Nevertheless, since ``mysqldump`` is a popular tool for making back-ups of MySQL and MariaDB databases, many administrators opt to use it. Unfortunately, while it is good for back-ups, it does not always work well for synchronizing a joiner. Let's consider a common scenario about this.
 
 
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-Suppose a cluster has been set to use ``mysqldump`` at part of its SST method.  A new node joins the cluster and requests a copy of the databases, but it fails. When checking the database logs (e.g., ``/var/log/mysqld.log``), we see a message saying there is ``SQL Syntax``.
+Suppose a cluster has been set to use ``mysqldump`` at part of its SST method. A new node joins the cluster and requests a copy of the databases, but it fails. When checking the database logs (for example, ``/var/log/mysqld.log``), we see a message saying there is ``SQL Syntax``.
 
-Remember, ``mysqldump`` creates a text file, a dump file which contains a series of SQL statements meant to rebuild all of the databases and tables, and insert data into them. With so many SQL statements, it's normally not surprising.  But if you're following a policy of using the same version of MySQL or MariaDB on all nodes, a dump file created on one node should work without any SQL syntax errors when being restored on another node.
+Remember, ``mysqldump`` creates a text file, a dump file which contains a series of SQL statements meant to rebuild all of the databases and tables, and insert data into them. With so many SQL statements, it is usually not surprising. But if you are following a policy of using the same version of MySQL or MariaDB on all nodes, a dump file created on one node should work without any SQL syntax errors when being restored on another node.
 
 
 .. rst-class:: section-heading
 .. rubric:: Troubleshooting
 
-As described in the scenario above, there will be an entry in the MySQL or MariaDB error log which says that the state transfer failed because of a ``SQL Syntax`` error. The entry won't say what was the problem. You'll have to deduce the actual SQL error from other entries before or after it.  Look at this excerpt from a log file in which SST failed when ``mysqldump`` was being used:
+As described in the scenario above, there will be an entry in the MySQL or MariaDB error log which says that the state transfer failed because of a ``SQL Syntax`` error. The entry won't say what was the problem. You'll have to deduce the actual SQL error from other entries before or after it. Look at this excerpt from a log file in which SST failed when ``mysqldump`` was being used:
 
 .. code-block:: text
 
@@ -109,9 +109,9 @@ As described in the scenario above, there will be an entry in the MySQL or Maria
       Couldn't execute 'SHOW DATABASES':
       Lock wait timeout exceeded; try restarting transaction (1205)
 
-In this excerpt, the first entry shown mentioned that there was an error related to SQL syntax, and that as a result, SST failed to complete.  Look at the fourth entry. It mentions that it was unable to execute ``SHOW DATABASES``.  That's one of the lowest level SQL statements, requiring almost no privileges, just a user account. The only way you would get that error is if you somehow tried to execute ``SHOW DATABASES`` without actually having a user account.  And that's the problem:  no user privileges.
+In this excerpt, the first entry shown mentioned that there was an error related to SQL syntax, and that as a result, SST failed to complete. Look at the fourth entry. It mentions that it was unable to execute ``SHOW DATABASES``. That's one of the lowest level SQL statements, requiring almost no privileges, just a user account. The only way you would get that error is if you somehow tried to execute ``SHOW DATABASES`` without actually having a user account. And that's the problem:  no user privileges.
 
-When using mysqldump for state transfers, you have to provide a user name and password.  Galera doesn't need a user account, otherwise, to function or to do a state transfer using rsync.  But when using mysqldump, one is required.  Without it you get peudo error messages, the SQL syntax error message resulting from mysqldump failing.
+When using mysqldump for state transfers, you have to provide a user name and password. Galera does not need a user account, otherwise, to function or to do a state transfer using rsync. But when using mysqldump, one is required. Without it you get peudo error messages, the SQL syntax error message resulting from mysqldump failing.
 
 To provide a user name and password, you would use the SET statement to store them in the ``wsrep_sst_auth`` like so:
 
@@ -127,9 +127,9 @@ To provide a user name and password, you would use the SET statement to store th
    | wsrep_sst_auth | ******** |
    +----------------+----------+
 
-As you can see, the user name and password are obscured.  This ``SET`` statement won't be replicated to the other nodes.  You'll have to set the values for ``wsrep_sst_auth`` on each node.  All of this is a reason why most DBAs prefer to use ``rsync`` for state transfers.
+As you can see, the user name and password are obscured. This ``SET`` statement won't be replicated to the other nodes. You'll have to set the values for ``wsrep_sst_auth`` on each node. All of this is a reason why most DBAs prefer to use ``rsync`` for state transfers.
 
-If you're determined to use ``mysqldump``, once you've set the user name and password for using ``mysqldump`` to generate a dump file, as well as restoring one, you should be able to use it without much trouble.
+If you are determined to use ``mysqldump``, once you've set the user name and password for using ``mysqldump`` to generate a dump file, as well as restoring one, you should be able to use it without much trouble.
 
 .. container:: bottom-links
 

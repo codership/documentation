@@ -88,9 +88,9 @@ Standard Replication & Galera Cluster
 
 .. container:: video-abstract list-col2-3
 
-   This training video introduces standard MySQL and MariaDB replication.  It explains and demonstrates how to configure two services |---| one primary and one replica |---| for replication.  It also contrasts replication against Galera Cluster; it talks about the advantages of Galera over standard replication. The video also explains and demonstrates how to configure three servers for Galera cluster.
+   This training video introduces standard MySQL and MariaDB replication. It explains and demonstrates how to configure two services |---| one primary and one replica |---| for replication. It also contrasts replication against Galera Cluster; it talks about the advantages of Galera over standard replication. The video also explains and demonstrates how to configure three servers for Galera cluster.
 
-   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video. You should look at it before starting the video so that you can be prepared. There is also a link to a PDF copy of the slide presentation. It has been set so that you make notes on it. In the left margin are links to related documentation, articles, and other materials.
 
 .. container:: list-col1-3
 

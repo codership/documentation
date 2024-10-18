@@ -59,7 +59,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    :class: doc-options library-small
    :widths: 50, 50
 
-   "**Introduction to Galera Cluster** :raw-html:`<small>scheduled 12 aug. 2019</small>` Overview of Galera and minimal components. Although conceptual, not practical, it doesn't delve deep.", "**Installing Galera Cluster** :raw-html:`<small>scheduled 5 aug. 2019</small>` Shows the basics of how to install the Galera Cluster with three nodes."
+   "**Introduction to Galera Cluster** :raw-html:`<small>scheduled 12 aug. 2019</small>` Overview of Galera and minimal components. Although conceptual, not practical, it does not delve deep.", "**Installing Galera Cluster** :raw-html:`<small>scheduled 5 aug. 2019</small>` Shows the basics of how to install the Galera Cluster with three nodes."
    "**Plain Replication vs. Galera Cluster** :raw-html:`<small>scheduled 19 aug. 2019</small>` Explains standard replication compared to Galera.", "**The Essentials** :raw-html:`<small>scheduled 19 aug. 2019</small>` Which configuration settings are need and recommended."
 
 
@@ -93,7 +93,7 @@ Below is a list of tutorial articles planned for the next few months. They cover
    :class: doc-options library-small
    :widths: 50, 50
 
-   "**Load Balancing a Galera Cluster** :raw-html:`<small>scheduled 15 sept. 2019</small>` How to install and configure a load balancer (e.g., MaxScale) to balance traffic among nodes.", ":doc:`Monitoring a Cluster <../training/tutorials/galera-monitoring>` :raw-html:`<small>published 17 july 2019</small>` Present status variables used to monitor, including ``wsrep_provider_options`` and a bash simple script."
+   "**Load Balancing a Galera Cluster** :raw-html:`<small>scheduled 15 sept. 2019</small>` How to install and configure a load balancer (for example, MaxScale) to balance traffic among nodes.", ":doc:`Monitoring a Cluster <../training/tutorials/galera-monitoring>` :raw-html:`<small>published 17 july 2019</small>` Present status variables used to monitor, including ``wsrep_provider_options`` and a bash simple script."
 
 
 .. |br| raw:: html

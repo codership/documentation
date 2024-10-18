@@ -65,7 +65,7 @@
 Installing Galera Cluster
 =============================
 
-Galera Cluster is essentially used to form a cluster among multiple database servers.  It's widely used in conjunction with MySQL, MariaDB, and XtraDB database software systems.  Galera Cluster is integral to these database systems.  As a result, it may be installed together with one of them.
+Galera Cluster is essentially used to form a cluster among multiple database servers. It is widely used in conjunction with MySQL, MariaDB, and XtraDB database software systems. Galera Cluster is integral to these database systems. As a result, it may be installed together with one of them.
 
 There are several methods available for installing the paired systems: you may use binary installation packages or install with the source files. Below is a list of the various pairs and links to how to use whichever method your prefer:
 
@@ -74,7 +74,7 @@ There are several methods available for installing the paired systems: you may u
    .. rst-class:: section-heading
    .. rubric:: Installing MySQL Galera Cluster
 
-MySQL the company and the database software was purchased quite a while ago by Oracle.  They continue to support MySQL software and cooperate with Codership to deliver an excellent database cluster system.
+MySQL the company and the database software was purchased quite a while ago by Oracle. They continue to support MySQL software and cooperate with Codership to deliver an excellent database cluster system.
 
 .. rst-class:: sub-heading
 .. rubric:: :doc:`MySQL Binary Installation <./install-mysql>`
@@ -84,7 +84,7 @@ Click on the heading here to read this article on how to install MySQL using a b
 .. rst-class:: sub-heading
 .. rubric:: :doc:`MySQL Source Installation <./install-mysql-src>`
 
-If you're using a Linux distribution for which we don't have binary files that work with its package management system, or if your server uses a different unix-like operating system (e.g., Solaris or FreeBSD), you will need to build Galera Cluster for MySQL from source files.
+If you are using a Linux distribution for which we do not have binary files that work with its package management system, or if your server uses a different unix-like operating system (for example, Solaris or FreeBSD), you will need to build Galera Cluster for MySQL from source files.
 
 
 .. container:: banner
@@ -92,7 +92,7 @@ If you're using a Linux distribution for which we don't have binary files that w
    .. rst-class:: section-heading
    .. rubric:: Installing MariaDB Galera Cluster
 
-MariaDB the company and the database software is somewhat of a spinoff or fork of MySQL.  The software is basically the same as MySQL; Some people who worked formerly at MySQL, founded MariaDB several years ago.  Because of all of this, MariaDB software works well with Galera.  In fact, starting with version 10.4 of MariaDB, Galera is included.  Before that version, you'll have to use one our binary installation packages or install from the source files.
+MariaDB the company and the database software is somewhat of a spinoff or fork of MySQL. The software is basically the same as MySQL; Some people who worked formerly at MySQL, founded MariaDB several years ago. Because of all of this, MariaDB software works well with Galera. In fact, starting with version 10.4 of MariaDB, Galera is included. Before that version, you will have to use one our binary installation packages or install from the source files.
 
 .. rst-class:: sub-heading
 .. rubric:: :doc:`MariaDB Binary Installation <./install-mariadb>`
@@ -102,24 +102,24 @@ This article provides information on how to install MariaDB using a binary insta
 .. rst-class:: sub-heading
 .. rubric:: :doc:`MariaDB Source Installation <./install-mariadb-src>`
 
-If there aren't a binary installation packages that are suited to the distribution of Linux your servers are using, or you're using a different unix-like operating system (e.g., Solaris or FreeBSD), you'll have to build MariaDB Galera Cluster from the source files.
+If there aren't a binary installation packages that are suited to the distribution of Linux your servers are using, or you are using a different unix-like operating system (for example, Solaris or FreeBSD), you will have to build MariaDB Galera Cluster from the source files.
 
 .. container:: banner
 
    .. rst-class:: section-heading
    .. rubric:: Installing XtraDB Galera Cluster
 
-Many years before MariaDB was formed and several years before MySQL was bought by Oracle, some key personnel at MySQL, who specialized in performance tuning MySQL software, left to form Percona |---| the name is an amalgamation of the words, *Performance* and *Consulting*.  In their efforts to get the most out of MySQL software, they developed their own fork with some extra performance enhancements, called XtraDB.  It also works well with Galera Cluster.
+Many years before MariaDB was formed and several years before MySQL was bought by Oracle, some key personnel at MySQL, who specialized in performance tuning MySQL software, left to form Percona |---| the name is an amalgamation of the words, *Performance* and *Consulting*. In their efforts to get the most out of MySQL software, they developed their own fork with some extra performance enhancements, called XtraDB. It also works well with Galera Cluster.
 
 .. rst-class:: sub-heading
 .. rubric:: :doc:`XtraDB Binary Installation <./install-xtradb>`
 
-Binary packages for installing XtraDB with Galera Cluster are available for Debian-based and RPM-based distributions, but through the Percona repository.  This article explains how to install and configure this pairing of software, as well as provides links to the repository.
+Binary packages for installing XtraDB with Galera Cluster are available for Debian-based and RPM-based distributions, but through the Percona repository. This article explains how to install and configure this pairing of software, as well as provides links to the repository.
 
 .. rst-class:: sub-heading
 .. rubric:: :doc:`XtraDB Source Installation <./install-xtradb-src>`
 
-You may not be able to use one of the binary installation packages available because of your operating system. If so, you'll have to use our source files. Actually, you may want to use the source files to make minor changes that will become part of the files you'll build.
+You may not be able to use one of the binary installation packages available because of your operating system. If so, you will have to use our source files. Actually, you may want to use the source files to make minor changes that will become part of the files you will build.
 
 
 .. container:: bottom-links

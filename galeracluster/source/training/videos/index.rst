@@ -52,7 +52,7 @@
 Codership Training Videos
 ===========================
 
-To help you to learn how to install, configure and use Galera Cluster and related software, we have created a series of traiing videos, screencasts and demonstrations.  They're grouped on three main catagories:  Introduction & Installation; Administration & Recovery; and Performance & High Availability.
+To help you to learn how to install, configure and use Galera Cluster and related software, we have created a series of training videos, screencasts and demonstrations. They're grouped on three main categories:  Introduction & Installation; Administration & Recovery; and Performance & High Availability.
 
 .. _`training-videos-intro-install`:
 .. container:: banner
@@ -71,7 +71,7 @@ To help you to learn how to install, configure and use Galera Cluster and relate
 
    .. rst-class:: list-abstract
 
-      This fairly non-technical video presents Galera Cluster:  How it works and its benefits. It's designed for business managers and executes, to help them to understand Galera.
+      This fairly non-technical video presents Galera Cluster:  How it works and its benefits. It is designed for business managers and executes, to help them to understand Galera.
 
 
    .. rst-class:: sub-heading list-sub-header
