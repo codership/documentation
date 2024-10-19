@@ -47,7 +47,7 @@
 New Questions for the FAQ
 ======================================
 
-This page is where we record ideas for new Frequently Asked Questions (i.e., the :doc:`FAQ <../faq>`).  The questions are entered here, perhaps in rough form, in the same categories of the FAQ.  We will answer that later, when we have more time or more information.
+This page is where we record ideas for new Frequently Asked Questions (that is, the :doc:`FAQ <../faq>`). The questions are entered here, perhaps in rough form, in the same categories of the FAQ. We will answer that later, when we have more time or more information.
 
 If you have any suggestions for new FAQs, please email us at library@galeracluster.com.
 
@@ -217,7 +217,7 @@ No new  questions in this category.
 
 .. rst-class:: list-abstract
 
-   There are two different way to get data replica. The State Snapshot Transfer is used to replicate the entire database, e.g. when you add a node to the cluster for the first time. The Incremental State Transfer is used to align smaller portions of the database and uses an internal caching mechanism. After the first State Snapshot Transfer, Galera Cluster prefers to use Incremental State Transfer because it is faster.
+   There are two different way to get data replica. The State Snapshot Transfer is used to replicate the entire database, for example when you add a node to the cluster for the first time. The Incremental State Transfer is used to align smaller portions of the database and uses an internal caching mechanism. After the first State Snapshot Transfer, Galera Cluster prefers to use Incremental State Transfer because it is faster.
 
 
 
@@ -227,7 +227,7 @@ No new  questions in this category.
 
 .. _`faq-pending-11`:
 .. rst-class:: rubric-2
-.. rubric:: What if I decide I don't like Galera and want to migrate to something else?
+.. rubric:: What if I decide I do not like Galera and want to migrate to something else?
 
 .. rst-class:: list-stats
 
@@ -281,7 +281,7 @@ No new  questions in this category.
 
 .. _`faq-pending-15`:
 .. rst-class:: rubric-2
-.. rubric:: What's involved in start a cluster after it's been down?
+.. rubric:: What's involved in starting a cluster after it has been down?
 
 .. rst-class:: list-stats
 

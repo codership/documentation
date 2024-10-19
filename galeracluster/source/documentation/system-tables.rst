@@ -57,7 +57,7 @@ Galera System Tables
 .. index::
    pair: Galera Cluster 4.x; System Tables
 
-Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``.  As of MariaDB Server 10.10, and MySQL-wsrep 8.4.2, there is yet another, ``wsrep_allowlist``. These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
+Starting with version 4 of Galera, three system tables related to Galera replication were added to the ``mysql`` database: ``wsrep_cluster``, ``wsrep_cluster_members``, and ``wsrep_streaming_log``. As of MariaDB Server 10.10, and MySQL-wsrep 8.4.2, there is yet another, ``wsrep_allowlist``. These system tables may be used by database administrators to get a sense of the current layout of the nodes in a cluster.
 
 To see these tables on your server, execute the following SQL statement one of them using the ``mysql`` client or a similar client:
 
@@ -74,7 +74,7 @@ To see these tables on your server, execute the following SQL statement one of t
    | wsrep_streaming_log       |
    +---------------------------+
 
-Database administrators and clients with the access to the ``mysql`` database may read these tables, but they may not modify them: the database itself will make modifications, as needed. If your server doesn't have these tables, it may be that your server is using an older version of Galera.
+Database administrators and clients with the access to the ``mysql`` database may read these tables, but they may not modify them: the database itself will make modifications, as needed. If your server does not have these tables, it may be that your server is using an older version of Galera.
 
 .. _`allowlist`:
 .. rst-class:: section-heading
@@ -175,7 +175,7 @@ To see the names of the columns in this table, either use the ``DESCRIBE`` state
 
 The ``cluster_uuid`` contains the UUID of the cluster.
 
-The ``view_id`` corresponds to the status value of the ``wsrep_cluster_conf_id``, the number of cluster configuration changes which have occurred in the cluster.  The ``view_seqno`` on the other hand, corresponds to Galera sequence number associated with the cluster view.  The protocol version is the same value as contained in the ``wsrep_protocol_version`` variable.  It's the protocol version of the MySQL-wsrep or the MariaDB wsrep patch. Last, the  ``capabilities`` column contains the capabilities bitmask provided by the Galera library. It's metadata that will be needed to recover node state during crash recovery.
+The ``view_id`` corresponds to the status value of the ``wsrep_cluster_conf_id``, the number of cluster configuration changes which have occurred in the cluster. The ``view_seqno`` on the other hand, corresponds to Galera sequence number associated with the cluster view. The protocol version is the same value as contained in the ``wsrep_protocol_version`` variable. It is the protocol version of the MySQL-wsrep or the MariaDB wsrep patch. Last, the  ``capabilities`` column contains the capabilities bitmask provided by the Galera library. It is metadata that is needed to recover node state during crash recovery.
 
 If you execute the following SQL statement from any node in a cluster, you can see the contents of this table:
 
@@ -197,7 +197,7 @@ In the results here, you can see the cluster UUID. This can also be found by usi
 .. rst-class:: section-heading
 .. rubric:: Cluster Members
 
-Another Galera related system tables is the ``wsrep_cluster_members`` table. This system table will provide the current membership of the cluster; it will contain a row for each node in the cluster.  That is to say, each node in the cluster known to the node upon which the table is queried.
+Another Galera related system tables is the ``wsrep_cluster_members`` table. This system table will provide the current membership of the cluster; it will contain a row for each node in the cluster. That is to say, each node in the cluster known to the node upon which the table is queried.
 
 To see the names of columns in this table, either use the ``DESCRIBE`` statement or execute the following SQL statement from the ``mysql`` client on one of the nodes in the cluster:
 
@@ -242,7 +242,7 @@ If you execute the following SQL statement from any node in a cluster, you can s
    node_incoming_address: AUTO
 
 
-In the results of this example you can see that this cluster is composed of three nodes.  The node UUIDs are unique for each node. Notice that the cluster UUID is the same for all three and corresponds to the related value found in the ``wsrep_cluster`` table shown in the example earlier. Each node has a unique name (e.g., galera1). They were named in the configuration file using the ``wsrep_node_name`` parameter.  The incoming node address is set to ``AUTO`` for all of these nodes, but they can be set individual to specific nodes with the ``wsrep-node-address`` or the ``bind-address`` parameter in each node's configuration file.
+In the results of this example you can see that this cluster is composed of three nodes. The node UUIDs are unique for each node. Notice that the cluster UUID is the same for all three and corresponds to the related value found in the ``wsrep_cluster`` table shown in the example earlier. Each node has a unique name (for example, galera1). They were named in the configuration file using the ``wsrep_node_name`` parameter. The incoming node address is set to ``AUTO`` for all of these nodes, but they can be set individual to specific nodes with the ``wsrep-node-address`` or the ``bind-address`` parameter in each node's configuration file.
 
 
 .. _`cluster-streaming-log`:
@@ -251,7 +251,7 @@ In the results of this example you can see that this cluster is composed of thre
 
 The last Galera related system tables is the ``wsrep_streaming_log`` table. This system table contains meta data and row events for ongoing streaming transactions, write set fragment per row.
 
-The ``node_uuid`` column contains the node UUID of the hosting node for the transaction (i.e. node where the client is executing the transaction). The ``trx_id`` column stores the transaction identifier, whereas the ``seqno`` stores the sequence number of the write set fragment. Last, the ``flags`` columns records flags associated with the write set fragment, and ``frag`` contains the binary log replication events contained in the write set fragment.
+The ``node_uuid`` column contains the node UUID of the hosting node for the transaction (that is node where the client is executing the transaction). The ``trx_id`` column stores the transaction identifier, whereas the ``seqno`` stores the sequence number of the write set fragment. Last, the ``flags`` columns records flags associated with the write set fragment, and ``frag`` contains the binary log replication events contained in the write set fragment.
 
 To see the names of columns in this table, either use the ``DESCRIBE`` statement or execute the following SQL statement from the ``mysql`` client on one of the nodes in the cluster:
 
@@ -298,7 +298,7 @@ Typically, you won't see any results since it will contain entries only for tran
    | a006244a-7ed8-11e9-bf00-867215999c7c |     26 |     4 |     1 |
    +--------------------------------------+--------+-------+-------+
 
-You can see in the results from the example here that the node UUID matches that of the third node (i.e., ``galera3``) in the results for the example above related to the ``wsrep_cluster_members`` table. In this example, the ``frag`` column was omitted from the ``SELECT`` statement since it contains binary characters that don't format well.
+You can see in the results from the example here that the node UUID matches that of the third node (that is, ``galera3``) in the results for the example above related to the ``wsrep_cluster_members`` table. In this example, the ``frag`` column was omitted from the ``SELECT`` statement since it contains binary characters that do not format well.
 
 .. note:: Galera Cluster no longer uses ``INFORMATION_SCHEMA.PROCESSLIST``, since it has been deprecated upstream. Instead, it uses "PERFORMANCE_SCHEMA.PROCESSLIST". See the example below:
    

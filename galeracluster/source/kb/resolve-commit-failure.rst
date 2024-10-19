@@ -84,7 +84,7 @@ Suppose you enable  :ref:`wsrep_debug <wsrep_debug>` on the nodes in your cluste
 
 When attempting to apply a replicated write-set, replica threads occasionally encounter lock conflicts with local transactions, which may already be in the commit phase. In such cases, the node aborts the local transaction, allowing the replica thread to proceed.
 
-This is a consequence of optimistic transaction execution. The database server executes transactions with the expectation that there won't be any row conflicts. It's an expected issue in a multi-primary configuration.
+This is a consequence of optimistic transaction execution. The database server executes transactions with the expectation that there are no row conflicts. It is an expected issue in a multi-primary configuration.
 
 
 .. rst-class:: section-heading

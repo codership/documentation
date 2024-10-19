@@ -58,7 +58,7 @@
 Notification Script Example
 ===========================
 
-Nodes can call a notification script when changes happen in the membership of the cluster, that is when nodes join or leave the cluster.  You can specify the name of the script the node calls using the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`.  While you can use whatever script meets the particular needs of a deployment, you may find it helpful to consider the example below as a starting point.
+Nodes can call a notification script when changes happen in the membership of the cluster, that is when nodes join or leave the cluster. You can specify the name of the script the node calls using the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`. While you can use whatever script meets the particular needs of a deployment, you may find it helpful to consider the example below as a starting point.
 
 .. code-block:: sh
 
@@ -177,7 +177,7 @@ Nodes can call a notification script when changes happen in the membership of th
 .. rst-class:: section-heading
 .. rubric:: Path and Permissions
 
-After you modify this script to fit your requirements, you need to move it into a directory in the ``$PATH`` or the binaries directory for your system.  On Linux, the binaries directory is typically at ``/usr/bin``, while on FreeBSD it is at ``/usr/local/bin``.
+After you modify this script to fit your requirements, you need to move it into a directory in the ``$PATH`` or the binaries directory for your system. On Linux, the binaries directory is typically at ``/usr/bin``, while on FreeBSD it is at ``/usr/local/bin``.
 
 .. code-block:: console
 

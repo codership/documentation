@@ -58,23 +58,23 @@
 SELinux Configuration
 =======================
 
-Security-Enhanced Linux, or SELinux, is a kernel module for improving security of Linux operating systems.  It integrates support for access control security policies, including mandatory access control (MAC), that limit user applications and system daemons access to files and network resources.  Some Linux distributions, such as Red Hat Enterprise Linux or CentOS, ship with SELinux enabled by default.
+Security-Enhanced Linux, or SELinux, is a kernel module for improving security of Linux operating systems. It integrates support for access control security policies, including mandatory access control (MAC), that limit user applications and system daemons access to files and network resources. Some Linux distributions, such as Red Hat Enterprise Linux or CentOS, ship with SELinux enabled by default.
 
-In the context of Galera Cluster, systems with SELinux may block the database server, keeping it from starting or preventing the node from establishing connections with other nodes in the cluster.  To prevent this, you need to configure SELinux policies to allow the node to operate.
+In the context of Galera Cluster, systems with SELinux may block the database server, keeping it from starting or preventing the node from establishing connections with other nodes in the cluster. To prevent this, you need to configure SELinux policies to allow the node to operate.
 
 
 .. _`gen-selinux-policy`:
 .. rst-class:: section-heading
 .. rubric:: Generating an SELinux Policy
 
-In order to create an SELinux policy for Galera Cluster, you need to first open ports and set SELinux to permissive mode.  Then, after generating various replication events, state transfers and notifications, create a policy from the logs of this activity and reset SELinux from to enforcing mode.
+In order to create an SELinux policy for Galera Cluster, you need to first open ports and set SELinux to permissive mode. Then, after generating various replication events, state transfers and notifications, create a policy from the logs of this activity and reset SELinux from to enforcing mode.
 
 
 .. _`permissive-selinux`:
 .. rst-class:: sub-heading
 .. rubric:: Setting SELinux to Permissive Mode
 
-When SELinux registers a system event, there are three modes that define its response: enforcing, permissive and disabled.  While you can set it to permit all activity on the system, this is not a good security practice.  Instead, set SELinux to permit activity on the relevant ports and to ignore the database server.
+When SELinux registers a system event, there are three modes that define its response: enforcing, permissive and disabled. While you can set it to permit all activity on the system, this is not a good security practice. Instead, set SELinux to permit activity on the relevant ports and to ignore the database server.
 
 To set SELinux to permissive mode, complete the following steps:
 
@@ -86,7 +86,7 @@ To set SELinux to permissive mode, complete the following steps:
       semanage port -a -t mysqld_port_t -p tcp 4568
       semanage port -a -t mysqld_port_t -p tcp 4444
 
-   SELinux already opens the standard MySQL port ``3306``.  In the event that you use UDP in your cluster, you also need to open ``4567`` to those connections.
+   SELinux already opens the standard MySQL port ``3306``. In the event that you use UDP in your cluster, you also need to open ``4567`` to those connections.
 
    .. code-block:: console
 
@@ -105,7 +105,7 @@ SELinux now permits the database server to function on the server and no longer 
 .. rst-class:: sub-heading
 .. rubric:: Defining the SELinux Policy
 
-While SELinux remains in permissive mode, it continues to log activity from the database server.  In order for it to understand normal operation for the database, you need to start the database and generate routine events for SELinux to see.
+While SELinux remains in permissive mode, it continues to log activity from the database server. In order for it to understand normal operation for the database, you need to start the database and generate routine events for SELinux to see.
 
 For servers that use ``init``, start the database with the following command:
 
@@ -119,11 +119,11 @@ For servers that use ``systemd``, instead run this command:
 
    systemctl mysql start
 
-You can now begin to create events for SELinux to log.  There are many ways to go about this, including:
+You can now begin to create events for SELinux to log. There are many ways to go about this, including:
 
-- Stop the node, then make changes on another node before starting it again.  Not being that far behind, the node updates itself using an :term:`Incremental State Transfer`.
+- Stop the node, then make changes on another node before starting it again. Not being that far behind, the node updates itself using an :term:`Incremental State Transfer`.
 
-- Stop the node, delete the ``grastate.dat`` file in the data directory, then restart the node.  This forces a :term:`State Snapshot Transfer`.
+- Stop the node, delete the ``grastate.dat`` file in the data directory, then restart the node. This forces a :term:`State Snapshot Transfer`.
 
 - Restart the node, to trigger the notification command as defined by :ref:`wsrep_notify_cmd <wsrep_notify_cmd>`.
 

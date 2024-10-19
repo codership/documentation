@@ -68,20 +68,20 @@ Setting an SELinux Policy
 
    Length: 345 words; Published: June 24, 2015; Updated: October 20, 2019; Category: Security; Type: Best Practices
 
-Security-Enhanced Linux (SELinux) is a security module of the Linux kernel for all distributions.  It supports access control security policies.  When you first install Galera Cluster, unless you disable or configure SELinux properly, it will prevent communications between Galera nodes. In order to enable replication on the node, unless you disable SELinux, you will need a policy for Galera so that SELinux wil recognize cluster activities as legitimate.
+Security-Enhanced Linux (SELinux) is a security module of the Linux kernel for all distributions. It supports access control security policies. When you first install Galera Cluster, unless you disable or configure SELinux properly, it will prevent communications between Galera nodes. In order to enable replication on the node, unless you disable SELinux, you will need a policy for Galera so that SELinux wil recognize cluster activities as legitimate.
 
 .. rst-class:: section-heading
 .. rubric:: Recommendations
 
-To create a policy for Galera Cluster, you can first set SELinux to run in permissive mode.  Permissive mode does not block cluster activity, but it does log the actions as warnings.  You can make this change generally by editing the SELinux configuration file (e.g., ``/etc/selinux/config``) to include an uncommented line like so:
+To create a policy for Galera Cluster, you can first set SELinux to run in permissive mode. Permissive mode does not block cluster activity, but it does log the actions as warnings. You can make this change generally by editing the SELinux configuration file (for example, ``/etc/selinux/config``) to include an uncommented line like so:
 
 .. code-block:: console
 
    SELINUX=permissive
 
-As mentioned above, it will collect warnings about cluster activities. With this, you can iteratively create a policy for Galera Cluster.  Once SELinux no longer registers warnings from Galera Cluster, you can switch it back into enforcing mode.  SELinux will then use the new policy to allow the cluster access to the various ports and files it needs.
+As mentioned above, it will collect warnings about cluster activities. With this, you can iteratively create a policy for Galera Cluster. Once SELinux no longer registers warnings from Galera Cluster, you can switch it back into enforcing mode. SELinux will then use the new policy to allow the cluster access to the various ports and files it needs.
 
-A more straightforward method would be to open the ports that Galera needs. TCP port 3306 is used by MySQL and MariaDB by default. TCP and UDP port 4567 is used for general Galera Cluster communications. TCP port 4444 is used for Incremental State Transfers, while TCP port 4568 is used for State Snapshot Transfers. You'll have to enable all of these ports in SELinux |---| and in your firewall if you're using one. You can manage ports with the ``semanage`` tool by entering something like the following from the command-line:
+A more straightforward method would be to open the ports that Galera needs. TCP port 3306 is used by MySQL and MariaDB by default. TCP and UDP port 4567 is used for general Galera Cluster communications. TCP port 4444 is used for Incremental State Transfers, while TCP port 4568 is used for State Snapshot Transfers. You'll have to enable all of these ports in SELinux |---| and in your firewall if you are using one. You can manage ports with the ``semanage`` tool by entering something like the following from the command-line:
 
 .. code-block:: console
 

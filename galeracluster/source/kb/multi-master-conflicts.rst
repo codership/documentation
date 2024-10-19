@@ -122,7 +122,7 @@ If you develop your own notification system, you can use status variables to wat
 
 :ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` returns the total number of local transactions aborted by replica transactions while in execution. :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` provides the total number of transactions that have failed certification tests.
 
-You can enable conflict logging features with :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` and :ref:`cert.log_conflicts <cert.log_conflicts>`. Just add the following lines to the configuration file (i.e., ``my.cnf``):
+You can enable conflict logging features with :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` and :ref:`cert.log_conflicts <cert.log_conflicts>`. Just add the following lines to the configuration file (that is, ``my.cnf``):
 
 .. code-block:: ini
 
@@ -153,7 +153,7 @@ If you encounter this problem, you can set the node to attempt to auto-commit th
 
    wsrep_retry_autocommit=4
 
-When a transaction fails the certification test due to a cluster-wide conflict, this parameter tells the node how many times you want it to retry the transaction before returning a deadlock error. In the example line above, it's set to four times.
+When a transaction fails the certification test due to a cluster-wide conflict, this parameter tells the node how many times you want it to retry the transaction before returning a deadlock error. In the example line above, it is set to four times.
 
 Retrying only applies to auto-commit transactions, as retrying is not safe for multi-statement transactions.
 

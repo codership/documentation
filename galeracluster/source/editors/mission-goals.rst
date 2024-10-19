@@ -52,7 +52,7 @@ Our mission for the Codership Library is to update and improve the Documentation
 .. rst-class:: section-heading
 .. rubric:: Documentation
 
-This section is the documentation for Galera Cluster. This is straightforward documentation, not tutorials or advice articles. See below for those. The documentation includes hundreds of pages of information on configuring every aspect of Galera (i.e., Reference Manual), as well as information on administering a cluster (i.e., Administration Manual).
+This section is the documentation for Galera Cluster. This is straightforward documentation, not tutorials or advice articles. See below for those. The documentation includes hundreds of pages of information on configuring every aspect of Galera (that is, Reference Manual), as well as information on administering a cluster (that is, Administration Manual).
 
 .. rst-class:: section-heading
 .. rubric:: Knowledge Base

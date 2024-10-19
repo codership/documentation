@@ -113,7 +113,7 @@ This system variable allows you to add comma delimited IP addresses to an allow 
 
 This system variable defines the GTID domain ID that is used for wsrep GTID mode.
 
-- When :ref:`wsrep_gtid_mode <wsrep_gtid_mode>` is set to ON, wsrep_gtid_domain_id is used in place of gtid_domain_id for all Galera Cluster write sets.
+- When :ref:`wsrep_gtid_mode <wsrep_gtid_mode>` is set to ON, wsrep_gtid_domain_id is used in place of ``gtid_domain_id`` for all Galera Cluster write sets.
 
 - When :ref:`wsrep_gtid_mode <wsrep_gtid_mode>` is set to OFF, wsrep_gtid_domain_id is simply ignored to allow for backward compatibility.
 
@@ -141,7 +141,7 @@ This system variable defines the GTID domain ID that is used for wsrep GTID mode
 
 Wsrep GTID mode attempts to keep GTIDs consistent for Galera Cluster write sets on all cluster nodes. GTID state is initially copied to a joiner node during an SST. If you are planning to use Galera Cluster with MariaDB replication, then wsrep GTID mode can be helpful.
 
-- When wsrep_gtid_mode is set to ON, :ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>` is used in place of gtid_domain_id for all Galera Cluster write sets.
+- When wsrep_gtid_mode is set to ON, :ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>` is used in place of ``gtid_domain_id`` for all Galera Cluster write sets.
 
 - When wsrep_gtid_mode is set to OFF, :ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>` is simply ignored to allow for backward compatibility.
 
@@ -245,11 +245,11 @@ Wsrep patch version, for example ``wsrep_25.10``.
 
 This parameter defines the mode for Online Schema Upgrade that the node uses to replicate DDL statements. The following methods are available:
 
-DDL statements are non-transactional and as such don't replicate through write-sets.  There are two methods available that determine how the node handles replicating these statements:
+DDL statements are non-transactional and as such do not replicate through write-sets. There are two methods available that determine how the node handles replicating these statements:
 
 - ``TOI``  In the :term:`Total Order Isolation` method, the cluster runs the DDL statement on all nodes in the same total order sequence, blocking other transactions from committing while the DDL is in progress.
 
-- ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made.  While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock.  Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again.  The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
+- ``RSU`` In the :term:`Rolling Schema Upgrade` method, the node runs the DDL statements locally, thus blocking only the one node where the statement was made. While processing the DDL statement, the node is not replicating and may be unable to process replication events due to a table lock. Once the DDL operation is complete, the node catches up and syncs with the cluster to become fully operational again. The DDL statement or its effects are not replicated; the user is responsible for manually executing this statement on each node in the cluster.
 
 - ``NBO`` When the Non Blocking Option is used, DDL statements are processed in three phases:
 
