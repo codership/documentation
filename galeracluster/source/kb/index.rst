@@ -190,6 +190,18 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
       When you have ``wsrep_debug`` turned ``ON``, you may occasionally see a message noting that a commit has failed due to reason ``3``.
 
 
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`kb-trouble-illegal-mix-of-collations`
+
+   .. rst-class:: list-stats
+
+      Length: 240 words; Pub: Oct 2024; Revised: Oct 2024
+
+   .. rst-class:: list-abstract
+
+      A mismatch in collations used in incoming replication and the table structure in the node itself causes an error.
+
+
 
 .. _`kb-trouble-splits-topology`:
 .. container:: banner
