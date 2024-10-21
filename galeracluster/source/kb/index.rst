@@ -191,7 +191,7 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :doc:`kb-trouble-illegal-mix-of-collations`
+   .. rubric:: :doc:`illegal-mix-of-collations`
 
    .. rst-class:: list-stats
 
@@ -200,7 +200,6 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
    .. rst-class:: list-abstract
 
       A mismatch in collations used in incoming replication and the table structure in the node itself causes an error.
-
 
 
 .. _`kb-trouble-splits-topology`:
@@ -488,6 +487,7 @@ Whereas the :ref:`Troubleshooting <kb-trouble>` section relates to handling prob
    auto-increment-multiples
    deadlock-found
    resolve-commit-failure
+   illegal-mix-of-collations
 
    multi-master-conflicts
    error-unknown-command
