@@ -91,22 +91,22 @@ For example, the following WHERE clause may cause the error:
 To mitigate such errors, there are a couple of things you can do. 
 
 #. Modify the table structure to use the ``utf8_general_ci`` collation, to match the incoming data:
-
-.. code-block:: mysql
-
-   ALTER TABLE tblDocument
-   CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-
+   
+   .. code-block:: mysql
+   
+      ALTER TABLE tblDocument
+      CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+   
 #. Modify the replication source to use the ``latin1_swedish_ci`` collation to match the table structure.
-
+   
 #. Use an explicit COLLATE clause in the replication query to convert the incoming data:
-
-.. code-block:: mysql
-
-   UPDATE tblDocument
-   SET LockedBy = NULL, LockedDT = NULL, LockExpirationDT = NULL
-   WHERE LockedBy = NAME_CONST(‘inLockedBy’,_latin1'AchmeaHdodEnrichFaraoFile:123646188' COLLATE ‘utf8_general_ci’);
-
+   
+   .. code-block:: mysql
+   
+      UPDATE tblDocument
+      SET LockedBy = NULL, LockedDT = NULL, LockExpirationDT = NULL
+      WHERE LockedBy = NAME_CONST(‘inLockedBy’,_latin1'AchmeaHdodEnrichFaraoFile:123646188' COLLATE ‘utf8_general_ci’);
+   
 #. Consider converting the entire database to use a consistent character set and collation, preferably ``utf8mb4`` with an appropriate collation, such as ``utf8mb4_unicode_ci``.
 
 .. container:: bottom-links
