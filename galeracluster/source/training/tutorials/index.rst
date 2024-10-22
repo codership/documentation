@@ -156,6 +156,18 @@ Codership Tutorials on Galera Cluster
 
 
    .. rst-class:: sub-heading list-sub-header
+   .. rubric:: :doc:`getting-started-kubernetes`
+
+   .. rst-class:: list-stats
+
+      Length: 848 words; Pub: Oct 2024
+
+   .. rst-class:: list-abstract
+
+      This article explains how to deploy a Galera Cluster for MySQL with a Helm Chart for Kubernetes.
+	  
+
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`testing-cluster`
 
    .. rst-class:: list-stats
