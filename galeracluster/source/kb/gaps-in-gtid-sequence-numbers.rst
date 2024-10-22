@@ -91,7 +91,7 @@ Here, GTID seqno 3 is allocated for the ``create table`` statement, but the rela
 
 The excerpt from the binlog suggests that the ``gtid_next`` value is manually set before every executed transaction. For a failed transaction, this GTID value is not binlogged, although it is counted as used.
 
-In other words, for GTID values manually set with ``gtid_next``, there is a possibility of creating a gap in the binlog. In other words, for manually set GTID values, there is a possibility of creating a gap in the binlog. This is allowed to happen, as the replication subsystem is based on the ``gtid_executed`` variable, when determining which events should be replicated between the primary and the replica, and not on the binlog contents. Binlog solely becomes a storage for all GTIDs executed, to transfer them over to the replica.
+In other words, for GTID values manually set with ``gtid_next``, there is a possibility of creating a gap in the binlog. This is allowed to happen, as the replication subsystem is based on the ``gtid_executed`` variable, when determining which events should be replicated between the primary and the replica, and not on the binlog contents. Binlog solely becomes a storage for all GTIDs executed, to transfer them over to the replica.
 
 .. rst-class:: section-heading
 .. rubric:: Solution
