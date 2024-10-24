@@ -68,13 +68,14 @@ GTID gaps may occur if ``gtid_next`` is set to a specific value, and a transacti
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-When a failing DDL statement with a GTID seqno is replicated by TOI, the failed DDL is not logged in the binary log and, therefore, the binlog will contain GTID event gaps.
+When a failing DDL statement with explicit GTID value set with ``gtid_next`` is replicated by TOI, the failed DDL is not logged in the binary log and, therefore, the binlog will contain GTID event gaps.
 
 Below is an example of a failing DDL statement:
 
 .. code-block:: mysql
 
-   create table t_fail (i int primary key, j int, foreign key(j) references non_existing(i))
+   SET @@SESSION.GTID_NEXT= 'a9264492-7be5-11ef-b353-ca382343a2f9:3';
+   create table t_fail (i int primary key, j int, foreign key(j) references non_existing(i));
 
 And an example of binlog events after the statement has been issued:
 
@@ -89,9 +90,7 @@ And an example of binlog events after the statement has been issued:
 
 Here, GTID seqno 3 is allocated for the ``create table`` statement, but the related GTID event is missing from the binlog file.
 
-The excerpt from the binlog suggests that the ``gtid_next`` value is manually set before every executed transaction. For a failed transaction, this GTID value is not binlogged, although it is counted as used.
-
-In other words, for GTID values manually set with ``gtid_next``, there is a possibility of creating a gap in the binlog. This is allowed to happen, as the replication subsystem is based on the ``gtid_executed`` variable, when determining which events should be replicated between the primary and the replica, and not on the binlog contents. Binlog solely becomes a storage for all GTIDs executed, to transfer them over to the replica.
+Galera Cluster replication is based on the assumption that GTID numbers do not contain gaps in the binlog. In such a case, the behavior is undefined, thus it should be avoided.
 
 .. rst-class:: section-heading
 .. rubric:: Solution
@@ -106,7 +105,6 @@ The solution to mitigate GTID gaps is to re-assign the same ``gtid_next`` value 
    
    # Now miss a GTID value by failing a transaction
    SET @@SESSION.GTID_NEXT= 'a9264492-7be5-11ef-b353-ca382343a2f9:2';
-   --error 0, 1824
    CREATE TABLE t_fail (i INT PRIMARY KEY, j INT, FOREIGN KEY(j) REFERENCES NON_EXISTING(i)) ENGINE=InnoDB;
    
    # Write successful transaction with the same GTID
