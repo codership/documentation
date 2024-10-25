@@ -266,7 +266,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_cert_deps_distance
 
-Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization).
+Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization). Note that this is an average measure. You will not see acute changes in this variable.
 
 .. csv-table::
    :class: doc-options
