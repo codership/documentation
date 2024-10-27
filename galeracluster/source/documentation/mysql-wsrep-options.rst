@@ -590,7 +590,7 @@ DDL statements are also logged. See below for an example:
    2024-09-06 14:37:57 13 [Note] WSREP: avoiding binlog rotate due to TO isolation: 1
    2024-09-06 14:37:57 13 [Note] WSREP: TO END: 3: CREATE SEQUENCE seq start with 1 minvalue 1 maxvalue 1000000 increment by 0 cache 1000 nocycle ENGINE=InnoDB
 
-.. warning:: In addition to useful debugging information, the ``wsrep_debug`` parameter also causes the database server to print authentication information (i.e., passwords) to the error logs. Don't enable it in production environments. This, however, does not concern MariaDB, as the "wsrep_thd_query()", where the user query is exposed, does not print all information when the "SQL_COMMAND" is "SET" (such as "SET PASSWORD") or "SQLCOM_CREATE_USER", where "CREATE USER" is only logged.
+.. warning:: In addition to useful debugging information, the ``wsrep_debug`` parameter also causes the database server to print authentication information (that is, passwords) to the error logs. Do not enable it in production environments. This, however, does not concern MariaDB, as the "wsrep_thd_query()", where the user query is exposed, does not print all information when the "SQL_COMMAND" is "SET" (such as "SET PASSWORD") or "SQLCOM_CREATE_USER", where "CREATE USER" is only logged.
 
 See below for an example of ``wsrep_debug`` output:
 
