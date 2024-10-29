@@ -578,9 +578,50 @@ This parameter enables additional debugging output for the database server error
    "Default Value", "``OFF``"
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
-Under normal operation, error events are logged to an error log file for the database server. By default, the name of this file is the server hostname with the ``.err`` extension. You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems.
+Under normal operation, error events are logged to an error log file for the database server.  By default, the name of this file is the server hostname with the ``.err`` extension.  You can define a custom path using the `log_error <https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_log_error>`_ parameter. When you enable :ref:`wsrep_debug <wsrep_debug>`, the database server logs additional events surrounding these errors to help in identifying and correcting problems. 
 
-.. warning:: In addition to useful debugging information, the ``wsrep_debug`` parameter also causes the database server to print authentication information (that is, passwords) to the error logs. Don't enable it in production environments.
+DDL statements are also logged. See below for an example:
+
+.. code-block:: console
+
+   2024-09-06 14:37:57 13 [Note] WSREP: TOI Begin: CREATE SEQUENCE seq start with 1 minvalue 1 maxvalue 1000000 increment by 0 cache 1000 nocycle ENGINE=InnoDB
+   2024-09-06 14:37:57 13 [Note] WSREP: enter_toi_local: enter(13,exec,local,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:37:57 13 [Note] WSREP: poll_enter_toi: 3,0
+   2024-09-06 14:37:57 13 [Note] WSREP: enter_toi_local: leave(13,exec,toi,success,0,toi: 3,nbo: -1)
+   2024-09-06 14:37:57 13 [Note] WSREP: avoiding binlog rotate due to TO isolation: 1
+   2024-09-06 14:37:57 13 [Note] WSREP: TO END: 3: CREATE SEQUENCE seq start with 1 minvalue 1 maxvalue 1000000 increment by 0 cache 1000 nocycle ENGINE=InnoDB
+
+.. warning:: In addition to useful debugging information, the ``wsrep_debug`` parameter also causes the database server to print authentication information (that is, passwords) to the error logs. Do not enable it in production environments. This, however, does not concern MariaDB, as the "wsrep_thd_query()", where the user query is exposed, does not print all information when the "SQL_COMMAND" is "SET" (such as "SET PASSWORD") or "SQLCOM_CREATE_USER", where "CREATE USER" is only logged.
+
+See below for an example of ``wsrep_debug`` output:
+
+.. code-block:: console
+
+   2024-09-06 14:26:19 2 [Note] WSREP: open: enter(4,none,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 2 [Note] WSREP: open: leave(4,idle,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 2 [Note] WSREP: before_command: enter(4,idle,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 4 [Note] WSREP: before_command: success(4,exec,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 4 [Note] WSREP: Cluster table is empty, not recovering transactions
+   2024-09-06 14:26:19 2 [Note] WSREP: after_command_before_result: enter(4,exec,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 2 [Note] WSREP: after_command_before_result: leave(4,result,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 2 [Note] WSREP: after_command_after_result_enter(4,result,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 2 [Note] WSREP: after_command_after_result: leave(4,idle,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 2 [Note] WSREP: close: enter(4,idle,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 2 [Note] WSREP: close: leave(4,quit,high priority,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 4 [Note] WSREP: cleanup: enter(4,quit,local,success,0,toi: -1,nbo: -1)
+   2024-09-06 14:26:19 4 [Note] WSREP: cleanup: leave(4,none,local,success,0,toi: -1,nbo: -1)
+
+The ``wsrep_debug`` options are:
+
+- ``SERVER`` - ``WSREP_DEBUG`` log writes from the source code will be added to the error log.
+
+- ``TRANSACTION`` - Logging from ``wsrep-lib`` transactions will be added to the error log.
+
+- ``STREAMING`` - Logging from streaming transactions in ``wsrep-lib`` will be added to the error log.
+
+- ``CLIENT`` - Logging from ``wsrep-lib`` client state will be added to the error log.
+
+See also :ref:`evs.debug_log_mask <evs.debug_log_mask>`.
 
 You can execute the following ``SHOW VARIABLES`` statement with a ``LIKE`` operator to see if this variable is enabled:
 
