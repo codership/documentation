@@ -1124,7 +1124,7 @@ This parameter is used to provide the IP address and port from which the node sh
    "Default Value", ""
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
-This parameter defines the IP address and port number at which the node should expect to receive client connections. It's intended for integration with load balancers. For now, it's otherwise unused by the node.
+This parameter defines the IP address and port number at which the node should expect to receive client connections.  It is intended for integration with load balancers. For now, it is otherwise unused by the node.
 
 You can execute the ``SHOW VARIABLES`` statement with the ``LIKE`` operator as shown below to get the IP address and port setting of this parameter:
 
