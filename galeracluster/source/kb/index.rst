@@ -120,6 +120,20 @@ This is the Troubleshooting section of the Galera Knowledge Base (KB). It contai
       When a new node joins a cluster, it will try to get a full copy of the databases from one of the other nodes. Sometimes its request will be ignored and no node is selected to be the donor.
 
 
+.. container:: list-col2
+
+   .. rst-class:: rubric-2 list-sub-header
+   .. rubric:: :doc:`Gaps in GTID Sequence Numbers <gaps-in-gtid-sequence-numbers>`
+
+   .. rst-class:: list-stats
+
+      Length: 421 words; Pub: Oct 2024; Revised: Oct 2024
+
+   .. rst-class:: list-abstract
+
+      GTID gaps may occur if ``gtid_next`` is set to a specific value, and a transaction fails.
+
+
 .. _`kb-trouble-sql-syntax`:
 .. container:: banner
 
