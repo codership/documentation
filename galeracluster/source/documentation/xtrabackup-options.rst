@@ -239,7 +239,7 @@ Defines the SSL encryption type the node uses for XtraBackup state transfers.
    "**Permitted Values**", "Type:", "Integer"
    "", "Default Value:", "``0``"
 
-When using the :ref:`encrypt <xtra-encrypt>` parameter in both the ``[xtrabackup]`` and ``[sst]`` units, there is a potential issue in it having different meanings according to the unit under which it occurs. That is, in ``[xtrabackup]``, it turns encryption on while in ``[sst]`` it both turns it on as specifies the algorithm.
+When using the :ref:`encrypt <xtra-encrypt>` parameter in both the ``[xtrabackup]`` and ``[sst]`` units, there is a potential issue in it having different meanings according to the unit under which it occurs. That is, in ``[xtrabackup]``, it turns encryption on while in ``[sst]`` it both turns it on and specifies the algorithm.
 
 In the event that you need to clarify the meaning, this parameter allows you to define the encryption algorithm separately from turning encryption on. It is only read in the event that :ref:`encrypt <xtra-encrypt>` is set to ``1``
 
@@ -313,7 +313,7 @@ Defines the rate limit for the donor node.
    "**Permitted Values**", "Type:", "Integer"
    "", "Default Value:", ""
 
-This parameter allows you to definite the rate-limit the donor node. This allows you to keep state transfers from blocking regular cluster operations.
+This parameter allows you to define the rate-limit for the donor node. This allows you to keep state transfers from blocking regular cluster operations.
 
 .. code-block:: ini
 
@@ -379,7 +379,7 @@ Defines the stream formatting utility.
    "", "Default Value:", "``xbstream``"
    "", "Valid Values:", "``tar``; ``xbstream``"
 
-This parameter defines the utility the node uses to archive the node state before the transfer is sent and how to unarchive the state transfers that is receives. There are two methods available: ``tar`` and ``xbstream``. Given that the receiving node needs to know how to read the stream, it is necessary that both nodes use the same values for this parameter.
+This parameter defines the utility the node uses to archive the node state before the transfer is sent and how to unarchive the state transfers that it receives. There are two methods available: ``tar`` and ``xbstream``. Given that the receiving node needs to know how to read the stream, it is necessary that both nodes use the same values for this parameter.
 
 The default and recommended utility is ``xbstream`` given that it supports encryption, compression, parallel streaming, incremental backups and compaction. ``tar`` does not support these features.
 
@@ -476,7 +476,7 @@ Defines the transfer stream utility.
    "", "Default Value:", "``socat`` "
    "", "Valid Values:", "``socat``; ``nc``"
 
-This parameter defines the utility that the node uses to format transfers sent from donor to joiner nodes. There are two methods supported: Socat and ``nc``. Given that the receiving node needs to know how to interpret the transfer, it is necessary that both nodes use the same values for this parameter.
+This parameter defines the utility that the node uses to format transfers sent from donor to joiner nodes. There are two methods supported: ``socat`` and ``nc``. Given that the receiving node needs to know how to interpret the transfer, it is necessary that both nodes use the same values for this parameter.
 
 The default and recommended utility is Socat, given that it allows for socket options, such as transfer buffer size. For more information, see the `socat Documentation <https://www.dest-unreach.org/socat/doc/socat.html>`_.
 
