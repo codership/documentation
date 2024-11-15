@@ -351,7 +351,7 @@ Defines whether the node uses special InnoDB home and log directories.
    "**Permitted Values**", "Type:", "Boolean"
    "", "Default Value:", "``1``"
 
-This parameter was deprecated in Percona XtraDB Cluster 5.7.12-5rc1-26.16.
+This parameter is deprecated as of Percona XtraDB Cluster 5.7.12-5rc1-26.16.
 
 This parameter enables support for ``innodb_data_home_dir`` and ``innodb_log_home_dir`` parameters for XtraBackup. It requires that you define ``innodb_data_home_dir`` and ``innodb_log_group_home_dir`` in the ``[mysqld]`` unit.
 
