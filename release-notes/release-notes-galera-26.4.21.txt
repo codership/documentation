@@ -25,7 +25,7 @@ exceeds the current commit cut. GCS protocol version bumped.
 - expose versions of all protocols agreed on by quorum via status call.
 
 Note that since the GCS protocol version has been bumped, a rolling downgrade is
-now impossible. 
+not possible after the whole cluster has upgraded to the new version.
 
 Known Issues:
 
