@@ -1,6 +1,6 @@
 # Changes in MySQL-wsrep 8.4.3-26.21 (2024-12-03)
 
-Codership is pleased to announce the first beta release of Galera Cluster for
+Codership is pleased to announce the first LTS release of Galera Cluster for
 MySQL 8.4, consisting of MySQL-wsrep 8.4.3 and wsrep API version 26.
 
 This release incorporates all changes up to MySQL 8.4.3.
