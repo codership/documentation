@@ -135,7 +135,7 @@ Below is a list of all of the Galera parameters. Each is also a link to further 
    ":ref:`gcs.fc_limit <gcs.fc_limit>`", "``16``", "  Yes", "", "1.0", ""
    ":ref:`gcs.fc_master_slave <gcs.fc_master_slave>`", "``NO``", "  No", "", "1.0", "4.10"
    ":ref:`gcs.fc_single_primary <gcs.fc_single_primary>`", "``NO``", "  No", "", "4.10", ""
-   ":ref:`gcs.max_packet_size <gcs.max_packet_size>`", "``32616``", "  No", "", "1.0", ""
+   ":ref:`gcs.max_packet_size <gcs.max_packet_size>`", "``64500``", "  No", "", "1.0", ""
    ":ref:`gcs.max_throttle <gcs.max_throttle>`", "``0.25``", "  No", "", "1.0", ""
    ":ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>`", "``LLONG_MAX``", "  No", "", "1.0", ""
    ":ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`", "``0.25``", "  No", "", "1.0", ""
@@ -1186,7 +1186,7 @@ All writesets exceeding that size will be fragmented.
 .. csv-table::
    :class: doc-options
 
-   "Default Value", "``32616``"
+   "Default Value", "``64500``"
    "Dynamic", "No"
    "Initial Version", "1.0"
 
@@ -1194,7 +1194,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="gcs.max_packet_size=32616"
+   wsrep_provider_options="gcs.max_packet_size=64500"
 
 
 .. _`gcs.max_throttle`:
