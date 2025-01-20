@@ -2,7 +2,7 @@
    :title: XtraBackup-v2 Parameters
    :description:
    :language: en-US
-   :keywords: galera cluster, xtradb, xtrabackup, parameters
+   :keywords: galera cluster, xtradb, xtrabackup-v2, parameters
    :copyright: Codership Oy, 2014 - 2024. All Rights Reserved.
 
 
@@ -54,7 +54,7 @@
 XtraBackup-v2 Parameters
 ======================
 
-When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you can fine tune how the script operates using the ``[sst]`` unit in the ``my.cnf`` configuration file.
+When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you can fine-tune how the script operates using the ``[sst]`` unit in the ``my.cnf`` configuration file.
 
 .. code-block:: ini
 
@@ -71,7 +71,7 @@ When using ``xtrabackup-v2`` as your :term:`State Snapshot Transfer` method, you
    tcert="/path/to/cert.pem"
    tca="/path/to/ca.pem"
 
-Bear in mind, some XtraBackup parameters require that you match the configuration on donor and joiner nodes, (as designated in the table below).
+Bear in mind, some ``XtraBackup-v2`` parameters require that you match the configuration on donor and joiner nodes, as designated in the table below.
 
 
 .. csv-table::
@@ -79,23 +79,24 @@ Bear in mind, some XtraBackup parameters require that you match the configuratio
    :header: "Option", "Default", "Match"
    :widths: 30, 20, 20
 
-   ":ref:`compressor <xtra-compressor>`", "", ""
-   ":ref:`cpat <xtra-cpat>`", "``0``", ""
-   ":ref:`decompressor <xtra-decompressor>`", "", ""
+   ":ref:`compressor <xtra-compressor>`", "", "No"
+   ":ref:`compact <xtra-compact>`", "OFF", "No"
+   ":ref:`cpat <xtra-cpat>`", "``0``", "No"
+   ":ref:`decompressor <xtra-decompressor>`", "", "No"
    ":ref:`encrypt <xtra-encrypt>`", "``0``", "Yes"
-   ":ref:`encrypt-algo <xtra-encrypt-algo>`", "", ""
-   ":ref:`progress <xtra-progress>`", "", ""
-   ":ref:`rebuild <xtra-rebuild>`", "``0``", ""
-   ":ref:`rlimit <xtra-rlimit>`", "", ""
-   ":ref:`sst_special_dirs <xtra-sst_special_dirs>`", "``1``", ""
-   ":ref:`sockopt <xtra-sockopt>`", "", ""
+   ":ref:`encrypt-algo <xtra-encrypt-algo>`", "0", "No"
+   ":ref:`progress <xtra-progress>`", "", "No"
+   ":ref:`rebuild <xtra-rebuild>`", "``OFF``", "No"
+   ":ref:`rlimit <xtra-rlimit>`", "", "No"
+   ":ref:`sockopt <xtra-sockopt>`", "", "No"
+   ":ref:`sst_special_dirs <xtra-sst_special_dirs>`", "``1``", "No"
    ":ref:`streamfmt <xtra-streamfmt>`", "``xbstream``", "Yes"
-   ":ref:`tca <xtra-tca>`", "", ""
-   ":ref:`tcert <xtra-tcert>`", "", ""
-   ":ref:`time <xtra-time>`", "``0``", ""
+   ":ref:`tca <xtra-tca>`", "", "No"
+   ":ref:`tcert <xtra-tcert>`", "", "No"
+   ":ref:`time <xtra-time>`", "``OFF``", "No"
    ":ref:`transferfmt <xtra-transferfmt>`", "``socat``", "Yes"
-   ":ref:`joiner_timeout <xtra-joiner_timeout>`", "``60``", ""
-   ":ref:`donor_timeout <xtra-donor_timeout>`", "``10``", ""
+   ":ref:`joiner_timeout <xtra-joiner_timeout>`", "``60``", "No"
+   ":ref:`donor_timeout <xtra-donor_timeout>`", "``10``", "No"
 
 
 .. _`xtra-compressor`:
@@ -238,7 +239,7 @@ Defines the SSL encryption type the node uses for XtraBackup state transfers.
    "**Permitted Values**", "Type:", "Integer"
    "", "Default Value:", "``0``"
 
-When using the :ref:`encrypt <xtra-encrypt>` parameter in both the ``[xtrabackup]`` and ``[sst]`` units, there is a potential issue in it having different meanings according to the unit under which it occurs. That is, in ``[xtrabackup]``, it turns encryption on while in ``[sst]`` it both turns it on as specifies the algorithm.
+When using the :ref:`encrypt <xtra-encrypt>` parameter in both the ``[xtrabackup]`` and ``[sst]`` units, there is a potential issue in it having different meanings according to the unit under which it occurs. That is, in ``[xtrabackup]``, it turns encryption on while in ``[sst]`` it both turns it on and specifies the algorithm.
 
 In the event that you need to clarify the meaning, this parameter allows you to define the encryption algorithm separately from turning encryption on. It is only read in the event that :ref:`encrypt <xtra-encrypt>` is set to ``1``
 
@@ -312,40 +313,11 @@ Defines the rate limit for the donor node.
    "**Permitted Values**", "Type:", "Integer"
    "", "Default Value:", ""
 
-This parameter allows you to definite the rate-limit the donor node. This allows you to keep state transfers from blocking regular cluster operations.
+This parameter allows you to define the rate-limit for the donor node. This allows you to keep state transfers from blocking regular cluster operations.
 
 .. code-block:: ini
 
    rlimit=300M
-
-
-.. _`xtra-sst_special_dirs`:
-.. rst-class:: section-heading
-.. rubric:: ``sst_special_dirs``
-
-Defines whether the node uses special InnoDB home and log directories.
-
-.. csv-table::
-   :class: doc-options
-   :stub-columns: 1
-
-   "**System Variable**", "Name:", "``sst_special_dirs``"
-   "", "Match:", "No"
-   "**Permitted Values**", "Type:", "Boolean"
-   "", "Default Value:", "``OFF``"
-
-This parameter enables support for ``innodb_data_home_dir`` and ``innodb_log_home_dir`` parameters for XtraBackup. It requires that you define ``innodb_data_home_dir`` and ``innodb_log_group_home_dir`` in the ``[mysqld]`` unit.
-
-.. code-block:: ini
-
-   [mysqld]
-   innodb_data_home_dir="/var/mysqld/innodb"
-   innodb_log_group_home_dir="/var/log/innodb"
-   wsrep_sst_method="xtrabackup-v2"
-
-   [sst]
-   sst_special_dirs=TRUE
-
 
 .. _`xtra-sockopt`:
 .. rst-class:: section-heading
@@ -364,6 +336,34 @@ Defines socket options.
 
 This parameter allows you to define one or more socket options for XtraBackup using the Socat transfer format.
 
+.. _`xtra-sst_special_dirs`:
+.. rst-class:: section-heading
+.. rubric:: ``sst_special_dirs``
+
+Defines whether the node uses special InnoDB home and log directories.
+
+.. csv-table::
+   :class: doc-options
+   :stub-columns: 1
+
+   "**System Variable**", "Name:", "``sst_special_dirs``"
+   "", "Match:", "No"
+   "**Permitted Values**", "Type:", "Boolean"
+   "", "Default Value:", "``1``"
+
+This parameter is deprecated as of Percona XtraDB Cluster 5.7.12-5rc1-26.16.
+
+This parameter enables support for ``innodb_data_home_dir`` and ``innodb_log_home_dir`` parameters for XtraBackup. It requires that you define ``innodb_data_home_dir`` and ``innodb_log_group_home_dir`` in the ``[mysqld]`` unit.
+
+.. code-block:: ini
+
+   [mysqld]
+   innodb_data_home_dir="/var/mysqld/innodb"
+   innodb_log_group_home_dir="/var/log/innodb"
+   wsrep_sst_method="xtrabackup-v2"
+
+   [sst]
+   sst_special_dirs=TRUE
 
 .. _`xtra-streamfmt`:
 .. rst-class:: section-heading
@@ -381,7 +381,7 @@ Defines the stream formatting utility.
    "", "Default Value:", "``xbstream``"
    "", "Valid Values:", "``tar``; ``xbstream``"
 
-This parameter defines the utility the node uses to archive the node state before the transfer is sent and how to unarchive the state transfers that is receives. There are two methods available: ``tar`` and ``xbstream``. Given that the receiving node needs to know how to read the stream, it is necessary that both nodes use the same values for this parameter.
+This parameter defines the utility the node uses to archive the node state before the transfer is sent and how to unarchive the state transfers that it receives. There are two methods available: ``tar`` and ``xbstream``. Given that the receiving node needs to know how to read the stream, it is necessary that both nodes use the same values for this parameter.
 
 The default and recommended utility is ``xbstream`` given that it supports encryption, compression, parallel streaming, incremental backups and compaction. ``tar`` does not support these features.
 
@@ -473,12 +473,12 @@ Defines the transfer stream utility.
    :stub-columns: 1
 
    "**System Variable**", "Name:", "``transferfmt``"
-   "", "Match:", YesNo"
+   "", "Match:", "Yes"
    "**Permitted Values**", "Type:", "String"
    "", "Default Value:", "``socat`` "
    "", "Valid Values:", "``socat``; ``nc``"
 
-This parameter defines the utility that the node uses to format transfers sent from donor to joiner nodes. There are two methods supported: Socat and ``nc``. Given that the receiving node needs to know how to interpret the transfer, it is necessary that both nodes use the same values for this parameter.
+This parameter defines the utility that the node uses to format transfers sent from donor to joiner nodes. There are two methods supported: ``socat`` and ``nc``. Given that the receiving node needs to know how to interpret the transfer, it is necessary that both nodes use the same values for this parameter.
 
 The default and recommended utility is Socat, given that it allows for socket options, such as transfer buffer size. For more information, see the `socat Documentation <https://www.dest-unreach.org/socat/doc/socat.html>`_.
 
@@ -491,7 +491,7 @@ The default and recommended utility is Socat, given that it allows for socket op
 .. rst-class:: section-heading
 .. rubric:: ``joiner_timeout``
 
-How soon joiner should timeout waiting for SST (seconds).
+How soon the joiner should timeout when waiting for SST (seconds).
 
 .. csv-table::
    :class: doc-options
@@ -502,7 +502,7 @@ How soon joiner should timeout waiting for SST (seconds).
    "**Permitted Values**", "Type:", "Integer"
    "", "Default Value:", "``60``"
 
-This parameter determines the initial timeout in seconds for the joiner to receive the first packet in a :term:`State Snapshot Transfer`. This keeps the joiner node from hanging in the event that the donor node crashes while starting the operation.
+This parameter determines the initial timeout in seconds for the joiner to receive the first packet in a :term:`State Snapshot Transfer`. This keeps the joiner node from hanging, in the event that the donor node crashes while starting the operation.
 
 .. code-block:: ini
 
@@ -513,7 +513,7 @@ This parameter determines the initial timeout in seconds for the joiner to recei
 .. rst-class:: section-heading
 .. rubric:: ``donor_timeout``
 
-How soon donor should timeout on connection to joiner (seconds).
+How soon the donor should timeout on connection to joiner (seconds).
 
 .. csv-table::
    :class: doc-options
@@ -524,7 +524,7 @@ How soon donor should timeout on connection to joiner (seconds).
    "**Permitted Values**", "Type:", "Integer"
    "", "Default Value:", "``10``"
 
-This parameter determines how soon the donor should timeout on connection to joiner and return to normal operation in case the joiner turns to be unresponsive.
+This parameter determines how soon the donor should timeout on connection to joiner, and return to normal operation in the event that the joiner turns unresponsive.
 
 .. code-block:: ini
 
