@@ -141,6 +141,7 @@ Below is a list of all of the Galera parameters. Each is also a link to further 
    ":ref:`gcs.recv_q_soft_limit <gcs.recv_q_soft_limit>`", "``0.25``", "  No", "", "1.0", ""
    ":ref:`gcs.sync_donor <gcs.sync_donor>`", "``NO``", "  No", "", "1.0", ""
    ":ref:`gcs.vote_policy <gcs.vote_policy>`", "``0``", "  No", "", "1.0", ""
+   ":ref:`gmcast.isolate <gmcast.isolate>`", "``0``", "  Yes", "Yes", "", ""
    ":ref:`gmcast.listen_addr <gmcast.listen_addr>`", "``tcp://0.0.0.0:4567``", "  No", "", "1.0", ""
    ":ref:`gmcast.mcast_addr <gmcast.mcast_addr>`", "", "  No", "", "1.0", ""
    ":ref:`gmcast.mcast_ttl <gmcast.mcast_ttl>`", "``1``", "  No", "", "1.0", ""
@@ -1318,6 +1319,37 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. code-block:: ini
 
    wsrep_provider_options="gcs.vote_policy=0"
+
+
+.. _`gmcast.isolate`:
+.. rst-class:: section-heading
+.. rubric:: ``gmcast.isolate``
+
+.. index::
+   pair: wsrep Provider Options; gmcast.isolate
+
+.. warning:: This parameter is meant for internal testing use only.
+
+Defines how cluster connections are handled.
+
+.. csv-table::
+   :class: doc-options
+
+   "Default Value", "0"
+   "Dynamic", "Yes"
+   "Initial Version", "1.0"
+
+The options are:
+
+- ``0`` - Cluster connections are handled as usual.
+- ``1`` - The node closes all cluster connections, does not open new cluster connections and rejects all incoming cluster connections.
+- ``2`` - The node closes all cluster connections and terminates the group communication, moving the node into disconnected state.
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file:
+
+.. code-block:: ini
+
+    wsrep_provider_options="gmcast.isolate=1"
 
 
 .. _`gmcast.listen_addr`:
