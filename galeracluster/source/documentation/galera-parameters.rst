@@ -1328,7 +1328,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gmcast.isolate
 
-.. warning:: This parameter is meant for internal testing use only.
+.. warning:: This parameter is meant for testing use only, and never meant for production use cases.
 
 Defines how cluster connections are handled.
 
