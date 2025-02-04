@@ -4,7 +4,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, gmd, galera manager, gui
-   :copyright: Codership Oy, 2014 - 2024. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
