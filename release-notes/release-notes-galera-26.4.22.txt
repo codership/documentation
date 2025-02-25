@@ -17,13 +17,10 @@ Notable changes and fixes in Galera since latest release 4.21:
 the certification process, via wsrep_certify_v1() which takes an application
 defined callback
 - Fixed assertions in report_last_committed() that could cause issues under
-certain thread scheduling conditions (galera-bugs#1017)
+certain thread scheduling conditions 
 - Removed unnecessary assertions that could trigger due to normal timing
 variations in distributed environments
 - Fixed string format warnings that were appearing during builds on Debian Sid
-(galera-bugs#1016)
-- Removed unused CommitOrder object from ReplicatorSMM::apply_trx() to improve
-code cleanliness
 
 Known Issues:
 
