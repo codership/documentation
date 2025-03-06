@@ -127,7 +127,7 @@ Below is a list of all of the Galera parameters. Each is also a link to further 
    ":ref:`gcache.keep_pages_size <gcache.keep_pages_size>`", "``0``", "  No", "", "1.0", ""
    ":ref:`gcache.mem_size <gcache.mem_size>`", "``0``", "  No", "", "", ""
    ":ref:`gcache.page_size <gcache.page_size>`", "``128M``", "  No", "", "1.0", ""
-   ":ref:`gcache.recover <gcache.recover>`", "``no``", "  No", "", "3.19", ""
+   ":ref:`gcache.recover <gcache.recover>`", "``yes``", "  No", "", "3.19", ""
    ":ref:`gcache.size <gcache.size>`", "``128M``", "  No", "", "1.0", ""
    ":ref:`gcomm.thread_prio <gcomm.thread_prio>`", "", "  No", "", "3.0", ""
    ":ref:`gcs.fc_debug <gcs.fc_debug>`", "``0``", "  No", "", "1.0", ""
