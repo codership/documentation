@@ -127,7 +127,7 @@ Below is a list of all of the Galera parameters. Each is also a link to further 
    ":ref:`gcache.keep_pages_size <gcache.keep_pages_size>`", "``0``", "  No", "", "1.0", ""
    ":ref:`gcache.mem_size <gcache.mem_size>`", "``0``", "  No", "", "", ""
    ":ref:`gcache.page_size <gcache.page_size>`", "``128M``", "  No", "", "1.0", ""
-   ":ref:`gcache.recover <gcache.recover>`", "``no``", "  No", "", "3.19", ""
+   ":ref:`gcache.recover <gcache.recover>`", "``yes``", "  No", "", "3.19", ""
    ":ref:`gcache.size <gcache.size>`", "``128M``", "  No", "", "1.0", ""
    ":ref:`gcomm.thread_prio <gcomm.thread_prio>`", "", "  No", "", "3.0", ""
    ":ref:`gcs.fc_debug <gcs.fc_debug>`", "``0``", "  No", "", "1.0", ""
@@ -988,12 +988,18 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gcache.recover
 
-Determines whether gcache recovery takes place on node startup. If gcache could be recovered successfully, the node can then provide IST to other joining nodes, which is useful when the whole cluster is being restarted.
+Determines whether Gcache recovery takes place on node startup.
+
+As of wsrep API version 26.4.1, Gcache recovery is performed by default in conjunction with entire cluster restarts. At the startup of the first node, instead of deleting the Gcache, Galera will attempt to recover the Gcache file to a usable state, preserving the node ability to serve as an IST donor to other nodes that are also starting up at the same time. Now all the remaining nodes in the cluster can join over IST, drastically reducing the total time needed to bring up the entire cluster. Furthermore, the first node never has to become an SST donor, so it is never blocked or burdened by having to perform the SST operation once for each other node in the cluster. 
+
+Gcache recovery is a best-effort operation, which will complete successfully in cases where the nodes were gracefully shut down prior to restarting. Even in the case of a power outage, a monitoring system can be used to shut down the nodes gracefully.
+
+In certain types of hard crashes, such as a sudden power loss to the entire cluster, Galera may not be able to recover the Gcache sufficiently for it to be used to serve IST. In this case, node startup will proceed as usual and SST will happen when the second and subsequent nodes join the cluster.
 
 .. csv-table::
    :class: doc-options
 
-   "Default Value", "``no``"
+   "Default Value", "``yes``"
    "Dynamic", "No"
    "Initial Version", "3.19"
 
