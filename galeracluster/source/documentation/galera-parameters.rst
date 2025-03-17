@@ -157,7 +157,7 @@ Below is a list of all of the Galera parameters. Each is also a link to further 
    ":ref:`pc.checksum <pc.checksum>`", "``FALSE``", "  No", "", "1.0", ""
    ":ref:`pc.ignore_sb <pc.ignore_sb>`", "``FALSE``", "  Yes", "", "1.0", ""
    ":ref:`pc.ignore_quorum <pc.ignore_quorum>`", "``FALSE``", "  Yes", "", "1.0", ""
-   ":ref:`pc.linger <pc.linger>`", "``PT2S``", "  No", "", "1.0", ""
+   ":ref:`pc.linger <pc.linger>`", "``PT20S``", "  No", "", "1.0", ""
    ":ref:`pc.npvo <pc.npvo>`", "``FALSE``", "  No", "", "1.0", ""
    ":ref:`pc.recovery <pc.recovery>`", "``TRUE``", "  No", "", "3.0", ""
    ":ref:`pc.version <pc.version>`", "n/a", "  No", "Yes", "1.0", ""
@@ -192,6 +192,18 @@ Below is a list of all of the Galera parameters. Each is also a link to further 
    pair: wsrep Provider Options; base_dir
 
 Specifies the data directory.
+
+The excerpt below is an example of how this Galera parameter might look in the configuration file:
+
+.. code-block:: ini
+
+   wsrep_provider_options="base_dir=/var/lib/mysql/"
+
+or
+
+.. code-block:: ini
+
+   wsrep_provider_options="base_dir=/etc/default/garbd/"
 
 
 .. _`base_host`:
@@ -1803,7 +1815,7 @@ The period for which the PC protocol waits for the EVS termination.
 .. csv-table::
    :class: doc-options
 
-   "Default Value", "``PT2S``"
+   "Default Value", "``PT20S``"
    "Dynamic", "No"
    "Initial Version", "1.0"
 
@@ -1814,7 +1826,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 .. code-block:: ini
 
-   wsrep_provider_options="pc.linger=PT2S"
+   wsrep_provider_options="pc.linger=PT20S"
 
 
 .. _`pc.npvo`:
