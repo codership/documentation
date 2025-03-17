@@ -990,7 +990,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 Determines whether Gcache recovery takes place on node startup.
 
-As of wsrep API version 26.4.1, Gcache recovery is performed by default in conjunction with entire cluster restarts. At a the first node startup, instead of deleting the Gcache, Galera will attempt to recover the Gcache file to a usable state, preserving the node ability to serve as an IST donor to other nodes that are also starting up at the same time. Now all the remaining nodes in the cluster can join over IST, drastically reducing the total time needed to bring up the entire cluster. Furthermore, the first node never has to become an SST donor, so it is never blocked or burdened by having to perform the SST operation once for each other node in the cluster. 
+As of wsrep API version 26.4.1, Gcache recovery is performed by default in conjunction with entire cluster restarts. At the startup of the first node, instead of deleting the Gcache, Galera will attempt to recover the Gcache file to a usable state, preserving the node ability to serve as an IST donor to other nodes that are also starting up at the same time. Now all the remaining nodes in the cluster can join over IST, drastically reducing the total time needed to bring up the entire cluster. Furthermore, the first node never has to become an SST donor, so it is never blocked or burdened by having to perform the SST operation once for each other node in the cluster. 
 
 Gcache recovery is a best-effort operation, which will complete successfully in cases where the nodes were gracefully shut down prior to restarting. Even in the case of a power outage, a monitoring system can be used to shut down the nodes gracefully.
 
