@@ -62,7 +62,7 @@ The table below maps the Galera Cluster versions to the  MySQL database server v
 
 .. csv-table::
    :class: doc-options
-   :header: "Galera Cluster version", "MySQL database server version", "Blog post", "Protocol version"
+   :header: "Galera Cluster version", "MySQL database server version", "MariaDB version", "PXC version", "Blog post", "Protocol version"
 
    "`4.21 <https://releases.galeracluster.com/galera-4.21/release-notes-galera-26.4.21.txt>`_", "`8.0.40-26.21 <https://releases.galeracluster.com/mysql-wsrep-8.0.40-26.21/release-notes-mysql-wsrep-8.0.40-26.21.txt>`_", "`Galera Cluster for MySQL 8.0.40-26.21, and MySQL 8.4.3-26.21 released <https://galeracluster.com/2024/12/galera-cluster-for-mysql-8-0-40-26-21-and-mysql-8-4-3-26-21-released>`_", "13"
    "`4.20 <https://releases.galeracluster.com/galera-4.20/release-notes-galera-26.4.20.txt>`_", "`8.0.39-26.20 <https://releases.galeracluster.com/mysql-wsrep-8.4.2-26.20/release-notes-mysql-wsrep-8.4.2-26.20.txt>`_", "`11.4.4 <https://mariadb.com/kb/en/mariadb-11-4-4-release-notes/>`_, `11.2.6 <https://mariadb.com/kb/en/mariadb-11-2-6-release-notes/>`_, `10.11.10 <https://mariadb.com/kb/en/mariadb-10-11-10-release-notes/>`_, `10.6.20 <https://mariadb.com/kb/en/mariadb-10-6-20-release-notes/>`_, `10.5.27 <https://mariadb.com/kb/en/mariadb-10-5-27-release-notes/>`_", "", "`Galera Cluster for MySQL 8.4.2-26.20 beta preview released <https://galeracluster.com/2024/08/galera-cluster-for-mysql-8-4-2-26-20-beta-preview-released/>`_, `Galera Cluster for MySQL 8.0.39-26.20 released <https://galeracluster.com/2024/08/galera-cluster-for-mysql-8-0-39-26-20-released/>`_", ""
