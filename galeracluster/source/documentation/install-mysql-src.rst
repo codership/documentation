@@ -90,7 +90,7 @@ For RPM-based distributions, instead run this command:
    # yum-builddep MySQL-server
 
 
-If neither command works on your system or that you use a different Linux distribution or FreeBSD, the following packages are required:
+If neither command works on your system or that you use a different Linux distribution or FreeBSD (FreeBSD is available up to Galera Cluster for MySQL 5.7), the following packages are required:
 
 - **MySQL Database Server with wsrep API**: Git, CMake, GCC and GCC-C++, Automake, Autoconf, and Bison, as well as development releases of libaio and ncurses.
 

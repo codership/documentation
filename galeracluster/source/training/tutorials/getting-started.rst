@@ -82,7 +82,7 @@ Galera Cluster is a synchronous replication solution to improve availability and
 
 - Automatic write conflict detection and resolution, so that nodes are always consistent.
 
-Galera Cluster is well suited for LAN, WAN, container and cloud environments. The following tutorial articles provide you with the basics to setting up and deploying Galera Cluster. Bear in mind before you get started that you need root access to at least three Linux or FreeBSD hosts and their IP addresses.
+Galera Cluster is well suited for LAN, WAN, container and cloud environments. The following tutorial articles provide you with the basics to setting up and deploying Galera Cluster. Bear in mind before you get started that you need root access to at least three Linux or FreeBSD (FreeBSD is available up to Galera Cluster for MySQL 5.7) hosts and their IP addresses.
 
 .. note:: With the latest release Galera Cluster begins the 4.x branch, introducing a number of new features. For more information on these features, see :doc:`What's New <../../whats-new>`.
 

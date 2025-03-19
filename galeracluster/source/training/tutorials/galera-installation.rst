@@ -85,7 +85,7 @@ Galera Cluster also runs on virtual environments, such as VMware, and in cloud e
 
 For software, each node in the cluster requires at a minimum the following:
 
-- Linux or FreeBSD operating system installed;
+- Linux or FreeBSD (FreeBSD is available up to Galera Cluster for MySQL 5.7) operating system installed;
 - MySQL or MariaDB server with the wsrep API patch; and
 - Galera Replication Plugin installed.
 

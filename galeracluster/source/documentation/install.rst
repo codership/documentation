@@ -67,6 +67,8 @@ Installing Galera Cluster
 
 Galera Cluster is essentially used to form a cluster among multiple database servers. It is widely used in conjunction with MySQL, MariaDB, and XtraDB database software systems. Galera Cluster is integral to these database systems. As a result, it may be installed together with one of them.
 
+.. note:: FreeBSD is only available up to Galera Cluster for MySQL 5.7, not on 8.0 or later. As far as MariaDB is concerned, you can try the MariaDB port variants for FreeBSD, as the ``wsrep`` library actually runs on FreeBSD, but Codership does not maintain the patches for FreeBSD.
+
 There are several methods available for installing the paired systems: you may use binary installation packages or install with the source files. Below is a list of the various pairs and links to how to use whichever method your prefer:
 
 .. container:: banner
