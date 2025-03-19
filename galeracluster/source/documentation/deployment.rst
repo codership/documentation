@@ -75,7 +75,7 @@ This section provides guides to installing, configuring and deploying HAProxy, P
 
 :doc:`containers`
 
-When using the standard deployment methods of Galera Cluster, nodes run directly on the  server hardware -- interacting directly with the operating system (that is, Linux, FreeBSD). By contrast, with container deployments nodes run in containerized virtual environments on the server. You may find containers useful in building portable deployments across numerous machines, when testing applications or scripting installations, or when isolating processes for security.
+When using the standard deployment methods of Galera Cluster, nodes run directly on the  server hardware -- interacting directly with the operating system, that is, Linux, FreeBSD (FreeBSD is available up to Galera Cluster for MySQL 5.7). By contrast, with container deployments nodes run in containerized virtual environments on the server. You may find containers useful in building portable deployments across numerous machines, when testing applications or scripting installations, or when isolating processes for security.
 
 This section provides guides to installing, configuring and deploying Galera Cluster nodes in container instances using FreeBSD Jails and Docker.
 
