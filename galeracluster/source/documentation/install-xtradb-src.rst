@@ -88,7 +88,7 @@ When building from source code, ``make`` cannot manage or install dependencies n
 
      # yum-builddep percona-xtradb-cluster
 
-In the event that neither command works for your system or that you use a different Linux distribution or FreeBSD, the following packages are required:
+In the event that neither command works for your system or that you use a different Linux distribution or FreeBSD (FreeBSD is available up to Galera Cluster for MySQL 5.7), the following packages are required:
 
 - **Percona XtraDB Database Server with wsrep API**: Git, CMake, GCC and GCC-C++, Automake, Autoconf, and Bison, as well as development releases of libaio and ncurses.
 
