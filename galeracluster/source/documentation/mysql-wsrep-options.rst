@@ -309,6 +309,8 @@ Certification rules to use in the cluster.
 
 Controls how certification is done in the cluster. To be more specific, this parameter affects how foreign keys are handled: with the ``STRICT`` option, two INSERTs that happen at about the same time on two different nodes in a child table, and insert different (non conflicting) rows, but both rows point to the same row in the parent table, could result in certification failure. With the ``OPTIMIZED`` option, such certification failure is avoided.
 
+.. note:: The Galera versions where this parameter was supported are no longer in production use, and have reached end-of-life status.
+
 .. code-block:: mysql
 
    SHOW VARIABLES LIKE 'wsrep_certification_rules';
