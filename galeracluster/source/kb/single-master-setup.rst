@@ -1,9 +1,9 @@
 .. meta::
-   :title: Single Master Setup in Galera Cluster
+   :title: Single Primary Setup in Galera Cluster
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -50,14 +50,14 @@
 .. _`kb-best-single-master-setup`:
 
 =======================
-Single Master Setup
+Single Primary Setup
 =======================
 
 .. rst-class:: article-stats
 
    Length: 81 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Topology; Type: Best Practices
 
-If a cluster uses only one node as a master, there are certain requirements (e.g., the slave queue size) that can be relaxed.
+If a cluster uses only one node as a primary, there are certain requirements (for example, the replica queue size) that can be relaxed.
 
 
 .. rst-class:: section-heading
@@ -73,4 +73,4 @@ To relax flow control, you might use the settings below:
 
 By reducing the rate of flow control events, these settings may improve replication performance.
 
-.. note:: You can also use this setting as sub-optimal in a multi-master setup.
+.. note:: You can also use this setting as sub-optimal in a multi-primary setup.

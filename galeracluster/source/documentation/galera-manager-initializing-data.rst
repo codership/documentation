@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, gmd, galera manager, gui
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -77,11 +77,11 @@
 Loading Initial Data
 ===================================================
 
-After you create a Galera Cluster and add nodes with Galera Manager, you'll probably want to load data from a previous database, to migrate data from another server or cluster.  This is not a feature of Galera Manager since its main focus is the logistics and monitoring of clusters and nodes, not the data contained in the databases.
+After you create a Galera Cluster and add nodes with Galera Manager, you will probably want to load data from a previous database, to migrate data from another server or cluster. This is not a feature of Galera Manager since its main focus is the logistics and monitoring of clusters and nodes, not the data contained in the databases.
 
-To load the initial data in a new Galera Cluster created within Galera Manager, you'll have to use standard methods, of which there are a few.  This page of the Codership documentation explains how to log into one of the hosts, and how to use common, basic methods to load data into a node.
+To load the initial data in a new Galera Cluster created within Galera Manager, you will have to use standard methods, of which there are a few. This page of the Codership documentation explains how to log into one of the hosts, and how to use common, basic methods to load data into a node.
 
-If you're unfamiliar with how to make a back-up on an existing Galera Cluster, you could read the :doc:`Backup Cluster Data <./backup-cluster>` documentation page first. There are also links in the margin to tutorials on making back-ups and loading back-ups to a node of a new cluster |---| regardless of whether Galera Manager was used to create the cluster.
+If you are unfamiliar with how to make a back-up on an existing Galera Cluster, you could read the :doc:`Backup Cluster Data <./backup-cluster>` documentation page first. There are also links in the margin to tutorials on making back-ups and loading back-ups to a node of a new cluster |---| regardless of whether Galera Manager was used to create the cluster.
 
 
 .. _`galera-manager-loading-data-methods`:
@@ -94,9 +94,9 @@ There are two common methods of loading data into MySQL or MariaDB: restoring fr
 .. rst-class:: sub-heading
 .. rubric:: Loading Logically
 
-Logical back-ups are generated with a utility like ``mysqldump`` and produce text files (i.e., dump files) or streams containing SQL statements which may be used to rebuild databases. See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on how to use ``mysqldump`` to make a back-up. ``mysqldump`` creates a "dump" file or stream from a source MySQL server which then can be loaded to a new MySQL server using MySQL client utility (``mysql``).
+Logical back-ups are generated with a utility like ``mysqldump`` and produce text files (that is, dump files) or streams containing SQL statements which may be used to rebuild databases. See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on how to use ``mysqldump`` to make a back-up. ``mysqldump`` creates a "dump" file or stream from a source MySQL server which then can be loaded to a new MySQL server using MySQL client utility (``mysql``).
 
-If you will be restoring data by way of a MySQL client, you'll need the node's IP address and the root password for the database. To get this information select a node in Galera Manager and then click on the *Configuration* tab for the node.  You can see an example of this in the screenshot in Figure 1 below:
+If you will be restoring data by way of a MySQL client, you will need the node's IP address and the root password for the database. To get this information select a node in Galera Manager and then click on the *Configuration* tab for the node. You can see an example of this in the screenshot in Figure 1 below:
 
 .. figure:: ../images/galera-manager-node-configuration.png
    :width: 600px
@@ -105,7 +105,7 @@ If you will be restoring data by way of a MySQL client, you'll need the node's I
 
    Node Configuration (Figure 1)
 
-In the main panel shown here, near the top left of the *Configuration* tab, is the external IP address of the node. It's contained in the *DB Address* field: it's ``52.41.73.124`` in this example. You'll also need the MySQL or MariaDB root password. Incidentally, since it's a new installation of MySQL or MariaDB, there's only the root user.  To get the *DB Root Password* |---| as it's labeled here |---| click on the icon of an eye to reveal it, or click the icon of two sheets of paper to copy the password to your clipboard.
+In the main panel shown here, near the top left of the *Configuration* tab, in the *DB Address* field, is the external IP address of the node, which is ``52.41.73.124`` in this example. You'll also need the MySQL or MariaDB root password. Incidentally, since it is a new installation of MySQL or MariaDB, there's only the root user. To get the *DB Root Password* |---| as it is labeled here |---| click on the icon of an eye to reveal it, or click the icon of two sheets of paper to copy the password to your clipboard.
 
 With the node's IP address and the password for root in the database, you can use a MySQL client to load data from a dump file. The example below shows how to restore a dump file made with ``mysqldump``:
 
@@ -114,9 +114,9 @@ With the node's IP address and the password for root in the database, you can us
 
    mysql -p -u root -h 52.41.73.124 < company-20200607.sql
 
-This line above would be executed on another server where the dump file (i.e., ``company-20200607.sql``) is located.  The host address here is for the node into which it will be loading the data.  When it asks for the password, you would give it the one you copied from the node in Galera Manager.
+This line above would be executed on another server where the dump file (that is, ``company-20200607.sql``) is located. The host address here is for the node into which it will be loading the data. When it asks for the password, you would give it the one you copied from the node in Galera Manager.
 
-The dump file contains SQL statements that will execute ``CREATE DATABASE`` and ``CREATE TABLE`` statements, as well as plenty of ``INSERT`` statements to recreate the databases, tables, and rows of data on the new node |---| in the new Galera Cluster. It will run for quite a while, but when it's finished, you might execute an SQL statement like the following from the command-line:
+The dump file contains SQL statements that will execute ``CREATE DATABASE`` and ``CREATE TABLE`` statements, as well as plenty of ``INSERT`` statements to recreate the databases, tables, and rows of data on the new node |---| in the new Galera Cluster. It will run for quite a while, but when it is finished, you might execute an SQL statement like the following from the command-line:
 
 .. code-block:: mysql
    :caption: Checking Loaded Data (Example 2)
@@ -144,7 +144,7 @@ The dump file contains SQL statements that will execute ``CREATE DATABASE`` and 
    | ref_states           |
    +----------------------+
 
-The results table in Example 2 here shows that the ``company`` database was created and so were the tables for it.  You could check further by executing some ``SELECT`` statements to ensure the data was inserted.
+The results table in Example 2 here shows that the ``company`` database was created and so were the tables for it. You could check further by executing some ``SELECT`` statements to ensure the data was inserted.
 
 You might also go back to Galera Manager to see how the activity looks for your nodes. Below is a screenshot of Galera Manager that was taken shortly after loading the dump file above:
 
@@ -161,7 +161,7 @@ Notice the first chart at the top left for the cluster has no activity and then 
 .. rst-class:: sub-heading
 .. rubric:: Loading Physcially
 
-The other common method of making back-ups is to use physical back-ups.  This is fairly simple: it's mostly just a copy of MySQL's data directory.  Typically, administrators use ``rsync``, ``xtrabackup`` or ``mariabackup`` to make a back-up copy of the data directory and othere relavent files.  Then they use ``tar`` and ``gzip`` to make a compressed archive file.  See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on this process.
+The other common method of making back-ups is to use physical back-ups. This is fairly simple: it is mostly just a copy of MySQL's data directory. Typically, administrators use ``rsync``, ``xtrabackup`` or ``mariabackup`` to make a back-up copy of the data directory and othere relavent files. Then they use ``tar`` and ``gzip`` to make a compressed archive file. See the tutorial, :doc:`Galera Cluster Backups <../training/tutorials/galera-backup>` for more details on this process.
 
 Copying and restoring the data from physical backups is normally much faster than using logical backup, the bigger the volume the bigger the difference. However restoring data from physical backup to Galera Cluster is quite tricky. The problem is that it can't be done on a running node, and as a consequence it goes without cluster being aware of it. The easiest way to initialize Galera cluster from a physical backup is start with a single node cluster and after restoring the node from physical backup, add other nodes at will.
 
@@ -176,7 +176,7 @@ First, create a cluster and add a single node to it. Make sure to supply your pu
 
 When you click on *Stop*, the node process (``mysqld``) will be stopped, but the host will remain online.
 
-To restore from a physical back-up, you'll need to copy the back-up data to the host frist. This is where you'll need the node's IP address from the node configuration tab mentioned the :ref:`galera-manager-loading-logical` section of this page, and a private SSH key that corresponds to the public key you supplied in the node creation box.
+To restore from a physical back-up, you will need to copy the back-up data to the host frist. This is where you will need the node's IP address from the node configuration tab mentioned the :ref:`galera-manager-loading-logical` section of this page, and a private SSH key that corresponds to the public key you supplied in the node creation box.
 
 To copy the back-up file to the node, you can use ``scp`` to make a secure copy from the old server where the back-up is located, to the new node. First, you may want to log into the host. You could do that by entering something like the following from the command-line of a local computer:
 
@@ -185,7 +185,7 @@ To copy the back-up file to the node, you can use ``scp`` to make a secure copy 
 
    ssh -i ~/.ssh/galera-manager root@52.41.73.124
 
-The name of your private key and your node's IP address will be different. Notice it requires you use the user name, root.  That's the only user since this is a new host.
+The name of your private key and your node's IP address will be different. Notice it requires you use the user name, root. That's the only user since this is a new host.
 
 .. code-block:: shell
    :caption: Copying Back-Up Data from Remote Server (Example 4)
@@ -200,7 +200,7 @@ This line uses ``scp`` to copy the back-up file from another Ubuntu server to th
    tar -xvzf /tmp/backup-20200607.tgz -C /var/lib/mysql
    chown -R mysql /var/lib/mysql
 
-When you're finished, go back to Galera Manager and start the node.  As soon as ``mysqld`` starts and shows ``SYNCED`` state, you can add more nodes, they will automatically copy data from the first one.  You could execute a few SQL statements on one of the other nodes to see if they have the data, as shown in Example 2.
+When you are finished, go back to Galera Manager and start the node. As soon as ``mysqld`` starts and shows ``SYNCED`` state, you can add more nodes, they will automatically copy data from the first one. You could execute a few SQL statements on one of the other nodes to see if they have the data, as shown in Example 2.
 
 
 .. container:: bottom-links

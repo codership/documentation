@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, node states, joining, synchronizing
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -67,18 +67,18 @@
 Flow Control
 =============
 
-Galera Cluster manages the replication process using a feedback mechanism, called Flow Control.  Flow Control allows a node to pause and resume replication according to its needs.  This prevents any node from lagging too far behind the others in applying transactions.
+Galera Cluster manages the replication process using a feedback mechanism, called Flow Control. Flow Control allows a node to pause and resume replication according to its needs. This prevents any node from lagging too far behind the others in applying transactions.
 
 
 .. _`how-flow-control-works`:
 .. rst-class:: section-heading
 .. rubric:: How Flow Control Works
 
-Galera Cluster achieves synchronous replication by ensuring that transactions copy to all nodes an execute according to a cluster-wide ordering.  That said, the transaction applies and commits occur asynchronously as they replicate through the cluster.
+Galera Cluster achieves synchronous replication by ensuring that transactions copy to all nodes an execute according to a cluster-wide ordering. That said, the transaction applies and commits occur asynchronously as they replicate through the cluster.
 
-Nodes receive write-sets and organize them into the global ordering.  Transactions that the node receives from the cluster but which it has not applied and committed, are kept in the received queue.
+Nodes receive write-sets and organize them into the global ordering. Transactions that the node receives from the cluster but which it has not applied and committed, are kept in the received queue.
 
-When the received queue reaches a certain size the node triggers Flow Control.  The node pauses replication, then works through the received queue.  When it reduces the received queue to a more manageable size, the node resumes replication.
+When the received queue reaches a certain size the node triggers Flow Control. The node pauses replication, then works through the received queue. When it reduces the received queue to a more manageable size, the node resumes replication.
 
 
 .. only:: html
@@ -110,7 +110,7 @@ When the received queue reaches a certain size the node triggers Flow Control.  
 .. index::
    pair: Node states; SYNCED
 
-Galera Cluster implements several forms of Flow Control, depending on the node state.  This ensures temporal synchrony and consistency |---| as opposed to logical, which virtual synchrony provides.
+Galera Cluster implements several forms of Flow Control, depending on the node state. This ensures temporal synchrony and consistency |---| as opposed to logical, which virtual synchrony provides.
 
 There are four primary kinds of Flow Control:
 
@@ -126,7 +126,7 @@ There are four primary kinds of Flow Control:
 
 This Flow Control takes effect when nodes are in the ``OPEN`` or ``PRIMARY`` states.
 
-When nodes hold these states, they are not considered part of the cluster.  These nodes are not allowed to replicate, apply or cache any write-sets.
+When nodes hold these states, they are not considered part of the cluster. These nodes are not allowed to replicate, apply or cache any write-sets.
 
 
 .. _`writeset-caching`:
@@ -135,9 +135,9 @@ When nodes hold these states, they are not considered part of the cluster.  Thes
 
 This Flow Control takes effect when nodes are in the ``JOINER`` and ``DONOR`` states.
 
-Nodes cannot apply any write-sets while in this state and must cache them for later.  There is no reasonable way to keep the node synchronized with the cluster, except for stopping all replication.
+Nodes cannot apply any write-sets while in this state and must cache them for later. There is no reasonable way to keep the node synchronized with the cluster, except for stopping all replication.
 
-It is possible to limit the replication rate, ensuring that the write-set cache does not exceed the configured size.  You can control the write-set cache with the following parameters:
+It is possible to limit the replication rate, ensuring that the write-set cache does not exceed the configured size. You can control the write-set cache with the following parameters:
 
 - :ref:`gcs.recv_q_hard_limit <gcs.recv_q_hard_limit>` Maximum write-set cache size (in bytes).
 - :ref:`gcs.max_throttle <gcs.max_throttle>` Smallest fraction to the normal replication rate the node can tolerate in the cluster.
@@ -150,7 +150,7 @@ It is possible to limit the replication rate, ensuring that the write-set cache 
 
 This Flow Control takes effect when nodes are in the ``JOINED`` state.
 
-Nodes in this state can apply write-sets.  Flow Control here ensures that the node can eventually catch up with the cluster.  It specifically ensures that its write-set cache never grows.  Because of this, the cluster wide replication rate remains limited by the rate at which a node in this state can apply write-sets.  Since applying write-sets is usually several times faster than processing a transaction, nodes in this state hardly ever effect cluster performance.
+Nodes in this state can apply write-sets. Flow Control here ensures that the node can eventually catch up with the cluster. It specifically ensures that its write-set cache never grows. Because of this, the cluster wide replication rate remains limited by the rate at which a node in this state can apply write-sets. Since applying write-sets is usually several times faster than processing a transaction, nodes in this state hardly ever effect cluster performance.
 
 The one occasion when nodes in the ``JOINED`` state do effect cluster performance is at the very beginning, when the buffer pool on the node in question is empty.
 
@@ -163,7 +163,7 @@ The one occasion when nodes in the ``JOINED`` state do effect cluster performanc
 
 This Flow Control takes effect when nodes are in the ``SYNCED`` state.
 
-When nodes enter this state Flow Control attempts to keep the slave queue to a minimum.  You can configure how the node handles this using the following parameters:
+When nodes enter this state Flow Control attempts to keep the replica queue to a minimum. You can configure how the node handles this using the following parameters:
 
 - :ref:`gcs.fc_limit <gcs.fc_limit>` Used to determine the point where Flow Control engages.
 - :ref:`gcs.fc_factor <gcs.fc_factor>` Used to determine the point where Flow Control disengages.
@@ -176,7 +176,7 @@ When nodes enter this state Flow Control attempts to keep the slave queue to a m
 .. index::
    pair: Node states; Node state changes
 
-The node state machine handles different state changes on different layers of Galera Cluster.  These are the node state changes that occur at the top most layer:
+The node state machine handles different state changes on different layers of Galera Cluster. These are the node state changes that occur at the top most layer:
 
 .. figure:: ../images/galerafsm.png
 
@@ -186,21 +186,21 @@ The node state machine handles different state changes on different layers of Ga
 
 2. When the node succeeds with a state transfer request, it begins to cache write-sets.
 
-3. The node receives a :term:`State Snapshot Transfer`.  It now has all cluster data and begins to apply the cached write-sets.
+3. The node receives a :term:`State Snapshot Transfer`. It now has all cluster data and begins to apply the cached write-sets.
 
-   Here the node enables Flow Control to ensure an eventual decrease in the slave queue.
+   Here the node enables Flow Control to ensure an eventual decrease in the replica queue.
 
-4. The node finishes catching up with the cluster.  Its slave queue is now empty and it enables Flow Control to keep it empty.
+4. The node finishes catching up with the cluster. Its replica queue is now empty and it enables Flow Control to keep it empty.
 
-   The node sets the MySQL status variable :ref:`wsrep_ready <wsrep_ready>` to the value ``1``.  The node is now allowed to process transactions.
+   The node sets the MySQL status variable :ref:`wsrep_ready <wsrep_ready>` to the value ``1``. The node is now allowed to process transactions.
 
-5. The node receives a state transfer request. Flow Control relaxes to ``DONOR``.  The node caches all write-sets it cannot apply.
+5. The node receives a state transfer request. Flow Control relaxes to ``DONOR``. The node caches all write-sets it cannot apply.
 
 6. The node completes the state transfer to :term:`Joiner Node`.
 
-For the sake of legibility, certain transitions were omitted from the above description.  Bear in mind the following points:
+For the sake of legibility, certain transitions were omitted from the above description. Bear in mind the following points:
 
-- **Connectivity** Cluster configuration change events can send a node in any state to ``PRIMARY`` or ``OPEN``.  For instance, a node that is ``SYNCED`` reverts to ``OPEN`` when it loses its connection to the Primary Component due to network partition.
+- **Connectivity** Cluster configuration change events can send a node in any state to ``PRIMARY`` or ``OPEN``. For instance, a node that is ``SYNCED`` reverts to ``OPEN`` when it loses its connection to the Primary Component due to network partition.
 
 - **Missing Transitions** In the event that the joining node does not require a state transfer, the node state changes from the ``PRIMARY`` state directly to the ``JOINED`` state.
 

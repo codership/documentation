@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -81,11 +81,11 @@ High Availability with Galera Cluster
 
    **1. Codership** :raw-html:`<small>(time index: 1:04)</small>` |br| Brief introduction to Codership, the creators and developers of Galera Cluster.
 
-   **2. What is High Availability** :raw-html:`<small>(time index: 2:50)</small>` |br| Discussion of the fundamentals of High Availability |---| the value and goals |---| as well as how it's achieved generally.
+   **2. What is High Availability** :raw-html:`<small>(time index: 2:50)</small>` |br| Discussion of the fundamentals of High Availability |---| the value and goals |---| as well as how it is achieved generally.
 
    **3. Redundancy Through MySQL Replication** :raw-html:`<small>(time index: 19:22)</small>` |br| Covers briefly how standard replication may be used for maintaining high availability.
 
-   **4. Failover Frameworks** :raw-html:`<small>(time index: 21:55)</small>` |br| Discusses methods by which failed servers, in particular a master, may be replaced |---| including common difficulties one may encounter.
+   **4. Failover Frameworks** :raw-html:`<small>(time index: 21:55)</small>` |br| Discusses methods by which failed servers, in particular a primary, may be replaced |---| including common difficulties one may encounter.
 
 .. container:: list-col2
 

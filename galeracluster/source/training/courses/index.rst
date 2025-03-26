@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -126,9 +126,9 @@ Note that Hands On Labs are denoted with HOL.
 
 - You will need to have access to an SSH client. Being in a Microsoft Windows environment is OK, but you need to have SSH to access up to 3-4 remote servers.
 
-- Understanding of Linux (e.g. package management) as well as MySQL — this really means you are familiar with RPM, YUM, DPKG, APT, a text editor on the command line (be it vim, or nano), the ability to edit configuration files, and so on. As for MySQL, you are expected to have installed it before, configured it to some extent, and know about asynchronous replication, set it up before, and also understand things like GRANTs.
+- Understanding of Linux (for example, package management) as well as MySQL — this really means you are familiar with RPM, YUM, DPKG, APT, a text editor on the command line (be it vim, or nano), the ability to edit configuration files, and so on. As for MySQL, you are expected to have installed it before, configured it to some extent, and know about asynchronous replication, set it up before, and also understand things like GRANTs.
 	  
-- You can also utilise your own Linux virtual machines, and note that you will need a minimum of 4. Please do not install anything beforehand, let it be a pristine CentOS 7 installation.
+- You can also utilize your own Linux virtual machines, and note that you will need a minimum of 4. Please do not install anything beforehand, let it be a pristine CentOS 7 installation.
 
 
 

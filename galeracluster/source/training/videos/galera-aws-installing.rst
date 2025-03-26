@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -78,7 +78,7 @@ Installing a Galera Cluster on AWS
 
    This training video explains how to use Amazon Web Services (AWS) to create virtual servers to be used as a Galera Cluster. It explains how to create and configure AWS, as well as how to install and configure the database and Galera software on each node. The video ends by showing you how to start a Galera Cluster.
 
-   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video.  You should look at it before starting the video so that you can be prepared.  There's also a link to a PDF copy of the slide presentation. It's been set so that you make notes on it.  In the left margin are links to related documentation, articles, and other materials.
+   As part of the training process, in the right margin here, you can find a link to a page containing exercises related to the training video. You should look at it before starting the video so that you can be prepared. There's also a link to a PDF copy of the slide presentation. It has been set so that you make notes on it. In the left margin are links to related documentation, articles, and other materials.
 
 .. container:: list-col1-3
 
@@ -124,7 +124,7 @@ Installing a Galera Cluster on AWS
 
    **6. Opening Ports** :raw-html:`<small>(time index: 41:55)</small>` |br| Setting security to allow Galera traffic through specific ports.
 
-   **7. Starting Galera** :raw-html:`<small>(time index: 44:41)</small>` |br| Starting and testing a Galera cluster.
+   **7. Starting Galera** :raw-html:`<small>(time index: 44:41)</small>` |br| Starting and testing a Galera Cluster.
 
 
 .. raw:: html

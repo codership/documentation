@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, mysql wsrep functions, galera functions
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -58,7 +58,7 @@
 Galera Functions
 =======================
 
-Starting with version 4 of Galera Cluster, there are several Galera functions available. At this point, the Galera functions related to :term:`Global Transaction ID` (GTID).  They return a GTID or have effect on transactions related to a GTID.
+Starting with version 4 of Galera Cluster, there are several Galera functions available. At this point, the Galera functions related to :term:`Global Transaction ID` (GTID). They return a GTID or have effect on transactions related to a GTID.
 
 .. csv-table::
    :class: doc-options
@@ -115,7 +115,7 @@ This function returns the :term:`Global Transaction ID` of the last write transa
    "Arguments", "None"
    "Initial Version", "Version 4.0"
 
-This function returns the Global Transaction ID of the last write transaction made by the client.  This can be useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`. You can use this parameter to identify the transaction upon which it should wait before unblocking the client.
+This function returns the Global Transaction ID of the last write transaction made by the client. This can be useful in combination with :ref:`WSREP_SYNC_WAIT_UPTO_GTID() <WSREP_SYNC_WAIT_UPTO_GTID>`. You can use this parameter to identify the transaction upon which it should wait before unblocking the client.
 
 Below is an example of how you might use the ``WSREP_LAST_SEEN_GTID()`` function to get the Global Transaction ID of the last write transaction observed:
 
@@ -151,7 +151,7 @@ This function blocks the client until the node applies and commits the given tra
    "Initial Version", "Version 4.0"
 
 This function blocks the client until the node applies and commits the given :term:`Global Transaction ID`. Optional argument accepts timeout in seconds.
-If you don't provide a timeout, it will continue to block indefinitely. It returns the following values:
+If you do not provide a timeout, it will continue to block indefinitely. It returns the following values:
 
 - ``1``: The node applied and committed the given Global Transaction ID.
 

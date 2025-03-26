@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, notification, notify command, trigger, script
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -61,7 +61,7 @@
 Notification Command
 ======================
 
-You can use the database client (e.g., ``mysql`` client) to check the status of a cluster, individual nodes, and the health of replication. However, you may find it counterproductive to log in on each node to run such checks.
+You can use the database client (for example, ``mysql`` client) to check the status of a cluster, individual nodes, and the health of replication. However, you may find it counterproductive to log in on each node to run such checks.
 
    .. only:: html
 
@@ -84,18 +84,18 @@ As an alternative and better method, Galera Cluster provides a method to call a 
 .. rst-class:: section-heading
 .. rubric:: Notification Parameters
 
-When a node registers a change in itself or the cluster, it will trigger the notification script or command. In so doing, it will pass certain parameters to notification script.  Below is a list of them and their basic meaning:
+When a node registers a change in itself or the cluster, it will trigger the notification script or command. In so doing, it will pass certain parameters to notification script. Below is a list of them and their basic meaning:
 
 .. rst-class:: no-bull
 
-- ``--status`` The node passes a string indicating its current state.  For a list of the strings it uses, see :ref:`Node Status Strings <node-status>` below.
+- ``--status`` The node passes a string indicating its current state. For a list of the strings it uses, see :ref:`Node Status Strings <node-status>` below.
 - ``--uuid`` The node passes a string, `yes` or `no`, to indicate whether it considers itself part of the :term:`Primary Component`.
-- ``--members`` The node passes a list of the current cluster members.  For more information on the format of these, see :ref:`Member List Format <member-list-format>` below.
+- ``--members`` The node passes a list of the current cluster members. For more information on the format of these, see :ref:`Member List Format <member-list-format>` below.
 - ``--index`` The node passes a string that indicates its index value in the membership list.
 
-You will have to include code in the notificaiton script to capture the values of these parameters and then have the script act as you wish (e.g., notify you of certain values).
+You will have to include code in the notificaiton script to capture the values of these parameters and then have the script act as you wish (for example, notify you of certain values).
 
-Only nodes in the ``Synced`` state will accept connections from the cluster.  For more information on node states, see :ref:`Node State Changes <node-state-changes>`.
+Only nodes in the ``Synced`` state will accept connections from the cluster. For more information on node states, see :ref:`Node State Changes <node-state-changes>`.
 
 
 .. _`node-status`:
@@ -111,7 +111,7 @@ The notification script may pass one of six values for the ``--status`` paramete
 - ``Donor`` indicates a node that is part of the Primary Component and is sending a state snapshot transfer.
 - ``Joined`` indicates a node that is part of the Primary Component and is in a complete state and is catching up with the cluster.
 - ``Synced`` indicates a node that is syncrhonized with the cluster.
-- ``Error`` indicates that an error has occurred.  This status string may provide an error code with more information on what occurred.
+- ``Error`` indicates that an error has occurred. This status string may provide an error code with more information on what occurred.
 
 Again, you will have to prepare your script to capture the value of the ``--status`` parameter and act accordingly.
 
@@ -120,7 +120,7 @@ Again, you will have to prepare your script to capture the value of the ``--stat
 .. rst-class:: sub-heading
 .. rubric:: Members List Format
 
-The notification script will pass with the ``--member`` parameter, a list containing entries for each node connected to the cluster component.  For each entry in the list the node uses this format:
+The notification script will pass with the ``--member`` parameter, a list containing entries for each node connected to the cluster component. For each entry in the list the node uses this format:
 
 .. code-block:: text
 
@@ -129,7 +129,7 @@ The notification script will pass with the ``--member`` parameter, a list contai
 .. rst-class:: no-bull
 
 - **Node UUID** refers to the unique identifier the node received from the wsrep Provider.
-- **Node Name** refers to the node name, as it's defined with the :ref:`wsrep_node_name <wsrep_node_name>` parameter in the configuration file.
+- **Node Name** refers to the node name, as it is defined with the :ref:`wsrep_node_name <wsrep_node_name>` parameter in the configuration file.
 - **Incoming Address** refers to the IP address for client connections, as set with the :ref:`wsrep_node_incoming_address <wsrep_node_incoming_address>` parameter in the configuration file. If this is not set, then the default value will be ``AUTO``.
 
 
@@ -137,13 +137,13 @@ The notification script will pass with the ``--member`` parameter, a list contai
 .. rst-class:: section-heading
 .. rubric:: Enabling the Notification Script
 
-You can enable your notification script or command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter in the configuration file.  Below is an excerpt from that file showing how it might look:
+You can enable your notification script or command through the :ref:`wsrep_notify_cmd <wsrep_notify_cmd>` parameter in the configuration file. Below is an excerpt from that file showing how it might look:
 
 .. code-block:: ini
 
    wsrep_notify_cmd=/path/wsrep_notify.sh
 
-The node will call the script for each change in cluster membership and node status.  You can use these status changes in configuring load balancers, raising alerts or scripting for any other situation in which you need your infrastructure to respond to changes to the cluster.
+The node will call the script for each change in cluster membership and node status. You can use these status changes in configuring load balancers, raising alerts or scripting for any other situation in which you need your infrastructure to respond to changes to the cluster.
 
 Galera Cluster provides a default script, ``wsrep_notify.sh``, for you to use in handling notifications or as a starting point in writing your own custom notification script.
 

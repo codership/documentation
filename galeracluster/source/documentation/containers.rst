@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, container deployment, docker
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -60,11 +60,11 @@
 Container Deployments
 =========================
 
-In the standard deployment methods for Galera Cluster, a node runs on a server in the same manner as would an individual stand-alone instance of MySQL or MariaDB.  In container deployments, a node runs in a containerized virtual environment on the server.
+In the standard deployment methods for Galera Cluster, a node runs on a server in the same manner as would an individual stand-alone instance of MySQL or MariaDB. In container deployments, a node runs in a containerized virtual environment on the server.
 
 You may find these methods useful in portable deployments across numerous machines, testing applications that depend on Galera Cluster, process isolation for security, or scripting the installation and configuration process.
 
-The configuration for a node running in a containerized environment remains primarily the same as a node running in the standard manner.  However, there are some parameters that draw their defaults from the base system configurations.  You will need to set these, manually. Otherwise, the jail will be unable to access the host file system.
+The configuration for a node running in a containerized environment remains primarily the same as a node running in the standard manner. However, there are some parameters that draw their defaults from the base system configurations. You will need to set these, manually. Otherwise, the jail will be unable to access the host file system.
 
 
 - :ref:`wsrep_node_address <wsrep_node_address>`: A node determines the default address from the IP address on the first network interface. Jails cannot see the network interfaces on the host system. You need to set this parameter to ensure that the cluster is given the correct IP address for the node.

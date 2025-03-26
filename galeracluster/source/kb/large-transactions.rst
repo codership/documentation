@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -70,24 +70,24 @@ Large transactions, especially ones deleting removes millions of rows from a tab
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-Suppose you have a node called ``dbhost`` with a database called ``keystone``.  Suppose further that you execute a large transaction, which includes a ``DELETE`` statement that deletes expired tokens from their table in that database and on that host. If this transaction involves millions of rows, it could affect the overall performance of the cluster.
+Suppose you have a node called ``dbhost`` with a database called ``keystone``. Suppose further that you execute a large transaction, which includes a ``DELETE`` statement that deletes expired tokens from their table in that database and on that host. If this transaction involves millions of rows, it could affect the overall performance of the cluster.
 
 
 .. rst-class:: section-heading
 .. rubric:: Recommendations
 
-This problem might be easily resolved by changing the size of the InnoDB buffer pool. The pool is bytes of the memory area where InnoDB caches table and index data. The larger the pool (i.e., the more RAM is used), the less the disk is  accessed, which is especially important when dealing with the same data in tables multiple times as you might in a large transaction on the same table.
+This problem might be easily resolved by changing the size of the InnoDB buffer pool. The pool is bytes of the memory area where InnoDB caches table and index data. The larger the pool (that is, the more RAM is used), the less the disk is  accessed, which is especially important when dealing with the same data in tables multiple times as you might in a large transaction on the same table.
 
-To change the buffer pool size, check the value of the `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ variable. If your servers are dedicated only to database service, try setting it to 80% of the server's physical memory size. You can use the ``free`` command to see how much memory you have.  Once you determine how much memory you can spare for the InnoDB pool, add or change a line in the server's configuration file like the following:
+To change the buffer pool size, check the value of the `innodb_buffer_pool_size <https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size>`_ variable. If your servers are dedicated only to database service, try setting it to 80% of the server's physical memory size. You can use the ``free`` command to see how much memory you have. Once you determine how much memory you can spare for the InnoDB pool, add or change a line in the server's configuration file like the following:
 
 .. code-block:: ini
 
    innodb_buffer_pool_size=128M
 
 
-If you must frequently perform extremely large transactions including ``DELETE`` statements, you might consider using ``pt-archiver`` from the Percona Toolkit.  It's very efficient at deleting millions of rows without reading them or reindexing after each row is deleted.
+If you must frequently perform extremely large transactions including ``DELETE`` statements, you might consider using ``pt-archiver`` from the Percona Toolkit. It is very efficient at deleting millions of rows without reading them or reindexing after each row is deleted.
 
-To use ``pt-archiver``, you'll have to install the Percona Toolkit. Once that's done, you would enter something like the following from the command-line to delete rows from tables (i.e., ``keystone.token``) based on a ``WHERE`` clause (i.e., datetime column ``expires`` with values before now):
+To use ``pt-archiver``, you will have to install the Percona Toolkit. Once that's done, you would enter something like the following from the command-line to delete rows from tables (that is, ``keystone.token``) based on a ``WHERE`` clause (that is, datetime column ``expires`` with values before now):
 
 .. code-block:: console
 

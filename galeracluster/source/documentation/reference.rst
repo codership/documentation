@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, mysql, mariadb, wsrep options, wsrep functions
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -71,11 +71,11 @@ In the event that you need more information about particular variables or parame
 .. rst-class:: section-heading
 .. rubric:: Variable Reference
 
-Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file.  These chapters provide reference guides to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
+Defining persistent configurations in Galera Cluster is done through the underlying database server, using the ``[mysqld]`` unit in the ``my.cnf`` configuration file. These chapters provide reference guides to the base replication status and configuration variables as well as the specific wsrep Provider options implemented through the Galera Replication Plugin.
 
 - :doc:`mysql-wsrep-options`
 
-  In addition to the standard configuration variables available through the database server, Galera Cluster implements several that are unique and specific to fine-tuning database replication.  This chapter provides a reference guide to these new configuration variables in Galera Cluster
+  In addition to the standard configuration variables available through the database server, Galera Cluster implements several that are unique and specific to fine-tuning database replication. This chapter provides a reference guide to these new configuration variables in Galera Cluster
 
 - :doc:`wsrep-functions`
 
@@ -83,30 +83,30 @@ Defining persistent configurations in Galera Cluster is done through the underly
 
 - :doc:`galera-parameters`
 
-  The Galera Replication Plugin, which acts as the wsrep Provider, includes a number of parameters specific to its operation.  This chapter provides a reference guide to the various wsrep Provider options available.
+  The Galera Replication Plugin, which acts as the wsrep Provider, includes a number of parameters specific to its operation. This chapter provides a reference guide to the various wsrep Provider options available.
 
 - :doc:`galera-status-variables`
 
-  In addition to the standard status variables available through the database server, Galera Cluster also implements several that you can use in determining the status and health of the node and the cluster.  This chapter provides a reference guide to these new status variables in Galera Cluster.
+  In addition to the standard status variables available through the database server, Galera Cluster also implements several that you can use in determining the status and health of the node and the cluster. This chapter provides a reference guide to these new status variables in Galera Cluster.
 
 
 .. _`ref-utils`:
 .. rst-class:: section-heading
 .. rubric:: Utility Reference
 
-In some cases your configuration or implementation may require that you work with external utilities in your deployment of Galera Cluster.  These chapters provide reference guides for two such utilities: XtraBackup and Galera Load Balancer.
+In some cases your configuration or implementation may require that you work with external utilities in your deployment of Galera Cluster. These chapters provide reference guides for two such utilities: XtraBackup and Galera Load Balancer.
 
 - :doc:`glb-parameters`
 
-  In high availability situations or similar cases where nodes are subject to high traffic situations, you may find it beneficial to set up a load balancer between your application servers and the cluster.  This chapter provides a reference guide to the Codership implementation: the Galera Load Balancer.
+  In high availability situations or similar cases where nodes are subject to high traffic situations, you may find it beneficial to set up a load balancer between your application servers and the cluster. This chapter provides a reference guide to the Codership implementation: the Galera Load Balancer.
 
 - :doc:`xtrabackup-options`
 
-  When you manage State Snapshot Transfers using Percona XtraBackup, it allows you to set various parameters on the state transfer script the node uses from the ``my.cnf`` configuration file.  This chapter provides a reference guide to options available to XtraBackup.
+  When you manage State Snapshot Transfers using Percona XtraBackup, it allows you to set various parameters on the state transfer script the node uses from the ``my.cnf`` configuration file. This chapter provides a reference guide to options available to XtraBackup.
 
 - :doc:`system-tables`
 
-  This page provides information on the Galera specific system tables.  These were added as of version 4 of Galera.
+  This page provides information on the Galera specific system tables. These were added as of version 4 of Galera.
 
 .. _`ref-misc`:
 .. rst-class:: section-heading
@@ -114,7 +114,7 @@ In some cases your configuration or implementation may require that you work wit
 
 - :doc:`versioning-information`
 
-  While the documentation follows a convention of 3.x in speaking of release versions for Galera Cluster, in practice the numbering system is somewhat more complicated: covering releases of the underlying database server, the wsrep Provider and the wsrep API.  This chapter provides a more thorough explanation of versioning with Galera Cluster.
+  While the documentation follows a convention of 3.x in speaking of release versions for Galera Cluster, in practice the numbering system is somewhat more complicated: covering releases of the underlying database server, the wsrep Provider and the wsrep API. This chapter provides a more thorough explanation of versioning with Galera Cluster.
 
 - :doc:`legal-notice`
 

@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -57,12 +57,12 @@ Read-After-Write Semantics with Galera
 
 Some applications, particularly those written with a single-node database server in mind, attempt to immediately read a value they have just inserted into the database, without making those those operations part of a single transaction. A read/write splitting proxy or a connection pool combined with a load-balancer can direct each operation to a different database node.
 
-Since Galera allows, for performance reasons, a very small amount of “slave lag”, the node that is processing the read may have not yet applied the write. It can return old data, causing an application that did not expect that to misbehave or produce an error.
+Since Galera allows, for performance reasons, a very small amount of “replica lag”, the node that is processing the read may have not yet applied the write. It can return old data, causing an application that did not expect that to misbehave or produce an error.
 
 .. rst-class:: section-heading
 .. rubric:: The Solution
 
-Through the mechanism of flow control, slave lag is kept to a minimum, but additionally Galera provides the causal wait facility for those queries that must always see the most up-to-date view of the database. It allows achieving truly read-after-write semantics, where a read will always see all writes that were performed prior to it, on any node.
+Through the mechanism of flow control, replica lag is kept to a minimum, but additionally Galera provides the causal wait facility for those queries that must always see the most up-to-date view of the database. It allows achieving truly read-after-write semantics, where a read will always see all writes that were performed prior to it, on any node.
 
 Enabling causal wait causes Galera to wait before a query until all transactions that were started prior to the current transaction have been applied on the node. Transactions committed or updates made on other nodes after the start of the current transaction are not taken into account.
 
@@ -78,7 +78,7 @@ wsrep_sync_wait is a session variable, so it can be targeted at the connections,
 .. rst-class:: section-heading
 .. rubric:: A Practical Example
 
-Consider the case where you have set up a read/write splitting proxy in front of your application so that your writes go to the master and the reads are serviced by the slaves. Such a setup would work for a wide range of queries and applications and you would like to keep it and its performance characteristics.
+Consider the case where you have set up a read/write splitting proxy in front of your application so that your writes go to the primary and the reads are serviced by the replicas. Such a setup would work for a wide range of queries and applications and you would like to keep it and its performance characteristics.
 If access to the source code is available, it is possible to surgically cure problematic queries with as little change as possible. You could do the following:
 
 .. code-block:: console

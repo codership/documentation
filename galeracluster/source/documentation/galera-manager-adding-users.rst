@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, gmd, galera manager, gui
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -71,7 +71,7 @@
 Adding Users to Galera Manager
 ===================================================
 
-Galera Manager offers several features for the maintenance of Galera Clusters, saving you plenty of time in deploying nodes and similar tasks. However, you may want the assistance of other administrators, especially when you're not around to monitor your clusters.  In anticipation of such situations and needs, you can add other users to the Galera Manager. Note, these are not users for the MySQL or MariaDB databases.
+Galera Manager offers several features for the maintenance of Galera Clusters, saving you plenty of time in deploying nodes and similar tasks. However, you may want the assistance of other administrators, especially when you are not around to monitor your clusters. In anticipation of such situations and needs, you can add other users to the Galera Manager. Note, these are not users for the MySQL or MariaDB databases.
 
 This page of the Codership documentation describes how to add users to Galera Manager. If you haven't already installed Galera Manager, go to the :doc:`galera-manager` documentation page.
 
@@ -80,7 +80,7 @@ This page of the Codership documentation describes how to add users to Galera Ma
 .. rst-class:: section-heading
 .. rubric:: Adding Users
 
-When you installed Galera Manager with the *Installer*, you were asked to specify a user name and password for the administrator.  You were only allowed one user during installation.  Now that Galera Manager is installed, you may add more users.  Click on the menu icon, the three horizontal strips at the top left.  It will reveal what you see in the screenshot of Figure 1 below:
+When you installed Galera Manager with the *Installer*, you were asked to specify a user name and password for the administrator. You were only allowed one user during installation. Now that Galera Manager is installed, you may add more users. Click on the menu icon, the three horizontal strips at the top left. It will reveal what you see in the screenshot of Figure 1 below:
 
 .. figure:: ../images/galera-manager-margin-menu.png
    :width: 300px
@@ -89,7 +89,7 @@ When you installed Galera Manager with the *Installer*, you were asked to specif
 
    Galera Manager Menu (Figure 1)
 
-As you can see, there are three choices: *Management*, which brings you back to the primary screen for managing and monitoring Galera Clusters; *Users*, which is where you'll add and remove users for Galera Manager; and *Logout*, which is to log out of Galera Manager.  If you click on *Users*, you'll see a box similar to the screenshot in Figure 2 below:
+As you can see, there are three choices: *Management*, which brings you back to the primary screen for managing and monitoring Galera Clusters; *Users*, which is where you will add and remove users for Galera Manager; and *Logout*, which is to log out of Galera Manager. If you click on *Users*, you will see a box similar to the screenshot in Figure 2 below:
 
 .. figure:: ../images/galera-manager-new-user.png
    :width: 500px
@@ -100,14 +100,14 @@ As you can see, there are three choices: *Management*, which brings you back to 
 
 In the example in the screenshot above, a user name of *bob* was entered, along with a password. The other choice is to set the user's privileges: *None*, *Observer*, *Manager*, and *Administrator*.
 
-The setting of *None* will create a user who may log in, but has no access, can see nothing. In the future it can be used to temporary block the user, but currently the users can only be created and deleted. A user designated as an *Observer* will be allowed to log in and monitor clusters and nodes, but not make any changes. A *Manager* will have all of the privileges of an *Observer*, but will also be allowed to add and delete clusters and nodes, as well as add and remove metrics to monitor.  The *Administrator* can do everything, including adding and removing users.
+The setting of *None* will create a user who may log in, but has no access, can see nothing. In the future it can be used to temporary block the user, but currently the users can only be created and deleted. A user designated as an *Observer* will be allowed to log in and monitor clusters and nodes, but not make any changes. A *Manager* will have all of the privileges of an *Observer*, but will also be allowed to add and delete clusters and nodes, as well as add and remove metrics to monitor. The *Administrator* can do everything, including adding and removing users.
 
 
 .. _`galera-manager-changing-users`:
 .. rst-class:: section-heading
 .. rubric:: Changing Users
 
-After you've added some users, you'll see them on the user page. To return to this page, click on the menu icon and then *Users*. You'll see a screen like the one in Figure 3 below:
+After you've added some users, you will see them on the user page. To return to this page, click on the menu icon and then *Users*. You'll see a screen like the one in Figure 3 below:
 
 .. figure:: ../images/galera-manager-users.png
    :width: 300px

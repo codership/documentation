@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -62,12 +62,12 @@ WAN Latency
 
    Length: 221 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
-When using Galera Cluster over a :abbr:`WAN (Wide Area Network)`, remember that WAN links can have exceptionally high latency.  You can check this by taking Round-Trip Time (RTT) measurements between cluster nodes. If there is a latency, you can correct for this by adjusting all of the temporal parameters.
+When using Galera Cluster over a :abbr:`WAN (Wide Area Network)`, remember that WAN links can have exceptionally high latency. You can check this by taking Round-Trip Time (RTT) measurements between cluster nodes. If there is a latency, you can correct for this by adjusting all of the temporal parameters.
 
 .. rst-class:: section-heading
 .. rubric:: Recommendations
 
-To take RTT measurements, use ``ping`` on each cluster node to ping the others.  For example, if you were to log into the node at ``192.168.1.1``, you might execute something like the following from the command-line:
+To take RTT measurements, use ``ping`` on each cluster node to ping the others. For example, if you were to log into the node at ``192.168.1.1``, you might execute something like the following from the command-line:
 
 .. code-block:: console
 

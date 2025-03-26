@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -58,7 +58,7 @@ Codership Tutorials on Galera Cluster
 
 .. rst-class:: page-abstract
 
-   These are tutorial articles of the training section of the Codership Library. Here you'll find tutorial articles on how to get started with Galera and other basic tasks related to initially starting a Galera Cluster. There are also some intermediate articles on a few other aspects of Galera and related software.
+   These are tutorial articles of the training section of the Codership Library. Here you will find tutorial articles on how to get started with Galera and other basic tasks related to initially starting a Galera Cluster. There are also some intermediate articles on a few other aspects of Galera and related software.
 
 
 .. _`training-tutorials-entry-install`:
@@ -78,7 +78,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      This article explains Galera Cluster, how it works. It provides an overview for installing Galera and initializing nodes in a cluster. It's a jumping off point to several other tutorials here.
+      This article explains Galera Cluster, how it works. It provides an overview for installing Galera and initializing nodes in a cluster. It is a jumping off point to several other tutorials here.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -90,7 +90,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      This tutorial provides instructions to prepare your servers and instal Galera Cluster on each.  When you install Galera, you have to choose between three implementations available.
+      This tutorial provides instructions to prepare your servers and instal Galera Cluster on each. When you install Galera, you have to choose between three implementations available.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -114,7 +114,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      After installing Galera, you'll need to configure each node. This straightforward article provides a list of parameters to set in each node's database configuration file.
+      After installing Galera, you will need to configure each node. This straightforward article provides a list of parameters to set in each node's database configuration file.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -156,6 +156,18 @@ Codership Tutorials on Galera Cluster
 
 
    .. rst-class:: sub-heading list-sub-header
+   .. rubric:: :doc:`getting-started-kubernetes`
+
+   .. rst-class:: list-stats
+
+      Length: 848 words; Pub: Oct 2024
+
+   .. rst-class:: list-abstract
+
+      This article explains how to deploy a Galera Cluster for MySQL with a Helm Chart for Kubernetes.
+	  
+
+   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`testing-cluster`
 
    .. rst-class:: list-stats
@@ -165,6 +177,13 @@ Codership Tutorials on Galera Cluster
    .. rst-class:: list-abstract
 
       Once you have a cluster running, test its features to ensure it’s working well, to decide on a deployment plan. This tutorial provides a guide to testing replication and cluster operations.
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: :doc:`differences`
+
+   .. rst-class:: list-abstract
+
+      This tutorial provides information on the differences between a Galera Cluster and a Stand-Alone MySQL Server.
 
 
 
@@ -209,7 +228,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      The entire dataset is transfered (i.e., SST) to a new node and when a node rejoin after being down for a long time. This article offers insights and advice if there are problems with SST.
+      The entire dataset is transfered (that is, SST) to a new node and when a node rejoin after being down for a long time. This article offers insights and advice if there are problems with SST.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -247,7 +266,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      Many DBAs and database developers don't understand what MySQL transaction isolation levels Galera CLuster supports and how it does so. This articles tries to answer those uncertainties.
+      Many DBAs and database developers do not understand what MySQL transaction isolation levels Galera CLuster supports and how it does so. This articles tries to answer those uncertainties.
 
 
    .. rst-class:: sub-heading list-sub-header
@@ -281,7 +300,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      Restarting a cluster so that data isn't overwritten can be tricky. This article explains how to determine the most up-to-date node, so that it's the first node of the new cluster.
+      Restarting a cluster so that data isn't overwritten can be tricky. This article explains how to determine the most up-to-date node, so that it is the first node of the new cluster.
 
 
 .. container:: list-col2
@@ -295,7 +314,16 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      When it's necessary to shut down a cluster, it's important to do so safely and as quickly as possible to avoid extended downtime and data loss. This article gives advice in this area.
+      When it is necessary to shut down a cluster, it is important to do so safely and as quickly as possible to avoid extended downtime and data loss. This article gives advice in this area.
+
+.. container:: list-col1
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: :doc:`recovery-on-ansible`
+
+   .. rst-class:: list-abstract
+
+      When it is necessary to recover a cluster node or the entire cluster by using Ansible, this article gives advice in this area.
 
 
 .. _`training-tutorials-performance-availability`:
@@ -327,7 +355,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      Nodes may be located in multiple physical locations. This article presents the benefits of a geo-distributed cluster, and Galera specific features to enable replication across a WAN.
+      Nodes may be located in multiple physical locations. This article presents the benefits of a geo-distributed cluster, and Galera-specific features to enable replication across a WAN.
 
 
 .. container:: list-col2
@@ -341,7 +369,7 @@ Codership Tutorials on Galera Cluster
 
    .. rst-class:: list-abstract
 
-      When using Galera in multi-master mode, transaction conflicts may occur if clients try to modify the same row at the same time. This discusses troubleshooting these deadlock errors.
+      When using Galera in multi-primary mode, transaction conflicts may occur if clients try to modify the same row at the same time. This discusses troubleshooting these deadlock errors.
 
 
 

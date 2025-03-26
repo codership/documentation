@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, installation, install, xtradb, binaries, apt, yum
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -58,20 +58,20 @@
 Percona XtraDB Cluster - Binary Installation
 ============================================
 
-Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL.  Binary installation packages are available for Debian- and RPM-based distributions through the Percona repository.
+Percona XtraDB Cluster is the Percona implementation of Galera Cluster for MySQL. Binary installation packages are available for Debian- and RPM-based distributions through the Percona repository.
 
 
 .. _`xtradb-repo`:
 .. rst-class:: section-heading
 .. rubric:: Enabling the Percona Repository
 
-In order to install Percona XtraDB Cluster through your package manager, you need to first enable the Percona repository on your system.  There are two different ways to accomplish this, depending upon which Linux distribution you use.
+In order to install Percona XtraDB Cluster through your package manager, you need to first enable the Percona repository on your system. There are two different ways to accomplish this, depending upon which Linux distribution you use.
 
 .. _`xtradb-apt`:
 .. rst-class:: sub-heading
 .. rubric:: Enabling the ``apt`` Repository
 
-For Debian and Debian-based Linux distributions, the procedure for adding the Percona repository requires that you first install Software Properties on your system.  The package names vary depending upon which distribution you use.  For Debian, in the terminal run the following command:
+For Debian and Debian-based Linux distributions, the procedure for adding the Percona repository requires that you first install Software Properties on your system. The package names vary depending upon which distribution you use. For Debian, in the terminal run the following command:
 
 .. code-block:: console
 
@@ -102,7 +102,7 @@ Once you have Software Properties installed, you can enable the Percona reposito
 
    For the repository address, make the following changes:
 
-   - ``release`` Indicates the release name for the distribution you are using.  For example, ``wheezy``.
+   - ``release`` Indicates the release name for the distribution you are using. For example, ``wheezy``.
 
      In the event that you do not know which release you have installed on your server, you can find out using the following command:
 
@@ -116,7 +116,7 @@ Once you have Software Properties installed, you can enable the Percona reposito
 
       # apt-get update
 
-For more information on the repository, available packages and mirrors, see the `Percona apt Repository <https://www.percona.com/doc/percona-server/5.5/installation/apt_repo.html>`_
+For more information on the repository, available packages and mirrors, see `Percona Software Repositories Documentation <https://docs.percona.com/percona-software-repositories/index.html>`_.
 
 Packages in the Percona repository are now available for installation on your server through ``apt-get``.
 
@@ -129,9 +129,9 @@ For RPM-based distributions, you can enable the Percona repository through ``yum
 
 .. code-block:: console
 
-   # yum install https://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+   # yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
 
-For more information on the repository, package names or available mirrors, see the `Percona yum Repository <https://www.percona.com/doc/percona-server/5.5/installation/yum_repo.html>`_.
+For more information on the repository, package names or available mirrors, see `Percona Software Repositories Documentation <https://docs.percona.com/percona-software-repositories/index.html>`_.
 
 Packages in the Percona repository are now available for installation on your server through ``yum``.
 
@@ -174,7 +174,7 @@ For example, you can use ``curl`` as follows:
 
 Check your system to make sure the packages that the PXC version requires are installed.
 
-For most Debian-based distributions, you can install all of these through a single package.  In the terminal run the following command:
+For Debian and Ubuntu-based distributions, run the following commands in the terminal:
 
 .. code-block:: console
 
@@ -203,7 +203,9 @@ For RPM-based distributions, instead run this command:
 
 Percona XtraDB Cluster is now installed on your server.
 
-.. note::  If you installed Percona XtraDB Cluster over an existing standalone instance of Percona XtraDB, there are some additional steps that you need to take in order to update your system to the new database server.  For more information, see :doc:`../training/tutorials/migration`.
+.. note::  If you installed Percona XtraDB Cluster over an existing standalone instance of Percona XtraDB, there are some additional steps that you need to take in order to update your system to the new database server. For more information, see :doc:`../training/tutorials/migration`.
+
+.. note::  Telemetry is enabled by default. To disable it, see `Telemetry on Percona XtraDB Cluster <https://docs.percona.com/percona-xtradb-cluster/8.0/telemetry.html>`_.
 
 .. container:: bottom-links
 

@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -53,9 +53,9 @@
 Codership Training
 ===================
 
-Codership is pleased to offer a comprehensive training program related to Codership products, as well as key related software.  These products includes training courses on Galera Cluster, Galera Arbirator, and Galera Load Balancer.  Key related software includes MySQL and MariaDB database systems and tools commonly used by DBA (e.g., ``mysqldump``).  Topics include installing, configuring, monitoring, and administering all of this software, in particular as it relates to Galera Cluster.
+Codership is pleased to offer a comprehensive training program related to Codership products, as well as key related software. These products includes training courses on Galera Cluster, Galera Arbirator, and Galera Load Balancer. Key related software includes MySQL and MariaDB database systems and tools commonly used by DBA (for example, ``mysqldump``). Topics include installing, configuring, monitoring, and administering all of this software, in particular as it relates to Galera Cluster.
 
-In this Training section, you'll find information on upcoming training courses that are conducted by the staff at Codership, with some taught by the original developers of Galera Cluster.  For those who prefer a self-paced training, we have a set of training videos to help you learn about Galera Cluster and related software. For those who learn best from reading, we also have many tutorial articles on the same topics.
+In this Training section, you will find information on upcoming training courses that are conducted by the staff at Codership, with some taught by the original developers of Galera Cluster. For those who prefer a self-paced training, we have a set of training videos to help you learn about Galera Cluster and related software. For those who learn best from reading, we also have many tutorial articles on the same topics.
 
 .. container:: banner
 
@@ -70,7 +70,7 @@ Codership provdes two types of training sessions: one for beginners and one for 
 
 
    .. rst-class:: rubric-2 list-sub-header
-   .. rubric:: :ref:`Advanced database administration with Galer Cluster <galera-advanced-course-details>`
+   .. rubric:: :ref:`Advanced database administration with Galera Cluster <galera-advanced-course-details>`
 
    .. rst-class:: list-stats
 
@@ -95,7 +95,7 @@ Codership provdes two types of training sessions: one for beginners and one for 
    .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Training Videos <./videos/index>`
 
-Some people prefer to read, while others prefer screencast videos.  We have several in this format on Galera Cluster and related software; we're adding new ones every month. They're professionally made presentations, with an experieced instructor voice-over. Some parts are easy to follow slides, and for some parts there are demonstrations of how to configure and use the software.  They're grouped into these three main categories:
+Some people prefer to read, while others prefer screencast videos. We have several in this format on Galera Cluster and related software; we're adding new ones every month. They're professionally made presentations, with an experienced instructor voice-over. Some parts are easy to follow slides, and for some parts there are demonstrations of how to configure and use the software. They're grouped into these three main categories:
 
 .. container:: list-col1
 
@@ -120,7 +120,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
 
    .. rst-class:: list-abstract
 
-      Have some experience in Galera Cluster and you're ready to understand it better? Here you'll be able to learn how to perform essential administrative tasks, as well as how to resolve problems that occur |---| including how to recover from a total cluster crash.
+      Have some experience in Galera Cluster and you are ready to understand it better? Here you will be able to learn how to perform essential administrative tasks, as well as how to resolve problems that occur |---| including how to recover from a total cluster crash.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -147,7 +147,7 @@ Some people prefer to read, while others prefer screencast videos.  We have seve
    .. rst-class:: section-heading list-sub-header
    .. rubric:: :doc:`Tutorial Articles <./tutorials/index>`
 
-There's so much to learn about Galera Cluster and related software.  In this section you'll find several tutorial articles. Some are on how to get started with Galera and other basic tasks related to starting a Galera Cluster. There are also intermediate and more advanced articles, for those who are more experienced in Galera. We're adding new articles every month.
+There's so much to learn about Galera Cluster and related software. In this section you will find several tutorial articles. Some are on how to get started with Galera and other basic tasks related to starting a Galera Cluster. There are also intermediate and more advanced articles, for those who are more experienced in Galera. We're adding new articles every month.
 
 .. container:: list-col1
 
@@ -160,7 +160,7 @@ There's so much to learn about Galera Cluster and related software.  In this sec
 
    .. rst-class:: list-abstract
 
-      These articles are for newcommers.  They're about how Galera Cluster works, and how to install and configure Galera.
+      These articles are for newcommers. They're about how Galera Cluster works, and how to install and configure Galera.
 
    .. rst-class:: rubric-2 list-sub-header
    .. rubric:: :ref:`Administration <training-tutorials-admin>`
@@ -171,7 +171,7 @@ There's so much to learn about Galera Cluster and related software.  In this sec
 
    .. rst-class:: list-abstract
 
-      If you're a database administrator and responsible for maintaining your organization's databases, these articles will help you with basic and core DBA tasks.
+      If you are a database administrator and responsible for maintaining your organization's databases, these articles will help you with basic and core DBA tasks.
 
 
    .. rst-class:: rubric-2 list-sub-header
@@ -183,7 +183,7 @@ There's so much to learn about Galera Cluster and related software.  In this sec
 
    .. rst-class:: list-abstract
 
-      When a cluster goes down, fails, or crashes, there's a certain order for restarting and restoring nodes and a cluster.  These tutorial articles can help.
+      When a cluster goes down, fails, or crashes, there's a certain order for restarting and restoring nodes and a cluster. These tutorial articles can help.
 
 
    .. rst-class:: rubric-2 list-sub-header

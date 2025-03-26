@@ -3,7 +3,7 @@
    :description: Galera Arbitrator serves can function as an odd node to avoid split-brain and can be useful in making back-ups.
    :language: en-US
    :keywords: galera cluster, mysql, mariadb, arbitrator, garbd
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -65,11 +65,11 @@
 .. index::
    pair: Logs; Galera Arbitrator
 
-When deploying a Galera Cluster, it's recommended that you use a minimum of three instances: Three nodes, three data centers and so on.
+When deploying a Galera Cluster, it is recommended to use a minimum of three instances: three nodes, three data centers and so on.
 
-If the cost of adding resources (e.g., a third data center) is too much, you can use :term:`Galera Arbitrator`.  Galera Arbitrator is a member of a cluster that participates in voting, but not in the actual replication.
+If the cost of adding resources (such as a third data center) is too much, you can use :term:`Galera Arbitrator`. Galera Arbitrator is a member of a cluster that participates in voting, but not in the actual replication.
 
-.. warning:: While Galera Arbitrator does not participate in replication, it does receive the same data as all other nodes.  You must secure its network connection.
+.. warning:: While Galera Arbitrator does not participate in replication, it does receive the same data as all other nodes. You must secure its network connection.
 
 Galera Arbitrator serves two purposes: When you have an even number of nodes, it functions as an odd node, to avoid split-brain situations. It can also request a consistent application state snapshot, which is useful in making backups.
 
@@ -79,9 +79,9 @@ Galera Arbitrator serves two purposes: When you have an even number of nodes, it
 
 If one datacenter fails or loses its :abbr:`WAN (Wide Area Network)` connection, the node that sees the arbitrator---and by extension sees clients---continues operation.
 
-.. note:: Even though Galera Arbitrator doesn't store data, it must see all replication traffic.  Placing Galera Arbitrator in a location with poor network connectivity to the rest of the cluster may lead to poor cluster performance.
+.. note:: Even though Galera Arbitrator does not store data, it must see all replication traffic. Placing Galera Arbitrator in a location with poor network connectivity to the rest of the cluster may lead to poor cluster performance.
 
-In the event that Galera Arbitrator fails, it won't affect cluster operation.  You can attach a new instance to the cluster at any time and there can be several instances running in the cluster.
+In the event that Galera Arbitrator fails, it won't affect cluster operation. You can attach a new instance to the cluster at any time and there can be several instances running in the cluster.
 
 For more information on using Galera Arbitrator for making backups, see :doc:`backup-cluster`.
 
@@ -90,11 +90,11 @@ For more information on using Galera Arbitrator for making backups, see :doc:`ba
 .. rst-class:: section-heading
 .. rubric:: Starting Galera Arbitrator
 
-Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``.  This means that you must start it separately from the cluster.  It also means that you cannot configure Galera Arbitrator through the ``my.cnf`` configuration file.
+Galera Arbitrator is a separate daemon from Galera Cluster, called ``garbd``. This means that you must start it separately from the cluster. It also means that you cannot configure Galera Arbitrator through the ``my.cnf`` configuration file.
 
-How you configure Galera Arbitrator depends on how you start it.  That is to say, whether it runs from the shell or as a service. These two methods are described in the next two sections.
+How you configure Galera Arbitrator depends on how you start it. That is to say, whether it runs from the shell or as a service. These two methods are described in the next two sections.
 
-.. note::  When Galera Arbitrator starts, the script executes a ``sudo`` statement as the user ``nobody`` during its process.  There is a particular issue in Fedora and some other distributions of Linux, in which the default ``sudo`` configuration will block users that operate without ``tty`` access.  To correct this, edit with a text editor the ``/etc/sudoers`` file and comment out this line:
+.. note::  When Galera Arbitrator starts, the script executes a ``sudo`` statement as the user ``nobody`` during its process. There is a particular issue in Red Hat Enterprise Linux and some other distributions of Linux, in which the default ``sudo`` configuration will block users that operate without ``tty`` access. To correct this, edit with a text editor the ``/etc/sudoers`` file and comment out this line:
 
 	   .. code-block:: bash
 
@@ -108,7 +108,7 @@ How you configure Galera Arbitrator depends on how you start it.  That is to say
 .. rst-class:: section-heading
 .. rubric:: Starting Galera Arbitrator from the Shell
 
-When starting Galera Arbitrator from the shell, you have two options as to how you may configure it.  You can set the parameters through the command line arguments, as in the example here:
+When starting Galera Arbitrator from the shell, you have two options as to how you may configure it. You can set the parameters through the command line arguments, as in the example here:
 
 .. code-block:: console
 
@@ -116,9 +116,9 @@ When starting Galera Arbitrator from the shell, you have two options as to how y
         --address="gcomm://192.168.1.1,192.168.1.2,192.168.1.3" \
         --option="socket.ssl_key=/etc/ssl/galera/server-key.pem;socket.ssl_cert=/etc/ssl/galera/server-cert.pem;socket.ssl_ca=/etc/ssl/galera/ca-cert.pem;socket.ssl_cipher=AES128-SHA256""
 
-If you use SSL, it's necessary to specify the cipher. Otherwise, after initializing the ssl context an error will occur with a message saying, "Terminate called after throwing an instance of 'gu::NotSet'".
+If you use SSL, it is necessary to specify the cipher. Otherwise, after initializing the SSL context, an error will occur with a message saying, "Terminate called after throwing an instance of 'gu::NotSet'".
 
-If you don't want to enter the options every time you start Galera Arbitrator from the shell, you can set the options in the ``arbitrator.config`` configuration file:
+If you do not want to enter the options every time you start Galera Arbitrator from the shell, you can set the options in the ``arbitrator.config`` configuration file:
 
 .. code-block:: linux-config
 
@@ -156,7 +156,7 @@ For more information on the options available to Galera Arbitrator through the s
      -h [ --help ]         Show help message
 
 
-In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, except for those prefixed by ``repl``.  When you start it from the shell, you can set those using the ``--option`` argument.
+In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, except for those prefixed by ``repl``. When you start it from the shell, you can set those using the ``--option`` argument.
 
 For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.
 
@@ -189,14 +189,14 @@ When starting Galera Aribtrator as a service, whether using ``init`` or ``system
    # Galera cluster name, should be the same as on the rest of the node.
    GALERA_GROUP="example_wsrep_cluster"
 
-   # Optional Galera internal options string (e.g. SSL settings)
+   # Optional Galera internal options string (such as SSL settings)
    # see https://galeracluster.com/documentation/galera-parameters.html
    GALERA_OPTIONS="socket.ssl_cert=/etc/galera/cert/cert.pem;socket.ssl_key=/$"
 
    # Log file for garbd. Optional, by default logs to syslog
    LOG_FILE="/var/log/garbd.log"
 
-In order for Galera Arbitrator to use the configuration file, you must place it in a file directory where your system looks for service configuration files.  There is no standard location for this directory; it varies from distribution to distribution, though it usually in ``/etc`` and at least one sub-directory down. Some common locations include:
+In order for Galera Arbitrator to use the configuration file, you must place it in a file directory where your system looks for service configuration files. There is no standard location for this directory; it varies from distribution to distribution, though it usually in ``/etc`` and at least one sub-directory down. Some common locations include:
 
 - ``/etc/defaults/``
 
@@ -208,7 +208,7 @@ In order for Galera Arbitrator to use the configuration file, you must place it 
 
 Check the documentation for the operating system distribution your server uses to determine where to place service configuration files.
 
-Once you have the service configuration file in the right location, you can start the ``garb`` service.  For systems that use ``init``, run the following command:
+Once you have the service configuration file in the right location, you can start the ``garb`` service. For systems that use ``init``, run the following command:
 
 .. code-block:: console
 
@@ -220,9 +220,9 @@ For systems that run ``systemd``, use instead this command:
 
    # systemctl start garb
 
-This starts Galera Arbitrator as a service.  It uses the parameters set in the configuration file.
+This starts Galera Arbitrator as a service. It uses the parameters set in the configuration file.
 
-In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, excepting those prefixed by ``repl``.  When you start it as a service, you can set those using the ``GALERA_OPTIONS`` parameter.
+In addition to the standard configuration, any parameter available to Galera Cluster also works with Galera Arbitrator, excepting those prefixed by ``repl``. When you start it as a service, you can set those using the ``GALERA_OPTIONS`` parameter.
 
 For more information on the options available to Galera Arbitrator, see :doc:`galera-parameters`.
 

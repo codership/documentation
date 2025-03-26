@@ -3,7 +3,7 @@
    :description: Instructions and examples on using Restructured Text mark-up.
    :language: en-US
    :keywords: sphinx, restructured text, restructuredtext
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -47,9 +47,9 @@
 Sphinx & reStructuredText
 =============================
 
-The Codership Library uses a Python documentation system called, Sphinx.  It converts reStructuredText files into HTML web pages, as well as other formats (e.g., PDF and EPub). As for reStructuredText, it's a lightweight mark-up language that can be processed by Sphinx, and is easily readable by people.
+The Codership Library uses a Python documentation system called, Sphinx. It converts reStructuredText files into HTML web pages, as well as other formats (for example, PDF and EPub). As for reStructuredText, it is a lightweight mark-up language that can be processed by Sphinx, and is easily readable by people.
 
-This page of the Library, in the Editors section provides some examples of how to use reStructuredText to format text and organize document pages in the Library.  This is not a comprehensive list of formatting codes available, but rather a list of what we use in the Library |---| and only those we thought to add to this page.
+This page of the Library, in the Editors section provides some examples of how to use reStructuredText to format text and organize document pages in the Library. This is not a comprehensive list of formatting codes available, but rather a list of what we use in the Library |---| and only those we thought to add to this page.
 
 
 -------------------
@@ -72,7 +72,7 @@ How to format text on pages of the Library is easiest and primary use of any mar
 Lists
 -------------------
 
-If you want to present a list of items, you can use bullets.  In HTML, these are \<li> tags for each list item, grouped withing a pair \<ul> tags for an unnumbered list.  To generate these in restructuredtext,  you need only preface a bullet item with a hyphen and a space like so:
+If you want to present a list of items, you can use bullets. In HTML, these are \<li> tags for each list item, grouped withing a pair \<ul> tags for an unnumbered list. To generate these in restructuredtext,  you need only preface a bullet item with a hyphen and a space like so:
 
 .. code-block:: text
 
@@ -82,7 +82,7 @@ If you want to present a list of items, you can use bullets.  In HTML, these are
      + more sub-text
    - other text
 
-The lines preceded by hyphens will produce bullets.  The items preceded by plus-signs will produce a sub-bullet list. Notice that there's nothing to enter for the \<ul> tags. Below is the HTML text the code above will produce:
+The lines preceded by hyphens will produce bullets. The items preceded by plus-signs will produce a sub-bullet list. Notice that there's nothing to enter for the \<ul> tags. Below is the HTML text the code above will produce:
 
 .. code-block:: html
 
@@ -116,14 +116,14 @@ Adding class to <ul> tag
 Special Characters
 -------------------
 
-If you want to use an emdash, you would enter three hyphens enclosed in a pair of bars, with spaces on both sides (i.e., ``|---|`` ).   At the bottom of the document, place the following code:
+If you want to use an emdash, you would enter three hyphens enclosed in a pair of bars, with spaces on both sides (that is, ``|---|`` ). At the bottom of the document, place the following code:
 
 .. code-block:: text
 
    .. |---|   unicode:: U+2014 .. EM DASH
       :trim:
 
-To add a hard-return, an HTML break tag, you can use *br*, wrapped in a pair of bars (i.e., ``|br|``).  At the bottom of the document, you would enter the following code:
+To add a hard-return, an HTML break tag, you can use *br*, wrapped in a pair of bars (that is, ``|br|``). At the bottom of the document, you would enter the following code:
 
 .. code-block:: text
 
@@ -137,7 +137,7 @@ To add a hard-return, an HTML break tag, you can use *br*, wrapped in a pair of 
 Links
 -------------------
 
-For better navigation and richer information, all of the pages in the Library have links to other pages or other web sites.  These are accomplished, of course, with links.  The table below shows how to create links using Restructured Text mark-up:
+For better navigation and richer information, all of the pages in the Library have links to other pages or other web sites. These are accomplished, of course, with links. The table below shows how to create links using Restructured Text mark-up:
 
 .. csv-table::
    :class: doc-options
@@ -153,7 +153,7 @@ For better navigation and richer information, all of the pages in the Library ha
 New Pages
 -------------------
 
-When new pages are added to Library, they must be included in the table of contents (i.e., ``toctree``) of a pages |---| typically an index.rst file |---| so that it may be included in the PDF versions of the documentation.  Below is how you would include three pages under the one on which these formatting codes are entered:
+When new pages are added to Library, they must be included in the table of contents (that is, ``toctree``) of a pages |---| typically an index.rst file |---| so that it may be included in the PDF versions of the documentation. Below is how you would include three pages under the one on which these formatting codes are entered:
 
 .. code-block:: text
 
@@ -163,14 +163,14 @@ When new pages are added to Library, they must be included in the table of conte
       some-document
       another-document
 
-These will link two documents to the one which contains this text.  It will also put links to them on the page, wherever this is entered. The link will include the heading from each page.  Notice that the document file name did not include the file extention (i.e., ``.rst``).
+These will link two documents to the one which contains this text. It will also put links to them on the page, wherever this is entered. The link will include the heading from each page. Notice that the document file name did not include the file extention (that is, ``.rst``).
 
 
 -------------------
 Meta Tags
 -------------------
 
-Meta tags are used to provide extra information to web browsers and search engines.  For instance the \<title> tag in the heading of an HTML page provides the title that you will see at the top of the browser, perhaps in the tabs. The \<description> tag can be used by the search engine to display a descpription you'll see in the search results. The \<keywords> tag helps to improve the ranking in searches.
+Meta tags are used to provide extra information to web browsers and search engines. For instance the \<title> tag in the heading of an HTML page provides the title that you will see at the top of the browser, perhaps in the tabs. The \<description> tag can be used by the search engine to display a descpription you will see in the search results. The \<keywords> tag helps to improve the ranking in searches.
 
 There are many meta tags that may be included in an HTML page. Below is how you would add them to a page formatted with Restructured Text:
 
@@ -181,9 +181,9 @@ There are many meta tags that may be included in an HTML page. Below is how you 
       :description: Instructions on using Restructured Text mark-up.
       :language: en-US
       :keywords: sphinx, restructured text, restructuredtext
-      :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+      :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
-This block of code should be entered at the very top of the document.  Below is the results of the above; it's the tags that can be see when looking at the page source in the web browser.
+This block of code should be entered at the very top of the document. Below is the results of the above; it is the tags that can be see when looking at the page source in the web browser.
 
 .. code-block:: html
 
@@ -192,7 +192,7 @@ This block of code should be entered at the very top of the document.  Below is 
    <meta content="Instructions on using Restructured Text mark-up." name="description" />
    <meta content="en-US" name="language" />
    <meta content="sphinx, restructured text, restructuredtext" name="keywords" />
-   <meta content="Codership Oy, 2014 - 2022. All Rights Reserved." name="copyright" />
+   <meta content="Codership Oy, 2014 - 2025. All Rights Reserved." name="copyright" />
    ...
    </head>
 
@@ -202,7 +202,7 @@ This block of code should be entered at the very top of the document.  Below is 
 CSS Classes & IDs
 -------------------
 
-Adding a CSS class or a CSS identification to an HTML tag is tricky with restructuredtext.  One way is to use ``rst-class`` like so:
+Adding a CSS class or a CSS identification to an HTML tag is tricky with restructuredtext. One way is to use ``rst-class`` like so:
 
 .. code-block:: text
 
@@ -226,14 +226,14 @@ Below are the results of the above formatting codes:
 
 
 
-We use Cascading Style Sheets (CSS) to set the fonts, margins, and other such text and page formats. However, you may want to add style for just one page.  To do this, you can use the ``raw`` directive like so:
+We use Cascading Style Sheets (CSS) to set the fonts, margins, and other such text and page formats. However, you may want to add style for just one page. To do this, you can use the ``raw`` directive like so:
 
 
 -------------------
 Raw HTML
 -------------------
 
-Sometimes the easiest approach to achieving something in HTML is to add a raw HTML tag.  This will require you to define or declare it, usually near the top of the file, and then invoking it as needed. Here's how you would declare it:
+Sometimes the easiest approach to achieving something in HTML is to add a raw HTML tag. This will require you to define or declare it, usually near the top of the file, and then invoking it as needed. Here's how you would declare it:
 
 .. code-block:: html
 

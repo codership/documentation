@@ -1,9 +1,9 @@
 .. meta::
-   :title: Setting Parallel Slave Threads in Galera Cluster
+   :title: Setting Parallel Replica Threads in Galera Cluster
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -59,7 +59,7 @@
 .. _`kb-best-parallel-slave-threads`:
 
 ===============================
-Setting Parallel Slave Threads
+Setting Parallel Replica Threads
 ===============================
 
 .. index::
@@ -71,14 +71,14 @@ Setting Parallel Slave Threads
 
    Length: 381 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
-There is no rule about how many slave threads you need for replication.  Parallel threads do not guarantee better performance, but they don't impair regular operation performance and they may in fact speed up the synchronization of new nodes joining a cluster.
+There is no rule about how many replica threads you need for replication. Parallel threads do not guarantee better performance, but they do not impair regular operation performance and they may in fact speed up the synchronization of new nodes joining a cluster.
 
 .. note:: The ``wsrep_slave_threads`` parameter is still available, but it is deprecated. Use ``wsrep_applier_threads`` for parallel threads, if you use MySQL-wsrep 8.0.26 or newer.
 
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-Suppose you have a cluster of a few nodes, but occasionally you add a couple of new nodes to the cluster to handle unexpected surges in traffic.  When these surges happen, you want the new nodes to be synchronized rapidly and not be a drain on the performance of the cluster in the process.
+Suppose you have a cluster of a few nodes, but occasionally you add a couple of new nodes to the cluster to handle unexpected surges in traffic. When these surges happen, you want the new nodes to be synchronized rapidly and not be a drain on the performance of the cluster in the process.
 
 You may be able to do this, to get new nodes synchronized and handling traffic faster by making changes to a couple of settings.
 
@@ -86,23 +86,23 @@ You may be able to do this, to get new nodes synchronized and handling traffic f
 .. rst-class:: section-heading
 .. rubric:: Recommendations
 
-To make state transfers quicker for new nodes, consider changing the number of slave threads. You should start with four slave threads per CPU core:
+To make state transfers quicker for new nodes, consider changing the number of replica threads. You should start with four replica threads per CPU core:
 
 .. code-block:: ini
 
    wsrep_applier_threads=4
 
-The logic here is that, in a balanced system, four slave threads can typically saturate a CPU core.  However, I/O performance can increase this figure several times over.  For example, a single-core ThinkPad R51 with a 4200 RPM drive can use thirty-two slave threads.
+The logic here is that, in a balanced system, four replica threads can typically saturate a CPU core. However, I/O performance can increase this figure several times over. For example, a single-core ThinkPad R51 with a 4200 RPM drive can use thirty-two replica threads.
 
-Next, you should set ``innodb_autoinc_lock_mode`` variable, the lock mode to use for generating auto-increment values.  Setting it to a value of 2 tells InnoDB to use interleaved method. Interleaved is the fastest and most scalable lock mode, but should be used only when ``BINLOG_FORMAT`` is set to ``ROW``.
+Next, you should set ``innodb_autoinc_lock_mode`` variable, the lock mode to use for generating auto-increment values. Setting it to a value of 2 tells InnoDB to use interleaved method. Interleaved is the fastest and most scalable lock mode, but should be used only when ``BINLOG_FORMAT`` is set to ``ROW``.
 
-Basically, setting the auto-increment lock mode for InnoDB to interleaved, you're allowing slaves threads to operate in parallel. You would do this by including the following line in the configuration file:
+Basically, setting the auto-increment lock mode for InnoDB to interleaved, you are allowing replicas threads to operate in parallel. You would do this by including the following line in the configuration file:
 
 .. code-block:: ini
 
    innodb_autoinc_lock_mode=2
 
-You can use the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable to determine the maximum number of slave threads possible.  For example:
+You can use the :ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>` status variable to determine the maximum number of replica threads possible. For example:
 
 .. code-block:: mysql
 

@@ -122,7 +122,7 @@ If a MySQL user *test1* has the following entry in the LDAP directory:
 
    uid=test1, ou=users, dc=hr, dc=com
 
-To create a MySQL account for *test1*, use the following statement::
+To create a MySQL account for *test1*, use the following statement:
 
 .. code-block:: console
 
