@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -74,14 +74,14 @@ In Docker, Dockerfiles are used to describe the Docker images we are going to us
 
    RUN apt-get update
    RUN apt-get install -y software-properties-common
-   RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 BC19DDBA
+   RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 8DA84635
    RUN add-apt-repository 'deb https://releases.galeracluster.com/ubuntu trusty main'
    RUN apt-get update
-   RUN apt-get install -y galera-3 galera-arbitrator-3 mysql-wsrep-5.6 rsync lsof
+   RUN apt-get install -y galera-4 galera-arbitrator-4 mysql-wsrep-8.0 rsync lsof
    COPY my.cnf /etc/mysql/my.cnf
    ENTRYPOINT ["mysqld"]
 
-This image builds on top of the Ubuntu 14.04 image. It simply installs Galera using the Codership repository and copies the my.cnf over.
+Note that for packages before MySQL 5.7.44 and 8.0.35, the signing key is BC19DDBA. This image builds on top of the Ubuntu 14.04 image. It simply installs Galera using the Codership repository and copies the my.cnf over.
 
 The `my.cnf` is quite simple.
 
@@ -139,7 +139,7 @@ For the next two containers, we use a simple Docker trick. The `–link` option 
    $ sudo docker run --detach=true --name node2 -h node2 --link node1:node1 erkules/galera:basic --wsrep-cluster-name=local-test --wsrep-cluster-address=gcomm://node1
    $ sudo docker run --detach=true --name node3 -h node3 --link node1:node1 erkules/galera:basic --wsrep-cluster-name=local-test --wsrep-cluster-address=gcomm://node1
 
-Now we have a running Galera cluster. We can check the number of nodes in the Cluster by running the mysql client from inside one of the containers:
+Now we have a running Galera Cluster. We can check the number of nodes in the Cluster by running the mysql client from inside one of the containers:
 
 .. code-block:: console
 
@@ -215,7 +215,7 @@ In this example, we used the image from the previous blog post. Docker is going 
 .. rst-class:: section-heading
 .. rubric:: Building a Multi-Node Cluster using Non-Default Ports
 
-In the long run, we may want to start more than one instance of Galera on a host in order to run more than one Galera cluster using the same set of hosts.
+In the long run, we may want to start more than one instance of Galera on a host in order to run more than one Galera Cluster using the same set of hosts.
 
 For the purpose, we set Galera Cluster to use non-default ports and then map MySQL’s default port to 4306:
 
@@ -262,7 +262,7 @@ The following Galera Cluster configuration options are used to specify each port
 .. rst-class:: section-heading
 .. rubric:: Summary
 
-That concludes this tutorial. As you can see, it's easy to run Galera on Docker and inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.
+That concludes this tutorial. As you can see, it is easy to run Galera on Docker and inside Docker on multiple hosts, even with non-standard ports. It is also possible to use solutions such as weave, socketplane.io and flannel that provide a multi-host network for the containers.
 
 
 

@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -64,7 +64,7 @@ WAN Replication
 
    Length: 161 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Performance; Type: Best Practices
 
-When running the cluster over a :abbr:`WAN (Wide Area Network)`, you may frequently experience transient network connectivity failures.  To prevent this from partitioning the cluster, you may want to increase the *keepalive* timeouts.
+When running the cluster over a :abbr:`WAN (Wide Area Network)`, you may frequently experience transient network connectivity failures. To prevent this from partitioning the cluster, you may want to increase the *keepalive* timeouts.
 
 .. rst-class:: section-heading
 .. rubric:: Recommendations
@@ -82,7 +82,7 @@ The following parameters can tolerate 30 second connectivity outages:
 
 In configuring these parameters, consider the following:
 
-- You want the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter set as high as possible to avoid partitions.  Partitions cause state transfers, which can effect performance.
+- You want the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter set as high as possible to avoid partitions. Partitions cause state transfers, which can effect performance.
 
 - You must set the :ref:`evs.inactive_timeout <evs.inactive_timeout>` parameter to a value higher than that of the :ref:`evs.suspect_timeout <evs.suspect_timeout>` parameter.
 

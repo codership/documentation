@@ -1,9 +1,9 @@
 .. meta::
-   :title: Galera Cluster Multi-Master Setup
+   :title: Galera Cluster Multi-Primary Setup
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -50,7 +50,7 @@
 .. _`kb-best-multi-master-setup`:
 
 ====================
-Multi-Master Setup
+Multi-Primary Setup
 ====================
 
 .. rst-class:: article-stats
@@ -58,6 +58,6 @@ Multi-Master Setup
    Length: 55 words; Published: June 24, 2015; Updated: October 22, 2019; Category: Topology; Type: Best Practices
 
 
-A master is a node that can simultaneously process writes from clients. The more masters in a cluster, the higher the probability of certification conflicts.  This can lead to undesirable rollbacks and performance degradation.
+A primary is a node that can simultaneously process writes from clients. The more primaries in a cluster, the higher the probability of certification conflicts. This can lead to undesirable rollbacks and performance degradation.
 
-If you find you experience frequent certification conflicts, consider reducing the number of nodes the cluster uses as masters.
+If you find you experience frequent certification conflicts, consider reducing the number of nodes the cluster uses as primaries.

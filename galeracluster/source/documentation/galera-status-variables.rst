@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, status variables, options, monitoring
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -59,7 +59,7 @@ These variables are *Galera Cluster* 0.8.x status variables. There are two types
 
 - Variables exported by MySQL. These variables are for the general wsrep provider.
 
-This distinction is of importance for developers only.  For convenience, all status variables are presented as a single list below. They're noted as to whether they are exported by Galera or by MySQL.
+This distinction is of importance for developers only. For convenience, all status variables are presented as a single list below. They're noted as to whether they are exported by Galera or by MySQL.
 
    .. only:: html
 
@@ -159,7 +159,7 @@ How often applier started write-set applying out-of-order (parallelization effic
    "Location", "Galera"
    "Initial Version", "1.0"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -188,7 +188,7 @@ How often write-set was so slow to apply that write-set with higher seqno's were
    "Location", "Galera"
    "Initial Version", "1.0"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -218,7 +218,7 @@ order.
    "Location", "Galera"
    "Initial Version", "3.34,4.9"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -246,7 +246,7 @@ Average distance between highest and lowest concurrently applied seqno.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -266,7 +266,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 .. index::
    pair: Status Variables; wsrep_cert_deps_distance
 
-Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization).
+Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization). Note that this is an average measure. You will not see acute changes in this variable.
 
 .. csv-table::
    :class: doc-options
@@ -275,7 +275,7 @@ Average distance between highest and lowest seqno value that can be possibly app
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -304,16 +304,16 @@ The number of entries in the certification index.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
-   SHOW STATUS LIKE 'wsrep_certs_index_size';
+   SHOW STATUS LIKE 'wsrep_cert_index_size';
 
    +------------------------+-------+
    | Variable_name          | Value |
    +------------------------+-------+
-   | wsrep_certs_index_size | 30936 |
+   | wsrep_cert_index_size | 30936 |
    +------------------------+-------+
 
 
@@ -333,11 +333,11 @@ Average number of transactions received while a transaction replicates.
    "Location", "Galera"
    "Initial Version", "???"
 
-When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it.  By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
+When a node replicates a write-set to the cluster, it can take some time before all the nodes in the cluster receive it. By the time a given node receives, orders and commits a write-set, it may receive and potentially commit others, changing the state of the database from when the write-set was sent and rendering the transaction inapplicable.
 
-To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts.  Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.
+To prevent this, Galera Cluster checks write-sets against all write-sets within its certification interval for potential conflicts. Using the :ref:`wsrep_cert_interval <wsrep_cert_interval>` status variable, you can see the average number of transactions with the certification interval.
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -368,7 +368,7 @@ Total number of cluster membership changes happened.
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -397,7 +397,7 @@ Current number of members in the cluster.
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -417,7 +417,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 .. index::
    pair: Status Variables; wsrep_cluster_state_uuid
 
-Provides the current State UUID.  This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes.
+Provides the current State UUID. This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes.
 
 .. csv-table::
    :class: doc-options
@@ -426,7 +426,7 @@ Provides the current State UUID.  This is a unique identifier for the current st
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -448,7 +448,7 @@ For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 .. index::
    pair: Status Variables; wsrep_cluster_status
 
-Status of this cluster component.  That is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
+Status of this cluster component. That is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
 
 .. csv-table::
    :class: doc-options
@@ -457,7 +457,7 @@ Status of this cluster component.  That is, whether the node is part of a ``PRIM
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -487,7 +487,7 @@ of :ref:`pc.weight <pc.weight>` of the nodes in the current :term:`Primary Compo
    "Location", "Galera"
    "Initial Version", "3.24"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -516,7 +516,7 @@ How often a transaction was committed out of order.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -545,7 +545,7 @@ No meaning.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -574,7 +574,7 @@ Average distance between highest and lowest concurrently committed seqno.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -603,7 +603,7 @@ If the value is ``OFF``, the node has not yet connected to any of the cluster co
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -632,9 +632,9 @@ Returns the number of operations in progress that require the node to temporaril
    "Location", "Galera"
    "Initial Version", "3.8"
 
-Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster.  This status variable shows how many of these operations are currently running on the node.  When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
+Certain operations, such as DDL statements issued when :ref:`wsrep_OSU_method <wsrep_OSU_method>` is set to Rolling Schema Upgrade or when you enable :ref:`wsrep_desync <wsrep_desync>`, cause the node to desync from the cluster. This status variable shows how many of these operations are currently running on the node. When all of these operations complete, the counter returns to its default value ``0`` and the node can sync back to the cluster.
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -679,7 +679,7 @@ This refers to the UUID and IP address of the delayed node, with a count of the 
 .. index::
    pair: Status Variables; wsrep_evs_evict_list
 
-Lists the UUID's of all nodes evicted from the cluster.  Evicted nodes cannot rejoin the cluster until you restart their ``mysqld`` processes.
+Lists the UUID's of all nodes evicted from the cluster. Evicted nodes cannot rejoin the cluster until you restart their ``mysqld`` processes.
 
 .. csv-table::
    :class: doc-options
@@ -688,7 +688,7 @@ Lists the UUID's of all nodes evicted from the cluster.  Evicted nodes cannot re
    "Location", "Galera"
    "Initial Version", "3.8"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -708,7 +708,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 .. index::
    pair: Parameters; wsrep_evs_repl_latency
 
-This status variable provides figures for the replication latency on group communication.  It measures latency from the time point when a message is sent out to the time point when a message is received.  As replication is a group operation, this essentially gives you the slowest ACK and longest RTT in the cluster.
+This status variable provides figures for the replication latency on group communication. It measures latency from the time point when a message is sent out to the time point when a message is received. As replication is a group operation, this essentially gives you the slowest ACK and longest RTT in the cluster.
 
 .. csv-table::
    :class: doc-options
@@ -717,7 +717,7 @@ This status variable provides figures for the replication latency on group commu
    "Location", "Galera"
    "Initial Version", "3.0"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -729,13 +729,13 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
    | wsrep_evs_repl_latency | 0.00243433/0.144022/0.591963/0.215824/13 |
    +------------------------+------------------------------------------+
 
-The units are in seconds.  The format of the return value is:
+The units are in seconds. The format of the return value is:
 
 .. code-block:: text
 
    Minimum / Average / Maximum / Standard Deviation / Sample Size
 
-This variable periodically resets.  You can control the reset interval using the :ref:`evs.stats_report_period <evs.stats_report_period>` parameter.  The default value is 1 minute.
+This variable periodically resets. You can control the reset interval using the :ref:`evs.stats_report_period <evs.stats_report_period>` parameter. The default value is 1 minute.
 
 
 .. _`wsrep_evs_state`:
@@ -754,7 +754,7 @@ Shows the internal state of the EVS Protocol.
    "Location", "Galera"
    "Initial Version", "3.8"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -783,7 +783,7 @@ Whether flow control is currently active (replication paused) in the cluster.
    "Location", "Galera"
    "Initial Version", "3.31"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -812,9 +812,9 @@ The fraction of time since the last ``FLUSH STATUS`` command that replication wa
    "Location", "Galera"
    "Initial Version", ""
 
-Basically, this is how much the slave lag is slowing down the cluster.
+Basically, this is how much the replica lag is slowing down the cluster.
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -843,7 +843,7 @@ The total time spent in a paused state measured in nanoseconds.
    "Location", "Galera"
    "Initial Version", ""
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -863,7 +863,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 .. index::
    pair: Status Variables; wsrep_flow_control_recv
 
-Returns the number of ``FC_PAUSE`` events the node has received, including those the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
+Returns the number of ``FC_PAUSE`` events the node has received, including those the node has sent. Unlike most status variables, the counter for this one does not reset every time you run the query.
 
 .. csv-table::
    :class: doc-options
@@ -872,7 +872,7 @@ Returns the number of ``FC_PAUSE`` events the node has received, including those
    "Location", "Galera"
    "Initial Version", ""
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -892,7 +892,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 .. index::
    pair: Status Variables; wsrep_flow_control_requested
 
-Whether the node has requested replication pause (received events queue too long)
+Whether the node has requested replication pause (received events queue too long).
 
 .. csv-table::
    :class: doc-options
@@ -901,7 +901,7 @@ Whether the node has requested replication pause (received events queue too long
    "Location", "Galera"
    "Initial Version", "3.31"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -921,7 +921,7 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 .. index::
    pair: Status Variables; wsrep_flow_control_sent
 
-Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status variables, the counter for this one does not reset every time you run the query.
+Returns the number of ``FC_PAUSE`` events the node has sent. Unlike most status variables, the counter for this one does not reset every time you run the query.
 
 .. csv-table::
    :class: doc-options
@@ -930,7 +930,7 @@ Returns the number of ``FC_PAUSE`` events the node has sent.  Unlike most status
    "Location", "Galera"
    "Initial Version", ""
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -959,7 +959,7 @@ Returns cluster segment the node belongs to.
    "Location", "Galera"
    "Initial Version", "3.31"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -988,7 +988,7 @@ Displays the group communications UUID.
    "Location", "Galera"
    "Initial Version", "1.0"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1017,7 +1017,7 @@ Comma-separated list of incoming server addresses in the cluster component.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1056,7 +1056,7 @@ The sequence number, or seqno, of the last committed transaction. See :ref:`wsre
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1078,7 +1078,7 @@ For more information, see :ref:`wsrep API <wsrep-api>`.
 .. index::
    pair: Status Variables; wsrep_local_bf_aborts
 
-Total number of local transactions that were aborted by slave transactions while in execution.
+Total number of local transactions that were aborted by replica transactions while in execution.
 
 .. csv-table::
    :class: doc-options
@@ -1087,7 +1087,7 @@ Total number of local transactions that were aborted by slave transactions while
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1116,7 +1116,7 @@ The lowest sequence number, or seqno, in the write-set cache (GCache).
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1145,7 +1145,7 @@ Total number of local transactions that failed certification test.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1174,7 +1174,7 @@ Total number of local transactions committed.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1203,7 +1203,7 @@ This node index in the cluster (base 0).
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1232,7 +1232,7 @@ Current (instantaneous) length of the recv queue.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1261,7 +1261,7 @@ Recv queue length averaged over interval since the last ``FLUSH STATUS`` command
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1290,7 +1290,7 @@ The maximum length of the recv queue since the last FLUSH STATUS command.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1319,7 +1319,7 @@ The minimum length of the recv queue since the last ``FLUSH STATUS`` command.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1348,7 +1348,7 @@ Total number of transaction replays due to *asymmetric lock granularity*.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1377,7 +1377,7 @@ Current (instantaneous) length of the send queue.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1406,7 +1406,7 @@ Send queue length averaged over time since the last ``FLUSH STATUS`` command. Va
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1435,7 +1435,7 @@ The maximum length of the send queue since the last ``FLUSH STATUS`` command.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1464,7 +1464,7 @@ The minimum length of the send queue since the last ``FLUSH STATUS`` command.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1493,7 +1493,7 @@ Internal Galera Cluster FSM state number.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1524,7 +1524,7 @@ Human-readable explanation of the state.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1553,7 +1553,7 @@ The UUID of the state stored on this node.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1584,7 +1584,7 @@ The number of open connection objects inside the wsrep provider.
    "Location", "Galera"
    "Initial Version", "3.24"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1613,7 +1613,7 @@ The number of locally running transactions which have been registered inside the
    "Location", "Galera"
    "Initial Version", "3.24"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1642,7 +1642,7 @@ The version of the wsrep Protocol used.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1660,6 +1660,7 @@ The following table summarizes protocol versions and the galera version in which
    :class: doc-options
    :header: "|br| Protocol version", "|br| Galera version"
 
+   "11", "``26.4.17``"
    "10", "``26.4.1``"
    "9",  "``25.3.24``"
    "8",  "``25.3.23``"
@@ -1683,7 +1684,7 @@ The name of the wsrep Provider.
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1712,7 +1713,7 @@ The name of the wsrep Provider vendor.
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1741,7 +1742,7 @@ The name of the wsrep Provider version string.
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1763,6 +1764,12 @@ To see retrieve the value of this status variable, execute the ``SHOW STATUS`` s
 
 Whether the server is ready to accept queries. If this status is ``OFF``, almost all of the queries will fail with:
 
+.. code-block:: text
+
+    ERROR 1047 (08S01) Unknown Command
+
+unless the ``wsrep_on`` session variable is set to ``0``.
+
 .. csv-table::
    :class: doc-options
 
@@ -1770,13 +1777,7 @@ Whether the server is ready to accept queries. If this status is ``OFF``, almost
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
-
-.. code-block:: text
-
-    ERROR 1047 (08S01) Unknown Command
-
-unless the ``wsrep_on`` session variable is set to ``0``.
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1805,7 +1806,7 @@ Total number of write-sets received from other nodes.
    "Location", "MySQL"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1834,7 +1835,7 @@ Total size of write-sets received from other nodes.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1863,7 +1864,7 @@ Total size of data replicated.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1892,7 +1893,7 @@ Total number of keys replicated.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-blocK:: mysql
 
@@ -1921,7 +1922,7 @@ Total size of keys replicated.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1950,7 +1951,7 @@ Total size of other bits replicated.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -1979,7 +1980,7 @@ Total number of write-sets replicated (sent to other nodes).
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 
@@ -2008,7 +2009,7 @@ Total size of write-sets replicated.
    "Location", "Galera"
    "Initial Version", "???"
 
-To see retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
 
 .. code-block:: mysql
 

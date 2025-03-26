@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, sst, state snapshot transfer
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -66,20 +66,20 @@
 State Snapshot Transfers
 ===============================
 
-When a new node joins a cluster, it will request data from the cluster.  One node, known as a donor, will use a :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node, known as the joiner.
+When a new node joins a cluster, it will request data from the cluster. One node, known as a donor, will use a :term:`State Snapshot Transfer` (SST) method to provide a full data copy to the new node, known as the joiner.
 
-You can designate in advance which node should be the donor with the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter. If you don't set the :term:`Donor Node`, the *Group Communication* module will select a donor based on the information available about the node states.
+You can designate in advance which node should be the donor with the :ref:`wsrep_sst_donor <wsrep_sst_donor>` parameter. If you do not set the :term:`Donor Node`, the *Group Communication* module will select a donor based on the information available about the node states.
 
-Group Communication monitors node states for the purposes of flow control, state transfers and :term:`Quorum` calculations.  It ensures that a node that shows as ``JOINING`` doesn't count towards flow control and quorum.
+Group Communication monitors node states for the purposes of flow control, state transfers and :term:`Quorum` calculations. It ensures that a node that shows as ``JOINING`` does not count towards flow control and quorum.
 
-A node can serve as a donor when it is in the ``SYNCED`` state.  The :term:`Joiner Node` selects a donor from the available synced nodes.  It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option, or it selects the first in the index.  When a donor node is chosen, its state changes immediately to ``DONOR``. It's no longer available for requests.
+A node can serve as a donor when it is in the ``SYNCED`` state. The :term:`Joiner Node` selects a donor from the available synced nodes. It shows preference to synced nodes that have the same :ref:`gmcast.segment <gmcast.segment>` wsrep Provider option, or it selects the first in the index. When a donor node is chosen, its state changes immediately to ``DONOR``. It is no longer available for requests.
 
 
 .. _`sst-methods`:
 .. rst-class:: section-heading
 .. rubric:: SST Methods
 
-Galera supports several back-end methods for use in state snapshot transfers.  There are two types: Logical State Snapshots, which interface through the database server and client; and Physical State Snapshots, which directly copy the data files from node to node.
+Galera supports several back-end methods for use in state snapshot transfers. There are two types: Logical State Snapshots, which interface through the database server and client; and Physical State Snapshots, which directly copy the data files from node to node.
 
 
 .. csv-table::
@@ -91,14 +91,14 @@ Galera supports several back-end methods for use in state snapshot transfers.  T
    ":ref:`clone <sst-physical-clone>`", "Fastest", "On DDLs", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
    ":ref:`xtrabackup <sst-physical-xtrabackup>`", "Fast", "Briefly", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
 
-To set the State Snapshot Transfer method, use the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter.  In the example below, the method is set to use ``rsync``, along with the default donors:
+To set the State Snapshot Transfer method, use the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter. In the example below, the method is set to use ``rsync``, along with the default donors:
 
 .. code-block:: ini
 
    wsrep_sst_method = rsync
    wsrep_sst_donor  = "node1, node2"
 
-There is no single best method for State Snapshot Transfers.  You must decide which suits your particular needs and cluster deployment.  Fortunately, you need only set the method on the receiving node.  So long as the donor has support, it serves the transfer in whatever method the joiner requests.
+There is no single best method for State Snapshot Transfers. You must decide which suits your particular needs and cluster deployment. Fortunately, you need only set the method on the receiving node. So long as the donor has support, it serves the transfer in whatever method the joiner requests.
 
 .. container:: bottom-links
 

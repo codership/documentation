@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -77,7 +77,7 @@ Installing a Galera Cluster on AWS
 
 .. container:: video-abstract list-col2-3
 
-   These exercises are part of the training video, *Installing a Galera Cluster on AWS*.  They correspond to what is presented, and should be done after each section is viewed, unless otherwise noted.
+   These exercises are part of the training video, *Installing a Galera Cluster on AWS*. They correspond to what is presented, and should be done after each section is viewed, unless otherwise noted.
 
    Before starting these exercises, make sure you have all of the requirements and preparations in place.
 
@@ -104,7 +104,7 @@ Installing a Galera Cluster on AWS
    .. rst-class:: section-heading
    .. rubric:: Exercises
 
-Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in the training video.  Make notes for yourself, after successfully performing each exercise, for when you have to do these tasks later for yourself.
+Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in the training video. Make notes for yourself, after successfully performing each exercise, for when you have to do these tasks later for yourself.
 
 
 .. rst-class:: sub-heading
@@ -114,7 +114,7 @@ Do these exercises after viewing the first three sections of the training video:
 
 .. rst-class:: list-exercises
 
-1. Generate an encryption key for accessing nodes.  Then log into AWS and create three instances with a distribution of Linux you prefer.
+1. Generate an encryption key for accessing nodes. Then log into AWS and create three instances with a distribution of Linux you prefer.
 
 2. Create a security group to use with your instances. Add rules to allow traffic among them, using their internal IP addresses. Open TCP ports 22, 3306, 4444, 4567, and 4568 for each node. Also open UDP port 4567 for each.
 
@@ -125,9 +125,9 @@ Do these exercises after viewing *Installing Software on Nodes* on the training 
 
 .. rst-class:: list-exercises
 
-3. If you prefer to use MySQL, use a web browser to go to Codership’s web site (see links in margin) to get the URL’s for the latest wsrep-MySQL and the Galera Cluster packages.  Use a text editor to create a repository file on each node and include the URLs you copied.  See the margin for links to the Codership’s documentation page which shows how to construct a repository file.  If you prefer to use MariaDB, go to The MariaDB Foundation page to construct a repository file based on the Linux distribution and version you’re using. Get at least version 10.4 of MariaDB.
+3. If you prefer to use MySQL, use a web browser to go to Codership’s web site (see links in margin) to get the URL’s for the latest wsrep-MySQL and the Galera Cluster packages. Use a text editor to create a repository file on each node and include the URLs you copied. See the margin for links to the Codership’s documentation page which shows how to construct a repository file. If you prefer to use MariaDB, go to The MariaDB Foundation page to construct a repository file based on the Linux distribution and version you’re using. Get at least version 10.4 of MariaDB.
 
-4. Install MySQL or MariaDB, and Galera on each node.  When finished, start ``mysqld`` on each node |---| don’t bootstrap Galera. For MySQL, grep the MySQL log for root’s temporary password.  For MariaDB, there is no password, initially. Run ``mysql_secure_install`` on each node and change the root password, as well as respond to the other questions it asks.  Then try logging into MySQL or MariaDB with the mysql client as root with the new password.  Exit and shutdown ``mysqld``.
+4. Install MySQL or MariaDB, and Galera on each node. When finished, start ``mysqld`` on each node |---| don’t bootstrap Galera. For MySQL, grep the MySQL log for root’s temporary password. For MariaDB, there is no password, initially. Run ``mysql_secure_install`` on each node and change the root password, as well as respond to the other questions it asks. Then try logging into MySQL or MariaDB with the mysql client as root with the new password. Exit and shutdown ``mysqld``.
 
 
 .. rst-class:: sub-heading
@@ -137,7 +137,7 @@ Do these exercises after viewing the two sections related to this combined title
 
 .. rst-class:: list-exercises
 
-5. Edit the database configuration file to include settings needed for Galera Cluster.  There’s a link at the top under Student Materials for an example configuration file. Don’t start ``mysqld`` yet. Configure each node before proceeding to the next exercise.
+5. Edit the database configuration file to include settings needed for Galera Cluster. There’s a link at the top under Student Materials for an example configuration file. Don’t start ``mysqld`` yet. Configure each node before proceeding to the next exercise.
 
 6. Configure either SELinux or Firewalld or both to open the following ports:  TCP 22, TCP 3306. TCP 4444, TCP & UDP 4567, and TCP 4568. If you want to use only SELinux or only Firewalld, disable the one not used.
 
@@ -148,20 +148,20 @@ This is the core of the training video. You may encounter problems as you do the
 
 .. rst-class:: list-exercises
 
-7. Choose a node to be the seed node |---| anyone will be fine. Start MySQL and Galera on the one node by using the ``mysqld_bootstrap`` script.  If you’re using MariaDB, start it with Galera by using the ``galera_new_cluster`` script. If there are any errors, shutdown ``mysqld`` and read the full error messages, as well as look through the database log for clues. Resolve any problems and keep trying until you get it started. Then execute ``SHOW STATUS`` with the ``LIKE`` operator to see if Galera is running.
+7. Choose a node to be the seed node |---| anyone will be fine. Start MySQL and Galera on the one node by using the ``mysqld_bootstrap`` script. If you’re using MariaDB, start it with Galera by using the ``galera_new_cluster`` script. If there are any errors, shutdown ``mysqld`` and read the full error messages, as well as look through the database log for clues. Resolve any problems and keep trying until you get it started. Then execute ``SHOW STATUS`` with the ``LIKE`` operator to see if Galera is running.
 
-8. Once you have the first node running MySQL or MariaDB, and Galera, start mysqld on one of the other nodes |---| don’t use the ``mysqld_bootstrap`` and ``galera_new_cluster`` scripts.  If there are any errors, shutdown mysqld and resolve them until you get it started. Execute the ``SHOW STATUS`` statement with the ``LIKE`` operator to see the ``wsrep_cluster_size``. It should have a value of 2.
+8. Once you have the first node running MySQL or MariaDB, and Galera, start mysqld on one of the other nodes |---| don’t use the ``mysqld_bootstrap`` and ``galera_new_cluster`` scripts. If there are any errors, shutdown mysqld and resolve them until you get it started. Execute the ``SHOW STATUS`` statement with the ``LIKE`` operator to see the ``wsrep_cluster_size``. It should have a value of 2.
 
-9. Download the dump file containing the ``company`` database (see link at the top under Student Materials) onto the first node.  There’s one for MySQL and another for MariaDB: use the one that matches your database system. Both were created with ``mysqldump``, so use the ``mysql`` client to load the data.  When it’s finished, check the second node to see if it replicated the data.
+9. Download the dump file containing the ``company`` database (see link at the top under Student Materials) onto the first node. There’s one for MySQL and another for MariaDB: use the one that matches your database system. Both were created with ``mysqldump``, so use the ``mysql`` client to load the data. When it’s finished, check the second node to see if it replicated the data.
 
-10. Start ``mysqld`` on the third node.  After it has successfully joined the cluster, look to see if it has replicated the ``company`` database. Enter the ``CREATE DATABASE`` statement to create a database without tables. Check that the other nodes replicated it.
+10. Start ``mysqld`` on the third node. After it has successfully joined the cluster, look to see if it has replicated the ``company`` database. Enter the ``CREATE DATABASE`` statement to create a database without tables. Check that the other nodes replicated it.
 
 11. Shut down all of the nodes and restart them, using ``mysqld_bootstrap`` to start only the first node, which should be the last one that was shutdown. If you have problems, check the ``grastate.dat`` file in the data directory to ensure the ``safe_to_bootstrap`` parameter is set to 1.
 
 
 .. note::
 
-  If you struggled at any point in doing these exercises, especially in getting the Galera nodes started, you might want to do them again.  Start with fresh installations of the servers, without MySQL or MariaDB or Galera Cluster.  If you use the same servers, before doing the exercises again, uninstall the database software and Galera, and delete the data directory.  Do the exercises multiple times until you’re able to install, configure, and start a Galera cluster without any problems.
+  If you struggled at any point in doing these exercises, especially in getting the Galera nodes started, you might want to do them again. Start with fresh installations of the servers, without MySQL or MariaDB or Galera Cluster. If you use the same servers, before doing the exercises again, uninstall the database software and Galera, and delete the data directory. Do the exercises multiple times until you’re able to install, configure, and start a Galera cluster without any problems.
 
 .. container:: bottom-links
 

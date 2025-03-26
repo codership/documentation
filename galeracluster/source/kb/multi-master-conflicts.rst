@@ -1,9 +1,9 @@
 .. meta::
-   :title: Handling Multi-Master Conflicts in Galera Cluster
+   :title: Handling Multi-Primary Conflicts in Galera Cluster
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -59,31 +59,31 @@
 .. _`kb-trouble-multi-master-conflicts`:
 
 ======================================
-Multi-Master Conflicts
+Multi-Primary Conflicts
 ======================================
 
 .. rst-class:: article-stats
 
    Length: 751 words; Published: April 1, 2014; Updated: October 7, 2019; Category: Splits & Topology; Type: Troubleshooting
 
-These types of conflicts relate to multi-master database environments and typically involve inconsistencies of row amongst nodes.
+These types of conflicts relate to multi-primary database environments and typically involve inconsistencies of row amongst nodes.
 
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-To understand this better, consider a situation in a multi-master replication system in which users can submit updates to any database node.  There may be an instance in which two nodes attempt to change the same row in a database, but with different values.  Galera Cluster copes with situations such as this by using certification-based replication.
+To understand this better, consider a situation in a multi-primary replication system in which users can submit updates to any database node. There may be an instance in which two nodes attempt to change the same row in a database, but with different values. Galera Cluster copes with situations such as this by using certification-based replication.
 
 
 .. rst-class:: section-heading
 .. rubric:: Troubleshooting
 
-There are a few techniques available to log and monitor problems that may indicate multi-master conflicts.  They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log.  You can enable it through the configuration file with a line like so:
+There are a few techniques available to log and monitor problems that may indicate multi-primary conflicts. They can be enabled with the :ref:`wsrep_debug <wsrep_debug>` option. This instructs the node to include additional debugging information in the server output log. You can enable it through the configuration file with a line like so:
 
 .. code-block:: ini
 
    wsrep_debug=ON
 
-Once you turn debugging on, you can use monitoring software to watch for row conflicts.  Below is an example of a log entry that indicates a conflict as described above:
+Once you turn debugging on, you can use monitoring software to watch for row conflicts. Below is an example of a log entry that indicates a conflict as described above:
 
 .. code-block:: text
 
@@ -98,7 +98,7 @@ Once you turn debugging on, you can use monitoring software to watch for row con
        commit failed for reason: 3, seqno: -1
 
 
-.. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs.  Do not enable it in production environments.
+.. warning:: In addition to useful debugging information, this parameter also causes the database server to print authentication information, (that is, passwords), to the error logs. Do not enable it in production environments.
 
 If you develop your own notification system, you can use status variables to watch for conflicts. Below is an example of how you might manually retrieve this information. You would simply incorporate something similar into your scripts or customized program.
 
@@ -120,16 +120,16 @@ If you develop your own notification system, you can use status variables to wat
    | wsrep_local_cert_failures | 333   |
    +---------------------------+-------+
 
-:ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` returns the total number of local transactions aborted by slave transactions while in execution. :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` provides the total number of transactions that have failed certification tests.
+:ref:`wsrep_local_bf_aborts <wsrep_local_bf_aborts>` returns the total number of local transactions aborted by replica transactions while in execution. :ref:`wsrep_local_cert_failures <wsrep_local_cert_failures>` provides the total number of transactions that have failed certification tests.
 
-You can enable conflict logging features with :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` and :ref:`cert.log_conflicts <cert.log_conflicts>`. Just add the following lines to the configuration file (i.e., ``my.cnf``):
+You can enable conflict logging features with :ref:`wsrep_log_conflicts <wsrep_log_conflicts>` and :ref:`cert.log_conflicts <cert.log_conflicts>`. Just add the following lines to the configuration file (that is, ``my.cnf``):
 
 .. code-block:: ini
 
    wsrep_log_conflicts=ON
    wsrep_provider_options="cert.log_conflicts=YES"
 
-These parameters enable different forms of conflict logging on the database server.  When turned on, the node logs additional information about the conflicts it encounters. For instance, it will log the name of the table and schema where the conflict occurred and the actual values for the keys that produced the conflict. Below is an example of such a log entry:
+These parameters enable different forms of conflict logging on the database server. When turned on, the node logs additional information about the conflicts it encounters. For instance, it will log the name of the table and schema where the conflict occurred and the actual values for the keys that produced the conflict. Below is an example of such a log entry:
 
 .. code-block:: text
 
@@ -145,7 +145,7 @@ These parameters enable different forms of conflict logging on the database serv
 .. rst-class:: section-heading
 .. rubric:: Solution
 
-When two transactions are conflicting, the later of the two is rolled back by the cluster.  The client application registers this rollback as a deadlock error.  Ideally, the client application should retry the deadlocked transaction. However, not all client applications have this logic built in.
+When two transactions are conflicting, the later of the two is rolled back by the cluster. The client application registers this rollback as a deadlock error. Ideally, the client application should retry the deadlocked transaction. However, not all client applications have this logic built in.
 
 If you encounter this problem, you can set the node to attempt to auto-commit the deadlocked transactions on behalf of the client application. You would do this with the :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>` parameter. Just enter the following to the configuration file:
 
@@ -153,7 +153,7 @@ If you encounter this problem, you can set the node to attempt to auto-commit th
 
    wsrep_retry_autocommit=4
 
-When a transaction fails the certification test due to a cluster-wide conflict, this parameter tells the node how many times you want it to retry the transaction before returning a deadlock error. In the example line above, it's set to four times.
+When a transaction fails the certification test due to a cluster-wide conflict, this parameter tells the node how many times you want it to retry the transaction before returning a deadlock error. In the example line above, it is set to four times.
 
 Retrying only applies to auto-commit transactions, as retrying is not safe for multi-statement transactions.
 
@@ -161,15 +161,15 @@ Retrying only applies to auto-commit transactions, as retrying is not safe for m
 .. rst-class:: section-heading
 .. rubric:: Work-Around
 
-While Galera Cluster resolves multi-master conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.
+While Galera Cluster resolves multi-primary conflicts automatically, there are steps you can take to minimize the frequency of their occurrence.
 
 - First, analyze the hot-spot and see if you can change the application logic to catch deadlock exceptions.
 
 - Next, enable retrying logic at the node level using the :ref:`wsrep_retry_autocommit <wsrep_retry_autocommit>` parameter.
 
-- Last, limit the number of master nodes or switch to a master-slave model.
+- Last, limit the number of primary nodes or switch to a primary-replica model.
 
-If you can filter out access to the hot-spot table, it may be enough to treat writes only to the hot-spot table as master-slave.
+If you can filter out access to the hot-spot table, it may be enough to treat writes only to the hot-spot table as primary-replica.
 
 .. container:: bottom-links
 

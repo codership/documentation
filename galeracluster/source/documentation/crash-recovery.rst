@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, streaming replication
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -113,7 +113,7 @@ For MySQL:
 
 .. code-block:: console
 
-   $ mysqld_bootstrap --wsrep-new-cluster
+   $ mysqld_bootstrap
 
 For PXC:
 
@@ -181,13 +181,15 @@ This scenario is possible in the case of a datacenter power failure or when hitt
    seqno: -1
    safe_to_bootstrap: 0
 
-In this case, you cannot be sure that all nodes are consistent with each other. We cannot use ``safe_to_bootstrap`` variable to determine the node that has the last transaction committed as it is set to 0 for each node. An attempt to bootstrap from such a node will fail unless you start ``mysqld`` with the ``--wsrep-recover`` parameter:
+In this case, you cannot be sure that all nodes are consistent with each other. We cannot use ``safe_to_bootstrap`` variable to determine the node that has the last transaction committed as it is set to 0 for each node. An attempt to bootstrap from such a node will fail.
+
+To determine the most up-to-date node, start ``mysqld`` with the ``--wsrep-recover`` parameter:
 
 .. code-block:: console
 
    $ mysqld --wsrep-recover
 
-Search the output for the line that reports the recovered position after the node UUID (1122 in this case):
+This will briefly start ``mysqld`` and output a line that reports the recovered position before exiting:
 
 .. code-block:: mysql
 
@@ -195,7 +197,16 @@ Search the output for the line that reports the recovered position after the nod
    ... [Note] WSREP: Recovered position: 220dcdcb-1629-11e4-add3-aec059ad3734:1122
    ...
 
-The node where the recovered position is marked by the greatest number is the best bootstrap candidate. In its ``grastate.dat`` file, set the ``safe_to_bootstrap`` variable to 1. Then, bootstrap from this node.
+Alternatively, helper script ``wsrep_recover`` retrieves the recovered position automatically:
+
+.. code-block:: console
+
+   $ sudo wsrep_recover
+   WSREP: Recovered position 220dcdcb-1629-11e4-add3-aec059ad3734:1122
+   --wsrep_start_position=220dcdcb-1629-11e4-add3-aec059ad3734:1122
+
+The recovered position is a pair ``<cluster state UUID>:<sequence number>``. Retrieve the recovered position on all nodes that were part of the cluster. The node with the highest sequence number in its recovered position is the most up-to-date, and should be chosen as bootstrap candidate.
+In its ``grastate.dat`` file, set the ``safe_to_bootstrap`` variable to 1. Then, bootstrap from this node.
 
 .. note:: After a shutdown, you can boostrap from the node which is marked as safe in the grastate.dat file.
 

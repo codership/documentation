@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords: galera cluster, documentation, docs, mysql, mariadb
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -97,6 +97,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`schema-upgrades`", ":doc:`using-sr`"
    ":doc:`upgrading`", ":doc:`backup-cluster`"
    ":doc:`crash-recovery`", ":doc:`inconsistency-voting`"
+   ":doc:`utility-scripts`"
 
 
 .. container:: banner
@@ -110,7 +111,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`load-balancing`", ":doc:`deployment-variants`"
    ":doc:`containers`", ":doc:`arbitrator`"
    ":doc:`ldap-plugin`", ":doc:`pam-plugin`"
-
+   ":doc:`keyring-plugin`", ""
 
 .. container:: banner
 
@@ -137,7 +138,7 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`wsrep-functions`", ":doc:`xtrabackup-options`"
    ":doc:`galera-parameters`", ":doc:`system-tables`"
    ":doc:`galera-status-variables`", ":doc:`versioning-information`"
-   ":doc:`mariadb-options`", ""
+   ":doc:`mariadb-options`", ":doc:`mariabackup-options`"
 
 
 .. container:: banner
@@ -151,9 +152,9 @@ This is the Codership Documentation. It documents the latest version of Galera C
    ":doc:`glossary`", ":doc:`legal-notice`"
    ":ref:`genindex`", ":doc:`../whats-new`"
 
-For resolving problems you might have with the software, you can also check our :doc:`Knowledge Base <../kb/index>`. There you will find troubleshooting and best practices articles.  You can also post questions on the `Codership Forum <https://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
+For resolving problems you might have with the software, you can also check our :doc:`Knowledge Base <../kb/index>`. There you will find troubleshooting and best practices articles. You can also post questions on the `Codership Forum <https://galeracluster.com/community/>`_. The community, as well as our staff monitor and respond to posts made there.
 
-If you need more immediate and personalized assistance, you can get a Support contract with us at Codership.  For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <https://galeracluster.com/contact-us/#send-us-a-message>`_.
+If you need more immediate and personalized assistance, you can get a Support contract with us at Codership. For a quote on the cost of support, write us at info@codership.com or use our on-line form `to send us a message <https://galeracluster.com/contact-us/#send-us-a-message>`_.
 
 
 .. toctree::

@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -47,12 +47,12 @@
 Codership Writers & Editors
 =============================
 
-:doc:`The Codership Library <../index>` is written by the staff of Codership.  Its editors then edit and organize that text |---| some also write plenty of the text. This section of the Library relates to these activities.  Here you'll find information on how the Library is organized and our plans for its development and maintenance |---| assuming this is some of interest to anyone other than the editors.
+:doc:`The Codership Library <../index>` is written by the staff of Codership. Its editors then edit and organize that text |---| some also write plenty of the text. This section of the Library relates to these activities. Here you will find information on how the Library is organized and our plans for its development and maintenance |---| assuming this is some of interest to anyone other than the editors.
 
 .. rst-class:: section-heading
 .. rubric:: :doc:`Mission & Goals <./mission-goals>`
 
-The mission of the editorial staff, as well as their goals related to the Codership Library are described on this page |---| click on the title here to get to it. It includes a description and purpose of each section of the Library (e.g., the types of articles contained in the Knowledge Base).
+The mission of the editorial staff, as well as their goals related to the Codership Library are described on this page |---| click on the title here to get to it. It includes a description and purpose of each section of the Library (for example, the types of articles contained in the Knowledge Base).
 
 
 .. rst-class:: section-heading
@@ -71,7 +71,7 @@ The mission of the editorial staff, as well as their goals related to the Coders
 
 The Codership Library was reorganized recently to make it easier to find information on Galera Cluster. This includes the introduction of a knowledge base containing troubleshooting and best practices articles, as well as tutorial articles and training videos.
 
-This has been quite an extensive project.  As such, we've added here plans of how we'll further organize and expand these primary sections of the Library, as well as an editorial calendar of the publication of articles and other resources.
+This has been quite an extensive project. As such, we've added here plans of how we'll further organize and expand these primary sections of the Library, as well as an editorial calendar of the publication of articles and other resources.
 
 On the right are two pie charts representing data from Google, depicting the percentage of user impressions and clicks for the Library. Below are brief summaries of each section of the Library and links to more detailed information.
 
@@ -85,7 +85,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-abstract sub-list-abstract
 
-   Previously, the Documentation encompassed all of what is now known as the Library.  Now it's straightforward documentation, not tutorials or advice articles. It does include over two hundreds pages of information on configuring and administering Galera Cluster.
+   Previously, the Documentation encompassed all of what is now known as the Library. Now it is straightforward documentation, not tutorials or advice articles. It does include over two hundreds pages of information on configuring and administering Galera Cluster.
 
 
 .. rst-class:: rubric-2 list-sub-header
@@ -109,7 +109,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-abstract sub-list-abstract
 
-   One of our goals is to write a robust set of tutorial articles to assist readers in learning about every aspect of Galera Cluster and related software.  On this page, you'll find a list of articles with links to them, as well as a list of articles we intend to add to the Library |---| along with when we expect to publish these articles.
+   One of our goals is to write a robust set of tutorial articles to assist readers in learning about every aspect of Galera Cluster and related software. On this page, you will find a list of articles with links to them, as well as a list of articles we intend to add to the Library |---| along with when we expect to publish these articles.
 
 
 .. rst-class:: rubric-2 list-sub-header
@@ -133,7 +133,7 @@ On the right are two pie charts representing data from Google, depicting the per
 
 .. rst-class:: list-abstract sub-list-abstract
 
-   On this page we record new questions for the FAQ until we are able to answer them properly.  Some contain rough answers; they're FAQs in progress.
+   On this page we record new questions for the FAQ until we are able to answer them properly. Some contain rough answers; they're FAQs in progress.
 
 
 
@@ -155,7 +155,7 @@ Below are areas related to the mechanics of the Library: documentation processin
 
 .. rst-class:: list-abstract sub-list-abstract
 
-   Codership utilizes the Sphinx documentation system to organize and proces the documentation and other pages of the Library, including various articles. These documents or files are written in the Restructured Text format, a type of mark-down language.  This is a guide to that system and mark-down language.
+   Codership utilizes the Sphinx documentation system to organize and process the documentation and other pages of the Library, including various articles. These documents or files are written in the Restructured Text format, a type of mark-down language. This is a guide to that system and mark-down language.
 
 
 .. rst-class:: rubric-2 list-sub-header

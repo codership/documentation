@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -76,7 +76,7 @@ Installing Galera Cluster with MariaDB
 
 .. container:: video-abstract list-col2-3
 
-   These examples are part of the training video, *Installing Galera Cluster with MariaDB*.  They correspond to what was taught, and should be done after each viewing section, unless otherwise noted.
+   These examples are part of the training video, *Installing Galera Cluster with MariaDB*. They correspond to what was taught, and should be done after each viewing section, unless otherwise noted.
 
    Before starting these exercises, make sure you have all of the requirements and preparations in place.
 
@@ -97,7 +97,7 @@ Installing Galera Cluster with MariaDB
    .. rst-class:: section-heading
    .. rubric:: Exercises
 
-Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in training video.  Make notes for yourself as you go along, for when you have to do these tasks for your job or for yourself.
+Before starting an exercise, read it fully and carefully. The headings for each set of exercises corresponds to the section with the same name in training video. Make notes for yourself as you go along, for when you have to do these tasks for your job or for yourself.
 
 
 .. rst-class:: sub-heading
@@ -148,7 +148,7 @@ Do these exercises after viewing the section with the two titles. MariaDB should
 
 .. note::
 
-  If you struggled at any point in doing these exercises, especially in getting the Galera nodes started, you might want to do them again.  Start with fresh installations of the servers, without MariaDB or Galera Cluster.  If you use the same servers, before doing the exercises again, uninstall MariaDB and Galera, and delete MariaDB’s data directory.  Do the exercises multiple times, until you’re able to install, configure, and start a Galera cluster without any problems.
+  If you struggled at any point in doing these exercises, especially in getting the Galera nodes started, you might want to do them again. Start with fresh installations of the servers, without MariaDB or Galera Cluster. If you use the same servers, before doing the exercises again, uninstall MariaDB and Galera, and delete MariaDB’s data directory. Do the exercises multiple times, until you’re able to install, configure, and start a Galera cluster without any problems.
 
 .. container:: bottom-links
 

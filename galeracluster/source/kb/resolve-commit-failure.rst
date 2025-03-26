@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 
 .. container:: left-margin
@@ -69,7 +69,7 @@ When you have :ref:`wsrep_debug <wsrep_debug>` turned ``ON``, you may occasional
 .. rst-class:: section-heading
 .. rubric:: Scenario
 
-Suppose you enable  :ref:`wsrep_debug <wsrep_debug>` on the nodes in your cluster.  Then you attempt to change locally the data contained in a database, but you encounter problems.  When you check the database error log, you see a message saying that a commit has failed due to reason ``3``.  Below is an example of an excerpt from a database server's error log showing this:
+Suppose you enable  :ref:`wsrep_debug <wsrep_debug>` on the nodes in your cluster. Then you attempt to change locally the data contained in a database, but you encounter problems. When you check the database error log, you see a message saying that a commit has failed due to reason ``3``. Below is an example of an excerpt from a database server's error log showing this:
 
 .. code-block:: text
 
@@ -82,15 +82,15 @@ Suppose you enable  :ref:`wsrep_debug <wsrep_debug>` on the nodes in your cluste
    110906 17:45:01 [Note] WSREP:
       commit failed for reason: 3, seqno: -1
 
-When attempting to apply a replicated write-set, slave threads occasionally encounter lock conflicts with local transactions, which may already be in the commit phase.  In such cases, the node aborts the local transaction, allowing the slave thread to proceed.
+When attempting to apply a replicated write-set, replica threads occasionally encounter lock conflicts with local transactions, which may already be in the commit phase. In such cases, the node aborts the local transaction, allowing the replica thread to proceed.
 
-This is a consequence of optimistic transaction execution.  The database server executes transactions with the expectation that there won't be any row conflicts.  It's an expected issue in a multi-master configuration.
+This is a consequence of optimistic transaction execution. The database server executes transactions with the expectation that there are no row conflicts. It is an expected issue in a multi-primary configuration.
 
 
 .. rst-class:: section-heading
 .. rubric:: Work-Arounds & Solution
 
-To mitigate such conflicts, there are a couple of things you can do. You could use the cluster in a master-slave configuration: you would direct all writes to a single node.  The other work-around is to use the same approach as master-slave read/write splitting.
+To mitigate such conflicts, there are a couple of things you can do. You could use the cluster in a primary-replica configuration: you would direct all writes to a single node. The other work-around is to use the same approach as primary-replica read/write splitting.
 
 The solution may be, though, to upgrade to the latest version of MySQL or MariaDB and the latest version of Galera Cluster. This problem seems to have occurred only in older versions of the database and cluster software.
 

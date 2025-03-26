@@ -3,7 +3,7 @@
    :description:
    :language: en-US
    :keywords:
-   :copyright: Codership Oy, 2014 - 2022. All Rights Reserved.
+   :copyright: Codership Oy, 2014 - 2025. All Rights Reserved.
 
 .. container:: left-margin
 
@@ -58,7 +58,7 @@ Introduction to Galera Cluster
 
 .. container:: video-abstract list-col2-3
 
-   This video presents Galera Cluster:  how it works and the benefits to organizations using it. If you're trying to decide whether to start using Galera, you may also want to view our :doc:`Frequently Asked Questions (FAQ) <../../faq>`.
+   This video presents Galera Cluster:  how it works and the benefits to organizations using it. If you are trying to decide whether to start using Galera, you may also want to view our :doc:`Frequently Asked Questions (FAQ) <../../faq>`.
 
 .. container:: list-col1-3
 
