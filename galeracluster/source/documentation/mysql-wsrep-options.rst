@@ -76,6 +76,7 @@ and an explanation.
    :widths: 30, 30, 12, 12
 
    ":ref:`innodb-wsrep-applier-lock-wait-timeout <innodb-wsrep-applier-lock-wait-timeout>`", "``0``", "Yes", "Yes"
+   ":ref:`plugin_wsrep_provider <plugin_wsrep_provider>`", "ON", "Yes", ""
    ":ref:`wsrep_applier_FK_failure_retries <wsrep_applier_FK_failure_retries>`", "``1``", "Yes", "Yes"
    ":ref:`wsrep_auto_increment_control <wsrep_auto_increment_control>`", "``ON``", "Yes", "Yes"
    ":ref:`wsrep_causal_reads <wsrep_causal_reads>`", "``OFF``", "Session", "Yes"
@@ -183,6 +184,56 @@ You can execute the following ``SHOW VARIABLES`` statement to see how this varia
     +----------------------------------------+-------+
     | innodb-wsrep-applier-lock-wait-timeout | 10    |
     +----------------------------------------+-------+
+
+
+.. _`plugin_wsrep_provider`:
+.. rst-class:: section-heading
+.. rubric:: ``plugin_wsrep_provider``
+
+.. index::
+   pair: Parameters; plugin_wsrep_provider
+
+Defines optional settings the node passes to the wsrep Provider.
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--plugin_wsrep_provider``"
+   "System Variable", "``plugin_wsrep_provider``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", ""
+   "Permitted Values", "String"
+   "Default Value", "ON"
+   "Valied Values", "ON, OFF"
+   "Initial Version", "MySQL-wsrep: 8.4.2, MariaDB: 11.x"
+
+When this option is enabled, the node loads the wsrep Provider configuration options through the ``plugin_wsrep_provider`` plugin, instead of using ``wsrep_provider_options`` options. ``wsrep_provider_options`` options can no longer be used. 
+
+The configuration required to use ``plugin_wsrep_provider``:
+
+.. code-block:: mysql
+
+   wsrep-on=ON
+   wsrep-cluster-address=gcomm://
+   wsrep-provider=@ENV.WSREP_PROVIDER
+   plugin-wsrep-provider=ON
+
+Often it is not optimal to use a system variable, that is, one large string, for a long list of options. Instead, it would be better to separate the different options into separate cluster system variables. 
+
+When this option is disabled, the node loads the wsrep Provider configuration options from ``wsrep_provider_options`` options.
+
+For more information on the wsrep Provider options, see :doc:`galera-parameters` and :ref:`wsrep_provider_options <wsrep_provider_options>`.
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'plugin_wsrep_provider';
+
+   +------------------------+-----------------------------------------------+
+   | Variable_name          | Value                                         |
+   +------------------------+-----------------------------------------------+
+   | plugin_wsrep_provider  | ON                                            |
+   +------------------------+-----------------------------------------------+
+
 
 .. _`wsrep_applier_FK_failure_retries`:
 .. rst-class:: section-heading
@@ -1448,7 +1499,7 @@ For example, you can use :ref:`gcache.size <gcache.size>` to define how large a 
 
 .. note:: All ``wsrep_provider_options`` settings need to be specified on a single line. In case of multiple instances of ``wsrep_provider_options``, only the last one is used.
 
-For more information on the wsrep Provider options, see :doc:`galera-parameters`.
+For more information on the wsrep Provider options, see :doc:`galera-parameters` and :ref:`plugin_wsrep_provider <plugin_wsrep_provider>`.
 
 .. code-block:: mysql
 
