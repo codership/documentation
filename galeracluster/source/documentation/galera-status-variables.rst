@@ -1660,6 +1660,7 @@ The following table summarizes protocol versions and the galera version in which
    :class: doc-options
    :header: "|br| Protocol version", "|br| Galera version"
 
+   "12", "``26.4.22``"
    "11", "``26.4.17``"
    "10", "``26.4.1``"
    "9",  "``25.3.24``"
