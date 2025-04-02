@@ -2020,7 +2020,7 @@ Galera Cluster ships with a number of default scripts that the node can use in s
 
 - ``wsrep_recover`` See :ref:`Crash Recovery <crash-recovery>`.
 
-- ``clone`` See :ref:`Enabling SSL for ``clone`` based SST <ssl-clone>`. Available as of MySQL database server version 8.0.
+- ``clone`` See :ref:`Enabling SSL for clone based SST <ssl-clone>`. Available as of MySQL database server version 8.0.
 
 In addition to the default scripts provided and supported by Galera Cluster, you can also define your own custom state transfer script. The naming convention that the node expects is for the value of this parameter to match ``wsrep_%.sh``. For instance, giving the node a transfer method of ``MyCustomSST`` causes it to look for ``wsrep_MyCustomSST.sh`` in ``/usr/bin``.
 
