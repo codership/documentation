@@ -1984,15 +1984,15 @@ When the node makes a state transfer request it calls on an external shell scrip
 
 Galera Cluster ships with a number of default scripts that the node can use in state snapshot transfers. The supported methods are:
 
-- ``mysqldump`` This is slow, except for small data-sets, but is the most tested option. On MariaDB Server, available from version 10.11.
+- ``mysqldump`` This is slow, except for small data-sets, but is the most tested option.
 
-- ``rsync`` This option is much faster than ``mysqldump`` on large data-sets. On MariaDB Server, available from version 10.11.
+- ``rsync`` This option is much faster than ``mysqldump`` on large data-sets.
 
   .. note:: You can only use ``rsync`` when anode is starting. You cannot use it with a running InnoDB storage engine.
 
 - ``rsync_wan`` This option is almost the same as ``rsync``, but uses the ``delta-xfer`` algorithm to minimize network traffic. On MariaDB Server ``rsync_wan`` is a symlink to ``rsync``.
 
-- ``mariabackup`` This option uses the Mariabackup utility for performing SSTs. On MariaDB Server, available from version 10.11. See :doc:`mariabackup-options`.
+- ``mariabackup`` This option uses the Mariabackup utility for performing SSTs. See :doc:`mariabackup-options`.
 
 - ``xtrabackup`` This option is a fast and practically non-blocking state transfer method based on the Percona ``xtrabackup`` tool. If you want to use it, the following settings must be present in the ``my.cnf`` configuration file on all nodes:
 
@@ -2020,7 +2020,7 @@ Galera Cluster ships with a number of default scripts that the node can use in s
 
 - ``wsrep_recover`` See :ref:`Crash Recovery <crash-recovery>`.
 
-- ``clone`` See :ref:`Enabling SSL for clone based SST <ssl-clone>`. Available as of MySQL database server version 8.0.
+- ``clone`` The fastest SST method. See :ref:`Enabling SSL for clone based SST <ssl-clone>`. Available as of Galera Cluster version 8.0.
 
 - ``common`` A common command line parser to be sourced by other SST scripts. On MariaDB Server, available from version 10.11.
 
