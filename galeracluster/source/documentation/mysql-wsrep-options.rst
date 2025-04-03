@@ -2022,6 +2022,8 @@ Galera Cluster ships with a number of default scripts that the node can use in s
 
 - ``clone`` See :ref:`Enabling SSL for clone based SST <ssl-clone>`. Available as of MySQL database server version 8.0.
 
+- ``common`` A common command line parser to be sourced by other SST scripts. On MariaDB Server, available from version 10.11.
+
 In addition to the default scripts provided and supported by Galera Cluster, you can also define your own custom state transfer script. The naming convention that the node expects is for the value of this parameter to match ``wsrep_%.sh``. For instance, giving the node a transfer method of ``MyCustomSST`` causes it to look for ``wsrep_MyCustomSST.sh`` in ``/usr/bin``.
 
 Bear in mind, the cluster uses the same script to send and receive state transfers. If you want to use a custom state transfer script, you need to place it on every node in the cluster.

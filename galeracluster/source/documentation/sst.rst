@@ -90,6 +90,7 @@ Galera supports several back-end methods for use in state snapshot transfers. Th
    ":ref:`rsync <sst-physical-rsync>`", "Faster", "Blocks", "Unavailable", ":ref:`Physical <sst-physical>`", "None"
    ":ref:`clone <sst-physical-clone>`", "Fastest", "On DDLs", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
    ":ref:`xtrabackup <sst-physical-xtrabackup>`", "Fast", "Briefly", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
+   ":ref:`xtrabackup-2 <sst-physical-xtrabackup>`", "Fast", "Briefly", "Unavailable", ":ref:`Physical <sst-physical>`", "Only Donor"
 
 To set the State Snapshot Transfer method, use the :ref:`wsrep_sst_method <wsrep_sst_method>` parameter. In the example below, the method is set to use ``rsync``, along with the default donors:
 
