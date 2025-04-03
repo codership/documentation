@@ -1988,7 +1988,7 @@ Galera Cluster ships with a number of default scripts that the node can use in s
 
 - ``rsync`` This option is much faster than ``mysqldump`` on large data-sets.
 
-  .. note:: You can only use ``rsync`` when anode is starting. You cannot use it with a running InnoDB storage engine.
+  .. note:: You can only use ``rsync`` when a node is starting. You cannot use it with a running InnoDB storage engine.
 
 - ``rsync_wan`` This option is almost the same as ``rsync``, but uses the ``delta-xfer`` algorithm to minimize network traffic. On MariaDB Server ``rsync_wan`` is a symlink to ``rsync``.
 
