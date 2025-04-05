@@ -100,7 +100,6 @@ Below is a list of all of the Galera parameters. Each is also a link to further 
    ":ref:`cert.log_conflicts <cert.log_conflicts>`", "``NO``", "  Yes", "", "2.0", ""
    ":ref:`cert.optimistic_pa <cert.optimistic_pa>`", "``YES``", "  Yes", "", "3.25", ""
    ":ref:`debug <debug>`", "``NO``", "  Yes", "", "2.0", ""
-   ":ref:`datadir <datadir>`", "``/var/lib/mysql/``", "  Yes", "", "1.0", ""
    ":ref:`evs.auto_evict <evs.auto_evict>`", "``0``", "   No", "", "3.8", ""
    ":ref:`evs.causal_keepalive_period <evs.causal_keepalive_period>`", "``0``", "   No", "", "1.0", ""
    ":ref:`evs.consensus_timeout <evs.consensus_timeout>`", "``PT30S``", "   No", "Yes", "1.0, 2.0", ""
@@ -290,30 +289,6 @@ on the primary are committed.
 .. code-block:: ini
 
    wsrep_provider_options="cert.optimistic_pa=NO"
-
-
-.. _`datadir`:
-.. rst-class:: section-heading
-.. rubric:: ``datadir``
-
-.. index::
-   pair: wsrep Provider Options; datadir
-
-Set the path to the database root directory.
-
-.. csv-table::
-   :class: doc-options
-
-   "Default Value", "``/var/lib/mysql/``"
-   "Dynamic", "Yes"
-   "Initial Version", "1.0"
-
-The excerpt below is an example of how this Galera parameter might look in the ``my.cnf`` configuration file:
-
-.. code-block:: ini
-
-   datadir=/var/lib/mysql/
-
 
 .. _`debug`:
 .. rst-class:: section-heading
