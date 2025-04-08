@@ -67,7 +67,6 @@ These are MariaDB Server and Enterprise options. If you click a particular varia
    :widths: 30, 20, 6, 6, 18, 18
 
    ":ref:`wsrep_allowlist <wsrep_allowlist>`", "``None``", "Yes", "No", "10.10", ""
-   ":ref:`datadir <datadir>`", "``/var/lib/mysql/``", "", "Yes", "", ""
    ":ref:`wsrep_gtid_domain_id <wsrep_gtid_domain_id>`", "``0``", "Yes", "Yes", "10.1.4", ""
    ":ref:`wsrep_gtid_mode <wsrep_gtid_mode>`", "``OFF``", "Yes", "Yes", "10.1.4", ""
    ":ref:`wsrep_gtid_seq_no <wsrep_gtid_seq_no>`", "", "No", "Yes", "10.5.1", ""
@@ -98,27 +97,6 @@ This system variable allows you to add comma-delimited IP addresses to an allow 
    "Data Type", "String"
    "Default Value", "``None`` "
    "MariaDB Version", "Version 10.10"
-
-
-
-.. _`datadir`:
-.. rst-class:: section-heading
-.. rubric:: ``datadir``
-
-Set the path to the database root directory.
-
-.. csv-table::
-   :class: doc-options
-
-   "Default Value", "``/var/lib/mysql/``"
-   "Dynamic", "Yes"
-
-The excerpt below is an example of how this MariaDB option might look in the ``my.cnf`` configuration file:
-
-.. code-block:: ini
-
-   datadir=/var/lib/mysql/
-
 
 
 
