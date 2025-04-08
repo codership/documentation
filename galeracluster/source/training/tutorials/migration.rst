@@ -185,6 +185,8 @@ In order to migrate data from a MySQL primary-replica cluster to Galera Cluster,
       $ mysqldump -u root -p --skip-create-options --all-databases > migration.sql
 
    The ``--skip-create-options`` ensures that the database server uses the default storage engine when loading the data, instead of MyISAM.
+   
+   .. note:: If the migration does not correctly import all data, you can try to export the data and manually change the database engine.
 
 #. Transfer the ``migration.sql`` output file to one of your new cluster nodes.
 
