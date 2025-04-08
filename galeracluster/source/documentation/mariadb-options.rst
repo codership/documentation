@@ -100,10 +100,6 @@ This system variable allows you to add comma-delimited IP addresses to an allow 
 
 
 
-
-
-
-
 .. _`wsrep_gtid_domain_id`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_gtid_domain_id``
