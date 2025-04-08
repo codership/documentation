@@ -72,8 +72,8 @@ These are MariaDB Server and Enterprise options. If you click a particular varia
    ":ref:`wsrep_gtid_seq_no <wsrep_gtid_seq_no>`", "", "No", "Yes", "10.5.1", ""
    ":ref:`wsrep-mysql-replication-bundle <wsrep-mysql-replication-bundle>`", "``0``", "Yes", "No", "10.2.0", ""
    ":ref:`wsrep_patch_version <wsrep_patch_version>`", "", "Yes", "No", "10.1.5", ""
-
-
+   ":ref:`wsrep_replicate_myisam <wsrep_replicate_aria>`", "OFF", "Yes", "Yes", "", "10.6"
+   ":ref:`wsrep_replicate_myisam <wsrep_replicate_myisam>`", "OFF", "Yes", "Yes", "", "10.6"
 
 
 
@@ -225,6 +225,79 @@ Wsrep patch version, for example ``wsrep_25.10``.
    "Data Type", "String"
    "Default Value", "None"
    "MariaDB Version", "Version 10.1.5"
+
+
+
+.. _`wsrep_replicate_aria`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_replicate_aria``
+
+.. index::
+   pair: Parameters; wsrep_replicate_aria
+
+Whether or not DML updates for ARIA tables will be replicated. This functionality is still experimental and should not be relied upon in production systems. 
+
+This option is deprecated in MariaDB 10.6, and removed in MariaDB 10.7, use :ref:`wsrep_mode <wsrep_mode>` instead. Together with ``wsrep_mode=REPLICATE_MYISAM``, this parameter enables Galera to replicate both DDL and DML for ARIA and/or MyISAM using TOI. This option requires a primary key for the replicated table. To use this mode, set on ``REQUIRED_PRIMARY_KEY,REPLICATE_MYISAM,REPLICATE_ARIA``.
+
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep_replicate_aria``"
+   "System Variable", "``wsrep_replicate_aria``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean (OFF, ON)"
+   "Default Value", "``OFF`` "
+
+You can execute the following ``SHOW VARIABLES`` statement to see how its set:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'Parameters; wsrep_replicate_aria';
+
+    +----------------------------------+-------+
+    | Variable_name                    | Value |
+    +----------------------------------+-------+
+    | Parameters; wsrep_replicate_aria | OFF   |
+    +----------------------------------+-------+
+   
+   
+.. _`wsrep_replicate_myisam`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_replicate_myisam``
+
+.. index::
+   pair: Parameters; wsrep_replicate_myisam
+
+Whether or not DML updates for MyISAM tables will be replicated. This functionality is still experimental and should not be relied upon in production systems. 
+
+This option is deprecated in MariaDB 10.6, and removed in MariaDB 10.7, use :ref:`wsrep_mode <wsrep_mode>` instead. Together with ``wsrep_mode=REPLICATE_ARIA``, this parameter enables Galera to replicate both DDL and DML for ARIA and/or MyISAM using TOI. This option requires a primary key for the replicated table. To use this mode, set on ``REQUIRED_PRIMARY_KEY,REPLICATE_MYISAM,REPLICATE_ARIA``.
+
+
+.. csv-table::
+   :class: doc-options
+
+   "Command-line Format", "``--wsrep_replicate_myisam``"
+   "System Variable", "``wsrep_replicate_myisam``"
+   "Variable Scope", "Global"
+   "Dynamic Variable", "Yes"
+   "Permitted Values", "Boolean (OFF, ON)"
+   "Default Value", "``OFF`` "
+
+You can execute the following ``SHOW VARIABLES`` statement to see how its set:
+
+.. code-block:: mysql
+
+   SHOW VARIABLES LIKE 'Parameters; wsrep_replicate_myisam';
+
+    +------------------------------------+-------+
+    | Variable_name                      | Value |
+    +------------------------------------+-------+
+    | Parameters; wsrep_replicate_myisam | OFF   |
+    +------------------------------------+-------+
+
+
 
 
 .. _`mariadb_enterprise_options`:
