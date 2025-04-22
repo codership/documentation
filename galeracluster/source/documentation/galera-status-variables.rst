@@ -2085,7 +2085,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
    | wsrep_rollbacker_thread_count  | 1       |
    +--------------------------------+---------+
    
-   .. _`wsrep_thread_count`:
+.. _`wsrep_thread_count`:
 .. rst-class:: section-heading
 .. rubric:: ``wsrep_thread_count``
 
