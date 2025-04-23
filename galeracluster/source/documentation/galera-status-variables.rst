@@ -480,7 +480,13 @@ For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 .. index::
    pair: Status Variables; wsrep_cluster_status
 
-Status of this cluster component, that is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
+Status of this cluster component. Possible values are:
+
+- ``PRIMARY`` - The node is part of a ``PRIMARY`` component. Quorum present.
+
+- ``NON_PRIMARY`` - The node is part of a ``NON_PRIMARY`` component. Quorum lost.
+
+- ``DISCONNECTED`` - The node is not connected to group, but retrying to connect.
 
 .. csv-table::
    :class: doc-options
