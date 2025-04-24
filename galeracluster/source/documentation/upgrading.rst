@@ -92,7 +92,9 @@ When you need the cluster to remain live and do not mind the time it takes to up
 
 In rolling upgrades, you take each node down individually, upgrade its software and then restart the node. When the node reconnects, it brings itself back into sync with the cluster, as it would in the event of any other outage. Once the individual finishes syncing with the cluster, you can move to the next in the cluster.
 
-The main advantage of a rolling upgrade is that in the even that something goes wrong with the upgrade, the other nodes remain operational, giving you time to troubleshoot the problem.
+.. note:: When upgrading the wsrep provider, sometimes the wsrep protocol version can change. The wsrep provider should not start using the new protocol version until all cluster nodes have been upgraded to the new version. Usually this is not a problem with a rolling upgrade. However, this may cause issues if you restart a non-upgraded node in a cluster where the rest of the nodes have been upgraded.
+
+The main advantage of a rolling upgrade is that in the event that something goes wrong with the upgrade, the other nodes remain operational, giving you time to troubleshoot the problem.
 
 Some of the disadvantages to consider in rolling upgrades are:
 
