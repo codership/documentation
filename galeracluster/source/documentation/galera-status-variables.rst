@@ -77,6 +77,7 @@ This distinction is of importance for developers only. For convenience, all stat
    :header: "|br| Status Variable", "|br| Exporter", "Example |br| Value", "Initial |br| Version"
    :widths: 40, 15, 25, 20
 
+   ":ref:`wsrep_applier_thread_count <wsrep_applier_thread_count>`", "Galera", "``5``", "MariaDB 10.2.26"
    ":ref:`wsrep_apply_oooe <wsrep_apply_oooe>`", "Galera", "``0.671120``", "1.0"
    ":ref:`wsrep_apply_oool <wsrep_apply_oool>`", "Galera", "``0.195248``", "1.0"
    ":ref:`wsrep_apply_waits <wsrep_apply_waits>`", "Galera", "``13549``", "3.34,4.9"
@@ -141,6 +142,38 @@ This distinction is of importance for developers only. For convenience, all stat
    ":ref:`wsrep_repl_other_bytes <wsrep_repl_other_bytes>`", "Galera", "``0``", "1.0"
    ":ref:`wsrep_replicated <wsrep_replicated>`", "Galera", "``16109``", "1.0"
    ":ref:`wsrep_replicated_bytes <wsrep_replicated_bytes>`", "Galera", "``6526788``", "1.0"
+   ":ref:`wsrep_rollbacker_thread_count <wsrep_rollbacker_thread_count>`", "Galera", "``1``", "MariaDB 10.2.26"
+   ":ref:`wsrep_thread_count <wsrep_thread_count>`", "Galera", "``1``", "1.0"
+
+
+.. _`wsrep_applier_thread_count`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_applier_thread_count``
+
+.. index::
+   pair: Status Variables; wsrep_applier_thread_count
+
+In MariaDB, stores the current number of applier threads, to indicate how many applier threads of this type there are.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``5``"
+   "Location", "Galera"
+   "Initial Version", "MariaDB 10.2.26"
+
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_applier_thread_count';
+
+   +-----------------------------+----------+
+   | Variable_name               | Value    |
+   +-----------------------------+----------+
+   | wsrep_applier_thread_count  | 5        |
+   +-----------------------------+----------+
+
 
 
 .. _`wsrep_apply_oooe`:
@@ -179,7 +212,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_apply_oool
 
-How often write-set was so slow to apply that write-set with higher seqno's were applied earlier. Values closer to 0 refer to a greater gap between slow and fast write-sets.
+How often writesets with a higher sequence number were applied before ones with a lower sequence number. Values closer to 0 refer to a greater gap between slow and fast write-sets.
 
 .. csv-table::
    :class: doc-options
@@ -208,8 +241,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_apply_waits
 
-Number of times an applier thread has waited for the applying
-order.
+Number of times an applier thread has waited for the applying order.
 
 .. csv-table::
    :class: doc-options
@@ -266,7 +298,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_cert_deps_distance
 
-Average distance between highest and lowest seqno value that can be possibly applied in parallel (potential degree of parallelization). Note that this is an average measure. You will not see acute changes in this variable.
+Average distance between the highest and the lowest seqno value that can possibly be applied in parallel (potential degree of parallelization). Note that this is an average measure. You will not see acute changes in this variable.
 
 .. csv-table::
    :class: doc-options
@@ -417,7 +449,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_cluster_state_uuid
 
-Provides the current State UUID. This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes.
+Provides the current State UUID. This is a unique identifier for the current state of the cluster and the sequence of changes it undergoes. If it matches the value in :ref:`wsrep_local_state_uuid <wsrep_local_state_uuid>`, the local and cluster nodes are in sync.
 
 .. csv-table::
    :class: doc-options
@@ -448,7 +480,13 @@ For more information on the state UUID, see :ref:`wsrep API <wsrep-api>`.
 .. index::
    pair: Status Variables; wsrep_cluster_status
 
-Status of this cluster component. That is, whether the node is part of a ``PRIMARY`` or ``NON_PRIMARY`` component.
+Status of this cluster component. Possible values are:
+
+- ``PRIMARY`` - The node is part of a ``PRIMARY`` component. Quorum present.
+
+- ``NON_PRIMARY`` - The node is part of a ``NON_PRIMARY`` component. Quorum lost.
+
+- ``DISCONNECTED`` - The node is not connected to group, but retrying to connect.
 
 .. csv-table::
    :class: doc-options
@@ -708,7 +746,10 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Parameters; wsrep_evs_repl_latency
 
-This status variable provides figures for the replication latency on group communication. It measures latency from the time point when a message is sent out to the time point when a message is received. As replication is a group operation, this essentially gives you the slowest ACK and longest RTT in the cluster.
+This status variable provides figures for the replication latency on group communication. It measures latency in seconds from the time point when a message is sent out to the time point when a message is received. As replication is a group operation, this essentially gives you the slowest ACK and longest RTT in the cluster.
+
+The format is ``min``/``avg``/``max``/``stddev``.
+
 
 .. csv-table::
    :class: doc-options
@@ -787,7 +828,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 
 .. code-block:: mysql
 
-   SHOW STATUS LIKE 'wsrep_flow_control_paused';
+   SHOW STATUS LIKE 'wsrep_flow_control_active';
 
    +---------------------------+----------+
    | Variable_name             | Value    |
@@ -1194,7 +1235,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_local_index
 
-This node index in the cluster (base 0).
+This node's index in the cluster (base 0).
 
 .. csv-table::
    :class: doc-options
@@ -1223,7 +1264,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_local_recv_queue
 
-Current (instantaneous) length of the recv queue.
+Current (instantaneous) length of the receive queue, that is, the number of write-sets waiting to be applied.
 
 .. csv-table::
    :class: doc-options
@@ -1252,7 +1293,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_avg
 
-Recv queue length averaged over interval since the last ``FLUSH STATUS`` command. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling.
+Receive queue length averaged over interval since the last ``FLUSH STATUS`` command. Values considerably larger than ``0.0`` mean that the node cannot apply write-sets as fast as they are received and will generate a lot of replication throttling.
 
 .. csv-table::
    :class: doc-options
@@ -1281,7 +1322,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_max
 
-The maximum length of the recv queue since the last FLUSH STATUS command.
+The maximum length of the receive queue since the last ``FLUSH STATUS`` command.
 
 .. csv-table::
    :class: doc-options
@@ -1310,7 +1351,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_local_recv_queue_min
 
-The minimum length of the recv queue since the last ``FLUSH STATUS`` command.
+The minimum length of the receive queue since the last ``FLUSH STATUS`` command.
 
 .. csv-table::
    :class: doc-options
@@ -1368,7 +1409,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_local_send_queue
 
-Current (instantaneous) length of the send queue.
+Current (instantaneous) length of the send queue, that is, the number of write-sets waiting to be sent.
 
 .. csv-table::
    :class: doc-options
@@ -1544,7 +1585,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_local_state_uuid
 
-The UUID of the state stored on this node.
+The UUID of the state stored on this node. If it matches the value in :ref:`wsrep_cluster_state_uuid <wsrep_cluster_state_uuid>`, the local and cluster nodes are in sync.
 
 .. csv-table::
    :class: doc-options
@@ -1648,13 +1689,13 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 
    SHOW STATUS LIKE 'wsrep_protocol_version';
 
-   +------------------------+-------+
-   | Variable_name          | Value |
-   +------------------------+-------+
-   | wsrep_protocol_version | 4     |
-   +------------------------+-------+
+   +------------------------+--------+
+   | Variable_name          | Value  |
+   +------------------------+--------+
+   | wsrep_protocol_version | 11     |
+   +------------------------+--------+
 
-The following table summarizes protocol versions and the galera version in which they were introduced:
+The following table summarizes protocol versions and the Galera version in which they were introduced:
 
 .. csv-table::
    :class: doc-options
@@ -1733,7 +1774,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_provider_version
 
-The name of the wsrep Provider version string.
+The wsrep Provider version string.
 
 .. csv-table::
    :class: doc-options
@@ -1826,7 +1867,7 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 .. index::
    pair: Status Variables; wsrep_received_bytes
 
-Total size of write-sets received from other nodes.
+Total byte size of write-sets received from other nodes.
 
 .. csv-table::
    :class: doc-options
@@ -2021,6 +2062,62 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
    | wsrep_replicated_bytes | 6526788 |
    +------------------------+---------+
 
+
+.. _`wsrep_rollbacker_thread_count`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_rollbacker_thread_count``
+
+.. index::
+   pair: Status Variables; wsrep_rollbacker_thread_count
+
+In MariaDB, stores the current number of rollbacker threads, to indicate how many rollbacker threads of this type there are.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``1``"
+   "Location", "Galera"
+   "Initial Version", "MariaDB 10.2.26"
+
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_rollbacker_thread_count';
+
+   +--------------------------------+---------+
+   | Variable_name                  | Value   |
+   +--------------------------------+---------+
+   | wsrep_rollbacker_thread_count  | 1       |
+   +--------------------------------+---------+
+   
+.. _`wsrep_thread_count`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_thread_count``
+
+.. index::
+   pair: Status Variables; wsrep_thread_count
+
+Total number of wsrep (applier/rollbacker) threads.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", "``2``"
+   "Location", "Galera"
+   "Initial Version", "1.0"
+
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_thread_count';
+
+   +--------------------------------+---------+
+   | Variable_name                  | Value   |
+   +--------------------------------+---------+
+   | wsrep_thread_count             | 2       |
+   +--------------------------------+---------+
 
 .. |---|   unicode:: U+2014 .. EM DASH
    :trim:
