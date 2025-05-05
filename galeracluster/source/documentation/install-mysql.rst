@@ -184,7 +184,7 @@ For rpm-based distributions of Linux (for example, CentOS and Red Hat Enterprise
    gpgcheck = 1
 
 
-In this sample repository configuration file, you would change the repository addresses for the ``baseurl``. The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (for example, it might be ``5.7``). The ``DIST`` should be changed to the name of the Linux distribution you are using on your sever (for example, ``centos``). The ``RELEASE`` should be replaced with the distribution's release number. It might be ``7`` or ``8`` for CentOS and Red Hat Enterprise Linux. Last, the ``ARCH`` indicates the architecture of your hardware. This could be changed to ``x86_64`` for 64-bit systems.
+In this sample repository configuration file, you would change the repository addresses for the ``baseurl``. The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (for example, it might be ``5.7``). The ``DIST`` should be changed to the name of the Linux distribution you are using on your server (for example, ``centos``). The ``RELEASE`` should be replaced with the distribution's release number. It might be ``7`` or ``8`` for CentOS and Red Hat Enterprise Linux. Last, the ``ARCH`` indicates the architecture of your hardware. This could be changed to ``x86_64`` for 64-bit systems.
 
 Here is a sample repository configuration file for CentOS 7 and Galera Cluster with MySQL 8.
 

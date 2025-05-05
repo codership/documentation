@@ -83,7 +83,7 @@ For situations such as these,  you can secure both node communications and clien
 
 - :doc:`ssl`
 
-  To secure communications between nodes and from the application severs, you can enable encryption through the SSL protocol for client connections, replication traffic and State Snapshot Transfers. This section provides guidance to configuring SSL on Galera Cluster.
+  To secure communications between nodes and from the application servers, you can enable encryption through the SSL protocol for client connections, replication traffic, State Snapshot Transfers and Incremental State Transfers. This section provides guidance to configuring SSL on Galera Cluster.
 
 - :doc:`selinux`
 
