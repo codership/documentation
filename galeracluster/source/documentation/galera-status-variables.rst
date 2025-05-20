@@ -85,6 +85,7 @@ This distinction is of importance for developers only. For convenience, all stat
    ":ref:`wsrep_cert_deps_distance <wsrep_cert_deps_distance>`", "Galera", "``23.88889``", "1.0"
    ":ref:`wsrep_cert_index_size <wsrep_cert_index_size>`", "Galera", "``30936``", "1.0"
    ":ref:`wsrep_cert_interval  <wsrep_cert_interval>`", "Galera", "", "1.0"
+   ":ref:`wsrep_cluster_capabilities  <wsrep_cluster_capabilities>`", "Galera", "", "1.0"
    ":ref:`wsrep_cluster_conf_id <wsrep_cluster_conf_id>`", "MySQL", "``34``", "1.0"
    ":ref:`wsrep_cluster_size <wsrep_cluster_size>`", "MySQL", "", "1.0"
    ":ref:`wsrep_cluster_state_uuid <wsrep_cluster_state_uuid>`", "MySQL", "", "1.0"
@@ -130,6 +131,7 @@ This distinction is of importance for developers only. For convenience, all stat
    ":ref:`wsrep_open_connections <wsrep_open_connections>`", "Galera", "``3``", "3.24"
    ":ref:`wsrep_open_transactions <wsrep_open_transactions>`", "Galera", "``25``", "3.24"
    ":ref:`wsrep_protocol_version <wsrep_protocol_version>`", "Galera", "``4``", "1.0"
+   ":ref:`wsrep_provider_capabilities  <wsrep_provider_capabilities>`", "Galera", "", "1.0"
    ":ref:`wsrep_provider_name <wsrep_provider_name>`", "MySQL", "``Galera``", "1.0"
    ":ref:`wsrep_provider_vendor <wsrep_provider_vendor>`", "MySQL", "", "1.0"
    ":ref:`wsrep_provider_version <wsrep_provider_version>`", "MySQL", "", "1.0"
@@ -383,6 +385,34 @@ To retrieve the value of this status variable, execute the ``SHOW STATUS`` state
 
 This shows you the number of write-sets concurrently replicating to the cluster. In a fully synchronous cluster, with one write-set replicating at a time, :ref:`wsrep_cert_interval <wsrep_cert_interval>` returns a value of ``1.0``.
 
+
+.. _`wsrep_cluster_capabilities`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_cluster_capabilities``
+
+.. index::
+   pair: Status Variables; .. rubric:: ``wsrep_cluster_capabilities``
+
+This parameter indicates, which features are supported by the cluster as a whole. ``wsrep_cluster_capabilities`` is a subset of :ref:`wsrep_provider_capabilities <wsrep_provider_capabilities>`. Usually they list the same set of features, but during upgrades the feature set may differ.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", ":MULTI_MASTER:CERTIFICATION:PARALLEL_APPLYING:TRX_REPLAY:ISOLATION:PAUSE:CAUSAL_READS:INCREMENTAL_WRITESET:UNORDERED:PREORDERED:STREAMING:NBO:"
+   "Location", "Galera"
+   "Initial Version", "???"
+
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_cluster_capabilities';
+
+   +----------------------------+-------+
+   | Variable_name              | Value |
+   +----------------------------+-------+
+   | wsrep_cluster_capabilities |       |
+   +----------------------------+-------+
 
 .. _`wsrep_cluster_conf_id`:
 .. rst-class:: section-heading
@@ -1708,6 +1738,37 @@ The following table summarizes protocol versions and the Galera version in which
    "7",  "``25.3.9``"
    "6",  "``25.3.6``"
    "5",  "``25.3.5``"
+
+
+.. _`wsrep_provider_capabilities`:
+.. rst-class:: section-heading
+.. rubric:: ``wsrep_provider_capabilities``
+
+.. index::
+   pair: Status Variables; .. rubric:: ``wsrep_provider_capabilities``
+
+This parameter indicates, which features are provided by the wsrep provider on this node. See also :ref:`wsrep_cluster_capabilities <wsrep_cluster_capabilities>`.
+
+.. csv-table::
+   :class: doc-options
+
+   "Example Value", ":MULTI_MASTER:CERTIFICATION:PARALLEL_APPLYING:TRX_REPLAY:ISOLATION:PAUSE:CAUSAL_READS:INCREMENTAL_WRITESET:UNORDERED:PREORDERED:STREAMING:NBO:"
+   "Location", "Galera"
+   "Initial Version", "???"
+
+To retrieve the value of this status variable, execute the ``SHOW STATUS`` statement like so:
+
+.. code-block:: mysql
+
+   SHOW STATUS LIKE 'wsrep_provider_capabilities';
+
+   +-----------------------------+-------+
+   | Variable_name               | Value |
+   +-----------------------------+-------+
+   | wsrep_provider_capabilities |       |
+   +-----------------------------+-------+
+
+
 
 .. _`wsrep_provider_name`:
 .. rst-class:: section-heading
