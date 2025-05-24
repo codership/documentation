@@ -85,6 +85,14 @@ The table below lists the Galera Cluster versions and the operating systems thar
    "4.21-4.22", "-", "11, 12", "8, 9", "20.04, 22.04, 24.04", "-", "-"
    "4", "-", "11, 12", "8, 9", "20.04, 22.04, 24.04", "-", "-"
 
+MariaDB supports FreeBSD. The latest version of Galera Cluster is available in the FreeBSD Ports Collection.
+
+- databases/galera - Galera 3
+
+- databases/mysqlwsrep56-server - MySQL-wsrep 5.6 series
+
+- databases/mysqlwsrep57-server - MySQL-wsrep 5.7 series
+
 .. container:: bottom-links
 
    Related Documents
