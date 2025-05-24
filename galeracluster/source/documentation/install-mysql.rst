@@ -184,21 +184,21 @@ For rpm-based distributions of Linux (for example, CentOS and Red Hat Enterprise
    gpgcheck = 1
 
 
-In this sample repository configuration file, you would change the repository addresses for the ``baseurl``. The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (for example, it might be ``5.7``). The ``DIST`` should be changed to the name of the Linux distribution you are using on your server (for example, ``centos``). The ``RELEASE`` should be replaced with the distribution's release number. It might be ``7`` or ``8`` for CentOS and Red Hat Enterprise Linux. Last, the ``ARCH`` indicates the architecture of your hardware. This could be changed to ``x86_64`` for 64-bit systems.
+In this sample repository configuration file, you would change the repository addresses for the ``baseurl``. The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (for example, it might be ``8.0``). The ``DIST`` should be changed to the name of the Linux distribution you are using on your server (for example, ``centos``). The ``RELEASE`` should be replaced with the distribution's release number. It might be ``8`` or ``9`` for CentOS and Red Hat Enterprise Linux. Last, the ``ARCH`` indicates the architecture of your hardware. This could be changed to ``x86_64`` for 64-bit systems.
 
-Here is a sample repository configuration file for CentOS 7 and Galera Cluster with MySQL 8.
+Here is a sample repository configuration file for CentOS 9 and Galera Cluster with MySQL 8.
 
 .. code-block:: ini
 
 	[galera4]
 	name = Galera
-	baseurl = https://releases.galeracluster.com/galera-4/centos/7/x86_64
+	baseurl = https://releases.galeracluster.com/galera-4/centos/9/x86_64
 	gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
 	gpgcheck = 1
 
 	[mysql-wsrep8]
 	name = MySQL-wsrep
-	baseurl = https://releases.galeracluster.com/mysql-wsrep-8.0/centos/7/x86_64
+	baseurl = https://releases.galeracluster.com/mysql-wsrep-8.0/centos/9/x86_64
 	gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
 	gpgcheck = 1
 
@@ -240,7 +240,7 @@ For ``mysql-wsrep-8.0``:
 
    yum install galera-4 mysql-wsrep-8.0
 
-.. note:: On CentOS 7, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
+.. note:: On CentOS 9, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
 
 Please note that on Red Hat 8, you need to disable MySQL and
 MariaDB modules before installing Galera Cluster from a repository under
@@ -262,7 +262,7 @@ If you installed Galera Cluster for MySQL over an existing stand-alone instance 
 .. rst-class:: section-heading
 .. rubric:: MySQL Shared Compatibility Libraries
 
-When installing Galera Cluster for MySQL on CentOS 7, you may encounter a transaction check-error that blocks the installation. The error message may look something like this:
+When installing Galera Cluster for MySQL on CentOS 8 or 9, you may encounter a transaction check-error that blocks the installation. The error message may look something like this:
 
 .. code-block:: text
 
@@ -281,17 +281,17 @@ For CentOS, you would enter something like the following from the command-line:
 
    yum upgrade -y mysql-wsrep-libs-compat-VERSION
 
-You would, of course, replace ``VERSION`` here with ``5.7`` or ``8.0``, depending on the version of MySQL you want to use. For CentOS 7, to install MySQL version 5.7, you would execute the following from the command-line:
+You would, of course, replace ``VERSION`` here with ``8.0`` or ``8.1``, depending on the version of MySQL you want to use. For CentOS 8 or 9, to install MySQL version 8.0, you would execute the following from the command-line:
 
 .. code-block:: console
 
-   yum upgrade mysql-wsrep-shared-5.7
+   yum upgrade mysql-wsrep-shared-8.0
 
-For CentOS 7, to install MySQL version 5.7, you will also need to disable the 5.7 upgrade. To do this, enter the following from the command-line:
+For CentOS 8 or 9, to install MySQL version 8.0, you will also need to disable the 8.0 upgrade. To do this, enter the following from the command-line:
 
 .. code-block:: console
 
-   yum upgrade -y mysql-wsrep-shared-5.7 -x mysql-wsrep-shared-5.7
+   yum upgrade -y mysql-wsrep-shared-8.0 -x mysql-wsrep-shared-8.0
 
 When ``yum`` finishes the upgrade, you can then install the MySQL wsrep database server and the Galera Replication Plugin as described above.
 
