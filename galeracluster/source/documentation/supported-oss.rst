@@ -1,5 +1,5 @@
 .. meta::
-   :title: Galera Cluster and MySQL Database Server Versions
+   :title: Supported Operating Systems
    :description:
    :language: en-US
    :keywords: galera cluster, operating systems, OS versions
