@@ -58,7 +58,7 @@
 Supported Operating Systems
 ===========================
 
-The table below lists the Galera Cluster versions and the operating systems thar each version supportes.
+The table below lists the Galera Cluster versions and the operating systems that each version supports.
 
 .. csv-table::
    :class: doc-options
