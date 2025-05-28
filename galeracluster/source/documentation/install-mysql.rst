@@ -184,21 +184,21 @@ For rpm-based distributions of Linux (for example, CentOS and Red Hat Enterprise
    gpgcheck = 1
 
 
-In this sample repository configuration file, you would change the repository addresses for the ``baseurl``. The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (for example, it might be ``8.0``). The ``DIST`` should be changed to the name of the Linux distribution you are using on your server (for example, ``centos``). The ``RELEASE`` should be replaced with the distribution's release number. It might be ``8`` or ``9`` for CentOS and Red Hat Enterprise Linux. Last, the ``ARCH`` indicates the architecture of your hardware. This could be changed to ``x86_64`` for 64-bit systems.
+In this sample repository configuration file, you would change the repository addresses for the ``baseurl``. The ``VERSION`` should be set to the whichever MySQL-wsrep version you want (for example, it might be ``8.0``). The ``DIST`` should be changed to the name of the Linux distribution you are using on your server (for example, ``redhat``). The ``RELEASE`` should be replaced with the distribution's release number. It might be ``8`` or ``9`` for CentOS and Red Hat Enterprise Linux. Last, the ``ARCH`` indicates the architecture of your hardware. This could be changed to ``x86_64`` for 64-bit systems.
 
-Here is a sample repository configuration file for CentOS 9 and Galera Cluster with MySQL 8.
+Here is a sample repository configuration file for Red Hat 9 and Galera Cluster with MySQL 8.
 
 .. code-block:: ini
 
 	[galera4]
 	name = Galera
-	baseurl = https://releases.galeracluster.com/galera-4/centos/9/x86_64
+	baseurl = https://releases.galeracluster.com/galera-4/redhat/9/x86_64
 	gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
 	gpgcheck = 1
 
 	[mysql-wsrep8]
 	name = MySQL-wsrep
-	baseurl = https://releases.galeracluster.com/mysql-wsrep-8.0/centos/9/x86_64
+	baseurl = https://releases.galeracluster.com/mysql-wsrep-8.0/redhat/9/x86_64
 	gpgkey = https://releases.galeracluster.com/GPG-KEY-galeracluster.com
 	gpgcheck = 1
 
@@ -240,7 +240,7 @@ For ``mysql-wsrep-8.0``:
 
    yum install galera-4 mysql-wsrep-8.0
 
-.. note:: On CentOS 9, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
+.. note:: On Red Hat 9, this command may generate a transaction check error. For more information on that error and how to resolve it, see the section below on :ref:`MySQL Shared Compatibility Libraries <centos-mysql-shared-compt>`.
 
 Please note that on Red Hat 8, you need to disable MySQL and
 MariaDB modules before installing Galera Cluster from a repository under
