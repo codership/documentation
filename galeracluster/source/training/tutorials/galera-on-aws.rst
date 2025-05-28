@@ -86,7 +86,7 @@ Once you have your encryption key, log into AWS and navigate to the EC2 console.
 
 With an encryption key in place, you are ready to create three instances on AWS. You could create more, but we'll do three, which is the minimum recommended for a healthy cluster. In the EC2 console, click on *Instances* in the left margin. That will show your existing instances in the main pane. Now click on the large blue button at the top labeled, *Launch Instances*.
 
-The first choice you will have to make when creating a new instance is the operating system distribution. For the examples in this article, we chose *CentOS 7 (x86_64) - with Updates HVM*. This is a 64-bit operating system.
+The first choice you will have to make when creating a new instance is the operating system distribution. For the examples in this article, we chose *CentOS 9 (x86_64) - with Updates HVM*. This is a 64-bit operating system.
 
 The second step is to choose an instance type. Because we're using this cluster as a training tool, we chose ``t2.micro`` since it is *Free Tier Eligible*. This allows us to use it for a year without having to pay anything.
 
@@ -127,7 +127,7 @@ We also installed ``rsync``, which Galera will use to synchronize nodes when the
 
 When you've finished updating and installing basic software on all three nodes, you can then proceed to installing the database and Galera software. For our purposes, we chose to install MariaDB. If you'd prefer to use MySQL, see the article on :doc:`Installing MySQL and Galera Cluster <../../documentation/install-mysql>`.
 
-To install MariaDB, we first used the MariaDB repository (`MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_). We chose the CentOS distribution, the CentOS 7 (x86_64) release to match what we've installed on our nodes. We then chose the MariaDB version 10.4. The repository tool gave us the lines we needed to copy into a new repo file, ``/etc/yum.repos.d/mariadb.repo``.
+To install MariaDB, we first used the MariaDB repository (`MariaDB Repository Generator <https://downloads.mariadb.org/mariadb/repositories/>`_). We chose the CentOS distribution, the CentOS 9 (x86_64) release to match what we've installed on our nodes. We then chose the MariaDB version 10.4. The repository tool gave us the lines we needed to copy into a new repo file, ``/etc/yum.repos.d/mariadb.repo``.
 
 .. image:: ../../images/mariadb-repository-tool-choices.png
    :width: 500px
