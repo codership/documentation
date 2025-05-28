@@ -93,27 +93,7 @@ Galera Cluster provides global status variables for use in monitoring Flow Contr
 
    SHOW STATUS LIKE 'wsrep_flow_control_%';
 
-Running these status variables returns only the node's present condition. You are likely to find the information more useful by graphing the results, so that you can better see the points where Flow Control engages.
-
-For instance, using `myq_gadgets <https://github.com/jayjanssen/myq_gadgets/>`_:
-
-.. code-block:: console
-
-   $ mysql -u monitor -p -e 'FLUSH TABLES WITH READ LOCK;' \
-      example_database
-   $ myq_status wsrep
-
-   Wsrep    Cluster        Node           Queue  Ops      Bytes   Flow         Conflct
-   time     name     P cnf  # name  cmt  sta  Up  Dn  Up  Dn   Up   Dn pau snt dst lcf bfa
-   09:22:17 cluster1 P   3  3 node3 Sync T/T   0   0   0   9    0  13K 0.0   0 101   0   0
-   09:22:18 cluster1 P   3  3 node3 Sync T/T   0   0   0  18    0  28K 0.0   0 108   0   0
-   09:22:19 cluster1 P   3  3 node3 Sync T/T   0   4   0   3    0 4.3K 0.0   0 109   0   0
-   09:22:20 cluster1 P   3  3 node3 Sync T/T   0  18   0   0    0    0 0.0   0 109   0   0
-   09:22:21 cluster1 P   3  3 node3 Sync T/T   0  27   0   0    0    0 0.0   0 109   0   0
-   09:22:22 cluster1 P   3  3 node3 Sync T/T   0  29   0   0    0    0 0.9   1 109   0   0
-   09:22:23 cluster1 P   3  3 node3 Sync T/T   0  29   0   0    0    0 1.0   0 109   0   0
-
-You can find the replica queue under the ``Queue Dn`` column and ``FC pau`` refers to Flow Control pauses. When the replica queue rises to a certain point, Flow Control changes the pause value to ``1.0``. The node will hold to this value until the replica queue is worked down to a more manageable size.
+Running these status variables returns only the node's present condition. You are likely to find the information more useful by graphing the results by using the tool of your choice, so that you can better see the points where Flow Control engages.
 
 For more information on status variables that relate to flow control, see :doc:`galera-status-variables`.
 
