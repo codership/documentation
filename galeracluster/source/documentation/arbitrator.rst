@@ -114,7 +114,7 @@ When starting Galera Arbitrator from the shell, you have two options as to how y
 
    $ garbd --group=example_cluster \
         --address="gcomm://192.168.1.1,192.168.1.2,192.168.1.3" \
-        --option="socket.ssl_key=/etc/ssl/galera/server-key.pem;socket.ssl_cert=/etc/ssl/galera/server-cert.pem;socket.ssl_ca=/etc/ssl/galera/ca-cert.pem;socket.ssl_cipher=AES128-SHA256""
+        --option="socket.ssl=yes;socket.ssl_key=/etc/ssl/galera/server-key.pem;socket.ssl_cert=/etc/ssl/galera/server-cert.pem;socket.ssl_ca=/etc/ssl/galera/ca-cert.pem;socket.ssl_cipher=AES128-SHA256""
 
 If you use SSL, it is necessary to specify the cipher. Otherwise, after initializing the SSL context, an error will occur with a message saying, "Terminate called after throwing an instance of 'gu::NotSet'".
 
@@ -191,7 +191,7 @@ When starting Galera Aribtrator as a service, whether using ``init`` or ``system
 
    # Optional Galera internal options string (such as SSL settings)
    # see https://galeracluster.com/documentation/galera-parameters.html
-   GALERA_OPTIONS="socket.ssl_cert=/etc/galera/cert/cert.pem;socket.ssl_key=/$"
+   GALERA_OPTIONS="socket.ssl=yes;socket.ssl_cert=/etc/galera/cert/cert.pem;socket.ssl_key=/$"
 
    # Log file for garbd. Optional, by default logs to syslog
    LOG_FILE="/var/log/garbd.log"
