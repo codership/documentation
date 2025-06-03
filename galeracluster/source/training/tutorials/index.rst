@@ -231,18 +231,6 @@ Codership Tutorials on Galera Cluster
       The entire dataset is transfered (that is, SST) to a new node and when a node rejoin after being down for a long time. This article offers insights and advice if there are problems with SST.
 
 
-   .. rst-class:: sub-heading list-sub-header
-   .. rubric:: :doc:`primary-component`
-
-   .. rst-class:: list-stats
-
-      Length:  782 words; Writer: Philip Stoev; Pub: Aug 2015
-
-   .. rst-class:: list-abstract
-
-      This article describes the Primary Component. This is a central concept in how Galera ensures database consistency and no divergence between nodes in case of a network split.
-
-
 .. container:: list-col2
 
    .. rst-class:: sub-heading list-sub-header
@@ -258,18 +246,6 @@ Codership Tutorials on Galera Cluster
 
 
    .. rst-class:: sub-heading list-sub-header
-   .. rubric:: :doc:`supporting-transaction-isolation-levels`
-
-   .. rst-class:: list-stats
-
-      Length:  1009 words; Writer: Seppo Jaakola; Pub: Sep 2015
-
-   .. rst-class:: list-abstract
-
-      Many DBAs and database developers do not understand what MySQL transaction isolation levels Galera CLuster supports and how it does so. This articles tries to answer those uncertainties.
-
-
-   .. rst-class:: sub-heading list-sub-header
    .. rubric:: :doc:`sst-or-not`
 
    .. rst-class:: list-stats
@@ -279,6 +255,17 @@ Codership Tutorials on Galera Cluster
    .. rst-class:: list-abstract
 
       When a node rejoins a cluster, there are two methods of synchronizing it quickly. This article describes the process of doing this and confusing messages one might see in the logs.
+
+   .. rst-class:: sub-heading list-sub-header
+   .. rubric:: :doc:`primary-component`
+
+   .. rst-class:: list-stats
+
+      Length:  782 words; Writer: Philip Stoev; Pub: Aug 2015
+
+   .. rst-class:: list-abstract
+
+      This article describes the Primary Component. This is a central concept in how Galera ensures database consistency and no divergence between nodes in case of a network split.
 
 
 
