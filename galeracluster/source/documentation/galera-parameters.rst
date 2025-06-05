@@ -2099,6 +2099,8 @@ The excerpt below is an example of how this Galera parameter might look in the c
 
 The maximum size of a write-set in bytes. This is limited to 2G.
 
+.. note:: Exceeding the maximum value of ``repl.max_ws_size`` may prevent the node from starting up.
+
 .. csv-table::
    :class: doc-options
 
