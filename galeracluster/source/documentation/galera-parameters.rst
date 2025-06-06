@@ -1352,7 +1352,7 @@ The excerpt below is an example of how this Galera parameter might look in the c
 .. index::
    pair: wsrep Provider Options; gmcast.listen_addr
 
-Address at which *Galera Cluster* listens to connections from other nodes. By default the port to listen at is taken from the connection address. This setting can be used to overwrite that.
+Address at which *Galera Cluster* listens to connections from other nodes. By default the port to listen at is taken from the connection address. This setting can be used to overwrite that. Both IPv4 and IPv6 protocol versions are supported.
 
 .. csv-table::
    :class: doc-options
