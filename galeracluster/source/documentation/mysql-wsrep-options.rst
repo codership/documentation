@@ -431,7 +431,7 @@ This parameter sets the back-end schema, IP addresses, ports and options the nod
    "Default Value", ""
    "Initial Version", "MySQL-wsrep: 5.1.58-21.1, MariaDB: 5.5.21"
 
-Galera Cluster uses this parameter to determine the IP addresses for the other nodes in the cluster, the back-end schema to use and additional options it should use in connecting to and communicating with those nodes. Currently, the only back-end schema supported for production is ``gcomm``.
+Galera Cluster uses this parameter to determine the IP addresses for the other nodes in the cluster, the back-end schema to use and additional options it should use in connecting to and communicating with those nodes. Currently, the only back-end schema supported for production is ``gcomm``. Both IPv4 and IPv6 protocol versions are supported.
 
 Below is the syntax for this the values of this parameter:
 
@@ -1156,7 +1156,7 @@ The options for Percona XtraDB Cluster (PXC) are:
    pair: Parameters; wsrep_node_address
 
 
-This parameter is used to note the IP address and port of the node.
+This parameter is used to note the IP address and port of the node. Both IPv4 and IPv6 protocol versions are supported.
 
 .. csv-table::
    :class: doc-options
@@ -1206,7 +1206,7 @@ You can execute the ``SHOW VARIABLES`` statement as shown below to get the curre
 .. index::
    pair: Parameters; wsrep_node_incoming_address
 
-This parameter is used to provide the IP address and port from which the node should expect client connections.
+This parameter is used to provide the IP address and port from which the node should expect client connections. Both IPv4 and IPv6 protocol versions are supported.
 
 .. csv-table::
    :class: doc-options
@@ -2048,7 +2048,7 @@ For more information on scripting state snapshot transfers, see :doc:`scriptable
 .. index::
    pair: Parameters; wsrep_sst_receive_address
 
-Defines the address from which the node expects to receive state transfers.
+Defines the address from which the node expects to receive state transfers. Both IPv4 and IPv6 protocol versions are supported.
 
 .. csv-table::
    :class: doc-options
