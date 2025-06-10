@@ -2212,7 +2212,7 @@ Defines whether the node enforces strict cluster-wide causality checks.
    "Default Value", "``0``"
    "Initial Version", "MySQL-wsrep: 5.5.42-25.12, MariaDB: 10.0.13"
 
-When you enable this parameter, the node triggers causality checks in response to certain types of queries. During the check, the node blocks new queries while the database server catches up with all updates made in the cluster to the point where the check was begun. Once it reaches this point, the node executes the original query.
+When you enable this parameter, the node triggers causality checks in response to certain types of queries. During the check, the node blocks new queries - but on the session that is performing the causality check only - while the database server catches up with all updates made in the cluster to the point where the check was begun. Once it reaches this point, the node executes the original query.
 
 .. note:: Causality checks of any type can result in increased latency.
 
@@ -2248,7 +2248,7 @@ For example, say that you have a web application. At one point in its run, you n
    SELECT * FROM example WHERE field = "value";
    SET SESSION wsrep_sync_wait=0
 
-In the example, the application first runs a ``SET`` command to enable :ref:`wsrep_sync_wait <wsrep_sync_wait>` for ``READ`` statements, then it makes a ``SELECT`` query. Rather than running the query, the node initiates a causality check, blocking incoming queries while it catches up with the cluster. When the node finishes applying the new transaction, it executes the ``SELECT`` query and returns the results to the application. The application, having finished the critical read, disables :ref:`wsrep_sync_wait <wsrep_sync_wait>`, returning the node to normal operation.
+In the example, the application first runs a ``SET`` command to enable :ref:`wsrep_sync_wait <wsrep_sync_wait>` for ``READ`` statements, then it makes a ``SELECT`` query. Rather than running the query, the node initiates a causality check, blocking incoming queries on the session that is performing the causality check, while it catches up with the cluster. When the node finishes applying the new transaction, it executes the ``SELECT`` query and returns the results to the application. The application, having finished the critical read, disables :ref:`wsrep_sync_wait <wsrep_sync_wait>`, returning the node to normal operation.
 
 .. note:: Setting :ref:`wsrep_sync_wait <wsrep_sync_wait>` to ``1`` is the same as :ref:`wsrep_causal_reads <wsrep_causal_reads>` to ``ON``. This deprecates :ref:`wsrep_causal_reads <wsrep_causal_reads>`.
 
