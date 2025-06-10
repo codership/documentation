@@ -2212,7 +2212,7 @@ Defines whether the node enforces strict cluster-wide causality checks.
    "Default Value", "``0``"
    "Initial Version", "MySQL-wsrep: 5.5.42-25.12, MariaDB: 10.0.13"
 
-When you enable this parameter, the node triggers causality checks in response to certain types of queries. During the check, the node may block the query - but on the session that is performing the causality check only - while the database server catches up with all updates made in the cluster to the point where the check was begun. Once it reaches this point, the node executes the original query.
+When you enable this parameter, the node triggers causality checks in response to certain types of queries. During the check, the node may block the query - on the session that is performing the causality check only - while the database server catches up with all updates made in the cluster to the point where the check was begun. Once it reaches this point, the node executes the original query.
 
 .. note:: Causality checks of any type can result in increased latency.
 
