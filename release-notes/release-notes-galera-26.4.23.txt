@@ -10,14 +10,18 @@ RHEL 8, and 9. Obtaining packages using a package repository removes the need to
 download individual files and facilitates the deployment and upgrade of Galera
 nodes.
 
-This and future releases will be available from https://www.galeracluster.com or https://www.mariadb.com/ (as Codership has been acquired by MariaDB plc).
+This and future releases will be available from https://www.galeracluster.com or
+https://www.mariadb.com/ (as Codership has been acquired by MariaDB plc).
 
 Notable changes and fixes in Galera since latest release 4.22:
-- CMake 4.0.0 is now supported for building, and compatibility with CMake < 3.5 has been removed
-- Faster node leave & shutdown on EVS close, so removing a node, planned or crashed completes faster and avoids "waiting for SST donor" delays that previously appeared
-- Stateless/arbitrator flag is configurable, not just hardcoded in the garbd binary
-- Extended membership service with member flags are now exposed, visible via SHOW STATUS
-- Mix-segment clusters no longer trigger comparison doesn't meet irreflexive requirements
+- CMake 4.0.0 is now supported for building, and compatibility with CMake < 3.5
+has been removed
+- More robust node leave & shutdown by ensuring that pending messages are sent
+before cluster connections are shutdown
+- Stateless/arbitrator flag is configurable, not just hardcoded in the garbd
+binary
+-Mix-segment clusters no longer trigger comparison doesn't meet irreflexive
+requirements error
 
 Known Issues:
 
